@@ -21,16 +21,18 @@ import (
 // with the default values initialized.
 func NewGetOutboundAttemptlimitsParams() *GetOutboundAttemptlimitsParams {
 	var (
-		filterTypeDefault = string("Prefix")
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortOrderDefault  = string("a")
+		allowEmptyResultDefault = bool(false)
+		filterTypeDefault       = string("Prefix")
+		pageNumberDefault       = int32(1)
+		pageSizeDefault         = int32(25)
+		sortOrderDefault        = string("a")
 	)
 	return &GetOutboundAttemptlimitsParams{
-		FilterType: &filterTypeDefault,
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortOrder:  &sortOrderDefault,
+		AllowEmptyResult: &allowEmptyResultDefault,
+		FilterType:       &filterTypeDefault,
+		PageNumber:       &pageNumberDefault,
+		PageSize:         &pageSizeDefault,
+		SortOrder:        &sortOrderDefault,
 
 		timeout: cr.DefaultTimeout,
 	}
@@ -40,16 +42,18 @@ func NewGetOutboundAttemptlimitsParams() *GetOutboundAttemptlimitsParams {
 // with the default values initialized, and the ability to set a timeout on a request
 func NewGetOutboundAttemptlimitsParamsWithTimeout(timeout time.Duration) *GetOutboundAttemptlimitsParams {
 	var (
-		filterTypeDefault = string("Prefix")
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortOrderDefault  = string("a")
+		allowEmptyResultDefault = bool(false)
+		filterTypeDefault       = string("Prefix")
+		pageNumberDefault       = int32(1)
+		pageSizeDefault         = int32(25)
+		sortOrderDefault        = string("a")
 	)
 	return &GetOutboundAttemptlimitsParams{
-		FilterType: &filterTypeDefault,
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortOrder:  &sortOrderDefault,
+		AllowEmptyResult: &allowEmptyResultDefault,
+		FilterType:       &filterTypeDefault,
+		PageNumber:       &pageNumberDefault,
+		PageSize:         &pageSizeDefault,
+		SortOrder:        &sortOrderDefault,
 
 		timeout: timeout,
 	}
@@ -59,16 +63,18 @@ func NewGetOutboundAttemptlimitsParamsWithTimeout(timeout time.Duration) *GetOut
 // with the default values initialized, and the ability to set a context for a request
 func NewGetOutboundAttemptlimitsParamsWithContext(ctx context.Context) *GetOutboundAttemptlimitsParams {
 	var (
-		filterTypeDefault = string("Prefix")
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortOrderDefault  = string("a")
+		allowEmptyResultDefault = bool(false)
+		filterTypeDefault       = string("Prefix")
+		pageNumberDefault       = int32(1)
+		pageSizeDefault         = int32(25)
+		sortOrderDefault        = string("a")
 	)
 	return &GetOutboundAttemptlimitsParams{
-		FilterType: &filterTypeDefault,
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortOrder:  &sortOrderDefault,
+		AllowEmptyResult: &allowEmptyResultDefault,
+		FilterType:       &filterTypeDefault,
+		PageNumber:       &pageNumberDefault,
+		PageSize:         &pageSizeDefault,
+		SortOrder:        &sortOrderDefault,
 
 		Context: ctx,
 	}
@@ -78,17 +84,19 @@ func NewGetOutboundAttemptlimitsParamsWithContext(ctx context.Context) *GetOutbo
 // with the default values initialized, and the ability to set a custom HTTPClient for a request
 func NewGetOutboundAttemptlimitsParamsWithHTTPClient(client *http.Client) *GetOutboundAttemptlimitsParams {
 	var (
-		filterTypeDefault = string("Prefix")
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortOrderDefault  = string("a")
+		allowEmptyResultDefault = bool(false)
+		filterTypeDefault       = string("Prefix")
+		pageNumberDefault       = int32(1)
+		pageSizeDefault         = int32(25)
+		sortOrderDefault        = string("a")
 	)
 	return &GetOutboundAttemptlimitsParams{
-		FilterType: &filterTypeDefault,
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortOrder:  &sortOrderDefault,
-		HTTPClient: client,
+		AllowEmptyResult: &allowEmptyResultDefault,
+		FilterType:       &filterTypeDefault,
+		PageNumber:       &pageNumberDefault,
+		PageSize:         &pageSizeDefault,
+		SortOrder:        &sortOrderDefault,
+		HTTPClient:       client,
 	}
 }
 
@@ -97,6 +105,11 @@ for the get outbound attemptlimits operation typically these are written to a ht
 */
 type GetOutboundAttemptlimitsParams struct {
 
+	/*AllowEmptyResult
+	  Whether to return an empty page when there are no results for that page
+
+	*/
+	AllowEmptyResult *bool
 	/*FilterType
 	  Filter type
 
@@ -164,6 +177,17 @@ func (o *GetOutboundAttemptlimitsParams) WithHTTPClient(client *http.Client) *Ge
 // SetHTTPClient adds the HTTPClient to the get outbound attemptlimits params
 func (o *GetOutboundAttemptlimitsParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
+}
+
+// WithAllowEmptyResult adds the allowEmptyResult to the get outbound attemptlimits params
+func (o *GetOutboundAttemptlimitsParams) WithAllowEmptyResult(allowEmptyResult *bool) *GetOutboundAttemptlimitsParams {
+	o.SetAllowEmptyResult(allowEmptyResult)
+	return o
+}
+
+// SetAllowEmptyResult adds the allowEmptyResult to the get outbound attemptlimits params
+func (o *GetOutboundAttemptlimitsParams) SetAllowEmptyResult(allowEmptyResult *bool) {
+	o.AllowEmptyResult = allowEmptyResult
 }
 
 // WithFilterType adds the filterType to the get outbound attemptlimits params
@@ -239,6 +263,22 @@ func (o *GetOutboundAttemptlimitsParams) WriteToRequest(r runtime.ClientRequest,
 		return err
 	}
 	var res []error
+
+	if o.AllowEmptyResult != nil {
+
+		// query param allowEmptyResult
+		var qrAllowEmptyResult bool
+		if o.AllowEmptyResult != nil {
+			qrAllowEmptyResult = *o.AllowEmptyResult
+		}
+		qAllowEmptyResult := swag.FormatBool(qrAllowEmptyResult)
+		if qAllowEmptyResult != "" {
+			if err := r.SetQueryParam("allowEmptyResult", qAllowEmptyResult); err != nil {
+				return err
+			}
+		}
+
+	}
 
 	if o.FilterType != nil {
 

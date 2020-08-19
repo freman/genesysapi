@@ -15,28 +15,28 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// ScimV2SchemaAttribute A complex type that defines service provider attributes, or sub-attributes and their qualities.
+// ScimV2SchemaAttribute A complex type that defines service provider attributes or subattributes and their qualities.
 //
 // swagger:model ScimV2SchemaAttribute
 type ScimV2SchemaAttribute struct {
 
-	// A collection of suggested canonical values that MAY be used (e.g., "work" and "home").  In some cases, service providers MAY choose to ignore unsupported values.  OPTIONAL.
+	// The list of standard values that service providers may use. Service providers may ignore unsupported values.
 	// Read Only: true
 	CanonicalValues []string `json:"canonicalValues"`
 
-	// A Boolean value that specifies whether or not a string attribute is case sensitive.  The server SHALL use case sensitivity when evaluating filters.  For attributes that are case exact, the server SHALL preserve case for any value submitted.  If the attribute is case insensitive, the server MAY alter case for a submitted value.  Case sensitivity also impacts how attribute values MAY be compared against filter values (see Section 3.4.2.2 of [RFC7644])
+	// Indicates whether a string attribute is case-sensitive. If set to "true", the server preserves case sensitivity. If set to "false", the server may change the case. The server also uses case sensitivity when evaluating filters. See section 3.4.2.2 "Filtering" in RFC 7644 for details.
 	// Read Only: true
 	CaseExact *bool `json:"caseExact,omitempty"`
 
-	// The attribute's human-readable description.
+	// The description of the attribute.
 	// Read Only: true
 	Description string `json:"description,omitempty"`
 
-	// A Boolean value indicating the attribute's plurality.
+	// Indicates whether an attribute contains multiple values.
 	// Read Only: true
 	MultiValued *bool `json:"multiValued,omitempty"`
 
-	// A single keyword indicating the circumstances under which the value of the attribute can be (re)defined. Value are readOnly, readWrite, immutable, writeOnly
+	// The circumstances under which an attribute can be defined or redefined. The default is "readWrite".
 	// Read Only: true
 	// Enum: [readWrite readOnly immutable writeOnly]
 	Mutability string `json:"mutability,omitempty"`
@@ -45,29 +45,29 @@ type ScimV2SchemaAttribute struct {
 	// Read Only: true
 	Name string `json:"name,omitempty"`
 
-	// A multi-valued array of JSON strings that indicate the SCIM resource types that may be referenced. Values include User, Group, external and uri.
+	// The list of SCIM resource types that may be referenced. Only applies when "type" is set to "reference".
 	// Read Only: true
 	ReferenceTypes []string `json:"referenceTypes"`
 
-	// A Boolean value that specifies whether or not the attribute is required.
+	// Indicates whether an attribute is required.
 	// Read Only: true
 	Required *bool `json:"required,omitempty"`
 
-	// A single keyword that indicates when an attribute and associated values are returned in response to a GET request, or in response to a PUT, POST, or PATCH request.  Valid keywords are as follows: always, never, default, request
+	// The circumstances under which an attribute and its values are returned in response to a GET, PUT, POST, or PATCH request.
 	// Read Only: true
 	// Enum: [ALWAYS NEVER DEFAULT REQUEST]
 	Returned string `json:"returned,omitempty"`
 
-	// When an attribute is of type "complex", "subAttributes" defines a set of sub-attributes. "subAttributes" has the same schema sub-attributes as "attributes"
+	// The list of subattributes for an attribute of the type "complex". Uses the same schema as "attributes".
 	// Read Only: true
 	SubAttributes []*ScimV2SchemaAttribute `json:"subAttributes"`
 
-	// The attribute's data type.  Valid values are "string", "boolean", "decimal", "integer", "dateTime", "reference", and "complex".
+	// The data type of the attribute.
 	// Read Only: true
 	// Enum: [STRING BOOLEAN DECIMAL INTEGER DATE_TIME REFERENCE COMPLEX]
 	Type string `json:"type,omitempty"`
 
-	// A single keyword value that specifies how the service provider enforces uniqueness of attribute values.  A server MAY reject an invalid value based on uniqueness by returning HTTP response code 400 (Bad Request).  A client MAY enforce uniqueness on the client side to a greater degree than the service provider enforces.  For example, a client could make a value unique while the server has uniqueness of "none".  Valid keywords are as follows: none, server, global
+	// The method by which the service provider enforces the uniqueness of an attribute value. A server can reject a value by returning the HTTP response code 400 (Bad Request). A client can enforce uniqueness to a greater degree than the server provider enforces. For example, a client could make a value unique even though the server has "uniqueness" set to "none".
 	// Read Only: true
 	// Enum: [NONE SERVER GLOBAL]
 	Uniqueness string `json:"uniqueness,omitempty"`

@@ -27,7 +27,7 @@ type ScimV2Group struct {
 	// The external ID of the group. Set by the provisioning client. "caseExact" is set to "true". "mutability" is set to "readWrite".
 	ExternalID string `json:"externalId,omitempty"`
 
-	// The ID of the SCIM resource. Set by the service provider. "caseExact" is set to "true". "Mutability" is set to "readOnly". "Returned" is set to "always".
+	// The ID of the SCIM resource. Set by the service provider. "caseExact" is set to "true". "mutability" is set to "readOnly". "returned" is set to "always".
 	// Read Only: true
 	ID string `json:"id,omitempty"`
 

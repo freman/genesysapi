@@ -26,7 +26,7 @@ type ScimConfigResourceType struct {
 	// Read Only: true
 	Endpoint string `json:"endpoint,omitempty"`
 
-	// The ID of the SCIM resource. Set by the service provider. "caseExact" is set to "true". "Mutability" is set to "readOnly". "Returned" is set to "always".
+	// The ID of the SCIM resource. Set by the service provider. "caseExact" is set to "true". "mutability" is set to "readOnly". "returned" is set to "always".
 	// Read Only: true
 	ID string `json:"id,omitempty"`
 

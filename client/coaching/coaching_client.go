@@ -21,7 +21,7 @@ type API interface {
 	   DeleteCoachingAppointment deletes an existing appointment
 	   Permission not required if you are the creator of the appointment
 	*/
-	DeleteCoachingAppointment(ctx context.Context, params *DeleteCoachingAppointmentParams) (*DeleteCoachingAppointmentNoContent, error)
+	DeleteCoachingAppointment(ctx context.Context, params *DeleteCoachingAppointmentParams) (*DeleteCoachingAppointmentAccepted, *DeleteCoachingAppointmentNoContent, error)
 	/*
 	   DeleteCoachingAppointmentAnnotation deletes an existing annotation
 	   You must have the appropriate permission for the type of annotation you are updating. Permission not required if you are the creator or facilitator of the appointment
@@ -68,7 +68,7 @@ type API interface {
 	   PatchCoachingAppointment updates an existing appointment
 	   Permission not required if you are the creator or facilitator of the appointment
 	*/
-	PatchCoachingAppointment(ctx context.Context, params *PatchCoachingAppointmentParams) (*PatchCoachingAppointmentOK, error)
+	PatchCoachingAppointment(ctx context.Context, params *PatchCoachingAppointmentParams) (*PatchCoachingAppointmentOK, *PatchCoachingAppointmentAccepted, error)
 	/*
 	   PatchCoachingAppointmentAnnotation updates an existing annotation
 	   You must have the appropriate permission for the type of annotation you are updating. Permission not required if you are the creator or facilitator of the appointment
@@ -92,7 +92,7 @@ type API interface {
 	/*
 	   PostCoachingAppointments creates a new appointment
 	*/
-	PostCoachingAppointments(ctx context.Context, params *PostCoachingAppointmentsParams) (*PostCoachingAppointmentsCreated, error)
+	PostCoachingAppointments(ctx context.Context, params *PostCoachingAppointmentsParams) (*PostCoachingAppointmentsCreated, *PostCoachingAppointmentsAccepted, error)
 }
 
 // New creates a new coaching API client.
@@ -118,7 +118,7 @@ DeleteCoachingAppointment deletes an existing appointment
 
 Permission not required if you are the creator of the appointment
 */
-func (a *Client) DeleteCoachingAppointment(ctx context.Context, params *DeleteCoachingAppointmentParams) (*DeleteCoachingAppointmentNoContent, error) {
+func (a *Client) DeleteCoachingAppointment(ctx context.Context, params *DeleteCoachingAppointmentParams) (*DeleteCoachingAppointmentAccepted, *DeleteCoachingAppointmentNoContent, error) {
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "deleteCoachingAppointment",
@@ -134,9 +134,15 @@ func (a *Client) DeleteCoachingAppointment(ctx context.Context, params *DeleteCo
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
-	return result.(*DeleteCoachingAppointmentNoContent), nil
+	switch value := result.(type) {
+	case *DeleteCoachingAppointmentAccepted:
+		return value, nil, nil
+	case *DeleteCoachingAppointmentNoContent:
+		return nil, value, nil
+	}
+	return nil, nil, nil
 
 }
 
@@ -382,7 +388,7 @@ PatchCoachingAppointment updates an existing appointment
 
 Permission not required if you are the creator or facilitator of the appointment
 */
-func (a *Client) PatchCoachingAppointment(ctx context.Context, params *PatchCoachingAppointmentParams) (*PatchCoachingAppointmentOK, error) {
+func (a *Client) PatchCoachingAppointment(ctx context.Context, params *PatchCoachingAppointmentParams) (*PatchCoachingAppointmentOK, *PatchCoachingAppointmentAccepted, error) {
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "patchCoachingAppointment",
@@ -398,9 +404,15 @@ func (a *Client) PatchCoachingAppointment(ctx context.Context, params *PatchCoac
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
-	return result.(*PatchCoachingAppointmentOK), nil
+	switch value := result.(type) {
+	case *PatchCoachingAppointmentOK:
+		return value, nil, nil
+	case *PatchCoachingAppointmentAccepted:
+		return nil, value, nil
+	}
+	return nil, nil, nil
 
 }
 
@@ -515,7 +527,7 @@ func (a *Client) PostCoachingAppointmentAnnotations(ctx context.Context, params 
 /*
 PostCoachingAppointments creates a new appointment
 */
-func (a *Client) PostCoachingAppointments(ctx context.Context, params *PostCoachingAppointmentsParams) (*PostCoachingAppointmentsCreated, error) {
+func (a *Client) PostCoachingAppointments(ctx context.Context, params *PostCoachingAppointmentsParams) (*PostCoachingAppointmentsCreated, *PostCoachingAppointmentsAccepted, error) {
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "postCoachingAppointments",
@@ -531,8 +543,14 @@ func (a *Client) PostCoachingAppointments(ctx context.Context, params *PostCoach
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
-	return result.(*PostCoachingAppointmentsCreated), nil
+	switch value := result.(type) {
+	case *PostCoachingAppointmentsCreated:
+		return value, nil, nil
+	case *PostCoachingAppointmentsAccepted:
+		return nil, value, nil
+	}
+	return nil, nil, nil
 
 }

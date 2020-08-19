@@ -66,6 +66,10 @@ type API interface {
 	*/
 	DeleteOutboundDnclist(ctx context.Context, params *DeleteOutboundDnclistParams) (*DeleteOutboundDnclistOK, error)
 	/*
+	   DeleteOutboundMessagingcampaign deletes an outbound messaging campaign
+	*/
+	DeleteOutboundMessagingcampaign(ctx context.Context, params *DeleteOutboundMessagingcampaignParams) (*DeleteOutboundMessagingcampaignOK, *DeleteOutboundMessagingcampaignNoContent, error)
+	/*
 	   DeleteOutboundRuleset deletes a rule set
 	*/
 	DeleteOutboundRuleset(ctx context.Context, params *DeleteOutboundRulesetParams) (*DeleteOutboundRulesetOK, error)
@@ -137,6 +141,14 @@ type API interface {
 	   GetOutboundCampaigns queries a list of dialer campaigns
 	*/
 	GetOutboundCampaigns(ctx context.Context, params *GetOutboundCampaignsParams) (*GetOutboundCampaignsOK, error)
+	/*
+	   GetOutboundCampaignsAll queries across all types of campaigns by division
+	*/
+	GetOutboundCampaignsAll(ctx context.Context, params *GetOutboundCampaignsAllParams) (*GetOutboundCampaignsAllOK, error)
+	/*
+	   GetOutboundCampaignsAllDivisionviews queries across all types of campaigns
+	*/
+	GetOutboundCampaignsAllDivisionviews(ctx context.Context, params *GetOutboundCampaignsAllDivisionviewsParams) (*GetOutboundCampaignsAllDivisionviewsOK, error)
 	/*
 	   GetOutboundCampaignsDivisionview gets a basic campaign information object
 	   This returns a simplified version of a Campaign, consisting of name and division.
@@ -223,6 +235,28 @@ type API interface {
 	   GetOutboundEvents queries event logs
 	*/
 	GetOutboundEvents(ctx context.Context, params *GetOutboundEventsParams) (*GetOutboundEventsOK, error)
+	/*
+	   GetOutboundMessagingcampaign gets an outbound messaging campaign
+	*/
+	GetOutboundMessagingcampaign(ctx context.Context, params *GetOutboundMessagingcampaignParams) (*GetOutboundMessagingcampaignOK, error)
+	/*
+	   GetOutboundMessagingcampaignProgress gets messaging campaign s progress
+	*/
+	GetOutboundMessagingcampaignProgress(ctx context.Context, params *GetOutboundMessagingcampaignProgressParams) (*GetOutboundMessagingcampaignProgressOK, error)
+	/*
+	   GetOutboundMessagingcampaigns queries a list of messaging campaigns
+	*/
+	GetOutboundMessagingcampaigns(ctx context.Context, params *GetOutboundMessagingcampaignsParams) (*GetOutboundMessagingcampaignsOK, error)
+	/*
+	   GetOutboundMessagingcampaignsDivisionview gets a basic messaging campaign information object
+	   This returns a simplified version of a Messaging Campaign, consisting of id, name, and division.
+	*/
+	GetOutboundMessagingcampaignsDivisionview(ctx context.Context, params *GetOutboundMessagingcampaignsDivisionviewParams) (*GetOutboundMessagingcampaignsDivisionviewOK, error)
+	/*
+	   GetOutboundMessagingcampaignsDivisionviews queries a list of basic messaging campaign information objects
+	   This returns a listing of simplified Messaging Campaigns, each consisting of id, name, and division.
+	*/
+	GetOutboundMessagingcampaignsDivisionviews(ctx context.Context, params *GetOutboundMessagingcampaignsDivisionviewsParams) (*GetOutboundMessagingcampaignsDivisionviewsOK, error)
 	/*
 	   GetOutboundRuleset gets a rule set by ID
 	*/
@@ -348,6 +382,14 @@ type API interface {
 	*/
 	PostOutboundDnclists(ctx context.Context, params *PostOutboundDnclistsParams) (*PostOutboundDnclistsOK, error)
 	/*
+	   PostOutboundMessagingcampaigns creates a messaging campaign
+	*/
+	PostOutboundMessagingcampaigns(ctx context.Context, params *PostOutboundMessagingcampaignsParams) (*PostOutboundMessagingcampaignsOK, error)
+	/*
+	   PostOutboundMessagingcampaignsProgress gets progress for a list of messaging campaigns
+	*/
+	PostOutboundMessagingcampaignsProgress(ctx context.Context, params *PostOutboundMessagingcampaignsProgressParams) (*PostOutboundMessagingcampaignsProgressOK, error)
+	/*
 	   PostOutboundRulesets creates a dialer call analysis response set
 	*/
 	PostOutboundRulesets(ctx context.Context, params *PostOutboundRulesetsParams) (*PostOutboundRulesetsOK, error)
@@ -396,6 +438,10 @@ type API interface {
 	   PutOutboundDnclist updates dialer d n c list
 	*/
 	PutOutboundDnclist(ctx context.Context, params *PutOutboundDnclistParams) (*PutOutboundDnclistOK, error)
+	/*
+	   PutOutboundMessagingcampaign updates an outbound messaging campaign
+	*/
+	PutOutboundMessagingcampaign(ctx context.Context, params *PutOutboundMessagingcampaignParams) (*PutOutboundMessagingcampaignOK, error)
 	/*
 	   PutOutboundRuleset updates a rule set
 	*/
@@ -733,6 +779,37 @@ func (a *Client) DeleteOutboundDnclist(ctx context.Context, params *DeleteOutbou
 		return nil, err
 	}
 	return result.(*DeleteOutboundDnclistOK), nil
+
+}
+
+/*
+DeleteOutboundMessagingcampaign deletes an outbound messaging campaign
+*/
+func (a *Client) DeleteOutboundMessagingcampaign(ctx context.Context, params *DeleteOutboundMessagingcampaignParams) (*DeleteOutboundMessagingcampaignOK, *DeleteOutboundMessagingcampaignNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteOutboundMessagingcampaign",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/outbound/messagingcampaigns/{messagingCampaignId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteOutboundMessagingcampaignReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *DeleteOutboundMessagingcampaignOK:
+		return value, nil, nil
+	case *DeleteOutboundMessagingcampaignNoContent:
+		return nil, value, nil
+	}
+	return nil, nil, nil
 
 }
 
@@ -1183,6 +1260,56 @@ func (a *Client) GetOutboundCampaigns(ctx context.Context, params *GetOutboundCa
 		return nil, err
 	}
 	return result.(*GetOutboundCampaignsOK), nil
+
+}
+
+/*
+GetOutboundCampaignsAll queries across all types of campaigns by division
+*/
+func (a *Client) GetOutboundCampaignsAll(ctx context.Context, params *GetOutboundCampaignsAllParams) (*GetOutboundCampaignsAllOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getOutboundCampaignsAll",
+		Method:             "GET",
+		PathPattern:        "/api/v2/outbound/campaigns/all",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetOutboundCampaignsAllReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetOutboundCampaignsAllOK), nil
+
+}
+
+/*
+GetOutboundCampaignsAllDivisionviews queries across all types of campaigns
+*/
+func (a *Client) GetOutboundCampaignsAllDivisionviews(ctx context.Context, params *GetOutboundCampaignsAllDivisionviewsParams) (*GetOutboundCampaignsAllDivisionviewsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getOutboundCampaignsAllDivisionviews",
+		Method:             "GET",
+		PathPattern:        "/api/v2/outbound/campaigns/all/divisionviews",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetOutboundCampaignsAllDivisionviewsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetOutboundCampaignsAllDivisionviewsOK), nil
 
 }
 
@@ -1695,6 +1822,135 @@ func (a *Client) GetOutboundEvents(ctx context.Context, params *GetOutboundEvent
 		return nil, err
 	}
 	return result.(*GetOutboundEventsOK), nil
+
+}
+
+/*
+GetOutboundMessagingcampaign gets an outbound messaging campaign
+*/
+func (a *Client) GetOutboundMessagingcampaign(ctx context.Context, params *GetOutboundMessagingcampaignParams) (*GetOutboundMessagingcampaignOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getOutboundMessagingcampaign",
+		Method:             "GET",
+		PathPattern:        "/api/v2/outbound/messagingcampaigns/{messagingCampaignId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetOutboundMessagingcampaignReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetOutboundMessagingcampaignOK), nil
+
+}
+
+/*
+GetOutboundMessagingcampaignProgress gets messaging campaign s progress
+*/
+func (a *Client) GetOutboundMessagingcampaignProgress(ctx context.Context, params *GetOutboundMessagingcampaignProgressParams) (*GetOutboundMessagingcampaignProgressOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getOutboundMessagingcampaignProgress",
+		Method:             "GET",
+		PathPattern:        "/api/v2/outbound/messagingcampaigns/{messagingCampaignId}/progress",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetOutboundMessagingcampaignProgressReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetOutboundMessagingcampaignProgressOK), nil
+
+}
+
+/*
+GetOutboundMessagingcampaigns queries a list of messaging campaigns
+*/
+func (a *Client) GetOutboundMessagingcampaigns(ctx context.Context, params *GetOutboundMessagingcampaignsParams) (*GetOutboundMessagingcampaignsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getOutboundMessagingcampaigns",
+		Method:             "GET",
+		PathPattern:        "/api/v2/outbound/messagingcampaigns",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetOutboundMessagingcampaignsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetOutboundMessagingcampaignsOK), nil
+
+}
+
+/*
+GetOutboundMessagingcampaignsDivisionview gets a basic messaging campaign information object
+
+This returns a simplified version of a Messaging Campaign, consisting of id, name, and division.
+*/
+func (a *Client) GetOutboundMessagingcampaignsDivisionview(ctx context.Context, params *GetOutboundMessagingcampaignsDivisionviewParams) (*GetOutboundMessagingcampaignsDivisionviewOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getOutboundMessagingcampaignsDivisionview",
+		Method:             "GET",
+		PathPattern:        "/api/v2/outbound/messagingcampaigns/divisionviews/{messagingCampaignId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetOutboundMessagingcampaignsDivisionviewReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetOutboundMessagingcampaignsDivisionviewOK), nil
+
+}
+
+/*
+GetOutboundMessagingcampaignsDivisionviews queries a list of basic messaging campaign information objects
+
+This returns a listing of simplified Messaging Campaigns, each consisting of id, name, and division.
+*/
+func (a *Client) GetOutboundMessagingcampaignsDivisionviews(ctx context.Context, params *GetOutboundMessagingcampaignsDivisionviewsParams) (*GetOutboundMessagingcampaignsDivisionviewsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getOutboundMessagingcampaignsDivisionviews",
+		Method:             "GET",
+		PathPattern:        "/api/v2/outbound/messagingcampaigns/divisionviews",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetOutboundMessagingcampaignsDivisionviewsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetOutboundMessagingcampaignsDivisionviewsOK), nil
 
 }
 
@@ -2457,6 +2713,56 @@ func (a *Client) PostOutboundDnclists(ctx context.Context, params *PostOutboundD
 }
 
 /*
+PostOutboundMessagingcampaigns creates a messaging campaign
+*/
+func (a *Client) PostOutboundMessagingcampaigns(ctx context.Context, params *PostOutboundMessagingcampaignsParams) (*PostOutboundMessagingcampaignsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postOutboundMessagingcampaigns",
+		Method:             "POST",
+		PathPattern:        "/api/v2/outbound/messagingcampaigns",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostOutboundMessagingcampaignsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostOutboundMessagingcampaignsOK), nil
+
+}
+
+/*
+PostOutboundMessagingcampaignsProgress gets progress for a list of messaging campaigns
+*/
+func (a *Client) PostOutboundMessagingcampaignsProgress(ctx context.Context, params *PostOutboundMessagingcampaignsProgressParams) (*PostOutboundMessagingcampaignsProgressOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postOutboundMessagingcampaignsProgress",
+		Method:             "POST",
+		PathPattern:        "/api/v2/outbound/messagingcampaigns/progress",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostOutboundMessagingcampaignsProgressReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostOutboundMessagingcampaignsProgressOK), nil
+
+}
+
+/*
 PostOutboundRulesets creates a dialer call analysis response set
 */
 func (a *Client) PostOutboundRulesets(ctx context.Context, params *PostOutboundRulesetsParams) (*PostOutboundRulesetsOK, error) {
@@ -2755,6 +3061,31 @@ func (a *Client) PutOutboundDnclist(ctx context.Context, params *PutOutboundDncl
 		return nil, err
 	}
 	return result.(*PutOutboundDnclistOK), nil
+
+}
+
+/*
+PutOutboundMessagingcampaign updates an outbound messaging campaign
+*/
+func (a *Client) PutOutboundMessagingcampaign(ctx context.Context, params *PutOutboundMessagingcampaignParams) (*PutOutboundMessagingcampaignOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "putOutboundMessagingcampaign",
+		Method:             "PUT",
+		PathPattern:        "/api/v2/outbound/messagingcampaigns/{messagingCampaignId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PutOutboundMessagingcampaignReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutOutboundMessagingcampaignOK), nil
 
 }
 

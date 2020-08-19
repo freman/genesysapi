@@ -61,12 +61,12 @@ for the delete scim v2 group operation typically these are written to a http.Req
 type DeleteScimV2GroupParams struct {
 
 	/*IfMatch
-	  The ETag of a resource in double quotes. Returned as header and meta.version with initial call to GET /api/v2/scim/v2/groups/{groupId}. Example: "42". If the ETag is different from the version on the server, returns 400 with a "scimType" of "invalidVers".
+	  The ETag of a resource in double quotes. Returned as header and meta.version with initial call to GET /api/v2/scim/groups/{groupId} or GET /api/v2/scim/v2/groups/{groupId}. Example: "42". If the ETag is different from the version on the server, returns 400 with a "scimType" of "invalidVers".
 
 	*/
 	IfMatch *string
 	/*GroupID
-	  The ID of a group. Returned with GET /api/v2/scim/v2/groups.
+	  The ID of a group. Returned with GET /api/v2/scim/groups or GET /api/v2/scim/v2/groups.
 
 	*/
 	GroupID string

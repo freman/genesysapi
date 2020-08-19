@@ -141,7 +141,7 @@ func NewPatchConversationsMessagingIntegrationsWhatsappIntegrationIDAccepted() *
 
 /*PatchConversationsMessagingIntegrationsWhatsappIntegrationIDAccepted handles this case with default header values.
 
-Processing Request - If request was to Activate, do a GET checking for activationStatus set to CODE_SENT.
+Processing Request - If request was to Activate, do a GET checking for activationStatus set to CodeSent.
 If request was to Confirm, do a GET checking for the integration status set to Active
 */
 type PatchConversationsMessagingIntegrationsWhatsappIntegrationIDAccepted struct {

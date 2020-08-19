@@ -29,6 +29,12 @@ func (o *PatchCoachingAppointmentReader) ReadResponse(response runtime.ClientRes
 			return nil, err
 		}
 		return result, nil
+	case 202:
+		result := NewPatchCoachingAppointmentAccepted()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return result, nil
 	case 400:
 		result := NewPatchCoachingAppointmentBadRequest()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -125,6 +131,39 @@ func (o *PatchCoachingAppointmentOK) GetPayload() *models.CoachingAppointmentRes
 func (o *PatchCoachingAppointmentOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.CoachingAppointmentResponse)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPatchCoachingAppointmentAccepted creates a PatchCoachingAppointmentAccepted with default headers values
+func NewPatchCoachingAppointmentAccepted() *PatchCoachingAppointmentAccepted {
+	return &PatchCoachingAppointmentAccepted{}
+}
+
+/*PatchCoachingAppointmentAccepted handles this case with default header values.
+
+Appointment update request accepted.
+*/
+type PatchCoachingAppointmentAccepted struct {
+	Payload *models.CoachingAppointmentReference
+}
+
+func (o *PatchCoachingAppointmentAccepted) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/coaching/appointments/{appointmentId}][%d] patchCoachingAppointmentAccepted  %+v", 202, o.Payload)
+}
+
+func (o *PatchCoachingAppointmentAccepted) GetPayload() *models.CoachingAppointmentReference {
+	return o.Payload
+}
+
+func (o *PatchCoachingAppointmentAccepted) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.CoachingAppointmentReference)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

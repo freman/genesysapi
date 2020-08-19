@@ -12,16 +12,16 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// ScimUserRoutingSkill Routing skill assigned to user.
+// ScimUserRoutingSkill The routing skill assigned to a user.
 //
 // swagger:model ScimUserRoutingSkill
 type ScimUserRoutingSkill struct {
 
-	// Case-sensitive name identifying a skill configured in routing skills.
+	// The case-sensitive name of a routing skill configured in Genesys Cloud.
 	// Required: true
 	Name *string `json:"name"`
 
-	// Proficiency is a rating from 0.0 to 5.0 on how competent an agent is for a particular skill. It is used when a queue is set to "Best available skills" mode to allow acd interactions to target agents with higher proficiency ratings.
+	// A rating from 0.0 to 5.0 that indicates how adept an agent is at a particular skill. When "Best available skills" is enabled for a queue in Genesys Cloud, ACD interactions in that queue are routed to agents with higher proficiency ratings.
 	Proficiency float64 `json:"proficiency,omitempty"`
 }
 

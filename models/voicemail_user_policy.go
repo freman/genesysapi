@@ -31,6 +31,9 @@ type VoicemailUserPolicy struct {
 
 	// The user's PIN to access their voicemail. This property is only used for updates and never provided otherwise to ensure security
 	Pin string `json:"pin,omitempty"`
+
+	// Whether email notifications are sent to the user when a new voicemail is received
+	SendEmailNotifications bool `json:"sendEmailNotifications,omitempty"`
 }
 
 // Validate validates this voicemail user policy

@@ -166,7 +166,8 @@ type API interface {
 	*/
 	PutExternalcontactsContactsSchema(ctx context.Context, params *PutExternalcontactsContactsSchemaParams) (*PutExternalcontactsContactsSchemaOK, error)
 	/*
-	   PutExternalcontactsConversation associates an external contact with a conversation
+	   PutExternalcontactsConversation associates disassociate an external contact with a conversation
+	   To associate, supply a value for the externalContactId.  To disassociate, do not include the property at all.
 	*/
 	PutExternalcontactsConversation(ctx context.Context, params *PutExternalcontactsConversationParams) (*PutExternalcontactsConversationAccepted, error)
 	/*
@@ -1135,7 +1136,9 @@ func (a *Client) PutExternalcontactsContactsSchema(ctx context.Context, params *
 }
 
 /*
-PutExternalcontactsConversation associates an external contact with a conversation
+PutExternalcontactsConversation associates disassociate an external contact with a conversation
+
+To associate, supply a value for the externalContactId.  To disassociate, do not include the property at all.
 */
 func (a *Client) PutExternalcontactsConversation(ctx context.Context, params *PutExternalcontactsConversationParams) (*PutExternalcontactsConversationAccepted, error) {
 

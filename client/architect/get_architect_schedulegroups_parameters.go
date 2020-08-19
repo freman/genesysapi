@@ -112,6 +112,11 @@ type GetArchitectSchedulegroupsParams struct {
 
 	*/
 	PageSize *int32
+	/*ScheduleIds
+	  A comma-delimited list of Schedule IDs to filter by.
+
+	*/
+	ScheduleIds *string
 	/*SortBy
 	  Sort by
 
@@ -194,6 +199,17 @@ func (o *GetArchitectSchedulegroupsParams) SetPageSize(pageSize *int32) {
 	o.PageSize = pageSize
 }
 
+// WithScheduleIds adds the scheduleIds to the get architect schedulegroups params
+func (o *GetArchitectSchedulegroupsParams) WithScheduleIds(scheduleIds *string) *GetArchitectSchedulegroupsParams {
+	o.SetScheduleIds(scheduleIds)
+	return o
+}
+
+// SetScheduleIds adds the scheduleIds to the get architect schedulegroups params
+func (o *GetArchitectSchedulegroupsParams) SetScheduleIds(scheduleIds *string) {
+	o.ScheduleIds = scheduleIds
+}
+
 // WithSortBy adds the sortBy to the get architect schedulegroups params
 func (o *GetArchitectSchedulegroupsParams) WithSortBy(sortBy *string) *GetArchitectSchedulegroupsParams {
 	o.SetSortBy(sortBy)
@@ -266,6 +282,22 @@ func (o *GetArchitectSchedulegroupsParams) WriteToRequest(r runtime.ClientReques
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	if o.ScheduleIds != nil {
+
+		// query param scheduleIds
+		var qrScheduleIds string
+		if o.ScheduleIds != nil {
+			qrScheduleIds = *o.ScheduleIds
+		}
+		qScheduleIds := qrScheduleIds
+		if qScheduleIds != "" {
+			if err := r.SetQueryParam("scheduleIds", qScheduleIds); err != nil {
 				return err
 			}
 		}

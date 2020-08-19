@@ -108,7 +108,7 @@ func NewDeleteScimV2GroupNoContent() *DeleteScimV2GroupNoContent {
 
 /*DeleteScimV2GroupNoContent handles this case with default header values.
 
-Group Deleted with no content returned.
+Group deleted with no content returned.
 */
 type DeleteScimV2GroupNoContent struct {
 }

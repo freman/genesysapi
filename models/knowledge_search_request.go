@@ -20,21 +20,18 @@ import (
 type KnowledgeSearchRequest struct {
 
 	// Document type to be used while searching
-	// Required: true
 	// Enum: [Faq]
-	DocumentType *string `json:"documentType"`
+	DocumentType string `json:"documentType,omitempty"`
 
 	// query search for specific languageCode
 	// Required: true
 	LanguageCode *string `json:"languageCode"`
 
 	// Page number of the returned results
-	// Required: true
-	PageNumber *int32 `json:"pageNumber"`
+	PageNumber int32 `json:"pageNumber,omitempty"`
 
 	// Page size of the returned results
-	// Required: true
-	PageSize *int32 `json:"pageSize"`
+	PageSize int32 `json:"pageSize,omitempty"`
 
 	// Input query to search content in the knowledge base
 	// Required: true
@@ -53,14 +50,6 @@ func (m *KnowledgeSearchRequest) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateLanguageCode(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validatePageNumber(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validatePageSize(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -102,12 +91,12 @@ func (m *KnowledgeSearchRequest) validateDocumentTypeEnum(path, location string,
 
 func (m *KnowledgeSearchRequest) validateDocumentType(formats strfmt.Registry) error {
 
-	if err := validate.Required("documentType", "body", m.DocumentType); err != nil {
-		return err
+	if swag.IsZero(m.DocumentType) { // not required
+		return nil
 	}
 
 	// value enum
-	if err := m.validateDocumentTypeEnum("documentType", "body", *m.DocumentType); err != nil {
+	if err := m.validateDocumentTypeEnum("documentType", "body", m.DocumentType); err != nil {
 		return err
 	}
 
@@ -117,24 +106,6 @@ func (m *KnowledgeSearchRequest) validateDocumentType(formats strfmt.Registry) e
 func (m *KnowledgeSearchRequest) validateLanguageCode(formats strfmt.Registry) error {
 
 	if err := validate.Required("languageCode", "body", m.LanguageCode); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *KnowledgeSearchRequest) validatePageNumber(formats strfmt.Registry) error {
-
-	if err := validate.Required("pageNumber", "body", m.PageNumber); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *KnowledgeSearchRequest) validatePageSize(formats strfmt.Registry) error {
-
-	if err := validate.Required("pageSize", "body", m.PageSize); err != nil {
 		return err
 	}
 

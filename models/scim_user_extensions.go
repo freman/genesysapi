@@ -13,15 +13,15 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// ScimUserExtensions SCIM PureCloud extensions of user.
+// ScimUserExtensions Defines a SCIM Genesys Cloud user.
 //
 // swagger:model ScimUserExtensions
 type ScimUserExtensions struct {
 
-	// Routing Languages assigned to user. No more than 50 languages may be assigned to a user.
+	// The list of routing languages assigned to a user. Maximum 50 languages.
 	RoutingLanguages []*ScimUserRoutingLanguage `json:"routingLanguages"`
 
-	// Routing Skills assigned to user. No more than 50 skills may be assigned to a user.
+	// The list of routing skills assigned to a user. Maximum 50 skills.
 	RoutingSkills []*ScimUserRoutingSkill `json:"routingSkills"`
 }
 

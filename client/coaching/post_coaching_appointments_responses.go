@@ -29,6 +29,12 @@ func (o *PostCoachingAppointmentsReader) ReadResponse(response runtime.ClientRes
 			return nil, err
 		}
 		return result, nil
+	case 202:
+		result := NewPostCoachingAppointmentsAccepted()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return result, nil
 	case 400:
 		result := NewPostCoachingAppointmentsBadRequest()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -125,6 +131,39 @@ func (o *PostCoachingAppointmentsCreated) GetPayload() *models.CoachingAppointme
 func (o *PostCoachingAppointmentsCreated) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.CoachingAppointmentResponse)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPostCoachingAppointmentsAccepted creates a PostCoachingAppointmentsAccepted with default headers values
+func NewPostCoachingAppointmentsAccepted() *PostCoachingAppointmentsAccepted {
+	return &PostCoachingAppointmentsAccepted{}
+}
+
+/*PostCoachingAppointmentsAccepted handles this case with default header values.
+
+Appointment create request accepted
+*/
+type PostCoachingAppointmentsAccepted struct {
+	Payload *models.CoachingAppointmentReference
+}
+
+func (o *PostCoachingAppointmentsAccepted) Error() string {
+	return fmt.Sprintf("[POST /api/v2/coaching/appointments][%d] postCoachingAppointmentsAccepted  %+v", 202, o.Payload)
+}
+
+func (o *PostCoachingAppointmentsAccepted) GetPayload() *models.CoachingAppointmentReference {
+	return o.Payload
+}
+
+func (o *PostCoachingAppointmentsAccepted) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.CoachingAppointmentReference)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

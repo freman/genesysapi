@@ -33,7 +33,7 @@ type ScimV2User struct {
 	// The list of groups that the user is a member of.
 	Groups []*ScimV2GroupReference `json:"groups"`
 
-	// The ID of the SCIM resource. Set by the service provider. "caseExact" is set to "true". "Mutability" is set to "readOnly". "Returned" is set to "always".
+	// The ID of the SCIM resource. Set by the service provider. "caseExact" is set to "true". "mutability" is set to "readOnly". "returned" is set to "always".
 	// Read Only: true
 	ID string `json:"id,omitempty"`
 
@@ -41,7 +41,7 @@ type ScimV2User struct {
 	// Read Only: true
 	Meta *ScimMetadata `json:"meta,omitempty"`
 
-	// The new password for the PureCloud user. Does not return an existing password.
+	// The new password for the Genesys Cloud user. Does not return an existing password.
 	Password string `json:"password,omitempty"`
 
 	// The list of the user's phone numbers.
@@ -60,10 +60,10 @@ type ScimV2User struct {
 	// The URI of the schema for the enterprise user.
 	UrnIetfParamsScimSchemasExtensionEnterprise20User *ScimV2EnterpriseUser `json:"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User,omitempty"`
 
-	// urn ietf params scim schemas extension genesys purecloud 2 0 user
+	// The URI of the schema for the Genesys Cloud user.
 	UrnIetfParamsScimSchemasExtensionGenesysPurecloud20User *ScimUserExtensions `json:"urn:ietf:params:scim:schemas:extension:genesys:purecloud:2.0:User,omitempty"`
 
-	// The user's PureCloud email address. Must be unique.
+	// The user's Genesys Cloud email address. Must be unique.
 	UserName string `json:"userName,omitempty"`
 }
 

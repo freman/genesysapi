@@ -60,6 +60,10 @@ type ObservationValue struct {
 	// Unique: true
 	RequestedRoutingSkillIds []string `json:"requestedRoutingSkillIds"`
 
+	// All routing types for requested/attempted routing methods
+	// Unique: true
+	RequestedRoutings []string `json:"requestedRoutings"`
+
 	// Routing priority for the current interaction
 	RoutingPriority int64 `json:"routingPriority,omitempty"`
 
@@ -69,8 +73,12 @@ type ObservationValue struct {
 	// The unique identifier of this session
 	SessionID string `json:"sessionId,omitempty"`
 
-	// The team Id the user is a member of
+	// The team id the user is a member of
 	TeamID string `json:"teamId,omitempty"`
+
+	// Complete routing method
+	// Enum: [Predictive Preferred Manual Last Bullseye Standard]
+	UsedRouting string `json:"usedRouting,omitempty"`
 
 	// Unique identifier for the user
 	UserID string `json:"userId,omitempty"`
@@ -92,7 +100,15 @@ func (m *ObservationValue) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateRequestedRoutings(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateScoredAgents(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateUsedRouting(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -171,6 +187,47 @@ func (m *ObservationValue) validateRequestedRoutingSkillIds(formats strfmt.Regis
 	return nil
 }
 
+var observationValueRequestedRoutingsItemsEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Predictive","Preferred","Manual","Last","Bullseye","Standard"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		observationValueRequestedRoutingsItemsEnum = append(observationValueRequestedRoutingsItemsEnum, v)
+	}
+}
+
+func (m *ObservationValue) validateRequestedRoutingsItemsEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, observationValueRequestedRoutingsItemsEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *ObservationValue) validateRequestedRoutings(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.RequestedRoutings) { // not required
+		return nil
+	}
+
+	if err := validate.UniqueItems("requestedRoutings", "body", m.RequestedRoutings); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.RequestedRoutings); i++ {
+
+		// value enum
+		if err := m.validateRequestedRoutingsItemsEnum("requestedRoutings"+"."+strconv.Itoa(i), "body", m.RequestedRoutings[i]); err != nil {
+			return err
+		}
+
+	}
+
+	return nil
+}
+
 func (m *ObservationValue) validateScoredAgents(formats strfmt.Registry) error {
 
 	if swag.IsZero(m.ScoredAgents) { // not required
@@ -191,6 +248,61 @@ func (m *ObservationValue) validateScoredAgents(formats strfmt.Registry) error {
 			}
 		}
 
+	}
+
+	return nil
+}
+
+var observationValueTypeUsedRoutingPropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Predictive","Preferred","Manual","Last","Bullseye","Standard"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		observationValueTypeUsedRoutingPropEnum = append(observationValueTypeUsedRoutingPropEnum, v)
+	}
+}
+
+const (
+
+	// ObservationValueUsedRoutingPredictive captures enum value "Predictive"
+	ObservationValueUsedRoutingPredictive string = "Predictive"
+
+	// ObservationValueUsedRoutingPreferred captures enum value "Preferred"
+	ObservationValueUsedRoutingPreferred string = "Preferred"
+
+	// ObservationValueUsedRoutingManual captures enum value "Manual"
+	ObservationValueUsedRoutingManual string = "Manual"
+
+	// ObservationValueUsedRoutingLast captures enum value "Last"
+	ObservationValueUsedRoutingLast string = "Last"
+
+	// ObservationValueUsedRoutingBullseye captures enum value "Bullseye"
+	ObservationValueUsedRoutingBullseye string = "Bullseye"
+
+	// ObservationValueUsedRoutingStandard captures enum value "Standard"
+	ObservationValueUsedRoutingStandard string = "Standard"
+)
+
+// prop value enum
+func (m *ObservationValue) validateUsedRoutingEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, observationValueTypeUsedRoutingPropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *ObservationValue) validateUsedRouting(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.UsedRouting) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateUsedRoutingEnum("usedRouting", "body", m.UsedRouting); err != nil {
+		return err
 	}
 
 	return nil

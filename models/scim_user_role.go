@@ -15,7 +15,7 @@ import (
 // swagger:model ScimUserRole
 type ScimUserRole struct {
 
-	// Purecloud user role name
+	// The role of the Genesys Cloud user.
 	Value string `json:"value,omitempty"`
 }
 

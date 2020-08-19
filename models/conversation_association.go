@@ -27,7 +27,7 @@ type ConversationAssociation struct {
 	// Required: true
 	ConversationID *string `json:"conversationId"`
 
-	// External Contact ID
+	// An external contact ID.  If not supplied, implies the conversation should be disassociated with any external contact.
 	ExternalContactID string `json:"externalContactId,omitempty"`
 
 	// Media type

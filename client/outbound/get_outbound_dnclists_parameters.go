@@ -21,6 +21,7 @@ import (
 // with the default values initialized.
 func NewGetOutboundDnclistsParams() *GetOutboundDnclistsParams {
 	var (
+		allowEmptyResultDefault    = bool(false)
 		filterTypeDefault          = string("Prefix")
 		includeImportStatusDefault = bool(false)
 		includeSizeDefault         = bool(false)
@@ -28,6 +29,7 @@ func NewGetOutboundDnclistsParams() *GetOutboundDnclistsParams {
 		pageSizeDefault            = int32(25)
 	)
 	return &GetOutboundDnclistsParams{
+		AllowEmptyResult:    &allowEmptyResultDefault,
 		FilterType:          &filterTypeDefault,
 		IncludeImportStatus: &includeImportStatusDefault,
 		IncludeSize:         &includeSizeDefault,
@@ -42,6 +44,7 @@ func NewGetOutboundDnclistsParams() *GetOutboundDnclistsParams {
 // with the default values initialized, and the ability to set a timeout on a request
 func NewGetOutboundDnclistsParamsWithTimeout(timeout time.Duration) *GetOutboundDnclistsParams {
 	var (
+		allowEmptyResultDefault    = bool(false)
 		filterTypeDefault          = string("Prefix")
 		includeImportStatusDefault = bool(false)
 		includeSizeDefault         = bool(false)
@@ -49,6 +52,7 @@ func NewGetOutboundDnclistsParamsWithTimeout(timeout time.Duration) *GetOutbound
 		pageSizeDefault            = int32(25)
 	)
 	return &GetOutboundDnclistsParams{
+		AllowEmptyResult:    &allowEmptyResultDefault,
 		FilterType:          &filterTypeDefault,
 		IncludeImportStatus: &includeImportStatusDefault,
 		IncludeSize:         &includeSizeDefault,
@@ -63,6 +67,7 @@ func NewGetOutboundDnclistsParamsWithTimeout(timeout time.Duration) *GetOutbound
 // with the default values initialized, and the ability to set a context for a request
 func NewGetOutboundDnclistsParamsWithContext(ctx context.Context) *GetOutboundDnclistsParams {
 	var (
+		allowEmptyResultDefault    = bool(false)
 		filterTypeDefault          = string("Prefix")
 		includeImportStatusDefault = bool(false)
 		includeSizeDefault         = bool(false)
@@ -70,6 +75,7 @@ func NewGetOutboundDnclistsParamsWithContext(ctx context.Context) *GetOutboundDn
 		pageSizeDefault            = int32(25)
 	)
 	return &GetOutboundDnclistsParams{
+		AllowEmptyResult:    &allowEmptyResultDefault,
 		FilterType:          &filterTypeDefault,
 		IncludeImportStatus: &includeImportStatusDefault,
 		IncludeSize:         &includeSizeDefault,
@@ -84,6 +90,7 @@ func NewGetOutboundDnclistsParamsWithContext(ctx context.Context) *GetOutboundDn
 // with the default values initialized, and the ability to set a custom HTTPClient for a request
 func NewGetOutboundDnclistsParamsWithHTTPClient(client *http.Client) *GetOutboundDnclistsParams {
 	var (
+		allowEmptyResultDefault    = bool(false)
 		filterTypeDefault          = string("Prefix")
 		includeImportStatusDefault = bool(false)
 		includeSizeDefault         = bool(false)
@@ -91,6 +98,7 @@ func NewGetOutboundDnclistsParamsWithHTTPClient(client *http.Client) *GetOutboun
 		pageSizeDefault            = int32(25)
 	)
 	return &GetOutboundDnclistsParams{
+		AllowEmptyResult:    &allowEmptyResultDefault,
 		FilterType:          &filterTypeDefault,
 		IncludeImportStatus: &includeImportStatusDefault,
 		IncludeSize:         &includeSizeDefault,
@@ -105,6 +113,11 @@ for the get outbound dnclists operation typically these are written to a http.Re
 */
 type GetOutboundDnclistsParams struct {
 
+	/*AllowEmptyResult
+	  Whether to return an empty page when there are no results for that page
+
+	*/
+	AllowEmptyResult *bool
 	/*DivisionID
 	  Division ID(s)
 
@@ -192,6 +205,17 @@ func (o *GetOutboundDnclistsParams) WithHTTPClient(client *http.Client) *GetOutb
 // SetHTTPClient adds the HTTPClient to the get outbound dnclists params
 func (o *GetOutboundDnclistsParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
+}
+
+// WithAllowEmptyResult adds the allowEmptyResult to the get outbound dnclists params
+func (o *GetOutboundDnclistsParams) WithAllowEmptyResult(allowEmptyResult *bool) *GetOutboundDnclistsParams {
+	o.SetAllowEmptyResult(allowEmptyResult)
+	return o
+}
+
+// SetAllowEmptyResult adds the allowEmptyResult to the get outbound dnclists params
+func (o *GetOutboundDnclistsParams) SetAllowEmptyResult(allowEmptyResult *bool) {
+	o.AllowEmptyResult = allowEmptyResult
 }
 
 // WithDivisionID adds the divisionID to the get outbound dnclists params
@@ -311,6 +335,22 @@ func (o *GetOutboundDnclistsParams) WriteToRequest(r runtime.ClientRequest, reg 
 		return err
 	}
 	var res []error
+
+	if o.AllowEmptyResult != nil {
+
+		// query param allowEmptyResult
+		var qrAllowEmptyResult bool
+		if o.AllowEmptyResult != nil {
+			qrAllowEmptyResult = *o.AllowEmptyResult
+		}
+		qAllowEmptyResult := swag.FormatBool(qrAllowEmptyResult)
+		if qAllowEmptyResult != "" {
+			if err := r.SetQueryParam("allowEmptyResult", qAllowEmptyResult); err != nil {
+				return err
+			}
+		}
+
+	}
 
 	valuesDivisionID := o.DivisionID
 

@@ -61,7 +61,7 @@ for the get scim v2 schemas operation typically these are written to a http.Requ
 type GetScimV2SchemasParams struct {
 
 	/*Filter
-	  Filtered results are invalid and will result in a 403 (Unauthorized) return.
+	  Filtered results are invalid and return 403 Unauthorized.
 
 	*/
 	Filter *string

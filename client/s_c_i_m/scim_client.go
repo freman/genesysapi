@@ -50,11 +50,11 @@ type API interface {
 	*/
 	GetScimResourcetypes(ctx context.Context, params *GetScimResourcetypesParams) (*GetScimResourcetypesOK, error)
 	/*
-	   GetScimSchema gets the s c i m schema by id
+	   GetScimSchema gets a s c i m schema
 	*/
 	GetScimSchema(ctx context.Context, params *GetScimSchemaParams) (*GetScimSchemaOK, error)
 	/*
-	   GetScimSchemas gets the s c i m schemas
+	   GetScimSchemas gets a list of s c i m schemas
 	*/
 	GetScimSchemas(ctx context.Context, params *GetScimSchemasParams) (*GetScimSchemasOK, error)
 	/*
@@ -67,7 +67,7 @@ type API interface {
 	GetScimUser(ctx context.Context, params *GetScimUserParams) (*GetScimUserOK, error)
 	/*
 	   GetScimUsers gets a list of users
-	   To return all active users, do not use a filter parameter. To return inactive users, set "filter" to "active eq false". By default, returns SCIM attributes externalId, enterprise-user:manager, and roles. To exclude these attributes, set "attributes" to "id,active" or "excludeAttributes" to "externalId,roles,urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division".
+	   To return all active users, do not use the filter parameter. To return inactive users, set the filter parameter to "active eq false". By default, returns SCIM attributes "externalId", "enterprise-user:manager", and "roles". To exclude these attributes, set the attributes parameter to "id,active" or the excludeAttributes parameter to "externalId,roles,urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division".
 	*/
 	GetScimUsers(ctx context.Context, params *GetScimUsersParams) (*GetScimUsersOK, error)
 	/*
@@ -87,11 +87,11 @@ type API interface {
 	*/
 	GetScimV2Resourcetypes(ctx context.Context, params *GetScimV2ResourcetypesParams) (*GetScimV2ResourcetypesOK, error)
 	/*
-	   GetScimV2Schema gets the s c i m schema by id
+	   GetScimV2Schema gets a s c i m schema
 	*/
 	GetScimV2Schema(ctx context.Context, params *GetScimV2SchemaParams) (*GetScimV2SchemaOK, error)
 	/*
-	   GetScimV2Schemas gets the s c i m schemas
+	   GetScimV2Schemas gets a list of s c i m schemas
 	*/
 	GetScimV2Schemas(ctx context.Context, params *GetScimV2SchemasParams) (*GetScimV2SchemasOK, error)
 	/*
@@ -104,7 +104,7 @@ type API interface {
 	GetScimV2User(ctx context.Context, params *GetScimV2UserParams) (*GetScimV2UserOK, error)
 	/*
 	   GetScimV2Users gets a list of users
-	   To return all active users, do not use a filter parameter. To return inactive users, set "filter" to "active eq false". By default, returns SCIM attributes externalId, enterprise-user:manager, and roles. To exclude these attributes, set "attributes" to "id,active" or "excludeAttributes" to "externalId,roles,urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division".
+	   To return all active users, do not use the filter parameter. To return inactive users, set the filter parameter to "active eq false". By default, returns SCIM attributes "externalId", "enterprise-user:manager", and "roles". To exclude these attributes, set the attributes parameter to "id,active" or the excludeAttributes parameter to "externalId,roles,urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division".
 	*/
 	GetScimV2Users(ctx context.Context, params *GetScimV2UsersParams) (*GetScimV2UsersOK, error)
 	/*
@@ -124,8 +124,8 @@ type API interface {
 	*/
 	PatchScimV2User(ctx context.Context, params *PatchScimV2UserParams) (*PatchScimV2UserOK, error)
 	/*
-	   PostScimGroups thes information used to create a group
-	   PureCloud group will be created as "Official" group with visibility set "Public", and rules visibility True. Will auto-create an external ID if one is not provided on create. External ID is used to determine if delete should be allowed.
+	   PostScimGroups creates a group
+	   Creates a Genesys Cloud group with group visibility set to "public" and rules visibility set to "true". Auto-creates an "externalId". "externalId" is used to determine if DELETE /api/v2/scim/groups/{groupId} or DELETE /api/v2/scim/v2/groups/{groupId} should be allowed.
 	*/
 	PostScimGroups(ctx context.Context, params *PostScimGroupsParams) (*PostScimGroupsOK, error)
 	/*
@@ -133,8 +133,8 @@ type API interface {
 	*/
 	PostScimUsers(ctx context.Context, params *PostScimUsersParams) (*PostScimUsersOK, *PostScimUsersCreated, error)
 	/*
-	   PostScimV2Groups thes information used to create a group
-	   PureCloud group will be created as "Official" group with visibility set "Public", and rules visibility True. Will auto-create an external ID if one is not provided on create. External ID is used to determine if delete should be allowed.
+	   PostScimV2Groups creates a group
+	   Creates an "official" Genesys Cloud group with group visibility set to "public" and rules visibility set to "true". Auto-creates an "externalId". "externalId" is used to determine if DELETE /api/v2/scim/groups/{groupId} or DELETE /api/v2/scim/v2/groups/{groupId} should be allowed.
 	*/
 	PostScimV2Groups(ctx context.Context, params *PostScimV2GroupsParams) (*PostScimV2GroupsOK, error)
 	/*
@@ -390,7 +390,7 @@ func (a *Client) GetScimResourcetypes(ctx context.Context, params *GetScimResour
 }
 
 /*
-GetScimSchema gets the s c i m schema by id
+GetScimSchema gets a s c i m schema
 */
 func (a *Client) GetScimSchema(ctx context.Context, params *GetScimSchemaParams) (*GetScimSchemaOK, error) {
 
@@ -415,7 +415,7 @@ func (a *Client) GetScimSchema(ctx context.Context, params *GetScimSchemaParams)
 }
 
 /*
-GetScimSchemas gets the s c i m schemas
+GetScimSchemas gets a list of s c i m schemas
 */
 func (a *Client) GetScimSchemas(ctx context.Context, params *GetScimSchemasParams) (*GetScimSchemasOK, error) {
 
@@ -492,7 +492,7 @@ func (a *Client) GetScimUser(ctx context.Context, params *GetScimUserParams) (*G
 /*
 GetScimUsers gets a list of users
 
-To return all active users, do not use a filter parameter. To return inactive users, set "filter" to "active eq false". By default, returns SCIM attributes externalId, enterprise-user:manager, and roles. To exclude these attributes, set "attributes" to "id,active" or "excludeAttributes" to "externalId,roles,urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division".
+To return all active users, do not use the filter parameter. To return inactive users, set the filter parameter to "active eq false". By default, returns SCIM attributes "externalId", "enterprise-user:manager", and "roles". To exclude these attributes, set the attributes parameter to "id,active" or the excludeAttributes parameter to "externalId,roles,urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division".
 */
 func (a *Client) GetScimUsers(ctx context.Context, params *GetScimUsersParams) (*GetScimUsersOK, error) {
 
@@ -617,7 +617,7 @@ func (a *Client) GetScimV2Resourcetypes(ctx context.Context, params *GetScimV2Re
 }
 
 /*
-GetScimV2Schema gets the s c i m schema by id
+GetScimV2Schema gets a s c i m schema
 */
 func (a *Client) GetScimV2Schema(ctx context.Context, params *GetScimV2SchemaParams) (*GetScimV2SchemaOK, error) {
 
@@ -642,7 +642,7 @@ func (a *Client) GetScimV2Schema(ctx context.Context, params *GetScimV2SchemaPar
 }
 
 /*
-GetScimV2Schemas gets the s c i m schemas
+GetScimV2Schemas gets a list of s c i m schemas
 */
 func (a *Client) GetScimV2Schemas(ctx context.Context, params *GetScimV2SchemasParams) (*GetScimV2SchemasOK, error) {
 
@@ -719,7 +719,7 @@ func (a *Client) GetScimV2User(ctx context.Context, params *GetScimV2UserParams)
 /*
 GetScimV2Users gets a list of users
 
-To return all active users, do not use a filter parameter. To return inactive users, set "filter" to "active eq false". By default, returns SCIM attributes externalId, enterprise-user:manager, and roles. To exclude these attributes, set "attributes" to "id,active" or "excludeAttributes" to "externalId,roles,urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division".
+To return all active users, do not use the filter parameter. To return inactive users, set the filter parameter to "active eq false". By default, returns SCIM attributes "externalId", "enterprise-user:manager", and "roles". To exclude these attributes, set the attributes parameter to "id,active" or the excludeAttributes parameter to "externalId,roles,urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division".
 */
 func (a *Client) GetScimV2Users(ctx context.Context, params *GetScimV2UsersParams) (*GetScimV2UsersOK, error) {
 
@@ -844,9 +844,9 @@ func (a *Client) PatchScimV2User(ctx context.Context, params *PatchScimV2UserPar
 }
 
 /*
-PostScimGroups thes information used to create a group
+PostScimGroups creates a group
 
-PureCloud group will be created as "Official" group with visibility set "Public", and rules visibility True. Will auto-create an external ID if one is not provided on create. External ID is used to determine if delete should be allowed.
+Creates a Genesys Cloud group with group visibility set to "public" and rules visibility set to "true". Auto-creates an "externalId". "externalId" is used to determine if DELETE /api/v2/scim/groups/{groupId} or DELETE /api/v2/scim/v2/groups/{groupId} should be allowed.
 */
 func (a *Client) PostScimGroups(ctx context.Context, params *PostScimGroupsParams) (*PostScimGroupsOK, error) {
 
@@ -902,9 +902,9 @@ func (a *Client) PostScimUsers(ctx context.Context, params *PostScimUsersParams)
 }
 
 /*
-PostScimV2Groups thes information used to create a group
+PostScimV2Groups creates a group
 
-PureCloud group will be created as "Official" group with visibility set "Public", and rules visibility True. Will auto-create an external ID if one is not provided on create. External ID is used to determine if delete should be allowed.
+Creates an "official" Genesys Cloud group with group visibility set to "public" and rules visibility set to "true". Auto-creates an "externalId". "externalId" is used to determine if DELETE /api/v2/scim/groups/{groupId} or DELETE /api/v2/scim/v2/groups/{groupId} should be allowed.
 */
 func (a *Client) PostScimV2Groups(ctx context.Context, params *PostScimV2GroupsParams) (*PostScimV2GroupsOK, error) {
 

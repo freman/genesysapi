@@ -20,6 +20,9 @@ import (
 // swagger:model ReportingExportJobRequest
 type ReportingExportJobRequest struct {
 
+	// Excludes empty rows from the exports
+	ExcludeEmptyRows bool `json:"excludeEmptyRows,omitempty"`
+
 	// The requested format of the exported data
 	// Required: true
 	// Enum: [CSV PDF]
@@ -34,6 +37,9 @@ type ReportingExportJobRequest struct {
 
 	// Indicates if durations are formatted in hh:mm:ss format instead of ms
 	HasFormatDurations bool `json:"hasFormatDurations,omitempty"`
+
+	// Indicates if media type will be split in aggregate detail exports
+	HasSplitByMedia bool `json:"hasSplitByMedia,omitempty"`
 
 	// Indicates if filters will be split in aggregate detail exports
 	HasSplitFilters bool `json:"hasSplitFilters,omitempty"`

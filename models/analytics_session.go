@@ -147,6 +147,9 @@ type AnalyticsSession struct {
 	// remote name displayable
 	RemoteNameDisplayable string `json:"remoteNameDisplayable,omitempty"`
 
+	// All routing types for requested/attempted routing methods.
+	RequestedRoutings []string `json:"requestedRoutings"`
+
 	// Unique identifier for the room
 	RoomID string `json:"roomId,omitempty"`
 
@@ -162,6 +165,12 @@ type AnalyticsSession struct {
 	// List of segments for this session
 	Segments []*AnalyticsConversationSegment `json:"segments"`
 
+	// Selected agent id
+	SelectedAgentID string `json:"selectedAgentId,omitempty"`
+
+	// Selected agent GPR rank
+	SelectedAgentRank int32 `json:"selectedAgentRank,omitempty"`
+
 	// Dialed number for the current session; this can be different from dnis, e.g. if the call was transferred
 	SessionDnis string `json:"sessionDnis,omitempty"`
 
@@ -176,6 +185,10 @@ type AnalyticsSession struct {
 
 	// The number of seconds before PureCloud begins the call for a call back. 0 disables automatic calling
 	TimeoutSeconds int32 `json:"timeoutSeconds,omitempty"`
+
+	// Complete routing method
+	// Enum: [Predictive Preferred Manual Last Bullseye Standard]
+	UsedRouting string `json:"usedRouting,omitempty"`
 
 	// Direct Video address
 	VideoAddressSelf string `json:"videoAddressSelf,omitempty"`
@@ -216,7 +229,15 @@ func (m *AnalyticsSession) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateRequestedRoutings(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateSegments(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateUsedRouting(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -460,6 +481,43 @@ func (m *AnalyticsSession) validateMetrics(formats strfmt.Registry) error {
 	return nil
 }
 
+var analyticsSessionRequestedRoutingsItemsEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Predictive","Preferred","Manual","Last","Bullseye","Standard"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		analyticsSessionRequestedRoutingsItemsEnum = append(analyticsSessionRequestedRoutingsItemsEnum, v)
+	}
+}
+
+func (m *AnalyticsSession) validateRequestedRoutingsItemsEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, analyticsSessionRequestedRoutingsItemsEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *AnalyticsSession) validateRequestedRoutings(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.RequestedRoutings) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.RequestedRoutings); i++ {
+
+		// value enum
+		if err := m.validateRequestedRoutingsItemsEnum("requestedRoutings"+"."+strconv.Itoa(i), "body", m.RequestedRoutings[i]); err != nil {
+			return err
+		}
+
+	}
+
+	return nil
+}
+
 func (m *AnalyticsSession) validateSegments(formats strfmt.Registry) error {
 
 	if swag.IsZero(m.Segments) { // not required
@@ -480,6 +538,61 @@ func (m *AnalyticsSession) validateSegments(formats strfmt.Registry) error {
 			}
 		}
 
+	}
+
+	return nil
+}
+
+var analyticsSessionTypeUsedRoutingPropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Predictive","Preferred","Manual","Last","Bullseye","Standard"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		analyticsSessionTypeUsedRoutingPropEnum = append(analyticsSessionTypeUsedRoutingPropEnum, v)
+	}
+}
+
+const (
+
+	// AnalyticsSessionUsedRoutingPredictive captures enum value "Predictive"
+	AnalyticsSessionUsedRoutingPredictive string = "Predictive"
+
+	// AnalyticsSessionUsedRoutingPreferred captures enum value "Preferred"
+	AnalyticsSessionUsedRoutingPreferred string = "Preferred"
+
+	// AnalyticsSessionUsedRoutingManual captures enum value "Manual"
+	AnalyticsSessionUsedRoutingManual string = "Manual"
+
+	// AnalyticsSessionUsedRoutingLast captures enum value "Last"
+	AnalyticsSessionUsedRoutingLast string = "Last"
+
+	// AnalyticsSessionUsedRoutingBullseye captures enum value "Bullseye"
+	AnalyticsSessionUsedRoutingBullseye string = "Bullseye"
+
+	// AnalyticsSessionUsedRoutingStandard captures enum value "Standard"
+	AnalyticsSessionUsedRoutingStandard string = "Standard"
+)
+
+// prop value enum
+func (m *AnalyticsSession) validateUsedRoutingEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, analyticsSessionTypeUsedRoutingPropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *AnalyticsSession) validateUsedRouting(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.UsedRouting) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateUsedRoutingEnum("usedRouting", "body", m.UsedRouting); err != nil {
+		return err
 	}
 
 	return nil

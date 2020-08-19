@@ -82,22 +82,22 @@ for the get scim v2 groups operation typically these are written to a http.Reque
 type GetScimV2GroupsParams struct {
 
 	/*Attributes
-	  Indicates which attributes to include. Returns these attributes and the 'id', 'active', and 'meta attributes . Use "attributes" to avoid expensive secondary calls for the default attributes.
+	  Indicates which attributes to include. Returns these attributes and the "id", "active", and "meta" attributes. Use "attributes" to avoid expensive additional calls for the default attributes.
 
 	*/
 	Attributes []string
 	/*Count
-	  The requested number of items per page. A value of 0 returns "totalResults".
+	  The requested number of items per page. A value of 0 returns "totalResults". Note that a page size over 25 will likely cause a 429 error by exceeding internal resource limits. Page sizes over 25 will require using excludedAttributes and includeAttributes query parameters to exclude secondary lookup values -- (i.e. externalId, roles, urn:ietf:params:scim:schemas:extension:genesys:purecloud:2.0:User:routingLanguages, urn:ietf:params:scim:schemas:extension:genesys:purecloud:2.0:User:routingSkills)
 
 	*/
 	Count *int32
 	/*ExcludedAttributes
-	  Indicates which attributes to exclude. Returns the default attributes minus "excludedAttributes". Use "excludedAttributes" to avoid expensive secondary calls for the default attributes. The'id', 'active', and 'meta'  attributes will always be present in the output.
+	  Indicates which attributes to exclude. Always returns the "id", "active", and "meta" attributes. Returns the default attributes minus "excludedAttributes". Use "excludedAttributes" to avoid expensive additional calls for the default attributes.
 
 	*/
 	ExcludedAttributes []string
 	/*Filter
-	  Filters results.
+	  Filters results. If nothing is specified, returns all groups. Examples of valid values: "id eq 5f4bc742-a019-4e38-8e2a-d39d5bc0b0f3", "displayname eq Sales".
 
 	*/
 	Filter string

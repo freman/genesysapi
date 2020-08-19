@@ -21,7 +21,7 @@ type UserRoutingLanguagePost struct {
 	// Required: true
 	ID *string `json:"id"`
 
-	// URI to the organization language used by this user langauge.
+	// URI to the organization language used by this user language.
 	// Read Only: true
 	// Format: uri
 	LanguageURI strfmt.URI `json:"languageUri,omitempty"`

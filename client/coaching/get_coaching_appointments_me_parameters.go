@@ -87,7 +87,7 @@ type GetCoachingAppointmentsMeParams struct {
 	*/
 	FacilitatorIds []string
 	/*Interval
-	  Interval string; format is ISO-8601. Separate start and end times with forward slash '/'
+	  Interval to filter data by. Intervals are represented as an ISO-8601 string. For example: YYYY-MM-DDThh:mm:ss/YYYY-MM-DDThh:mm:ss
 
 	*/
 	Interval *string

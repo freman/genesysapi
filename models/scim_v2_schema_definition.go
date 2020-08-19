@@ -13,20 +13,20 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// ScimV2SchemaDefinition A SCIM schema definition.
+// ScimV2SchemaDefinition Defines a SCIM schema.
 //
 // swagger:model ScimV2SchemaDefinition
 type ScimV2SchemaDefinition struct {
 
-	// A complex type that defines service provider attributes and their qualities.
+	// The list of service provider attributes.
 	// Read Only: true
 	Attributes []*ScimV2SchemaAttribute `json:"attributes"`
 
-	// Schema description.
+	// The description of the schema.
 	// Read Only: true
 	Description string `json:"description,omitempty"`
 
-	// The ID of the SCIM resource. Set by the service provider. "caseExact" is set to "true". "Mutability" is set to "readOnly". "Returned" is set to "always".
+	// The ID of the SCIM resource. Set by the service provider. "caseExact" is set to "true". "mutability" is set to "readOnly". "returned" is set to "always".
 	// Read Only: true
 	ID string `json:"id,omitempty"`
 
@@ -34,7 +34,7 @@ type ScimV2SchemaDefinition struct {
 	// Read Only: true
 	Meta *ScimMetadata `json:"meta,omitempty"`
 
-	// Schema name.
+	// The name of the schema.
 	// Read Only: true
 	Name string `json:"name,omitempty"`
 }

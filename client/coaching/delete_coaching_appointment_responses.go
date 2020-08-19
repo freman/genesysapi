@@ -23,6 +23,12 @@ type DeleteCoachingAppointmentReader struct {
 // ReadResponse reads a server response into the received o.
 func (o *DeleteCoachingAppointmentReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {
+	case 202:
+		result := NewDeleteCoachingAppointmentAccepted()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return result, nil
 	case 204:
 		result := NewDeleteCoachingAppointmentNoContent()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -99,6 +105,39 @@ func (o *DeleteCoachingAppointmentReader) ReadResponse(response runtime.ClientRe
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
+}
+
+// NewDeleteCoachingAppointmentAccepted creates a DeleteCoachingAppointmentAccepted with default headers values
+func NewDeleteCoachingAppointmentAccepted() *DeleteCoachingAppointmentAccepted {
+	return &DeleteCoachingAppointmentAccepted{}
+}
+
+/*DeleteCoachingAppointmentAccepted handles this case with default header values.
+
+Appointment delete request accepted.
+*/
+type DeleteCoachingAppointmentAccepted struct {
+	Payload *models.CoachingAppointmentReference
+}
+
+func (o *DeleteCoachingAppointmentAccepted) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/coaching/appointments/{appointmentId}][%d] deleteCoachingAppointmentAccepted  %+v", 202, o.Payload)
+}
+
+func (o *DeleteCoachingAppointmentAccepted) GetPayload() *models.CoachingAppointmentReference {
+	return o.Payload
+}
+
+func (o *DeleteCoachingAppointmentAccepted) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.CoachingAppointmentReference)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
 }
 
 // NewDeleteCoachingAppointmentNoContent creates a DeleteCoachingAppointmentNoContent with default headers values

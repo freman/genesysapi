@@ -67,12 +67,12 @@ type GetScimV2GroupParams struct {
 	*/
 	IfNoneMatch *string
 	/*Attributes
-	  Indicates which attributes to include. Returns these attributes and the 'id', 'active', and 'meta attributes . Use "attributes" to avoid expensive secondary calls for the default attributes.
+	  Indicates which attributes to include. Returns these attributes and the "id", "active", and "meta" attributes. Use "attributes" to avoid expensive additional calls for the default attributes.
 
 	*/
 	Attributes []string
 	/*ExcludedAttributes
-	  Indicates which attributes to exclude. Returns the default attributes minus "excludedAttributes". Use "excludedAttributes" to avoid expensive secondary calls for the default attributes. The'id', 'active', and 'meta'  attributes will always be present in the output.
+	  Indicates which attributes to exclude. Always returns the "id", "active", and "meta" attributes. Returns the default attributes minus "excludedAttributes". Use "excludedAttributes" to avoid expensive additional calls for the default attributes.
 
 	*/
 	ExcludedAttributes []string

@@ -19,6 +19,9 @@ import (
 // swagger:model WfmHistoricalAdherenceResponse
 type WfmHistoricalAdherenceResponse struct {
 
+	// Result will always come via downloadUrls; however the schema is included for documentation
+	DownloadResult *WfmHistoricalAdherenceResultWrapper `json:"downloadResult,omitempty"`
+
 	// Deprecated. Use downloadUrls instead.
 	DownloadURL string `json:"downloadUrl,omitempty"`
 
@@ -37,6 +40,10 @@ type WfmHistoricalAdherenceResponse struct {
 func (m *WfmHistoricalAdherenceResponse) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateDownloadResult(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateQueryState(formats); err != nil {
 		res = append(res, err)
 	}
@@ -44,6 +51,24 @@ func (m *WfmHistoricalAdherenceResponse) Validate(formats strfmt.Registry) error
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *WfmHistoricalAdherenceResponse) validateDownloadResult(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.DownloadResult) { // not required
+		return nil
+	}
+
+	if m.DownloadResult != nil {
+		if err := m.DownloadResult.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("downloadResult")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

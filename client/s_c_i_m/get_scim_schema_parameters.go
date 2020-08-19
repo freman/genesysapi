@@ -61,7 +61,7 @@ for the get scim schema operation typically these are written to a http.Request
 type GetScimSchemaParams struct {
 
 	/*SchemaID
-	  The ID of a schema.
+	  The ID of a schema. Returned with GET /api/v2/scim/schemas.
 
 	*/
 	SchemaID string

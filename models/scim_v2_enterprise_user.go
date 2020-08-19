@@ -11,7 +11,7 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// ScimV2EnterpriseUser Defines an SCIM enterprise user.
+// ScimV2EnterpriseUser Defines a SCIM enterprise user.
 //
 // swagger:model ScimV2EnterpriseUser
 type ScimV2EnterpriseUser struct {

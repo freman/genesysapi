@@ -13,12 +13,12 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// ScimV2SchemaListResponse SCIM Resource Types list response
+// ScimV2SchemaListResponse Defines the list response for SCIM resource types.
 //
 // swagger:model ScimV2SchemaListResponse
 type ScimV2SchemaListResponse struct {
 
-	// Resources
+	// The list of requested resources.
 	// Read Only: true
 	Resources []*ScimV2SchemaDefinition `json:"Resources"`
 

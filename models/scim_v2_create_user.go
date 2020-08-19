@@ -35,7 +35,7 @@ type ScimV2CreateUser struct {
 	// The list of groups that the user is a member of.
 	Groups []*ScimV2GroupReference `json:"groups"`
 
-	// The new password for the PureCloud user. Does not return an existing password.
+	// The new password for the Genesys Cloud user. Does not return an existing password.
 	Password string `json:"password,omitempty"`
 
 	// The list of the user's phone numbers.
@@ -54,10 +54,10 @@ type ScimV2CreateUser struct {
 	// The URI of the schema for the enterprise user.
 	UrnIetfParamsScimSchemasExtensionEnterprise20User *ScimV2EnterpriseUser `json:"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User,omitempty"`
 
-	// urn ietf params scim schemas extension genesys purecloud 2 0 user
+	// The URI of the schema for the Genesys Cloud user.
 	UrnIetfParamsScimSchemasExtensionGenesysPurecloud20User *ScimUserExtensions `json:"urn:ietf:params:scim:schemas:extension:genesys:purecloud:2.0:User,omitempty"`
 
-	// The user's PureCloud email address. Must be unique.
+	// The user's Genesys Cloud email address. Must be unique.
 	// Required: true
 	UserName *string `json:"userName"`
 }

@@ -14,7 +14,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// UserRoutingLanguage Represents an organization langauge assigned to a user. When assigning to a user specify the organization language id as the id.
+// UserRoutingLanguage Represents an organization language assigned to a user. When assigning to a user specify the organization language id as the id.
 //
 // swagger:model UserRoutingLanguage
 type UserRoutingLanguage struct {
@@ -23,7 +23,7 @@ type UserRoutingLanguage struct {
 	// Read Only: true
 	ID string `json:"id,omitempty"`
 
-	// URI to the organization language used by this user langauge.
+	// URI to the organization language used by this user language.
 	// Read Only: true
 	// Format: uri
 	LanguageURI strfmt.URI `json:"languageUri,omitempty"`
@@ -31,7 +31,7 @@ type UserRoutingLanguage struct {
 	// name
 	Name string `json:"name,omitempty"`
 
-	// Proficiency is a rating from 0.0 to 5.0 on how competent an agent is for a particular language. It is used when a queue is set to "Best available language" mode to allow acd interactions to target agents with higher proficiency ratings.
+	// A rating from 0.0 to 5.0 that indicates how fluent an agent is in a particular language. ACD interactions are routed to agents with higher proficiency ratings.
 	Proficiency float64 `json:"proficiency,omitempty"`
 
 	// The URI for this object
@@ -39,7 +39,7 @@ type UserRoutingLanguage struct {
 	// Format: uri
 	SelfURI strfmt.URI `json:"selfUri,omitempty"`
 
-	// Activate or deactivate this routing langauge.
+	// Activate or deactivate this routing language.
 	// Enum: [active inactive deleted]
 	State string `json:"state,omitempty"`
 }
