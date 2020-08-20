@@ -31,7 +31,7 @@ type Parameter struct {
 	ParameterType string `json:"parameterType,omitempty"`
 
 	// required
-	Required bool `json:"required,omitempty"`
+	Required bool `json:"required"`
 }
 
 // Validate validates this parameter

@@ -19,7 +19,7 @@ import (
 type MeteredEvaluationAssignment struct {
 
 	// assign to active user
-	AssignToActiveUser bool `json:"assignToActiveUser,omitempty"`
+	AssignToActiveUser bool `json:"assignToActiveUser"`
 
 	// evaluation context Id
 	EvaluationContextID string `json:"evaluationContextId,omitempty"`

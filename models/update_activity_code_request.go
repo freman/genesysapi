@@ -20,17 +20,17 @@ import (
 type UpdateActivityCodeRequest struct {
 
 	// Whether an agent can select this activity code when creating or editing a time off request
-	AgentTimeOffSelectable bool `json:"agentTimeOffSelectable,omitempty"`
+	AgentTimeOffSelectable bool `json:"agentTimeOffSelectable"`
 
 	// The activity code's category. Attempting to change the category of a default activity code will return an error
 	// Enum: [OnQueueWork Break Meal Meeting OffQueueWork TimeOff Training Unavailable Unscheduled]
 	Category string `json:"category,omitempty"`
 
 	// Whether an agent is paid while performing this activity
-	CountsAsPaidTime bool `json:"countsAsPaidTime,omitempty"`
+	CountsAsPaidTime bool `json:"countsAsPaidTime"`
 
 	// Indicates whether or not the activity should be counted as work time
-	CountsAsWorkTime bool `json:"countsAsWorkTime,omitempty"`
+	CountsAsWorkTime bool `json:"countsAsWorkTime"`
 
 	// The default length of the activity in minutes
 	LengthInMinutes int32 `json:"lengthInMinutes,omitempty"`

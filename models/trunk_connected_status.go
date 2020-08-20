@@ -18,7 +18,7 @@ import (
 type TrunkConnectedStatus struct {
 
 	// connected
-	Connected bool `json:"connected,omitempty"`
+	Connected bool `json:"connected"`
 
 	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
 	// Format: date-time

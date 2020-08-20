@@ -72,7 +72,7 @@ type Organization struct {
 	Version *int32 `json:"version"`
 
 	// voicemail enabled
-	VoicemailEnabled bool `json:"voicemailEnabled,omitempty"`
+	VoicemailEnabled bool `json:"voicemailEnabled"`
 }
 
 // Validate validates this organization

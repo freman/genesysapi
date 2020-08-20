@@ -22,7 +22,7 @@ type DomainPermissionPolicy struct {
 	ActionSet []string `json:"actionSet"`
 
 	// allow conditions
-	AllowConditions bool `json:"allowConditions,omitempty"`
+	AllowConditions bool `json:"allowConditions"`
 
 	// domain
 	Domain string `json:"domain,omitempty"`

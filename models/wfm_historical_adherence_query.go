@@ -22,7 +22,7 @@ type WfmHistoricalAdherenceQuery struct {
 	EndDate strfmt.DateTime `json:"endDate,omitempty"`
 
 	// Whether user exceptions should be returned as part of the results
-	IncludeExceptions bool `json:"includeExceptions,omitempty"`
+	IncludeExceptions bool `json:"includeExceptions"`
 
 	// Beginning of the date range to query in ISO-8601 format
 	// Required: true

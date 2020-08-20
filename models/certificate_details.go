@@ -22,7 +22,7 @@ type CertificateDetails struct {
 	ExpirationDate strfmt.DateTime `json:"expirationDate,omitempty"`
 
 	// True if the certificate is expired, false otherwise.
-	Expired bool `json:"expired,omitempty"`
+	Expired bool `json:"expired"`
 
 	// The issue date of the certificate. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
 	// Format: date-time
@@ -32,13 +32,13 @@ type CertificateDetails struct {
 	Issuer string `json:"issuer,omitempty"`
 
 	// signature valid
-	SignatureValid bool `json:"signatureValid,omitempty"`
+	SignatureValid bool `json:"signatureValid"`
 
 	// Information about the subject of the certificate.  The value of this property is a comma separated key=value format.  Each key is one of the attribute names supported by X.500.
 	Subject string `json:"subject,omitempty"`
 
 	// valid
-	Valid bool `json:"valid,omitempty"`
+	Valid bool `json:"valid"`
 }
 
 // Validate validates this certificate details

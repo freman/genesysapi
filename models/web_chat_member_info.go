@@ -20,7 +20,7 @@ import (
 type WebChatMemberInfo struct {
 
 	// If true, the guest member is an authenticated guest.
-	AuthenticatedGuest bool `json:"authenticatedGuest,omitempty"`
+	AuthenticatedGuest bool `json:"authenticatedGuest"`
 
 	// The url to the avatar image of the member.
 	// Format: uri

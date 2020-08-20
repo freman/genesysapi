@@ -47,7 +47,7 @@ type CampaignSequence struct {
 	Name string `json:"name,omitempty"`
 
 	// Indicates if a sequence should repeat from the beginning after the last campaign completes. Default is false.
-	Repeat bool `json:"repeat,omitempty"`
+	Repeat bool `json:"repeat"`
 
 	// The URI for this object
 	// Read Only: true

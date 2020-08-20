@@ -16,7 +16,7 @@ import (
 type ContactCenterSettings struct {
 
 	// Strip skills from transfer
-	RemoveSkillsFromBlindTransfer bool `json:"removeSkillsFromBlindTransfer,omitempty"`
+	RemoveSkillsFromBlindTransfer bool `json:"removeSkillsFromBlindTransfer"`
 }
 
 // Validate validates this contact center settings

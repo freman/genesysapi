@@ -24,7 +24,7 @@ type BuScheduleRun struct {
 	ID string `json:"id,omitempty"`
 
 	// Whether this is an intraday rescheduling run
-	IntradayRescheduling bool `json:"intradayRescheduling,omitempty"`
+	IntradayRescheduling bool `json:"intradayRescheduling"`
 
 	// The number of schedule generation messages for this schedule generation run
 	MessageCount int32 `json:"messageCount,omitempty"`

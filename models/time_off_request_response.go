@@ -35,10 +35,10 @@ type TimeOffRequestResponse struct {
 	ID string `json:"id,omitempty"`
 
 	// Whether this is a full day request (false means partial day)
-	IsFullDayRequest bool `json:"isFullDayRequest,omitempty"`
+	IsFullDayRequest bool `json:"isFullDayRequest"`
 
 	// Whether this request has been marked as read by the agent
-	MarkedAsRead bool `json:"markedAsRead,omitempty"`
+	MarkedAsRead bool `json:"markedAsRead"`
 
 	// The version metadata of the time off request
 	Metadata *WfmVersionedEntityMetadata `json:"metadata,omitempty"`

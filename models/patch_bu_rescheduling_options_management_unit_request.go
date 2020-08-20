@@ -18,7 +18,7 @@ import (
 type PatchBuReschedulingOptionsManagementUnitRequest struct {
 
 	// Whether to mark the run as applied.  Only applies to reschedule runs.  Once applied, a run cannot be un-marked as applied
-	Applied bool `json:"applied,omitempty"`
+	Applied bool `json:"applied"`
 
 	// The management unit portion of the rescheduling run to update
 	// Required: true

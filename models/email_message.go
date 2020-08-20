@@ -33,7 +33,7 @@ type EmailMessage struct {
 	From *EmailAddress `json:"from"`
 
 	// Indicates whether the history of previous emails of the conversation is included within the email bodies of this message.
-	HistoryIncluded bool `json:"historyIncluded,omitempty"`
+	HistoryIncluded bool `json:"historyIncluded"`
 
 	// The html body of the email message.
 	HTMLBody string `json:"htmlBody,omitempty"`

@@ -16,7 +16,7 @@ import (
 type FeatureState struct {
 
 	// enabled
-	Enabled bool `json:"enabled,omitempty"`
+	Enabled bool `json:"enabled"`
 }
 
 // Validate validates this feature state

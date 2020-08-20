@@ -23,7 +23,7 @@ type SystemPromptAsset struct {
 	DurationSeconds float64 `json:"durationSeconds,omitempty"`
 
 	// has default
-	HasDefault bool `json:"hasDefault,omitempty"`
+	HasDefault bool `json:"hasDefault"`
 
 	// The globally unique identifier for the object.
 	// Read Only: true
@@ -34,7 +34,7 @@ type SystemPromptAsset struct {
 	Language *string `json:"language"`
 
 	// language default
-	LanguageDefault bool `json:"languageDefault,omitempty"`
+	LanguageDefault bool `json:"languageDefault"`
 
 	// media Uri
 	MediaURI string `json:"mediaUri,omitempty"`

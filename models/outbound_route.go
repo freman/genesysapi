@@ -46,7 +46,7 @@ type OutboundRoute struct {
 	Distribution string `json:"distribution,omitempty"`
 
 	// enabled
-	Enabled bool `json:"enabled,omitempty"`
+	Enabled bool `json:"enabled"`
 
 	// Trunk base settings of trunkType "EXTERNAL".  This base must also be set on an edge logical interface for correct routing.
 	ExternalTrunkBases []*DomainEntityRef `json:"externalTrunkBases"`
@@ -57,7 +57,7 @@ type OutboundRoute struct {
 
 	// Is this outbound route being managed remotely.
 	// Read Only: true
-	Managed *bool `json:"managed,omitempty"`
+	Managed *bool `json:"managed"`
 
 	// The ID of the user that last modified the resource.
 	ModifiedBy string `json:"modifiedBy,omitempty"`

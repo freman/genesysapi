@@ -42,14 +42,14 @@ type CampaignRule struct {
 	DateModified strfmt.DateTime `json:"dateModified,omitempty"`
 
 	// Whether or not this CampaignRule is currently enabled. Required on updates.
-	Enabled bool `json:"enabled,omitempty"`
+	Enabled bool `json:"enabled"`
 
 	// The globally unique identifier for the object.
 	// Read Only: true
 	ID string `json:"id,omitempty"`
 
 	// match any conditions
-	MatchAnyConditions bool `json:"matchAnyConditions,omitempty"`
+	MatchAnyConditions bool `json:"matchAnyConditions"`
 
 	// The name of the CampaignRule.
 	// Required: true

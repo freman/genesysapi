@@ -24,7 +24,7 @@ type EvaluationQuestion struct {
 	AnswerOptions []*AnswerOption `json:"answerOptions"`
 
 	// comments required
-	CommentsRequired bool `json:"commentsRequired,omitempty"`
+	CommentsRequired bool `json:"commentsRequired"`
 
 	// help text
 	HelpText string `json:"helpText,omitempty"`
@@ -33,13 +33,13 @@ type EvaluationQuestion struct {
 	ID string `json:"id,omitempty"`
 
 	// is critical
-	IsCritical bool `json:"isCritical,omitempty"`
+	IsCritical bool `json:"isCritical"`
 
 	// is kill
-	IsKill bool `json:"isKill,omitempty"`
+	IsKill bool `json:"isKill"`
 
 	// na enabled
-	NaEnabled bool `json:"naEnabled,omitempty"`
+	NaEnabled bool `json:"naEnabled"`
 
 	// text
 	Text string `json:"text,omitempty"`

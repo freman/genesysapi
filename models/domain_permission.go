@@ -19,10 +19,10 @@ type DomainPermission struct {
 	Action string `json:"action,omitempty"`
 
 	// allows conditions
-	AllowsConditions bool `json:"allowsConditions,omitempty"`
+	AllowsConditions bool `json:"allowsConditions"`
 
 	// division aware
-	DivisionAware bool `json:"divisionAware,omitempty"`
+	DivisionAware bool `json:"divisionAware"`
 
 	// domain
 	Domain string `json:"domain,omitempty"`

@@ -152,10 +152,10 @@ type ParticipantBasic struct {
 	WrapupPrompt string `json:"wrapupPrompt,omitempty"`
 
 	// True iff this participant is required to enter wrapup for this conversation.
-	WrapupRequired bool `json:"wrapupRequired,omitempty"`
+	WrapupRequired bool `json:"wrapupRequired"`
 
 	// The UI sets this field when the agent chooses to skip entering a wrapup for this participant.
-	WrapupSkipped bool `json:"wrapupSkipped,omitempty"`
+	WrapupSkipped bool `json:"wrapupSkipped"`
 
 	// Specifies how long a timed ACW session will last.
 	WrapupTimeoutMs int32 `json:"wrapupTimeoutMs,omitempty"`

@@ -18,7 +18,7 @@ import (
 type SmsAddressProvision struct {
 
 	// This is used when the address is created. If the value is not set or true, then the system will, if necessary, auto-correct the address you provide. Set this value to false if the system should not auto-correct the address.
-	AutoCorrectAddress bool `json:"autoCorrectAddress,omitempty"`
+	AutoCorrectAddress bool `json:"autoCorrectAddress"`
 
 	// The city in which this address is in
 	// Required: true

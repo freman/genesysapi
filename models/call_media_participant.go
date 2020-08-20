@@ -32,7 +32,7 @@ type CallMediaParticipant struct {
 	Attributes map[string]string `json:"attributes,omitempty"`
 
 	// Value is true when the call is confined.
-	Confined bool `json:"confined,omitempty"`
+	Confined bool `json:"confined"`
 
 	// The time when this participant went connected for this media (eg: video connected time). Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
 	// Format: date-time
@@ -86,7 +86,7 @@ type CallMediaParticipant struct {
 	Group *DomainEntityRef `json:"group,omitempty"`
 
 	// Value is true when the participant is on hold.
-	Held bool `json:"held,omitempty"`
+	Held bool `json:"held"`
 
 	// The unique participant ID.
 	ID string `json:"id,omitempty"`
@@ -98,7 +98,7 @@ type CallMediaParticipant struct {
 	MonitoredParticipantID string `json:"monitoredParticipantId,omitempty"`
 
 	// Value is true when the call is muted.
-	Muted bool `json:"muted,omitempty"`
+	Muted bool `json:"muted"`
 
 	// The display friendly name of the participant.
 	Name string `json:"name,omitempty"`
@@ -116,7 +116,7 @@ type CallMediaParticipant struct {
 	Queue *DomainEntityRef `json:"queue,omitempty"`
 
 	// Value is true when the call is being recorded.
-	Recording bool `json:"recording,omitempty"`
+	Recording bool `json:"recording"`
 
 	// The state of the call recording.
 	// Enum: [none active paused]
@@ -157,10 +157,10 @@ type CallMediaParticipant struct {
 	WrapupPrompt string `json:"wrapupPrompt,omitempty"`
 
 	// Value is true when the participant requires wrap-up.
-	WrapupRequired bool `json:"wrapupRequired,omitempty"`
+	WrapupRequired bool `json:"wrapupRequired"`
 
 	// Value is true when the participant has skipped wrap-up.
-	WrapupSkipped bool `json:"wrapupSkipped,omitempty"`
+	WrapupSkipped bool `json:"wrapupSkipped"`
 
 	// The amount of time the participant has to complete wrap-up.
 	WrapupTimeoutMs int32 `json:"wrapupTimeoutMs,omitempty"`

@@ -25,7 +25,7 @@ type CampaignRuleActionEntities struct {
 	Sequences []*DomainEntityRef `json:"sequences"`
 
 	// If true, the CampaignRuleAction will apply to the same entity that triggered the CampaignRuleCondition.
-	UseTriggeringEntity bool `json:"useTriggeringEntity,omitempty"`
+	UseTriggeringEntity bool `json:"useTriggeringEntity"`
 }
 
 // Validate validates this campaign rule action entities

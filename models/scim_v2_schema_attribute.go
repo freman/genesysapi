@@ -26,7 +26,7 @@ type ScimV2SchemaAttribute struct {
 
 	// Indicates whether a string attribute is case-sensitive. If set to "true", the server preserves case sensitivity. If set to "false", the server may change the case. The server also uses case sensitivity when evaluating filters. See section 3.4.2.2 "Filtering" in RFC 7644 for details.
 	// Read Only: true
-	CaseExact *bool `json:"caseExact,omitempty"`
+	CaseExact *bool `json:"caseExact"`
 
 	// The description of the attribute.
 	// Read Only: true
@@ -34,7 +34,7 @@ type ScimV2SchemaAttribute struct {
 
 	// Indicates whether an attribute contains multiple values.
 	// Read Only: true
-	MultiValued *bool `json:"multiValued,omitempty"`
+	MultiValued *bool `json:"multiValued"`
 
 	// The circumstances under which an attribute can be defined or redefined. The default is "readWrite".
 	// Read Only: true
@@ -51,7 +51,7 @@ type ScimV2SchemaAttribute struct {
 
 	// Indicates whether an attribute is required.
 	// Read Only: true
-	Required *bool `json:"required,omitempty"`
+	Required *bool `json:"required"`
 
 	// The circumstances under which an attribute and its values are returned in response to a GET, PUT, POST, or PATCH request.
 	// Read Only: true

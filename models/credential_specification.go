@@ -21,7 +21,7 @@ type CredentialSpecification struct {
 
 	// Indicates if the credential must be provided in order for the integration configuration to be valid.
 	// Read Only: true
-	Required *bool `json:"required,omitempty"`
+	Required *bool `json:"required"`
 
 	// Title describing the usage for this credential.
 	// Read Only: true

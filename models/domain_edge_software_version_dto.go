@@ -18,7 +18,7 @@ import (
 type DomainEdgeSoftwareVersionDto struct {
 
 	// current
-	Current bool `json:"current,omitempty"`
+	Current bool `json:"current"`
 
 	// edge Uri
 	// Format: uri
@@ -32,7 +32,7 @@ type DomainEdgeSoftwareVersionDto struct {
 	ID string `json:"id,omitempty"`
 
 	// latest release
-	LatestRelease bool `json:"latestRelease,omitempty"`
+	LatestRelease bool `json:"latestRelease"`
 
 	// name
 	Name string `json:"name,omitempty"`

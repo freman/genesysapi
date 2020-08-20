@@ -32,10 +32,10 @@ type ReportingExportJobResponse struct {
 	EmailStatuses map[string]string `json:"emailStatuses,omitempty"`
 
 	// enabled
-	Enabled bool `json:"enabled,omitempty"`
+	Enabled bool `json:"enabled"`
 
 	// Excludes empty rows from the exports
-	ExcludeEmptyRows bool `json:"excludeEmptyRows,omitempty"`
+	ExcludeEmptyRows bool `json:"excludeEmptyRows"`
 
 	// The error message in case the export request failed
 	// Enum: [FAILED_CONVERTING_EXPORT_JOB FAILED_NO_DATA_EXPORT_JOB_FOUND FAILED_GETTING_DATA_FROM_SERVICE FAILED_GENERATING_TEMP_FILE FAILED_SAVING_FILE_TO_S3 FAILED_NOTIFYING_SKYWALKER_OF_DOWNLOAD FAILED_BUILDING_DOWNLOAD_URL_FROM_SKYWALKER_RESPONSE FAILED_CONVERTING_EXPORT_JOB_TO_QUEUE_PERFORMANCE_JOB EXPORT_TYPE_NOT_IMPLEMENTED REACHED_MAXIMUM_ATTEMPT_OF_RETRY FAILED_LONG_RUNNING_EXPORT TOO_MANY_REQUESTS_FROM_AN_ORGANIZATION]
@@ -51,16 +51,16 @@ type ReportingExportJobResponse struct {
 	Filter *ViewFilter `json:"filter"`
 
 	// Indicates if custom participant attributes will be exported
-	HasCustomParticipantAttributes bool `json:"hasCustomParticipantAttributes,omitempty"`
+	HasCustomParticipantAttributes bool `json:"hasCustomParticipantAttributes"`
 
 	// Indicates if durations are formatted in hh:mm:ss format instead of ms
-	HasFormatDurations bool `json:"hasFormatDurations,omitempty"`
+	HasFormatDurations bool `json:"hasFormatDurations"`
 
 	// Indicates if media type will be split in aggregate detail exports
-	HasSplitByMedia bool `json:"hasSplitByMedia,omitempty"`
+	HasSplitByMedia bool `json:"hasSplitByMedia"`
 
 	// Indicates if filters will be split in aggregate detail exports
-	HasSplitFilters bool `json:"hasSplitFilters,omitempty"`
+	HasSplitFilters bool `json:"hasSplitFilters"`
 
 	// The globally unique identifier for the object.
 	// Read Only: true

@@ -16,37 +16,37 @@ import (
 type ConversationProperties struct {
 
 	// Indicates filtering for WrapUpNotes
-	FilterWrapUpNotes bool `json:"filterWrapUpNotes,omitempty"`
+	FilterWrapUpNotes bool `json:"filterWrapUpNotes"`
 
 	// Indicates filtering for Acd
-	IsAcd bool `json:"isAcd,omitempty"`
+	IsAcd bool `json:"isAcd"`
 
 	// Indicates filtering for active
-	IsActive bool `json:"isActive,omitempty"`
+	IsActive bool `json:"isActive"`
 
 	// Indicates filtering for Cobrowse
-	IsCobrowse bool `json:"isCobrowse,omitempty"`
+	IsCobrowse bool `json:"isCobrowse"`
 
 	// Indicates filtering for flagged
-	IsFlagged bool `json:"isFlagged,omitempty"`
+	IsFlagged bool `json:"isFlagged"`
 
 	// Indicates filtering for monitored
-	IsMonitored bool `json:"isMonitored,omitempty"`
+	IsMonitored bool `json:"isMonitored"`
 
 	// Indicates filtering for Preferred Agent Routing
-	IsPreferred bool `json:"isPreferred,omitempty"`
+	IsPreferred bool `json:"isPreferred"`
 
 	// Indicates filtering for screenshare
-	IsScreenshare bool `json:"isScreenshare,omitempty"`
+	IsScreenshare bool `json:"isScreenshare"`
 
 	// Indicates filtering for Voice mail
-	IsVoicemail bool `json:"isVoicemail,omitempty"`
+	IsVoicemail bool `json:"isVoicemail"`
 
 	// Indicates filtering for waiting
-	IsWaiting bool `json:"isWaiting,omitempty"`
+	IsWaiting bool `json:"isWaiting"`
 
 	// Indicates comparison operation, TRUE indicates filters will use AND logic, FALSE indicates OR logic
-	MatchAll bool `json:"matchAll,omitempty"`
+	MatchAll bool `json:"matchAll"`
 }
 
 // Validate validates this conversation properties

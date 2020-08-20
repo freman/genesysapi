@@ -29,7 +29,7 @@ type DependencyType struct {
 	SelfURI strfmt.URI `json:"selfUri,omitempty"`
 
 	// versioned
-	Versioned bool `json:"versioned,omitempty"`
+	Versioned bool `json:"versioned"`
 }
 
 // Validate validates this dependency type

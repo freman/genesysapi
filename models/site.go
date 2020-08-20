@@ -55,10 +55,10 @@ type Site struct {
 	Location *LocationDefinition `json:"location"`
 
 	// managed
-	Managed bool `json:"managed,omitempty"`
+	Managed bool `json:"managed"`
 
 	// media regions use latency based
-	MediaRegionsUseLatencyBased bool `json:"mediaRegionsUseLatencyBased,omitempty"`
+	MediaRegionsUseLatencyBased bool `json:"mediaRegionsUseLatencyBased"`
 
 	// The ID of the user that last modified the resource.
 	ModifiedBy string `json:"modifiedBy,omitempty"`

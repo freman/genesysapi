@@ -41,7 +41,7 @@ type EmergencyGroup struct {
 	EmergencyCallFlows []*EmergencyCallFlow `json:"emergencyCallFlows"`
 
 	// True if an emergency is occurring and the associated emergency call flow(s) should be used.  False otherwise.
-	Enabled bool `json:"enabled,omitempty"`
+	Enabled bool `json:"enabled"`
 
 	// The globally unique identifier for the object.
 	// Read Only: true

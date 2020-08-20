@@ -21,7 +21,7 @@ import (
 type CampaignInteraction struct {
 
 	// Boolean value if there is an active preview call on the interaction
-	ActivePreviewCall bool `json:"activePreviewCall,omitempty"`
+	ActivePreviewCall bool `json:"activePreviewCall"`
 
 	// agent
 	Agent *DomainEntityRef `json:"agent,omitempty"`

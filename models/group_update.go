@@ -40,7 +40,7 @@ type GroupUpdate struct {
 	OwnerIds []string `json:"ownerIds"`
 
 	// Are membership rules visible to the person requesting to view the group
-	RulesVisible bool `json:"rulesVisible,omitempty"`
+	RulesVisible bool `json:"rulesVisible"`
 
 	// The URI for this object
 	// Read Only: true

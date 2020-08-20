@@ -21,7 +21,7 @@ import (
 type MessagingCampaign struct {
 
 	// Whether this messaging campaign is always running
-	AlwaysRunning bool `json:"alwaysRunning,omitempty"`
+	AlwaysRunning bool `json:"alwaysRunning"`
 
 	// The callable time set for this messaging campaign.
 	CallableTimeSet *DomainEntityRef `json:"callableTimeSet,omitempty"`

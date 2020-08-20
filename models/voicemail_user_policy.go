@@ -22,7 +22,7 @@ type VoicemailUserPolicy struct {
 
 	// Whether the user has voicemail enabled
 	// Read Only: true
-	Enabled *bool `json:"enabled,omitempty"`
+	Enabled *bool `json:"enabled"`
 
 	// The date the policy was last modified. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
 	// Read Only: true
@@ -33,7 +33,7 @@ type VoicemailUserPolicy struct {
 	Pin string `json:"pin,omitempty"`
 
 	// Whether email notifications are sent to the user when a new voicemail is received
-	SendEmailNotifications bool `json:"sendEmailNotifications,omitempty"`
+	SendEmailNotifications bool `json:"sendEmailNotifications"`
 }
 
 // Validate validates this voicemail user policy

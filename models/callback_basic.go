@@ -53,10 +53,10 @@ type CallbackBasic struct {
 	DisconnectedTime strfmt.DateTime `json:"disconnectedTime,omitempty"`
 
 	// True if the call for the callback uses external dialing.
-	ExternalCampaign bool `json:"externalCampaign,omitempty"`
+	ExternalCampaign bool `json:"externalCampaign"`
 
 	// True if this call is held and the person on this side hears silence.
-	Held bool `json:"held,omitempty"`
+	Held bool `json:"held"`
 
 	// A globally unique identifier for this communication.
 	ID string `json:"id,omitempty"`
@@ -74,7 +74,7 @@ type CallbackBasic struct {
 	Segments []*Segment `json:"segments"`
 
 	// True if the ability to skip a callback should be enabled.
-	SkipEnabled bool `json:"skipEnabled,omitempty"`
+	SkipEnabled bool `json:"skipEnabled"`
 
 	// The timestamp the communication has when it is first put into an alerting state. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
 	// Format: date-time

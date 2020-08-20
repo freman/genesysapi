@@ -25,16 +25,16 @@ type ScheduleGenerationWarning struct {
 	NoNeedDays []string `json:"noNeedDays"`
 
 	// Whether the schedule did not meet the minimum time between shifts defined in the agent work plan
-	ShiftsTooCloseTogether bool `json:"shiftsTooCloseTogether,omitempty"`
+	ShiftsTooCloseTogether bool `json:"shiftsTooCloseTogether"`
 
 	// Whether the number of scheduled days exceeded the maximum days to schedule defined in the agent work plan
-	UnableToMeetMaxDays bool `json:"unableToMeetMaxDays,omitempty"`
+	UnableToMeetMaxDays bool `json:"unableToMeetMaxDays"`
 
 	// Whether the schedule exceeded the maximum paid time for the week defined in the agent work plan
-	UnableToMeetMaxPaidForTheWeek bool `json:"unableToMeetMaxPaidForTheWeek,omitempty"`
+	UnableToMeetMaxPaidForTheWeek bool `json:"unableToMeetMaxPaidForTheWeek"`
 
 	// Whether the schedule did not meet the minimum paid time for the week defined in the agent work plan
-	UnableToMeetMinPaidForTheWeek bool `json:"unableToMeetMinPaidForTheWeek,omitempty"`
+	UnableToMeetMinPaidForTheWeek bool `json:"unableToMeetMinPaidForTheWeek"`
 
 	// Days indicated as required to work in agent work plan where no viable shift was found to schedule
 	// Unique: true
@@ -44,7 +44,7 @@ type ScheduleGenerationWarning struct {
 	UserID string `json:"userId,omitempty"`
 
 	// Whether the user does not have the appropriate license to be scheduled
-	UserNotLicensed bool `json:"userNotLicensed,omitempty"`
+	UserNotLicensed bool `json:"userNotLicensed"`
 }
 
 // Validate validates this schedule generation warning

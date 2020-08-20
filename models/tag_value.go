@@ -25,7 +25,7 @@ type TagValue struct {
 	ID string `json:"id,omitempty"`
 
 	// in use
-	InUse bool `json:"inUse,omitempty"`
+	InUse bool `json:"inUse"`
 
 	// The workspace tag name.
 	// Required: true

@@ -42,7 +42,7 @@ type InboundDomain struct {
 	SelfURI strfmt.URI `json:"selfUri,omitempty"`
 
 	// Indicates if this a PureCloud sub-domain.  If true, then the appropriate DNS records are created for sending/receiving email.
-	SubDomain bool `json:"subDomain,omitempty"`
+	SubDomain bool `json:"subDomain"`
 }
 
 // Validate validates this inbound domain

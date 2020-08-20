@@ -44,7 +44,7 @@ type CreateCallbackCommand struct {
 	ScriptID string `json:"scriptId,omitempty"`
 
 	// Whether or not to validate the callback numbers for phone number format.
-	ValidateCallbackNumbers bool `json:"validateCallbackNumbers,omitempty"`
+	ValidateCallbackNumbers bool `json:"validateCallbackNumbers"`
 }
 
 // Validate validates this create callback command

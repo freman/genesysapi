@@ -16,7 +16,7 @@ import (
 type ContentSortItem struct {
 
 	// ascending
-	Ascending bool `json:"ascending,omitempty"`
+	Ascending bool `json:"ascending"`
 
 	// name
 	Name string `json:"name,omitempty"`

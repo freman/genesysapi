@@ -18,7 +18,7 @@ import (
 type DeletableUserReference struct {
 
 	// If marked true, the user will be removed an associated entity
-	Delete bool `json:"delete,omitempty"`
+	Delete bool `json:"delete"`
 
 	// The globally unique identifier for the object.
 	ID string `json:"id,omitempty"`

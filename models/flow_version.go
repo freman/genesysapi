@@ -38,7 +38,7 @@ type FlowVersion struct {
 	DateCreated int64 `json:"dateCreated,omitempty"`
 
 	// debug
-	Debug bool `json:"debug,omitempty"`
+	Debug bool `json:"debug"`
 
 	// generation Id
 	GenerationID string `json:"generationId,omitempty"`
@@ -60,7 +60,7 @@ type FlowVersion struct {
 	PublishResultURI strfmt.URI `json:"publishResultUri,omitempty"`
 
 	// secure
-	Secure bool `json:"secure,omitempty"`
+	Secure bool `json:"secure"`
 
 	// The URI for this object
 	// Read Only: true

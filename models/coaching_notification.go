@@ -42,7 +42,7 @@ type CoachingNotification struct {
 	LengthInMinutes int32 `json:"lengthInMinutes,omitempty"`
 
 	// Indicates if notification is read or unread
-	MarkedAsRead bool `json:"markedAsRead,omitempty"`
+	MarkedAsRead bool `json:"markedAsRead"`
 
 	// The name of the appointment for this notification.
 	// Read Only: true

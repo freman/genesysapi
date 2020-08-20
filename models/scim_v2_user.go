@@ -19,7 +19,7 @@ import (
 type ScimV2User struct {
 
 	// Indicates whether the user's administrative status is active.
-	Active bool `json:"active,omitempty"`
+	Active bool `json:"active"`
 
 	// The display name of the user.
 	DisplayName string `json:"displayName,omitempty"`

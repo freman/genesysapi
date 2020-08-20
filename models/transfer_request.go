@@ -28,7 +28,7 @@ type TransferRequest struct {
 	UserName string `json:"userName,omitempty"`
 
 	// If true, transfer to the voicemail inbox of the participant that is being replaced.
-	Voicemail bool `json:"voicemail,omitempty"`
+	Voicemail bool `json:"voicemail"`
 }
 
 // Validate validates this transfer request

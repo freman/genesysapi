@@ -25,7 +25,7 @@ type WeekScheduleGenerationResult struct {
 	AgentWarnings []*ScheduleGenerationWarning `json:"agentWarnings"`
 
 	// Whether the schedule generation failed
-	Failed bool `json:"failed,omitempty"`
+	Failed bool `json:"failed"`
 
 	// ID of the schedule run
 	RunID string `json:"runId,omitempty"`

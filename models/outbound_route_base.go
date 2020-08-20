@@ -46,7 +46,7 @@ type OutboundRouteBase struct {
 	Distribution string `json:"distribution,omitempty"`
 
 	// enabled
-	Enabled bool `json:"enabled,omitempty"`
+	Enabled bool `json:"enabled"`
 
 	// Trunk base settings of trunkType "EXTERNAL".  This base must also be set on an edge logical interface for correct routing.
 	ExternalTrunkBases []*DomainEntityRef `json:"externalTrunkBases"`

@@ -17,7 +17,7 @@ type ScimConfigResourceTypeSchemaExtension struct {
 
 	// Indicates whether a schema extension is required.
 	// Read Only: true
-	Required *bool `json:"required,omitempty"`
+	Required *bool `json:"required"`
 
 	// The URI of an extended schema, for example, "urn:edu:2.0:Staff". Must be equal to the "id" attribute of a schema.
 	// Read Only: true

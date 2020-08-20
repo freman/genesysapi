@@ -19,10 +19,10 @@ type CreateWorkPlanActivity struct {
 	ActivityCodeID string `json:"activityCodeId,omitempty"`
 
 	// Whether the activity duration is counted towards contiguous work time
-	CountsAsContiguousWorkTime bool `json:"countsAsContiguousWorkTime,omitempty"`
+	CountsAsContiguousWorkTime bool `json:"countsAsContiguousWorkTime"`
 
 	// Whether the activity is paid
-	CountsAsPaidTime bool `json:"countsAsPaidTime,omitempty"`
+	CountsAsPaidTime bool `json:"countsAsPaidTime"`
 
 	// Description of the activity
 	Description string `json:"description,omitempty"`
@@ -34,7 +34,7 @@ type CreateWorkPlanActivity struct {
 	ExactStartTimeMinutes int32 `json:"exactStartTimeMinutes,omitempty"`
 
 	// Whether the start time of the activity is flexible
-	FlexibleStartTime bool `json:"flexibleStartTime,omitempty"`
+	FlexibleStartTime bool `json:"flexibleStartTime"`
 
 	// Latest activity start in offset minutes relative to shift start time if startTimeIsRelativeToShiftStart == true else its based on midnight. Used if flexibleStartTime == true
 	LatestStartTimeMinutes int32 `json:"latestStartTimeMinutes,omitempty"`
@@ -46,7 +46,7 @@ type CreateWorkPlanActivity struct {
 	StartTimeIncrementMinutes int32 `json:"startTimeIncrementMinutes,omitempty"`
 
 	// Whether the start time of the activity is relative to the start time of the shift it belongs to
-	StartTimeIsRelativeToShiftStart bool `json:"startTimeIsRelativeToShiftStart,omitempty"`
+	StartTimeIsRelativeToShiftStart bool `json:"startTimeIsRelativeToShiftStart"`
 }
 
 // Validate validates this create work plan activity

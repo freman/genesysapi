@@ -18,7 +18,7 @@ import (
 type WritableDialerContact struct {
 
 	// Indicates whether or not the contact can be called.
-	Callable bool `json:"callable,omitempty"`
+	Callable bool `json:"callable"`
 
 	// The identifier of the contact list containing this contact.
 	// Required: true

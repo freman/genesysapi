@@ -16,7 +16,7 @@ import (
 type PhoneNumberStatus struct {
 
 	// Indicates whether or not a phone number is callable.
-	Callable bool `json:"callable,omitempty"`
+	Callable bool `json:"callable"`
 }
 
 // Validate validates this phone number status

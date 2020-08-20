@@ -44,7 +44,7 @@ type CoachingAnnotation struct {
 
 	// Flag indicating whether the annotation is deleted.
 	// Read Only: true
-	IsDeleted *bool `json:"isDeleted,omitempty"`
+	IsDeleted *bool `json:"isDeleted"`
 
 	// The last user to modify the annotation.
 	// Read Only: true

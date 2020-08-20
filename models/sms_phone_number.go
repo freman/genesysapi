@@ -73,7 +73,7 @@ type SmsPhoneNumber struct {
 	PhoneNumberType string `json:"phoneNumberType,omitempty"`
 
 	// Is set to false, if the phone number is provisioned through a SMS provider, outside of PureCloud
-	ProvisionedThroughPureCloud bool `json:"provisionedThroughPureCloud,omitempty"`
+	ProvisionedThroughPureCloud bool `json:"provisionedThroughPureCloud"`
 
 	// Date this phone number was purchased, if the phoneNumberType is shortcode. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
 	// Format: date-time

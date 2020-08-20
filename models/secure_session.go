@@ -20,7 +20,7 @@ import (
 type SecureSession struct {
 
 	// If true, disconnect the agent after creating the session
-	Disconnect bool `json:"disconnect,omitempty"`
+	Disconnect bool `json:"disconnect"`
 
 	// The flow to execute securely
 	// Required: true

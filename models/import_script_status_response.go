@@ -21,7 +21,7 @@ type ImportScriptStatusResponse struct {
 	Message string `json:"message,omitempty"`
 
 	// succeeded
-	Succeeded bool `json:"succeeded,omitempty"`
+	Succeeded bool `json:"succeeded"`
 
 	// url
 	// Format: uri

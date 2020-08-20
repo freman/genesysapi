@@ -32,7 +32,7 @@ type Operation struct {
 	Client *DomainEntityRef `json:"client,omitempty"`
 
 	// complete
-	Complete bool `json:"complete,omitempty"`
+	Complete bool `json:"complete"`
 
 	// error code
 	ErrorCode string `json:"errorCode,omitempty"`

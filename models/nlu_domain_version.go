@@ -68,7 +68,7 @@ type NluDomainVersion struct {
 
 	// Whether this NLU domain version has been published.
 	// Read Only: true
-	Published *bool `json:"published,omitempty"`
+	Published *bool `json:"published"`
 
 	// The URI for this object
 	// Read Only: true

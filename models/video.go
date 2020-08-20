@@ -20,7 +20,7 @@ import (
 type Video struct {
 
 	// Indicates whether this participant has muted their outgoing audio.
-	AudioMuted bool `json:"audioMuted,omitempty"`
+	AudioMuted bool `json:"audioMuted"`
 
 	// The timestamp when this communication was connected in the cloud clock. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
 	// Format: date-time
@@ -56,7 +56,7 @@ type Video struct {
 	Self *Address `json:"self,omitempty"`
 
 	// Indicates whether this participant is sharing their screen to the session.
-	SharingScreen bool `json:"sharingScreen,omitempty"`
+	SharingScreen bool `json:"sharingScreen"`
 
 	// The timestamp the communication has when it is first put into an alerting state. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
 	// Format: date-time
@@ -67,7 +67,7 @@ type Video struct {
 	State string `json:"state,omitempty"`
 
 	// Indicates whether this participant has muted/paused their outgoing video.
-	VideoMuted bool `json:"videoMuted,omitempty"`
+	VideoMuted bool `json:"videoMuted"`
 
 	// Call wrap up or disposition data.
 	Wrapup *Wrapup `json:"wrapup,omitempty"`

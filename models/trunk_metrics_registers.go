@@ -24,7 +24,7 @@ type TrunkMetricsRegisters struct {
 	ProxyAddress string `json:"proxyAddress,omitempty"`
 
 	// True if last REGISTER message had positive response; false if error response or no response.
-	RegisterState bool `json:"registerState,omitempty"`
+	RegisterState bool `json:"registerState"`
 
 	// ISO 8601 format UTC absolute date & time of the last change of the register state.
 	// Format: date-time

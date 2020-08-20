@@ -19,7 +19,7 @@ type BusinessUnitListItem struct {
 
 	// Whether the user has authorization to interact with this business unit
 	// Read Only: true
-	Authorized *bool `json:"authorized,omitempty"`
+	Authorized *bool `json:"authorized"`
 
 	// The division to which this entity belongs.
 	Division *Division `json:"division,omitempty"`

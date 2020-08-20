@@ -22,10 +22,10 @@ type EvaluationQuestionScore struct {
 	Comments string `json:"comments,omitempty"`
 
 	// failed kill question
-	FailedKillQuestion bool `json:"failedKillQuestion,omitempty"`
+	FailedKillQuestion bool `json:"failedKillQuestion"`
 
 	// marked n a
-	MarkedNA bool `json:"markedNA,omitempty"`
+	MarkedNA bool `json:"markedNA"`
 
 	// question Id
 	QuestionID string `json:"questionId,omitempty"`

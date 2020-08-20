@@ -16,7 +16,7 @@ import (
 type ScheduleGenerationResultSummary struct {
 
 	// Whether the schedule generation run failed
-	Failed bool `json:"failed,omitempty"`
+	Failed bool `json:"failed"`
 
 	// The number of schedule generation messages for this schedule generation run
 	MessageCount int32 `json:"messageCount,omitempty"`

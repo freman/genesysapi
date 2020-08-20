@@ -25,7 +25,7 @@ type SurveyForm struct {
 	ContextID string `json:"contextId"`
 
 	// Is this form disabled
-	Disabled bool `json:"disabled,omitempty"`
+	Disabled bool `json:"disabled"`
 
 	// Markdown text for the bottom of the form.
 	Footer string `json:"footer,omitempty"`
@@ -52,7 +52,7 @@ type SurveyForm struct {
 
 	// Is this form published
 	// Read Only: true
-	Published *bool `json:"published,omitempty"`
+	Published *bool `json:"published"`
 
 	// List of published version of this form
 	// Read Only: true

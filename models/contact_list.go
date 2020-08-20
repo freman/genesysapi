@@ -23,7 +23,7 @@ type ContactList struct {
 	AttemptLimits *DomainEntityRef `json:"attemptLimits,omitempty"`
 
 	// Indicates if automatic time zone mapping is to be used for this ContactList.
-	AutomaticTimeZoneMapping bool `json:"automaticTimeZoneMapping,omitempty"`
+	AutomaticTimeZoneMapping bool `json:"automaticTimeZoneMapping"`
 
 	// The names of the contact data columns.
 	// Required: true

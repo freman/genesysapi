@@ -42,14 +42,14 @@ type EdgeGroup struct {
 	EdgeTrunkBaseAssignment *TrunkBaseAssignment `json:"edgeTrunkBaseAssignment"`
 
 	// Is this edge group hybrid.
-	Hybrid bool `json:"hybrid,omitempty"`
+	Hybrid bool `json:"hybrid"`
 
 	// The globally unique identifier for the object.
 	// Read Only: true
 	ID string `json:"id,omitempty"`
 
 	// Is this edge group being managed remotely.
-	Managed bool `json:"managed,omitempty"`
+	Managed bool `json:"managed"`
 
 	// The ID of the user that last modified the resource.
 	ModifiedBy string `json:"modifiedBy,omitempty"`

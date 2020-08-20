@@ -20,7 +20,7 @@ import (
 type CreateActivityCodeRequest struct {
 
 	// Whether an agent can select this activity code when creating or editing a time off request
-	AgentTimeOffSelectable bool `json:"agentTimeOffSelectable,omitempty"`
+	AgentTimeOffSelectable bool `json:"agentTimeOffSelectable"`
 
 	// The activity code's category
 	// Required: true
@@ -28,10 +28,10 @@ type CreateActivityCodeRequest struct {
 	Category *string `json:"category"`
 
 	// Whether an agent is paid while performing this activity
-	CountsAsPaidTime bool `json:"countsAsPaidTime,omitempty"`
+	CountsAsPaidTime bool `json:"countsAsPaidTime"`
 
 	// Indicates whether or not the activity should be counted as work time
-	CountsAsWorkTime bool `json:"countsAsWorkTime,omitempty"`
+	CountsAsWorkTime bool `json:"countsAsWorkTime"`
 
 	// The default length of the activity in minutes
 	LengthInMinutes int32 `json:"lengthInMinutes,omitempty"`

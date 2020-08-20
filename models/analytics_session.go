@@ -139,7 +139,7 @@ type AnalyticsSession struct {
 	Provider string `json:"provider,omitempty"`
 
 	// Flag determining if an audio recording was started or not
-	Recording bool `json:"recording,omitempty"`
+	Recording bool `json:"recording"`
 
 	// Name, phone number, or email address of the remote party.
 	Remote string `json:"remote,omitempty"`
@@ -178,10 +178,10 @@ type AnalyticsSession struct {
 	SessionID string `json:"sessionId,omitempty"`
 
 	// Flag determining if screenShare is started or not (true/false)
-	SharingScreen bool `json:"sharingScreen,omitempty"`
+	SharingScreen bool `json:"sharingScreen"`
 
 	// (Dialer) Whether the agent can skip the dialer contact
-	SkipEnabled bool `json:"skipEnabled,omitempty"`
+	SkipEnabled bool `json:"skipEnabled"`
 
 	// The number of seconds before PureCloud begins the call for a call back. 0 disables automatic calling
 	TimeoutSeconds int32 `json:"timeoutSeconds,omitempty"`

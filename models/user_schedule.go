@@ -20,7 +20,7 @@ import (
 type UserSchedule struct {
 
 	// If marked true for updating an existing user schedule, it will be deleted
-	Delete bool `json:"delete,omitempty"`
+	Delete bool `json:"delete"`
 
 	// Markers to indicate a full day time off request, relative to the management unit time zone
 	FullDayTimeOffMarkers []*UserScheduleFullDayTimeOffMarker `json:"fullDayTimeOffMarkers"`

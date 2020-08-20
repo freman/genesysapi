@@ -20,16 +20,16 @@ import (
 type MediaParticipantRequest struct {
 
 	// True to confine this conversation participant.  Should only be used for ad-hoc conferences
-	Confined bool `json:"confined,omitempty"`
+	Confined bool `json:"confined"`
 
 	// True to hold this conversation participant.
-	Held bool `json:"held,omitempty"`
+	Held bool `json:"held"`
 
 	// True to mute this conversation participant.
-	Muted bool `json:"muted,omitempty"`
+	Muted bool `json:"muted"`
 
 	// True to enable recording of this participant, otherwise false to disable recording.
-	Recording bool `json:"recording,omitempty"`
+	Recording bool `json:"recording"`
 
 	// The state to update to set for this participant's communications.  Possible values are: 'connected' and 'disconnected'.
 	// Enum: [alerting dialing contacting offering connected disconnected terminated converting uploading transmitting none]
@@ -39,7 +39,7 @@ type MediaParticipantRequest struct {
 	Wrapup *Wrapup `json:"wrapup,omitempty"`
 
 	// True to skip wrap-up for this participant.
-	WrapupSkipped bool `json:"wrapupSkipped,omitempty"`
+	WrapupSkipped bool `json:"wrapupSkipped"`
 }
 
 // Validate validates this media participant request

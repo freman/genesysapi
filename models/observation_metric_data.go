@@ -31,7 +31,7 @@ type ObservationMetricData struct {
 	Stats *StatisticalSummary `json:"stats,omitempty"`
 
 	// Flag for a truncated list of observations. If truncated, the first half of the list of observations will contain the oldest observations and the second half the newest observations.
-	Truncated bool `json:"truncated,omitempty"`
+	Truncated bool `json:"truncated"`
 }
 
 // Validate validates this observation metric data

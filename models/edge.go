@@ -77,7 +77,7 @@ type Edge struct {
 	Make string `json:"make,omitempty"`
 
 	// managed
-	Managed bool `json:"managed,omitempty"`
+	Managed bool `json:"managed"`
 
 	// model
 	Model string `json:"model,omitempty"`
@@ -94,7 +94,7 @@ type Edge struct {
 
 	// True if the offline edge configuration endpoint has been called for this edge.
 	// Read Only: true
-	OfflineConfigCalled *bool `json:"offlineConfigCalled,omitempty"`
+	OfflineConfigCalled *bool `json:"offlineConfigCalled"`
 
 	// online status
 	// Enum: [ONLINE OFFLINE]
@@ -111,7 +111,7 @@ type Edge struct {
 	Patch string `json:"patch,omitempty"`
 
 	// physical edge
-	PhysicalEdge bool `json:"physicalEdge,omitempty"`
+	PhysicalEdge bool `json:"physicalEdge"`
 
 	// Edge HTTP proxy configuration for the WAN port. The field can be a hostname, FQDN, IPv4 or IPv6 address. If port is not included, port 80 is assumed.
 	Proxy string `json:"proxy,omitempty"`

@@ -32,7 +32,7 @@ type HistoryListing struct {
 	Client *DomainEntityRef `json:"client,omitempty"`
 
 	// complete
-	Complete bool `json:"complete,omitempty"`
+	Complete bool `json:"complete"`
 
 	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
 	// Format: date-time
@@ -76,7 +76,7 @@ type HistoryListing struct {
 	Started strfmt.DateTime `json:"started,omitempty"`
 
 	// system
-	System bool `json:"system,omitempty"`
+	System bool `json:"system"`
 
 	// total
 	Total int64 `json:"total,omitempty"`

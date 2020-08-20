@@ -31,7 +31,7 @@ type BuFullDayTimeOffMarker struct {
 	LengthMinutes int32 `json:"lengthMinutes,omitempty"`
 
 	// Whether the time off marker is paid
-	Paid bool `json:"paid,omitempty"`
+	Paid bool `json:"paid"`
 
 	// The ID of the time off request
 	TimeOffRequestID string `json:"timeOffRequestId,omitempty"`

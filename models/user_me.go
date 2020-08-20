@@ -21,7 +21,7 @@ import (
 type UserMe struct {
 
 	// acd auto answer
-	AcdAutoAnswer bool `json:"acdAutoAnswer,omitempty"`
+	AcdAutoAnswer bool `json:"acdAutoAnswer"`
 
 	// Email addresses and phone numbers for this user
 	Addresses []*Contact `json:"addresses"`

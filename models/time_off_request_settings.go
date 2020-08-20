@@ -22,7 +22,7 @@ type TimeOffRequestSettings struct {
 	SubmissionLatestDaysFromNow int32 `json:"submissionLatestDaysFromNow,omitempty"`
 
 	// Whether to enforce a submission range for agent time off requests
-	SubmissionRangeEnforced bool `json:"submissionRangeEnforced,omitempty"`
+	SubmissionRangeEnforced bool `json:"submissionRangeEnforced"`
 }
 
 // Validate validates this time off request settings

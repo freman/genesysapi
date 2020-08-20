@@ -25,7 +25,7 @@ type ScimServiceProviderConfigBulkFeature struct {
 
 	// Indicates whether configuration options are supported.
 	// Read Only: true
-	Supported *bool `json:"supported,omitempty"`
+	Supported *bool `json:"supported"`
 }
 
 // Validate validates this scim service provider config bulk feature

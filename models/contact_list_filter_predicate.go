@@ -27,7 +27,7 @@ type ContactListFilterPredicate struct {
 	ColumnType string `json:"columnType,omitempty"`
 
 	// Inverts the result of the predicate (i.e., if the predicate returns true, inverting it will return false).
-	Inverted bool `json:"inverted,omitempty"`
+	Inverted bool `json:"inverted"`
 
 	// The operator for this ContactListFilterPredicate.
 	// Enum: [EQUALS LESS_THAN LESS_THAN_EQUALS GREATER_THAN GREATER_THAN_EQUALS CONTAINS BEGINS_WITH ENDS_WITH BEFORE AFTER BETWEEN IN]

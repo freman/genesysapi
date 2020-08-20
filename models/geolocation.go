@@ -42,7 +42,7 @@ type Geolocation struct {
 	Name string `json:"name,omitempty"`
 
 	// A boolean used to tell whether or not to set this geolocation client as the primary on a PATCH
-	Primary bool `json:"primary,omitempty"`
+	Primary bool `json:"primary"`
 
 	// region
 	Region string `json:"region,omitempty"`

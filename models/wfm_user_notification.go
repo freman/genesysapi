@@ -21,7 +21,7 @@ type WfmUserNotification struct {
 
 	// Whether this notification is for an agent
 	// Read Only: true
-	AgentNotification *bool `json:"agentNotification,omitempty"`
+	AgentNotification *bool `json:"agentNotification"`
 
 	// The immutable globally unique identifier for the object.
 	// Required: true

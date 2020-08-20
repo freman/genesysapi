@@ -26,7 +26,7 @@ type CallHistoryParticipant struct {
 	Ani string `json:"ani,omitempty"`
 
 	// Indicates whether the contact ever connected
-	DidInteract bool `json:"didInteract,omitempty"`
+	DidInteract bool `json:"didInteract"`
 
 	// The participant's direction.  Values can be: 'inbound' or 'outbound'
 	// Enum: [inbound outbound]

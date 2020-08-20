@@ -28,7 +28,7 @@ type TestExecutionResult struct {
 	Operations []*TestExecutionOperationResult `json:"operations"`
 
 	// Indicates whether or not the test was a success
-	Success bool `json:"success,omitempty"`
+	Success bool `json:"success"`
 }
 
 // Validate validates this test execution result

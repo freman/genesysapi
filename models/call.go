@@ -21,7 +21,7 @@ import (
 type Call struct {
 
 	// True if this call is held and the person on this side hears hold music.
-	Confined bool `json:"confined,omitempty"`
+	Confined bool `json:"confined"`
 
 	// The timestamp when this communication was connected in the cloud clock. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
 	// Format: date-time
@@ -52,13 +52,13 @@ type Call struct {
 	FaxStatus *FaxStatus `json:"faxStatus,omitempty"`
 
 	// True if this call is held and the person on this side hears silence.
-	Held bool `json:"held,omitempty"`
+	Held bool `json:"held"`
 
 	// A globally unique identifier for this communication.
 	ID string `json:"id,omitempty"`
 
 	// True if this call is muted so that remote participants can't hear any audio from this end.
-	Muted bool `json:"muted,omitempty"`
+	Muted bool `json:"muted"`
 
 	// Address and name data for a call endpoint.
 	Other *Address `json:"other,omitempty"`
@@ -70,7 +70,7 @@ type Call struct {
 	Provider string `json:"provider,omitempty"`
 
 	// True if this call is being recorded.
-	Recording bool `json:"recording,omitempty"`
+	Recording bool `json:"recording"`
 
 	// A globally unique identifier for the recording associated with this call.
 	RecordingID string `json:"recordingId,omitempty"`

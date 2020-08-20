@@ -20,7 +20,7 @@ import (
 type ScimPhoneNumber struct {
 
 	// Indicates whether the phone number is the primary phone number.
-	Primary bool `json:"primary,omitempty"`
+	Primary bool `json:"primary"`
 
 	// The type of phone number.
 	// Enum: [work work2 work3 work4 home mobile other]

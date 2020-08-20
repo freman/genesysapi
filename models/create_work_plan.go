@@ -23,19 +23,19 @@ type CreateWorkPlan struct {
 	Agents []*UserReference `json:"agents"`
 
 	// Whether the minimum time between shifts constraint is enabled for this work plan
-	ConstrainMinimumTimeBetweenShifts bool `json:"constrainMinimumTimeBetweenShifts,omitempty"`
+	ConstrainMinimumTimeBetweenShifts bool `json:"constrainMinimumTimeBetweenShifts"`
 
 	// Whether paid time granularity should be constrained for this workplan
-	ConstrainPaidTimeGranularity bool `json:"constrainPaidTimeGranularity,omitempty"`
+	ConstrainPaidTimeGranularity bool `json:"constrainPaidTimeGranularity"`
 
 	// Whether the weekly paid time constraint is enabled for this work plan
-	ConstrainWeeklyPaidTime bool `json:"constrainWeeklyPaidTime,omitempty"`
+	ConstrainWeeklyPaidTime bool `json:"constrainWeeklyPaidTime"`
 
 	// Whether the work plan is enabled for scheduling
-	Enabled bool `json:"enabled,omitempty"`
+	Enabled bool `json:"enabled"`
 
 	// Whether the weekly paid time constraint is flexible for this work plan
-	FlexibleWeeklyPaidTime bool `json:"flexibleWeeklyPaidTime,omitempty"`
+	FlexibleWeeklyPaidTime bool `json:"flexibleWeeklyPaidTime"`
 
 	// Maximum number days in a week allowed to be scheduled for this work plan
 	MaximumDays int32 `json:"maximumDays,omitempty"`

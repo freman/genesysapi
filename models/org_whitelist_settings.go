@@ -19,7 +19,7 @@ type OrgWhitelistSettings struct {
 	DomainWhitelist []string `json:"domainWhitelist"`
 
 	// enable whitelist
-	EnableWhitelist bool `json:"enableWhitelist,omitempty"`
+	EnableWhitelist bool `json:"enableWhitelist"`
 }
 
 // Validate validates this org whitelist settings

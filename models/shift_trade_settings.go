@@ -24,13 +24,13 @@ type ShiftTradeSettings struct {
 	ActivityCategoryRules []*ShiftTradeActivityRule `json:"activityCategoryRules"`
 
 	// Whether direct shift trades between agents are allowed
-	AllowDirectTrades bool `json:"allowDirectTrades,omitempty"`
+	AllowDirectTrades bool `json:"allowDirectTrades"`
 
 	// Whether automatic shift trade review is enabled according to the rules defined in for this management unit
-	AutoReview bool `json:"autoReview,omitempty"`
+	AutoReview bool `json:"autoReview"`
 
 	// Whether shift trading is enabled for this management unit
-	Enabled bool `json:"enabled,omitempty"`
+	Enabled bool `json:"enabled"`
 
 	// The minimum number of hours in the future shift trades are allowed
 	MinHoursInFuture int32 `json:"minHoursInFuture,omitempty"`
@@ -40,16 +40,16 @@ type ShiftTradeSettings struct {
 	OneSided string `json:"oneSided,omitempty"`
 
 	// Whether to constrain shift trades to agents with matching languages
-	RequiresMatchingLanguages bool `json:"requiresMatchingLanguages,omitempty"`
+	RequiresMatchingLanguages bool `json:"requiresMatchingLanguages"`
 
 	// Whether to constrain shift trades to agents with matching planning groups
-	RequiresMatchingPlanningGroups bool `json:"requiresMatchingPlanningGroups,omitempty"`
+	RequiresMatchingPlanningGroups bool `json:"requiresMatchingPlanningGroups"`
 
 	// Whether to constrain shift trades to agents with matching queues
-	RequiresMatchingQueues bool `json:"requiresMatchingQueues,omitempty"`
+	RequiresMatchingQueues bool `json:"requiresMatchingQueues"`
 
 	// Whether to constrain shift trades to agents with matching skills
-	RequiresMatchingSkills bool `json:"requiresMatchingSkills,omitempty"`
+	RequiresMatchingSkills bool `json:"requiresMatchingSkills"`
 
 	// How to handle shift trades which involve unequal paid times
 	// Enum: [Allow Disallow AdminReview]

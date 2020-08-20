@@ -30,7 +30,7 @@ type TwitterID struct {
 
 	// whether this data has been verified using the twitter API
 	// Read Only: true
-	Verified *bool `json:"verified,omitempty"`
+	Verified *bool `json:"verified"`
 }
 
 // Validate validates this twitter Id

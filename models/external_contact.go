@@ -91,7 +91,7 @@ type ExternalContact struct {
 	SelfURI strfmt.URI `json:"selfUri,omitempty"`
 
 	// survey opt out
-	SurveyOptOut bool `json:"surveyOptOut,omitempty"`
+	SurveyOptOut bool `json:"surveyOptOut"`
 
 	// title
 	Title string `json:"title,omitempty"`

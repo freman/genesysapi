@@ -47,7 +47,7 @@ type AnalyticsFlow struct {
 	FlowVersion string `json:"flowVersion,omitempty"`
 
 	// Flag indicating whether the flow issued a callback
-	IssuedCallback bool `json:"issuedCallback,omitempty"`
+	IssuedCallback bool `json:"issuedCallback"`
 
 	// Flow outcomes
 	Outcomes []*AnalyticsFlowOutcome `json:"outcomes"`

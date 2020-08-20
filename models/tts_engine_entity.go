@@ -24,10 +24,10 @@ type TtsEngineEntity struct {
 	ID string `json:"id,omitempty"`
 
 	// The TTS engine is the global default engine
-	IsDefault bool `json:"isDefault,omitempty"`
+	IsDefault bool `json:"isDefault"`
 
 	// The TTS engine can be used in a secure call flow
-	IsSecure bool `json:"isSecure,omitempty"`
+	IsSecure bool `json:"isSecure"`
 
 	// The set of languages the TTS engine supports
 	// Required: true

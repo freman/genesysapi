@@ -25,7 +25,7 @@ type NamedEntityTypeMechanism struct {
 	Items []*NamedEntityTypeItem `json:"items"`
 
 	// Whether the named entity type is restricted to the items provided. Default: false
-	Restricted bool `json:"restricted,omitempty"`
+	Restricted bool `json:"restricted"`
 
 	// The type of the mechanism.
 	// Required: true

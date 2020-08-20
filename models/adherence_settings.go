@@ -26,13 +26,13 @@ type AdherenceSettings struct {
 	IgnoredActivityCategories *IgnoredActivityCategories `json:"ignoredActivityCategories,omitempty"`
 
 	// Whether to treat all non-on-queue activities as equivalent for adherence purposes
-	NonOnQueueActivitiesEquivalent bool `json:"nonOnQueueActivitiesEquivalent,omitempty"`
+	NonOnQueueActivitiesEquivalent bool `json:"nonOnQueueActivitiesEquivalent"`
 
 	// The threshold in minutes where an alert will be triggered when an agent is considered severely out of adherence
 	SevereAlertThresholdMinutes int32 `json:"severeAlertThresholdMinutes,omitempty"`
 
 	// Whether to track on-queue activities
-	TrackOnQueueActivity bool `json:"trackOnQueueActivity,omitempty"`
+	TrackOnQueueActivity bool `json:"trackOnQueueActivity"`
 }
 
 // Validate validates this adherence settings

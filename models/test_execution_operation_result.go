@@ -29,7 +29,7 @@ type TestExecutionOperationResult struct {
 	Step int32 `json:"step,omitempty"`
 
 	// Indicated whether or not the operation was successful
-	Success bool `json:"success,omitempty"`
+	Success bool `json:"success"`
 }
 
 // Validate validates this test execution operation result

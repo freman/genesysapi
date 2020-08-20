@@ -20,68 +20,68 @@ import (
 type JSONNode struct {
 
 	// array
-	Array bool `json:"array,omitempty"`
+	Array bool `json:"array"`
 
 	// big decimal
-	BigDecimal bool `json:"bigDecimal,omitempty"`
+	BigDecimal bool `json:"bigDecimal"`
 
 	// big integer
-	BigInteger bool `json:"bigInteger,omitempty"`
+	BigInteger bool `json:"bigInteger"`
 
 	// binary
-	Binary bool `json:"binary,omitempty"`
+	Binary bool `json:"binary"`
 
 	// boolean
-	Boolean bool `json:"boolean,omitempty"`
+	Boolean bool `json:"boolean"`
 
 	// container node
-	ContainerNode bool `json:"containerNode,omitempty"`
+	ContainerNode bool `json:"containerNode"`
 
 	// double
-	Double bool `json:"double,omitempty"`
+	Double bool `json:"double"`
 
 	// float
-	Float bool `json:"float,omitempty"`
+	Float bool `json:"float"`
 
 	// floating point number
-	FloatingPointNumber bool `json:"floatingPointNumber,omitempty"`
+	FloatingPointNumber bool `json:"floatingPointNumber"`
 
 	// int
-	Int bool `json:"int,omitempty"`
+	Int bool `json:"int"`
 
 	// integral number
-	IntegralNumber bool `json:"integralNumber,omitempty"`
+	IntegralNumber bool `json:"integralNumber"`
 
 	// long
-	Long bool `json:"long,omitempty"`
+	Long bool `json:"long"`
 
 	// missing node
-	MissingNode bool `json:"missingNode,omitempty"`
+	MissingNode bool `json:"missingNode"`
 
 	// node type
 	// Enum: [ARRAY BINARY BOOLEAN MISSING NULL NUMBER OBJECT POJO STRING]
 	NodeType string `json:"nodeType,omitempty"`
 
 	// null
-	Null bool `json:"null,omitempty"`
+	Null bool `json:"null"`
 
 	// number
-	Number bool `json:"number,omitempty"`
+	Number bool `json:"number"`
 
 	// object
-	Object bool `json:"object,omitempty"`
+	Object bool `json:"object"`
 
 	// pojo
-	Pojo bool `json:"pojo,omitempty"`
+	Pojo bool `json:"pojo"`
 
 	// short
-	Short bool `json:"short,omitempty"`
+	Short bool `json:"short"`
 
 	// textual
-	Textual bool `json:"textual,omitempty"`
+	Textual bool `json:"textual"`
 
 	// value node
-	ValueNode bool `json:"valueNode,omitempty"`
+	ValueNode bool `json:"valueNode"`
 }
 
 // Validate validates this Json node

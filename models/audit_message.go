@@ -67,7 +67,7 @@ type AuditMessage struct {
 	TransactionID string `json:"transactionId,omitempty"`
 
 	// Whether or not this audit can be considered the initiator of the transaction it is a part of.
-	TransactionInitiator bool `json:"transactionInitiator,omitempty"`
+	TransactionInitiator bool `json:"transactionInitiator"`
 
 	// user
 	User *AuditUser `json:"user,omitempty"`

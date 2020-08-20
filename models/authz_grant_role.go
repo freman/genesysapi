@@ -20,7 +20,7 @@ import (
 type AuthzGrantRole struct {
 
 	// default
-	Default bool `json:"default,omitempty"`
+	Default bool `json:"default"`
 
 	// description
 	Description string `json:"description,omitempty"`

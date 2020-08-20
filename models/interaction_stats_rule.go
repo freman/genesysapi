@@ -44,7 +44,7 @@ type InteractionStatsRule struct {
 
 	// Indicates if the rule is in alarm state.
 	// Read Only: true
-	InAlarm *bool `json:"inAlarm,omitempty"`
+	InAlarm *bool `json:"inAlarm"`
 
 	// The media type.
 	// Required: true

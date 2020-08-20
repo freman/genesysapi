@@ -51,7 +51,7 @@ type Screenshare struct {
 	Segments []*Segment `json:"segments"`
 
 	// Indicates whether this participant is sharing their screen.
-	Sharing bool `json:"sharing,omitempty"`
+	Sharing bool `json:"sharing"`
 
 	// The timestamp the communication has when it is first put into an alerting state. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
 	// Format: date-time

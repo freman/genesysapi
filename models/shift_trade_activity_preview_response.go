@@ -21,7 +21,7 @@ type ShiftTradeActivityPreviewResponse struct {
 	ActivityCodeID string `json:"activityCodeId,omitempty"`
 
 	// Whether this activity counts as paid time
-	CountsAsPaidTime bool `json:"countsAsPaidTime,omitempty"`
+	CountsAsPaidTime bool `json:"countsAsPaidTime"`
 
 	// The length in minutes of this activity
 	LengthMinutes int32 `json:"lengthMinutes,omitempty"`

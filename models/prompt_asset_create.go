@@ -32,7 +32,7 @@ type PromptAssetCreate struct {
 
 	// Whether or not this resource locale is the default for the language
 	// Read Only: true
-	LanguageDefault *bool `json:"languageDefault,omitempty"`
+	LanguageDefault *bool `json:"languageDefault"`
 
 	// URI of the resource audio
 	// Read Only: true

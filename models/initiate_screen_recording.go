@@ -23,7 +23,7 @@ type InitiateScreenRecording struct {
 	DeleteRetention *DeleteRetention `json:"deleteRetention,omitempty"`
 
 	// record a c w
-	RecordACW bool `json:"recordACW,omitempty"`
+	RecordACW bool `json:"recordACW"`
 }
 
 // Validate validates this initiate screen recording

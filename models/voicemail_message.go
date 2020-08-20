@@ -60,7 +60,7 @@ type VoicemailMessage struct {
 	DeleteRetentionPolicy *VoicemailRetentionPolicy `json:"deleteRetentionPolicy,omitempty"`
 
 	// Whether the voicemail message has been marked as deleted
-	Deleted bool `json:"deleted,omitempty"`
+	Deleted bool `json:"deleted"`
 
 	// The date the voicemail message deleted property was set to true. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
 	// Read Only: true
@@ -88,7 +88,7 @@ type VoicemailMessage struct {
 	Queue *Queue `json:"queue,omitempty"`
 
 	// Whether the voicemail message is marked as read
-	Read bool `json:"read,omitempty"`
+	Read bool `json:"read"`
 
 	// The URI for this object
 	// Read Only: true

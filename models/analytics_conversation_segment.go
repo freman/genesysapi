@@ -21,10 +21,10 @@ import (
 type AnalyticsConversationSegment struct {
 
 	// audio muted
-	AudioMuted bool `json:"audioMuted,omitempty"`
+	AudioMuted bool `json:"audioMuted"`
 
 	// Indicates whether the segment was a conference
-	Conference bool `json:"conference,omitempty"`
+	Conference bool `json:"conference"`
 
 	// destination conversation Id
 	DestinationConversationID string `json:"destinationConversationId,omitempty"`
@@ -89,7 +89,7 @@ type AnalyticsConversationSegment struct {
 	Subject string `json:"subject,omitempty"`
 
 	// video muted
-	VideoMuted bool `json:"videoMuted,omitempty"`
+	VideoMuted bool `json:"videoMuted"`
 
 	// Wrapup Code id
 	WrapUpCode string `json:"wrapUpCode,omitempty"`

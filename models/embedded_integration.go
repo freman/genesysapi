@@ -19,7 +19,7 @@ type EmbeddedIntegration struct {
 	DomainWhitelist []string `json:"domainWhitelist"`
 
 	// enable whitelist
-	EnableWhitelist bool `json:"enableWhitelist,omitempty"`
+	EnableWhitelist bool `json:"enableWhitelist"`
 }
 
 // Validate validates this embedded integration

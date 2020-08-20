@@ -28,7 +28,7 @@ type Attachment struct {
 	ContentURI string `json:"contentUri,omitempty"`
 
 	// Whether or not the attachment was attached inline.,
-	InlineImage bool `json:"inlineImage,omitempty"`
+	InlineImage bool `json:"inlineImage"`
 
 	// The name of the attachment.
 	Name string `json:"name,omitempty"`

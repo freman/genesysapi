@@ -20,7 +20,7 @@ import (
 type VoicemailGroupPolicy struct {
 
 	// Whether voicemail is enabled for the group
-	Enabled bool `json:"enabled,omitempty"`
+	Enabled bool `json:"enabled"`
 
 	// The group associated with the policy
 	// Read Only: true
@@ -40,7 +40,7 @@ type VoicemailGroupPolicy struct {
 	RotateCallsSecs int32 `json:"rotateCallsSecs,omitempty"`
 
 	// Whether email notifications are sent to group members when a new voicemail is received
-	SendEmailNotifications bool `json:"sendEmailNotifications,omitempty"`
+	SendEmailNotifications bool `json:"sendEmailNotifications"`
 
 	// How many rotations to go through
 	StopRingingAfterRotations int32 `json:"stopRingingAfterRotations,omitempty"`

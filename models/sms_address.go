@@ -46,7 +46,7 @@ type SmsAddress struct {
 
 	// In some countries, addresses are validated to comply with local regulation. In those countries, if the address you provide does not pass validation, it will not be accepted as an Address. This value will be true if the Address has been validated, or false for countries that don't require validation or if the Address is non-compliant.
 	// Read Only: true
-	Validated *bool `json:"validated,omitempty"`
+	Validated *bool `json:"validated"`
 }
 
 // Validate validates this sms address

@@ -30,7 +30,7 @@ type DomainNetworkRoute struct {
 	Nexthop string `json:"nexthop,omitempty"`
 
 	// True if this route will persist on Edge restart.  Routes assigned by DHCP will be returned as false.
-	Persistent bool `json:"persistent,omitempty"`
+	Persistent bool `json:"persistent"`
 
 	// The IPv4 or IPv6 route prefix in CIDR notation.
 	Prefix string `json:"prefix,omitempty"`

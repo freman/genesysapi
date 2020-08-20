@@ -38,7 +38,7 @@ type KnowledgeSearchRequest struct {
 	Query *string `json:"query"`
 
 	// If true the search query will be executed on draft documents, else it will be on active documents
-	SearchOnDraftDocuments bool `json:"searchOnDraftDocuments,omitempty"`
+	SearchOnDraftDocuments bool `json:"searchOnDraftDocuments"`
 }
 
 // Validate validates this knowledge search request

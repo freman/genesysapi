@@ -23,19 +23,19 @@ type WorkPlanShift struct {
 	Activities []*WorkPlanActivity `json:"activities"`
 
 	// Whether the contiguous time constraint for the shift is enabled
-	ConstrainContiguousWorkTime bool `json:"constrainContiguousWorkTime,omitempty"`
+	ConstrainContiguousWorkTime bool `json:"constrainContiguousWorkTime"`
 
 	// Whether the latest stop time constraint for the shift is enabled
-	ConstrainLatestStopTime bool `json:"constrainLatestStopTime,omitempty"`
+	ConstrainLatestStopTime bool `json:"constrainLatestStopTime"`
 
 	// Whether the latest stop time constraint for the shift is enabled.  Deprecated, use constrainLatestStopTime instead
-	ConstrainStopTime bool `json:"constrainStopTime,omitempty"`
+	ConstrainStopTime bool `json:"constrainStopTime"`
 
 	// Days of the week applicable for this shift
 	Days *SetWrapperDayOfWeek `json:"days,omitempty"`
 
 	// If marked true for updating an existing shift, the shift will be permanently deleted
-	Delete bool `json:"delete,omitempty"`
+	Delete bool `json:"delete"`
 
 	// Earliest start time of the shift defined as offset minutes from midnight. Used if flexibleStartTime == true
 	EarliestStartTimeMinutesFromMidnight int32 `json:"earliestStartTimeMinutesFromMidnight,omitempty"`
@@ -47,10 +47,10 @@ type WorkPlanShift struct {
 	ExactStartTimeMinutesFromMidnight int32 `json:"exactStartTimeMinutesFromMidnight,omitempty"`
 
 	// Whether the paid time setting for the shift is flexible
-	FlexiblePaidTime bool `json:"flexiblePaidTime,omitempty"`
+	FlexiblePaidTime bool `json:"flexiblePaidTime"`
 
 	// Whether the start time of the shift is flexible
-	FlexibleStartTime bool `json:"flexibleStartTime,omitempty"`
+	FlexibleStartTime bool `json:"flexibleStartTime"`
 
 	// ID of the shift. This is required only for the case of updating an existing shift
 	ID string `json:"id,omitempty"`

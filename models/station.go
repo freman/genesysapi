@@ -55,7 +55,7 @@ type Station struct {
 
 	// Whether the station is configured to require TURN for routing WebRTC calls. Empty if station type is not inin_webrtc_softphone.
 	// Read Only: true
-	WebRtcForceTurn *bool `json:"webRtcForceTurn,omitempty"`
+	WebRtcForceTurn *bool `json:"webRtcForceTurn"`
 
 	// The default or configured value of media dscp for the station. Empty if station type is not inin_webrtc_softphone.
 	// Read Only: true
@@ -63,7 +63,7 @@ type Station struct {
 
 	// The default or configured value of persistent connection setting for the station. Empty if station type is not inin_webrtc_softphone.
 	// Read Only: true
-	WebRtcPersistentEnabled *bool `json:"webRtcPersistentEnabled,omitempty"`
+	WebRtcPersistentEnabled *bool `json:"webRtcPersistentEnabled"`
 
 	// The Id of the user configured for the station if it is of type inin_webrtc_softphone. Empty if station type is not inin_webrtc_softphone.
 	WebRtcUserID string `json:"webRtcUserId,omitempty"`

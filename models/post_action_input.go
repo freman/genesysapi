@@ -38,7 +38,7 @@ type PostActionInput struct {
 	Name *string `json:"name"`
 
 	// Indication of whether or not the action is designed to accept sensitive data
-	Secure bool `json:"secure,omitempty"`
+	Secure bool `json:"secure"`
 }
 
 // Validate validates this post action input

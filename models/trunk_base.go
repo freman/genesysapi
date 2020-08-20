@@ -41,7 +41,7 @@ type TrunkBase struct {
 	ID string `json:"id,omitempty"`
 
 	// Is this trunk being managed remotely. This property is synchronized with the managed property of the Edge Group to which it is assigned.
-	Managed bool `json:"managed,omitempty"`
+	Managed bool `json:"managed"`
 
 	// The ID of the user that last modified the resource.
 	ModifiedBy string `json:"modifiedBy,omitempty"`

@@ -19,7 +19,7 @@ import (
 type TimeAllowed struct {
 
 	// empty
-	Empty bool `json:"empty,omitempty"`
+	Empty bool `json:"empty"`
 
 	// time slots
 	TimeSlots []*TimeSlot `json:"timeSlots"`

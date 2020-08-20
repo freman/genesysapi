@@ -22,10 +22,10 @@ type AvailableTopic struct {
 	ID string `json:"id,omitempty"`
 
 	// True if the topic user ID is required to match the subscribing user ID
-	RequiresCurrentUser bool `json:"requiresCurrentUser,omitempty"`
+	RequiresCurrentUser bool `json:"requiresCurrentUser"`
 
 	// True if permissions are only required when the topic user ID does not match the subscribing user ID
-	RequiresCurrentUserOrPermission bool `json:"requiresCurrentUserOrPermission,omitempty"`
+	RequiresCurrentUserOrPermission bool `json:"requiresCurrentUserOrPermission"`
 
 	// Permissions required to subscribe to the topic
 	RequiresPermissions []string `json:"requiresPermissions"`

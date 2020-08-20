@@ -35,7 +35,7 @@ type UserPresence struct {
 	PresenceDefinition *PresenceDefinition `json:"presenceDefinition,omitempty"`
 
 	// A boolean used to tell whether or not to set this presence source as the primary on a PATCH
-	Primary bool `json:"primary,omitempty"`
+	Primary bool `json:"primary"`
 
 	// The URI for this object
 	// Read Only: true

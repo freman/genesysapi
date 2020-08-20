@@ -72,7 +72,7 @@ type IntegrationType struct {
 
 	// Indicates if the integration type is installable or not.
 	// Read Only: true
-	NonInstallable *bool `json:"nonInstallable,omitempty"`
+	NonInstallable *bool `json:"nonInstallable"`
 
 	// URI of a privacy policy for users of the integration type
 	// Read Only: true

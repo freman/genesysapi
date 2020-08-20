@@ -30,7 +30,7 @@ type TtsVoiceEntity struct {
 	ID string `json:"id,omitempty"`
 
 	// The voice is the default voice for its language
-	IsDefault bool `json:"isDefault,omitempty"`
+	IsDefault bool `json:"isDefault"`
 
 	// The language supported by the TTS voice
 	// Required: true

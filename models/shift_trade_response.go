@@ -47,7 +47,7 @@ type ShiftTradeResponse struct {
 	Metadata *WfmVersionedEntityMetadata `json:"metadata,omitempty"`
 
 	// Whether this is a one-sided shift trade (e.g. the initiating user is not asking for a shift in return)
-	OneSided bool `json:"oneSided,omitempty"`
+	OneSided bool `json:"oneSided"`
 
 	// The end date/time of the receiving shift. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
 	// Format: date-time

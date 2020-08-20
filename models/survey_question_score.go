@@ -22,7 +22,7 @@ type SurveyQuestionScore struct {
 	FreeTextAnswer string `json:"freeTextAnswer,omitempty"`
 
 	// marked n a
-	MarkedNA bool `json:"markedNA,omitempty"`
+	MarkedNA bool `json:"markedNA"`
 
 	// nps score
 	NpsScore int32 `json:"npsScore,omitempty"`

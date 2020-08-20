@@ -21,7 +21,7 @@ type CustomerInteractionCenter struct {
 	Certificate string `json:"certificate,omitempty"`
 
 	// disabled
-	Disabled bool `json:"disabled,omitempty"`
+	Disabled bool `json:"disabled"`
 
 	// The globally unique identifier for the object.
 	// Read Only: true

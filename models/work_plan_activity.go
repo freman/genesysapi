@@ -19,13 +19,13 @@ type WorkPlanActivity struct {
 	ActivityCodeID string `json:"activityCodeId,omitempty"`
 
 	// Whether the activity duration is counted towards contiguous work time
-	CountsAsContiguousWorkTime bool `json:"countsAsContiguousWorkTime,omitempty"`
+	CountsAsContiguousWorkTime bool `json:"countsAsContiguousWorkTime"`
 
 	// Whether the activity is paid
-	CountsAsPaidTime bool `json:"countsAsPaidTime,omitempty"`
+	CountsAsPaidTime bool `json:"countsAsPaidTime"`
 
 	// If marked true for updating an existing activity, the activity will be permanently deleted
-	Delete bool `json:"delete,omitempty"`
+	Delete bool `json:"delete"`
 
 	// Description of the activity
 	Description string `json:"description,omitempty"`
@@ -37,7 +37,7 @@ type WorkPlanActivity struct {
 	ExactStartTimeMinutes int32 `json:"exactStartTimeMinutes,omitempty"`
 
 	// Whether the start time of the activity is flexible
-	FlexibleStartTime bool `json:"flexibleStartTime,omitempty"`
+	FlexibleStartTime bool `json:"flexibleStartTime"`
 
 	// ID of the activity. This is required only for the case of updating an existing activity
 	ID string `json:"id,omitempty"`
@@ -52,7 +52,7 @@ type WorkPlanActivity struct {
 	StartTimeIncrementMinutes int32 `json:"startTimeIncrementMinutes,omitempty"`
 
 	// Whether the start time of the activity is relative to the start time of the shift it belongs to
-	StartTimeIsRelativeToShiftStart bool `json:"startTimeIsRelativeToShiftStart,omitempty"`
+	StartTimeIsRelativeToShiftStart bool `json:"startTimeIsRelativeToShiftStart"`
 }
 
 // Validate validates this work plan activity

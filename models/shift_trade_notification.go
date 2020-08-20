@@ -31,7 +31,7 @@ type ShiftTradeNotification struct {
 	NewState string `json:"newState,omitempty"`
 
 	// Whether this is a one sided shift trade
-	OneSided bool `json:"oneSided,omitempty"`
+	OneSided bool `json:"oneSided"`
 
 	// The start date and time of the receiving shift (null if not matched or if one-sided. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
 	// Format: date-time

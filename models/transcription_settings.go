@@ -20,7 +20,7 @@ import (
 type TranscriptionSettings struct {
 
 	// Setting to enable/disable content search
-	ContentSearchEnabled bool `json:"contentSearchEnabled,omitempty"`
+	ContentSearchEnabled bool `json:"contentSearchEnabled"`
 
 	// Setting to enable/disable transcription capability
 	// Required: true

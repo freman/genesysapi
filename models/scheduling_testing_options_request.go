@@ -16,16 +16,16 @@ import (
 type SchedulingTestingOptionsRequest struct {
 
 	// Whether to force delayed scheduling
-	DelayScheduling bool `json:"delayScheduling,omitempty"`
+	DelayScheduling bool `json:"delayScheduling"`
 
 	// Whether to force scheduling to fail
-	FailScheduling bool `json:"failScheduling,omitempty"`
+	FailScheduling bool `json:"failScheduling"`
 
 	// Whether to enable fast scheduling
-	FastScheduling bool `json:"fastScheduling,omitempty"`
+	FastScheduling bool `json:"fastScheduling"`
 
 	// Whether to populate warnings in the generated schedule
-	PopulateWarnings bool `json:"populateWarnings,omitempty"`
+	PopulateWarnings bool `json:"populateWarnings"`
 }
 
 // Validate validates this scheduling testing options request

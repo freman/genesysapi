@@ -33,7 +33,7 @@ type DocumentUpdate struct {
 	Name *string `json:"name"`
 
 	// read
-	Read bool `json:"read,omitempty"`
+	Read bool `json:"read"`
 
 	// remove attributes
 	RemoveAttributes []string `json:"removeAttributes"`

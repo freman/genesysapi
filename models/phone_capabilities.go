@@ -21,10 +21,10 @@ import (
 type PhoneCapabilities struct {
 
 	// allow reboot
-	AllowReboot bool `json:"allowReboot,omitempty"`
+	AllowReboot bool `json:"allowReboot"`
 
 	// dual registers
-	DualRegisters bool `json:"dualRegisters,omitempty"`
+	DualRegisters bool `json:"dualRegisters"`
 
 	// hardware Id type
 	HardwareIDType string `json:"hardwareIdType,omitempty"`
@@ -33,16 +33,16 @@ type PhoneCapabilities struct {
 	MediaCodecs []string `json:"mediaCodecs"`
 
 	// no cloud provisioning
-	NoCloudProvisioning bool `json:"noCloudProvisioning,omitempty"`
+	NoCloudProvisioning bool `json:"noCloudProvisioning"`
 
 	// no rebalance
-	NoRebalance bool `json:"noRebalance,omitempty"`
+	NoRebalance bool `json:"noRebalance"`
 
 	// provisions
-	Provisions bool `json:"provisions,omitempty"`
+	Provisions bool `json:"provisions"`
 
 	// registers
-	Registers bool `json:"registers,omitempty"`
+	Registers bool `json:"registers"`
 }
 
 // Validate validates this phone capabilities

@@ -43,7 +43,7 @@ type Endpoint struct {
 	Dids []string `json:"dids"`
 
 	// enabled
-	Enabled bool `json:"enabled,omitempty"`
+	Enabled bool `json:"enabled"`
 
 	// The globally unique identifier for the object.
 	// Read Only: true

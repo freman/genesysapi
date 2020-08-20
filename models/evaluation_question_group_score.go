@@ -19,7 +19,7 @@ import (
 type EvaluationQuestionGroupScore struct {
 
 	// marked n a
-	MarkedNA bool `json:"markedNA,omitempty"`
+	MarkedNA bool `json:"markedNA"`
 
 	// max total critical score
 	MaxTotalCriticalScore float32 `json:"maxTotalCriticalScore,omitempty"`

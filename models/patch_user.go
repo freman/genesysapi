@@ -17,7 +17,7 @@ import (
 type PatchUser struct {
 
 	// The value that denotes if acdAutoAnswer is set on the user
-	AcdAutoAnswer bool `json:"acdAutoAnswer,omitempty"`
+	AcdAutoAnswer bool `json:"acdAutoAnswer"`
 
 	// biography
 	Biography *Biography `json:"biography,omitempty"`

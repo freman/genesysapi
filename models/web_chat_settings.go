@@ -16,7 +16,7 @@ import (
 type WebChatSettings struct {
 
 	// require deployment
-	RequireDeployment bool `json:"requireDeployment,omitempty"`
+	RequireDeployment bool `json:"requireDeployment"`
 }
 
 // Validate validates this web chat settings

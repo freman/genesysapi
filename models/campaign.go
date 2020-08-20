@@ -24,7 +24,7 @@ type Campaign struct {
 	AbandonRate float64 `json:"abandonRate,omitempty"`
 
 	// Indicates (when true) that the campaign will remain on after contacts are depleted, allowing additional contacts to be appended/added to the contact list and processed by the still-running campaign. The campaign can still be turned off manually.
-	AlwaysRunning bool `json:"alwaysRunning,omitempty"`
+	AlwaysRunning bool `json:"alwaysRunning"`
 
 	// The language the edge will use to analyze the call.
 	CallAnalysisLanguage string `json:"callAnalysisLanguage,omitempty"`
@@ -130,7 +130,7 @@ type Campaign struct {
 	Site *DomainEntityRef `json:"site,omitempty"`
 
 	// Whether or not agents can skip previews without placing a call. Only applicable for preview campaigns.
-	SkipPreviewDisabled bool `json:"skipPreviewDisabled,omitempty"`
+	SkipPreviewDisabled bool `json:"skipPreviewDisabled"`
 
 	// Required for updates, must match the version number of the most recent update
 	Version int32 `json:"version,omitempty"`

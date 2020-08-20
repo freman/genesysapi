@@ -37,7 +37,7 @@ type Action struct {
 	Name string `json:"name,omitempty"`
 
 	// Indication of whether or not the action is designed to accept sensitive data
-	Secure bool `json:"secure,omitempty"`
+	Secure bool `json:"secure"`
 
 	// The URI for this object
 	// Read Only: true

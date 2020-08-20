@@ -19,13 +19,13 @@ type UserScheduleFullDayTimeOffMarker struct {
 	ActivityCodeID string `json:"activityCodeId,omitempty"`
 
 	// If marked true for updating an existing full day time off marker, it will be deleted
-	Delete bool `json:"delete,omitempty"`
+	Delete bool `json:"delete"`
 
 	// The description associated with the time off request that this marker corresponds to
 	Description string `json:"description,omitempty"`
 
 	// Whether this is paid time off
-	IsPaid bool `json:"isPaid,omitempty"`
+	IsPaid bool `json:"isPaid"`
 
 	// The length in minutes of this time off marker
 	LengthInMinutes int32 `json:"lengthInMinutes,omitempty"`

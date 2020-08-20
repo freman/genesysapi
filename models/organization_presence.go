@@ -25,7 +25,7 @@ type OrganizationPresence struct {
 	CreatedDate strfmt.DateTime `json:"createdDate,omitempty"`
 
 	// deactivated
-	Deactivated bool `json:"deactivated,omitempty"`
+	Deactivated bool `json:"deactivated"`
 
 	// The globally unique identifier for the object.
 	// Read Only: true
@@ -46,7 +46,7 @@ type OrganizationPresence struct {
 	Name string `json:"name,omitempty"`
 
 	// primary
-	Primary bool `json:"primary,omitempty"`
+	Primary bool `json:"primary"`
 
 	// The URI for this object
 	// Read Only: true

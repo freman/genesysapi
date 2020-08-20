@@ -25,13 +25,13 @@ type ContactListFilterRange struct {
 	Max string `json:"max,omitempty"`
 
 	// Whether or not to include the maximum in the range.
-	MaxInclusive bool `json:"maxInclusive,omitempty"`
+	MaxInclusive bool `json:"maxInclusive"`
 
 	// The minimum value of the range. Required for the operator BETWEEN.
 	Min string `json:"min,omitempty"`
 
 	// Whether or not to include the minimum in the range.
-	MinInclusive bool `json:"minInclusive,omitempty"`
+	MinInclusive bool `json:"minInclusive"`
 }
 
 // Validate validates this contact list filter range

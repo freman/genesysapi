@@ -16,7 +16,7 @@ import (
 type UnreadStatus struct {
 
 	// Sets if the alert is read or unread.
-	Unread bool `json:"unread,omitempty"`
+	Unread bool `json:"unread"`
 }
 
 // Validate validates this unread status

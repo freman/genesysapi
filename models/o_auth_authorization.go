@@ -35,7 +35,7 @@ type OAuthAuthorization struct {
 	ModifiedBy *DomainEntityRef `json:"modifiedBy,omitempty"`
 
 	// pending
-	Pending bool `json:"pending,omitempty"`
+	Pending bool `json:"pending"`
 
 	// resource owner
 	ResourceOwner *DomainEntityRef `json:"resourceOwner,omitempty"`

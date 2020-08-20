@@ -20,10 +20,10 @@ import (
 type DomainOrganizationRole struct {
 
 	// base
-	Base bool `json:"base,omitempty"`
+	Base bool `json:"base"`
 
 	// default
-	Default bool `json:"default,omitempty"`
+	Default bool `json:"default"`
 
 	// default role Id
 	DefaultRoleID string `json:"defaultRoleId,omitempty"`
@@ -47,7 +47,7 @@ type DomainOrganizationRole struct {
 	Permissions []string `json:"permissions"`
 
 	// Optional unless patch operation.
-	RoleNeedsUpdate bool `json:"roleNeedsUpdate,omitempty"`
+	RoleNeedsUpdate bool `json:"roleNeedsUpdate"`
 
 	// The URI for this object
 	// Read Only: true

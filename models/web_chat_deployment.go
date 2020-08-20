@@ -21,7 +21,7 @@ type WebChatDeployment struct {
 	AllowedDomains []string `json:"allowedDomains"`
 
 	// authentication required
-	AuthenticationRequired bool `json:"authenticationRequired,omitempty"`
+	AuthenticationRequired bool `json:"authenticationRequired"`
 
 	// URL for third party service authenticating web chat clients. See https://github.com/MyPureCloud/authenticated-web-chat-server-examples
 	AuthenticationURL string `json:"authenticationUrl,omitempty"`
@@ -30,7 +30,7 @@ type WebChatDeployment struct {
 	Description string `json:"description,omitempty"`
 
 	// disabled
-	Disabled bool `json:"disabled,omitempty"`
+	Disabled bool `json:"disabled"`
 
 	// The URI of the Inbound Chat Flow to run when new chats are initiated under this Deployment.
 	Flow *DomainEntityRef `json:"flow,omitempty"`

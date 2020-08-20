@@ -16,7 +16,7 @@ import (
 type FieldList struct {
 
 	// custom labels
-	CustomLabels bool `json:"customLabels,omitempty"`
+	CustomLabels bool `json:"customLabels"`
 
 	// instruction text
 	InstructionText string `json:"instructionText,omitempty"`
@@ -31,10 +31,10 @@ type FieldList struct {
 	Params map[string]interface{} `json:"params,omitempty"`
 
 	// repeatable
-	Repeatable bool `json:"repeatable,omitempty"`
+	Repeatable bool `json:"repeatable"`
 
 	// required
-	Required bool `json:"required,omitempty"`
+	Required bool `json:"required"`
 
 	// state
 	State string `json:"state,omitempty"`

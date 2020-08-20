@@ -21,7 +21,7 @@ import (
 type UpdateUser struct {
 
 	// The value that denotes if acdAutoAnswer is set on the user
-	AcdAutoAnswer bool `json:"acdAutoAnswer,omitempty"`
+	AcdAutoAnswer bool `json:"acdAutoAnswer"`
 
 	// Email address, phone number, and/or extension for this user. One entry is allowed per media type
 	Addresses []*Contact `json:"addresses"`

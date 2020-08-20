@@ -22,7 +22,7 @@ type EvaluationScoringSet struct {
 	AgentComments string `json:"agentComments,omitempty"`
 
 	// any failed kill questions
-	AnyFailedKillQuestions bool `json:"anyFailedKillQuestions,omitempty"`
+	AnyFailedKillQuestions bool `json:"anyFailedKillQuestions"`
 
 	// comments
 	Comments string `json:"comments,omitempty"`

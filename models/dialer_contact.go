@@ -22,7 +22,7 @@ type DialerContact struct {
 	CallRecords map[string]CallRecord `json:"callRecords,omitempty"`
 
 	// Indicates whether or not the contact can be called.
-	Callable bool `json:"callable,omitempty"`
+	Callable bool `json:"callable"`
 
 	// Map containing data about the timezone the contact is mapped to. This will only be populated if the contact list has automatic timezone mapping turned on. The key is the column name. The value is the timezone it mapped to and the type of column: Phone or Zip
 	// Read Only: true

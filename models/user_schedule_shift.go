@@ -23,7 +23,7 @@ type UserScheduleShift struct {
 	Activities []*UserScheduleActivity `json:"activities"`
 
 	// If marked true for updating this schedule shift, it will be deleted
-	Delete bool `json:"delete,omitempty"`
+	Delete bool `json:"delete"`
 
 	// ID of the schedule shift. This is only for the case of updating and deleting an existing shift
 	ID string `json:"id,omitempty"`
@@ -33,7 +33,7 @@ type UserScheduleShift struct {
 	LengthInMinutes int32 `json:"lengthInMinutes,omitempty"`
 
 	// Whether the shift was set as manually edited
-	ManuallyEdited bool `json:"manuallyEdited,omitempty"`
+	ManuallyEdited bool `json:"manuallyEdited"`
 
 	// Start time in UTC for this shift. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
 	// Read Only: true

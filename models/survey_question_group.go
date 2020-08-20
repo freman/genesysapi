@@ -22,7 +22,7 @@ type SurveyQuestionGroup struct {
 	ID string `json:"id,omitempty"`
 
 	// na enabled
-	NaEnabled bool `json:"naEnabled,omitempty"`
+	NaEnabled bool `json:"naEnabled"`
 
 	// name
 	Name string `json:"name,omitempty"`

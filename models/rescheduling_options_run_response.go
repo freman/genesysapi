@@ -27,16 +27,16 @@ type ReschedulingOptionsRunResponse struct {
 	AgentCount int32 `json:"agentCount,omitempty"`
 
 	// Whether daily paid time is allowed to be changed
-	DoNotChangeDailyPaidTime bool `json:"doNotChangeDailyPaidTime,omitempty"`
+	DoNotChangeDailyPaidTime bool `json:"doNotChangeDailyPaidTime"`
 
 	// Whether manually edited shifts are allowed to be changed
-	DoNotChangeManuallyEditedShifts bool `json:"doNotChangeManuallyEditedShifts,omitempty"`
+	DoNotChangeManuallyEditedShifts bool `json:"doNotChangeManuallyEditedShifts"`
 
 	// Whether shift start times are allowed to be changed
-	DoNotChangeShiftStartTimes bool `json:"doNotChangeShiftStartTimes,omitempty"`
+	DoNotChangeShiftStartTimes bool `json:"doNotChangeShiftStartTimes"`
 
 	// Whether weekly paid time is allowed to be changed
-	DoNotChangeWeeklyPaidTime bool `json:"doNotChangeWeeklyPaidTime,omitempty"`
+	DoNotChangeWeeklyPaidTime bool `json:"doNotChangeWeeklyPaidTime"`
 
 	// The end date of the period to reschedule. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
 	// Format: date-time

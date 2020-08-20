@@ -34,7 +34,7 @@ type Wrapup struct {
 	Notes string `json:"notes,omitempty"`
 
 	// Indicates if this is a pending save and should not require a code to be specified.  This allows someone to save some temporary wrapup that will be used later.
-	Provisional bool `json:"provisional,omitempty"`
+	Provisional bool `json:"provisional"`
 
 	// List of tags selected by the agent to describe the call or disposition.
 	Tags []string `json:"tags"`

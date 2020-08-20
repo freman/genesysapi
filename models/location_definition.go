@@ -25,7 +25,7 @@ type LocationDefinition struct {
 
 	// Boolean field which states if the address has been stored for E911
 	// Read Only: true
-	AddressStored *bool `json:"addressStored,omitempty"`
+	AddressStored *bool `json:"addressStored"`
 
 	// Address verification information, retrieve dwith the ?expand=addressVerificationDetails query parameter
 	// Read Only: true
@@ -33,7 +33,7 @@ type LocationDefinition struct {
 
 	// Boolean field which states if the address has been verified as an actual address
 	// Read Only: true
-	AddressVerified *bool `json:"addressVerified,omitempty"`
+	AddressVerified *bool `json:"addressVerified"`
 
 	// Site contact for the location entity
 	ContactUser *AddressableEntityRef `json:"contactUser,omitempty"`

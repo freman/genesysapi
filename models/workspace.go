@@ -41,7 +41,7 @@ type Workspace struct {
 	ID string `json:"id,omitempty"`
 
 	// is current user workspace
-	IsCurrentUserWorkspace bool `json:"isCurrentUserWorkspace,omitempty"`
+	IsCurrentUserWorkspace bool `json:"isCurrentUserWorkspace"`
 
 	// The current name of the workspace.
 	// Required: true

@@ -19,19 +19,19 @@ import (
 type EvaluationQuestionGroup struct {
 
 	// default answers to highest
-	DefaultAnswersToHighest bool `json:"defaultAnswersToHighest,omitempty"`
+	DefaultAnswersToHighest bool `json:"defaultAnswersToHighest"`
 
 	// default answers to n a
-	DefaultAnswersToNA bool `json:"defaultAnswersToNA,omitempty"`
+	DefaultAnswersToNA bool `json:"defaultAnswersToNA"`
 
 	// id
 	ID string `json:"id,omitempty"`
 
 	// manual weight
-	ManualWeight bool `json:"manualWeight,omitempty"`
+	ManualWeight bool `json:"manualWeight"`
 
 	// na enabled
-	NaEnabled bool `json:"naEnabled,omitempty"`
+	NaEnabled bool `json:"naEnabled"`
 
 	// name
 	Name string `json:"name,omitempty"`

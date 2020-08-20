@@ -19,7 +19,7 @@ import (
 type ShrinkageOverrides struct {
 
 	// Set true to clear the shrinkage interval overrides
-	Clear bool `json:"clear,omitempty"`
+	Clear bool `json:"clear"`
 
 	// List of interval shrinkage overrides
 	Values []*ShrinkageOverride `json:"values"`

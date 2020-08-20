@@ -18,7 +18,7 @@ import (
 type Coretype struct {
 
 	// A boolean indicating if the core type's version is the current one in use by the system
-	Current bool `json:"current,omitempty"`
+	Current bool `json:"current"`
 
 	// The date the core type was created. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
 	// Format: date-time

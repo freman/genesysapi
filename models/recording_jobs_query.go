@@ -34,7 +34,7 @@ type RecordingJobsQuery struct {
 	ConversationQuery *AsyncConversationQuery `json:"conversationQuery"`
 
 	// Include Screen recordings for export action, default value = true
-	IncludeScreenRecordings bool `json:"includeScreenRecordings,omitempty"`
+	IncludeScreenRecordings bool `json:"includeScreenRecordings"`
 
 	// IntegrationId to Access AWS S3 bucket for bulk recording exports. This field is required and used only for EXPORT action.
 	IntegrationID string `json:"integrationId,omitempty"`

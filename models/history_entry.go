@@ -30,7 +30,7 @@ type HistoryEntry struct {
 	Resource string `json:"resource,omitempty"`
 
 	// secure
-	Secure bool `json:"secure,omitempty"`
+	Secure bool `json:"secure"`
 
 	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
 	// Format: date-time

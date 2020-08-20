@@ -16,7 +16,7 @@ import (
 type MediaUtilization struct {
 
 	// If true, then track non-ACD conversations against utilization
-	IncludeNonAcd bool `json:"includeNonAcd,omitempty"`
+	IncludeNonAcd bool `json:"includeNonAcd"`
 
 	// Defines the list of other media types that can interrupt a conversation of this media type.  Values include call, chat, email, callback, and message.
 	InterruptableMediaTypes []string `json:"interruptableMediaTypes"`

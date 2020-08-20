@@ -35,7 +35,7 @@ type EvaluationForm struct {
 	Name *string `json:"name"`
 
 	// published
-	Published bool `json:"published,omitempty"`
+	Published bool `json:"published"`
 
 	// published versions
 	PublishedVersions *DomainEntityListingEvaluationForm `json:"publishedVersions,omitempty"`

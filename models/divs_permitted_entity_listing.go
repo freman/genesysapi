@@ -20,7 +20,7 @@ import (
 type DivsPermittedEntityListing struct {
 
 	// all divs permitted
-	AllDivsPermitted bool `json:"allDivsPermitted,omitempty"`
+	AllDivsPermitted bool `json:"allDivsPermitted"`
 
 	// entities
 	Entities []*AuthzDivision `json:"entities"`

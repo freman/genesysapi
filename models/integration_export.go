@@ -22,7 +22,7 @@ type IntegrationExport struct {
 	Integration *DomainEntityRef `json:"integration"`
 
 	// True if the policy should export screen recordings in addition to the other conversation media. Default = true
-	ShouldExportScreenRecordings bool `json:"shouldExportScreenRecordings,omitempty"`
+	ShouldExportScreenRecordings bool `json:"shouldExportScreenRecordings"`
 }
 
 // Validate validates this integration export

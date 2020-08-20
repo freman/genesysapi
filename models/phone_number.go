@@ -16,7 +16,7 @@ import (
 type PhoneNumber struct {
 
 	// accepts s m s
-	AcceptsSMS bool `json:"acceptsSMS,omitempty"`
+	AcceptsSMS bool `json:"acceptsSMS"`
 
 	// country code
 	CountryCode string `json:"countryCode,omitempty"`

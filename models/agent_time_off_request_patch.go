@@ -20,7 +20,7 @@ import (
 type AgentTimeOffRequestPatch struct {
 
 	// Whether this request has been read by the agent
-	MarkedAsRead bool `json:"markedAsRead,omitempty"`
+	MarkedAsRead bool `json:"markedAsRead"`
 
 	// Notes about the time off request. Can only be edited while the request is still pending
 	Notes string `json:"notes,omitempty"`

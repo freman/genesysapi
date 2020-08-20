@@ -40,7 +40,7 @@ type ConversationChat struct {
 	DisconnectedTime strfmt.DateTime `json:"disconnectedTime,omitempty"`
 
 	// True if this call is held and the person on this side hears silence.
-	Held bool `json:"held,omitempty"`
+	Held bool `json:"held"`
 
 	// A globally unique identifier for this communication.
 	ID string `json:"id,omitempty"`

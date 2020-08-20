@@ -68,7 +68,7 @@ type DocumentAudit struct {
 	TransactionID string `json:"transactionId,omitempty"`
 
 	// transaction initiator
-	TransactionInitiator bool `json:"transactionInitiator,omitempty"`
+	TransactionInitiator bool `json:"transactionInitiator"`
 
 	// user
 	User *DomainEntityRef `json:"user,omitempty"`

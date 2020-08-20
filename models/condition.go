@@ -26,7 +26,7 @@ type Condition struct {
 	Codes []string `json:"codes"`
 
 	// If true, inverts the result of evaluating this Condition. Default is false.
-	Inverted bool `json:"inverted,omitempty"`
+	Inverted bool `json:"inverted"`
 
 	// An operation with which to evaluate the Condition. Not used for a DataActionCondition.
 	// Enum: [EQUALS LESS_THAN LESS_THAN_EQUALS GREATER_THAN GREATER_THAN_EQUALS CONTAINS BEGINS_WITH ENDS_WITH BEFORE AFTER IN]

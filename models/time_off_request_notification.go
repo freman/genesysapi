@@ -24,7 +24,7 @@ type TimeOffRequestNotification struct {
 	FullDayManagementUnitDates []string `json:"fullDayManagementUnitDates"`
 
 	// Whether this is a full day request (false means partial day)
-	IsFullDayRequest bool `json:"isFullDayRequest,omitempty"`
+	IsFullDayRequest bool `json:"isFullDayRequest"`
 
 	// A set of start date-times in ISO-8601 format for partial day requests.  Will be not empty if isFullDayRequest == false
 	PartialDayStartDateTimes []strfmt.DateTime `json:"partialDayStartDateTimes"`

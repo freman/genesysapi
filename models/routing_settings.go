@@ -16,7 +16,7 @@ import (
 type RoutingSettings struct {
 
 	// Reset agent score when agent presence changes from off-queue to on-queue
-	ResetAgentScoreOnPresenceChange bool `json:"resetAgentScoreOnPresenceChange,omitempty"`
+	ResetAgentScoreOnPresenceChange bool `json:"resetAgentScoreOnPresenceChange"`
 }
 
 // Validate validates this routing settings

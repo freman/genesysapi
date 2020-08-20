@@ -21,7 +21,7 @@ import (
 type ReportingExportJobRequest struct {
 
 	// Excludes empty rows from the exports
-	ExcludeEmptyRows bool `json:"excludeEmptyRows,omitempty"`
+	ExcludeEmptyRows bool `json:"excludeEmptyRows"`
 
 	// The requested format of the exported data
 	// Required: true
@@ -33,16 +33,16 @@ type ReportingExportJobRequest struct {
 	Filter *ViewFilter `json:"filter"`
 
 	// Indicates if custom participant attributes will be exported
-	HasCustomParticipantAttributes bool `json:"hasCustomParticipantAttributes,omitempty"`
+	HasCustomParticipantAttributes bool `json:"hasCustomParticipantAttributes"`
 
 	// Indicates if durations are formatted in hh:mm:ss format instead of ms
-	HasFormatDurations bool `json:"hasFormatDurations,omitempty"`
+	HasFormatDurations bool `json:"hasFormatDurations"`
 
 	// Indicates if media type will be split in aggregate detail exports
-	HasSplitByMedia bool `json:"hasSplitByMedia,omitempty"`
+	HasSplitByMedia bool `json:"hasSplitByMedia"`
 
 	// Indicates if filters will be split in aggregate detail exports
-	HasSplitFilters bool `json:"hasSplitFilters,omitempty"`
+	HasSplitFilters bool `json:"hasSplitFilters"`
 
 	// The time period used to limit the the exported data. Intervals are represented as an ISO-8601 string. For example: YYYY-MM-DDThh:mm:ss/YYYY-MM-DDThh:mm:ss
 	// Required: true
@@ -61,7 +61,7 @@ type ReportingExportJobRequest struct {
 	Period *string `json:"period"`
 
 	// Indicates if the request has been marked as read
-	Read bool `json:"read,omitempty"`
+	Read bool `json:"read"`
 
 	// The list of email recipients for the exports
 	RecipientEmails []string `json:"recipientEmails"`

@@ -19,7 +19,7 @@ import (
 type PolicyActions struct {
 
 	// true to delete the recording associated with the conversation regardless of the values of retainRecording or deleteRecording. Default = false
-	AlwaysDelete bool `json:"alwaysDelete,omitempty"`
+	AlwaysDelete bool `json:"alwaysDelete"`
 
 	// assign calibrations
 	AssignCalibrations []*CalibrationAssignment `json:"assignCalibrations"`
@@ -37,7 +37,7 @@ type PolicyActions struct {
 	AssignSurveys []*SurveyAssignment `json:"assignSurveys"`
 
 	// true to delete the recording associated with the conversation. If retainRecording = true, this will be ignored. Default = false
-	DeleteRecording bool `json:"deleteRecording,omitempty"`
+	DeleteRecording bool `json:"deleteRecording"`
 
 	// initiate screen recording
 	InitiateScreenRecording *InitiateScreenRecording `json:"initiateScreenRecording,omitempty"`
@@ -49,7 +49,7 @@ type PolicyActions struct {
 	MediaTranscriptions []*MediaTranscription `json:"mediaTranscriptions"`
 
 	// true to retain the recording associated with the conversation. Default = true
-	RetainRecording bool `json:"retainRecording,omitempty"`
+	RetainRecording bool `json:"retainRecording"`
 
 	// retention duration
 	RetentionDuration *RetentionDuration `json:"retentionDuration,omitempty"`

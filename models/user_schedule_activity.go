@@ -21,13 +21,13 @@ type UserScheduleActivity struct {
 	ActivityCodeID string `json:"activityCodeId,omitempty"`
 
 	// Whether this activity is paid
-	CountsAsPaidTime bool `json:"countsAsPaidTime,omitempty"`
+	CountsAsPaidTime bool `json:"countsAsPaidTime"`
 
 	// Description for this activity
 	Description string `json:"description,omitempty"`
 
 	// Whether this activity spans a DST fallback
-	IsDstFallback bool `json:"isDstFallback,omitempty"`
+	IsDstFallback bool `json:"isDstFallback"`
 
 	// Length in minutes for this activity
 	LengthInMinutes int32 `json:"lengthInMinutes,omitempty"`

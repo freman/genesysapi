@@ -30,7 +30,7 @@ type UpdateDraftInput struct {
 	Name string `json:"name,omitempty"`
 
 	// Indication of whether or not the action is designed to accept sensitive data
-	Secure bool `json:"secure,omitempty"`
+	Secure bool `json:"secure"`
 
 	// Version of current Draft
 	// Required: true

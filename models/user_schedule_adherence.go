@@ -50,7 +50,7 @@ type UserScheduleAdherence struct {
 
 	// Whether the user is marked OutOfOffice
 	// Read Only: true
-	IsOutOfOffice *bool `json:"isOutOfOffice,omitempty"`
+	IsOutOfOffice *bool `json:"isOutOfOffice"`
 
 	// The management unit to which this user belongs
 	// Read Only: true
@@ -70,7 +70,7 @@ type UserScheduleAdherence struct {
 
 	// For notification purposes. Used to indicate that a user was removed from the management unit
 	// Read Only: true
-	RemovedFromManagementUnit *bool `json:"removedFromManagementUnit,omitempty"`
+	RemovedFromManagementUnit *bool `json:"removedFromManagementUnit"`
 
 	// Actual underlying routing status, used to determine whether a user is actually in adherence when OnQueue
 	// Read Only: true

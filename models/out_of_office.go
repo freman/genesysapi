@@ -18,7 +18,7 @@ import (
 type OutOfOffice struct {
 
 	// active
-	Active bool `json:"active,omitempty"`
+	Active bool `json:"active"`
 
 	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
 	// Format: date-time
@@ -29,7 +29,7 @@ type OutOfOffice struct {
 	ID string `json:"id,omitempty"`
 
 	// indefinite
-	Indefinite bool `json:"indefinite,omitempty"`
+	Indefinite bool `json:"indefinite"`
 
 	// name
 	Name string `json:"name,omitempty"`

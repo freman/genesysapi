@@ -48,7 +48,7 @@ type Trunk struct {
 	EdgeGroup *DomainEntityRef `json:"edgeGroup,omitempty"`
 
 	// True if the Edge used by this trunk is in-service
-	Enabled bool `json:"enabled,omitempty"`
+	Enabled bool `json:"enabled"`
 
 	// The IP Network Family of the trunk
 	// Read Only: true
@@ -60,7 +60,7 @@ type Trunk struct {
 
 	// True if this trunk is in-service.  This comes from the trunk_enabled property of the referenced trunk base.
 	// Read Only: true
-	InService *bool `json:"inService,omitempty"`
+	InService *bool `json:"inService"`
 
 	// The trunk ipStatus
 	// Read Only: true

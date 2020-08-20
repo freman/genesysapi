@@ -16,43 +16,43 @@ import (
 type OrganizationFeatures struct {
 
 	// chat
-	Chat bool `json:"chat,omitempty"`
+	Chat bool `json:"chat"`
 
 	// contact center
-	ContactCenter bool `json:"contactCenter,omitempty"`
+	ContactCenter bool `json:"contactCenter"`
 
 	// custserv
-	Custserv bool `json:"custserv,omitempty"`
+	Custserv bool `json:"custserv"`
 
 	// directory
-	Directory bool `json:"directory,omitempty"`
+	Directory bool `json:"directory"`
 
 	// hipaa
-	Hipaa bool `json:"hipaa,omitempty"`
+	Hipaa bool `json:"hipaa"`
 
 	// informal photos
-	InformalPhotos bool `json:"informalPhotos,omitempty"`
+	InformalPhotos bool `json:"informalPhotos"`
 
 	// pci
-	Pci bool `json:"pci,omitempty"`
+	Pci bool `json:"pci"`
 
 	// purecloud
-	Purecloud bool `json:"purecloud,omitempty"`
+	Purecloud bool `json:"purecloud"`
 
 	// purecloud voice
-	PurecloudVoice bool `json:"purecloudVoice,omitempty"`
+	PurecloudVoice bool `json:"purecloudVoice"`
 
 	// realtime c i c
-	RealtimeCIC bool `json:"realtimeCIC,omitempty"`
+	RealtimeCIC bool `json:"realtimeCIC"`
 
 	// uc enabled
-	UcEnabled bool `json:"ucEnabled,omitempty"`
+	UcEnabled bool `json:"ucEnabled"`
 
 	// unified communications
-	UnifiedCommunications bool `json:"unifiedCommunications,omitempty"`
+	UnifiedCommunications bool `json:"unifiedCommunications"`
 
 	// xmpp federation
-	XMPPFederation bool `json:"xmppFederation,omitempty"`
+	XMPPFederation bool `json:"xmppFederation"`
 }
 
 // Validate validates this organization features

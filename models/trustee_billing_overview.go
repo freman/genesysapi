@@ -53,7 +53,7 @@ type TrusteeBillingOverview struct {
 	ID string `json:"id,omitempty"`
 
 	// in ramp period
-	InRampPeriod bool `json:"inRampPeriod,omitempty"`
+	InRampPeriod bool `json:"inRampPeriod"`
 
 	// Minimum amount that will be charged for the month
 	MinimumMonthlyAmount string `json:"minimumMonthlyAmount,omitempty"`

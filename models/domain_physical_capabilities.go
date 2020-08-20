@@ -16,10 +16,10 @@ import (
 type DomainPhysicalCapabilities struct {
 
 	// team
-	Team bool `json:"team,omitempty"`
+	Team bool `json:"team"`
 
 	// vlan
-	Vlan bool `json:"vlan,omitempty"`
+	Vlan bool `json:"vlan"`
 }
 
 // Validate validates this domain physical capabilities

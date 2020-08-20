@@ -22,7 +22,7 @@ type DraftValidationResult struct {
 	Errors []*ErrorBody `json:"errors"`
 
 	// Indicates if configuration is valid
-	Valid bool `json:"valid,omitempty"`
+	Valid bool `json:"valid"`
 }
 
 // Validate validates this draft validation result

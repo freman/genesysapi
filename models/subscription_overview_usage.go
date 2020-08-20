@@ -25,10 +25,10 @@ type SubscriptionOverviewUsage struct {
 	Grouping *string `json:"grouping"`
 
 	// Indicates whether the item is cancellable
-	IsCancellable bool `json:"isCancellable,omitempty"`
+	IsCancellable bool `json:"isCancellable"`
 
 	// A charge from a third party entity
-	IsThirdParty bool `json:"isThirdParty,omitempty"`
+	IsThirdParty bool `json:"isThirdParty"`
 
 	// Product charge name
 	// Required: true

@@ -22,7 +22,7 @@ type VoicemailOrganizationPolicy struct {
 
 	// Whether voicemail is enable for this organization
 	// Read Only: true
-	Enabled *bool `json:"enabled,omitempty"`
+	Enabled *bool `json:"enabled"`
 
 	// The date the policy was last modified. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
 	// Read Only: true
@@ -33,10 +33,10 @@ type VoicemailOrganizationPolicy struct {
 	PinConfiguration *PINConfiguration `json:"pinConfiguration,omitempty"`
 
 	// If this is true, a PIN is required when accessing a user's voicemail from a phone.
-	PinRequired bool `json:"pinRequired,omitempty"`
+	PinRequired bool `json:"pinRequired"`
 
 	// Whether email notifications are sent for new voicemails in the organization. If false, new voicemail email notifications are not be sent for the organization overriding any user or group setting.
-	SendEmailNotifications bool `json:"sendEmailNotifications,omitempty"`
+	SendEmailNotifications bool `json:"sendEmailNotifications"`
 
 	// The extension for voicemail retrieval.  The default value is *86.
 	VoicemailExtension string `json:"voicemailExtension,omitempty"`

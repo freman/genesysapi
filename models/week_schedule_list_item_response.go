@@ -31,7 +31,7 @@ type WeekScheduleListItemResponse struct {
 	Metadata *WfmVersionedEntityMetadata `json:"metadata,omitempty"`
 
 	// Whether the week schedule is published
-	Published bool `json:"published,omitempty"`
+	Published bool `json:"published"`
 
 	// The URI for this object
 	// Read Only: true

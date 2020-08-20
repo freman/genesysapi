@@ -24,7 +24,7 @@ type Queue struct {
 	AcwSettings *AcwSettings `json:"acwSettings,omitempty"`
 
 	// Specifies whether the configured whisper should play for all ACD calls, or only for those which are auto-answered.
-	AutoAnswerOnly bool `json:"autoAnswerOnly,omitempty"`
+	AutoAnswerOnly bool `json:"autoAnswerOnly"`
 
 	// The bulls-eye settings for the queue.
 	Bullseye *Bullseye `json:"bullseye,omitempty"`

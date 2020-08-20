@@ -17,7 +17,7 @@ import (
 type ReschedulingManagementUnitResponse struct {
 
 	// Whether the rescheduling run is applied for the given management unit
-	Applied bool `json:"applied,omitempty"`
+	Applied bool `json:"applied"`
 
 	// The management unit
 	ManagementUnit *ManagementUnitReference `json:"managementUnit,omitempty"`

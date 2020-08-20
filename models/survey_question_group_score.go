@@ -19,7 +19,7 @@ import (
 type SurveyQuestionGroupScore struct {
 
 	// marked n a
-	MarkedNA bool `json:"markedNA,omitempty"`
+	MarkedNA bool `json:"markedNA"`
 
 	// max total score
 	MaxTotalScore float32 `json:"maxTotalScore,omitempty"`

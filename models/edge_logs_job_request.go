@@ -22,7 +22,7 @@ type EdgeLogsJobRequest struct {
 	Query string `json:"query,omitempty"`
 
 	// Boolean whether or not to recurse into directories.
-	Recurse bool `json:"recurse,omitempty"`
+	Recurse bool `json:"recurse"`
 }
 
 // Validate validates this edge logs job request

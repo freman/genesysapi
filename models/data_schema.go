@@ -34,7 +34,7 @@ type DataSchema struct {
 	DateCreated strfmt.DateTime `json:"dateCreated,omitempty"`
 
 	// The schema's enabled/disabled status. A disabled schema cannot be assigned to any other entities, but the data on those entities from the schema still exists.
-	Enabled bool `json:"enabled,omitempty"`
+	Enabled bool `json:"enabled"`
 
 	// The globally unique identifier for the object.
 	// Read Only: true

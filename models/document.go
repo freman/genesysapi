@@ -78,7 +78,7 @@ type Document struct {
 	PageCount int64 `json:"pageCount,omitempty"`
 
 	// read
-	Read bool `json:"read,omitempty"`
+	Read bool `json:"read"`
 
 	// receiver address
 	ReceiverAddress string `json:"receiverAddress,omitempty"`

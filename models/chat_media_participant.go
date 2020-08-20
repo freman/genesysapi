@@ -68,7 +68,7 @@ type ChatMediaParticipant struct {
 	FlaggedReason string `json:"flaggedReason,omitempty"`
 
 	// Value is true when the participant is on hold.
-	Held bool `json:"held,omitempty"`
+	Held bool `json:"held"`
 
 	// The unique participant ID.
 	ID string `json:"id,omitempty"`
@@ -126,10 +126,10 @@ type ChatMediaParticipant struct {
 	WrapupPrompt string `json:"wrapupPrompt,omitempty"`
 
 	// Value is true when the participant requires wrap-up.
-	WrapupRequired bool `json:"wrapupRequired,omitempty"`
+	WrapupRequired bool `json:"wrapupRequired"`
 
 	// Value is true when the participant has skipped wrap-up.
-	WrapupSkipped bool `json:"wrapupSkipped,omitempty"`
+	WrapupSkipped bool `json:"wrapupSkipped"`
 
 	// The amount of time the participant has to complete wrap-up.
 	WrapupTimeoutMs int32 `json:"wrapupTimeoutMs,omitempty"`

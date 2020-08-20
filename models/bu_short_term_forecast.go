@@ -36,7 +36,7 @@ type BuShortTermForecast struct {
 
 	// Whether this forecast contains modifications on legacy metrics
 	// Read Only: true
-	Legacy *bool `json:"legacy,omitempty"`
+	Legacy *bool `json:"legacy"`
 
 	// Metadata for this forecast
 	Metadata *WfmVersionedEntityMetadata `json:"metadata,omitempty"`

@@ -30,7 +30,7 @@ type BuAgentScheduleShift struct {
 	LengthMinutes int32 `json:"lengthMinutes,omitempty"`
 
 	// Whether this shift was manually edited. This is only set by clients and is used for rescheduling
-	ManuallyEdited bool `json:"manuallyEdited,omitempty"`
+	ManuallyEdited bool `json:"manuallyEdited"`
 
 	// The schedule to which this shift belongs
 	// Read Only: true

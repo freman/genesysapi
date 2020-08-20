@@ -68,7 +68,7 @@ type CallbackMediaParticipant struct {
 	ErrorInfo *ErrorInfo `json:"errorInfo,omitempty"`
 
 	// True if the call for the callback uses external dialing.
-	ExternalCampaign bool `json:"externalCampaign,omitempty"`
+	ExternalCampaign bool `json:"externalCampaign"`
 
 	// If this participant represents an external contact, then this will be the reference for the external contact.
 	ExternalContact *DomainEntityRef `json:"externalContact,omitempty"`
@@ -81,7 +81,7 @@ type CallbackMediaParticipant struct {
 	FlaggedReason string `json:"flaggedReason,omitempty"`
 
 	// Value is true when the participant is on hold.
-	Held bool `json:"held,omitempty"`
+	Held bool `json:"held"`
 
 	// The unique participant ID.
 	ID string `json:"id,omitempty"`
@@ -111,7 +111,7 @@ type CallbackMediaParticipant struct {
 	Script *DomainEntityRef `json:"script,omitempty"`
 
 	// If true, the callback can be skipped.
-	SkipEnabled bool `json:"skipEnabled,omitempty"`
+	SkipEnabled bool `json:"skipEnabled"`
 
 	// The timestamp when this participant started after-call work. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
 	// Format: date-time
@@ -148,10 +148,10 @@ type CallbackMediaParticipant struct {
 	WrapupPrompt string `json:"wrapupPrompt,omitempty"`
 
 	// Value is true when the participant requires wrap-up.
-	WrapupRequired bool `json:"wrapupRequired,omitempty"`
+	WrapupRequired bool `json:"wrapupRequired"`
 
 	// Value is true when the participant has skipped wrap-up.
-	WrapupSkipped bool `json:"wrapupSkipped,omitempty"`
+	WrapupSkipped bool `json:"wrapupSkipped"`
 
 	// The amount of time the participant has to complete wrap-up.
 	WrapupTimeoutMs int32 `json:"wrapupTimeoutMs,omitempty"`

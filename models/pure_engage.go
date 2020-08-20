@@ -18,13 +18,13 @@ import (
 type PureEngage struct {
 
 	// auto provision users
-	AutoProvisionUsers bool `json:"autoProvisionUsers,omitempty"`
+	AutoProvisionUsers bool `json:"autoProvisionUsers"`
 
 	// certificate
 	Certificate string `json:"certificate,omitempty"`
 
 	// disabled
-	Disabled bool `json:"disabled,omitempty"`
+	Disabled bool `json:"disabled"`
 
 	// The globally unique identifier for the object.
 	// Read Only: true

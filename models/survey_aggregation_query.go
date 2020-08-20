@@ -28,7 +28,7 @@ type SurveyAggregationQuery struct {
 	Filter *SurveyAggregateQueryFilter `json:"filter,omitempty"`
 
 	// Flattens any multivalued dimensions used in response groups (e.g. ['a','b','c']->'a,b,c')
-	FlattenMultivaluedDimensions bool `json:"flattenMultivaluedDimensions,omitempty"`
+	FlattenMultivaluedDimensions bool `json:"flattenMultivaluedDimensions"`
 
 	// Granularity aggregates metrics into subpartitions within the time interval specified. The default granularity is the same duration as the interval. Periods are represented as an ISO-8601 string. For example: P1D or P1DT12H
 	Granularity string `json:"granularity,omitempty"`

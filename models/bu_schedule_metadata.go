@@ -36,7 +36,7 @@ type BuScheduleMetadata struct {
 	Metadata *WfmVersionedEntityMetadata `json:"metadata,omitempty"`
 
 	// Whether this schedule is published
-	Published bool `json:"published,omitempty"`
+	Published bool `json:"published"`
 
 	// The URI for this object
 	// Read Only: true

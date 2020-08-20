@@ -21,7 +21,7 @@ type TrunkMetricsOptions struct {
 	ErrorInfo *TrunkErrorInfo `json:"errorInfo,omitempty"`
 
 	// option state
-	OptionState bool `json:"optionState,omitempty"`
+	OptionState bool `json:"optionState"`
 
 	// ISO 8601 format UTC absolute date & time of the last change of the option state.
 	// Format: date-time

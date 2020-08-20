@@ -17,7 +17,7 @@ import (
 type DomainNetworkCommandResponse struct {
 
 	// acknowledged
-	Acknowledged bool `json:"acknowledged,omitempty"`
+	Acknowledged bool `json:"acknowledged"`
 
 	// command name
 	CommandName string `json:"commandName,omitempty"`

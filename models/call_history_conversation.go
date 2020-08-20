@@ -25,17 +25,17 @@ type CallHistoryConversation struct {
 	Direction string `json:"direction,omitempty"`
 
 	// Did this conversation have a cobrowse session
-	HadCobrowse bool `json:"hadCobrowse,omitempty"`
+	HadCobrowse bool `json:"hadCobrowse"`
 
 	// Did this conversation have a screen share session
-	HadScreenShare bool `json:"hadScreenShare,omitempty"`
+	HadScreenShare bool `json:"hadScreenShare"`
 
 	// The globally unique identifier for the object.
 	// Read Only: true
 	ID string `json:"id,omitempty"`
 
 	// Did the user not answer this conversation
-	MissedCall bool `json:"missedCall,omitempty"`
+	MissedCall bool `json:"missedCall"`
 
 	// name
 	Name string `json:"name,omitempty"`
@@ -53,16 +53,16 @@ type CallHistoryConversation struct {
 	StartTime strfmt.DateTime `json:"startTime,omitempty"`
 
 	// Was this conversation a callback
-	WasCallback bool `json:"wasCallback,omitempty"`
+	WasCallback bool `json:"wasCallback"`
 
 	// Was this conversation a conference
-	WasConference bool `json:"wasConference,omitempty"`
+	WasConference bool `json:"wasConference"`
 
 	// Was this conversation associated with an outbound campaign
-	WasOutboundCampaign bool `json:"wasOutboundCampaign,omitempty"`
+	WasOutboundCampaign bool `json:"wasOutboundCampaign"`
 
 	// Did the call end in the current user's voicemail
-	WentToVoicemail bool `json:"wentToVoicemail,omitempty"`
+	WentToVoicemail bool `json:"wentToVoicemail"`
 }
 
 // Validate validates this call history conversation

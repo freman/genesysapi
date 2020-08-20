@@ -36,7 +36,7 @@ type SurveyQuestion struct {
 	MaxResponseCharacters int32 `json:"maxResponseCharacters,omitempty"`
 
 	// na enabled
-	NaEnabled bool `json:"naEnabled,omitempty"`
+	NaEnabled bool `json:"naEnabled"`
 
 	// text
 	Text string `json:"text,omitempty"`

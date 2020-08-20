@@ -25,7 +25,7 @@ type ResourcePermissionPolicy struct {
 	ActionSetKey string `json:"actionSetKey,omitempty"`
 
 	// allow conditions
-	AllowConditions bool `json:"allowConditions,omitempty"`
+	AllowConditions bool `json:"allowConditions"`
 
 	// domain
 	Domain string `json:"domain,omitempty"`

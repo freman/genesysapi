@@ -27,7 +27,7 @@ type ContactSort struct {
 	FieldName string `json:"fieldName,omitempty"`
 
 	// Whether or not the column contains numeric data.
-	Numeric bool `json:"numeric,omitempty"`
+	Numeric bool `json:"numeric"`
 }
 
 // Validate validates this contact sort

@@ -24,7 +24,7 @@ type AnalyticsEvaluation struct {
 	ContextID string `json:"contextId,omitempty"`
 
 	// Whether this evaluation has been deleted
-	Deleted bool `json:"deleted,omitempty"`
+	Deleted bool `json:"deleted"`
 
 	// Unique identifier for the evaluation
 	EvaluationID string `json:"evaluationId,omitempty"`
@@ -52,7 +52,7 @@ type AnalyticsEvaluation struct {
 	QueueID string `json:"queueId,omitempty"`
 
 	// Whether this evaluation has ever been rescored
-	Rescored bool `json:"rescored,omitempty"`
+	Rescored bool `json:"rescored"`
 
 	// Unique identifier for the user being evaluated
 	UserID string `json:"userId,omitempty"`

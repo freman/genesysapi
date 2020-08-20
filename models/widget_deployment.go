@@ -23,7 +23,7 @@ type WidgetDeployment struct {
 	AllowedDomains []string `json:"allowedDomains"`
 
 	// When true, the customer members starting a chat must be authenticated by supplying their JWT to the create operation.
-	AuthenticationRequired bool `json:"authenticationRequired,omitempty"`
+	AuthenticationRequired bool `json:"authenticationRequired"`
 
 	// The client configuration options that should be made available to the clients of this Deployment.
 	ClientConfig *WidgetClientConfig `json:"clientConfig,omitempty"`
@@ -36,7 +36,7 @@ type WidgetDeployment struct {
 	Description string `json:"description,omitempty"`
 
 	// When true, all create chat operations using this Deployment will be rejected.
-	Disabled bool `json:"disabled,omitempty"`
+	Disabled bool `json:"disabled"`
 
 	// The URI of the Inbound Chat Flow to run when new chats are initiated under this Deployment.
 	Flow *DomainEntityRef `json:"flow,omitempty"`

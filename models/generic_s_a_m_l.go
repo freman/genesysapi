@@ -21,10 +21,10 @@ type GenericSAML struct {
 	Certificate string `json:"certificate,omitempty"`
 
 	// disabled
-	Disabled bool `json:"disabled,omitempty"`
+	Disabled bool `json:"disabled"`
 
 	// endpoint compression
-	EndpointCompression bool `json:"endpointCompression,omitempty"`
+	EndpointCompression bool `json:"endpointCompression"`
 
 	// The globally unique identifier for the object.
 	// Read Only: true

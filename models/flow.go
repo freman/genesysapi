@@ -20,7 +20,7 @@ import (
 type Flow struct {
 
 	// active
-	Active bool `json:"active,omitempty"`
+	Active bool `json:"active"`
 
 	// checked in version
 	CheckedInVersion *FlowVersion `json:"checkedInVersion,omitempty"`
@@ -32,7 +32,7 @@ type Flow struct {
 	DebugVersion *FlowVersion `json:"debugVersion,omitempty"`
 
 	// deleted
-	Deleted bool `json:"deleted,omitempty"`
+	Deleted bool `json:"deleted"`
 
 	// description
 	Description string `json:"description,omitempty"`
@@ -74,7 +74,7 @@ type Flow struct {
 	SelfURI strfmt.URI `json:"selfUri,omitempty"`
 
 	// system
-	System bool `json:"system,omitempty"`
+	System bool `json:"system"`
 
 	// type
 	// Enum: [BOT COMMONMODULE INBOUNDCALL INBOUNDCHAT INBOUNDEMAIL INBOUNDSHORTMESSAGE INQUEUECALL OUTBOUNDCALL SECURECALL SPEECH SURVEYINVITE WORKFLOW]

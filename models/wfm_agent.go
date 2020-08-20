@@ -20,7 +20,7 @@ import (
 type WfmAgent struct {
 
 	// Whether the agent accepts direct shift trade requests
-	AcceptDirectShiftTrades bool `json:"acceptDirectShiftTrades,omitempty"`
+	AcceptDirectShiftTrades bool `json:"acceptDirectShiftTrades"`
 
 	// The globally unique identifier for the object.
 	// Read Only: true
@@ -36,7 +36,7 @@ type WfmAgent struct {
 	Queues []*QueueReference `json:"queues"`
 
 	// Whether the agent has the permission to be included in schedule generation
-	Schedulable bool `json:"schedulable,omitempty"`
+	Schedulable bool `json:"schedulable"`
 
 	// The URI for this object
 	// Read Only: true

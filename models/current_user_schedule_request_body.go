@@ -23,7 +23,7 @@ type CurrentUserScheduleRequestBody struct {
 	EndDate *strfmt.DateTime `json:"endDate"`
 
 	// Whether to load the full week's schedule (for the current user) of any week overlapping the start/end date query parameters, defaults to false
-	LoadFullWeeks bool `json:"loadFullWeeks,omitempty"`
+	LoadFullWeeks bool `json:"loadFullWeeks"`
 
 	// Beginning of the range of schedules to fetch, in ISO-8601 format
 	// Required: true

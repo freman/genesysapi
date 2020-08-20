@@ -24,7 +24,7 @@ type Evaluation struct {
 	Agent *User `json:"agent,omitempty"`
 
 	// agent has read
-	AgentHasRead bool `json:"agentHasRead,omitempty"`
+	AgentHasRead bool `json:"agentHasRead"`
 
 	// answers
 	Answers *EvaluationScoringSet `json:"answers,omitempty"`
@@ -62,7 +62,7 @@ type Evaluation struct {
 	ID string `json:"id,omitempty"`
 
 	// is scoring index
-	IsScoringIndex bool `json:"isScoringIndex,omitempty"`
+	IsScoringIndex bool `json:"isScoringIndex"`
 
 	// List of different communication types used in conversation.
 	MediaType []string `json:"mediaType"`
@@ -71,20 +71,20 @@ type Evaluation struct {
 	Name string `json:"name,omitempty"`
 
 	// Signifies if the evaluation is never to be released. This cannot be set true if release date is also set.
-	NeverRelease bool `json:"neverRelease,omitempty"`
+	NeverRelease bool `json:"neverRelease"`
 
 	// queue
 	Queue *Queue `json:"queue,omitempty"`
 
 	// Is only true when the user making the request does not have sufficient permissions to see evaluation
-	Redacted bool `json:"redacted,omitempty"`
+	Redacted bool `json:"redacted"`
 
 	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
 	// Format: date-time
 	ReleaseDate strfmt.DateTime `json:"releaseDate,omitempty"`
 
 	// Is only true when evaluation is re-scored.
-	Rescore bool `json:"rescore,omitempty"`
+	Rescore bool `json:"rescore"`
 
 	// Only used for email evaluations. Will be null for all other evaluations.
 	ResourceID string `json:"resourceId,omitempty"`

@@ -23,13 +23,13 @@ type CreateWorkPlanShift struct {
 	Activities []*CreateWorkPlanActivity `json:"activities"`
 
 	// Whether the contiguous time constraint for the shift is enabled
-	ConstrainContiguousWorkTime bool `json:"constrainContiguousWorkTime,omitempty"`
+	ConstrainContiguousWorkTime bool `json:"constrainContiguousWorkTime"`
 
 	// Whether the latest stop time constraint for the shift is enabled
-	ConstrainLatestStopTime bool `json:"constrainLatestStopTime,omitempty"`
+	ConstrainLatestStopTime bool `json:"constrainLatestStopTime"`
 
 	// Whether the latest stop time constraint for the shift is enabled.  Deprecated, use constrainLatestStopTime instead
-	ConstrainStopTime bool `json:"constrainStopTime,omitempty"`
+	ConstrainStopTime bool `json:"constrainStopTime"`
 
 	// Days of the week applicable for this shift
 	Days *SetWrapperDayOfWeek `json:"days,omitempty"`
@@ -44,10 +44,10 @@ type CreateWorkPlanShift struct {
 	ExactStartTimeMinutesFromMidnight int32 `json:"exactStartTimeMinutesFromMidnight,omitempty"`
 
 	// Whether the paid time setting for the shift is flexible
-	FlexiblePaidTime bool `json:"flexiblePaidTime,omitempty"`
+	FlexiblePaidTime bool `json:"flexiblePaidTime"`
 
 	// Whether the start time of the shift is flexible
-	FlexibleStartTime bool `json:"flexibleStartTime,omitempty"`
+	FlexibleStartTime bool `json:"flexibleStartTime"`
 
 	// Latest start time of the shift defined as offset minutes from midnight. Used if flexibleStartTime == true
 	LatestStartTimeMinutesFromMidnight int32 `json:"latestStartTimeMinutesFromMidnight,omitempty"`

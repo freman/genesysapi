@@ -20,7 +20,7 @@ import (
 type Dependency struct {
 
 	// deleted
-	Deleted bool `json:"deleted,omitempty"`
+	Deleted bool `json:"deleted"`
 
 	// The dependency identifier
 	ID string `json:"id,omitempty"`
@@ -34,14 +34,14 @@ type Dependency struct {
 	SelfURI strfmt.URI `json:"selfUri,omitempty"`
 
 	// state unknown
-	StateUnknown bool `json:"stateUnknown,omitempty"`
+	StateUnknown bool `json:"stateUnknown"`
 
 	// type
 	// Enum: [ACDLANGUAGE ACDSKILL ACDWRAPUPCODE BOTFLOW BRIDGEACTION COMMONMODULEFLOW COMPOSERSCRIPT CONTACTLIST DATAACTION DATATABLE DIALOGENGINEBOT DIALOGENGINEBOTVERSION DIALOGFLOWAGENT EMAILROUTE EMERGENCYGROUP FLOWACTION FLOWDATATYPE FLOWOUTCOME GROUP INBOUNDCALLFLOW INBOUNDCHATFLOW INBOUNDEMAILFLOW INBOUNDSHORTMESSAGEFLOW INQUEUECALLFLOW IVRCONFIGURATION LANGUAGE LEXBOT LEXBOTALIAS NLUDOMAIN OUTBOUNDCALLFLOW QUEUE RECORDINGPOLICY RESPONSE SCHEDULE SCHEDULEGROUP SECUREACTION SECURECALLFLOW SURVEYINVITEFLOW SYSTEMPROMPT TTSENGINE TTSVOICE USER USERPROMPT WIDGET WORKFLOW]
 	Type string `json:"type,omitempty"`
 
 	// updated
-	Updated bool `json:"updated,omitempty"`
+	Updated bool `json:"updated"`
 
 	// version
 	Version string `json:"version,omitempty"`

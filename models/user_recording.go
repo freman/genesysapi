@@ -51,7 +51,7 @@ type UserRecording struct {
 	Name string `json:"name,omitempty"`
 
 	// read
-	Read bool `json:"read,omitempty"`
+	Read bool `json:"read"`
 
 	// The URI for this object
 	// Read Only: true

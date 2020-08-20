@@ -57,7 +57,7 @@ type UserQueue struct {
 	ID string `json:"id,omitempty"`
 
 	// joined
-	Joined bool `json:"joined,omitempty"`
+	Joined bool `json:"joined"`
 
 	// The media settings for the queue. Valid key values: CALL, CALLBACK, CHAT, EMAIL, MESSAGE, SOCIAL_EXPRESSION, VIDEO_COMM
 	MediaSettings map[string]MediaSetting `json:"mediaSettings,omitempty"`

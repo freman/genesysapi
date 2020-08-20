@@ -41,7 +41,7 @@ type CreateOutboundMessagingConversationRequest struct {
 	// An override to use an existing conversation.
 	// If set to true, an existing conversation will be used if there is one within the conversation window.
 	// If set to false, create request fails if there is a conversation within the conversation window.
-	UseExistingConversation bool `json:"useExistingConversation,omitempty"`
+	UseExistingConversation bool `json:"useExistingConversation"`
 }
 
 // Validate validates this create outbound messaging conversation request

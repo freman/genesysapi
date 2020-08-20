@@ -28,7 +28,7 @@ type QueryRequest struct {
 	Filters []*ContentFilterItem `json:"filters"`
 
 	// include shares
-	IncludeShares bool `json:"includeShares,omitempty"`
+	IncludeShares bool `json:"includeShares"`
 
 	// page number
 	PageNumber int32 `json:"pageNumber,omitempty"`

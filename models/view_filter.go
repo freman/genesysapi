@@ -24,7 +24,7 @@ type ViewFilter struct {
 	AbandonDurationsMilliseconds []*NumericRange `json:"abandonDurationsMilliseconds"`
 
 	// Indicates filtering for abandons
-	Abandoned bool `json:"abandoned,omitempty"`
+	Abandoned bool `json:"abandoned"`
 
 	// The acd durations in milliseconds used to filter the view
 	AcdDurationsMilliseconds []*NumericRange `json:"acdDurationsMilliseconds"`
@@ -42,7 +42,7 @@ type ViewFilter struct {
 	AniList []string `json:"aniList"`
 
 	// Indicates filtering for answered interactions
-	Answered bool `json:"answered,omitempty"`
+	Answered bool `json:"answered"`
 
 	// An interval of time to filter for scheduled callbacks. Intervals are represented as an ISO-8601 string. For example: YYYY-MM-DDThh:mm:ss/YYYY-MM-DDThh:mm:ss
 	CallbackInterval string `json:"callbackInterval,omitempty"`
@@ -135,37 +135,37 @@ type ViewFilter struct {
 	HandleDurationsMilliseconds []*NumericRange `json:"handleDurationsMilliseconds"`
 
 	// Indicates filtering for Journey action map id
-	HasJourneyActionMapID bool `json:"hasJourneyActionMapId,omitempty"`
+	HasJourneyActionMapID bool `json:"hasJourneyActionMapId"`
 
 	// Indicates filtering for journey customer id
-	HasJourneyCustomerID bool `json:"hasJourneyCustomerId,omitempty"`
+	HasJourneyCustomerID bool `json:"hasJourneyCustomerId"`
 
 	// Indicates filtering for Journey visit id
-	HasJourneyVisitID bool `json:"hasJourneyVisitId,omitempty"`
+	HasJourneyVisitID bool `json:"hasJourneyVisitId"`
 
 	// Indicates filtering for presence of MMS media
-	HasMedia bool `json:"hasMedia,omitempty"`
+	HasMedia bool `json:"hasMedia"`
 
 	// The hold durations in milliseconds used to filter the view
 	HoldDurationsMilliseconds []*NumericRange `json:"holdDurationsMilliseconds"`
 
 	// Indicates filtering for blind transferred
-	IsBlindTransferred bool `json:"isBlindTransferred,omitempty"`
+	IsBlindTransferred bool `json:"isBlindTransferred"`
 
 	// Indicates filtering for campaign
-	IsCampaign bool `json:"isCampaign,omitempty"`
+	IsCampaign bool `json:"isCampaign"`
 
 	// Indicates filtering for consult transferred
-	IsConsultTransferred bool `json:"isConsultTransferred,omitempty"`
+	IsConsultTransferred bool `json:"isConsultTransferred"`
 
 	// Indicates filtering for consulted
-	IsConsulted bool `json:"isConsulted,omitempty"`
+	IsConsulted bool `json:"isConsulted"`
 
 	// Indicates filtering for ended
-	IsEnded bool `json:"isEnded,omitempty"`
+	IsEnded bool `json:"isEnded"`
 
 	// Indicates filtering for survey
-	IsSurveyed bool `json:"isSurveyed,omitempty"`
+	IsSurveyed bool `json:"isSurveyed"`
 
 	// The language groups used to filter the view
 	LanguageGroups []string `json:"languageGroups"`
@@ -252,7 +252,7 @@ type ViewFilter struct {
 	TalkDurationsMilliseconds []*NumericRange `json:"talkDurationsMilliseconds"`
 
 	// Indicates filtering for transfers
-	Transferred bool `json:"transferred,omitempty"`
+	Transferred bool `json:"transferred"`
 
 	// The user ids are used to filter the view
 	UserIds []string `json:"userIds"`

@@ -23,7 +23,7 @@ type AuthzDivision struct {
 
 	// A flag indicating whether this division is the "Home" (default) division. Cannot be modified and any supplied value will be ignored on create or update.
 	// Read Only: true
-	HomeDivision *bool `json:"homeDivision,omitempty"`
+	HomeDivision *bool `json:"homeDivision"`
 
 	// The globally unique identifier for the object.
 	// Read Only: true

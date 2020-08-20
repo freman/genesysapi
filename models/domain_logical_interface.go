@@ -77,10 +77,10 @@ type DomainLogicalInterface struct {
 	IfStatus string `json:"ifStatus,omitempty"`
 
 	// The IPv4 phone trunk base assignment will be inherited from the Edge Group.
-	InheritPhoneTrunkBasesIPV4 bool `json:"inheritPhoneTrunkBasesIPv4,omitempty"`
+	InheritPhoneTrunkBasesIPV4 bool `json:"inheritPhoneTrunkBasesIPv4"`
 
 	// The IPv6 phone trunk base assignment will be inherited from the Edge Group.
-	InheritPhoneTrunkBasesIPV6 bool `json:"inheritPhoneTrunkBasesIPv6,omitempty"`
+	InheritPhoneTrunkBasesIPV6 bool `json:"inheritPhoneTrunkBasesIPv6"`
 
 	// The type of this network interface.
 	// Read Only: true
@@ -140,16 +140,16 @@ type DomainLogicalInterface struct {
 	State string `json:"state,omitempty"`
 
 	// trace enabled
-	TraceEnabled bool `json:"traceEnabled,omitempty"`
+	TraceEnabled bool `json:"traceEnabled"`
 
 	// Site Interconnects using the "Cloud Proxy" method will broker the connection between them with a Cloud Proxy. This method is required for connections between one or more Sites using Cloud Media, but can optionally be used between two premises Sites if Direct or Indirect are not an option.
-	UseForCloudProxyEdgeCommunication bool `json:"useForCloudProxyEdgeCommunication,omitempty"`
+	UseForCloudProxyEdgeCommunication bool `json:"useForCloudProxyEdgeCommunication"`
 
 	// Site Interconnects using the "Indirect" method will communicate using the Public IP Address specified on the interface. Use this option when a NAT enabled firewall is between the Edge and the far end.
-	UseForIndirectEdgeCommunication bool `json:"useForIndirectEdgeCommunication,omitempty"`
+	UseForIndirectEdgeCommunication bool `json:"useForIndirectEdgeCommunication"`
 
 	// This interface will be used for all internal edge-to-edge communication using settings from the edgeTrunkBaseAssignment on the Edge Group.
-	UseForInternalEdgeCommunication bool `json:"useForInternalEdgeCommunication,omitempty"`
+	UseForInternalEdgeCommunication bool `json:"useForInternalEdgeCommunication"`
 
 	// The current version of the resource.
 	Version int32 `json:"version,omitempty"`

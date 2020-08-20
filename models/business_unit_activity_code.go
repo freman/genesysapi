@@ -20,23 +20,23 @@ import (
 type BusinessUnitActivityCode struct {
 
 	// Whether this activity code is active or has been deleted
-	Active bool `json:"active,omitempty"`
+	Active bool `json:"active"`
 
 	// Whether an agent can select this activity code when creating or editing a time off request. Null if the activity's category is not time off.
-	AgentTimeOffSelectable bool `json:"agentTimeOffSelectable,omitempty"`
+	AgentTimeOffSelectable bool `json:"agentTimeOffSelectable"`
 
 	// The category of the activity code
 	// Enum: [OnQueueWork Break Meal Meeting OffQueueWork TimeOff Training Unavailable Unscheduled]
 	Category string `json:"category,omitempty"`
 
 	// Whether an agent is paid while performing this activity
-	CountsAsPaidTime bool `json:"countsAsPaidTime,omitempty"`
+	CountsAsPaidTime bool `json:"countsAsPaidTime"`
 
 	// Indicates whether or not the activity should be counted as contiguous work time for calculating daily constraints
-	CountsAsWorkTime bool `json:"countsAsWorkTime,omitempty"`
+	CountsAsWorkTime bool `json:"countsAsWorkTime"`
 
 	// Whether this is a default activity code
-	DefaultCode bool `json:"defaultCode,omitempty"`
+	DefaultCode bool `json:"defaultCode"`
 
 	// The globally unique identifier for the object.
 	// Read Only: true

@@ -23,7 +23,7 @@ type DomainEdgeSoftwareUpdateDto struct {
 	CallDrainingWaitTimeSeconds int64 `json:"callDrainingWaitTimeSeconds,omitempty"`
 
 	// current
-	Current bool `json:"current,omitempty"`
+	Current bool `json:"current"`
 
 	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
 	// Format: date-time
@@ -34,7 +34,7 @@ type DomainEdgeSoftwareUpdateDto struct {
 	EdgeURI strfmt.URI `json:"edgeUri,omitempty"`
 
 	// execute on idle
-	ExecuteOnIdle bool `json:"executeOnIdle,omitempty"`
+	ExecuteOnIdle bool `json:"executeOnIdle"`
 
 	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
 	// Format: date-time

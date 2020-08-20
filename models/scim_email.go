@@ -20,7 +20,7 @@ import (
 type ScimEmail struct {
 
 	// Indicates whether the email address is the primary email address.
-	Primary bool `json:"primary,omitempty"`
+	Primary bool `json:"primary"`
 
 	// The type of email address.
 	// Enum: [work other]

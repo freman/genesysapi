@@ -48,7 +48,7 @@ type AsyncConversationQuery struct {
 	SegmentFilters []*SegmentDetailQueryFilter `json:"segmentFilters"`
 
 	// Add a filter to only include conversations that started after the beginning of the interval start date (UTC)
-	StartOfDayIntervalMatching bool `json:"startOfDayIntervalMatching,omitempty"`
+	StartOfDayIntervalMatching bool `json:"startOfDayIntervalMatching"`
 
 	// Filters that target surveys
 	SurveyFilters []*SurveyDetailQueryFilter `json:"surveyFilters"`

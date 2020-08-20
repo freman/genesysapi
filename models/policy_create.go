@@ -31,7 +31,7 @@ type PolicyCreate struct {
 	Description string `json:"description,omitempty"`
 
 	// enabled
-	Enabled bool `json:"enabled,omitempty"`
+	Enabled bool `json:"enabled"`
 
 	// The globally unique identifier for the object.
 	// Read Only: true

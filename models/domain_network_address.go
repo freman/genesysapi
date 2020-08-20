@@ -27,7 +27,7 @@ type DomainNetworkAddress struct {
 	Family int32 `json:"family,omitempty"`
 
 	// True if this address will persist on Edge restart.  Addresses assigned by DHCP will be returned as false.
-	Persistent bool `json:"persistent,omitempty"`
+	Persistent bool `json:"persistent"`
 
 	// The type of address.
 	// Enum: [ip dns gateway tdm]

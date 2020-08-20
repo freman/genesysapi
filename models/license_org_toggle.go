@@ -16,7 +16,7 @@ import (
 type LicenseOrgToggle struct {
 
 	// enabled
-	Enabled bool `json:"enabled,omitempty"`
+	Enabled bool `json:"enabled"`
 
 	// feature name
 	FeatureName string `json:"featureName,omitempty"`

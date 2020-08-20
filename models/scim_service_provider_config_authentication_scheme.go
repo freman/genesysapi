@@ -36,7 +36,7 @@ type ScimServiceProviderConfigAuthenticationScheme struct {
 
 	// Indicates whether this authentication scheme is the primary method of authentication.
 	// Read Only: true
-	Primary *bool `json:"primary,omitempty"`
+	Primary *bool `json:"primary"`
 
 	// The HTTP-addressable URL that points to the authentication scheme's specification.
 	// Read Only: true
