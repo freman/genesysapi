@@ -381,6 +381,10 @@ type API interface {
 	*/
 	PatchConversationsMessageParticipantCommunication(ctx context.Context, params *PatchConversationsMessageParticipantCommunicationParams) (*PatchConversationsMessageParticipantCommunicationOK, error)
 	/*
+	   PatchConversationsMessagingIntegrationsFacebookIntegrationID updates facebook messaging integration
+	*/
+	PatchConversationsMessagingIntegrationsFacebookIntegrationID(ctx context.Context, params *PatchConversationsMessagingIntegrationsFacebookIntegrationIDParams) (*PatchConversationsMessagingIntegrationsFacebookIntegrationIDOK, error)
+	/*
 	   PatchConversationsMessagingIntegrationsWhatsappIntegrationID activates a whats app messaging integration
 	   The following steps are required in order to fully activate a Whatsapp Integration: Initially, you will need to get an activation code by sending: an action set to Activate, and an authenticationMethod choosing from Sms or Voice. Finally, once you have been informed of an activation code on selected authenticationMethod, you will need to confirm the code by sending: an action set to Confirm, and the confirmationCode you have received from Whatsapp.
 	*/
@@ -2849,6 +2853,31 @@ func (a *Client) PatchConversationsMessageParticipantCommunication(ctx context.C
 		return nil, err
 	}
 	return result.(*PatchConversationsMessageParticipantCommunicationOK), nil
+
+}
+
+/*
+PatchConversationsMessagingIntegrationsFacebookIntegrationID updates facebook messaging integration
+*/
+func (a *Client) PatchConversationsMessagingIntegrationsFacebookIntegrationID(ctx context.Context, params *PatchConversationsMessagingIntegrationsFacebookIntegrationIDParams) (*PatchConversationsMessagingIntegrationsFacebookIntegrationIDOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "patchConversationsMessagingIntegrationsFacebookIntegrationId",
+		Method:             "PATCH",
+		PathPattern:        "/api/v2/conversations/messaging/integrations/facebook/{integrationId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchConversationsMessagingIntegrationsFacebookIntegrationIDReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PatchConversationsMessagingIntegrationsFacebookIntegrationIDOK), nil
 
 }
 

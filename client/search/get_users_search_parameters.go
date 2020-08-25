@@ -66,6 +66,11 @@ type GetUsersSearchParams struct {
 
 	*/
 	Expand []string
+	/*IntegrationPresenceSource
+	  integrationPresenceSource
+
+	*/
+	IntegrationPresenceSource *string
 	/*Q64
 	  q64
 
@@ -121,6 +126,17 @@ func (o *GetUsersSearchParams) SetExpand(expand []string) {
 	o.Expand = expand
 }
 
+// WithIntegrationPresenceSource adds the integrationPresenceSource to the get users search params
+func (o *GetUsersSearchParams) WithIntegrationPresenceSource(integrationPresenceSource *string) *GetUsersSearchParams {
+	o.SetIntegrationPresenceSource(integrationPresenceSource)
+	return o
+}
+
+// SetIntegrationPresenceSource adds the integrationPresenceSource to the get users search params
+func (o *GetUsersSearchParams) SetIntegrationPresenceSource(integrationPresenceSource *string) {
+	o.IntegrationPresenceSource = integrationPresenceSource
+}
+
 // WithQ64 adds the q64 to the get users search params
 func (o *GetUsersSearchParams) WithQ64(q64 string) *GetUsersSearchParams {
 	o.SetQ64(q64)
@@ -146,6 +162,22 @@ func (o *GetUsersSearchParams) WriteToRequest(r runtime.ClientRequest, reg strfm
 	// query array param expand
 	if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
 		return err
+	}
+
+	if o.IntegrationPresenceSource != nil {
+
+		// query param integrationPresenceSource
+		var qrIntegrationPresenceSource string
+		if o.IntegrationPresenceSource != nil {
+			qrIntegrationPresenceSource = *o.IntegrationPresenceSource
+		}
+		qIntegrationPresenceSource := qrIntegrationPresenceSource
+		if qIntegrationPresenceSource != "" {
+			if err := r.SetQueryParam("integrationPresenceSource", qIntegrationPresenceSource); err != nil {
+				return err
+			}
+		}
+
 	}
 
 	// query param q64

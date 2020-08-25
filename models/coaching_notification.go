@@ -26,7 +26,7 @@ type CoachingNotification struct {
 
 	// The appointment
 	// Read Only: true
-	Appointment *CoachingAppointmentReference `json:"appointment,omitempty"`
+	Appointment *CoachingAppointmentResponse `json:"appointment,omitempty"`
 
 	// The start time of the appointment relating to this notification. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
 	// Read Only: true

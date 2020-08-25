@@ -27,7 +27,7 @@ type CreateCoachingAppointmentRequest struct {
 	// Unique: true
 	ConversationIds []string `json:"conversationIds"`
 
-	// The date/time the coaching appointment starts. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The date/time the coaching appointment starts. Times will be rounded down to the minute. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
 	// Required: true
 	// Format: date-time
 	DateStart *strfmt.DateTime `json:"dateStart"`

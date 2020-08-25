@@ -99,6 +99,11 @@ type GetProfilesUsersParams struct {
 
 	*/
 	ID []string
+	/*IntegrationPresenceSource
+	  Gets an integration presence for users instead of their defaults. This parameter will only be used when presence is provided as an "expand".
+
+	*/
+	IntegrationPresenceSource *string
 	/*Jid
 	  jid
 
@@ -180,6 +185,17 @@ func (o *GetProfilesUsersParams) SetID(id []string) {
 	o.ID = id
 }
 
+// WithIntegrationPresenceSource adds the integrationPresenceSource to the get profiles users params
+func (o *GetProfilesUsersParams) WithIntegrationPresenceSource(integrationPresenceSource *string) *GetProfilesUsersParams {
+	o.SetIntegrationPresenceSource(integrationPresenceSource)
+	return o
+}
+
+// SetIntegrationPresenceSource adds the integrationPresenceSource to the get profiles users params
+func (o *GetProfilesUsersParams) SetIntegrationPresenceSource(integrationPresenceSource *string) {
+	o.IntegrationPresenceSource = integrationPresenceSource
+}
+
 // WithJid adds the jid to the get profiles users params
 func (o *GetProfilesUsersParams) WithJid(jid []string) *GetProfilesUsersParams {
 	o.SetJid(jid)
@@ -246,6 +262,22 @@ func (o *GetProfilesUsersParams) WriteToRequest(r runtime.ClientRequest, reg str
 	// query array param id
 	if err := r.SetQueryParam("id", joinedID...); err != nil {
 		return err
+	}
+
+	if o.IntegrationPresenceSource != nil {
+
+		// query param integrationPresenceSource
+		var qrIntegrationPresenceSource string
+		if o.IntegrationPresenceSource != nil {
+			qrIntegrationPresenceSource = *o.IntegrationPresenceSource
+		}
+		qIntegrationPresenceSource := qrIntegrationPresenceSource
+		if qIntegrationPresenceSource != "" {
+			if err := r.SetQueryParam("integrationPresenceSource", qIntegrationPresenceSource); err != nil {
+				return err
+			}
+		}
+
 	}
 
 	valuesJid := o.Jid

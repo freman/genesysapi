@@ -89,6 +89,11 @@ for the get telephony providers edges didpools operation typically these are wri
 */
 type GetTelephonyProvidersEdgesDidpoolsParams struct {
 
+	/*ID
+	  Filter by a specific list of ID's
+
+	*/
+	ID []string
 	/*PageNumber
 	  Page number
 
@@ -143,6 +148,17 @@ func (o *GetTelephonyProvidersEdgesDidpoolsParams) SetHTTPClient(client *http.Cl
 	o.HTTPClient = client
 }
 
+// WithID adds the id to the get telephony providers edges didpools params
+func (o *GetTelephonyProvidersEdgesDidpoolsParams) WithID(id []string) *GetTelephonyProvidersEdgesDidpoolsParams {
+	o.SetID(id)
+	return o
+}
+
+// SetID adds the id to the get telephony providers edges didpools params
+func (o *GetTelephonyProvidersEdgesDidpoolsParams) SetID(id []string) {
+	o.ID = id
+}
+
 // WithPageNumber adds the pageNumber to the get telephony providers edges didpools params
 func (o *GetTelephonyProvidersEdgesDidpoolsParams) WithPageNumber(pageNumber *int32) *GetTelephonyProvidersEdgesDidpoolsParams {
 	o.SetPageNumber(pageNumber)
@@ -183,6 +199,14 @@ func (o *GetTelephonyProvidersEdgesDidpoolsParams) WriteToRequest(r runtime.Clie
 		return err
 	}
 	var res []error
+
+	valuesID := o.ID
+
+	joinedID := swag.JoinByFormat(valuesID, "multi")
+	// query array param id
+	if err := r.SetQueryParam("id", joinedID...); err != nil {
+		return err
+	}
 
 	if o.PageNumber != nil {
 

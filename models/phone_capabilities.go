@@ -23,6 +23,9 @@ type PhoneCapabilities struct {
 	// allow reboot
 	AllowReboot bool `json:"allowReboot"`
 
+	// cdm
+	Cdm bool `json:"cdm"`
+
 	// dual registers
 	DualRegisters bool `json:"dualRegisters"`
 

@@ -70,6 +70,7 @@ type API interface {
 	GetAnalyticsReportingTimeperiods(ctx context.Context, params *GetAnalyticsReportingTimeperiodsParams) (*GetAnalyticsReportingTimeperiodsOK, error)
 	/*
 	   PostAnalyticsReportingExports generates a view export request
+	   This API creates a reporting export but the desired way to export analytics data is to use the analytics query APIs instead
 	*/
 	PostAnalyticsReportingExports(ctx context.Context, params *PostAnalyticsReportingExportsParams) (*PostAnalyticsReportingExportsOK, error)
 	/*
@@ -413,6 +414,8 @@ func (a *Client) GetAnalyticsReportingTimeperiods(ctx context.Context, params *G
 
 /*
 PostAnalyticsReportingExports generates a view export request
+
+This API creates a reporting export but the desired way to export analytics data is to use the analytics query APIs instead
 */
 func (a *Client) PostAnalyticsReportingExports(ctx context.Context, params *PostAnalyticsReportingExportsParams) (*PostAnalyticsReportingExportsOK, error) {
 

@@ -82,7 +82,7 @@ for the get scim groups operation typically these are written to a http.Request
 type GetScimGroupsParams struct {
 
 	/*Attributes
-	  Indicates which attributes to include. Returns these attributes and the "id", "active", and "meta" attributes. Use "attributes" to avoid expensive additional calls for the default attributes.
+	  Indicates which attributes to include. Returns these attributes and the 'id', 'active', and 'meta attributes . Use "attributes" to avoid expensive secondary calls for the default attributes.
 
 	*/
 	Attributes []string
@@ -92,7 +92,7 @@ type GetScimGroupsParams struct {
 	*/
 	Count *int32
 	/*ExcludedAttributes
-	  Indicates which attributes to exclude. Always returns the "id", "active", and "meta" attributes. Returns the default attributes minus "excludedAttributes". Use "excludedAttributes" to avoid expensive additional calls for the default attributes.
+	  Indicates which attributes to exclude. Returns the default attributes minus "excludedAttributes". Use "excludedAttributes" to avoid expensive secondary calls for the default attributes. The'id', 'active', and 'meta' attributes will always be present in the output.
 
 	*/
 	ExcludedAttributes []string

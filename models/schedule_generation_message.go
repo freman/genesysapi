@@ -24,7 +24,7 @@ type ScheduleGenerationMessage struct {
 	Arguments []*SchedulerMessageArgument `json:"arguments"`
 
 	// The type of the message
-	// Enum: [AgentNotFound AgentNotInSelectedManagementUnit AgentNotLicensed AgentWithoutWorkPlan WorkPlanNotEnabled WorkPlanNotFound AgentWithoutCapability NoNeedDays UnableToScheduleMaxConsecutiveWorkingDays UnableToScheduleMaxConsecutiveWorkingWeekends UnableToScheduleMaxWeeklyPaidTime UnableToScheduleMaxWeeklyWorkDays UnableToScheduleMaxWorkDayPaidTime UnableToScheduleMinConsecutiveNonWorkingTimePerWeek UnableToScheduleMinIntershiftTime UnableToScheduleMinShiftStartDistance UnableToScheduleMinWeeklyPaidTime UnableToScheduleMinWeeklyWorkDays UnableToScheduleMinWorkDayPaidTime UnableToSchedulePlanningPeriodMaxDaysOff UnableToSchedulePlanningPeriodMaxPaidTime UnableToSchedulePlanningPeriodMinDaysOff UnableToSchedulePlanningPeriodMinPaidTime UnableToScheduleShiftVariance UnableToScheduleWorkDay]
+	// Enum: [AgentNotFound AgentNotInSelectedManagementUnit AgentNotLicensed AgentWithoutWorkPlan WorkPlanNotEnabled WorkPlanNotFound AgentWithoutCapability NoNeedDays UnableToProduceAgentSchedule UnableToScheduleMaxConsecutiveWorkingDays UnableToScheduleMaxConsecutiveWorkingWeekends UnableToScheduleMaxWeeklyPaidTime UnableToScheduleMaxWeeklyWorkDays UnableToScheduleMaxWorkDayPaidTime UnableToScheduleMinConsecutiveNonWorkingTimePerWeek UnableToScheduleMinIntershiftTime UnableToScheduleMinShiftStartDistance UnableToScheduleMinWeeklyPaidTime UnableToScheduleMinWeeklyWorkDays UnableToScheduleMinWorkDayPaidTime UnableToSchedulePlanningPeriodMaxDaysOff UnableToSchedulePlanningPeriodMaxPaidTime UnableToSchedulePlanningPeriodMinDaysOff UnableToSchedulePlanningPeriodMinPaidTime UnableToScheduleShiftVariance UnableToScheduleWorkDay]
 	Type string `json:"type,omitempty"`
 }
 
@@ -75,7 +75,7 @@ var scheduleGenerationMessageTypeTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["AgentNotFound","AgentNotInSelectedManagementUnit","AgentNotLicensed","AgentWithoutWorkPlan","WorkPlanNotEnabled","WorkPlanNotFound","AgentWithoutCapability","NoNeedDays","UnableToScheduleMaxConsecutiveWorkingDays","UnableToScheduleMaxConsecutiveWorkingWeekends","UnableToScheduleMaxWeeklyPaidTime","UnableToScheduleMaxWeeklyWorkDays","UnableToScheduleMaxWorkDayPaidTime","UnableToScheduleMinConsecutiveNonWorkingTimePerWeek","UnableToScheduleMinIntershiftTime","UnableToScheduleMinShiftStartDistance","UnableToScheduleMinWeeklyPaidTime","UnableToScheduleMinWeeklyWorkDays","UnableToScheduleMinWorkDayPaidTime","UnableToSchedulePlanningPeriodMaxDaysOff","UnableToSchedulePlanningPeriodMaxPaidTime","UnableToSchedulePlanningPeriodMinDaysOff","UnableToSchedulePlanningPeriodMinPaidTime","UnableToScheduleShiftVariance","UnableToScheduleWorkDay"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["AgentNotFound","AgentNotInSelectedManagementUnit","AgentNotLicensed","AgentWithoutWorkPlan","WorkPlanNotEnabled","WorkPlanNotFound","AgentWithoutCapability","NoNeedDays","UnableToProduceAgentSchedule","UnableToScheduleMaxConsecutiveWorkingDays","UnableToScheduleMaxConsecutiveWorkingWeekends","UnableToScheduleMaxWeeklyPaidTime","UnableToScheduleMaxWeeklyWorkDays","UnableToScheduleMaxWorkDayPaidTime","UnableToScheduleMinConsecutiveNonWorkingTimePerWeek","UnableToScheduleMinIntershiftTime","UnableToScheduleMinShiftStartDistance","UnableToScheduleMinWeeklyPaidTime","UnableToScheduleMinWeeklyWorkDays","UnableToScheduleMinWorkDayPaidTime","UnableToSchedulePlanningPeriodMaxDaysOff","UnableToSchedulePlanningPeriodMaxPaidTime","UnableToSchedulePlanningPeriodMinDaysOff","UnableToSchedulePlanningPeriodMinPaidTime","UnableToScheduleShiftVariance","UnableToScheduleWorkDay"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -108,6 +108,9 @@ const (
 
 	// ScheduleGenerationMessageTypeNoNeedDays captures enum value "NoNeedDays"
 	ScheduleGenerationMessageTypeNoNeedDays string = "NoNeedDays"
+
+	// ScheduleGenerationMessageTypeUnableToProduceAgentSchedule captures enum value "UnableToProduceAgentSchedule"
+	ScheduleGenerationMessageTypeUnableToProduceAgentSchedule string = "UnableToProduceAgentSchedule"
 
 	// ScheduleGenerationMessageTypeUnableToScheduleMaxConsecutiveWorkingDays captures enum value "UnableToScheduleMaxConsecutiveWorkingDays"
 	ScheduleGenerationMessageTypeUnableToScheduleMaxConsecutiveWorkingDays string = "UnableToScheduleMaxConsecutiveWorkingDays"

@@ -20,6 +20,9 @@ import (
 // swagger:model Screenshare
 type Screenshare struct {
 
+	// After-call work for the communication.
+	AfterCallWork *AfterCallWork `json:"afterCallWork,omitempty"`
+
 	// The timestamp when this communication was connected in the cloud clock. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
 	// Format: date-time
 	ConnectedTime strfmt.DateTime `json:"connectedTime,omitempty"`
@@ -69,6 +72,10 @@ type Screenshare struct {
 func (m *Screenshare) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateAfterCallWork(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateConnectedTime(formats); err != nil {
 		res = append(res, err)
 	}
@@ -100,6 +107,24 @@ func (m *Screenshare) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *Screenshare) validateAfterCallWork(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.AfterCallWork) { // not required
+		return nil
+	}
+
+	if m.AfterCallWork != nil {
+		if err := m.AfterCallWork.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("afterCallWork")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

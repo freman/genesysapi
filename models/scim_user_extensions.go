@@ -13,10 +13,13 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// ScimUserExtensions Defines a SCIM Genesys Cloud user.
+// ScimUserExtensions Genesys Cloud user extensions to SCIM RFC.
 //
 // swagger:model ScimUserExtensions
 type ScimUserExtensions struct {
+
+	// External Identifiers assigned to user. SCIM External ID will be visible here with authority prefix 'x-pc:scimv2:v1' but will be immutable.
+	ExternalIds []*ScimGenesysUserExternalID `json:"externalIds"`
 
 	// The list of routing languages assigned to a user. Maximum 50 languages.
 	RoutingLanguages []*ScimUserRoutingLanguage `json:"routingLanguages"`
@@ -29,6 +32,10 @@ type ScimUserExtensions struct {
 func (m *ScimUserExtensions) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateExternalIds(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateRoutingLanguages(formats); err != nil {
 		res = append(res, err)
 	}
@@ -40,6 +47,31 @@ func (m *ScimUserExtensions) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *ScimUserExtensions) validateExternalIds(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.ExternalIds) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.ExternalIds); i++ {
+		if swag.IsZero(m.ExternalIds[i]) { // not required
+			continue
+		}
+
+		if m.ExternalIds[i] != nil {
+			if err := m.ExternalIds[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("externalIds" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 

@@ -48,7 +48,7 @@ type Response struct {
 	Name string `json:"name,omitempty"`
 
 	// The response type represented by the response.
-	// Enum: [MessagingTemplate]
+	// Enum: [MessagingTemplate CampaignSmsTemplate]
 	ResponseType string `json:"responseType,omitempty"`
 
 	// The URI for this object
@@ -244,7 +244,7 @@ var responseTypeResponseTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["MessagingTemplate"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["MessagingTemplate","CampaignSmsTemplate"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -256,6 +256,9 @@ const (
 
 	// ResponseResponseTypeMessagingTemplate captures enum value "MessagingTemplate"
 	ResponseResponseTypeMessagingTemplate string = "MessagingTemplate"
+
+	// ResponseResponseTypeCampaignSmsTemplate captures enum value "CampaignSmsTemplate"
+	ResponseResponseTypeCampaignSmsTemplate string = "CampaignSmsTemplate"
 )
 
 // prop value enum

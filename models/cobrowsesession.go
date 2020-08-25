@@ -20,6 +20,9 @@ import (
 // swagger:model Cobrowsesession
 type Cobrowsesession struct {
 
+	// After-call work for the communication.
+	AfterCallWork *AfterCallWork `json:"afterCallWork,omitempty"`
+
 	// This value identifies the role of the co-browse client within the co-browse session (a client is a sharer or a viewer).
 	CobrowseRole string `json:"cobrowseRole,omitempty"`
 
@@ -79,6 +82,10 @@ type Cobrowsesession struct {
 func (m *Cobrowsesession) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateAfterCallWork(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateConnectedTime(formats); err != nil {
 		res = append(res, err)
 	}
@@ -118,6 +125,24 @@ func (m *Cobrowsesession) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *Cobrowsesession) validateAfterCallWork(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.AfterCallWork) { // not required
+		return nil
+	}
+
+	if m.AfterCallWork != nil {
+		if err := m.AfterCallWork.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("afterCallWork")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

@@ -61,7 +61,7 @@ for the get user presence operation typically these are written to a http.Reques
 type GetUserPresenceParams struct {
 
 	/*SourceID
-	  Source
+	  Presence source ID
 
 	*/
 	SourceID string

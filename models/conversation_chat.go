@@ -20,6 +20,9 @@ import (
 // swagger:model ConversationChat
 type ConversationChat struct {
 
+	// After-call work for the communication.
+	AfterCallWork *AfterCallWork `json:"afterCallWork,omitempty"`
+
 	// If available, the URI to the avatar image of this communication.
 	AvatarImageURL string `json:"avatarImageUrl,omitempty"`
 
@@ -86,6 +89,10 @@ type ConversationChat struct {
 func (m *ConversationChat) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateAfterCallWork(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateConnectedTime(formats); err != nil {
 		res = append(res, err)
 	}
@@ -129,6 +136,24 @@ func (m *ConversationChat) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *ConversationChat) validateAfterCallWork(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.AfterCallWork) { // not required
+		return nil
+	}
+
+	if m.AfterCallWork != nil {
+		if err := m.AfterCallWork.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("afterCallWork")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

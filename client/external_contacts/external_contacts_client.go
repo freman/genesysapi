@@ -126,6 +126,22 @@ type API interface {
 	*/
 	GetExternalcontactsReversewhitepageslookup(ctx context.Context, params *GetExternalcontactsReversewhitepageslookupParams) (*GetExternalcontactsReversewhitepageslookupOK, error)
 	/*
+	   GetExternalcontactsScanContacts scans for external contacts using paging
+	*/
+	GetExternalcontactsScanContacts(ctx context.Context, params *GetExternalcontactsScanContactsParams) (*GetExternalcontactsScanContactsOK, error)
+	/*
+	   GetExternalcontactsScanNotes scans for notes using paging
+	*/
+	GetExternalcontactsScanNotes(ctx context.Context, params *GetExternalcontactsScanNotesParams) (*GetExternalcontactsScanNotesOK, error)
+	/*
+	   GetExternalcontactsScanOrganizations scans for external organizations using paging
+	*/
+	GetExternalcontactsScanOrganizations(ctx context.Context, params *GetExternalcontactsScanOrganizationsParams) (*GetExternalcontactsScanOrganizationsOK, error)
+	/*
+	   GetExternalcontactsScanRelationships scans for relationships
+	*/
+	GetExternalcontactsScanRelationships(ctx context.Context, params *GetExternalcontactsScanRelationshipsParams) (*GetExternalcontactsScanRelationshipsOK, error)
+	/*
 	   PostExternalcontactsContactNotes creates a note for an external contact
 	*/
 	PostExternalcontactsContactNotes(ctx context.Context, params *PostExternalcontactsContactNotesParams) (*PostExternalcontactsContactNotesOK, error)
@@ -882,6 +898,106 @@ func (a *Client) GetExternalcontactsReversewhitepageslookup(ctx context.Context,
 		return nil, err
 	}
 	return result.(*GetExternalcontactsReversewhitepageslookupOK), nil
+
+}
+
+/*
+GetExternalcontactsScanContacts scans for external contacts using paging
+*/
+func (a *Client) GetExternalcontactsScanContacts(ctx context.Context, params *GetExternalcontactsScanContactsParams) (*GetExternalcontactsScanContactsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getExternalcontactsScanContacts",
+		Method:             "GET",
+		PathPattern:        "/api/v2/externalcontacts/scan/contacts",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetExternalcontactsScanContactsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetExternalcontactsScanContactsOK), nil
+
+}
+
+/*
+GetExternalcontactsScanNotes scans for notes using paging
+*/
+func (a *Client) GetExternalcontactsScanNotes(ctx context.Context, params *GetExternalcontactsScanNotesParams) (*GetExternalcontactsScanNotesOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getExternalcontactsScanNotes",
+		Method:             "GET",
+		PathPattern:        "/api/v2/externalcontacts/scan/notes",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetExternalcontactsScanNotesReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetExternalcontactsScanNotesOK), nil
+
+}
+
+/*
+GetExternalcontactsScanOrganizations scans for external organizations using paging
+*/
+func (a *Client) GetExternalcontactsScanOrganizations(ctx context.Context, params *GetExternalcontactsScanOrganizationsParams) (*GetExternalcontactsScanOrganizationsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getExternalcontactsScanOrganizations",
+		Method:             "GET",
+		PathPattern:        "/api/v2/externalcontacts/scan/organizations",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetExternalcontactsScanOrganizationsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetExternalcontactsScanOrganizationsOK), nil
+
+}
+
+/*
+GetExternalcontactsScanRelationships scans for relationships
+*/
+func (a *Client) GetExternalcontactsScanRelationships(ctx context.Context, params *GetExternalcontactsScanRelationshipsParams) (*GetExternalcontactsScanRelationshipsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getExternalcontactsScanRelationships",
+		Method:             "GET",
+		PathPattern:        "/api/v2/externalcontacts/scan/relationships",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetExternalcontactsScanRelationshipsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetExternalcontactsScanRelationshipsOK), nil
 
 }
 

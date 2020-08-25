@@ -65,12 +65,6 @@ func (o *PutExternalcontactsConversationReader) ReadResponse(response runtime.Cl
 			return nil, err
 		}
 		return nil, result
-	case 422:
-		result := NewPutExternalcontactsConversationUnprocessableEntity()
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		return nil, result
 	case 429:
 		result := NewPutExternalcontactsConversationTooManyRequests()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -309,39 +303,6 @@ func (o *PutExternalcontactsConversationUnsupportedMediaType) GetPayload() *mode
 }
 
 func (o *PutExternalcontactsConversationUnsupportedMediaType) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.ErrorBody)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewPutExternalcontactsConversationUnprocessableEntity creates a PutExternalcontactsConversationUnprocessableEntity with default headers values
-func NewPutExternalcontactsConversationUnprocessableEntity() *PutExternalcontactsConversationUnprocessableEntity {
-	return &PutExternalcontactsConversationUnprocessableEntity{}
-}
-
-/*PutExternalcontactsConversationUnprocessableEntity handles this case with default header values.
-
-PutExternalcontactsConversationUnprocessableEntity put externalcontacts conversation unprocessable entity
-*/
-type PutExternalcontactsConversationUnprocessableEntity struct {
-	Payload *models.ErrorBody
-}
-
-func (o *PutExternalcontactsConversationUnprocessableEntity) Error() string {
-	return fmt.Sprintf("[PUT /api/v2/externalcontacts/conversations/{conversationId}][%d] putExternalcontactsConversationUnprocessableEntity  %+v", 422, o.Payload)
-}
-
-func (o *PutExternalcontactsConversationUnprocessableEntity) GetPayload() *models.ErrorBody {
-	return o.Payload
-}
-
-func (o *PutExternalcontactsConversationUnprocessableEntity) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ErrorBody)
 

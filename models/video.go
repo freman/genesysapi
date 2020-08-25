@@ -19,6 +19,9 @@ import (
 // swagger:model Video
 type Video struct {
 
+	// After-call work for the communication.
+	AfterCallWork *AfterCallWork `json:"afterCallWork,omitempty"`
+
 	// Indicates whether this participant has muted their outgoing audio.
 	AudioMuted bool `json:"audioMuted"`
 
@@ -77,6 +80,10 @@ type Video struct {
 func (m *Video) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateAfterCallWork(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateConnectedTime(formats); err != nil {
 		res = append(res, err)
 	}
@@ -108,6 +115,24 @@ func (m *Video) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *Video) validateAfterCallWork(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.AfterCallWork) { // not required
+		return nil
+	}
+
+	if m.AfterCallWork != nil {
+		if err := m.AfterCallWork.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("afterCallWork")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

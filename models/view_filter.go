@@ -209,6 +209,9 @@ type ViewFilter struct {
 	// The report to user IDs used to filter the view
 	ReportsTos []string `json:"reportsTos"`
 
+	// A list of routing types requested
+	RequestedRoutingTypes []string `json:"requestedRoutingTypes"`
+
 	// The role Ids used to filter the view
 	RoleIds []string `json:"roleIds"`
 
@@ -253,6 +256,9 @@ type ViewFilter struct {
 
 	// Indicates filtering for transfers
 	Transferred bool `json:"transferred"`
+
+	// A list of routing types used
+	UsedRoutingTypes []string `json:"usedRoutingTypes"`
 
 	// The user ids are used to filter the view
 	UserIds []string `json:"userIds"`
@@ -345,6 +351,10 @@ func (m *ViewFilter) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateRequestedRoutingTypes(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateSurveyNpsScore(formats); err != nil {
 		res = append(res, err)
 	}
@@ -366,6 +376,10 @@ func (m *ViewFilter) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateTalkDurationsMilliseconds(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateUsedRoutingTypes(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -955,6 +969,43 @@ func (m *ViewFilter) validatePromoterScores(formats strfmt.Registry) error {
 	return nil
 }
 
+var viewFilterRequestedRoutingTypesItemsEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Predictive","Preferred","Manual","Last","Bullseye","Standard"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		viewFilterRequestedRoutingTypesItemsEnum = append(viewFilterRequestedRoutingTypesItemsEnum, v)
+	}
+}
+
+func (m *ViewFilter) validateRequestedRoutingTypesItemsEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, viewFilterRequestedRoutingTypesItemsEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *ViewFilter) validateRequestedRoutingTypes(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.RequestedRoutingTypes) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.RequestedRoutingTypes); i++ {
+
+		// value enum
+		if err := m.validateRequestedRoutingTypesItemsEnum("requestedRoutingTypes"+"."+strconv.Itoa(i), "body", m.RequestedRoutingTypes[i]); err != nil {
+			return err
+		}
+
+	}
+
+	return nil
+}
+
 func (m *ViewFilter) validateSurveyNpsScore(formats strfmt.Registry) error {
 
 	if swag.IsZero(m.SurveyNpsScore) { // not required
@@ -1070,6 +1121,43 @@ func (m *ViewFilter) validateTalkDurationsMilliseconds(formats strfmt.Registry) 
 				}
 				return err
 			}
+		}
+
+	}
+
+	return nil
+}
+
+var viewFilterUsedRoutingTypesItemsEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Predictive","Preferred","Manual","Last","Bullseye","Standard"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		viewFilterUsedRoutingTypesItemsEnum = append(viewFilterUsedRoutingTypesItemsEnum, v)
+	}
+}
+
+func (m *ViewFilter) validateUsedRoutingTypesItemsEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, viewFilterUsedRoutingTypesItemsEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *ViewFilter) validateUsedRoutingTypes(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.UsedRoutingTypes) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.UsedRoutingTypes); i++ {
+
+		// value enum
+		if err := m.validateUsedRoutingTypesItemsEnum("usedRoutingTypes"+"."+strconv.Itoa(i), "body", m.UsedRoutingTypes[i]); err != nil {
+			return err
 		}
 
 	}

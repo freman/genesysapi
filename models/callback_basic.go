@@ -20,6 +20,9 @@ import (
 // swagger:model CallbackBasic
 type CallbackBasic struct {
 
+	// After-call work for the communication.
+	AfterCallWork *AfterCallWork `json:"afterCallWork,omitempty"`
+
 	// The id of the config for automatically placing the callback (and handling the disposition). If null, the callback will not be placed automatically but routed to an agent as per normal.
 	AutomatedCallbackConfigID string `json:"automatedCallbackConfigId,omitempty"`
 
@@ -102,6 +105,10 @@ type CallbackBasic struct {
 func (m *CallbackBasic) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateAfterCallWork(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateCallbackScheduledTime(formats); err != nil {
 		res = append(res, err)
 	}
@@ -153,6 +160,24 @@ func (m *CallbackBasic) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *CallbackBasic) validateAfterCallWork(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.AfterCallWork) { // not required
+		return nil
+	}
+
+	if m.AfterCallWork != nil {
+		if err := m.AfterCallWork.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("afterCallWork")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

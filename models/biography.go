@@ -6,6 +6,9 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"strconv"
+
+	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
@@ -17,6 +20,9 @@ type Biography struct {
 
 	// Personal detailed description
 	Biography string `json:"biography,omitempty"`
+
+	// User education details
+	Education []*Education `json:"education"`
 
 	// hobbies
 	Hobbies []string `json:"hobbies"`
@@ -30,6 +36,40 @@ type Biography struct {
 
 // Validate validates this biography
 func (m *Biography) Validate(formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.validateEducation(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *Biography) validateEducation(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Education) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Education); i++ {
+		if swag.IsZero(m.Education[i]) { // not required
+			continue
+		}
+
+		if m.Education[i] != nil {
+			if err := m.Education[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("education" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 

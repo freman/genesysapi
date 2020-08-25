@@ -66,6 +66,11 @@ type GetUserProfileParams struct {
 
 	*/
 	Expand []string
+	/*IntegrationPresenceSource
+	  Gets an integration presence for a user instead of their default.
+
+	*/
+	IntegrationPresenceSource *string
 	/*UserID
 	  userId
 
@@ -121,6 +126,17 @@ func (o *GetUserProfileParams) SetExpand(expand []string) {
 	o.Expand = expand
 }
 
+// WithIntegrationPresenceSource adds the integrationPresenceSource to the get user profile params
+func (o *GetUserProfileParams) WithIntegrationPresenceSource(integrationPresenceSource *string) *GetUserProfileParams {
+	o.SetIntegrationPresenceSource(integrationPresenceSource)
+	return o
+}
+
+// SetIntegrationPresenceSource adds the integrationPresenceSource to the get user profile params
+func (o *GetUserProfileParams) SetIntegrationPresenceSource(integrationPresenceSource *string) {
+	o.IntegrationPresenceSource = integrationPresenceSource
+}
+
 // WithUserID adds the userID to the get user profile params
 func (o *GetUserProfileParams) WithUserID(userID string) *GetUserProfileParams {
 	o.SetUserID(userID)
@@ -146,6 +162,22 @@ func (o *GetUserProfileParams) WriteToRequest(r runtime.ClientRequest, reg strfm
 	// query array param expand
 	if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
 		return err
+	}
+
+	if o.IntegrationPresenceSource != nil {
+
+		// query param integrationPresenceSource
+		var qrIntegrationPresenceSource string
+		if o.IntegrationPresenceSource != nil {
+			qrIntegrationPresenceSource = *o.IntegrationPresenceSource
+		}
+		qIntegrationPresenceSource := qrIntegrationPresenceSource
+		if qIntegrationPresenceSource != "" {
+			if err := r.SetQueryParam("integrationPresenceSource", qIntegrationPresenceSource); err != nil {
+				return err
+			}
+		}
+
 	}
 
 	// path param userId

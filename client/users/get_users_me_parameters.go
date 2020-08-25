@@ -66,6 +66,11 @@ type GetUsersMeParams struct {
 
 	*/
 	Expand []string
+	/*IntegrationPresenceSource
+	  Get your presence for a given integration. This parameter will only be used when presence is provided as an "expand".
+
+	*/
+	IntegrationPresenceSource *string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -116,6 +121,17 @@ func (o *GetUsersMeParams) SetExpand(expand []string) {
 	o.Expand = expand
 }
 
+// WithIntegrationPresenceSource adds the integrationPresenceSource to the get users me params
+func (o *GetUsersMeParams) WithIntegrationPresenceSource(integrationPresenceSource *string) *GetUsersMeParams {
+	o.SetIntegrationPresenceSource(integrationPresenceSource)
+	return o
+}
+
+// SetIntegrationPresenceSource adds the integrationPresenceSource to the get users me params
+func (o *GetUsersMeParams) SetIntegrationPresenceSource(integrationPresenceSource *string) {
+	o.IntegrationPresenceSource = integrationPresenceSource
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *GetUsersMeParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -130,6 +146,22 @@ func (o *GetUsersMeParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Re
 	// query array param expand
 	if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
 		return err
+	}
+
+	if o.IntegrationPresenceSource != nil {
+
+		// query param integrationPresenceSource
+		var qrIntegrationPresenceSource string
+		if o.IntegrationPresenceSource != nil {
+			qrIntegrationPresenceSource = *o.IntegrationPresenceSource
+		}
+		qIntegrationPresenceSource := qrIntegrationPresenceSource
+		if qIntegrationPresenceSource != "" {
+			if err := r.SetQueryParam("integrationPresenceSource", qIntegrationPresenceSource); err != nil {
+				return err
+			}
+		}
+
 	}
 
 	if len(res) > 0 {

@@ -107,6 +107,11 @@ type GetUsersParams struct {
 
 	*/
 	ID []string
+	/*IntegrationPresenceSource
+	  Gets an integration presence for users instead of their defaults. This parameter will only be used when presence is provided as an "expand". When using this parameter the maximum number of users that can be returned is 10.
+
+	*/
+	IntegrationPresenceSource *string
 	/*JabberID
 	  A list of jabberIds to fetch by bulk (cannot be used with the "id" parameter)
 
@@ -193,6 +198,17 @@ func (o *GetUsersParams) SetID(id []string) {
 	o.ID = id
 }
 
+// WithIntegrationPresenceSource adds the integrationPresenceSource to the get users params
+func (o *GetUsersParams) WithIntegrationPresenceSource(integrationPresenceSource *string) *GetUsersParams {
+	o.SetIntegrationPresenceSource(integrationPresenceSource)
+	return o
+}
+
+// SetIntegrationPresenceSource adds the integrationPresenceSource to the get users params
+func (o *GetUsersParams) SetIntegrationPresenceSource(integrationPresenceSource *string) {
+	o.IntegrationPresenceSource = integrationPresenceSource
+}
+
 // WithJabberID adds the jabberID to the get users params
 func (o *GetUsersParams) WithJabberID(jabberID []string) *GetUsersParams {
 	o.SetJabberID(jabberID)
@@ -270,6 +286,22 @@ func (o *GetUsersParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Regi
 	// query array param id
 	if err := r.SetQueryParam("id", joinedID...); err != nil {
 		return err
+	}
+
+	if o.IntegrationPresenceSource != nil {
+
+		// query param integrationPresenceSource
+		var qrIntegrationPresenceSource string
+		if o.IntegrationPresenceSource != nil {
+			qrIntegrationPresenceSource = *o.IntegrationPresenceSource
+		}
+		qIntegrationPresenceSource := qrIntegrationPresenceSource
+		if qIntegrationPresenceSource != "" {
+			if err := r.SetQueryParam("integrationPresenceSource", qIntegrationPresenceSource); err != nil {
+				return err
+			}
+		}
+
 	}
 
 	valuesJabberID := o.JabberID

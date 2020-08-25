@@ -35,13 +35,29 @@ type API interface {
 	GetSystempresences(ctx context.Context, params *GetSystempresencesParams) (*GetSystempresencesOK, error)
 	/*
 	   GetUserPresence gets a user s presence
+	   Get a user's presence for the specified source that is not specifically listed.  Used to support custom presence sources.
 	*/
 	GetUserPresence(ctx context.Context, params *GetUserPresenceParams) (*GetUserPresenceOK, error)
 	/*
+	   GetUserPresencesMicrosoftteams gets a user s microsoft teams presence
+	   Gets the presence for a Microsoft Teams user.  This will return the Microsoft Teams presence mapped to Genesys Cloud presence with additional activity details in the message field. This presence source is read-only.
+	*/
+	GetUserPresencesMicrosoftteams(ctx context.Context, params *GetUserPresencesMicrosoftteamsParams) (*GetUserPresencesMicrosoftteamsOK, error)
+	/*
+	   GetUserPresencesPurecloud gets a user s genesys cloud presence
+	   Get the default Genesys Cloud user presence source PURECLOUD
+	*/
+	GetUserPresencesPurecloud(ctx context.Context, params *GetUserPresencesPurecloudParams) (*GetUserPresencesPurecloudOK, error)
+	/*
 	   PatchUserPresence patches a user s presence
-	   The presence object can be patched one of three ways. Option 1: Set the 'primary' property to true. This will set the 'source' defined in the path as the user's primary presence source. Option 2: Provide the presenceDefinition value. The 'id' is the only value required within the presenceDefinition. Option 3: Provide the message value. Option 1 can be combined with Option 2 and/or Option 3.
+	   Patch a user's presence for the specified source that is not specifically listed. The presence object can be patched one of three ways. Option 1: Set the 'primary' property to true. This will set the 'source' defined in the path as the user's primary presence source. Option 2: Provide the presenceDefinition value. The 'id' is the only value required within the presenceDefinition. Option 3: Provide the message value. Option 1 can be combined with Option 2 and/or Option 3.
 	*/
 	PatchUserPresence(ctx context.Context, params *PatchUserPresenceParams) (*PatchUserPresenceOK, error)
+	/*
+	   PatchUserPresencesPurecloud patches a genesys cloud user s presence
+	   The presence object can be patched one of three ways. Option 1: Set the 'primary' property to true. This will set the PURECLOUD source as the user's primary presence source. Option 2: Provide the presenceDefinition value. The 'id' is the only value required within the presenceDefinition. Option 3: Provide the message value. Option 1 can be combined with Option 2 and/or Option 3.
+	*/
+	PatchUserPresencesPurecloud(ctx context.Context, params *PatchUserPresencesPurecloudParams) (*PatchUserPresencesPurecloudOK, error)
 	/*
 	   PostPresencedefinitions creates a presence definition
 	*/
@@ -176,6 +192,8 @@ func (a *Client) GetSystempresences(ctx context.Context, params *GetSystempresen
 
 /*
 GetUserPresence gets a user s presence
+
+Get a user's presence for the specified source that is not specifically listed.  Used to support custom presence sources.
 */
 func (a *Client) GetUserPresence(ctx context.Context, params *GetUserPresenceParams) (*GetUserPresenceOK, error) {
 
@@ -200,9 +218,63 @@ func (a *Client) GetUserPresence(ctx context.Context, params *GetUserPresencePar
 }
 
 /*
+GetUserPresencesMicrosoftteams gets a user s microsoft teams presence
+
+Gets the presence for a Microsoft Teams user.  This will return the Microsoft Teams presence mapped to Genesys Cloud presence with additional activity details in the message field. This presence source is read-only.
+*/
+func (a *Client) GetUserPresencesMicrosoftteams(ctx context.Context, params *GetUserPresencesMicrosoftteamsParams) (*GetUserPresencesMicrosoftteamsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getUserPresencesMicrosoftteams",
+		Method:             "GET",
+		PathPattern:        "/api/v2/users/{userId}/presences/microsoftteams",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetUserPresencesMicrosoftteamsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetUserPresencesMicrosoftteamsOK), nil
+
+}
+
+/*
+GetUserPresencesPurecloud gets a user s genesys cloud presence
+
+Get the default Genesys Cloud user presence source PURECLOUD
+*/
+func (a *Client) GetUserPresencesPurecloud(ctx context.Context, params *GetUserPresencesPurecloudParams) (*GetUserPresencesPurecloudOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getUserPresencesPurecloud",
+		Method:             "GET",
+		PathPattern:        "/api/v2/users/{userId}/presences/purecloud",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetUserPresencesPurecloudReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetUserPresencesPurecloudOK), nil
+
+}
+
+/*
 PatchUserPresence patches a user s presence
 
-The presence object can be patched one of three ways. Option 1: Set the 'primary' property to true. This will set the 'source' defined in the path as the user's primary presence source. Option 2: Provide the presenceDefinition value. The 'id' is the only value required within the presenceDefinition. Option 3: Provide the message value. Option 1 can be combined with Option 2 and/or Option 3.
+Patch a user's presence for the specified source that is not specifically listed. The presence object can be patched one of three ways. Option 1: Set the 'primary' property to true. This will set the 'source' defined in the path as the user's primary presence source. Option 2: Provide the presenceDefinition value. The 'id' is the only value required within the presenceDefinition. Option 3: Provide the message value. Option 1 can be combined with Option 2 and/or Option 3.
 */
 func (a *Client) PatchUserPresence(ctx context.Context, params *PatchUserPresenceParams) (*PatchUserPresenceOK, error) {
 
@@ -223,6 +295,33 @@ func (a *Client) PatchUserPresence(ctx context.Context, params *PatchUserPresenc
 		return nil, err
 	}
 	return result.(*PatchUserPresenceOK), nil
+
+}
+
+/*
+PatchUserPresencesPurecloud patches a genesys cloud user s presence
+
+The presence object can be patched one of three ways. Option 1: Set the 'primary' property to true. This will set the PURECLOUD source as the user's primary presence source. Option 2: Provide the presenceDefinition value. The 'id' is the only value required within the presenceDefinition. Option 3: Provide the message value. Option 1 can be combined with Option 2 and/or Option 3.
+*/
+func (a *Client) PatchUserPresencesPurecloud(ctx context.Context, params *PatchUserPresencesPurecloudParams) (*PatchUserPresencesPurecloudOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "patchUserPresencesPurecloud",
+		Method:             "PATCH",
+		PathPattern:        "/api/v2/users/{userId}/presences/purecloud",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchUserPresencesPurecloudReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PatchUserPresencesPurecloudOK), nil
 
 }
 

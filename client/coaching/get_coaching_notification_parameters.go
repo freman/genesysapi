@@ -14,6 +14,7 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+	"github.com/go-openapi/swag"
 )
 
 // NewGetCoachingNotificationParams creates a new GetCoachingNotificationParams object
@@ -60,6 +61,11 @@ for the get coaching notification operation typically these are written to a htt
 */
 type GetCoachingNotificationParams struct {
 
+	/*Expand
+	  Indicates a field in the response which should be expanded.
+
+	*/
+	Expand []string
 	/*NotificationID
 	  The ID of the notification.
 
@@ -104,6 +110,17 @@ func (o *GetCoachingNotificationParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithExpand adds the expand to the get coaching notification params
+func (o *GetCoachingNotificationParams) WithExpand(expand []string) *GetCoachingNotificationParams {
+	o.SetExpand(expand)
+	return o
+}
+
+// SetExpand adds the expand to the get coaching notification params
+func (o *GetCoachingNotificationParams) SetExpand(expand []string) {
+	o.Expand = expand
+}
+
 // WithNotificationID adds the notificationID to the get coaching notification params
 func (o *GetCoachingNotificationParams) WithNotificationID(notificationID string) *GetCoachingNotificationParams {
 	o.SetNotificationID(notificationID)
@@ -122,6 +139,14 @@ func (o *GetCoachingNotificationParams) WriteToRequest(r runtime.ClientRequest, 
 		return err
 	}
 	var res []error
+
+	valuesExpand := o.Expand
+
+	joinedExpand := swag.JoinByFormat(valuesExpand, "multi")
+	// query array param expand
+	if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
+		return err
+	}
 
 	// path param notificationId
 	if err := r.SetPathParam("notificationId", o.NotificationID); err != nil {

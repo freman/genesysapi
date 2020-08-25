@@ -82,7 +82,7 @@ for the get scim v2 users operation typically these are written to a http.Reques
 type GetScimV2UsersParams struct {
 
 	/*Attributes
-	  Indicates which attributes to include. Returns these attributes and the "id", "userName", "active", and "meta" attributes. Use "attributes" to avoid expensive additional calls for the default attributes.
+	  Indicates which attributes to include. Returns these attributes and the 'id', 'userName', 'active', and 'meta' attributes. Use "attributes" to avoid expensive secondary calls for the default attributes.
 
 	*/
 	Attributes []string
@@ -92,12 +92,12 @@ type GetScimV2UsersParams struct {
 	*/
 	Count *int32
 	/*ExcludedAttributes
-	  Indicates which attributes to exclude. Returns the default attributes minus "excludedAttributes". Always returns the "id", "userName", "active", and "meta" attributes. Use "excludedAttributes" to avoid expensive additional calls for the default attributes.
+	  Indicates which attributes to exclude. Returns the default attributes minus "excludedAttributes". Use "excludedAttributes" to avoid expensive secondary calls for the default attributes. The 'id', 'userName', 'active', 'meta' attributes  will always be present in output.
 
 	*/
 	ExcludedAttributes []string
 	/*Filter
-	  Filters results. If nothing is specified, returns all active users. Examples of valid values: "id eq 857449b0-d9e7-4cd0-acbf-a6adfb9ef1e9", "userName eq search@sample.org", "manager eq 16e10e2f-1136-43fe-bb84-eac073168a49", "email eq search@sample.org", "division eq divisionName", "externalId eq 167844", "active eq false".
+	  Filters results. If nothing is specified, returns all active users. Examples of valid values: "id eq 857449b0-d9e7-4cd0-acbf-a6adfb9ef1e9", "userName eq search@sample.org", "manager eq 16e10e2f-1136-43fe-bb84-eac073168a49", "email eq search@sample.org", "division eq divisionName", "externalId eq 167844", "active eq false", "employeeNumber eq 9876543210".
 
 	*/
 	Filter *string

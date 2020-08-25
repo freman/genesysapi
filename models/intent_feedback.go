@@ -21,7 +21,7 @@ import (
 type IntentFeedback struct {
 
 	// The assessment on the detection for feedback text.
-	// Enum: [Incorrect Correct Unknown]
+	// Enum: [Incorrect Correct Unknown Disabled]
 	Assessment string `json:"assessment,omitempty"`
 
 	// The collection of named entities detected.
@@ -59,7 +59,7 @@ var intentFeedbackTypeAssessmentPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Incorrect","Correct","Unknown"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Incorrect","Correct","Unknown","Disabled"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -77,6 +77,9 @@ const (
 
 	// IntentFeedbackAssessmentUnknown captures enum value "Unknown"
 	IntentFeedbackAssessmentUnknown string = "Unknown"
+
+	// IntentFeedbackAssessmentDisabled captures enum value "Disabled"
+	IntentFeedbackAssessmentDisabled string = "Disabled"
 )
 
 // prop value enum

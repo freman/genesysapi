@@ -102,6 +102,11 @@ type GetTelephonyProvidersEdgesDidsParams struct {
 
 	*/
 	DidPoolID *string
+	/*ID
+	  Filter by a specific list of ID's
+
+	*/
+	ID []string
 	/*OwnerID
 	  Filter by the owner of a phone number
 
@@ -180,6 +185,17 @@ func (o *GetTelephonyProvidersEdgesDidsParams) WithDidPoolID(didPoolID *string) 
 // SetDidPoolID adds the didPoolId to the get telephony providers edges dids params
 func (o *GetTelephonyProvidersEdgesDidsParams) SetDidPoolID(didPoolID *string) {
 	o.DidPoolID = didPoolID
+}
+
+// WithID adds the id to the get telephony providers edges dids params
+func (o *GetTelephonyProvidersEdgesDidsParams) WithID(id []string) *GetTelephonyProvidersEdgesDidsParams {
+	o.SetID(id)
+	return o
+}
+
+// SetID adds the id to the get telephony providers edges dids params
+func (o *GetTelephonyProvidersEdgesDidsParams) SetID(id []string) {
+	o.ID = id
 }
 
 // WithOwnerID adds the ownerID to the get telephony providers edges dids params
@@ -270,6 +286,14 @@ func (o *GetTelephonyProvidersEdgesDidsParams) WriteToRequest(r runtime.ClientRe
 			}
 		}
 
+	}
+
+	valuesID := o.ID
+
+	joinedID := swag.JoinByFormat(valuesID, "multi")
+	// query array param id
+	if err := r.SetQueryParam("id", joinedID...); err != nil {
+		return err
 	}
 
 	if o.OwnerID != nil {

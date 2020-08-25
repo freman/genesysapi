@@ -105,20 +105,20 @@ func NewGetScimSchemaOK() *GetScimSchemaOK {
 successful operation
 */
 type GetScimSchemaOK struct {
-	Payload *models.ScimConfigResourceType
+	Payload *models.ScimV2SchemaDefinition
 }
 
 func (o *GetScimSchemaOK) Error() string {
 	return fmt.Sprintf("[GET /api/v2/scim/schemas/{schemaId}][%d] getScimSchemaOK  %+v", 200, o.Payload)
 }
 
-func (o *GetScimSchemaOK) GetPayload() *models.ScimConfigResourceType {
+func (o *GetScimSchemaOK) GetPayload() *models.ScimV2SchemaDefinition {
 	return o.Payload
 }
 
 func (o *GetScimSchemaOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.ScimConfigResourceType)
+	o.Payload = new(models.ScimV2SchemaDefinition)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

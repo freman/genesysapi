@@ -62,6 +62,13 @@ type OrgOAuthClient struct {
 
 	// The scope requested by this client. Scopes only apply to clients not using the client_credential grant
 	Scope []string `json:"scope"`
+
+	// The state of the OAuth client.
+	// Active: The OAuth client can be used to create access tokens. This is the default state.
+	// Disabled: Access tokens created by the client are invalid and new ones cannot be created.
+	// Inactive: Access tokens cannot be created with this OAuth client and it will be deleted.
+	// Enum: [active disabled inactive]
+	State string `json:"state,omitempty"`
 }
 
 // Validate validates this org o auth client
@@ -97,6 +104,10 @@ func (m *OrgOAuthClient) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateRoleDivisions(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateState(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -271,6 +282,52 @@ func (m *OrgOAuthClient) validateRoleDivisions(formats strfmt.Registry) error {
 			}
 		}
 
+	}
+
+	return nil
+}
+
+var orgOAuthClientTypeStatePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["active","disabled","inactive"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		orgOAuthClientTypeStatePropEnum = append(orgOAuthClientTypeStatePropEnum, v)
+	}
+}
+
+const (
+
+	// OrgOAuthClientStateActive captures enum value "active"
+	OrgOAuthClientStateActive string = "active"
+
+	// OrgOAuthClientStateDisabled captures enum value "disabled"
+	OrgOAuthClientStateDisabled string = "disabled"
+
+	// OrgOAuthClientStateInactive captures enum value "inactive"
+	OrgOAuthClientStateInactive string = "inactive"
+)
+
+// prop value enum
+func (m *OrgOAuthClient) validateStateEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, orgOAuthClientTypeStatePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *OrgOAuthClient) validateState(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.State) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateStateEnum("state", "body", m.State); err != nil {
+		return err
 	}
 
 	return nil

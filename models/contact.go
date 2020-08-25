@@ -22,6 +22,9 @@ type Contact struct {
 	// Email address or phone number for this contact type
 	Address string `json:"address,omitempty"`
 
+	// country code
+	CountryCode string `json:"countryCode,omitempty"`
+
 	// Formatted version of the address property
 	// Read Only: true
 	Display string `json:"display,omitempty"`

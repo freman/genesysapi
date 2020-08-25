@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -68,6 +69,13 @@ type OAuthClientListing struct {
 	// Read Only: true
 	// Format: uri
 	SelfURI strfmt.URI `json:"selfUri,omitempty"`
+
+	// The state of the OAuth client.
+	// Active: The OAuth client can be used to create access tokens. This is the default state.
+	// Disabled: Access tokens created by the client are invalid and new ones cannot be created.
+	// Inactive: Access tokens cannot be created with this OAuth client and it will be deleted.
+	// Enum: [active disabled inactive]
+	State string `json:"state,omitempty"`
 }
 
 // Validate validates this o auth client listing
@@ -107,6 +115,10 @@ func (m *OAuthClientListing) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateSelfURI(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateState(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -253,6 +265,52 @@ func (m *OAuthClientListing) validateSelfURI(formats strfmt.Registry) error {
 	}
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+var oAuthClientListingTypeStatePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["active","disabled","inactive"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		oAuthClientListingTypeStatePropEnum = append(oAuthClientListingTypeStatePropEnum, v)
+	}
+}
+
+const (
+
+	// OAuthClientListingStateActive captures enum value "active"
+	OAuthClientListingStateActive string = "active"
+
+	// OAuthClientListingStateDisabled captures enum value "disabled"
+	OAuthClientListingStateDisabled string = "disabled"
+
+	// OAuthClientListingStateInactive captures enum value "inactive"
+	OAuthClientListingStateInactive string = "inactive"
+)
+
+// prop value enum
+func (m *OAuthClientListing) validateStateEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, oAuthClientListingTypeStatePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *OAuthClientListing) validateState(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.State) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateStateEnum("state", "body", m.State); err != nil {
 		return err
 	}
 

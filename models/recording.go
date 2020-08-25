@@ -90,6 +90,10 @@ type Recording struct {
 	// path
 	Path string `json:"path,omitempty"`
 
+	// Role of the file recording. It can be either customer_experience or adhoc.
+	// Enum: [CUSTOMER_EXPERIENCE ADHOC]
+	RecordingFileRole string `json:"recordingFileRole,omitempty"`
+
 	// The remaining archive restorations the organization has.
 	RemainingRestorationsAllowedForOrg int32 `json:"remainingRestorationsAllowedForOrg,omitempty"`
 
@@ -156,6 +160,10 @@ func (m *Recording) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateMessagingTranscript(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateRecordingFileRole(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -423,6 +431,49 @@ func (m *Recording) validateMessagingTranscript(formats strfmt.Registry) error {
 			}
 		}
 
+	}
+
+	return nil
+}
+
+var recordingTypeRecordingFileRolePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["CUSTOMER_EXPERIENCE","ADHOC"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		recordingTypeRecordingFileRolePropEnum = append(recordingTypeRecordingFileRolePropEnum, v)
+	}
+}
+
+const (
+
+	// RecordingRecordingFileRoleCUSTOMEREXPERIENCE captures enum value "CUSTOMER_EXPERIENCE"
+	RecordingRecordingFileRoleCUSTOMEREXPERIENCE string = "CUSTOMER_EXPERIENCE"
+
+	// RecordingRecordingFileRoleADHOC captures enum value "ADHOC"
+	RecordingRecordingFileRoleADHOC string = "ADHOC"
+)
+
+// prop value enum
+func (m *Recording) validateRecordingFileRoleEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, recordingTypeRecordingFileRolePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *Recording) validateRecordingFileRole(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.RecordingFileRole) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateRecordingFileRoleEnum("recordingFileRole", "body", m.RecordingFileRole); err != nil {
+		return err
 	}
 
 	return nil

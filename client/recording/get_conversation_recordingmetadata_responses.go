@@ -105,14 +105,14 @@ func NewGetConversationRecordingmetadataOK() *GetConversationRecordingmetadataOK
 successful operation
 */
 type GetConversationRecordingmetadataOK struct {
-	Payload []*models.Recording
+	Payload []*models.RecordingMetadata
 }
 
 func (o *GetConversationRecordingmetadataOK) Error() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/recordingmetadata][%d] getConversationRecordingmetadataOK  %+v", 200, o.Payload)
 }
 
-func (o *GetConversationRecordingmetadataOK) GetPayload() []*models.Recording {
+func (o *GetConversationRecordingmetadataOK) GetPayload() []*models.RecordingMetadata {
 	return o.Payload
 }
 

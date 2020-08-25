@@ -39,6 +39,7 @@ import (
 	"github.com/freman/genesysapi/client/groups"
 	"github.com/freman/genesysapi/client/identity_provider"
 	"github.com/freman/genesysapi/client/integrations"
+	"github.com/freman/genesysapi/client/journey"
 	"github.com/freman/genesysapi/client/knowledge"
 	"github.com/freman/genesysapi/client/language_understanding"
 	"github.com/freman/genesysapi/client/languages"
@@ -58,6 +59,7 @@ import (
 	"github.com/freman/genesysapi/client/s_c_i_m"
 	"github.com/freman/genesysapi/client/scripts"
 	"github.com/freman/genesysapi/client/search"
+	"github.com/freman/genesysapi/client/speech_and_text_analytics"
 	"github.com/freman/genesysapi/client/stations"
 	"github.com/freman/genesysapi/client/telephony"
 	"github.com/freman/genesysapi/client/telephony_providers_edge"
@@ -168,6 +170,7 @@ func New(c Config) *Genesys {
 	cli.Groups = groups.New(transport, strfmt.Default, nil)
 	cli.IdentityProvider = identity_provider.New(transport, strfmt.Default, nil)
 	cli.Integrations = integrations.New(transport, strfmt.Default, nil)
+	cli.Journey = journey.New(transport, strfmt.Default, nil)
 	cli.Knowledge = knowledge.New(transport, strfmt.Default, nil)
 	cli.LanguageUnderstanding = language_understanding.New(transport, strfmt.Default, nil)
 	cli.Languages = languages.New(transport, strfmt.Default, nil)
@@ -187,6 +190,7 @@ func New(c Config) *Genesys {
 	cli.Scim = s_c_i_m.New(transport, strfmt.Default, nil)
 	cli.Scripts = scripts.New(transport, strfmt.Default, nil)
 	cli.Search = search.New(transport, strfmt.Default, nil)
+	cli.SpeechAndTextAnalytics = speech_and_text_analytics.New(transport, strfmt.Default, nil)
 	cli.Stations = stations.New(transport, strfmt.Default, nil)
 	cli.Telephony = telephony.New(transport, strfmt.Default, nil)
 	cli.TelephonyProvidersEdge = telephony_providers_edge.New(transport, strfmt.Default, nil)
@@ -229,6 +233,7 @@ type Genesys struct {
 	Groups                          *groups.Client
 	IdentityProvider                *identity_provider.Client
 	Integrations                    *integrations.Client
+	Journey                         *journey.Client
 	Knowledge                       *knowledge.Client
 	LanguageUnderstanding           *language_understanding.Client
 	Languages                       *languages.Client
@@ -248,6 +253,7 @@ type Genesys struct {
 	Scim                            *s_c_i_m.Client
 	Scripts                         *scripts.Client
 	Search                          *search.Client
+	SpeechAndTextAnalytics          *speech_and_text_analytics.Client
 	Stations                        *stations.Client
 	Telephony                       *telephony.Client
 	TelephonyProvidersEdge          *telephony_providers_edge.Client

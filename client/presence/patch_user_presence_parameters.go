@@ -68,7 +68,7 @@ type PatchUserPresenceParams struct {
 	*/
 	Body *models.UserPresence
 	/*SourceID
-	  Source
+	  Presence source ID
 
 	*/
 	SourceID string

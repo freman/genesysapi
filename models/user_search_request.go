@@ -23,6 +23,10 @@ type UserSearchRequest struct {
 	// Provides more details about a specified resource
 	Expand []string `json:"expand"`
 
+	// Gets an integration presence for users instead of their defaults. This parameter will only be used when presence is provided as an "expand". When using this parameter the maximum number of users that can be returned is 10.
+	// Enum: [MicrosoftTeams ZoomPhone]
+	IntegrationPresenceSource string `json:"integrationPresenceSource,omitempty"`
+
 	// The page of resources you want to retrieve
 	PageNumber int32 `json:"pageNumber,omitempty"`
 
@@ -47,6 +51,10 @@ type UserSearchRequest struct {
 func (m *UserSearchRequest) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateIntegrationPresenceSource(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateQuery(formats); err != nil {
 		res = append(res, err)
 	}
@@ -62,6 +70,49 @@ func (m *UserSearchRequest) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+var userSearchRequestTypeIntegrationPresenceSourcePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["MicrosoftTeams","ZoomPhone"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		userSearchRequestTypeIntegrationPresenceSourcePropEnum = append(userSearchRequestTypeIntegrationPresenceSourcePropEnum, v)
+	}
+}
+
+const (
+
+	// UserSearchRequestIntegrationPresenceSourceMicrosoftTeams captures enum value "MicrosoftTeams"
+	UserSearchRequestIntegrationPresenceSourceMicrosoftTeams string = "MicrosoftTeams"
+
+	// UserSearchRequestIntegrationPresenceSourceZoomPhone captures enum value "ZoomPhone"
+	UserSearchRequestIntegrationPresenceSourceZoomPhone string = "ZoomPhone"
+)
+
+// prop value enum
+func (m *UserSearchRequest) validateIntegrationPresenceSourceEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, userSearchRequestTypeIntegrationPresenceSourcePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *UserSearchRequest) validateIntegrationPresenceSource(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.IntegrationPresenceSource) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateIntegrationPresenceSourceEnum("integrationPresenceSource", "body", m.IntegrationPresenceSource); err != nil {
+		return err
+	}
+
 	return nil
 }
 

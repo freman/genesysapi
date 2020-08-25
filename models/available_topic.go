@@ -6,8 +6,13 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	"strconv"
+
+	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // AvailableTopic available topic
@@ -32,10 +37,59 @@ type AvailableTopic struct {
 
 	// schema
 	Schema map[string]interface{} `json:"schema,omitempty"`
+
+	// Transports that support events for the topic
+	Transports []string `json:"transports"`
 }
 
 // Validate validates this available topic
 func (m *AvailableTopic) Validate(formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.validateTransports(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+var availableTopicTransportsItemsEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["All","Websocket","EventBridge"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		availableTopicTransportsItemsEnum = append(availableTopicTransportsItemsEnum, v)
+	}
+}
+
+func (m *AvailableTopic) validateTransportsItemsEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, availableTopicTransportsItemsEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *AvailableTopic) validateTransports(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Transports) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Transports); i++ {
+
+		// value enum
+		if err := m.validateTransportsItemsEnum("transports"+"."+strconv.Itoa(i), "body", m.Transports[i]); err != nil {
+			return err
+		}
+
+	}
+
 	return nil
 }
 

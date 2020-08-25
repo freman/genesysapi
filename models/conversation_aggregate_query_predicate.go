@@ -20,7 +20,7 @@ import (
 type ConversationAggregateQueryPredicate struct {
 
 	// Left hand side for dimension predicates
-	// Enum: [addressFrom addressTo agentScore ani conversationId convertedFrom convertedTo direction disconnectType divisionId dnis edgeId externalContactId externalMediaCount externalOrganizationId flaggedReason flowOutType groupId interactionType journeyActionId journeyActionMapId journeyActionMapVersion journeyCustomerId journeyCustomerIdType journeyCustomerSessionId journeyCustomerSessionIdType mediaCount mediaType messageType originatingDirection outboundCampaignId outboundContactId outboundContactListId participantName peerId provider purpose queueId remote requestedLanguageId requestedRouting requestedRoutingSkillId roomId routingPriority scoredAgentId selectedAgentId selectedAgentRank sessionDnis sessionId stationId teamId usedRouting userId wrapUpCode]
+	// Enum: [addressFrom addressTo agentAssistantId agentScore ani conversationId convertedFrom convertedTo direction disconnectType divisionId dnis edgeId externalContactId externalMediaCount externalOrganizationId flaggedReason flowOutType groupId interactionType journeyActionId journeyActionMapId journeyActionMapVersion journeyCustomerId journeyCustomerIdType journeyCustomerSessionId journeyCustomerSessionIdType mediaCount mediaType messageType originatingDirection outboundCampaignId outboundContactId outboundContactListId participantName peerId provider purpose queueId remote requestedLanguageId requestedRouting requestedRoutingSkillId roomId routingPriority scoredAgentId selectedAgentId selectedAgentRank sessionDnis sessionId stationId teamId usedRouting userId wrapUpCode]
 	Dimension string `json:"dimension,omitempty"`
 
 	// Optional operator, default is matches
@@ -68,7 +68,7 @@ var conversationAggregateQueryPredicateTypeDimensionPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["addressFrom","addressTo","agentScore","ani","conversationId","convertedFrom","convertedTo","direction","disconnectType","divisionId","dnis","edgeId","externalContactId","externalMediaCount","externalOrganizationId","flaggedReason","flowOutType","groupId","interactionType","journeyActionId","journeyActionMapId","journeyActionMapVersion","journeyCustomerId","journeyCustomerIdType","journeyCustomerSessionId","journeyCustomerSessionIdType","mediaCount","mediaType","messageType","originatingDirection","outboundCampaignId","outboundContactId","outboundContactListId","participantName","peerId","provider","purpose","queueId","remote","requestedLanguageId","requestedRouting","requestedRoutingSkillId","roomId","routingPriority","scoredAgentId","selectedAgentId","selectedAgentRank","sessionDnis","sessionId","stationId","teamId","usedRouting","userId","wrapUpCode"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["addressFrom","addressTo","agentAssistantId","agentScore","ani","conversationId","convertedFrom","convertedTo","direction","disconnectType","divisionId","dnis","edgeId","externalContactId","externalMediaCount","externalOrganizationId","flaggedReason","flowOutType","groupId","interactionType","journeyActionId","journeyActionMapId","journeyActionMapVersion","journeyCustomerId","journeyCustomerIdType","journeyCustomerSessionId","journeyCustomerSessionIdType","mediaCount","mediaType","messageType","originatingDirection","outboundCampaignId","outboundContactId","outboundContactListId","participantName","peerId","provider","purpose","queueId","remote","requestedLanguageId","requestedRouting","requestedRoutingSkillId","roomId","routingPriority","scoredAgentId","selectedAgentId","selectedAgentRank","sessionDnis","sessionId","stationId","teamId","usedRouting","userId","wrapUpCode"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -83,6 +83,9 @@ const (
 
 	// ConversationAggregateQueryPredicateDimensionAddressTo captures enum value "addressTo"
 	ConversationAggregateQueryPredicateDimensionAddressTo string = "addressTo"
+
+	// ConversationAggregateQueryPredicateDimensionAgentAssistantID captures enum value "agentAssistantId"
+	ConversationAggregateQueryPredicateDimensionAgentAssistantID string = "agentAssistantId"
 
 	// ConversationAggregateQueryPredicateDimensionAgentScore captures enum value "agentScore"
 	ConversationAggregateQueryPredicateDimensionAgentScore string = "agentScore"

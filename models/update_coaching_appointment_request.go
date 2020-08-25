@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -21,7 +23,7 @@ type UpdateCoachingAppointmentRequest struct {
 	// Unique: true
 	ConversationIds []string `json:"conversationIds"`
 
-	// The date/time the coaching appointment starts. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The date/time the coaching appointment starts. Times will be rounded down to the minute. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
 	// Format: date-time
 	DateStart strfmt.DateTime `json:"dateStart,omitempty"`
 
@@ -37,6 +39,10 @@ type UpdateCoachingAppointmentRequest struct {
 
 	// The name of coaching appointment.
 	Name string `json:"name,omitempty"`
+
+	// The status of the coaching appointment.
+	// Enum: [Scheduled InProgress Completed InvalidSchedule]
+	Status string `json:"status,omitempty"`
 }
 
 // Validate validates this update coaching appointment request
@@ -52,6 +58,10 @@ func (m *UpdateCoachingAppointmentRequest) Validate(formats strfmt.Registry) err
 	}
 
 	if err := m.validateDocumentIds(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateStatus(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -94,6 +104,55 @@ func (m *UpdateCoachingAppointmentRequest) validateDocumentIds(formats strfmt.Re
 	}
 
 	if err := validate.UniqueItems("documentIds", "body", m.DocumentIds); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+var updateCoachingAppointmentRequestTypeStatusPropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Scheduled","InProgress","Completed","InvalidSchedule"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		updateCoachingAppointmentRequestTypeStatusPropEnum = append(updateCoachingAppointmentRequestTypeStatusPropEnum, v)
+	}
+}
+
+const (
+
+	// UpdateCoachingAppointmentRequestStatusScheduled captures enum value "Scheduled"
+	UpdateCoachingAppointmentRequestStatusScheduled string = "Scheduled"
+
+	// UpdateCoachingAppointmentRequestStatusInProgress captures enum value "InProgress"
+	UpdateCoachingAppointmentRequestStatusInProgress string = "InProgress"
+
+	// UpdateCoachingAppointmentRequestStatusCompleted captures enum value "Completed"
+	UpdateCoachingAppointmentRequestStatusCompleted string = "Completed"
+
+	// UpdateCoachingAppointmentRequestStatusInvalidSchedule captures enum value "InvalidSchedule"
+	UpdateCoachingAppointmentRequestStatusInvalidSchedule string = "InvalidSchedule"
+)
+
+// prop value enum
+func (m *UpdateCoachingAppointmentRequest) validateStatusEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, updateCoachingAppointmentRequestTypeStatusPropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *UpdateCoachingAppointmentRequest) validateStatus(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Status) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateStatusEnum("status", "body", m.Status); err != nil {
 		return err
 	}
 

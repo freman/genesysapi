@@ -81,6 +81,11 @@ for the get coaching notifications operation typically these are written to a ht
 */
 type GetCoachingNotificationsParams struct {
 
+	/*Expand
+	  Indicates a field in the response which should be expanded.
+
+	*/
+	Expand []string
 	/*PageNumber
 	  Page number
 
@@ -130,6 +135,17 @@ func (o *GetCoachingNotificationsParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithExpand adds the expand to the get coaching notifications params
+func (o *GetCoachingNotificationsParams) WithExpand(expand []string) *GetCoachingNotificationsParams {
+	o.SetExpand(expand)
+	return o
+}
+
+// SetExpand adds the expand to the get coaching notifications params
+func (o *GetCoachingNotificationsParams) SetExpand(expand []string) {
+	o.Expand = expand
+}
+
 // WithPageNumber adds the pageNumber to the get coaching notifications params
 func (o *GetCoachingNotificationsParams) WithPageNumber(pageNumber *int32) *GetCoachingNotificationsParams {
 	o.SetPageNumber(pageNumber)
@@ -159,6 +175,14 @@ func (o *GetCoachingNotificationsParams) WriteToRequest(r runtime.ClientRequest,
 		return err
 	}
 	var res []error
+
+	valuesExpand := o.Expand
+
+	joinedExpand := swag.JoinByFormat(valuesExpand, "multi")
+	// query array param expand
+	if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
+		return err
+	}
 
 	if o.PageNumber != nil {
 
