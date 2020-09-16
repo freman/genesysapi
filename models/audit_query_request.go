@@ -29,7 +29,7 @@ type AuditQueryRequest struct {
 
 	// Name of the service to query audits for.
 	// Required: true
-	// Enum: [ContactCenter ContentManagement PeoplePermissions Quality LanguageUnderstanding TopicsDefinitions PredictiveEngagement WorkforceManagement]
+	// Enum: [ContactCenter ContentManagement PeoplePermissions Quality LanguageUnderstanding TopicsDefinitions PredictiveEngagement WorkforceManagement Triggers]
 	ServiceName *string `json:"serviceName"`
 
 	// Sort parameter for the query.
@@ -100,7 +100,7 @@ var auditQueryRequestTypeServiceNamePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["ContactCenter","ContentManagement","PeoplePermissions","Quality","LanguageUnderstanding","TopicsDefinitions","PredictiveEngagement","WorkforceManagement"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["ContactCenter","ContentManagement","PeoplePermissions","Quality","LanguageUnderstanding","TopicsDefinitions","PredictiveEngagement","WorkforceManagement","Triggers"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -133,6 +133,9 @@ const (
 
 	// AuditQueryRequestServiceNameWorkforceManagement captures enum value "WorkforceManagement"
 	AuditQueryRequestServiceNameWorkforceManagement string = "WorkforceManagement"
+
+	// AuditQueryRequestServiceNameTriggers captures enum value "Triggers"
+	AuditQueryRequestServiceNameTriggers string = "Triggers"
 )
 
 // prop value enum

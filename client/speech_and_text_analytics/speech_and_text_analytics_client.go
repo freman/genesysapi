@@ -18,6 +18,10 @@ import (
 // API is the interface of the speech and text analytics client
 type API interface {
 	/*
+	   GetSpeechandtextanalyticsConversation gets speech and text analytics for a specific conversation
+	*/
+	GetSpeechandtextanalyticsConversation(ctx context.Context, params *GetSpeechandtextanalyticsConversationParams) (*GetSpeechandtextanalyticsConversationOK, error)
+	/*
 	   GetSpeechandtextanalyticsConversationCommunicationTranscripturl gets the pre signed s3 URL for the transcript of a specific communication of a conversation
 	*/
 	GetSpeechandtextanalyticsConversationCommunicationTranscripturl(ctx context.Context, params *GetSpeechandtextanalyticsConversationCommunicationTranscripturlParams) (*GetSpeechandtextanalyticsConversationCommunicationTranscripturlOK, error)
@@ -39,6 +43,31 @@ type Client struct {
 	transport runtime.ClientTransport
 	formats   strfmt.Registry
 	authInfo  runtime.ClientAuthInfoWriter
+}
+
+/*
+GetSpeechandtextanalyticsConversation gets speech and text analytics for a specific conversation
+*/
+func (a *Client) GetSpeechandtextanalyticsConversation(ctx context.Context, params *GetSpeechandtextanalyticsConversationParams) (*GetSpeechandtextanalyticsConversationOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getSpeechandtextanalyticsConversation",
+		Method:             "GET",
+		PathPattern:        "/api/v2/speechandtextanalytics/conversations/{conversationId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetSpeechandtextanalyticsConversationReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetSpeechandtextanalyticsConversationOK), nil
+
 }
 
 /*

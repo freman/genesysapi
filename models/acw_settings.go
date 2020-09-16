@@ -23,7 +23,7 @@ type AcwSettings struct {
 	TimeoutMs int32 `json:"timeoutMs,omitempty"`
 
 	// This field controls how the UI prompts the agent for a wrapup.
-	// Enum: [MANDATORY OPTIONAL MANDATORY_TIMEOUT MANDATORY_FORCED_TIMEOUT]
+	// Enum: [MANDATORY OPTIONAL MANDATORY_TIMEOUT MANDATORY_FORCED_TIMEOUT AGENT_REQUESTED]
 	WrapupPrompt string `json:"wrapupPrompt,omitempty"`
 }
 
@@ -45,7 +45,7 @@ var acwSettingsTypeWrapupPromptPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["MANDATORY","OPTIONAL","MANDATORY_TIMEOUT","MANDATORY_FORCED_TIMEOUT"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["MANDATORY","OPTIONAL","MANDATORY_TIMEOUT","MANDATORY_FORCED_TIMEOUT","AGENT_REQUESTED"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -66,6 +66,9 @@ const (
 
 	// AcwSettingsWrapupPromptMANDATORYFORCEDTIMEOUT captures enum value "MANDATORY_FORCED_TIMEOUT"
 	AcwSettingsWrapupPromptMANDATORYFORCEDTIMEOUT string = "MANDATORY_FORCED_TIMEOUT"
+
+	// AcwSettingsWrapupPromptAGENTREQUESTED captures enum value "AGENT_REQUESTED"
+	AcwSettingsWrapupPromptAGENTREQUESTED string = "AGENT_REQUESTED"
 )
 
 // prop value enum

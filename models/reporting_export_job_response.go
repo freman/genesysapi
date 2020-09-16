@@ -97,6 +97,10 @@ type ReportingExportJobResponse struct {
 	// The list of email recipients for the exports
 	RecipientEmails []string `json:"recipientEmails"`
 
+	// The unique run id of the export schedule execute
+	// Required: true
+	RunID *string `json:"runId"`
+
 	// The list of ordered selected columns from the export view by the user
 	SelectedColumns []*SelectedColumns `json:"selectedColumns"`
 
@@ -165,6 +169,10 @@ func (m *ReportingExportJobResponse) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateRead(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateRunID(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -431,6 +439,15 @@ func (m *ReportingExportJobResponse) validatePeriod(formats strfmt.Registry) err
 func (m *ReportingExportJobResponse) validateRead(formats strfmt.Registry) error {
 
 	if err := validate.Required("read", "body", m.Read); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ReportingExportJobResponse) validateRunID(formats strfmt.Registry) error {
+
+	if err := validate.Required("runId", "body", m.RunID); err != nil {
 		return err
 	}
 

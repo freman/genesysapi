@@ -17,9 +17,9 @@ import (
 // swagger:model WfmBusinessUnitReference
 type WfmBusinessUnitReference struct {
 
-	// The globally unique identifier for the object.
-	// Read Only: true
-	ID string `json:"id,omitempty"`
+	// The ID of the business unit
+	// Required: true
+	ID *string `json:"id"`
 
 	// The URI for this object
 	// Read Only: true
@@ -31,6 +31,10 @@ type WfmBusinessUnitReference struct {
 func (m *WfmBusinessUnitReference) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateID(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateSelfURI(formats); err != nil {
 		res = append(res, err)
 	}
@@ -38,6 +42,15 @@ func (m *WfmBusinessUnitReference) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *WfmBusinessUnitReference) validateID(formats strfmt.Registry) error {
+
+	if err := validate.Required("id", "body", m.ID); err != nil {
+		return err
+	}
+
 	return nil
 }
 

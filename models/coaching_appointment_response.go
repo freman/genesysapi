@@ -66,6 +66,10 @@ type CoachingAppointmentResponse struct {
 	// Read Only: true
 	ID string `json:"id,omitempty"`
 
+	// Whether the appointment is overdue.
+	// Read Only: true
+	IsOverdue *bool `json:"isOverdue"`
+
 	// The duration of coaching appointment in minutes
 	// Read Only: true
 	LengthInMinutes int32 `json:"lengthInMinutes,omitempty"`

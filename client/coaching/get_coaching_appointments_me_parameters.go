@@ -81,6 +81,11 @@ for the get coaching appointments me operation typically these are written to a 
 */
 type GetCoachingAppointmentsMeParams struct {
 
+	/*CompletionInterval
+	  Appointment completion start and end to filter by. Intervals are represented as an ISO-8601 string. For example: YYYY-MM-DDThh:mm:ss/YYYY-MM-DDThh:mm:ss
+
+	*/
+	CompletionInterval *string
 	/*FacilitatorIds
 	  The facilitator IDs for which to retrieve appointments
 
@@ -91,6 +96,11 @@ type GetCoachingAppointmentsMeParams struct {
 
 	*/
 	Interval *string
+	/*Overdue
+	  Overdue status to filter by
+
+	*/
+	Overdue *string
 	/*PageNumber
 	  Page number
 
@@ -101,6 +111,11 @@ type GetCoachingAppointmentsMeParams struct {
 
 	*/
 	PageSize *int32
+	/*Relationships
+	  Relationships to filter by
+
+	*/
+	Relationships []string
 	/*SortOrder
 	  Sort (by due date) either Asc or Desc
 
@@ -150,6 +165,17 @@ func (o *GetCoachingAppointmentsMeParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithCompletionInterval adds the completionInterval to the get coaching appointments me params
+func (o *GetCoachingAppointmentsMeParams) WithCompletionInterval(completionInterval *string) *GetCoachingAppointmentsMeParams {
+	o.SetCompletionInterval(completionInterval)
+	return o
+}
+
+// SetCompletionInterval adds the completionInterval to the get coaching appointments me params
+func (o *GetCoachingAppointmentsMeParams) SetCompletionInterval(completionInterval *string) {
+	o.CompletionInterval = completionInterval
+}
+
 // WithFacilitatorIds adds the facilitatorIds to the get coaching appointments me params
 func (o *GetCoachingAppointmentsMeParams) WithFacilitatorIds(facilitatorIds []string) *GetCoachingAppointmentsMeParams {
 	o.SetFacilitatorIds(facilitatorIds)
@@ -172,6 +198,17 @@ func (o *GetCoachingAppointmentsMeParams) SetInterval(interval *string) {
 	o.Interval = interval
 }
 
+// WithOverdue adds the overdue to the get coaching appointments me params
+func (o *GetCoachingAppointmentsMeParams) WithOverdue(overdue *string) *GetCoachingAppointmentsMeParams {
+	o.SetOverdue(overdue)
+	return o
+}
+
+// SetOverdue adds the overdue to the get coaching appointments me params
+func (o *GetCoachingAppointmentsMeParams) SetOverdue(overdue *string) {
+	o.Overdue = overdue
+}
+
 // WithPageNumber adds the pageNumber to the get coaching appointments me params
 func (o *GetCoachingAppointmentsMeParams) WithPageNumber(pageNumber *int32) *GetCoachingAppointmentsMeParams {
 	o.SetPageNumber(pageNumber)
@@ -192,6 +229,17 @@ func (o *GetCoachingAppointmentsMeParams) WithPageSize(pageSize *int32) *GetCoac
 // SetPageSize adds the pageSize to the get coaching appointments me params
 func (o *GetCoachingAppointmentsMeParams) SetPageSize(pageSize *int32) {
 	o.PageSize = pageSize
+}
+
+// WithRelationships adds the relationships to the get coaching appointments me params
+func (o *GetCoachingAppointmentsMeParams) WithRelationships(relationships []string) *GetCoachingAppointmentsMeParams {
+	o.SetRelationships(relationships)
+	return o
+}
+
+// SetRelationships adds the relationships to the get coaching appointments me params
+func (o *GetCoachingAppointmentsMeParams) SetRelationships(relationships []string) {
+	o.Relationships = relationships
 }
 
 // WithSortOrder adds the sortOrder to the get coaching appointments me params
@@ -224,6 +272,22 @@ func (o *GetCoachingAppointmentsMeParams) WriteToRequest(r runtime.ClientRequest
 	}
 	var res []error
 
+	if o.CompletionInterval != nil {
+
+		// query param completionInterval
+		var qrCompletionInterval string
+		if o.CompletionInterval != nil {
+			qrCompletionInterval = *o.CompletionInterval
+		}
+		qCompletionInterval := qrCompletionInterval
+		if qCompletionInterval != "" {
+			if err := r.SetQueryParam("completionInterval", qCompletionInterval); err != nil {
+				return err
+			}
+		}
+
+	}
+
 	valuesFacilitatorIds := o.FacilitatorIds
 
 	joinedFacilitatorIds := swag.JoinByFormat(valuesFacilitatorIds, "multi")
@@ -242,6 +306,22 @@ func (o *GetCoachingAppointmentsMeParams) WriteToRequest(r runtime.ClientRequest
 		qInterval := qrInterval
 		if qInterval != "" {
 			if err := r.SetQueryParam("interval", qInterval); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	if o.Overdue != nil {
+
+		// query param overdue
+		var qrOverdue string
+		if o.Overdue != nil {
+			qrOverdue = *o.Overdue
+		}
+		qOverdue := qrOverdue
+		if qOverdue != "" {
+			if err := r.SetQueryParam("overdue", qOverdue); err != nil {
 				return err
 			}
 		}
@@ -278,6 +358,14 @@ func (o *GetCoachingAppointmentsMeParams) WriteToRequest(r runtime.ClientRequest
 			}
 		}
 
+	}
+
+	valuesRelationships := o.Relationships
+
+	joinedRelationships := swag.JoinByFormat(valuesRelationships, "multi")
+	// query array param relationships
+	if err := r.SetQueryParam("relationships", joinedRelationships...); err != nil {
+		return err
 	}
 
 	if o.SortOrder != nil {

@@ -33,6 +33,10 @@ type OAuthClientRequest struct {
 	// Enum: [CODE TOKEN SAML2BEARER PASSWORD CLIENT_CREDENTIALS]
 	AuthorizedGrantType *string `json:"authorizedGrantType"`
 
+	// The time at which this client will be deleted. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Format: date-time
+	DateToDelete strfmt.DateTime `json:"dateToDelete,omitempty"`
+
 	// description
 	Description string `json:"description,omitempty"`
 
@@ -67,6 +71,10 @@ func (m *OAuthClientRequest) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateAuthorizedGrantType(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDateToDelete(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -142,6 +150,19 @@ func (m *OAuthClientRequest) validateAuthorizedGrantType(formats strfmt.Registry
 
 	// value enum
 	if err := m.validateAuthorizedGrantTypeEnum("authorizedGrantType", "body", *m.AuthorizedGrantType); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *OAuthClientRequest) validateDateToDelete(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.DateToDelete) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("dateToDelete", "body", "date-time", m.DateToDelete.String(), formats); err != nil {
 		return err
 	}
 

@@ -1,0 +1,4 @@
+[
+	{"op": "add", "path": "/definitions/UpdateUser/properties/department/x-nullable", "value": true},
+	{"op": "add", "path": "/definitions/UpdateUser/properties/title/x-nullable", "value": true}
+]

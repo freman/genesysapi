@@ -20,6 +20,9 @@ type BuAgentSchedulesQueryResponse struct {
 
 	// The requested agent schedules
 	AgentSchedules []*BuAgentScheduleQueryResponse `json:"agentSchedules"`
+
+	// The time zone configured for the business unit to which these schedules apply
+	BusinessUnitTimeZone string `json:"businessUnitTimeZone,omitempty"`
 }
 
 // Validate validates this bu agent schedules query response

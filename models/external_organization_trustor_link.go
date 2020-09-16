@@ -24,14 +24,10 @@ type ExternalOrganizationTrustorLink struct {
 	// The id of a PureCloud External Organization entity in the External Contacts system that will be used to represent the trustor org
 	ExternalOrganizationID string `json:"externalOrganizationId,omitempty"`
 
-	// The globally unique identifier for the object.
-	// Read Only: true
-	ID string `json:"id,omitempty"`
-
-	// The URI for this object
+	// The URI for the External Organization that is linked to the trustor org
 	// Read Only: true
 	// Format: uri
-	SelfURI strfmt.URI `json:"selfUri,omitempty"`
+	ExternalOrganizationURI strfmt.URI `json:"externalOrganizationUri,omitempty"`
 
 	// The id of a PureCloud organization that has granted trust to this PureCloud organization
 	TrustorOrgID string `json:"trustorOrgId,omitempty"`
@@ -45,7 +41,7 @@ func (m *ExternalOrganizationTrustorLink) Validate(formats strfmt.Registry) erro
 		res = append(res, err)
 	}
 
-	if err := m.validateSelfURI(formats); err != nil {
+	if err := m.validateExternalOrganizationURI(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -68,13 +64,13 @@ func (m *ExternalOrganizationTrustorLink) validateDateCreated(formats strfmt.Reg
 	return nil
 }
 
-func (m *ExternalOrganizationTrustorLink) validateSelfURI(formats strfmt.Registry) error {
+func (m *ExternalOrganizationTrustorLink) validateExternalOrganizationURI(formats strfmt.Registry) error {
 
-	if swag.IsZero(m.SelfURI) { // not required
+	if swag.IsZero(m.ExternalOrganizationURI) { // not required
 		return nil
 	}
 
-	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+	if err := validate.FormatOf("externalOrganizationUri", "body", "uri", m.ExternalOrganizationURI.String(), formats); err != nil {
 		return err
 	}
 

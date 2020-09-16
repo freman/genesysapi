@@ -36,7 +36,7 @@ type UpdateUser struct {
 	Chat *Chat `json:"chat,omitempty"`
 
 	// department
-	Department string `json:"department,omitempty"`
+	Department *string `json:"department,omitempty"`
 
 	// email
 	Email string `json:"email,omitempty"`
@@ -80,7 +80,7 @@ type UpdateUser struct {
 	State string `json:"state,omitempty"`
 
 	// title
-	Title string `json:"title,omitempty"`
+	Title *string `json:"title,omitempty"`
 
 	// username
 	Username string `json:"username,omitempty"`

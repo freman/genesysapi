@@ -18,11 +18,12 @@ import (
 type WfmScheduleReference struct {
 
 	// A reference to a Workforce Management Business Unit
-	BusinessUnit *WfmBusinessUnitReference `json:"businessUnit,omitempty"`
+	// Required: true
+	BusinessUnit *WfmBusinessUnitReference `json:"businessUnit"`
 
-	// The globally unique identifier for the object.
-	// Read Only: true
-	ID string `json:"id,omitempty"`
+	// The ID of the WFM schedule
+	// Required: true
+	ID *string `json:"id"`
 
 	// The URI for this object
 	// Read Only: true
@@ -30,8 +31,9 @@ type WfmScheduleReference struct {
 	SelfURI strfmt.URI `json:"selfUri,omitempty"`
 
 	// The start week date for this schedule. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
+	// Required: true
 	// Format: date
-	WeekDate strfmt.Date `json:"weekDate,omitempty"`
+	WeekDate *strfmt.Date `json:"weekDate"`
 }
 
 // Validate validates this wfm schedule reference
@@ -39,6 +41,10 @@ func (m *WfmScheduleReference) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateBusinessUnit(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateID(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -58,8 +64,8 @@ func (m *WfmScheduleReference) Validate(formats strfmt.Registry) error {
 
 func (m *WfmScheduleReference) validateBusinessUnit(formats strfmt.Registry) error {
 
-	if swag.IsZero(m.BusinessUnit) { // not required
-		return nil
+	if err := validate.Required("businessUnit", "body", m.BusinessUnit); err != nil {
+		return err
 	}
 
 	if m.BusinessUnit != nil {
@@ -69,6 +75,15 @@ func (m *WfmScheduleReference) validateBusinessUnit(formats strfmt.Registry) err
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *WfmScheduleReference) validateID(formats strfmt.Registry) error {
+
+	if err := validate.Required("id", "body", m.ID); err != nil {
+		return err
 	}
 
 	return nil
@@ -89,8 +104,8 @@ func (m *WfmScheduleReference) validateSelfURI(formats strfmt.Registry) error {
 
 func (m *WfmScheduleReference) validateWeekDate(formats strfmt.Registry) error {
 
-	if swag.IsZero(m.WeekDate) { // not required
-		return nil
+	if err := validate.Required("weekDate", "body", m.WeekDate); err != nil {
+		return err
 	}
 
 	if err := validate.FormatOf("weekDate", "body", "date", m.WeekDate.String(), formats); err != nil {

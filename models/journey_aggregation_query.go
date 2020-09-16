@@ -146,7 +146,7 @@ var journeyAggregationQueryGroupByItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["journeyActionId","journeyActionMapId","journeyActionMapVersion","journeyActionMediaType","journeyActionTemplateId","journeyCustomerId","journeyCustomerIdType","journeyDeviceCategory","journeyDeviceType","journeyOutcomeId","journeySegmentId","journeySessionType","journeySegmentScope"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["journeyActionId","journeyActionMapId","journeyActionMapVersion","journeyActionMediaType","journeyActionTemplateId","journeyCustomerId","journeyCustomerIdType","journeyDeviceCategory","journeyDeviceType","journeyOutcomeId","journeySegmentId","journeySegmentScope","journeySessionType"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {

@@ -20,6 +20,9 @@ import (
 // swagger:model UserSearchRequest
 type UserSearchRequest struct {
 
+	// Enforce view permission on request
+	EnforcePermissions bool `json:"enforcePermissions"`
+
 	// Provides more details about a specified resource
 	Expand []string `json:"expand"`
 

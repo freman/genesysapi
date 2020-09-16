@@ -33,7 +33,7 @@ type SendAgentlessOutboundMessageRequest struct {
 
 	// The recipient messaging address messenger type.
 	// Required: true
-	// Enum: [sms facebook twitter line whatsapp]
+	// Enum: [sms facebook twitter line whatsapp webmessaging]
 	ToAddressMessengerType *string `json:"toAddressMessengerType"`
 }
 
@@ -94,7 +94,7 @@ var sendAgentlessOutboundMessageRequestTypeToAddressMessengerTypePropEnum []inte
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["sms","facebook","twitter","line","whatsapp"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["sms","facebook","twitter","line","whatsapp","webmessaging"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -118,6 +118,9 @@ const (
 
 	// SendAgentlessOutboundMessageRequestToAddressMessengerTypeWhatsapp captures enum value "whatsapp"
 	SendAgentlessOutboundMessageRequestToAddressMessengerTypeWhatsapp string = "whatsapp"
+
+	// SendAgentlessOutboundMessageRequestToAddressMessengerTypeWebmessaging captures enum value "webmessaging"
+	SendAgentlessOutboundMessageRequestToAddressMessengerTypeWebmessaging string = "webmessaging"
 )
 
 // prop value enum

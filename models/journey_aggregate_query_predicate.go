@@ -20,7 +20,7 @@ import (
 type JourneyAggregateQueryPredicate struct {
 
 	// Left hand side for dimension predicates
-	// Enum: [journeyActionId journeyActionMapId journeyActionMapVersion journeyActionMediaType journeyActionTemplateId journeyCustomerId journeyCustomerIdType journeyDeviceCategory journeyDeviceType journeyOutcomeId journeySegmentId journeySessionType journeySegmentScope]
+	// Enum: [journeyActionId journeyActionMapId journeyActionMapVersion journeyActionMediaType journeyActionTemplateId journeyCustomerId journeyCustomerIdType journeyDeviceCategory journeyDeviceType journeyOutcomeId journeySegmentId journeySegmentScope journeySessionType]
 	Dimension string `json:"dimension,omitempty"`
 
 	// Optional operator, default is matches
@@ -68,7 +68,7 @@ var journeyAggregateQueryPredicateTypeDimensionPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["journeyActionId","journeyActionMapId","journeyActionMapVersion","journeyActionMediaType","journeyActionTemplateId","journeyCustomerId","journeyCustomerIdType","journeyDeviceCategory","journeyDeviceType","journeyOutcomeId","journeySegmentId","journeySessionType","journeySegmentScope"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["journeyActionId","journeyActionMapId","journeyActionMapVersion","journeyActionMediaType","journeyActionTemplateId","journeyCustomerId","journeyCustomerIdType","journeyDeviceCategory","journeyDeviceType","journeyOutcomeId","journeySegmentId","journeySegmentScope","journeySessionType"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -111,11 +111,11 @@ const (
 	// JourneyAggregateQueryPredicateDimensionJourneySegmentID captures enum value "journeySegmentId"
 	JourneyAggregateQueryPredicateDimensionJourneySegmentID string = "journeySegmentId"
 
-	// JourneyAggregateQueryPredicateDimensionJourneySessionType captures enum value "journeySessionType"
-	JourneyAggregateQueryPredicateDimensionJourneySessionType string = "journeySessionType"
-
 	// JourneyAggregateQueryPredicateDimensionJourneySegmentScope captures enum value "journeySegmentScope"
 	JourneyAggregateQueryPredicateDimensionJourneySegmentScope string = "journeySegmentScope"
+
+	// JourneyAggregateQueryPredicateDimensionJourneySessionType captures enum value "journeySessionType"
+	JourneyAggregateQueryPredicateDimensionJourneySessionType string = "journeySessionType"
 )
 
 // prop value enum

@@ -41,7 +41,7 @@ type MessagingIntegration struct {
 	// The type of Messaging Integration
 	// Required: true
 	// Read Only: true
-	// Enum: [sms facebook twitter line whatsapp]
+	// Enum: [sms facebook twitter line whatsapp webmessaging]
 	MessengerType string `json:"messengerType"`
 
 	// User reference that last modified this Integration
@@ -184,7 +184,7 @@ var messagingIntegrationTypeMessengerTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["sms","facebook","twitter","line","whatsapp"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["sms","facebook","twitter","line","whatsapp","webmessaging"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -208,6 +208,9 @@ const (
 
 	// MessagingIntegrationMessengerTypeWhatsapp captures enum value "whatsapp"
 	MessagingIntegrationMessengerTypeWhatsapp string = "whatsapp"
+
+	// MessagingIntegrationMessengerTypeWebmessaging captures enum value "webmessaging"
+	MessagingIntegrationMessengerTypeWebmessaging string = "webmessaging"
 )
 
 // prop value enum

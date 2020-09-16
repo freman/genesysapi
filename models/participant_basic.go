@@ -148,7 +148,7 @@ type ParticipantBasic struct {
 	Wrapup *Wrapup `json:"wrapup,omitempty"`
 
 	// This field controls how the UI prompts the agent for a wrapup.
-	// Enum: [mandatory optional timeout forcedTimeout]
+	// Enum: [mandatory optional agentRequested timeout forcedTimeout]
 	WrapupPrompt string `json:"wrapupPrompt,omitempty"`
 
 	// True iff this participant is required to enter wrapup for this conversation.
@@ -701,7 +701,7 @@ var participantBasicTypeWrapupPromptPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["mandatory","optional","timeout","forcedTimeout"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["mandatory","optional","agentRequested","timeout","forcedTimeout"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -716,6 +716,9 @@ const (
 
 	// ParticipantBasicWrapupPromptOptional captures enum value "optional"
 	ParticipantBasicWrapupPromptOptional string = "optional"
+
+	// ParticipantBasicWrapupPromptAgentRequested captures enum value "agentRequested"
+	ParticipantBasicWrapupPromptAgentRequested string = "agentRequested"
 
 	// ParticipantBasicWrapupPromptTimeout captures enum value "timeout"
 	ParticipantBasicWrapupPromptTimeout string = "timeout"

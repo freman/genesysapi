@@ -34,6 +34,10 @@ type OAuthClientListing struct {
 	// Format: date-time
 	DateModified strfmt.DateTime `json:"dateModified,omitempty"`
 
+	// The time at which this client will be deleted. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Format: date-time
+	DateToDelete strfmt.DateTime `json:"dateToDelete,omitempty"`
+
 	// description
 	Description string `json:"description,omitempty"`
 
@@ -91,6 +95,10 @@ func (m *OAuthClientListing) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateDateModified(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDateToDelete(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -166,6 +174,19 @@ func (m *OAuthClientListing) validateDateModified(formats strfmt.Registry) error
 	}
 
 	if err := validate.FormatOf("dateModified", "body", "date-time", m.DateModified.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *OAuthClientListing) validateDateToDelete(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.DateToDelete) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("dateToDelete", "body", "date-time", m.DateToDelete.String(), formats); err != nil {
 		return err
 	}
 

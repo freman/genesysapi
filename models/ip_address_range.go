@@ -26,7 +26,7 @@ type IPAddressRange struct {
 	Region string `json:"region,omitempty"`
 
 	// service
-	// Enum: [data-actions]
+	// Enum: [data-actions smtp]
 	Service string `json:"service,omitempty"`
 }
 
@@ -48,7 +48,7 @@ var ipAddressRangeTypeServicePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["data-actions"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["data-actions","smtp"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -60,6 +60,9 @@ const (
 
 	// IPAddressRangeServiceDataActions captures enum value "data-actions"
 	IPAddressRangeServiceDataActions string = "data-actions"
+
+	// IPAddressRangeServiceSMTP captures enum value "smtp"
+	IPAddressRangeServiceSMTP string = "smtp"
 )
 
 // prop value enum

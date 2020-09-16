@@ -18,6 +18,10 @@ import (
 // API is the interface of the audit client
 type API interface {
 	/*
+	   GetAuditsQueryRealtimeServicemapping gets service mapping information used in audits
+	*/
+	GetAuditsQueryRealtimeServicemapping(ctx context.Context, params *GetAuditsQueryRealtimeServicemappingParams) (*GetAuditsQueryRealtimeServicemappingOK, error)
+	/*
 	   GetAuditsQueryServicemapping gets service mapping information used in audits
 	*/
 	GetAuditsQueryServicemapping(ctx context.Context, params *GetAuditsQueryServicemappingParams) (*GetAuditsQueryServicemappingOK, error)
@@ -55,6 +59,31 @@ type Client struct {
 	transport runtime.ClientTransport
 	formats   strfmt.Registry
 	authInfo  runtime.ClientAuthInfoWriter
+}
+
+/*
+GetAuditsQueryRealtimeServicemapping gets service mapping information used in audits
+*/
+func (a *Client) GetAuditsQueryRealtimeServicemapping(ctx context.Context, params *GetAuditsQueryRealtimeServicemappingParams) (*GetAuditsQueryRealtimeServicemappingOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getAuditsQueryRealtimeServicemapping",
+		Method:             "GET",
+		PathPattern:        "/api/v2/audits/query/realtime/servicemapping",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetAuditsQueryRealtimeServicemappingReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetAuditsQueryRealtimeServicemappingOK), nil
+
 }
 
 /*

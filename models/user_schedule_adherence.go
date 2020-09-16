@@ -92,6 +92,10 @@ type UserScheduleAdherence struct {
 	// Enum: [Available Away Busy Offline Idle OnQueue Meal Training Meeting Break]
 	SystemPresence string `json:"systemPresence,omitempty"`
 
+	// The team to which this user belongs
+	// Read Only: true
+	Team *Team `json:"team,omitempty"`
+
 	// Time when the user entered the current adherenceState in ISO-8601 format
 	// Read Only: true
 	// Format: date-time
@@ -147,6 +151,10 @@ func (m *UserScheduleAdherence) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateSystemPresence(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTeam(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -589,6 +597,24 @@ func (m *UserScheduleAdherence) validateSystemPresence(formats strfmt.Registry) 
 	// value enum
 	if err := m.validateSystemPresenceEnum("systemPresence", "body", m.SystemPresence); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *UserScheduleAdherence) validateTeam(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Team) { // not required
+		return nil
+	}
+
+	if m.Team != nil {
+		if err := m.Team.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("team")
+			}
+			return err
+		}
 	}
 
 	return nil

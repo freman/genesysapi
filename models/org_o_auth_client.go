@@ -41,6 +41,10 @@ type OrgOAuthClient struct {
 	// Format: date-time
 	DateModified strfmt.DateTime `json:"dateModified,omitempty"`
 
+	// The time at which this client will be deleted. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Format: date-time
+	DateToDelete strfmt.DateTime `json:"dateToDelete,omitempty"`
+
 	// The globally unique identifier for the object.
 	// Read Only: true
 	ID string `json:"id,omitempty"`
@@ -88,6 +92,10 @@ func (m *OrgOAuthClient) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateDateModified(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDateToDelete(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -207,6 +215,19 @@ func (m *OrgOAuthClient) validateDateModified(formats strfmt.Registry) error {
 	}
 
 	if err := validate.FormatOf("dateModified", "body", "date-time", m.DateModified.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *OrgOAuthClient) validateDateToDelete(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.DateToDelete) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("dateToDelete", "body", "date-time", m.DateToDelete.String(), formats); err != nil {
 		return err
 	}
 

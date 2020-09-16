@@ -17,16 +17,9 @@ import (
 // swagger:model Permissions
 type Permissions struct {
 
-	// The globally unique identifier for the object.
-	// Read Only: true
-	ID string `json:"id,omitempty"`
-
 	// List of permission ids.
 	// Required: true
 	Ids []string `json:"ids"`
-
-	// name
-	Name string `json:"name,omitempty"`
 }
 
 // Validate validates this permissions

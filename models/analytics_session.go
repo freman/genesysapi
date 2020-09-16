@@ -32,6 +32,9 @@ type AnalyticsSession struct {
 	// address to
 	AddressTo string `json:"addressTo,omitempty"`
 
+	// Unique identifier of the active virtual agent assistant
+	AgentAssistantID string `json:"agentAssistantId,omitempty"`
+
 	// Automatic Number Identification (caller's number)
 	Ani string `json:"ani,omitempty"`
 
@@ -132,6 +135,9 @@ type AnalyticsSession struct {
 	// A unique identifier for a peer
 	PeerID string `json:"peerId,omitempty"`
 
+	// Proposed agents
+	ProposedAgents []*AnalyticsProposedAgent `json:"proposedAgents"`
+
 	// The original voice protocol call ID, e.g. a SIP call ID
 	ProtocolCallID string `json:"protocolCallId,omitempty"`
 
@@ -226,6 +232,10 @@ func (m *AnalyticsSession) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateMetrics(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateProposedAgents(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -471,6 +481,31 @@ func (m *AnalyticsSession) validateMetrics(formats strfmt.Registry) error {
 			if err := m.Metrics[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("metrics" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *AnalyticsSession) validateProposedAgents(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.ProposedAgents) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.ProposedAgents); i++ {
+		if swag.IsZero(m.ProposedAgents[i]) { // not required
+			continue
+		}
+
+		if m.ProposedAgents[i] != nil {
+			if err := m.ProposedAgents[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("proposedAgents" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

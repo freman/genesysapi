@@ -21,7 +21,7 @@ import (
 type AuditLogMessage struct {
 
 	// Action that took place.
-	// Enum: [Create View Update Delete Download MemberAdd MemberUpdate MemberRemove Read ApplyProtection RevokeProtection UpdateRetention ReadAll Execute Publish Unpublish Authorize Deauthorize Authenticate ChangePassword]
+	// Enum: [Create View Update Delete Download MemberAdd MemberUpdate MemberRemove Read ApplyProtection RevokeProtection UpdateRetention ReadAll Execute Publish Unpublish Enable Disable Authorize Deauthorize Authenticate ChangePassword]
 	Action string `json:"action,omitempty"`
 
 	// Client associated with this audit message.
@@ -34,7 +34,7 @@ type AuditLogMessage struct {
 	Entity *AddressableEntityRef `json:"entity,omitempty"`
 
 	// Type of the entity that was impacted.
-	// Enum: [Document Queue Recording Role VoicemailUserPolicy WrapupCode AccessToken OAuthClient OAuthClientAuthorization AuthOrganization AuthUser BulkActions Feedback Topic Program Segment Outcome ClickstreamSettings Schedule]
+	// Enum: [Document Queue Recording Role VoicemailUserPolicy WrapupCode AccessToken OAuthClient OAuthClientAuthorization AuthOrganization AuthUser BulkActions Feedback Topic Program Segment Outcome ClickstreamSettings Schedule Trigger]
 	EntityType string `json:"entityType,omitempty"`
 
 	// Date and time of when the audit message was logged. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
@@ -54,7 +54,7 @@ type AuditLogMessage struct {
 	RemoteIP []string `json:"remoteIp"`
 
 	// Name of the service that logged this audit message.
-	// Enum: [ContactCenter ContentManagement PeoplePermissions Quality LanguageUnderstanding TopicsDefinitions PredictiveEngagement WorkforceManagement]
+	// Enum: [ContactCenter ContentManagement PeoplePermissions Quality LanguageUnderstanding TopicsDefinitions PredictiveEngagement WorkforceManagement Triggers]
 	ServiceName string `json:"serviceName,omitempty"`
 
 	// User associated with this audit message.
@@ -111,7 +111,7 @@ var auditLogMessageTypeActionPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Create","View","Update","Delete","Download","MemberAdd","MemberUpdate","MemberRemove","Read","ApplyProtection","RevokeProtection","UpdateRetention","ReadAll","Execute","Publish","Unpublish","Authorize","Deauthorize","Authenticate","ChangePassword"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Create","View","Update","Delete","Download","MemberAdd","MemberUpdate","MemberRemove","Read","ApplyProtection","RevokeProtection","UpdateRetention","ReadAll","Execute","Publish","Unpublish","Enable","Disable","Authorize","Deauthorize","Authenticate","ChangePassword"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -168,6 +168,12 @@ const (
 
 	// AuditLogMessageActionUnpublish captures enum value "Unpublish"
 	AuditLogMessageActionUnpublish string = "Unpublish"
+
+	// AuditLogMessageActionEnable captures enum value "Enable"
+	AuditLogMessageActionEnable string = "Enable"
+
+	// AuditLogMessageActionDisable captures enum value "Disable"
+	AuditLogMessageActionDisable string = "Disable"
 
 	// AuditLogMessageActionAuthorize captures enum value "Authorize"
 	AuditLogMessageActionAuthorize string = "Authorize"
@@ -244,7 +250,7 @@ var auditLogMessageTypeEntityTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Document","Queue","Recording","Role","VoicemailUserPolicy","WrapupCode","AccessToken","OAuthClient","OAuthClientAuthorization","AuthOrganization","AuthUser","BulkActions","Feedback","Topic","Program","Segment","Outcome","ClickstreamSettings","Schedule"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Document","Queue","Recording","Role","VoicemailUserPolicy","WrapupCode","AccessToken","OAuthClient","OAuthClientAuthorization","AuthOrganization","AuthUser","BulkActions","Feedback","Topic","Program","Segment","Outcome","ClickstreamSettings","Schedule","Trigger"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -310,6 +316,9 @@ const (
 
 	// AuditLogMessageEntityTypeSchedule captures enum value "Schedule"
 	AuditLogMessageEntityTypeSchedule string = "Schedule"
+
+	// AuditLogMessageEntityTypeTrigger captures enum value "Trigger"
+	AuditLogMessageEntityTypeTrigger string = "Trigger"
 )
 
 // prop value enum
@@ -394,7 +403,7 @@ var auditLogMessageTypeServiceNamePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["ContactCenter","ContentManagement","PeoplePermissions","Quality","LanguageUnderstanding","TopicsDefinitions","PredictiveEngagement","WorkforceManagement"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["ContactCenter","ContentManagement","PeoplePermissions","Quality","LanguageUnderstanding","TopicsDefinitions","PredictiveEngagement","WorkforceManagement","Triggers"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -427,6 +436,9 @@ const (
 
 	// AuditLogMessageServiceNameWorkforceManagement captures enum value "WorkforceManagement"
 	AuditLogMessageServiceNameWorkforceManagement string = "WorkforceManagement"
+
+	// AuditLogMessageServiceNameTriggers captures enum value "Triggers"
+	AuditLogMessageServiceNameTriggers string = "Triggers"
 )
 
 // prop value enum
