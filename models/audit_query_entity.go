@@ -24,7 +24,7 @@ type AuditQueryEntity struct {
 	Actions []string `json:"actions"`
 
 	// Name of the Entity
-	// Enum: [Document Queue Recording Role VoicemailUserPolicy WrapupCode AccessToken OAuthClient OAuthClientAuthorization AuthOrganization AuthUser BulkActions Feedback Topic Program Segment Outcome ClickstreamSettings Schedule Trigger]
+	// Enum: [Document Queue Recording Role VoicemailUserPolicy WrapupCode AccessToken OAuthClient OAuthClientAuthorization AuthOrganization AuthUser BulkActions Feedback Topic Program Segment Outcome SessionType EventType ClickstreamSettings Schedule Trigger Response]
 	Name string `json:"name,omitempty"`
 }
 
@@ -87,7 +87,7 @@ var auditQueryEntityTypeNamePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Document","Queue","Recording","Role","VoicemailUserPolicy","WrapupCode","AccessToken","OAuthClient","OAuthClientAuthorization","AuthOrganization","AuthUser","BulkActions","Feedback","Topic","Program","Segment","Outcome","ClickstreamSettings","Schedule","Trigger"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Document","Queue","Recording","Role","VoicemailUserPolicy","WrapupCode","AccessToken","OAuthClient","OAuthClientAuthorization","AuthOrganization","AuthUser","BulkActions","Feedback","Topic","Program","Segment","Outcome","SessionType","EventType","ClickstreamSettings","Schedule","Trigger","Response"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -148,6 +148,12 @@ const (
 	// AuditQueryEntityNameOutcome captures enum value "Outcome"
 	AuditQueryEntityNameOutcome string = "Outcome"
 
+	// AuditQueryEntityNameSessionType captures enum value "SessionType"
+	AuditQueryEntityNameSessionType string = "SessionType"
+
+	// AuditQueryEntityNameEventType captures enum value "EventType"
+	AuditQueryEntityNameEventType string = "EventType"
+
 	// AuditQueryEntityNameClickstreamSettings captures enum value "ClickstreamSettings"
 	AuditQueryEntityNameClickstreamSettings string = "ClickstreamSettings"
 
@@ -156,6 +162,9 @@ const (
 
 	// AuditQueryEntityNameTrigger captures enum value "Trigger"
 	AuditQueryEntityNameTrigger string = "Trigger"
+
+	// AuditQueryEntityNameResponse captures enum value "Response"
+	AuditQueryEntityNameResponse string = "Response"
 )
 
 // prop value enum

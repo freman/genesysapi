@@ -23,6 +23,9 @@ type SocialExpression struct {
 	// After-call work for the communication.
 	AfterCallWork *AfterCallWork `json:"afterCallWork,omitempty"`
 
+	// Indicates if after-call work is required for a communication. Only used when the ACW Setting is Agent Requested.
+	AfterCallWorkRequired bool `json:"afterCallWorkRequired"`
+
 	// The timestamp when this communication was connected in the cloud clock. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
 	// Format: date-time
 	ConnectedTime strfmt.DateTime `json:"connectedTime,omitempty"`

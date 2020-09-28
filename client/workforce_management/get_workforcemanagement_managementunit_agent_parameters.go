@@ -14,6 +14,7 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+	"github.com/go-openapi/swag"
 )
 
 // NewGetWorkforcemanagementManagementunitAgentParams creates a new GetWorkforcemanagementManagementunitAgentParams object
@@ -65,6 +66,11 @@ type GetWorkforcemanagementManagementunitAgentParams struct {
 
 	*/
 	AgentID string
+	/*ExcludeCapabilities
+	  Excludes all capabilities of the agent such as queues, languages, and skills
+
+	*/
+	ExcludeCapabilities *bool
 	/*ManagementUnitID
 	  The id of the management unit, or 'mine' for the management unit of the logged-in user.
 
@@ -120,6 +126,17 @@ func (o *GetWorkforcemanagementManagementunitAgentParams) SetAgentID(agentID str
 	o.AgentID = agentID
 }
 
+// WithExcludeCapabilities adds the excludeCapabilities to the get workforcemanagement managementunit agent params
+func (o *GetWorkforcemanagementManagementunitAgentParams) WithExcludeCapabilities(excludeCapabilities *bool) *GetWorkforcemanagementManagementunitAgentParams {
+	o.SetExcludeCapabilities(excludeCapabilities)
+	return o
+}
+
+// SetExcludeCapabilities adds the excludeCapabilities to the get workforcemanagement managementunit agent params
+func (o *GetWorkforcemanagementManagementunitAgentParams) SetExcludeCapabilities(excludeCapabilities *bool) {
+	o.ExcludeCapabilities = excludeCapabilities
+}
+
 // WithManagementUnitID adds the managementUnitID to the get workforcemanagement managementunit agent params
 func (o *GetWorkforcemanagementManagementunitAgentParams) WithManagementUnitID(managementUnitID string) *GetWorkforcemanagementManagementunitAgentParams {
 	o.SetManagementUnitID(managementUnitID)
@@ -142,6 +159,22 @@ func (o *GetWorkforcemanagementManagementunitAgentParams) WriteToRequest(r runti
 	// path param agentId
 	if err := r.SetPathParam("agentId", o.AgentID); err != nil {
 		return err
+	}
+
+	if o.ExcludeCapabilities != nil {
+
+		// query param excludeCapabilities
+		var qrExcludeCapabilities bool
+		if o.ExcludeCapabilities != nil {
+			qrExcludeCapabilities = *o.ExcludeCapabilities
+		}
+		qExcludeCapabilities := swag.FormatBool(qrExcludeCapabilities)
+		if qExcludeCapabilities != "" {
+			if err := r.SetQueryParam("excludeCapabilities", qExcludeCapabilities); err != nil {
+				return err
+			}
+		}
+
 	}
 
 	// path param managementUnitId

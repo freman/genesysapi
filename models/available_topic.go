@@ -26,6 +26,9 @@ type AvailableTopic struct {
 	// id
 	ID string `json:"id,omitempty"`
 
+	// public Api template Uri paths
+	PublicAPITemplateURIPaths []string `json:"publicApiTemplateUriPaths"`
+
 	// True if the topic user ID is required to match the subscribing user ID
 	RequiresCurrentUser bool `json:"requiresCurrentUser"`
 

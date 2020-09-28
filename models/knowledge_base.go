@@ -21,7 +21,7 @@ type KnowledgeBase struct {
 
 	// Core language for knowledge base in which initial content must be created first
 	// Required: true
-	// Enum: [en-US]
+	// Enum: [en-US de-DE]
 	CoreLanguage *string `json:"coreLanguage"`
 
 	// Knowledge base creation date-time. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
@@ -80,7 +80,7 @@ var knowledgeBaseTypeCoreLanguagePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["en-US"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["en-US","de-DE"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -92,6 +92,9 @@ const (
 
 	// KnowledgeBaseCoreLanguageEnUS captures enum value "en-US"
 	KnowledgeBaseCoreLanguageEnUS string = "en-US"
+
+	// KnowledgeBaseCoreLanguageDeDE captures enum value "de-DE"
+	KnowledgeBaseCoreLanguageDeDE string = "de-DE"
 )
 
 // prop value enum

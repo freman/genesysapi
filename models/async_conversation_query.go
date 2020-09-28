@@ -26,7 +26,7 @@ type AsyncConversationQuery struct {
 	// Filters that target evaluations
 	EvaluationFilters []*EvaluationDetailQueryFilter `json:"evaluationFilters"`
 
-	// Specifies the date and time range of data being queried. Results will include conversations that both started on a day touched by the interval AND either started, ended, or any activity during the interval. Intervals are represented as an ISO-8601 string. For example: YYYY-MM-DDThh:mm:ss/YYYY-MM-DDThh:mm:ss
+	// Specifies the date and time range of data being queried. Results will include all conversations that had activity during the interval. Intervals are represented as an ISO-8601 string. For example: YYYY-MM-DDThh:mm:ss/YYYY-MM-DDThh:mm:ss
 	// Required: true
 	Interval *string `json:"interval"`
 

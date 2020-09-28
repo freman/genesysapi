@@ -32,6 +32,9 @@ type BuAgentScheduleQueryResponse struct {
 
 	// The work plan for this user
 	WorkPlan *WorkPlanReference `json:"workPlan,omitempty"`
+
+	// The work plans per week for this user from the work plan rotation. Null values in the list denotes that user is not part of any work plan for that week
+	WorkPlansPerWeek []*WorkPlanReference `json:"workPlansPerWeek"`
 }
 
 // Validate validates this bu agent schedule query response
@@ -55,6 +58,10 @@ func (m *BuAgentScheduleQueryResponse) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateWorkPlan(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateWorkPlansPerWeek(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -163,6 +170,31 @@ func (m *BuAgentScheduleQueryResponse) validateWorkPlan(formats strfmt.Registry)
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *BuAgentScheduleQueryResponse) validateWorkPlansPerWeek(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.WorkPlansPerWeek) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.WorkPlansPerWeek); i++ {
+		if swag.IsZero(m.WorkPlansPerWeek[i]) { // not required
+			continue
+		}
+
+		if m.WorkPlansPerWeek[i] != nil {
+			if err := m.WorkPlansPerWeek[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("workPlansPerWeek" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

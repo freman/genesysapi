@@ -134,6 +134,9 @@ type ViewFilter struct {
 	// The handle durations in milliseconds used to filter the view
 	HandleDurationsMilliseconds []*NumericRange `json:"handleDurationsMilliseconds"`
 
+	// Indicates filtering for agent assist id
+	HasAgentAssistID bool `json:"hasAgentAssistId"`
+
 	// Indicates filtering for Journey action map id
 	HasJourneyActionMapID bool `json:"hasJourneyActionMapId"`
 

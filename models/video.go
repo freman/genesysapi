@@ -22,6 +22,9 @@ type Video struct {
 	// After-call work for the communication.
 	AfterCallWork *AfterCallWork `json:"afterCallWork,omitempty"`
 
+	// Indicates if after-call work is required for a communication. Only used when the ACW Setting is Agent Requested.
+	AfterCallWorkRequired bool `json:"afterCallWorkRequired"`
+
 	// Indicates whether this participant has muted their outgoing audio.
 	AudioMuted bool `json:"audioMuted"`
 

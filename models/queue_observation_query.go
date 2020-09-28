@@ -57,7 +57,7 @@ var queueObservationQueryDetailMetricsItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["oActiveUsers","oInteracting","oMemberUsers","oOffQueueUsers","oOnQueueUsers","oUserPresences","oUserRoutingStatuses","oWaiting"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["oActiveUsers","oAlerting","oInteracting","oMemberUsers","oOffQueueUsers","oOnQueueUsers","oUserPresences","oUserRoutingStatuses","oWaiting"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -112,7 +112,7 @@ var queueObservationQueryMetricsItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["oActiveUsers","oInteracting","oMemberUsers","oOffQueueUsers","oOnQueueUsers","oUserPresences","oUserRoutingStatuses","oWaiting"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["oActiveUsers","oAlerting","oInteracting","oMemberUsers","oOffQueueUsers","oOnQueueUsers","oUserPresences","oUserRoutingStatuses","oWaiting"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {

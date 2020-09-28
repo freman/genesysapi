@@ -34,7 +34,7 @@ type AuditLogMessage struct {
 	Entity *AddressableEntityRef `json:"entity,omitempty"`
 
 	// Type of the entity that was impacted.
-	// Enum: [Document Queue Recording Role VoicemailUserPolicy WrapupCode AccessToken OAuthClient OAuthClientAuthorization AuthOrganization AuthUser BulkActions Feedback Topic Program Segment Outcome ClickstreamSettings Schedule Trigger]
+	// Enum: [Document Queue Recording Role VoicemailUserPolicy WrapupCode AccessToken OAuthClient OAuthClientAuthorization AuthOrganization AuthUser BulkActions Feedback Topic Program Segment Outcome SessionType EventType ClickstreamSettings Schedule Trigger Response]
 	EntityType string `json:"entityType,omitempty"`
 
 	// Date and time of when the audit message was logged. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
@@ -54,7 +54,7 @@ type AuditLogMessage struct {
 	RemoteIP []string `json:"remoteIp"`
 
 	// Name of the service that logged this audit message.
-	// Enum: [ContactCenter ContentManagement PeoplePermissions Quality LanguageUnderstanding TopicsDefinitions PredictiveEngagement WorkforceManagement Triggers]
+	// Enum: [ContactCenter ContentManagement PeoplePermissions Quality LanguageUnderstanding TopicsDefinitions PredictiveEngagement WorkforceManagement Triggers ResponseManagement]
 	ServiceName string `json:"serviceName,omitempty"`
 
 	// User associated with this audit message.
@@ -250,7 +250,7 @@ var auditLogMessageTypeEntityTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Document","Queue","Recording","Role","VoicemailUserPolicy","WrapupCode","AccessToken","OAuthClient","OAuthClientAuthorization","AuthOrganization","AuthUser","BulkActions","Feedback","Topic","Program","Segment","Outcome","ClickstreamSettings","Schedule","Trigger"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Document","Queue","Recording","Role","VoicemailUserPolicy","WrapupCode","AccessToken","OAuthClient","OAuthClientAuthorization","AuthOrganization","AuthUser","BulkActions","Feedback","Topic","Program","Segment","Outcome","SessionType","EventType","ClickstreamSettings","Schedule","Trigger","Response"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -311,6 +311,12 @@ const (
 	// AuditLogMessageEntityTypeOutcome captures enum value "Outcome"
 	AuditLogMessageEntityTypeOutcome string = "Outcome"
 
+	// AuditLogMessageEntityTypeSessionType captures enum value "SessionType"
+	AuditLogMessageEntityTypeSessionType string = "SessionType"
+
+	// AuditLogMessageEntityTypeEventType captures enum value "EventType"
+	AuditLogMessageEntityTypeEventType string = "EventType"
+
 	// AuditLogMessageEntityTypeClickstreamSettings captures enum value "ClickstreamSettings"
 	AuditLogMessageEntityTypeClickstreamSettings string = "ClickstreamSettings"
 
@@ -319,6 +325,9 @@ const (
 
 	// AuditLogMessageEntityTypeTrigger captures enum value "Trigger"
 	AuditLogMessageEntityTypeTrigger string = "Trigger"
+
+	// AuditLogMessageEntityTypeResponse captures enum value "Response"
+	AuditLogMessageEntityTypeResponse string = "Response"
 )
 
 // prop value enum
@@ -403,7 +412,7 @@ var auditLogMessageTypeServiceNamePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["ContactCenter","ContentManagement","PeoplePermissions","Quality","LanguageUnderstanding","TopicsDefinitions","PredictiveEngagement","WorkforceManagement","Triggers"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["ContactCenter","ContentManagement","PeoplePermissions","Quality","LanguageUnderstanding","TopicsDefinitions","PredictiveEngagement","WorkforceManagement","Triggers","ResponseManagement"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -439,6 +448,9 @@ const (
 
 	// AuditLogMessageServiceNameTriggers captures enum value "Triggers"
 	AuditLogMessageServiceNameTriggers string = "Triggers"
+
+	// AuditLogMessageServiceNameResponseManagement captures enum value "ResponseManagement"
+	AuditLogMessageServiceNameResponseManagement string = "ResponseManagement"
 )
 
 // prop value enum

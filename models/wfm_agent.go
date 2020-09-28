@@ -26,13 +26,13 @@ type WfmAgent struct {
 	// Read Only: true
 	ID string `json:"id,omitempty"`
 
-	// The list of languages
+	// The list of languages this agent is capable of handling
 	Languages []*LanguageReference `json:"languages"`
 
 	// Metadata for this agent
 	Metadata *WfmVersionedEntityMetadata `json:"metadata,omitempty"`
 
-	// List of queues to which the agent belongs and which are defined in the service goal groups in this management unit
+	// List of queues to which this agent is capable of handling
 	Queues []*QueueReference `json:"queues"`
 
 	// Whether the agent has the permission to be included in schedule generation
@@ -43,17 +43,17 @@ type WfmAgent struct {
 	// Format: uri
 	SelfURI strfmt.URI `json:"selfUri,omitempty"`
 
-	// The list of skills
+	// The list of skills this agent is capable of handling
 	Skills []*RoutingSkillReference `json:"skills"`
-
-	// The time zone for this agent. Defaults to the time zone of the management unit to which the agent belongs
-	TimeZone *WfmTimeZone `json:"timeZone,omitempty"`
 
 	// The user associated with this data
 	User *UserReference `json:"user,omitempty"`
 
-	// The work plan associated with this agent
+	// The work plan associated with this agent, if applicable
 	WorkPlan *WorkPlanReference `json:"workPlan,omitempty"`
+
+	// The work plan rotation associated with this agent, if applicable
+	WorkPlanRotation *WorkPlanRotationReference `json:"workPlanRotation,omitempty"`
 }
 
 // Validate validates this wfm agent
@@ -80,15 +80,15 @@ func (m *WfmAgent) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateTimeZone(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateUser(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if err := m.validateWorkPlan(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateWorkPlanRotation(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -204,24 +204,6 @@ func (m *WfmAgent) validateSkills(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *WfmAgent) validateTimeZone(formats strfmt.Registry) error {
-
-	if swag.IsZero(m.TimeZone) { // not required
-		return nil
-	}
-
-	if m.TimeZone != nil {
-		if err := m.TimeZone.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("timeZone")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
 func (m *WfmAgent) validateUser(formats strfmt.Registry) error {
 
 	if swag.IsZero(m.User) { // not required
@@ -250,6 +232,24 @@ func (m *WfmAgent) validateWorkPlan(formats strfmt.Registry) error {
 		if err := m.WorkPlan.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("workPlan")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WfmAgent) validateWorkPlanRotation(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.WorkPlanRotation) { // not required
+		return nil
+	}
+
+	if m.WorkPlanRotation != nil {
+		if err := m.WorkPlanRotation.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("workPlanRotation")
 			}
 			return err
 		}

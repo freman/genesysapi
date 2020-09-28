@@ -23,6 +23,9 @@ type Cobrowsesession struct {
 	// After-call work for the communication.
 	AfterCallWork *AfterCallWork `json:"afterCallWork,omitempty"`
 
+	// Indicates if after-call work is required for a communication. Only used when the ACW Setting is Agent Requested.
+	AfterCallWorkRequired bool `json:"afterCallWorkRequired"`
+
 	// This value identifies the role of the co-browse client within the co-browse session (a client is a sharer or a viewer).
 	CobrowseRole string `json:"cobrowseRole,omitempty"`
 

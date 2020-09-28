@@ -23,6 +23,9 @@ type CallbackBasic struct {
 	// After-call work for the communication.
 	AfterCallWork *AfterCallWork `json:"afterCallWork,omitempty"`
 
+	// Indicates if after-call work is required for a communication. Only used when the ACW Setting is Agent Requested.
+	AfterCallWorkRequired bool `json:"afterCallWorkRequired"`
+
 	// The id of the config for automatically placing the callback (and handling the disposition). If null, the callback will not be placed automatically but routed to an agent as per normal.
 	AutomatedCallbackConfigID string `json:"automatedCallbackConfigId,omitempty"`
 

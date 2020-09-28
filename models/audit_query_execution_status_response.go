@@ -30,7 +30,7 @@ type AuditQueryExecutionStatusResponse struct {
 	Interval string `json:"interval,omitempty"`
 
 	// Service name for the audit query.
-	// Enum: [ContactCenter ContentManagement PeoplePermissions Quality LanguageUnderstanding TopicsDefinitions PredictiveEngagement WorkforceManagement Triggers]
+	// Enum: [ContactCenter ContentManagement PeoplePermissions Quality LanguageUnderstanding TopicsDefinitions PredictiveEngagement WorkforceManagement Triggers ResponseManagement]
 	ServiceName string `json:"serviceName,omitempty"`
 
 	// Sort parameter for the audit query.
@@ -104,7 +104,7 @@ var auditQueryExecutionStatusResponseTypeServiceNamePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["ContactCenter","ContentManagement","PeoplePermissions","Quality","LanguageUnderstanding","TopicsDefinitions","PredictiveEngagement","WorkforceManagement","Triggers"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["ContactCenter","ContentManagement","PeoplePermissions","Quality","LanguageUnderstanding","TopicsDefinitions","PredictiveEngagement","WorkforceManagement","Triggers","ResponseManagement"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -140,6 +140,9 @@ const (
 
 	// AuditQueryExecutionStatusResponseServiceNameTriggers captures enum value "Triggers"
 	AuditQueryExecutionStatusResponseServiceNameTriggers string = "Triggers"
+
+	// AuditQueryExecutionStatusResponseServiceNameResponseManagement captures enum value "ResponseManagement"
+	AuditQueryExecutionStatusResponseServiceNameResponseManagement string = "ResponseManagement"
 )
 
 // prop value enum

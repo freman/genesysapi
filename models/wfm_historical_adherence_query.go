@@ -12,7 +12,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// WfmHistoricalAdherenceQuery Query to request a historical adherence report from Workforce Management Service
+// WfmHistoricalAdherenceQuery wfm historical adherence query
 //
 // swagger:model WfmHistoricalAdherenceQuery
 type WfmHistoricalAdherenceQuery struct {
@@ -29,10 +29,15 @@ type WfmHistoricalAdherenceQuery struct {
 	// Format: date-time
 	StartDate *strfmt.DateTime `json:"startDate"`
 
-	// The time zone to use for returned results in olson format. If it is not set, the management unit time zone will be used to compute adherence
+	// The teamIds to report on. If null or not set, adherence will be computed for requested users if applicable or otherwise all users in the management unit. Note: Only one of [teamIds, userIds] can be requested
+	// Unique: true
+	TeamIds []string `json:"teamIds"`
+
+	// The time zone to use for returned results in olson format. If it is not set, the business unit time zone will be used to compute adherence
 	TimeZone string `json:"timeZone,omitempty"`
 
-	// The userIds to report on. If null or not set, adherence will be computed for all the users in management unit
+	// The userIds to report on. If null or not set, adherence will be computed for all the users in management unit or requested teamIds. Note: Only one of [teamIds, userIds] can be requested
+	// Unique: true
 	UserIds []string `json:"userIds"`
 }
 
@@ -45,6 +50,14 @@ func (m *WfmHistoricalAdherenceQuery) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateStartDate(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTeamIds(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateUserIds(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -74,6 +87,32 @@ func (m *WfmHistoricalAdherenceQuery) validateStartDate(formats strfmt.Registry)
 	}
 
 	if err := validate.FormatOf("startDate", "body", "date-time", m.StartDate.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *WfmHistoricalAdherenceQuery) validateTeamIds(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.TeamIds) { // not required
+		return nil
+	}
+
+	if err := validate.UniqueItems("teamIds", "body", m.TeamIds); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *WfmHistoricalAdherenceQuery) validateUserIds(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.UserIds) { // not required
+		return nil
+	}
+
+	if err := validate.UniqueItems("userIds", "body", m.UserIds); err != nil {
 		return err
 	}
 

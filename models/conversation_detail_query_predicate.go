@@ -24,7 +24,7 @@ type ConversationDetailQueryPredicate struct {
 	Dimension string `json:"dimension,omitempty"`
 
 	// Left hand side for metric predicates
-	// Enum: [nBlindTransferred nConnected nConsult nConsultTransferred nError nFlow nFlowOutcome nFlowOutcomeFailed nOffered nOutbound nOutboundAbandoned nOutboundAttempted nOutboundConnected nOverSla nStateTransitionError nTransferred oExternalMediaCount oMediaCount tAbandon tAcd tAcw tAgentResponseTime tAlert tAnswered tContacting tConversationDuration tDialing tFlow tFlowDisconnect tFlowExit tFlowOut tFlowOutcome tHandle tHeld tHeldComplete tIvr tMonitoring tNotResponding tShortAbandon tTalk tTalkComplete tUserResponseTime tVoicemail]
+	// Enum: [nBlindTransferred nConnected nConsult nConsultTransferred nError nFlow nFlowMilestone nFlowOutcome nFlowOutcomeFailed nOffered nOutbound nOutboundAbandoned nOutboundAttempted nOutboundConnected nOverSla nStateTransitionError nTransferred oExternalMediaCount oFlowMilestone oMediaCount tAbandon tAcd tAcw tAgentResponseTime tAlert tAnswered tContacting tConversationDuration tDialing tFlow tFlowDisconnect tFlowExit tFlowOut tFlowOutcome tHandle tHeld tHeldComplete tIvr tMonitoring tNotResponding tShortAbandon tTalk tTalkComplete tUserResponseTime tVoicemail]
 	Metric string `json:"metric,omitempty"`
 
 	// Optional operator, default is matches
@@ -131,7 +131,7 @@ var conversationDetailQueryPredicateTypeMetricPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["nBlindTransferred","nConnected","nConsult","nConsultTransferred","nError","nFlow","nFlowOutcome","nFlowOutcomeFailed","nOffered","nOutbound","nOutboundAbandoned","nOutboundAttempted","nOutboundConnected","nOverSla","nStateTransitionError","nTransferred","oExternalMediaCount","oMediaCount","tAbandon","tAcd","tAcw","tAgentResponseTime","tAlert","tAnswered","tContacting","tConversationDuration","tDialing","tFlow","tFlowDisconnect","tFlowExit","tFlowOut","tFlowOutcome","tHandle","tHeld","tHeldComplete","tIvr","tMonitoring","tNotResponding","tShortAbandon","tTalk","tTalkComplete","tUserResponseTime","tVoicemail"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["nBlindTransferred","nConnected","nConsult","nConsultTransferred","nError","nFlow","nFlowMilestone","nFlowOutcome","nFlowOutcomeFailed","nOffered","nOutbound","nOutboundAbandoned","nOutboundAttempted","nOutboundConnected","nOverSla","nStateTransitionError","nTransferred","oExternalMediaCount","oFlowMilestone","oMediaCount","tAbandon","tAcd","tAcw","tAgentResponseTime","tAlert","tAnswered","tContacting","tConversationDuration","tDialing","tFlow","tFlowDisconnect","tFlowExit","tFlowOut","tFlowOutcome","tHandle","tHeld","tHeldComplete","tIvr","tMonitoring","tNotResponding","tShortAbandon","tTalk","tTalkComplete","tUserResponseTime","tVoicemail"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -158,6 +158,9 @@ const (
 
 	// ConversationDetailQueryPredicateMetricNFlow captures enum value "nFlow"
 	ConversationDetailQueryPredicateMetricNFlow string = "nFlow"
+
+	// ConversationDetailQueryPredicateMetricNFlowMilestone captures enum value "nFlowMilestone"
+	ConversationDetailQueryPredicateMetricNFlowMilestone string = "nFlowMilestone"
 
 	// ConversationDetailQueryPredicateMetricNFlowOutcome captures enum value "nFlowOutcome"
 	ConversationDetailQueryPredicateMetricNFlowOutcome string = "nFlowOutcome"
@@ -191,6 +194,9 @@ const (
 
 	// ConversationDetailQueryPredicateMetricOExternalMediaCount captures enum value "oExternalMediaCount"
 	ConversationDetailQueryPredicateMetricOExternalMediaCount string = "oExternalMediaCount"
+
+	// ConversationDetailQueryPredicateMetricOFlowMilestone captures enum value "oFlowMilestone"
+	ConversationDetailQueryPredicateMetricOFlowMilestone string = "oFlowMilestone"
 
 	// ConversationDetailQueryPredicateMetricOMediaCount captures enum value "oMediaCount"
 	ConversationDetailQueryPredicateMetricOMediaCount string = "oMediaCount"

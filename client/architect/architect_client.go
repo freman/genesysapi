@@ -74,6 +74,10 @@ type API interface {
 	*/
 	DeleteFlowsDatatableRow(ctx context.Context, params *DeleteFlowsDatatableRowParams) (*DeleteFlowsDatatableRowNoContent, error)
 	/*
+	   DeleteFlowsMilestone deletes a flow milestone
+	*/
+	DeleteFlowsMilestone(ctx context.Context, params *DeleteFlowsMilestoneParams) (*DeleteFlowsMilestoneOK, *DeleteFlowsMilestoneNoContent, error)
+	/*
 	   GetArchitectDependencytracking gets dependency tracking objects that have a given display name
 	*/
 	GetArchitectDependencytracking(ctx context.Context, params *GetArchitectDependencytrackingParams) (*GetArchitectDependencytrackingOK, *GetArchitectDependencytrackingPartialContent, error)
@@ -257,6 +261,16 @@ type API interface {
 	*/
 	GetFlowsExecution(ctx context.Context, params *GetFlowsExecutionParams) (*GetFlowsExecutionOK, error)
 	/*
+	   GetFlowsMilestone gets a flow milestone
+	   Returns a specified flow milestone
+	*/
+	GetFlowsMilestone(ctx context.Context, params *GetFlowsMilestoneParams) (*GetFlowsMilestoneOK, error)
+	/*
+	   GetFlowsMilestones gets a pageable list of flow milestones filtered by query parameters
+	   Multiple IDs can be specified, in which case all matching flow milestones will be returned, and no other parameters will be evaluated.
+	*/
+	GetFlowsMilestones(ctx context.Context, params *GetFlowsMilestonesParams) (*GetFlowsMilestonesOK, error)
+	/*
 	   GetFlowsOutcome gets a flow outcome
 	   Returns a specified flow outcome
 	*/
@@ -375,6 +389,10 @@ type API interface {
 	*/
 	PostFlowsExecutions(ctx context.Context, params *PostFlowsExecutionsParams) (*PostFlowsExecutionsOK, error)
 	/*
+	   PostFlowsMilestones creates a flow milestone
+	*/
+	PostFlowsMilestones(ctx context.Context, params *PostFlowsMilestonesParams) (*PostFlowsMilestonesOK, error)
+	/*
 	   PostFlowsOutcomes creates a flow outcome
 	   Asynchronous.  Notification topic: v2.flows.outcomes.{flowOutcomeId}
 	*/
@@ -426,6 +444,10 @@ type API interface {
 	   }
 	*/
 	PutFlowsDatatableRow(ctx context.Context, params *PutFlowsDatatableRowParams) (*PutFlowsDatatableRowOK, error)
+	/*
+	   PutFlowsMilestone updates a flow milestone
+	*/
+	PutFlowsMilestone(ctx context.Context, params *PutFlowsMilestoneParams) (*PutFlowsMilestoneOK, error)
 	/*
 	   PutFlowsOutcome updates a flow outcome
 	   Updates a flow outcome.  Asynchronous.  Notification topic: v2.flowoutcomes.{flowoutcomeId}
@@ -781,6 +803,37 @@ func (a *Client) DeleteFlowsDatatableRow(ctx context.Context, params *DeleteFlow
 		return nil, err
 	}
 	return result.(*DeleteFlowsDatatableRowNoContent), nil
+
+}
+
+/*
+DeleteFlowsMilestone deletes a flow milestone
+*/
+func (a *Client) DeleteFlowsMilestone(ctx context.Context, params *DeleteFlowsMilestoneParams) (*DeleteFlowsMilestoneOK, *DeleteFlowsMilestoneNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteFlowsMilestone",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/flows/milestones/{milestoneId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteFlowsMilestoneReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *DeleteFlowsMilestoneOK:
+		return value, nil, nil
+	case *DeleteFlowsMilestoneNoContent:
+		return nil, value, nil
+	}
+	return nil, nil, nil
 
 }
 
@@ -1930,6 +1983,60 @@ func (a *Client) GetFlowsExecution(ctx context.Context, params *GetFlowsExecutio
 }
 
 /*
+GetFlowsMilestone gets a flow milestone
+
+Returns a specified flow milestone
+*/
+func (a *Client) GetFlowsMilestone(ctx context.Context, params *GetFlowsMilestoneParams) (*GetFlowsMilestoneOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getFlowsMilestone",
+		Method:             "GET",
+		PathPattern:        "/api/v2/flows/milestones/{milestoneId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetFlowsMilestoneReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetFlowsMilestoneOK), nil
+
+}
+
+/*
+GetFlowsMilestones gets a pageable list of flow milestones filtered by query parameters
+
+Multiple IDs can be specified, in which case all matching flow milestones will be returned, and no other parameters will be evaluated.
+*/
+func (a *Client) GetFlowsMilestones(ctx context.Context, params *GetFlowsMilestonesParams) (*GetFlowsMilestonesOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getFlowsMilestones",
+		Method:             "GET",
+		PathPattern:        "/api/v2/flows/milestones",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetFlowsMilestonesReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetFlowsMilestonesOK), nil
+
+}
+
+/*
 GetFlowsOutcome gets a flow outcome
 
 Returns a specified flow outcome
@@ -2604,6 +2711,31 @@ func (a *Client) PostFlowsExecutions(ctx context.Context, params *PostFlowsExecu
 }
 
 /*
+PostFlowsMilestones creates a flow milestone
+*/
+func (a *Client) PostFlowsMilestones(ctx context.Context, params *PostFlowsMilestonesParams) (*PostFlowsMilestonesOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postFlowsMilestones",
+		Method:             "POST",
+		PathPattern:        "/api/v2/flows/milestones",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostFlowsMilestonesReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostFlowsMilestonesOK), nil
+
+}
+
+/*
 PostFlowsOutcomes creates a flow outcome
 
 Asynchronous.  Notification topic: v2.flows.outcomes.{flowOutcomeId}
@@ -2886,6 +3018,31 @@ func (a *Client) PutFlowsDatatableRow(ctx context.Context, params *PutFlowsDatat
 		return nil, err
 	}
 	return result.(*PutFlowsDatatableRowOK), nil
+
+}
+
+/*
+PutFlowsMilestone updates a flow milestone
+*/
+func (a *Client) PutFlowsMilestone(ctx context.Context, params *PutFlowsMilestoneParams) (*PutFlowsMilestoneOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "putFlowsMilestone",
+		Method:             "PUT",
+		PathPattern:        "/api/v2/flows/milestones/{milestoneId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PutFlowsMilestoneReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutFlowsMilestoneOK), nil
 
 }
 

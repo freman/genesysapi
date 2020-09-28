@@ -52,6 +52,12 @@ type UserQueue struct {
 	// The division to which this entity belongs.
 	Division *Division `json:"division,omitempty"`
 
+	// Indicates whether manual assignment is enabled for this queue.
+	EnableManualAssignment bool `json:"enableManualAssignment"`
+
+	// Indicates whether voice transcription is enabled for this queue.
+	EnableTranscription bool `json:"enableTranscription"`
+
 	// The globally unique identifier for the object.
 	// Read Only: true
 	ID string `json:"id,omitempty"`

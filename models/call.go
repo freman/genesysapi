@@ -23,6 +23,12 @@ type Call struct {
 	// After-call work for the communication.
 	AfterCallWork *AfterCallWork `json:"afterCallWork,omitempty"`
 
+	// Indicates if after-call work is required for a communication. Only used when the ACW Setting is Agent Requested.
+	AfterCallWorkRequired bool `json:"afterCallWorkRequired"`
+
+	// UUID of virtual agent assistant that provide suggestions to the agent participant during the conversation.
+	AgentAssistantID string `json:"agentAssistantId,omitempty"`
+
 	// True if this call is held and the person on this side hears hold music.
 	Confined bool `json:"confined"`
 

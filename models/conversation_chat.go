@@ -23,6 +23,9 @@ type ConversationChat struct {
 	// After-call work for the communication.
 	AfterCallWork *AfterCallWork `json:"afterCallWork,omitempty"`
 
+	// Indicates if after-call work is required for a communication. Only used when the ACW Setting is Agent Requested.
+	AfterCallWorkRequired bool `json:"afterCallWorkRequired"`
+
 	// If available, the URI to the avatar image of this communication.
 	AvatarImageURL string `json:"avatarImageUrl,omitempty"`
 

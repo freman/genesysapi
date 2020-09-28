@@ -12,7 +12,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// WfmHistoricalAdherenceQueryForUsers Query to request a historical adherence report for users across management units from Workforce Management Service
+// WfmHistoricalAdherenceQueryForUsers wfm historical adherence query for users
 //
 // swagger:model WfmHistoricalAdherenceQueryForUsers
 type WfmHistoricalAdherenceQueryForUsers struct {
@@ -29,11 +29,15 @@ type WfmHistoricalAdherenceQueryForUsers struct {
 	// Format: date-time
 	StartDate *strfmt.DateTime `json:"startDate"`
 
-	// The time zone to use for returned results in olson format
+	// The teamIds to report on. Note: Only one of [teamIds, userIds] can be requested
 	// Required: true
-	TimeZone *string `json:"timeZone"`
+	// Unique: true
+	TeamIds []string `json:"teamIds"`
 
-	// The userIds to report on
+	// The time zone to use for returned results in olson format. If it is not set, the business unit time zone will be used to compute adherence
+	TimeZone string `json:"timeZone,omitempty"`
+
+	// The userIds to report on. Note: Only one of [teamIds, userIds] can be requested
 	// Required: true
 	// Unique: true
 	UserIds []string `json:"userIds"`
@@ -51,7 +55,7 @@ func (m *WfmHistoricalAdherenceQueryForUsers) Validate(formats strfmt.Registry) 
 		res = append(res, err)
 	}
 
-	if err := m.validateTimeZone(formats); err != nil {
+	if err := m.validateTeamIds(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -91,9 +95,13 @@ func (m *WfmHistoricalAdherenceQueryForUsers) validateStartDate(formats strfmt.R
 	return nil
 }
 
-func (m *WfmHistoricalAdherenceQueryForUsers) validateTimeZone(formats strfmt.Registry) error {
+func (m *WfmHistoricalAdherenceQueryForUsers) validateTeamIds(formats strfmt.Registry) error {
 
-	if err := validate.Required("timeZone", "body", m.TimeZone); err != nil {
+	if err := validate.Required("teamIds", "body", m.TeamIds); err != nil {
+		return err
+	}
+
+	if err := validate.UniqueItems("teamIds", "body", m.TeamIds); err != nil {
 		return err
 	}
 
