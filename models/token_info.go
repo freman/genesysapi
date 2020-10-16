@@ -23,6 +23,10 @@ type TokenInfo struct {
 	// Read Only: true
 	AuthorizedScope []string `json:"authorizedScope"`
 
+	// Only present when a user is a clone of trustee user in the trustor org.
+	// Read Only: true
+	ClonedUser *TokenInfoClonedUser `json:"clonedUser,omitempty"`
+
 	// The token's home organization
 	// Read Only: true
 	HomeOrganization *NamedEntity `json:"homeOrganization,omitempty"`
@@ -37,6 +41,10 @@ func (m *TokenInfo) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateOAuthClient(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateClonedUser(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -64,6 +72,24 @@ func (m *TokenInfo) validateOAuthClient(formats strfmt.Registry) error {
 		if err := m.OAuthClient.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("OAuthClient")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *TokenInfo) validateClonedUser(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.ClonedUser) { // not required
+		return nil
+	}
+
+	if m.ClonedUser != nil {
+		if err := m.ClonedUser.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("clonedUser")
 			}
 			return err
 		}

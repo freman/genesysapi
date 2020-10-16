@@ -44,6 +44,9 @@ type ParticipantBasic struct {
 	// chats
 	Chats []*ConversationChat `json:"chats"`
 
+	// If this participant is a coach, then this will be the id of the participant that is being coached.
+	CoachedParticipantID string `json:"coachedParticipantId,omitempty"`
+
 	// cobrowsesessions
 	Cobrowsesessions []*Cobrowsesession `json:"cobrowsesessions"`
 

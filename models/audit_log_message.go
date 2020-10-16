@@ -31,7 +31,7 @@ type AuditLogMessage struct {
 	Context map[string]string `json:"context,omitempty"`
 
 	// Entity that was impacted.
-	Entity *AddressableEntityRef `json:"entity,omitempty"`
+	Entity *DomainEntityRef `json:"entity,omitempty"`
 
 	// Type of the entity that was impacted.
 	// Enum: [Document Queue Recording Role VoicemailUserPolicy WrapupCode AccessToken OAuthClient OAuthClientAuthorization AuthOrganization AuthUser BulkActions Feedback Topic Program Segment Outcome SessionType EventType ClickstreamSettings Schedule Trigger Response]

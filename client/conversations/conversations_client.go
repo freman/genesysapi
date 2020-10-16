@@ -70,6 +70,10 @@ type API interface {
 	*/
 	GetAnalyticsConversationsDetailsJobResults(ctx context.Context, params *GetAnalyticsConversationsDetailsJobResultsParams) (*GetAnalyticsConversationsDetailsJobResultsOK, error)
 	/*
+	   GetAnalyticsConversationsDetailsJobsAvailability lookups the datalake availability date and time
+	*/
+	GetAnalyticsConversationsDetailsJobsAvailability(ctx context.Context, params *GetAnalyticsConversationsDetailsJobsAvailabilityParams) (*GetAnalyticsConversationsDetailsJobsAvailabilityOK, error)
+	/*
 	   GetConversation gets conversation
 	*/
 	GetConversation(ctx context.Context, params *GetConversationParams) (*GetConversationOK, error)
@@ -920,6 +924,31 @@ func (a *Client) GetAnalyticsConversationsDetailsJobResults(ctx context.Context,
 		return nil, err
 	}
 	return result.(*GetAnalyticsConversationsDetailsJobResultsOK), nil
+
+}
+
+/*
+GetAnalyticsConversationsDetailsJobsAvailability lookups the datalake availability date and time
+*/
+func (a *Client) GetAnalyticsConversationsDetailsJobsAvailability(ctx context.Context, params *GetAnalyticsConversationsDetailsJobsAvailabilityParams) (*GetAnalyticsConversationsDetailsJobsAvailabilityOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getAnalyticsConversationsDetailsJobsAvailability",
+		Method:             "GET",
+		PathPattern:        "/api/v2/analytics/conversations/details/jobs/availability",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetAnalyticsConversationsDetailsJobsAvailabilityReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetAnalyticsConversationsDetailsJobsAvailabilityOK), nil
 
 }
 

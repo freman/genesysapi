@@ -37,6 +37,9 @@ type KnowledgeBase struct {
 	// Knowledge base description
 	Description string `json:"description,omitempty"`
 
+	// The count representing the number of documents of type FAQ per KnowledgeBase
+	FaqCount int32 `json:"faqCount,omitempty"`
+
 	// The globally unique identifier for the object.
 	// Read Only: true
 	ID string `json:"id,omitempty"`

@@ -44,7 +44,7 @@ type Organization struct {
 
 	// Organizations Originating Platform.
 	// Read Only: true
-	// Enum: [PureCloud PureEngage PureEngageCloud PureConnect PureConnectCloud Unknown]
+	// Enum: [GenesysCloud PureCloud PureEngage PureEngageCloud PureConnect PureConnectCloud Unknown]
 	ProductPlatform string `json:"productPlatform,omitempty"`
 
 	// The URI for this object
@@ -109,7 +109,7 @@ var organizationTypeProductPlatformPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["PureCloud","PureEngage","PureEngageCloud","PureConnect","PureConnectCloud","Unknown"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["GenesysCloud","PureCloud","PureEngage","PureEngageCloud","PureConnect","PureConnectCloud","Unknown"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -118,6 +118,9 @@ func init() {
 }
 
 const (
+
+	// OrganizationProductPlatformGenesysCloud captures enum value "GenesysCloud"
+	OrganizationProductPlatformGenesysCloud string = "GenesysCloud"
 
 	// OrganizationProductPlatformPureCloud captures enum value "PureCloud"
 	OrganizationProductPlatformPureCloud string = "PureCloud"

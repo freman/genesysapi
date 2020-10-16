@@ -18,7 +18,7 @@ import (
 // swagger:model DevelopmentActivityAggregateQueryResponseData
 type DevelopmentActivityAggregateQueryResponseData struct {
 
-	// Specifies the range of due dates to be used for filtering. A maximum of 365 days can be specified in the range. Intervals are represented as an ISO-8601 string. For example: YYYY-MM-DDThh:mm:ss/YYYY-MM-DDThh:mm:ss
+	// Specifies the range of due dates to be used for filtering. A maximum of 1 year can be specified in the range. Intervals are represented as an ISO-8601 string. For example: YYYY-MM-DDThh:mm:ss/YYYY-MM-DDThh:mm:ss
 	Interval string `json:"interval,omitempty"`
 
 	// The list of aggregated metrics

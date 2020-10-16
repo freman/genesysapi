@@ -532,6 +532,10 @@ type API interface {
 	*/
 	PostWorkforcemanagementManagementunitWorkplanCopy(ctx context.Context, params *PostWorkforcemanagementManagementunitWorkplanCopyParams) (*PostWorkforcemanagementManagementunitWorkplanCopyOK, error)
 	/*
+	   PostWorkforcemanagementManagementunitWorkplanValidate validates work plan
+	*/
+	PostWorkforcemanagementManagementunitWorkplanValidate(ctx context.Context, params *PostWorkforcemanagementManagementunitWorkplanValidateParams) (*PostWorkforcemanagementManagementunitWorkplanValidateOK, error)
+	/*
 	   PostWorkforcemanagementManagementunitWorkplans creates a new work plan
 	*/
 	PostWorkforcemanagementManagementunitWorkplans(ctx context.Context, params *PostWorkforcemanagementManagementunitWorkplansParams) (*PostWorkforcemanagementManagementunitWorkplansOK, error)
@@ -3773,6 +3777,31 @@ func (a *Client) PostWorkforcemanagementManagementunitWorkplanCopy(ctx context.C
 		return nil, err
 	}
 	return result.(*PostWorkforcemanagementManagementunitWorkplanCopyOK), nil
+
+}
+
+/*
+PostWorkforcemanagementManagementunitWorkplanValidate validates work plan
+*/
+func (a *Client) PostWorkforcemanagementManagementunitWorkplanValidate(ctx context.Context, params *PostWorkforcemanagementManagementunitWorkplanValidateParams) (*PostWorkforcemanagementManagementunitWorkplanValidateOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postWorkforcemanagementManagementunitWorkplanValidate",
+		Method:             "POST",
+		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/workplans/{workPlanId}/validate",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostWorkforcemanagementManagementunitWorkplanValidateReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostWorkforcemanagementManagementunitWorkplanValidateOK), nil
 
 }
 

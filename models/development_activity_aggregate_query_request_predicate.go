@@ -24,7 +24,7 @@ type DevelopmentActivityAggregateQueryRequestPredicate struct {
 	// Enum: [attendeeId type moduleId]
 	Dimension *string `json:"dimension"`
 
-	// Corresponding value for dimensions in predicates
+	// Corresponding value for dimensions in predicates. If the dimensions is type, Valid Values: Informational, Coaching
 	// Required: true
 	Value *string `json:"value"`
 }

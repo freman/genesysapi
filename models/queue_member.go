@@ -21,7 +21,7 @@ type QueueMember struct {
 	ID string `json:"id,omitempty"`
 
 	// joined
-	Joined bool `json:"joined"`
+	Joined *bool `json:"joined"`
 
 	// member by
 	MemberBy string `json:"memberBy,omitempty"`

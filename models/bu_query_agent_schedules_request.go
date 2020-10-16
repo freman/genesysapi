@@ -21,7 +21,12 @@ type BuQueryAgentSchedulesRequest struct {
 	// Required: true
 	ManagementUnitID *string `json:"managementUnitId"`
 
-	// The IDs of the users to query.  Omit to query all user schedules in the management unit
+	// The teamIds to report on. If null or not set, results will be queried for requested users if applicable or otherwise all users in the management unit. Note: Only one of [teamIds, userIds] can be requested
+	// Unique: true
+	TeamIds []string `json:"teamIds"`
+
+	// The IDs of the users to query.  Omit to query all user schedules in the management unit. Note: Only one of [teamIds, userIds] can be requested
+	// Unique: true
 	UserIds []string `json:"userIds"`
 }
 
@@ -30,6 +35,14 @@ func (m *BuQueryAgentSchedulesRequest) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateManagementUnitID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTeamIds(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateUserIds(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -42,6 +55,32 @@ func (m *BuQueryAgentSchedulesRequest) Validate(formats strfmt.Registry) error {
 func (m *BuQueryAgentSchedulesRequest) validateManagementUnitID(formats strfmt.Registry) error {
 
 	if err := validate.Required("managementUnitId", "body", m.ManagementUnitID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *BuQueryAgentSchedulesRequest) validateTeamIds(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.TeamIds) { // not required
+		return nil
+	}
+
+	if err := validate.UniqueItems("teamIds", "body", m.TeamIds); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *BuQueryAgentSchedulesRequest) validateUserIds(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.UserIds) { // not required
+		return nil
+	}
+
+	if err := validate.UniqueItems("userIds", "body", m.UserIds); err != nil {
 		return err
 	}
 

@@ -75,6 +75,11 @@ type GetKnowledgeKnowledgebasesParams struct {
 
 	*/
 	Limit *string
+	/*Name
+	  Name of the KnowledgeBase to filter.
+
+	*/
+	Name *string
 	/*PageSize
 	  Number of entities to return. Maximum of 200.
 
@@ -152,6 +157,17 @@ func (o *GetKnowledgeKnowledgebasesParams) SetLimit(limit *string) {
 	o.Limit = limit
 }
 
+// WithName adds the name to the get knowledge knowledgebases params
+func (o *GetKnowledgeKnowledgebasesParams) WithName(name *string) *GetKnowledgeKnowledgebasesParams {
+	o.SetName(name)
+	return o
+}
+
+// SetName adds the name to the get knowledge knowledgebases params
+func (o *GetKnowledgeKnowledgebasesParams) SetName(name *string) {
+	o.Name = name
+}
+
 // WithPageSize adds the pageSize to the get knowledge knowledgebases params
 func (o *GetKnowledgeKnowledgebasesParams) WithPageSize(pageSize *string) *GetKnowledgeKnowledgebasesParams {
 	o.SetPageSize(pageSize)
@@ -213,6 +229,22 @@ func (o *GetKnowledgeKnowledgebasesParams) WriteToRequest(r runtime.ClientReques
 		qLimit := qrLimit
 		if qLimit != "" {
 			if err := r.SetQueryParam("limit", qLimit); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	if o.Name != nil {
+
+		// query param name
+		var qrName string
+		if o.Name != nil {
+			qrName = *o.Name
+		}
+		qName := qrName
+		if qName != "" {
+			if err := r.SetQueryParam("name", qName); err != nil {
 				return err
 			}
 		}

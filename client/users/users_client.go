@@ -42,6 +42,10 @@ type API interface {
 	*/
 	GetAnalyticsUsersDetailsJobResults(ctx context.Context, params *GetAnalyticsUsersDetailsJobResultsParams) (*GetAnalyticsUsersDetailsJobResultsOK, error)
 	/*
+	   GetAnalyticsUsersDetailsJobsAvailability lookups the datalake availability date and time
+	*/
+	GetAnalyticsUsersDetailsJobsAvailability(ctx context.Context, params *GetAnalyticsUsersDetailsJobsAvailabilityParams) (*GetAnalyticsUsersDetailsJobsAvailabilityOK, error)
+	/*
 	   GetProfilesUsers gets a user profile listing
 	   This api is deprecated. User /api/v2/users
 	*/
@@ -345,6 +349,31 @@ func (a *Client) GetAnalyticsUsersDetailsJobResults(ctx context.Context, params 
 		return nil, err
 	}
 	return result.(*GetAnalyticsUsersDetailsJobResultsOK), nil
+
+}
+
+/*
+GetAnalyticsUsersDetailsJobsAvailability lookups the datalake availability date and time
+*/
+func (a *Client) GetAnalyticsUsersDetailsJobsAvailability(ctx context.Context, params *GetAnalyticsUsersDetailsJobsAvailabilityParams) (*GetAnalyticsUsersDetailsJobsAvailabilityOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getAnalyticsUsersDetailsJobsAvailability",
+		Method:             "GET",
+		PathPattern:        "/api/v2/analytics/users/details/jobs/availability",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetAnalyticsUsersDetailsJobsAvailabilityReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetAnalyticsUsersDetailsJobsAvailabilityOK), nil
 
 }
 

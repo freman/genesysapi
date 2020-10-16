@@ -34,6 +34,10 @@ type API interface {
 	*/
 	GetAuthorizationDivision(ctx context.Context, params *GetAuthorizationDivisionParams) (*GetAuthorizationDivisionOK, error)
 	/*
+	   GetAuthorizationDivisionGrants gets all grants for a given division
+	*/
+	GetAuthorizationDivisionGrants(ctx context.Context, params *GetAuthorizationDivisionGrantsParams) (*GetAuthorizationDivisionGrantsOK, error)
+	/*
 	   GetAuthorizationDivisions retrieves a list of all divisions defined for the organization
 	   Request specific divisions by id using a query param "id", e.g.
 	   ?id=5f777167-63be-4c24-ad41-374155d9e28b&id=72e9fb25-c484-488d-9312-7acba82435b3
@@ -301,6 +305,31 @@ func (a *Client) GetAuthorizationDivision(ctx context.Context, params *GetAuthor
 		return nil, err
 	}
 	return result.(*GetAuthorizationDivisionOK), nil
+
+}
+
+/*
+GetAuthorizationDivisionGrants gets all grants for a given division
+*/
+func (a *Client) GetAuthorizationDivisionGrants(ctx context.Context, params *GetAuthorizationDivisionGrantsParams) (*GetAuthorizationDivisionGrantsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getAuthorizationDivisionGrants",
+		Method:             "GET",
+		PathPattern:        "/api/v2/authorization/divisions/{divisionId}/grants",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetAuthorizationDivisionGrantsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetAuthorizationDivisionGrantsOK), nil
 
 }
 

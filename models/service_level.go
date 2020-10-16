@@ -15,10 +15,10 @@ import (
 // swagger:model ServiceLevel
 type ServiceLevel struct {
 
-	// duration ms
+	// Service Level target in milliseconds.
 	DurationMs int64 `json:"durationMs,omitempty"`
 
-	// percentage
+	// The desired Service Level. A value between 0 and 1.
 	Percentage float64 `json:"percentage,omitempty"`
 }
 

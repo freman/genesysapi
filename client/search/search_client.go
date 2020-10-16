@@ -46,6 +46,10 @@ type API interface {
 	*/
 	GetVoicemailSearch(ctx context.Context, params *GetVoicemailSearchParams) (*GetVoicemailSearchOK, error)
 	/*
+	   PostAnalyticsConversationsTranscriptsQuery searches resources
+	*/
+	PostAnalyticsConversationsTranscriptsQuery(ctx context.Context, params *PostAnalyticsConversationsTranscriptsQueryParams) (*PostAnalyticsConversationsTranscriptsQueryOK, error)
+	/*
 	   PostDocumentationGknSearch searches gkn documentation
 	*/
 	PostDocumentationGknSearch(ctx context.Context, params *PostDocumentationGknSearchParams) (*PostDocumentationGknSearchOK, error)
@@ -267,6 +271,31 @@ func (a *Client) GetVoicemailSearch(ctx context.Context, params *GetVoicemailSea
 		return nil, err
 	}
 	return result.(*GetVoicemailSearchOK), nil
+
+}
+
+/*
+PostAnalyticsConversationsTranscriptsQuery searches resources
+*/
+func (a *Client) PostAnalyticsConversationsTranscriptsQuery(ctx context.Context, params *PostAnalyticsConversationsTranscriptsQueryParams) (*PostAnalyticsConversationsTranscriptsQueryOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postAnalyticsConversationsTranscriptsQuery",
+		Method:             "POST",
+		PathPattern:        "/api/v2/analytics/conversations/transcripts/query",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostAnalyticsConversationsTranscriptsQueryReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostAnalyticsConversationsTranscriptsQueryOK), nil
 
 }
 

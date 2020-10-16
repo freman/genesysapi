@@ -82,7 +82,7 @@ for the get coaching appointments me operation typically these are written to a 
 type GetCoachingAppointmentsMeParams struct {
 
 	/*CompletionInterval
-	  Appointment completion start and end to filter by. Intervals are represented as an ISO-8601 string. For example: YYYY-MM-DDThh:mm:ss/YYYY-MM-DDThh:mm:ss
+	  Appointment completion start and end to filter by. End date is not inclusive. Intervals are represented as an ISO-8601 string. For example: YYYY-MM-DDThh:mm:ss/YYYY-MM-DDThh:mm:ss
 
 	*/
 	CompletionInterval *string
@@ -92,7 +92,7 @@ type GetCoachingAppointmentsMeParams struct {
 	*/
 	FacilitatorIds []string
 	/*Interval
-	  Interval to filter data by. Intervals are represented as an ISO-8601 string. For example: YYYY-MM-DDThh:mm:ss/YYYY-MM-DDThh:mm:ss
+	  Interval to filter data by. End date is not inclusive. Intervals are represented as an ISO-8601 string. For example: YYYY-MM-DDThh:mm:ss/YYYY-MM-DDThh:mm:ss
 
 	*/
 	Interval *string

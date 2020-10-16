@@ -27,7 +27,7 @@ type CoachingAppointmentAggregateRequest struct {
 	// An optional list of items by which to group the result data.
 	GroupBy []string `json:"groupBy"`
 
-	// Interval to aggregate across. Intervals are represented as an ISO-8601 string. For example: YYYY-MM-DDThh:mm:ss/YYYY-MM-DDThh:mm:ss
+	// Interval to aggregate across. End date is not inclusive. Intervals are represented as an ISO-8601 string. For example: YYYY-MM-DDThh:mm:ss/YYYY-MM-DDThh:mm:ss
 	// Required: true
 	Interval *string `json:"interval"`
 

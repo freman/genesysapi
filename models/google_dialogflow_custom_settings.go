@@ -17,6 +17,15 @@ type GoogleDialogflowCustomSettings struct {
 
 	// If set this environment will be used to initiate the dialogflow bot, otherwise the default configuration will be used.  See https://cloud.google.com/dialogflow/docs/agents-versions
 	Environment string `json:"environment,omitempty"`
+
+	// Parameters passed to the event input of the bot.
+	EventInputParameters map[string]string `json:"eventInputParameters,omitempty"`
+
+	// If set this eventName will be used to initiate the dialogflow bot rather than language processing on the input text.  See https://cloud.google.com/dialogflow/es/docs/events-overview
+	EventName string `json:"eventName,omitempty"`
+
+	// Parameters passed to the fulfillment webhook of the bot (if any).
+	WebhookQueryParameters map[string]string `json:"webhookQueryParameters,omitempty"`
 }
 
 // Validate validates this google dialogflow custom settings

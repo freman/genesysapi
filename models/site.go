@@ -23,6 +23,10 @@ type Site struct {
 	// addresses
 	Addresses []*Contact `json:"addresses"`
 
+	// The core site
+	// Read Only: true
+	CoreSite *bool `json:"coreSite"`
+
 	// The ID of the user that created the resource.
 	CreatedBy string `json:"createdBy,omitempty"`
 

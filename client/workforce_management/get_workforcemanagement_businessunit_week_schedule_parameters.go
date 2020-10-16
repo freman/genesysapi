@@ -65,6 +65,11 @@ type GetWorkforcemanagementBusinessunitWeekScheduleParams struct {
 
 	*/
 	BusinessUnitID string
+	/*Expand
+	  expand
+
+	*/
+	Expand *string
 	/*ScheduleID
 	  The ID of the schedule
 
@@ -125,6 +130,17 @@ func (o *GetWorkforcemanagementBusinessunitWeekScheduleParams) SetBusinessUnitID
 	o.BusinessUnitID = businessUnitID
 }
 
+// WithExpand adds the expand to the get workforcemanagement businessunit week schedule params
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleParams) WithExpand(expand *string) *GetWorkforcemanagementBusinessunitWeekScheduleParams {
+	o.SetExpand(expand)
+	return o
+}
+
+// SetExpand adds the expand to the get workforcemanagement businessunit week schedule params
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleParams) SetExpand(expand *string) {
+	o.Expand = expand
+}
+
 // WithScheduleID adds the scheduleID to the get workforcemanagement businessunit week schedule params
 func (o *GetWorkforcemanagementBusinessunitWeekScheduleParams) WithScheduleID(scheduleID string) *GetWorkforcemanagementBusinessunitWeekScheduleParams {
 	o.SetScheduleID(scheduleID)
@@ -158,6 +174,22 @@ func (o *GetWorkforcemanagementBusinessunitWeekScheduleParams) WriteToRequest(r 
 	// path param businessUnitId
 	if err := r.SetPathParam("businessUnitId", o.BusinessUnitID); err != nil {
 		return err
+	}
+
+	if o.Expand != nil {
+
+		// query param expand
+		var qrExpand string
+		if o.Expand != nil {
+			qrExpand = *o.Expand
+		}
+		qExpand := qrExpand
+		if qExpand != "" {
+			if err := r.SetQueryParam("expand", qExpand); err != nil {
+				return err
+			}
+		}
+
 	}
 
 	// path param scheduleId

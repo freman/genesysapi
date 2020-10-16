@@ -53,6 +53,10 @@ type PostTextRequest struct {
 	// The launguage code the bot will run under
 	LanguageCode string `json:"languageCode,omitempty"`
 
+	// If the channels list contains a 'Messaging' item and the messaging platform is known, include it here to get accurate analytics
+	// Enum: [Phone SMS GenesysWebWidget FacebookMessenger WeChat Whatsapp AppleBusinessChat Telegram Slack Signal Line Discord TwitterDirectMessage Other Unknown]
+	MessagingPlatformType string `json:"messagingPlatformType,omitempty"`
+
 	// Message to send to the bot
 	// Required: true
 	PostTextMessage *PostTextMessage `json:"postTextMessage"`
@@ -83,6 +87,10 @@ func (m *PostTextRequest) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateIntegrationID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateMessagingPlatformType(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -190,6 +198,88 @@ func (m *PostTextRequest) validateGoogleDialogflow(formats strfmt.Registry) erro
 func (m *PostTextRequest) validateIntegrationID(formats strfmt.Registry) error {
 
 	if err := validate.Required("integrationId", "body", m.IntegrationID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+var postTextRequestTypeMessagingPlatformTypePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Phone","SMS","GenesysWebWidget","FacebookMessenger","WeChat","Whatsapp","AppleBusinessChat","Telegram","Slack","Signal","Line","Discord","TwitterDirectMessage","Other","Unknown"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		postTextRequestTypeMessagingPlatformTypePropEnum = append(postTextRequestTypeMessagingPlatformTypePropEnum, v)
+	}
+}
+
+const (
+
+	// PostTextRequestMessagingPlatformTypePhone captures enum value "Phone"
+	PostTextRequestMessagingPlatformTypePhone string = "Phone"
+
+	// PostTextRequestMessagingPlatformTypeSMS captures enum value "SMS"
+	PostTextRequestMessagingPlatformTypeSMS string = "SMS"
+
+	// PostTextRequestMessagingPlatformTypeGenesysWebWidget captures enum value "GenesysWebWidget"
+	PostTextRequestMessagingPlatformTypeGenesysWebWidget string = "GenesysWebWidget"
+
+	// PostTextRequestMessagingPlatformTypeFacebookMessenger captures enum value "FacebookMessenger"
+	PostTextRequestMessagingPlatformTypeFacebookMessenger string = "FacebookMessenger"
+
+	// PostTextRequestMessagingPlatformTypeWeChat captures enum value "WeChat"
+	PostTextRequestMessagingPlatformTypeWeChat string = "WeChat"
+
+	// PostTextRequestMessagingPlatformTypeWhatsapp captures enum value "Whatsapp"
+	PostTextRequestMessagingPlatformTypeWhatsapp string = "Whatsapp"
+
+	// PostTextRequestMessagingPlatformTypeAppleBusinessChat captures enum value "AppleBusinessChat"
+	PostTextRequestMessagingPlatformTypeAppleBusinessChat string = "AppleBusinessChat"
+
+	// PostTextRequestMessagingPlatformTypeTelegram captures enum value "Telegram"
+	PostTextRequestMessagingPlatformTypeTelegram string = "Telegram"
+
+	// PostTextRequestMessagingPlatformTypeSlack captures enum value "Slack"
+	PostTextRequestMessagingPlatformTypeSlack string = "Slack"
+
+	// PostTextRequestMessagingPlatformTypeSignal captures enum value "Signal"
+	PostTextRequestMessagingPlatformTypeSignal string = "Signal"
+
+	// PostTextRequestMessagingPlatformTypeLine captures enum value "Line"
+	PostTextRequestMessagingPlatformTypeLine string = "Line"
+
+	// PostTextRequestMessagingPlatformTypeDiscord captures enum value "Discord"
+	PostTextRequestMessagingPlatformTypeDiscord string = "Discord"
+
+	// PostTextRequestMessagingPlatformTypeTwitterDirectMessage captures enum value "TwitterDirectMessage"
+	PostTextRequestMessagingPlatformTypeTwitterDirectMessage string = "TwitterDirectMessage"
+
+	// PostTextRequestMessagingPlatformTypeOther captures enum value "Other"
+	PostTextRequestMessagingPlatformTypeOther string = "Other"
+
+	// PostTextRequestMessagingPlatformTypeUnknown captures enum value "Unknown"
+	PostTextRequestMessagingPlatformTypeUnknown string = "Unknown"
+)
+
+// prop value enum
+func (m *PostTextRequest) validateMessagingPlatformTypeEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, postTextRequestTypeMessagingPlatformTypePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *PostTextRequest) validateMessagingPlatformType(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.MessagingPlatformType) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateMessagingPlatformTypeEnum("messagingPlatformType", "body", m.MessagingPlatformType); err != nil {
 		return err
 	}
 

@@ -34,7 +34,7 @@ type Annotation struct {
 	// Required: true
 	CustomerScoreModifier *string `json:"customerScoreModifier"`
 
-	// Text of annotation.
+	// Text of annotation. Maximum character limit is 300.
 	Description string `json:"description,omitempty"`
 
 	// Duration of annotation in milliseconds.

@@ -63,6 +63,9 @@ type OrphanRecording struct {
 	// Read Only: true
 	// Format: uri
 	SelfURI strfmt.URI `json:"selfUri,omitempty"`
+
+	// An identifier used during recovery operations by the supplying hybrid platform to track back and determine which interaction this recording is associated with
+	SourceOrphaningID string `json:"sourceOrphaningId,omitempty"`
 }
 
 // Validate validates this orphan recording
