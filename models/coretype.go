@@ -20,7 +20,7 @@ type Coretype struct {
 	// A boolean indicating if the core type's version is the current one in use by the system
 	Current bool `json:"current"`
 
-	// The date the core type was created. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The date the core type was created. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	DateCreated strfmt.DateTime `json:"dateCreated,omitempty"`
 

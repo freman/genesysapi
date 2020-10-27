@@ -29,7 +29,7 @@ type ConversationChat struct {
 	// If available, the URI to the avatar image of this communication.
 	AvatarImageURL string `json:"avatarImageUrl,omitempty"`
 
-	// The timestamp when this communication was connected in the cloud clock. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The timestamp when this communication was connected in the cloud clock. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	ConnectedTime strfmt.DateTime `json:"connectedTime,omitempty"`
 
@@ -41,7 +41,7 @@ type ConversationChat struct {
 	// Enum: [endpoint client system transfer transfer.conference transfer.consult transfer.forward error peer other uncallable timeout]
 	DisconnectType string `json:"disconnectType,omitempty"`
 
-	// The timestamp when this communication disconnected from the conversation in the provider clock. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The timestamp when this communication disconnected from the conversation in the provider clock. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	DisconnectedTime strfmt.DateTime `json:"disconnectedTime,omitempty"`
 
@@ -72,11 +72,11 @@ type ConversationChat struct {
 	// The time line of the participant's chat, divided into activity segments.
 	Segments []*Segment `json:"segments"`
 
-	// The timestamp the communication has when it is first put into an alerting state. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The timestamp the communication has when it is first put into an alerting state. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	StartAlertingTime strfmt.DateTime `json:"startAlertingTime,omitempty"`
 
-	// The timestamp the chat was placed on hold in the cloud clock if the chat is currently on hold. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The timestamp the chat was placed on hold in the cloud clock if the chat is currently on hold. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	StartHoldTime strfmt.DateTime `json:"startHoldTime,omitempty"`
 

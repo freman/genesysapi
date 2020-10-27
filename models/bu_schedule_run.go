@@ -35,7 +35,7 @@ type BuScheduleRun struct {
 	// Rescheduling options for this run.  Null unless intradayRescheduling is true
 	ReschedulingOptions *ReschedulingOptionsRunResponse `json:"reschedulingOptions,omitempty"`
 
-	// When the reschedule result will expire.  Null unless intradayRescheduling is true. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// When the reschedule result will expire.  Null unless intradayRescheduling is true. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	ReschedulingResultExpiration strfmt.DateTime `json:"reschedulingResultExpiration,omitempty"`
 
@@ -51,11 +51,11 @@ type BuScheduleRun struct {
 	// The user who canceled the scheduling run, if applicable
 	SchedulingCanceledBy *UserReference `json:"schedulingCanceledBy,omitempty"`
 
-	// When the scheduling run was completed, if applicable. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// When the scheduling run was completed, if applicable. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	SchedulingCompletedTime strfmt.DateTime `json:"schedulingCompletedTime,omitempty"`
 
-	// When the schedule generation run started. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// When the schedule generation run started. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	SchedulingStartTime strfmt.DateTime `json:"schedulingStartTime,omitempty"`
 

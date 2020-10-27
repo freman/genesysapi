@@ -23,7 +23,7 @@ type Wrapup struct {
 	// The length of time in seconds that the agent spent doing after call work.
 	DurationSeconds int32 `json:"durationSeconds,omitempty"`
 
-	// The timestamp when the wrapup was finished. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The timestamp when the wrapup was finished. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	EndTime strfmt.DateTime `json:"endTime,omitempty"`
 

@@ -23,7 +23,7 @@ type BuIntradayResponse struct {
 	// The categories to which this data corresponds
 	Categories []string `json:"categories"`
 
-	// The end of the date range for which this data applies. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The end of the date range for which this data applies. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	EndDate strfmt.DateTime `json:"endDate,omitempty"`
 
@@ -43,7 +43,7 @@ type BuIntradayResponse struct {
 	// Short term forecast reference
 	ShortTermForecast *BuShortTermForecastReference `json:"shortTermForecast,omitempty"`
 
-	// The start of the date range for which this data applies.  This is also the start reference point for the intervals represented in the various arrays. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The start of the date range for which this data applies.  This is also the start reference point for the intervals represented in the various arrays. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	StartDate strfmt.DateTime `json:"startDate,omitempty"`
 }

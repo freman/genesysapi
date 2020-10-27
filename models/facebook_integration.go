@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -21,14 +23,23 @@ type FacebookIntegration struct {
 	// Required: true
 	AppID *string `json:"appId"`
 
+	// Error information returned, if createStatus is set to Error
+	// Read Only: true
+	CreateError *ErrorBody `json:"createError,omitempty"`
+
+	// Status of asynchronous create operation
+	// Read Only: true
+	// Enum: [Initiated Completed Error]
+	CreateStatus string `json:"createStatus,omitempty"`
+
 	// User reference that created this Integration
 	CreatedBy *DomainEntityRef `json:"createdBy,omitempty"`
 
-	// Date this Integration was created. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date this Integration was created. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	DateCreated strfmt.DateTime `json:"dateCreated,omitempty"`
 
-	// Date this Integration was modified. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date this Integration was modified. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	DateModified strfmt.DateTime `json:"dateModified,omitempty"`
 
@@ -69,6 +80,14 @@ func (m *FacebookIntegration) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateAppID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCreateError(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCreateStatus(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -117,6 +136,70 @@ func (m *FacebookIntegration) Validate(formats strfmt.Registry) error {
 func (m *FacebookIntegration) validateAppID(formats strfmt.Registry) error {
 
 	if err := validate.Required("appId", "body", m.AppID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *FacebookIntegration) validateCreateError(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.CreateError) { // not required
+		return nil
+	}
+
+	if m.CreateError != nil {
+		if err := m.CreateError.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("createError")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+var facebookIntegrationTypeCreateStatusPropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Initiated","Completed","Error"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		facebookIntegrationTypeCreateStatusPropEnum = append(facebookIntegrationTypeCreateStatusPropEnum, v)
+	}
+}
+
+const (
+
+	// FacebookIntegrationCreateStatusInitiated captures enum value "Initiated"
+	FacebookIntegrationCreateStatusInitiated string = "Initiated"
+
+	// FacebookIntegrationCreateStatusCompleted captures enum value "Completed"
+	FacebookIntegrationCreateStatusCompleted string = "Completed"
+
+	// FacebookIntegrationCreateStatusError captures enum value "Error"
+	FacebookIntegrationCreateStatusError string = "Error"
+)
+
+// prop value enum
+func (m *FacebookIntegration) validateCreateStatusEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, facebookIntegrationTypeCreateStatusPropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *FacebookIntegration) validateCreateStatus(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.CreateStatus) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateCreateStatusEnum("createStatus", "body", m.CreateStatus); err != nil {
 		return err
 	}
 

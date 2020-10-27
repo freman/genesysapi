@@ -19,14 +19,14 @@ import (
 // swagger:model AsyncQueryStatus
 type AsyncQueryStatus struct {
 
-	// The time at which the query completed. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The time at which the query completed. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	CompletionDate strfmt.DateTime `json:"completionDate,omitempty"`
 
 	// The error associated with the current query, if the state is FAILED
 	ErrorMessage string `json:"errorMessage,omitempty"`
 
-	// The time at which results for this query will expire. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The time at which results for this query will expire. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	ExpirationDate strfmt.DateTime `json:"expirationDate,omitempty"`
 
@@ -34,7 +34,7 @@ type AsyncQueryStatus struct {
 	// Enum: [QUEUED PENDING FAILED CANCELLED FULFILLED EXPIRED]
 	State string `json:"state,omitempty"`
 
-	// The time at which the query was submitted. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The time at which the query was submitted. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	SubmissionDate strfmt.DateTime `json:"submissionDate,omitempty"`
 }

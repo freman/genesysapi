@@ -32,7 +32,7 @@ type Cobrowsesession struct {
 	// The co-browse session ID.
 	CobrowseSessionID string `json:"cobrowseSessionId,omitempty"`
 
-	// The timestamp when this communication was connected in the cloud clock. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The timestamp when this communication was connected in the cloud clock. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	ConnectedTime strfmt.DateTime `json:"connectedTime,omitempty"`
 
@@ -43,7 +43,7 @@ type Cobrowsesession struct {
 	// Enum: [endpoint client system timeout transfer transfer.conference transfer.consult transfer.forward transport.failure error peer other spam uncallable]
 	DisconnectType string `json:"disconnectType,omitempty"`
 
-	// The timestamp when this communication disconnected from the conversation in the provider clock. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The timestamp when this communication disconnected from the conversation in the provider clock. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	DisconnectedTime strfmt.DateTime `json:"disconnectedTime,omitempty"`
 
@@ -56,7 +56,7 @@ type Cobrowsesession struct {
 	// The source provider for the co-browse session.
 	Provider string `json:"provider,omitempty"`
 
-	// The time when the provider event which triggered this conversation update happened in the corrected provider clock (milliseconds since 1970-01-01 00:00:00 UTC). Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The time when the provider event which triggered this conversation update happened in the corrected provider clock (milliseconds since 1970-01-01 00:00:00 UTC). Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	ProviderEventTime strfmt.DateTime `json:"providerEventTime,omitempty"`
 
@@ -66,7 +66,7 @@ type Cobrowsesession struct {
 	// Address and name data for a call endpoint.
 	Self *Address `json:"self,omitempty"`
 
-	// The timestamp the communication has when it is first put into an alerting state. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The timestamp the communication has when it is first put into an alerting state. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	StartAlertingTime strfmt.DateTime `json:"startAlertingTime,omitempty"`
 

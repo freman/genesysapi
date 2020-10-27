@@ -25,14 +25,14 @@ type BuManagementUnitScheduleSummary struct {
 	// The agents in the management unit who are part of this schedule, or in schedule change notifications, the agents that were changed. Note this will come back as an empty list unless the appropriate expand query parameter is passed
 	Agents []*UserReference `json:"agents"`
 
-	// The end of the schedule change in the management unit. Only populated in schedule update notifications. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The end of the schedule change in the management unit. Only populated in schedule update notifications. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	EndDate strfmt.DateTime `json:"endDate,omitempty"`
 
 	// The management unit to which this summary applies
 	ManagementUnit *ManagementUnitReference `json:"managementUnit,omitempty"`
 
-	// The start of the schedule change in the management unit. Only populated in schedule update notifications. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The start of the schedule change in the management unit. Only populated in schedule update notifications. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	StartDate strfmt.DateTime `json:"startDate,omitempty"`
 }

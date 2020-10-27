@@ -19,7 +19,7 @@ import (
 // swagger:model RoutingStatus
 type RoutingStatus struct {
 
-	// The timestamp when the agent went into this state. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The timestamp when the agent went into this state. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	StartTime strfmt.DateTime `json:"startTime,omitempty"`
 

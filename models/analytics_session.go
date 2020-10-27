@@ -41,7 +41,7 @@ type AnalyticsSession struct {
 	// List of numbers to callback
 	CallbackNumbers []string `json:"callbackNumbers"`
 
-	// Scheduled callback date/time. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Scheduled callback date/time. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	CallbackScheduledTime strfmt.DateTime `json:"callbackScheduledTime,omitempty"`
 
@@ -72,6 +72,9 @@ type AnalyticsSession struct {
 
 	// IVR flow execution associated with this session
 	Flow *AnalyticsFlow `json:"flow,omitempty"`
+
+	// Type of flow in that occurred, e.g. acd, ivr, etc.
+	FlowInType string `json:"flowInType,omitempty"`
 
 	// Type of flow out that occurred, e.g. voicemail, callback, or acd
 	FlowOutType string `json:"flowOutType,omitempty"`

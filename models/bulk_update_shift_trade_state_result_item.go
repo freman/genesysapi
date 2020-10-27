@@ -33,7 +33,7 @@ type BulkUpdateShiftTradeStateResultItem struct {
 	// The user who reviewed the request, if applicable
 	ReviewedBy *UserReference `json:"reviewedBy,omitempty"`
 
-	// The date the request was reviewed, if applicable. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The date the request was reviewed, if applicable. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	ReviewedDate strfmt.DateTime `json:"reviewedDate,omitempty"`
 

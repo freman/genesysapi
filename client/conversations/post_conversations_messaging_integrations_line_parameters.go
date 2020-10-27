@@ -14,6 +14,7 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+	"github.com/go-openapi/swag"
 
 	"github.com/freman/genesysapi/models"
 )
@@ -21,8 +22,11 @@ import (
 // NewPostConversationsMessagingIntegrationsLineParams creates a new PostConversationsMessagingIntegrationsLineParams object
 // with the default values initialized.
 func NewPostConversationsMessagingIntegrationsLineParams() *PostConversationsMessagingIntegrationsLineParams {
-	var ()
+	var (
+		asyncDefault = bool(false)
+	)
 	return &PostConversationsMessagingIntegrationsLineParams{
+		Async: &asyncDefault,
 
 		timeout: cr.DefaultTimeout,
 	}
@@ -31,8 +35,11 @@ func NewPostConversationsMessagingIntegrationsLineParams() *PostConversationsMes
 // NewPostConversationsMessagingIntegrationsLineParamsWithTimeout creates a new PostConversationsMessagingIntegrationsLineParams object
 // with the default values initialized, and the ability to set a timeout on a request
 func NewPostConversationsMessagingIntegrationsLineParamsWithTimeout(timeout time.Duration) *PostConversationsMessagingIntegrationsLineParams {
-	var ()
+	var (
+		asyncDefault = bool(false)
+	)
 	return &PostConversationsMessagingIntegrationsLineParams{
+		Async: &asyncDefault,
 
 		timeout: timeout,
 	}
@@ -41,8 +48,11 @@ func NewPostConversationsMessagingIntegrationsLineParamsWithTimeout(timeout time
 // NewPostConversationsMessagingIntegrationsLineParamsWithContext creates a new PostConversationsMessagingIntegrationsLineParams object
 // with the default values initialized, and the ability to set a context for a request
 func NewPostConversationsMessagingIntegrationsLineParamsWithContext(ctx context.Context) *PostConversationsMessagingIntegrationsLineParams {
-	var ()
+	var (
+		asyncDefault = bool(false)
+	)
 	return &PostConversationsMessagingIntegrationsLineParams{
+		Async: &asyncDefault,
 
 		Context: ctx,
 	}
@@ -51,8 +61,11 @@ func NewPostConversationsMessagingIntegrationsLineParamsWithContext(ctx context.
 // NewPostConversationsMessagingIntegrationsLineParamsWithHTTPClient creates a new PostConversationsMessagingIntegrationsLineParams object
 // with the default values initialized, and the ability to set a custom HTTPClient for a request
 func NewPostConversationsMessagingIntegrationsLineParamsWithHTTPClient(client *http.Client) *PostConversationsMessagingIntegrationsLineParams {
-	var ()
+	var (
+		asyncDefault = bool(false)
+	)
 	return &PostConversationsMessagingIntegrationsLineParams{
+		Async:      &asyncDefault,
 		HTTPClient: client,
 	}
 }
@@ -62,6 +75,11 @@ for the post conversations messaging integrations line operation typically these
 */
 type PostConversationsMessagingIntegrationsLineParams struct {
 
+	/*Async
+	  Create a LINE integration in an asynchronous manner. If the parameter value is true, this initiates the generation of a new LINE integration. An integration ID is returned, it can be used to query the integration. Check the integration's createStatus for Completed or Error to detect the create is finished.
+
+	*/
+	Async *bool
 	/*Body
 	  LineIntegrationRequest
 
@@ -106,6 +124,17 @@ func (o *PostConversationsMessagingIntegrationsLineParams) SetHTTPClient(client 
 	o.HTTPClient = client
 }
 
+// WithAsync adds the async to the post conversations messaging integrations line params
+func (o *PostConversationsMessagingIntegrationsLineParams) WithAsync(async *bool) *PostConversationsMessagingIntegrationsLineParams {
+	o.SetAsync(async)
+	return o
+}
+
+// SetAsync adds the async to the post conversations messaging integrations line params
+func (o *PostConversationsMessagingIntegrationsLineParams) SetAsync(async *bool) {
+	o.Async = async
+}
+
 // WithBody adds the body to the post conversations messaging integrations line params
 func (o *PostConversationsMessagingIntegrationsLineParams) WithBody(body *models.LineIntegrationRequest) *PostConversationsMessagingIntegrationsLineParams {
 	o.SetBody(body)
@@ -124,6 +153,22 @@ func (o *PostConversationsMessagingIntegrationsLineParams) WriteToRequest(r runt
 		return err
 	}
 	var res []error
+
+	if o.Async != nil {
+
+		// query param async
+		var qrAsync bool
+		if o.Async != nil {
+			qrAsync = *o.Async
+		}
+		qAsync := swag.FormatBool(qrAsync)
+		if qAsync != "" {
+			if err := r.SetQueryParam("async", qAsync); err != nil {
+				return err
+			}
+		}
+
+	}
 
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {

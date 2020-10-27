@@ -23,7 +23,7 @@ type ProvisionInfo struct {
 	// The source of the provisioning
 	Source string `json:"source,omitempty"`
 
-	// The time at which this phone was provisioned. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The time at which this phone was provisioned. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	Time strfmt.DateTime `json:"time,omitempty"`
 }

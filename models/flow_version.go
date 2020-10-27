@@ -52,6 +52,10 @@ type FlowVersion struct {
 	// name
 	Name string `json:"name,omitempty"`
 
+	// Information about the NLU domain version for the flow version
+	// Read Only: true
+	NluInfo *NluInfo `json:"nluInfo,omitempty"`
+
 	// output schema
 	OutputSchema *JSONSchemaDocument `json:"outputSchema,omitempty"`
 
@@ -85,6 +89,10 @@ func (m *FlowVersion) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateInputSchema(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateNluInfo(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -156,6 +164,24 @@ func (m *FlowVersion) validateInputSchema(formats strfmt.Registry) error {
 		if err := m.InputSchema.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("inputSchema")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *FlowVersion) validateNluInfo(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.NluInfo) { // not required
+		return nil
+	}
+
+	if m.NluInfo != nil {
+		if err := m.NluInfo.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("nluInfo")
 			}
 			return err
 		}

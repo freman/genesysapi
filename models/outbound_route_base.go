@@ -30,11 +30,11 @@ type OutboundRouteBase struct {
 	// The application that created the resource.
 	CreatedByApp string `json:"createdByApp,omitempty"`
 
-	// The date the resource was created. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The date the resource was created. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	DateCreated strfmt.DateTime `json:"dateCreated,omitempty"`
 
-	// The date of the last modification to the resource. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The date of the last modification to the resource. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	DateModified strfmt.DateTime `json:"dateModified,omitempty"`
 

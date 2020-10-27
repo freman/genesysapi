@@ -33,7 +33,7 @@ type JourneyAggregationView struct {
 
 	// Target metric name
 	// Required: true
-	// Enum: [nJourneyOutcomesAchieved nJourneySegmentsAssigned nJourneySessions nWebActionsAbandoned nWebActionsAccepted nWebActionsEngaged nWebActionsErrored nWebActionsIgnored nWebActionsOffered nWebActionsQualified nWebActionsQualifiedOutsideSchedule nWebActionsRejected nWebActionsStarted nWebActionsTimedout]
+	// Enum: [nJourneyOutcomesAchieved nJourneyOutcomesAttributed nJourneySegmentsAssigned nJourneySessions nWebActionsAbandoned nWebActionsAccepted nWebActionsEngaged nWebActionsErrored nWebActionsIgnored nWebActionsOffered nWebActionsQualified nWebActionsQualifiedOutsideSchedule nWebActionsRejected nWebActionsStarted nWebActionsTimedout]
 	Target *string `json:"target"`
 }
 
@@ -134,7 +134,7 @@ var journeyAggregationViewTypeTargetPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["nJourneyOutcomesAchieved","nJourneySegmentsAssigned","nJourneySessions","nWebActionsAbandoned","nWebActionsAccepted","nWebActionsEngaged","nWebActionsErrored","nWebActionsIgnored","nWebActionsOffered","nWebActionsQualified","nWebActionsQualifiedOutsideSchedule","nWebActionsRejected","nWebActionsStarted","nWebActionsTimedout"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["nJourneyOutcomesAchieved","nJourneyOutcomesAttributed","nJourneySegmentsAssigned","nJourneySessions","nWebActionsAbandoned","nWebActionsAccepted","nWebActionsEngaged","nWebActionsErrored","nWebActionsIgnored","nWebActionsOffered","nWebActionsQualified","nWebActionsQualifiedOutsideSchedule","nWebActionsRejected","nWebActionsStarted","nWebActionsTimedout"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -146,6 +146,9 @@ const (
 
 	// JourneyAggregationViewTargetNJourneyOutcomesAchieved captures enum value "nJourneyOutcomesAchieved"
 	JourneyAggregationViewTargetNJourneyOutcomesAchieved string = "nJourneyOutcomesAchieved"
+
+	// JourneyAggregationViewTargetNJourneyOutcomesAttributed captures enum value "nJourneyOutcomesAttributed"
+	JourneyAggregationViewTargetNJourneyOutcomesAttributed string = "nJourneyOutcomesAttributed"
 
 	// JourneyAggregationViewTargetNJourneySegmentsAssigned captures enum value "nJourneySegmentsAssigned"
 	JourneyAggregationViewTargetNJourneySegmentsAssigned string = "nJourneySegmentsAssigned"

@@ -27,7 +27,7 @@ type PropertyIndexRequest struct {
 	// Required: true
 	SessionID *string `json:"sessionId"`
 
-	// Attach properties to a segment covering a specific point in time. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Attach properties to a segment covering a specific point in time. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Required: true
 	// Format: date-time
 	TargetDate *strfmt.DateTime `json:"targetDate"`

@@ -24,7 +24,7 @@ type VoicemailUserPolicy struct {
 	// Read Only: true
 	Enabled *bool `json:"enabled"`
 
-	// The date the policy was last modified. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The date the policy was last modified. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Read Only: true
 	// Format: date-time
 	ModifiedDate strfmt.DateTime `json:"modifiedDate,omitempty"`

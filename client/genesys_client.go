@@ -67,7 +67,6 @@ import (
 	"github.com/freman/genesysapi/client/tokens"
 	"github.com/freman/genesysapi/client/uploads"
 	"github.com/freman/genesysapi/client/usage"
-	"github.com/freman/genesysapi/client/user_development"
 	"github.com/freman/genesysapi/client/user_recordings"
 	"github.com/freman/genesysapi/client/users"
 	"github.com/freman/genesysapi/client/utilities"
@@ -199,7 +198,6 @@ func New(c Config) *Genesys {
 	cli.Tokens = tokens.New(transport, strfmt.Default, nil)
 	cli.Uploads = uploads.New(transport, strfmt.Default, nil)
 	cli.Usage = usage.New(transport, strfmt.Default, nil)
-	cli.UserDevelopment = user_development.New(transport, strfmt.Default, nil)
 	cli.UserRecordings = user_recordings.New(transport, strfmt.Default, nil)
 	cli.Users = users.New(transport, strfmt.Default, nil)
 	cli.Utilities = utilities.New(transport, strfmt.Default, nil)
@@ -263,7 +261,6 @@ type Genesys struct {
 	Tokens                          *tokens.Client
 	Uploads                         *uploads.Client
 	Usage                           *usage.Client
-	UserDevelopment                 *user_development.Client
 	UserRecordings                  *user_recordings.Client
 	Users                           *users.Client
 	Utilities                       *utilities.Client

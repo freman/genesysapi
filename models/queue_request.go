@@ -38,11 +38,11 @@ type QueueRequest struct {
 	// The ID of the user that created the queue.
 	CreatedBy string `json:"createdBy,omitempty"`
 
-	// The date the queue was created. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The date the queue was created. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	DateCreated strfmt.DateTime `json:"dateCreated,omitempty"`
 
-	// The date of the last modification to the queue. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The date of the last modification to the queue. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	DateModified strfmt.DateTime `json:"dateModified,omitempty"`
 

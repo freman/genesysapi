@@ -20,7 +20,7 @@ type OutOfOffice struct {
 	// active
 	Active bool `json:"active"`
 
-	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	EndDate strfmt.DateTime `json:"endDate,omitempty"`
 
@@ -39,7 +39,7 @@ type OutOfOffice struct {
 	// Format: uri
 	SelfURI strfmt.URI `json:"selfUri,omitempty"`
 
-	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	StartDate strfmt.DateTime `json:"startDate,omitempty"`
 

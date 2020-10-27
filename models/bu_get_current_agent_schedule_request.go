@@ -17,12 +17,12 @@ import (
 // swagger:model BuGetCurrentAgentScheduleRequest
 type BuGetCurrentAgentScheduleRequest struct {
 
-	// End date of the range to search. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// End date of the range to search. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Required: true
 	// Format: date-time
 	EndDate *strfmt.DateTime `json:"endDate"`
 
-	// Start date of the range to search. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Start date of the range to search. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Required: true
 	// Format: date-time
 	StartDate *strfmt.DateTime `json:"startDate"`

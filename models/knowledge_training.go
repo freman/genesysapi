@@ -19,17 +19,17 @@ import (
 // swagger:model KnowledgeTraining
 type KnowledgeTraining struct {
 
-	// Training completed date-time. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Training completed date-time. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Read Only: true
 	// Format: date-time
 	DateCompleted strfmt.DateTime `json:"dateCompleted,omitempty"`
 
-	// Trained Documents Promoted date-time. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Trained Documents Promoted date-time. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Read Only: true
 	// Format: date-time
 	DatePromoted strfmt.DateTime `json:"datePromoted,omitempty"`
 
-	// Trigger date-time. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Trigger date-time. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Read Only: true
 	// Format: date-time
 	DateTriggered strfmt.DateTime `json:"dateTriggered,omitempty"`

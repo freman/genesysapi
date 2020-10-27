@@ -35,7 +35,7 @@ type UserScheduleShift struct {
 	// Whether the shift was set as manually edited
 	ManuallyEdited bool `json:"manuallyEdited"`
 
-	// Start time in UTC for this shift. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Start time in UTC for this shift. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Read Only: true
 	// Format: date-time
 	StartDate strfmt.DateTime `json:"startDate,omitempty"`

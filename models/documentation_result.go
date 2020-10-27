@@ -51,7 +51,7 @@ type DocumentationResult struct {
 	// URL link for the documentation entity. Will be returned in responses for certain entities.
 	Link string `json:"link,omitempty"`
 
-	// The modified date for the documentation entity. Will be returned in responses for certain entities. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The modified date for the documentation entity. Will be returned in responses for certain entities. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	Modified strfmt.DateTime `json:"modified,omitempty"`
 

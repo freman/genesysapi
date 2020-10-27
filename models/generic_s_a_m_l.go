@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -39,6 +41,10 @@ type GenericSAML struct {
 	// name
 	Name string `json:"name,omitempty"`
 
+	// name identifier format
+	// Enum: [urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos urn:oasis:names:tc:SAML:2.0:nameid-format:entity urn:oasis:names:tc:SAML:2.0:nameid-format:persistent urn:oasis:names:tc:SAML:2.0:nameid-format:transient]
+	NameIdentifierFormat string `json:"nameIdentifierFormat,omitempty"`
+
 	// relying party identifier
 	RelyingPartyIdentifier string `json:"relyingPartyIdentifier,omitempty"`
 
@@ -55,6 +61,10 @@ type GenericSAML struct {
 func (m *GenericSAML) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateNameIdentifierFormat(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateSelfURI(formats); err != nil {
 		res = append(res, err)
 	}
@@ -62,6 +72,67 @@ func (m *GenericSAML) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+var genericSAMLTypeNameIdentifierFormatPropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified","urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress","urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName","urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName","urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos","urn:oasis:names:tc:SAML:2.0:nameid-format:entity","urn:oasis:names:tc:SAML:2.0:nameid-format:persistent","urn:oasis:names:tc:SAML:2.0:nameid-format:transient"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		genericSAMLTypeNameIdentifierFormatPropEnum = append(genericSAMLTypeNameIdentifierFormatPropEnum, v)
+	}
+}
+
+const (
+
+	// GenericSAMLNameIdentifierFormatUrnOasisNamesTcSAML11NameidFormatUnspecified captures enum value "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"
+	GenericSAMLNameIdentifierFormatUrnOasisNamesTcSAML11NameidFormatUnspecified string = "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"
+
+	// GenericSAMLNameIdentifierFormatUrnOasisNamesTcSAML11NameidFormatEmailAddress captures enum value "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"
+	GenericSAMLNameIdentifierFormatUrnOasisNamesTcSAML11NameidFormatEmailAddress string = "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"
+
+	// GenericSAMLNameIdentifierFormatUrnOasisNamesTcSAML11NameidFormatX509SubjectName captures enum value "urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName"
+	GenericSAMLNameIdentifierFormatUrnOasisNamesTcSAML11NameidFormatX509SubjectName string = "urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName"
+
+	// GenericSAMLNameIdentifierFormatUrnOasisNamesTcSAML11NameidFormatWindowsDomainQualifiedName captures enum value "urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName"
+	GenericSAMLNameIdentifierFormatUrnOasisNamesTcSAML11NameidFormatWindowsDomainQualifiedName string = "urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName"
+
+	// GenericSAMLNameIdentifierFormatUrnOasisNamesTcSAML20NameidFormatKerberos captures enum value "urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos"
+	GenericSAMLNameIdentifierFormatUrnOasisNamesTcSAML20NameidFormatKerberos string = "urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos"
+
+	// GenericSAMLNameIdentifierFormatUrnOasisNamesTcSAML20NameidFormatEntity captures enum value "urn:oasis:names:tc:SAML:2.0:nameid-format:entity"
+	GenericSAMLNameIdentifierFormatUrnOasisNamesTcSAML20NameidFormatEntity string = "urn:oasis:names:tc:SAML:2.0:nameid-format:entity"
+
+	// GenericSAMLNameIdentifierFormatUrnOasisNamesTcSAML20NameidFormatPersistent captures enum value "urn:oasis:names:tc:SAML:2.0:nameid-format:persistent"
+	GenericSAMLNameIdentifierFormatUrnOasisNamesTcSAML20NameidFormatPersistent string = "urn:oasis:names:tc:SAML:2.0:nameid-format:persistent"
+
+	// GenericSAMLNameIdentifierFormatUrnOasisNamesTcSAML20NameidFormatTransient captures enum value "urn:oasis:names:tc:SAML:2.0:nameid-format:transient"
+	GenericSAMLNameIdentifierFormatUrnOasisNamesTcSAML20NameidFormatTransient string = "urn:oasis:names:tc:SAML:2.0:nameid-format:transient"
+)
+
+// prop value enum
+func (m *GenericSAML) validateNameIdentifierFormatEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, genericSAMLTypeNameIdentifierFormatPropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *GenericSAML) validateNameIdentifierFormat(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.NameIdentifierFormat) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateNameIdentifierFormatEnum("nameIdentifierFormat", "body", m.NameIdentifierFormat); err != nil {
+		return err
+	}
+
 	return nil
 }
 

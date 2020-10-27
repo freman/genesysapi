@@ -56,6 +56,10 @@ type Flow struct {
 	// Required: true
 	Name *string `json:"name"`
 
+	// Information about the NLU domain version for the flow
+	// Read Only: true
+	NluInfo *NluInfo `json:"nluInfo,omitempty"`
+
 	// json schema describing the outputs for the flow
 	OutputSchema interface{} `json:"outputSchema,omitempty"`
 
@@ -110,6 +114,10 @@ func (m *Flow) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateName(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateNluInfo(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -251,6 +259,24 @@ func (m *Flow) validateName(formats strfmt.Registry) error {
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *Flow) validateNluInfo(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.NluInfo) { // not required
+		return nil
+	}
+
+	if m.NluInfo != nil {
+		if err := m.NluInfo.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("nluInfo")
+			}
+			return err
+		}
 	}
 
 	return nil

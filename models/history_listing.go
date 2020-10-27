@@ -34,7 +34,7 @@ type HistoryListing struct {
 	// complete
 	Complete bool `json:"complete"`
 
-	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	Completed strfmt.DateTime `json:"completed,omitempty"`
 
@@ -71,7 +71,7 @@ type HistoryListing struct {
 	// page size
 	PageSize int32 `json:"pageSize,omitempty"`
 
-	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	Started strfmt.DateTime `json:"started,omitempty"`
 

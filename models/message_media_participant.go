@@ -29,7 +29,7 @@ type MessageMediaParticipant struct {
 	// A list of ad-hoc attributes for the participant.
 	Attributes map[string]string `json:"attributes,omitempty"`
 
-	// The time when this participant went connected for this media (eg: video connected time). Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The time when this participant went connected for this media (eg: video connected time). Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	ConnectedTime strfmt.DateTime `json:"connectedTime,omitempty"`
 
@@ -44,11 +44,11 @@ type MessageMediaParticipant struct {
 	// Enum: [endpoint client system transfer transfer.conference transfer.consult transfer.forward transfer.noanswer transfer.notavailable transport.failure error peer other spam]
 	DisconnectType string `json:"disconnectType,omitempty"`
 
-	// The timestamp when this participant ended after-call work. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The timestamp when this participant ended after-call work. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	EndAcwTime strfmt.DateTime `json:"endAcwTime,omitempty"`
 
-	// The time when this participant went disconnected for this media (eg: video disconnected time). Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The time when this participant went disconnected for this media (eg: video disconnected time). Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	EndTime strfmt.DateTime `json:"endTime,omitempty"`
 
@@ -104,15 +104,15 @@ type MessageMediaParticipant struct {
 	// The Engage script that should be used by this participant.
 	Script *DomainEntityRef `json:"script,omitempty"`
 
-	// The timestamp when this participant started after-call work. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The timestamp when this participant started after-call work. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	StartAcwTime strfmt.DateTime `json:"startAcwTime,omitempty"`
 
-	// The time when this participant's hold started. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The time when this participant's hold started. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	StartHoldTime strfmt.DateTime `json:"startHoldTime,omitempty"`
 
-	// The time when this participant first joined the conversation. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The time when this participant first joined the conversation. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	StartTime strfmt.DateTime `json:"startTime,omitempty"`
 

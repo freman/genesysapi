@@ -71,12 +71,12 @@ type GetTelephonySiptracesParams struct {
 	*/
 	ConversationID *string
 	/*DateEnd
-	  End date of the search. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	  End date of the search. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 
 	*/
 	DateEnd strfmt.DateTime
 	/*DateStart
-	  Start date of the search. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	  Start date of the search. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 
 	*/
 	DateStart strfmt.DateTime

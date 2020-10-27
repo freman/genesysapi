@@ -17,11 +17,11 @@ import (
 // swagger:model ReportSchedule
 type ReportSchedule struct {
 
-	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	DateCreated strfmt.DateTime `json:"dateCreated,omitempty"`
 
-	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	DateModified strfmt.DateTime `json:"dateModified,omitempty"`
 
@@ -48,7 +48,7 @@ type ReportSchedule struct {
 	// name
 	Name string `json:"name,omitempty"`
 
-	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	NextFireTime strfmt.DateTime `json:"nextFireTime,omitempty"`
 

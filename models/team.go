@@ -17,7 +17,7 @@ import (
 // swagger:model Team
 type Team struct {
 
-	// Last modified datetime. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Last modified datetime. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Read Only: true
 	// Format: date-time
 	DateModified strfmt.DateTime `json:"dateModified,omitempty"`

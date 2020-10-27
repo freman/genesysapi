@@ -22,11 +22,11 @@ type ScimEmail struct {
 	// Indicates whether the email address is the primary email address.
 	Primary bool `json:"primary"`
 
-	// The type of email address.
+	// The type of email address. "value" is immutable if "type" is set to "other".
 	// Enum: [work other]
 	Type string `json:"type,omitempty"`
 
-	// The email address. Note value for type 'other'is immutable.
+	// The email address. Is immutable if "type" is set to "other".
 	Value string `json:"value,omitempty"`
 }
 

@@ -20,14 +20,14 @@ import (
 // swagger:model AnalyticsConversation
 type AnalyticsConversation struct {
 
-	// Date/time the conversation ended. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date/time the conversation ended. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	ConversationEnd strfmt.DateTime `json:"conversationEnd,omitempty"`
 
 	// Unique identifier for the conversation
 	ConversationID string `json:"conversationId,omitempty"`
 
-	// Date/time the conversation started. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date/time the conversation started. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	ConversationStart strfmt.DateTime `json:"conversationStart,omitempty"`
 

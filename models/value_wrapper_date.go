@@ -17,7 +17,7 @@ import (
 // swagger:model ValueWrapperDate
 type ValueWrapperDate struct {
 
-	// The value for the associated field. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The value for the associated field. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	Value strfmt.DateTime `json:"value,omitempty"`
 }

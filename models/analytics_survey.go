@@ -17,7 +17,7 @@ import (
 // swagger:model AnalyticsSurvey
 type AnalyticsSurvey struct {
 
-	// Specifies when a survey occurred. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Specifies when a survey occurred. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	EventTime strfmt.DateTime `json:"eventTime,omitempty"`
 
@@ -27,7 +27,7 @@ type AnalyticsSurvey struct {
 	// Unique identifier for the queue the conversation was on
 	QueueID string `json:"queueId,omitempty"`
 
-	// Completion date/time of the survey. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Completion date/time of the survey. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	SurveyCompletedDate strfmt.DateTime `json:"surveyCompletedDate,omitempty"`
 

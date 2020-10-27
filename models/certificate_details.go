@@ -17,14 +17,14 @@ import (
 // swagger:model CertificateDetails
 type CertificateDetails struct {
 
-	// The expiration date of the certificate. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The expiration date of the certificate. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	ExpirationDate strfmt.DateTime `json:"expirationDate,omitempty"`
 
 	// True if the certificate is expired, false otherwise.
 	Expired bool `json:"expired"`
 
-	// The issue date of the certificate. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The issue date of the certificate. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	IssueDate strfmt.DateTime `json:"issueDate,omitempty"`
 

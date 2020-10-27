@@ -41,7 +41,7 @@ type SurveyForm struct {
 	// Required: true
 	Language *string `json:"language"`
 
-	// Last modified date. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Last modified date. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Read Only: true
 	// Format: date-time
 	ModifiedDate strfmt.DateTime `json:"modifiedDate,omitempty"`

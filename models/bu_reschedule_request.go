@@ -39,7 +39,7 @@ type BuRescheduleRequest struct {
 	// Required: true
 	DoNotChangeWeeklyPaidTime *bool `json:"doNotChangeWeeklyPaidTime"`
 
-	// The end of the range to reschedule.  Defaults the the end of the schedule. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The end of the range to reschedule.  Defaults the the end of the schedule. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	EndDate strfmt.DateTime `json:"endDate,omitempty"`
 
@@ -47,7 +47,7 @@ type BuRescheduleRequest struct {
 	// Required: true
 	ManagementUnitIds []string `json:"managementUnitIds"`
 
-	// The start of the range to reschedule.  Defaults to the beginning of the schedule. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The start of the range to reschedule.  Defaults to the beginning of the schedule. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	StartDate strfmt.DateTime `json:"startDate,omitempty"`
 }

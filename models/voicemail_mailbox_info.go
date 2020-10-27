@@ -17,7 +17,7 @@ import (
 // swagger:model VoicemailMailboxInfo
 type VoicemailMailboxInfo struct {
 
-	// The date of the oldest voicemail message. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The date of the oldest voicemail message. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Read Only: true
 	// Format: date-time
 	CreatedDate strfmt.DateTime `json:"createdDate,omitempty"`
@@ -26,7 +26,7 @@ type VoicemailMailboxInfo struct {
 	// Read Only: true
 	DeletedCount int32 `json:"deletedCount,omitempty"`
 
-	// The date of the most recent voicemail message. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The date of the most recent voicemail message. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Read Only: true
 	// Format: date-time
 	ModifiedDate strfmt.DateTime `json:"modifiedDate,omitempty"`

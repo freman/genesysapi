@@ -25,7 +25,7 @@ type ExternalContact struct {
 	// cell phone
 	CellPhone *PhoneNumber `json:"cellPhone,omitempty"`
 
-	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	CreateDate strfmt.DateTime `json:"createDate,omitempty"`
 
@@ -66,7 +66,7 @@ type ExternalContact struct {
 	// middle name
 	MiddleName string `json:"middleName,omitempty"`
 
-	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	ModifyDate strfmt.DateTime `json:"modifyDate,omitempty"`
 

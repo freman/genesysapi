@@ -22,7 +22,7 @@ type AnalyticsUserDetailsAsyncQueryResponse struct {
 	// Optional cursor to indicate where to resume the results
 	Cursor string `json:"cursor,omitempty"`
 
-	// Data available up to at least this datetime. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Data available up to at least this datetime. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	DataAvailabilityDate strfmt.DateTime `json:"dataAvailabilityDate,omitempty"`
 

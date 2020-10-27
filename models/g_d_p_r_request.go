@@ -25,7 +25,7 @@ type GDPRRequest struct {
 	// Read Only: true
 	CreatedBy *DomainEntityRef `json:"createdBy"`
 
-	// When the request was submitted. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// When the request was submitted. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Required: true
 	// Read Only: true
 	// Format: date-time

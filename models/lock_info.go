@@ -23,11 +23,11 @@ type LockInfo struct {
 	// Enum: [UPDATE DELETE COPY MOVE REPLACE THUMBNAIL TEXT_EXTRACTION]
 	Action string `json:"action,omitempty"`
 
-	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	DateCreated strfmt.DateTime `json:"dateCreated,omitempty"`
 
-	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	DateExpires strfmt.DateTime `json:"dateExpires,omitempty"`
 

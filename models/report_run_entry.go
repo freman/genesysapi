@@ -45,7 +45,7 @@ type ReportRunEntry struct {
 	// Enum: [RUNNING COMPLETED COMPLETED_WITH_ERRORS FAILED FAILED_TIMEOUT FAILED_DATALIMIT UNABLE_TO_COMPLETE]
 	RunStatus string `json:"runStatus,omitempty"`
 
-	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	RunTime strfmt.DateTime `json:"runTime,omitempty"`
 

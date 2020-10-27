@@ -27,7 +27,7 @@ type SmsPhoneNumber struct {
 	// Enum: [Quarterly]
 	AutoRenewable string `json:"autoRenewable,omitempty"`
 
-	// Contract end date of this phone number, if the phoneNumberType is shortcode. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Contract end date of this phone number, if the phoneNumberType is shortcode. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	CancellationDate strfmt.DateTime `json:"cancellationDate,omitempty"`
 
@@ -41,11 +41,11 @@ type SmsPhoneNumber struct {
 	// User that provisioned this phone number
 	CreatedBy *User `json:"createdBy,omitempty"`
 
-	// Date this phone number was provisioned. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date this phone number was provisioned. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	DateCreated strfmt.DateTime `json:"dateCreated,omitempty"`
 
-	// Date this phone number was modified. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date this phone number was modified. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	DateModified strfmt.DateTime `json:"dateModified,omitempty"`
 
@@ -75,11 +75,11 @@ type SmsPhoneNumber struct {
 	// Is set to false, if the phone number is provisioned through a SMS provider, outside of PureCloud
 	ProvisionedThroughPureCloud bool `json:"provisionedThroughPureCloud"`
 
-	// Date this phone number was purchased, if the phoneNumberType is shortcode. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date this phone number was purchased, if the phoneNumberType is shortcode. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	PurchaseDate strfmt.DateTime `json:"purchaseDate,omitempty"`
 
-	// Contract renewal date of this phone number, if the phoneNumberType is shortcode. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Contract renewal date of this phone number, if the phoneNumberType is shortcode. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	RenewalDate strfmt.DateTime `json:"renewalDate,omitempty"`
 

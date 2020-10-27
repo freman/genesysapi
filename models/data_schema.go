@@ -28,7 +28,7 @@ type DataSchema struct {
 	// Read Only: true
 	CreatedBy *DomainEntityRef `json:"createdBy,omitempty"`
 
-	// The date and time this schema was created. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The date and time this schema was created. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Read Only: true
 	// Format: date-time
 	DateCreated strfmt.DateTime `json:"dateCreated,omitempty"`

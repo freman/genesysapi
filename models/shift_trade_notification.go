@@ -19,7 +19,7 @@ import (
 // swagger:model ShiftTradeNotification
 type ShiftTradeNotification struct {
 
-	// The start date and time of the initiating shift. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The start date and time of the initiating shift. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	InitiatingShiftDate strfmt.DateTime `json:"initiatingShiftDate,omitempty"`
 
@@ -33,7 +33,7 @@ type ShiftTradeNotification struct {
 	// Whether this is a one sided shift trade
 	OneSided bool `json:"oneSided"`
 
-	// The start date and time of the receiving shift (null if not matched or if one-sided. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The start date and time of the receiving shift (null if not matched or if one-sided. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	ReceivingShiftDate strfmt.DateTime `json:"receivingShiftDate,omitempty"`
 

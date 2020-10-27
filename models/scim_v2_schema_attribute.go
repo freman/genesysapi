@@ -41,7 +41,7 @@ type ScimV2SchemaAttribute struct {
 	// Enum: [readWrite readOnly immutable writeOnly]
 	Mutability string `json:"mutability,omitempty"`
 
-	// The attribute's name
+	// The name of the attribute.
 	// Read Only: true
 	Name string `json:"name,omitempty"`
 

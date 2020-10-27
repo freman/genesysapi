@@ -57,7 +57,7 @@ type IntegrationEvent struct {
 	// Format: uri
 	SelfURI strfmt.URI `json:"selfUri,omitempty"`
 
-	// Time the event occurred. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Time the event occurred. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Read Only: true
 	// Format: date-time
 	Timestamp strfmt.DateTime `json:"timestamp,omitempty"`

@@ -50,7 +50,7 @@ type ParticipantBasic struct {
 	// cobrowsesessions
 	Cobrowsesessions []*Cobrowsesession `json:"cobrowsesessions"`
 
-	// The timestamp when this participant was connected to the conversation in the provider clock. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The timestamp when this participant was connected to the conversation in the provider clock. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	ConnectedTime strfmt.DateTime `json:"connectedTime,omitempty"`
 
@@ -66,11 +66,11 @@ type ParticipantBasic struct {
 	// emails
 	Emails []*Email `json:"emails"`
 
-	// The timestamp when this participant ended after-call work. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The timestamp when this participant ended after-call work. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	EndAcwTime strfmt.DateTime `json:"endAcwTime,omitempty"`
 
-	// The timestamp when this participant disconnected from the conversation in the provider clock. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The timestamp when this participant disconnected from the conversation in the provider clock. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	EndTime strfmt.DateTime `json:"endTime,omitempty"`
 
@@ -127,11 +127,11 @@ type ParticipantBasic struct {
 	// social expressions
 	SocialExpressions []*SocialExpression `json:"socialExpressions"`
 
-	// The timestamp when this participant started after-call work. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The timestamp when this participant started after-call work. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	StartAcwTime strfmt.DateTime `json:"startAcwTime,omitempty"`
 
-	// The timestamp when this participant joined the conversation in the provider clock. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The timestamp when this participant joined the conversation in the provider clock. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	StartTime strfmt.DateTime `json:"startTime,omitempty"`
 

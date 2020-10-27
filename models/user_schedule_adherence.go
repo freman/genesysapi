@@ -24,7 +24,7 @@ type UserScheduleAdherence struct {
 	// Read Only: true
 	ActiveQueues []*QueueReference `json:"activeQueues"`
 
-	// Time when the list of active queues for this user was last updated. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Time when the list of active queues for this user was last updated. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Read Only: true
 	// Format: date-time
 	ActiveQueuesModifiedTime strfmt.DateTime `json:"activeQueuesModifiedTime,omitempty"`
@@ -63,7 +63,7 @@ type UserScheduleAdherence struct {
 	// Read Only: true
 	OrganizationSecondaryPresenceID string `json:"organizationSecondaryPresenceId,omitempty"`
 
-	// Time when presence was last updated.  Used to calculate time in current status. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Time when presence was last updated.  Used to calculate time in current status. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Read Only: true
 	// Format: date-time
 	PresenceUpdateTime strfmt.DateTime `json:"presenceUpdateTime,omitempty"`

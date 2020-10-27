@@ -17,7 +17,7 @@ import (
 // swagger:model BillingUsageResource
 type BillingUsageResource struct {
 
-	// The date that the usage was first observed by the billing subsystem. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The date that the usage was first observed by the billing subsystem. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Required: true
 	// Format: date-time
 	Date *strfmt.DateTime `json:"date"`

@@ -19,7 +19,7 @@ import (
 // swagger:model ScimMetadata
 type ScimMetadata struct {
 
-	// The last time that the resource was modified. Date time is represented as an ISO-8601 string, for example, yyyy-MM-ddTHH:mm:ss.SSSZ. Not present on Schema and ResourceType resource.
+	// The last time that the resource was modified. Date time is represented as an "ISO-8601 string", for example, yyyy-MM-ddTHH:mm:ss.SSSZ. Not included with "Schema" and "ResourceType" resources.
 	// Read Only: true
 	// Format: date-time
 	LastModified strfmt.DateTime `json:"lastModified,omitempty"`
@@ -34,7 +34,7 @@ type ScimMetadata struct {
 	// Enum: [User Group ServiceProviderConfig ResourceType Schema]
 	ResourceType string `json:"resourceType,omitempty"`
 
-	// The version of the resource. Matches the ETag HTTP response header. Not present on Schema and ResourceType resources.
+	// The version of the resource. Matches the ETag HTTP response header. Not included with "Schema" and "ResourceType" resources.
 	// Read Only: true
 	Version string `json:"version,omitempty"`
 }

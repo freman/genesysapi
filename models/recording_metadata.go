@@ -23,7 +23,7 @@ type RecordingMetadata struct {
 	// Annotations that belong to the recording. Populated when recording filestate is AVAILABLE.
 	Annotations []*Annotation `json:"annotations"`
 
-	// The date the recording will be archived. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The date the recording will be archived. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	ArchiveDate strfmt.DateTime `json:"archiveDate,omitempty"`
 
@@ -34,18 +34,18 @@ type RecordingMetadata struct {
 	// conversation Id
 	ConversationID string `json:"conversationId,omitempty"`
 
-	// The date the recording will be deleted. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The date the recording will be deleted. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	DeleteDate strfmt.DateTime `json:"deleteDate,omitempty"`
 
 	// end time
 	EndTime string `json:"endTime,omitempty"`
 
-	// The date the recording will be exported. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The date the recording will be exported. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	ExportDate strfmt.DateTime `json:"exportDate,omitempty"`
 
-	// The date the recording was exported. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The date the recording was exported. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	ExportedDate strfmt.DateTime `json:"exportedDate,omitempty"`
 
@@ -72,7 +72,7 @@ type RecordingMetadata struct {
 	// The remaining archive restorations the organization has.
 	RemainingRestorationsAllowedForOrg int32 `json:"remainingRestorationsAllowedForOrg,omitempty"`
 
-	// The amount of time a restored recording will remain restored before being archived again. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The amount of time a restored recording will remain restored before being archived again. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	RestoreExpirationTime strfmt.DateTime `json:"restoreExpirationTime,omitempty"`
 

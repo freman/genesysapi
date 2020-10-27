@@ -20,7 +20,7 @@ import (
 // swagger:model ActionTarget
 type ActionTarget struct {
 
-	// The date the target was created. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The date the target was created. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	CreatedDate strfmt.DateTime `json:"createdDate,omitempty"`
 
@@ -31,7 +31,7 @@ type ActionTarget struct {
 	// Read Only: true
 	ID string `json:"id,omitempty"`
 
-	// The date the target was last modified. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The date the target was last modified. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	ModifiedDate strfmt.DateTime `json:"modifiedDate,omitempty"`
 

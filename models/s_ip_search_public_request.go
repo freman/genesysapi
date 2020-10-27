@@ -23,12 +23,12 @@ type SIPSearchPublicRequest struct {
 	// Unique identification of the conversation
 	ConversationID string `json:"conversationId,omitempty"`
 
-	// End date of the search. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// End date of the search. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Required: true
 	// Format: date-time
 	DateEnd *strfmt.DateTime `json:"dateEnd"`
 
-	// Start date of the search. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Start date of the search. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Required: true
 	// Format: date-time
 	DateStart *strfmt.DateTime `json:"dateStart"`

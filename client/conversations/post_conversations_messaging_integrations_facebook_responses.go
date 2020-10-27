@@ -29,6 +29,12 @@ func (o *PostConversationsMessagingIntegrationsFacebookReader) ReadResponse(resp
 			return nil, err
 		}
 		return result, nil
+	case 202:
+		result := NewPostConversationsMessagingIntegrationsFacebookAccepted()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return result, nil
 	case 400:
 		result := NewPostConversationsMessagingIntegrationsFacebookBadRequest()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -117,6 +123,39 @@ func (o *PostConversationsMessagingIntegrationsFacebookOK) GetPayload() *models.
 }
 
 func (o *PostConversationsMessagingIntegrationsFacebookOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.FacebookIntegration)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPostConversationsMessagingIntegrationsFacebookAccepted creates a PostConversationsMessagingIntegrationsFacebookAccepted with default headers values
+func NewPostConversationsMessagingIntegrationsFacebookAccepted() *PostConversationsMessagingIntegrationsFacebookAccepted {
+	return &PostConversationsMessagingIntegrationsFacebookAccepted{}
+}
+
+/*PostConversationsMessagingIntegrationsFacebookAccepted handles this case with default header values.
+
+Accepted - If async is true, the integration creation in progress.
+*/
+type PostConversationsMessagingIntegrationsFacebookAccepted struct {
+	Payload *models.FacebookIntegration
+}
+
+func (o *PostConversationsMessagingIntegrationsFacebookAccepted) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messaging/integrations/facebook][%d] postConversationsMessagingIntegrationsFacebookAccepted  %+v", 202, o.Payload)
+}
+
+func (o *PostConversationsMessagingIntegrationsFacebookAccepted) GetPayload() *models.FacebookIntegration {
+	return o.Payload
+}
+
+func (o *PostConversationsMessagingIntegrationsFacebookAccepted) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.FacebookIntegration)
 

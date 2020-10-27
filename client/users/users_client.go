@@ -104,6 +104,20 @@ type API interface {
 	*/
 	GetUsers(ctx context.Context, params *GetUsersParams) (*GetUsersOK, error)
 	/*
+	   GetUsersDevelopmentActivities gets list of development activities
+	   Either moduleId or userId is required. Results are filtered based on the applicable permissions.
+	*/
+	GetUsersDevelopmentActivities(ctx context.Context, params *GetUsersDevelopmentActivitiesParams) (*GetUsersDevelopmentActivitiesOK, error)
+	/*
+	   GetUsersDevelopmentActivitiesMe gets list of development activities for current user
+	   Results are filtered based on the applicable permissions.
+	*/
+	GetUsersDevelopmentActivitiesMe(ctx context.Context, params *GetUsersDevelopmentActivitiesMeParams) (*GetUsersDevelopmentActivitiesMeOK, error)
+	/*
+	   GetUsersDevelopmentActivity gets a development activity
+	*/
+	GetUsersDevelopmentActivity(ctx context.Context, params *GetUsersDevelopmentActivityParams) (*GetUsersDevelopmentActivityOK, error)
+	/*
 	   GetUsersMe gets current user details
 	   This request is not valid when using the Client Credentials OAuth grant.
 	*/
@@ -148,6 +162,11 @@ type API interface {
 	   PostUsers creates user
 	*/
 	PostUsers(ctx context.Context, params *PostUsersParams) (*PostUsersOK, error)
+	/*
+	   PostUsersDevelopmentActivitiesAggregatesQuery retrieves aggregated development activity data
+	   Results are filtered based on the applicable permissions.
+	*/
+	PostUsersDevelopmentActivitiesAggregatesQuery(ctx context.Context, params *PostUsersDevelopmentActivitiesAggregatesQueryParams) (*PostUsersDevelopmentActivitiesAggregatesQueryOK, error)
 	/*
 	   PostUsersMePassword changes your password
 	*/
@@ -732,6 +751,85 @@ func (a *Client) GetUsers(ctx context.Context, params *GetUsersParams) (*GetUser
 }
 
 /*
+GetUsersDevelopmentActivities gets list of development activities
+
+Either moduleId or userId is required. Results are filtered based on the applicable permissions.
+*/
+func (a *Client) GetUsersDevelopmentActivities(ctx context.Context, params *GetUsersDevelopmentActivitiesParams) (*GetUsersDevelopmentActivitiesOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getUsersDevelopmentActivities",
+		Method:             "GET",
+		PathPattern:        "/api/v2/users/development/activities",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetUsersDevelopmentActivitiesReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetUsersDevelopmentActivitiesOK), nil
+
+}
+
+/*
+GetUsersDevelopmentActivitiesMe gets list of development activities for current user
+
+Results are filtered based on the applicable permissions.
+*/
+func (a *Client) GetUsersDevelopmentActivitiesMe(ctx context.Context, params *GetUsersDevelopmentActivitiesMeParams) (*GetUsersDevelopmentActivitiesMeOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getUsersDevelopmentActivitiesMe",
+		Method:             "GET",
+		PathPattern:        "/api/v2/users/development/activities/me",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetUsersDevelopmentActivitiesMeReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetUsersDevelopmentActivitiesMeOK), nil
+
+}
+
+/*
+GetUsersDevelopmentActivity gets a development activity
+*/
+func (a *Client) GetUsersDevelopmentActivity(ctx context.Context, params *GetUsersDevelopmentActivityParams) (*GetUsersDevelopmentActivityOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getUsersDevelopmentActivity",
+		Method:             "GET",
+		PathPattern:        "/api/v2/users/development/activities/{activityId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetUsersDevelopmentActivityReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetUsersDevelopmentActivityOK), nil
+
+}
+
+/*
 GetUsersMe gets current user details
 
 This request is not valid when using the Client Credentials OAuth grant.
@@ -1005,6 +1103,33 @@ func (a *Client) PostUsers(ctx context.Context, params *PostUsersParams) (*PostU
 		return nil, err
 	}
 	return result.(*PostUsersOK), nil
+
+}
+
+/*
+PostUsersDevelopmentActivitiesAggregatesQuery retrieves aggregated development activity data
+
+Results are filtered based on the applicable permissions.
+*/
+func (a *Client) PostUsersDevelopmentActivitiesAggregatesQuery(ctx context.Context, params *PostUsersDevelopmentActivitiesAggregatesQueryParams) (*PostUsersDevelopmentActivitiesAggregatesQueryOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postUsersDevelopmentActivitiesAggregatesQuery",
+		Method:             "POST",
+		PathPattern:        "/api/v2/users/development/activities/aggregates/query",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostUsersDevelopmentActivitiesAggregatesQueryReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostUsersDevelopmentActivitiesAggregatesQueryOK), nil
 
 }
 

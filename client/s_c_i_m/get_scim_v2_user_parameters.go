@@ -67,12 +67,12 @@ type GetScimV2UserParams struct {
 	*/
 	IfNoneMatch *string
 	/*Attributes
-	  Indicates which attributes to include. Returns these attributes and the 'id', 'userName', 'active', and 'meta' attributes. Use "attributes" to avoid expensive secondary calls for the default attributes.
+	  Indicates which attributes to include. Returns these attributes and the "id", "userName", "active", and "meta" attributes. Use "attributes" to avoid expensive secondary calls for the default attributes.
 
 	*/
 	Attributes []string
 	/*ExcludedAttributes
-	  Indicates which attributes to exclude. Returns the default attributes minus "excludedAttributes". Use "excludedAttributes" to avoid expensive secondary calls for the default attributes. The 'id', 'userName', 'active', 'meta' attributes  will always be present in output.
+	  Indicates which attributes to exclude. Returns the default attributes minus "excludedAttributes". Always returns the "id", "userName", "active", and "meta" attributes. Use "excludedAttributes" to avoid expensive secondary calls for the default attributes.
 
 	*/
 	ExcludedAttributes []string

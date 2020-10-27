@@ -92,7 +92,7 @@ type GetQualityCalibrationsParams struct {
 	*/
 	ConversationID *string
 	/*EndTime
-	  end of the calibration query. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	  end of the calibration query. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 
 	*/
 	EndTime *strfmt.DateTime
@@ -127,7 +127,7 @@ type GetQualityCalibrationsParams struct {
 	*/
 	SortBy *string
 	/*StartTime
-	  Beginning of the calibration query. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	  Beginning of the calibration query. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 
 	*/
 	StartTime *strfmt.DateTime

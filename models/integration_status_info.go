@@ -32,7 +32,7 @@ type IntegrationStatusInfo struct {
 	// Read Only: true
 	Effective string `json:"effective,omitempty"`
 
-	// Date and time (in UTC) when the integration status (i.e. the code field) was last updated. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date and time (in UTC) when the integration status (i.e. the code field) was last updated. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Read Only: true
 	// Format: date-time
 	LastUpdated strfmt.DateTime `json:"lastUpdated,omitempty"`

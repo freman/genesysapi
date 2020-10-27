@@ -29,6 +29,12 @@ func (o *PostConversationsMessagingIntegrationsTwitterReader) ReadResponse(respo
 			return nil, err
 		}
 		return result, nil
+	case 202:
+		result := NewPostConversationsMessagingIntegrationsTwitterAccepted()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return result, nil
 	case 400:
 		result := NewPostConversationsMessagingIntegrationsTwitterBadRequest()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -117,6 +123,39 @@ func (o *PostConversationsMessagingIntegrationsTwitterOK) GetPayload() *models.T
 }
 
 func (o *PostConversationsMessagingIntegrationsTwitterOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.TwitterIntegration)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPostConversationsMessagingIntegrationsTwitterAccepted creates a PostConversationsMessagingIntegrationsTwitterAccepted with default headers values
+func NewPostConversationsMessagingIntegrationsTwitterAccepted() *PostConversationsMessagingIntegrationsTwitterAccepted {
+	return &PostConversationsMessagingIntegrationsTwitterAccepted{}
+}
+
+/*PostConversationsMessagingIntegrationsTwitterAccepted handles this case with default header values.
+
+Accepted - If async is true, the integration creation is in progress.
+*/
+type PostConversationsMessagingIntegrationsTwitterAccepted struct {
+	Payload *models.TwitterIntegration
+}
+
+func (o *PostConversationsMessagingIntegrationsTwitterAccepted) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messaging/integrations/twitter][%d] postConversationsMessagingIntegrationsTwitterAccepted  %+v", 202, o.Payload)
+}
+
+func (o *PostConversationsMessagingIntegrationsTwitterAccepted) GetPayload() *models.TwitterIntegration {
+	return o.Payload
+}
+
+func (o *PostConversationsMessagingIntegrationsTwitterAccepted) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.TwitterIntegration)
 

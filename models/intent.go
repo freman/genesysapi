@@ -10,22 +10,22 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// EntityListing entity listing
+// Intent intent
 //
-// swagger:model EntityListing
-type EntityListing struct {
+// swagger:model Intent
+type Intent struct {
 
-	// entities
-	Entities []interface{} `json:"entities"`
+	// name
+	Name string `json:"name,omitempty"`
 }
 
-// Validate validates this entity listing
-func (m *EntityListing) Validate(formats strfmt.Registry) error {
+// Validate validates this intent
+func (m *Intent) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
 // MarshalBinary interface implementation
-func (m *EntityListing) MarshalBinary() ([]byte, error) {
+func (m *Intent) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -33,8 +33,8 @@ func (m *EntityListing) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *EntityListing) UnmarshalBinary(b []byte) error {
-	var res EntityListing
+func (m *Intent) UnmarshalBinary(b []byte) error {
+	var res Intent
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

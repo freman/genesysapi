@@ -36,7 +36,7 @@ type AuditQueryExecutionStatusResponse struct {
 	// Sort parameter for the audit query.
 	Sort []*AuditQuerySort `json:"sort"`
 
-	// Start date and time of the audit query execution. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Start date and time of the audit query execution. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	StartDate strfmt.DateTime `json:"startDate,omitempty"`
 

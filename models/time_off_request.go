@@ -53,7 +53,7 @@ type TimeOffRequest struct {
 	// The user who reviewed this time off request
 	ReviewedBy *UserReference `json:"reviewedBy,omitempty"`
 
-	// The timestamp when this request was reviewed. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The timestamp when this request was reviewed. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	ReviewedDate strfmt.DateTime `json:"reviewedDate,omitempty"`
 
@@ -69,7 +69,7 @@ type TimeOffRequest struct {
 	// The user who submitted this time off request
 	SubmittedBy *UserReference `json:"submittedBy,omitempty"`
 
-	// The timestamp when this request was submitted. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The timestamp when this request was submitted. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	SubmittedDate strfmt.DateTime `json:"submittedDate,omitempty"`
 

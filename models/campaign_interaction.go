@@ -26,11 +26,11 @@ type CampaignInteraction struct {
 	// agent
 	Agent *DomainEntityRef `json:"agent,omitempty"`
 
-	// The time when the agent or system places the call. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The time when the agent or system places the call. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	CallPlacedTime strfmt.DateTime `json:"callPlacedTime,omitempty"`
 
-	// The time when the agent was connected to the call. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The time when the agent was connected to the call. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	CallRoutedTime strfmt.DateTime `json:"callRoutedTime,omitempty"`
 
@@ -49,7 +49,7 @@ type CampaignInteraction struct {
 	// conversation
 	Conversation *ConversationBasic `json:"conversation,omitempty"`
 
-	// The time when dialer created the interaction. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The time when dialer created the interaction. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	CreationTime strfmt.DateTime `json:"creationTime,omitempty"`
 
@@ -69,15 +69,15 @@ type CampaignInteraction struct {
 	// id
 	ID string `json:"id,omitempty"`
 
-	// The time when the last preview of the interaction was wrapped up. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The time when the last preview of the interaction was wrapped up. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	LastActivePreviewWrapupTime strfmt.DateTime `json:"lastActivePreviewWrapupTime,omitempty"`
 
-	// The time when the customer and routing participant are connected. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The time when the customer and routing participant are connected. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	PreviewConnectedTime strfmt.DateTime `json:"previewConnectedTime,omitempty"`
 
-	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	PreviewPopDeliveredTime strfmt.DateTime `json:"previewPopDeliveredTime,omitempty"`
 

@@ -48,7 +48,7 @@ type WfmUserNotification struct {
 	// Read Only: true
 	TimeOffRequest *TimeOffRequestNotification `json:"timeOffRequest,omitempty"`
 
-	// The timestamp for this notification. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The timestamp for this notification. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Read Only: true
 	// Format: date-time
 	Timestamp strfmt.DateTime `json:"timestamp,omitempty"`

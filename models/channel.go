@@ -21,7 +21,7 @@ type Channel struct {
 	// Format: uri
 	ConnectURI strfmt.URI `json:"connectUri,omitempty"`
 
-	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	Expires strfmt.DateTime `json:"expires,omitempty"`
 

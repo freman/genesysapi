@@ -41,14 +41,14 @@ type WebChatMemberInfo struct {
 	// The communicationId of this member.
 	ID string `json:"id,omitempty"`
 
-	// The time the member joined the conversation. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The time the member joined the conversation. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	JoinDate strfmt.DateTime `json:"joinDate,omitempty"`
 
 	// The last name of the member.
 	LastName string `json:"lastName,omitempty"`
 
-	// The time the member left the conversation, or null if the member is still active in the conversation. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The time the member left the conversation, or null if the member is still active in the conversation. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	LeaveDate strfmt.DateTime `json:"leaveDate,omitempty"`
 

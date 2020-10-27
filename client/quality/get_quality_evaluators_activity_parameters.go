@@ -82,7 +82,7 @@ for the get quality evaluators activity operation typically these are written to
 type GetQualityEvaluatorsActivityParams struct {
 
 	/*EndTime
-	  The end time specified. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	  The end time specified. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 
 	*/
 	EndTime *strfmt.DateTime
@@ -132,7 +132,7 @@ type GetQualityEvaluatorsActivityParams struct {
 	*/
 	SortBy *string
 	/*StartTime
-	  The start time specified. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	  The start time specified. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 
 	*/
 	StartTime *strfmt.DateTime

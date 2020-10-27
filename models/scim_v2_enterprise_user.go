@@ -22,7 +22,7 @@ type ScimV2EnterpriseUser struct {
 	// The division that the user belongs to.
 	Division string `json:"division,omitempty"`
 
-	// The users employee number.
+	// The user's employee number.
 	EmployeeNumber string `json:"employeeNumber,omitempty"`
 
 	// The user's manager.

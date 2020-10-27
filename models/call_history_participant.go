@@ -39,7 +39,7 @@ type CallHistoryParticipant struct {
 	// The call DNIS.
 	Dnis string `json:"dnis,omitempty"`
 
-	// The time when this participant went disconnected for this media (eg: video disconnected time). Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The time when this participant went disconnected for this media (eg: video disconnected time). Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	EndTime strfmt.DateTime `json:"endTime,omitempty"`
 
@@ -74,7 +74,7 @@ type CallHistoryParticipant struct {
 	// Indicates SIP Response codes associated with the participant
 	SipResponseCodes []int64 `json:"sipResponseCodes"`
 
-	// The time when this participant first joined the conversation. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The time when this participant first joined the conversation. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	StartTime strfmt.DateTime `json:"startTime,omitempty"`
 

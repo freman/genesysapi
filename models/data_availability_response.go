@@ -17,7 +17,7 @@ import (
 // swagger:model DataAvailabilityResponse
 type DataAvailabilityResponse struct {
 
-	// Date and time before which data is guaranteed to be available in the datalake. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date and time before which data is guaranteed to be available in the datalake. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	DataAvailabilityDate strfmt.DateTime `json:"dataAvailabilityDate,omitempty"`
 }

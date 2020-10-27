@@ -33,7 +33,7 @@ type MessageDetails struct {
 	// Enum: [queued sent failed received delivery-success delivery-failed read]
 	MessageStatus string `json:"messageStatus,omitempty"`
 
-	// The time when the message was sent or received. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The time when the message was sent or received. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	MessageTime strfmt.DateTime `json:"messageTime,omitempty"`
 

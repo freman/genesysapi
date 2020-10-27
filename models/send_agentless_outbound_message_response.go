@@ -41,7 +41,7 @@ type SendAgentlessOutboundMessageResponse struct {
 	// The body of the text message.
 	TextBody string `json:"textBody,omitempty"`
 
-	// The time when the message was sent. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The time when the message was sent. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	Timestamp strfmt.DateTime `json:"timestamp,omitempty"`
 

@@ -22,7 +22,7 @@ type BuForecastResult struct {
 	// The forecast data broken up by planning group
 	PlanningGroups []*ForecastPlanningGroupData `json:"planningGroups"`
 
-	// The reference start date for interval-based data for this forecast. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The reference start date for interval-based data for this forecast. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	ReferenceStartDate strfmt.DateTime `json:"referenceStartDate,omitempty"`
 

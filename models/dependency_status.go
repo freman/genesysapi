@@ -26,11 +26,11 @@ type DependencyStatus struct {
 	// OAuth client that initiated the build.
 	Client *DomainEntityRef `json:"client,omitempty"`
 
-	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	DateCompleted strfmt.DateTime `json:"dateCompleted,omitempty"`
 
-	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	DateStarted strfmt.DateTime `json:"dateStarted,omitempty"`
 

@@ -25,7 +25,7 @@ type Survey struct {
 	// answers
 	Answers *SurveyScoringSet `json:"answers,omitempty"`
 
-	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	CompletedDate strfmt.DateTime `json:"completedDate,omitempty"`
 

@@ -29,7 +29,7 @@ type Conversation struct {
 	// Identifiers of divisions associated with this conversation
 	Divisions []*ConversationDivisionMembership `json:"divisions"`
 
-	// The time when the conversation ended. This will be the time when the last participant left the conversation, or null when the conversation is still active. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The time when the conversation ended. This will be the time when the last participant left the conversation, or null when the conversation is still active. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	EndTime strfmt.DateTime `json:"endTime,omitempty"`
 
@@ -56,7 +56,7 @@ type Conversation struct {
 	// Format: uri
 	SelfURI strfmt.URI `json:"selfUri,omitempty"`
 
-	// The time when the conversation started. This will be the time when the first participant joined the conversation. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The time when the conversation started. This will be the time when the first participant joined the conversation. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Required: true
 	// Format: date-time
 	StartTime *strfmt.DateTime `json:"startTime"`

@@ -45,7 +45,7 @@ type ObservationValue struct {
 	// Dialed number identification service (number dialed by the calling party)
 	Dnis string `json:"dnis,omitempty"`
 
-	// The time at which the observation occurred. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The time at which the observation occurred. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Required: true
 	// Format: date-time
 	ObservationDate *strfmt.DateTime `json:"observationDate"`

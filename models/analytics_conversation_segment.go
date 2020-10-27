@@ -64,11 +64,11 @@ type AnalyticsConversationSegment struct {
 	// scored agents
 	ScoredAgents []*AnalyticsScoredAgent `json:"scoredAgents"`
 
-	// The timestamp when this segment ended. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The timestamp when this segment ended. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	SegmentEnd strfmt.DateTime `json:"segmentEnd,omitempty"`
 
-	// The timestamp when this segment began. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The timestamp when this segment began. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	SegmentStart strfmt.DateTime `json:"segmentStart,omitempty"`
 

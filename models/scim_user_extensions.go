@@ -18,7 +18,7 @@ import (
 // swagger:model ScimUserExtensions
 type ScimUserExtensions struct {
 
-	// External Identifiers assigned to user. SCIM External ID will be visible here with authority prefix 'x-pc:scimv2:v1' but will be immutable.
+	// The list of external identifiers assigned to user. Always includes an immutable SCIM authority prefixed with "x-pc:scimv2:v1".
 	ExternalIds []*ScimGenesysUserExternalID `json:"externalIds"`
 
 	// The list of routing languages assigned to a user. Maximum 50 languages.

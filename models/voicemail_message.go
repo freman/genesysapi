@@ -51,7 +51,7 @@ type VoicemailMessage struct {
 	// Read Only: true
 	CopiedTo []*VoicemailCopyRecord `json:"copiedTo"`
 
-	// The date the voicemail message was created. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The date the voicemail message was created. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Read Only: true
 	// Format: date-time
 	CreatedDate strfmt.DateTime `json:"createdDate,omitempty"`
@@ -62,7 +62,7 @@ type VoicemailMessage struct {
 	// Whether the voicemail message has been marked as deleted
 	Deleted bool `json:"deleted"`
 
-	// The date the voicemail message deleted property was set to true. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The date the voicemail message deleted property was set to true. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Read Only: true
 	// Format: date-time
 	DeletedDate strfmt.DateTime `json:"deletedDate,omitempty"`
@@ -75,7 +75,7 @@ type VoicemailMessage struct {
 	// Read Only: true
 	ID string `json:"id,omitempty"`
 
-	// The date the voicemail message was last modified. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The date the voicemail message was last modified. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Read Only: true
 	// Format: date-time
 	ModifiedDate strfmt.DateTime `json:"modifiedDate,omitempty"`

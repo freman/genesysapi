@@ -19,7 +19,7 @@ import (
 // swagger:model AnalyticsRoutingStatusRecord
 type AnalyticsRoutingStatusRecord struct {
 
-	// The end time of the record. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The end time of the record. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	EndTime strfmt.DateTime `json:"endTime,omitempty"`
 
@@ -27,7 +27,7 @@ type AnalyticsRoutingStatusRecord struct {
 	// Enum: [OFF_QUEUE IDLE INTERACTING NOT_RESPONDING COMMUNICATING]
 	RoutingStatus string `json:"routingStatus,omitempty"`
 
-	// The start time of the record. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The start time of the record. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	StartTime strfmt.DateTime `json:"startTime,omitempty"`
 }

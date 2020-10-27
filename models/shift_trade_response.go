@@ -22,21 +22,21 @@ type ShiftTradeResponse struct {
 	// acceptable intervals
 	AcceptableIntervals []string `json:"acceptableIntervals"`
 
-	// When this shift trade offer will expire if not matched or approved. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// When this shift trade offer will expire if not matched or approved. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	Expiration strfmt.DateTime `json:"expiration,omitempty"`
 
 	// The ID of this shift trade
 	ID string `json:"id,omitempty"`
 
-	// The end date/time of the shift being offered for trade. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The end date/time of the shift being offered for trade. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	InitiatingShiftEnd strfmt.DateTime `json:"initiatingShiftEnd,omitempty"`
 
 	// The ID of the shift offered for trade by the initiating user
 	InitiatingShiftID string `json:"initiatingShiftId,omitempty"`
 
-	// The start date/time of the shift being offered for trade. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The start date/time of the shift being offered for trade. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	InitiatingShiftStart strfmt.DateTime `json:"initiatingShiftStart,omitempty"`
 
@@ -49,14 +49,14 @@ type ShiftTradeResponse struct {
 	// Whether this is a one-sided shift trade (e.g. the initiating user is not asking for a shift in return)
 	OneSided bool `json:"oneSided"`
 
-	// The end date/time of the receiving shift. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The end date/time of the receiving shift. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	ReceivingShiftEnd strfmt.DateTime `json:"receivingShiftEnd,omitempty"`
 
 	// The ID of the shift being exchanged for the initiating shift, null if the receiving user is picking up a shift
 	ReceivingShiftID string `json:"receivingShiftId,omitempty"`
 
-	// The start date/time of the receiving shift. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The start date/time of the receiving shift. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	ReceivingShiftStart strfmt.DateTime `json:"receivingShiftStart,omitempty"`
 
@@ -66,7 +66,7 @@ type ShiftTradeResponse struct {
 	// The user who reviewed this shift trade
 	ReviewedBy *UserReference `json:"reviewedBy,omitempty"`
 
-	// The timestamp when this shift trade was reviewed. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The timestamp when this shift trade was reviewed. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	ReviewedDate strfmt.DateTime `json:"reviewedDate,omitempty"`
 

@@ -29,7 +29,7 @@ type LineStatus struct {
 	// Indicates whether the edge can reach the line.
 	Reachable bool `json:"reachable"`
 
-	// The time the line entered its current reachable state. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The time the line entered its current reachable state. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	ReachableStateTime strfmt.DateTime `json:"reachableStateTime,omitempty"`
 }

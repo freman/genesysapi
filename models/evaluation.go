@@ -29,25 +29,25 @@ type Evaluation struct {
 	// answers
 	Answers *EvaluationScoringSet `json:"answers,omitempty"`
 
-	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	AssignedDate strfmt.DateTime `json:"assignedDate,omitempty"`
 
 	// calibration
 	Calibration *Calibration `json:"calibration,omitempty"`
 
-	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	ChangedDate strfmt.DateTime `json:"changedDate,omitempty"`
 
 	// conversation
 	Conversation *Conversation `json:"conversation,omitempty"`
 
-	// Date of conversation. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date of conversation. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	ConversationDate strfmt.DateTime `json:"conversationDate,omitempty"`
 
-	// End date of conversation if it had completed before evaluation creation. Null if created before the conversation ended. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// End date of conversation if it had completed before evaluation creation. Null if created before the conversation ended. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	ConversationEndDate strfmt.DateTime `json:"conversationEndDate,omitempty"`
 
@@ -79,7 +79,7 @@ type Evaluation struct {
 	// Is only true when the user making the request does not have sufficient permissions to see evaluation
 	Redacted bool `json:"redacted"`
 
-	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	ReleaseDate strfmt.DateTime `json:"releaseDate,omitempty"`
 

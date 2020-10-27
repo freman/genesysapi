@@ -38,7 +38,7 @@ type ReschedulingOptionsRunResponse struct {
 	// Whether weekly paid time is allowed to be changed
 	DoNotChangeWeeklyPaidTime bool `json:"doNotChangeWeeklyPaidTime"`
 
-	// The end date of the period to reschedule. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The end date of the period to reschedule. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	EndDate strfmt.DateTime `json:"endDate,omitempty"`
 
@@ -48,7 +48,7 @@ type ReschedulingOptionsRunResponse struct {
 	// Per-management unit rescheduling options
 	ManagementUnits []*ReschedulingManagementUnitResponse `json:"managementUnits"`
 
-	// The start date of the period to reschedule. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The start date of the period to reschedule. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	StartDate strfmt.DateTime `json:"startDate,omitempty"`
 }

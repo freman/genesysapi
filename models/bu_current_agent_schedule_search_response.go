@@ -25,14 +25,14 @@ type BuCurrentAgentScheduleSearchResponse struct {
 	// The time zone configured for the business unit to which this schedule applies
 	BusinessUnitTimeZone string `json:"businessUnitTimeZone,omitempty"`
 
-	// The end date of the schedules. Only populated on notifications. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The end date of the schedules. Only populated on notifications. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	EndDate strfmt.DateTime `json:"endDate,omitempty"`
 
 	// References to all published week schedules overlapping the start/end date query parameters
 	PublishedSchedules []*BuAgentSchedulePublishedScheduleReference `json:"publishedSchedules"`
 
-	// The start date of the schedules. Only populated on notifications. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The start date of the schedules. Only populated on notifications. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	StartDate strfmt.DateTime `json:"startDate,omitempty"`
 

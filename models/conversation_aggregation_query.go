@@ -40,7 +40,8 @@ type ConversationAggregationQuery struct {
 	// Required: true
 	Interval *string `json:"interval"`
 
-	// Behaves like a SQL SELECT clause. Enables retrieving only named metrics. If omitted, all metrics that are available will be returned (like SELECT *).
+	// Behaves like a SQL SELECT clause. Only named metrics will be retrieved.
+	// Required: true
 	Metrics []string `json:"metrics"`
 
 	// Time zone context used to calculate response intervals (this allows resolving DST changes). The interval offset is used even when timeZone is specified. Default is UTC. Time zones are represented as a string of the zone name as found in the IANA time zone database. For example: UTC, Etc/UTC, or Europe/London
@@ -146,7 +147,7 @@ var conversationAggregationQueryGroupByItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["addressFrom","addressTo","agentAssistantId","agentRank","agentScore","ani","conversationId","convertedFrom","convertedTo","direction","disconnectType","divisionId","dnis","edgeId","externalContactId","externalMediaCount","externalOrganizationId","flaggedReason","flowOutType","groupId","interactionType","journeyActionId","journeyActionMapId","journeyActionMapVersion","journeyCustomerId","journeyCustomerIdType","journeyCustomerSessionId","journeyCustomerSessionIdType","mediaCount","mediaType","messageType","originatingDirection","outboundCampaignId","outboundContactId","outboundContactListId","participantName","peerId","proposedAgentId","provider","purpose","queueId","remote","requestedLanguageId","requestedRouting","requestedRoutingSkillId","roomId","routingPriority","scoredAgentId","selectedAgentId","selectedAgentRank","sessionDnis","sessionId","stationId","teamId","usedRouting","userId","wrapUpCode"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["addressFrom","addressTo","agentAssistantId","agentRank","agentScore","ani","conversationId","convertedFrom","convertedTo","direction","disconnectType","divisionId","dnis","edgeId","externalContactId","externalMediaCount","externalOrganizationId","flaggedReason","flowInType","flowOutType","groupId","interactionType","journeyActionId","journeyActionMapId","journeyActionMapVersion","journeyCustomerId","journeyCustomerIdType","journeyCustomerSessionId","journeyCustomerSessionIdType","mediaCount","mediaType","messageType","originatingDirection","outboundCampaignId","outboundContactId","outboundContactListId","participantName","peerId","proposedAgentId","provider","purpose","queueId","remote","requestedLanguageId","requestedRouting","requestedRoutingSkillId","roomId","routingPriority","scoredAgentId","selectedAgentId","selectedAgentRank","sessionDnis","sessionId","stationId","teamId","usedRouting","userId","wrapUpCode"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -192,7 +193,7 @@ var conversationAggregationQueryMetricsItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["nBlindTransferred","nConnected","nConsult","nConsultTransferred","nError","nOffered","nOutbound","nOutboundAbandoned","nOutboundAttempted","nOutboundConnected","nOverSla","nStateTransitionError","nTransferred","oExternalMediaCount","oInteracting","oMediaCount","oServiceLevel","oServiceTarget","oWaiting","tAbandon","tAcd","tAcw","tAgentResponseTime","tAlert","tAnswered","tContacting","tDialing","tFlowOut","tHandle","tHeld","tHeldComplete","tIvr","tMonitoring","tNotResponding","tShortAbandon","tTalk","tTalkComplete","tUserResponseTime","tVoicemail","tWait"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["nBlindTransferred","nCobrowseSessions","nConnected","nConsult","nConsultTransferred","nError","nOffered","nOutbound","nOutboundAbandoned","nOutboundAttempted","nOutboundConnected","nOverSla","nStateTransitionError","nTransferred","oExternalMediaCount","oInteracting","oMediaCount","oServiceLevel","oServiceTarget","oWaiting","tAbandon","tAcd","tAcw","tAgentResponseTime","tAlert","tAnswered","tContacting","tDialing","tFlowOut","tHandle","tHeld","tHeldComplete","tIvr","tMonitoring","tNotResponding","tShortAbandon","tTalk","tTalkComplete","tUserResponseTime","tVoicemail","tWait"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -209,8 +210,8 @@ func (m *ConversationAggregationQuery) validateMetricsItemsEnum(path, location s
 
 func (m *ConversationAggregationQuery) validateMetrics(formats strfmt.Registry) error {
 
-	if swag.IsZero(m.Metrics) { // not required
-		return nil
+	if err := validate.Required("metrics", "body", m.Metrics); err != nil {
+		return err
 	}
 
 	for i := 0; i < len(m.Metrics); i++ {

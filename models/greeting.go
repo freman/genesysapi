@@ -29,7 +29,7 @@ type Greeting struct {
 	// Format: uri
 	CreatedBy strfmt.URI `json:"createdBy,omitempty"`
 
-	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	CreatedDate strfmt.DateTime `json:"createdDate,omitempty"`
 
@@ -41,7 +41,7 @@ type Greeting struct {
 	// Format: uri
 	ModifiedBy strfmt.URI `json:"modifiedBy,omitempty"`
 
-	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	ModifiedDate strfmt.DateTime `json:"modifiedDate,omitempty"`
 

@@ -27,7 +27,8 @@ type QueueObservationQuery struct {
 	// Required: true
 	Filter *QueueObservationQueryFilter `json:"filter"`
 
-	// Behaves like a SQL SELECT clause. Enables retrieving only named metrics. If omitted, all metrics that are available will be returned (like SELECT *).
+	// Behaves like a SQL SELECT clause. Only named metrics will be retrieved.
+	// Required: true
 	Metrics []string `json:"metrics"`
 }
 
@@ -129,8 +130,8 @@ func (m *QueueObservationQuery) validateMetricsItemsEnum(path, location string, 
 
 func (m *QueueObservationQuery) validateMetrics(formats strfmt.Registry) error {
 
-	if swag.IsZero(m.Metrics) { // not required
-		return nil
+	if err := validate.Required("metrics", "body", m.Metrics); err != nil {
+		return err
 	}
 
 	for i := 0; i < len(m.Metrics); i++ {

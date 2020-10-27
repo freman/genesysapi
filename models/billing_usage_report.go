@@ -20,7 +20,7 @@ import (
 // swagger:model BillingUsageReport
 type BillingUsageReport struct {
 
-	// The period end date. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The period end date. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Required: true
 	// Format: date-time
 	EndDate *strfmt.DateTime `json:"endDate"`
@@ -37,7 +37,7 @@ type BillingUsageReport struct {
 	// Format: uri
 	SelfURI strfmt.URI `json:"selfUri,omitempty"`
 
-	// The period start date. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The period start date. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Required: true
 	// Format: date-time
 	StartDate *strfmt.DateTime `json:"startDate"`

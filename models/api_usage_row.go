@@ -23,7 +23,7 @@ type APIUsageRow struct {
 	// Client Name associated with this query result
 	ClientName string `json:"clientName,omitempty"`
 
-	// Date of requests, based on granularity. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date of requests, based on granularity. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	Date strfmt.DateTime `json:"date,omitempty"`
 

@@ -28,7 +28,7 @@ type Video struct {
 	// Indicates whether this participant has muted their outgoing audio.
 	AudioMuted bool `json:"audioMuted"`
 
-	// The timestamp when this communication was connected in the cloud clock. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The timestamp when this communication was connected in the cloud clock. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	ConnectedTime strfmt.DateTime `json:"connectedTime,omitempty"`
 
@@ -39,7 +39,7 @@ type Video struct {
 	// Enum: [endpoint client system timeout transfer transfer.conference transfer.consult transfer.forward transfer.noanswer transfer.notavailable transport.failure error peer other spam uncallable]
 	DisconnectType string `json:"disconnectType,omitempty"`
 
-	// The timestamp when this communication disconnected from the conversation in the provider clock. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The timestamp when this communication disconnected from the conversation in the provider clock. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	DisconnectedTime strfmt.DateTime `json:"disconnectedTime,omitempty"`
 
@@ -64,7 +64,7 @@ type Video struct {
 	// Indicates whether this participant is sharing their screen to the session.
 	SharingScreen bool `json:"sharingScreen"`
 
-	// The timestamp the communication has when it is first put into an alerting state. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The timestamp the communication has when it is first put into an alerting state. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	StartAlertingTime strfmt.DateTime `json:"startAlertingTime,omitempty"`
 

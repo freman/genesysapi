@@ -17,7 +17,7 @@ import (
 // swagger:model AnalyticsSessionMetric
 type AnalyticsSessionMetric struct {
 
-	// Metric emission date. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Metric emission date. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Required: true
 	// Format: date-time
 	EmitDate *strfmt.DateTime `json:"emitDate"`

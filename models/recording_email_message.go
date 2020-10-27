@@ -43,7 +43,7 @@ type RecordingEmailMessage struct {
 	// text body
 	TextBody string `json:"textBody,omitempty"`
 
-	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	Time strfmt.DateTime `json:"time,omitempty"`
 

@@ -40,7 +40,8 @@ type FlowAggregationQuery struct {
 	// Required: true
 	Interval *string `json:"interval"`
 
-	// Behaves like a SQL SELECT clause. Enables retrieving only named metrics. If omitted, all metrics that are available will be returned (like SELECT *).
+	// Behaves like a SQL SELECT clause. Only named metrics will be retrieved.
+	// Required: true
 	Metrics []string `json:"metrics"`
 
 	// Time zone context used to calculate response intervals (this allows resolving DST changes). The interval offset is used even when timeZone is specified. Default is UTC. Time zones are represented as a string of the zone name as found in the IANA time zone database. For example: UTC, Etc/UTC, or Europe/London
@@ -146,7 +147,7 @@ var flowAggregationQueryGroupByItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["addressFrom","addressTo","agentAssistantId","agentRank","agentScore","ani","conversationId","convertedFrom","convertedTo","direction","disconnectType","divisionId","dnis","edgeId","endingLanguage","entryReason","entryType","exitReason","externalContactId","externalMediaCount","externalOrganizationId","flaggedReason","flowId","flowMilestoneId","flowName","flowOutType","flowOutcome","flowOutcomeId","flowOutcomeValue","flowType","flowVersion","groupId","interactionType","journeyActionId","journeyActionMapId","journeyActionMapVersion","journeyCustomerId","journeyCustomerIdType","journeyCustomerSessionId","journeyCustomerSessionIdType","mediaCount","mediaType","messageType","originatingDirection","outboundCampaignId","outboundContactId","outboundContactListId","participantName","peerId","proposedAgentId","provider","purpose","queueId","remote","requestedLanguageId","requestedRouting","requestedRoutingSkillId","roomId","routingPriority","scoredAgentId","selectedAgentId","selectedAgentRank","sessionDnis","sessionId","startingLanguage","stationId","teamId","transferTargetAddress","transferTargetName","transferType","usedRouting","userId","wrapUpCode"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["addressFrom","addressTo","agentAssistantId","agentRank","agentScore","ani","conversationId","convertedFrom","convertedTo","direction","disconnectType","divisionId","dnis","edgeId","endingLanguage","entryReason","entryType","exitReason","externalContactId","externalMediaCount","externalOrganizationId","flaggedReason","flowId","flowInType","flowMilestoneId","flowName","flowOutType","flowOutcome","flowOutcomeId","flowOutcomeValue","flowType","flowVersion","groupId","interactionType","journeyActionId","journeyActionMapId","journeyActionMapVersion","journeyCustomerId","journeyCustomerIdType","journeyCustomerSessionId","journeyCustomerSessionIdType","mediaCount","mediaType","messageType","originatingDirection","outboundCampaignId","outboundContactId","outboundContactListId","participantName","peerId","proposedAgentId","provider","purpose","queueId","remote","requestedLanguageId","requestedRouting","requestedRoutingSkillId","roomId","routingPriority","scoredAgentId","selectedAgentId","selectedAgentRank","sessionDnis","sessionId","startingLanguage","stationId","teamId","transferTargetAddress","transferTargetName","transferType","usedRouting","userId","wrapUpCode"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -209,8 +210,8 @@ func (m *FlowAggregationQuery) validateMetricsItemsEnum(path, location string, v
 
 func (m *FlowAggregationQuery) validateMetrics(formats strfmt.Registry) error {
 
-	if swag.IsZero(m.Metrics) { // not required
-		return nil
+	if err := validate.Required("metrics", "body", m.Metrics); err != nil {
+		return err
 	}
 
 	for i := 0; i < len(m.Metrics); i++ {

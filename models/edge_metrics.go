@@ -25,7 +25,7 @@ type EdgeMetrics struct {
 	// edge
 	Edge *DomainEntityRef `json:"edge,omitempty"`
 
-	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	EventTime strfmt.DateTime `json:"eventTime,omitempty"`
 

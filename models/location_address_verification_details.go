@@ -19,11 +19,11 @@ import (
 // swagger:model LocationAddressVerificationDetails
 type LocationAddressVerificationDetails struct {
 
-	// Finished time of address verification process. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Finished time of address verification process. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	DateFinished strfmt.DateTime `json:"dateFinished,omitempty"`
 
-	// Time started of address verification process. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Time started of address verification process. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	DateStarted strfmt.DateTime `json:"dateStarted,omitempty"`
 

@@ -19,7 +19,7 @@ import (
 // swagger:model OrphanRecording
 type OrphanRecording struct {
 
-	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	CreatedTime strfmt.DateTime `json:"createdTime,omitempty"`
 
@@ -55,7 +55,7 @@ type OrphanRecording struct {
 	// recording
 	Recording *Recording `json:"recording,omitempty"`
 
-	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	RecoveredTime strfmt.DateTime `json:"recoveredTime,omitempty"`
 

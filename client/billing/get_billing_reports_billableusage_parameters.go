@@ -61,12 +61,12 @@ for the get billing reports billableusage operation typically these are written 
 type GetBillingReportsBillableusageParams struct {
 
 	/*EndDate
-	  The period end date. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	  The period end date. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 
 	*/
 	EndDate strfmt.DateTime
 	/*StartDate
-	  The period start date. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	  The period start date. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 
 	*/
 	StartDate strfmt.DateTime

@@ -19,7 +19,7 @@ import (
 // swagger:model Script
 type Script struct {
 
-	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	CreatedDate strfmt.DateTime `json:"createdDate,omitempty"`
 
@@ -33,7 +33,7 @@ type Script struct {
 	// Read Only: true
 	ID string `json:"id,omitempty"`
 
-	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	ModifiedDate strfmt.DateTime `json:"modifiedDate,omitempty"`
 
@@ -43,7 +43,7 @@ type Script struct {
 	// pages
 	Pages []*Page `json:"pages"`
 
-	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	PublishedDate strfmt.DateTime `json:"publishedDate,omitempty"`
 
@@ -61,7 +61,7 @@ type Script struct {
 	// variables
 	Variables interface{} `json:"variables,omitempty"`
 
-	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	VersionDate strfmt.DateTime `json:"versionDate,omitempty"`
 

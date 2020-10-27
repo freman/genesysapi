@@ -30,7 +30,7 @@ type ScimConfigResourceType struct {
 	// Read Only: true
 	ID string `json:"id,omitempty"`
 
-	// The metadata of the SCIM resource. Only location and resourceType are set for ResourceType resources.
+	// The metadata of the SCIM resource. Only "location" and "resourceType" are set for "ResourceType" resources.
 	// Read Only: true
 	Meta *ScimMetadata `json:"meta,omitempty"`
 

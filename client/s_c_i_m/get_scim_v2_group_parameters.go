@@ -62,17 +62,17 @@ for the get scim v2 group operation typically these are written to a http.Reques
 type GetScimV2GroupParams struct {
 
 	/*IfNoneMatch
-	  TThe ETag of a resource in double quotes. Returned as header and meta.version with initial call to GET /api/v2/scim/v2/groups/{groupId}. Example: "42". If the ETag is different from the version on the server, returns the current configuration of the resource. If the ETag is current, returns 304 Not Modified.
+	  The ETag of a resource in double quotes. Returned as header and meta.version with initial call to GET /api/v2/scim/v2/groups/{groupId}. Example: "42". If the ETag is different from the version on the server, returns the current configuration of the resource. If the ETag is current, returns 304 Not Modified.
 
 	*/
 	IfNoneMatch *string
 	/*Attributes
-	  Indicates which attributes to include. Returns these attributes and the 'id', 'active', and 'meta attributes . Use "attributes" to avoid expensive secondary calls for the default attributes.
+	  Indicates which attributes to include. Returns these attributes and the "id", "active", and "meta" attributes. Use "attributes" to avoid expensive secondary calls for the default attributes.
 
 	*/
 	Attributes []string
 	/*ExcludedAttributes
-	  Indicates which attributes to exclude. Returns the default attributes minus "excludedAttributes". Use "excludedAttributes" to avoid expensive secondary calls for the default attributes. The'id', 'active', and 'meta' attributes will always be present in the output.
+	  Indicates which attributes to exclude. Returns the default attributes minus "excludedAttributes". Always returns "id", "active", and "meta" attributes. Use "excludedAttributes" to avoid expensive secondary calls for the default attributes.
 
 	*/
 	ExcludedAttributes []string

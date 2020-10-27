@@ -28,14 +28,23 @@ type WhatsAppIntegration struct {
 	// Enum: [CodeSent WaitRequired ActivationFailed CodeConfirmed ConfirmationFailed ResendCode]
 	ActivationStatusCode string `json:"activationStatusCode,omitempty"`
 
+	// Error information returned, if createStatus is set to Error
+	// Read Only: true
+	CreateError *ErrorBody `json:"createError,omitempty"`
+
+	// Status of asynchronous create operation
+	// Read Only: true
+	// Enum: [Initiated Completed Error]
+	CreateStatus string `json:"createStatus,omitempty"`
+
 	// User reference that created this Integration
 	CreatedBy *DomainEntityRef `json:"createdBy,omitempty"`
 
-	// Date this Integration was created. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date this Integration was created. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	DateCreated strfmt.DateTime `json:"dateCreated,omitempty"`
 
-	// Date this Integration was last modified. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date this Integration was last modified. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	DateModified strfmt.DateTime `json:"dateModified,omitempty"`
 
@@ -82,6 +91,14 @@ func (m *WhatsAppIntegration) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateActivationStatusCode(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCreateError(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCreateStatus(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -202,6 +219,70 @@ func (m *WhatsAppIntegration) validateActivationStatusCode(formats strfmt.Regist
 
 	// value enum
 	if err := m.validateActivationStatusCodeEnum("activationStatusCode", "body", m.ActivationStatusCode); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *WhatsAppIntegration) validateCreateError(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.CreateError) { // not required
+		return nil
+	}
+
+	if m.CreateError != nil {
+		if err := m.CreateError.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("createError")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+var whatsAppIntegrationTypeCreateStatusPropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Initiated","Completed","Error"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		whatsAppIntegrationTypeCreateStatusPropEnum = append(whatsAppIntegrationTypeCreateStatusPropEnum, v)
+	}
+}
+
+const (
+
+	// WhatsAppIntegrationCreateStatusInitiated captures enum value "Initiated"
+	WhatsAppIntegrationCreateStatusInitiated string = "Initiated"
+
+	// WhatsAppIntegrationCreateStatusCompleted captures enum value "Completed"
+	WhatsAppIntegrationCreateStatusCompleted string = "Completed"
+
+	// WhatsAppIntegrationCreateStatusError captures enum value "Error"
+	WhatsAppIntegrationCreateStatusError string = "Error"
+)
+
+// prop value enum
+func (m *WhatsAppIntegration) validateCreateStatusEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, whatsAppIntegrationTypeCreateStatusPropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *WhatsAppIntegration) validateCreateStatus(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.CreateStatus) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateCreateStatusEnum("createStatus", "body", m.CreateStatus); err != nil {
 		return err
 	}
 

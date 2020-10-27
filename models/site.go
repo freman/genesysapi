@@ -33,11 +33,11 @@ type Site struct {
 	// The application that created the resource.
 	CreatedByApp string `json:"createdByApp,omitempty"`
 
-	// The date the resource was created. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The date the resource was created. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	DateCreated strfmt.DateTime `json:"dateCreated,omitempty"`
 
-	// The date of the last modification to the resource. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The date of the last modification to the resource. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	DateModified strfmt.DateTime `json:"dateModified,omitempty"`
 
@@ -60,6 +60,10 @@ type Site struct {
 
 	// managed
 	Managed bool `json:"managed"`
+
+	// Media model for the site
+	// Enum: [Premises Cloud]
+	MediaModel string `json:"mediaModel,omitempty"`
 
 	// media regions use latency based
 	MediaRegionsUseLatencyBased bool `json:"mediaRegionsUseLatencyBased"`
@@ -128,6 +132,10 @@ func (m *Site) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateLocation(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateMediaModel(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -276,6 +284,49 @@ func (m *Site) validateLocation(formats strfmt.Registry) error {
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+var siteTypeMediaModelPropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Premises","Cloud"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		siteTypeMediaModelPropEnum = append(siteTypeMediaModelPropEnum, v)
+	}
+}
+
+const (
+
+	// SiteMediaModelPremises captures enum value "Premises"
+	SiteMediaModelPremises string = "Premises"
+
+	// SiteMediaModelCloud captures enum value "Cloud"
+	SiteMediaModelCloud string = "Cloud"
+)
+
+// prop value enum
+func (m *Site) validateMediaModelEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, siteTypeMediaModelPropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *Site) validateMediaModel(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.MediaModel) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateMediaModelEnum("mediaModel", "body", m.MediaModel); err != nil {
+		return err
 	}
 
 	return nil

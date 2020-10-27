@@ -37,7 +37,7 @@ type TranscriptConversationDetailSearchCriteria struct {
 	StartValue string `json:"startValue,omitempty"`
 
 	// type
-	// Enum: [EXACT EXACT_PHRASE PHRASE]
+	// Enum: [EXACT EXACT_PHRASE PHRASE DATE_RANGE]
 	Type string `json:"type,omitempty"`
 
 	// A value for the search to match against
@@ -144,7 +144,7 @@ var transcriptConversationDetailSearchCriteriaTypeTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["EXACT","EXACT_PHRASE","PHRASE"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["EXACT","EXACT_PHRASE","PHRASE","DATE_RANGE"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -162,6 +162,9 @@ const (
 
 	// TranscriptConversationDetailSearchCriteriaTypePHRASE captures enum value "PHRASE"
 	TranscriptConversationDetailSearchCriteriaTypePHRASE string = "PHRASE"
+
+	// TranscriptConversationDetailSearchCriteriaTypeDATERANGE captures enum value "DATE_RANGE"
+	TranscriptConversationDetailSearchCriteriaTypeDATERANGE string = "DATE_RANGE"
 )
 
 // prop value enum

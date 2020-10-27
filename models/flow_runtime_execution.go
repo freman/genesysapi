@@ -25,11 +25,11 @@ type FlowRuntimeExecution struct {
 	// The conversation to which this Flow execution is related
 	Conversation *DomainEntityRef `json:"conversation,omitempty"`
 
-	// The time the flow completed, if applicable. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The time the flow completed, if applicable. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	DateCompleted strfmt.DateTime `json:"dateCompleted,omitempty"`
 
-	// The time the flow was launched. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The time the flow was launched. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Required: true
 	// Format: date-time
 	DateLaunched *strfmt.DateTime `json:"dateLaunched"`

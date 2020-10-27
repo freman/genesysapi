@@ -26,7 +26,7 @@ type ShiftTradeActivityPreviewResponse struct {
 	// The length in minutes of this activity
 	LengthMinutes int32 `json:"lengthMinutes,omitempty"`
 
-	// The start date and time of this activity. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The start date and time of this activity. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	StartDate strfmt.DateTime `json:"startDate,omitempty"`
 }

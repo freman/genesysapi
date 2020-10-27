@@ -20,7 +20,7 @@ type Segment struct {
 	// A description of the event that disconnected the segment
 	DisconnectType string `json:"disconnectType,omitempty"`
 
-	// The timestamp when this segment ended. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The timestamp when this segment ended. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Required: true
 	// Format: date-time
 	EndTime *strfmt.DateTime `json:"endTime"`
@@ -28,7 +28,7 @@ type Segment struct {
 	// A description of the event that ended the segment.
 	HowEnded string `json:"howEnded,omitempty"`
 
-	// The timestamp when this segment began. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The timestamp when this segment began. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Required: true
 	// Format: date-time
 	StartTime *strfmt.DateTime `json:"startTime"`

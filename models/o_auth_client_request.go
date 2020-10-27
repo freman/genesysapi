@@ -33,7 +33,7 @@ type OAuthClientRequest struct {
 	// Enum: [CODE TOKEN SAML2BEARER PASSWORD CLIENT_CREDENTIALS]
 	AuthorizedGrantType *string `json:"authorizedGrantType"`
 
-	// The time at which this client will be deleted. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The time at which this client will be deleted. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	DateToDelete strfmt.DateTime `json:"dateToDelete,omitempty"`
 

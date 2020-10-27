@@ -26,8 +26,7 @@ type MessageMediaData struct {
 	// Read Only: true
 	ID string `json:"id,omitempty"`
 
-	// The optional internet media type of the the media object.  If null then the media type should be dictated by the url.
-	// Enum: [image/png image/jpeg image/gif]
+	// The detected internet media type of the the media object.  If null then the media type should be dictated by the url.
 	MediaType string `json:"mediaType,omitempty"`
 
 	// name
@@ -54,10 +53,6 @@ type MessageMediaData struct {
 func (m *MessageMediaData) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateMediaType(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateSelfURI(formats); err != nil {
 		res = append(res, err)
 	}
@@ -69,52 +64,6 @@ func (m *MessageMediaData) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-var messageMediaDataTypeMediaTypePropEnum []interface{}
-
-func init() {
-	var res []string
-	if err := json.Unmarshal([]byte(`["image/png","image/jpeg","image/gif"]`), &res); err != nil {
-		panic(err)
-	}
-	for _, v := range res {
-		messageMediaDataTypeMediaTypePropEnum = append(messageMediaDataTypeMediaTypePropEnum, v)
-	}
-}
-
-const (
-
-	// MessageMediaDataMediaTypeImagePng captures enum value "image/png"
-	MessageMediaDataMediaTypeImagePng string = "image/png"
-
-	// MessageMediaDataMediaTypeImageJpeg captures enum value "image/jpeg"
-	MessageMediaDataMediaTypeImageJpeg string = "image/jpeg"
-
-	// MessageMediaDataMediaTypeImageGif captures enum value "image/gif"
-	MessageMediaDataMediaTypeImageGif string = "image/gif"
-)
-
-// prop value enum
-func (m *MessageMediaData) validateMediaTypeEnum(path, location string, value string) error {
-	if err := validate.EnumCase(path, location, value, messageMediaDataTypeMediaTypePropEnum, true); err != nil {
-		return err
-	}
-	return nil
-}
-
-func (m *MessageMediaData) validateMediaType(formats strfmt.Registry) error {
-
-	if swag.IsZero(m.MediaType) { // not required
-		return nil
-	}
-
-	// value enum
-	if err := m.validateMediaTypeEnum("mediaType", "body", m.MediaType); err != nil {
-		return err
-	}
-
 	return nil
 }
 

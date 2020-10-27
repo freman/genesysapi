@@ -25,7 +25,7 @@ type DomainEdgeSoftwareUpdateDto struct {
 	// current
 	Current bool `json:"current"`
 
-	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	DownloadStartTime strfmt.DateTime `json:"downloadStartTime,omitempty"`
 
@@ -36,11 +36,11 @@ type DomainEdgeSoftwareUpdateDto struct {
 	// execute on idle
 	ExecuteOnIdle bool `json:"executeOnIdle"`
 
-	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	ExecuteStartTime strfmt.DateTime `json:"executeStartTime,omitempty"`
 
-	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	ExecuteStopTime strfmt.DateTime `json:"executeStopTime,omitempty"`
 

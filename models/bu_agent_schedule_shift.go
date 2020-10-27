@@ -36,7 +36,7 @@ type BuAgentScheduleShift struct {
 	// Read Only: true
 	Schedule *BuScheduleReference `json:"schedule,omitempty"`
 
-	// The start date of this shift. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The start date of this shift. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	StartDate strfmt.DateTime `json:"startDate,omitempty"`
 }

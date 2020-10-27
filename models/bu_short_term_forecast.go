@@ -50,7 +50,7 @@ type BuShortTermForecast struct {
 	// The version of the planning groups that was used for this forecast
 	PlanningGroupsVersion int32 `json:"planningGroupsVersion,omitempty"`
 
-	// The reference start date for interval-based data for this forecast. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The reference start date for interval-based data for this forecast. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	ReferenceStartDate strfmt.DateTime `json:"referenceStartDate,omitempty"`
 

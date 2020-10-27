@@ -29,6 +29,12 @@ func (o *PostConversationsMessagingIntegrationsLineReader) ReadResponse(response
 			return nil, err
 		}
 		return result, nil
+	case 202:
+		result := NewPostConversationsMessagingIntegrationsLineAccepted()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return result, nil
 	case 400:
 		result := NewPostConversationsMessagingIntegrationsLineBadRequest()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -117,6 +123,39 @@ func (o *PostConversationsMessagingIntegrationsLineOK) GetPayload() *models.Line
 }
 
 func (o *PostConversationsMessagingIntegrationsLineOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.LineIntegration)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPostConversationsMessagingIntegrationsLineAccepted creates a PostConversationsMessagingIntegrationsLineAccepted with default headers values
+func NewPostConversationsMessagingIntegrationsLineAccepted() *PostConversationsMessagingIntegrationsLineAccepted {
+	return &PostConversationsMessagingIntegrationsLineAccepted{}
+}
+
+/*PostConversationsMessagingIntegrationsLineAccepted handles this case with default header values.
+
+Accepted - If async is true, the integration creation in progress.
+*/
+type PostConversationsMessagingIntegrationsLineAccepted struct {
+	Payload *models.LineIntegration
+}
+
+func (o *PostConversationsMessagingIntegrationsLineAccepted) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messaging/integrations/line][%d] postConversationsMessagingIntegrationsLineAccepted  %+v", 202, o.Payload)
+}
+
+func (o *PostConversationsMessagingIntegrationsLineAccepted) GetPayload() *models.LineIntegration {
+	return o.Payload
+}
+
+func (o *PostConversationsMessagingIntegrationsLineAccepted) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.LineIntegration)
 

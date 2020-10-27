@@ -52,26 +52,6 @@ type API interface {
 	*/
 	DeleteWorkforcemanagementManagementunit(ctx context.Context, params *DeleteWorkforcemanagementManagementunitParams) (*DeleteWorkforcemanagementManagementunitNoContent, error)
 	/*
-	   DeleteWorkforcemanagementManagementunitActivitycode deprecateds gone use the new business unit activity code resources
-	*/
-	DeleteWorkforcemanagementManagementunitActivitycode(ctx context.Context, params *DeleteWorkforcemanagementManagementunitActivitycodeParams) (*DeleteWorkforcemanagementManagementunitActivitycodeNoContent, error)
-	/*
-	   DeleteWorkforcemanagementManagementunitSchedulingRun gones scheduling has moved under business units
-	*/
-	DeleteWorkforcemanagementManagementunitSchedulingRun(ctx context.Context, params *DeleteWorkforcemanagementManagementunitSchedulingRunParams) error
-	/*
-	   DeleteWorkforcemanagementManagementunitServicegoalgroup gones replaced with service goal templates and planning groups under business units
-	*/
-	DeleteWorkforcemanagementManagementunitServicegoalgroup(ctx context.Context, params *DeleteWorkforcemanagementManagementunitServicegoalgroupParams) error
-	/*
-	   DeleteWorkforcemanagementManagementunitWeekSchedule gones scheduling has moved under business units
-	*/
-	DeleteWorkforcemanagementManagementunitWeekSchedule(ctx context.Context, params *DeleteWorkforcemanagementManagementunitWeekScheduleParams) error
-	/*
-	   DeleteWorkforcemanagementManagementunitWeekShorttermforecast gones use equivalent business unit resource instead
-	*/
-	DeleteWorkforcemanagementManagementunitWeekShorttermforecast(ctx context.Context, params *DeleteWorkforcemanagementManagementunitWeekShorttermforecastParams) error
-	/*
 	   DeleteWorkforcemanagementManagementunitWorkplan deletes a work plan
 	*/
 	DeleteWorkforcemanagementManagementunitWorkplan(ctx context.Context, params *DeleteWorkforcemanagementManagementunitWorkplanParams) (*DeleteWorkforcemanagementManagementunitWorkplanNoContent, error)
@@ -184,10 +164,6 @@ type API interface {
 	*/
 	GetWorkforcemanagementManagementunit(ctx context.Context, params *GetWorkforcemanagementManagementunitParams) (*GetWorkforcemanagementManagementunitOK, error)
 	/*
-	   GetWorkforcemanagementManagementunitActivitycode gets an activity code
-	*/
-	GetWorkforcemanagementManagementunitActivitycode(ctx context.Context, params *GetWorkforcemanagementManagementunitActivitycodeParams) (*GetWorkforcemanagementManagementunitActivitycodeOK, error)
-	/*
 	   GetWorkforcemanagementManagementunitActivitycodes gets activity codes
 	*/
 	GetWorkforcemanagementManagementunitActivitycodes(ctx context.Context, params *GetWorkforcemanagementManagementunitActivitycodesParams) (*GetWorkforcemanagementManagementunitActivitycodesOK, error)
@@ -203,34 +179,6 @@ type API interface {
 	   GetWorkforcemanagementManagementunitAgentShifttrades gets all the shift trades for a given agent
 	*/
 	GetWorkforcemanagementManagementunitAgentShifttrades(ctx context.Context, params *GetWorkforcemanagementManagementunitAgentShifttradesParams) (*GetWorkforcemanagementManagementunitAgentShifttradesOK, error)
-	/*
-	   GetWorkforcemanagementManagementunitIntradayQueues gones moved under business units
-	*/
-	GetWorkforcemanagementManagementunitIntradayQueues(ctx context.Context, params *GetWorkforcemanagementManagementunitIntradayQueuesParams) error
-	/*
-	   GetWorkforcemanagementManagementunitSchedulingRun gones scheduling has moved under business units
-	*/
-	GetWorkforcemanagementManagementunitSchedulingRun(ctx context.Context, params *GetWorkforcemanagementManagementunitSchedulingRunParams) error
-	/*
-	   GetWorkforcemanagementManagementunitSchedulingRunResult gones scheduling has moved under business units
-	*/
-	GetWorkforcemanagementManagementunitSchedulingRunResult(ctx context.Context, params *GetWorkforcemanagementManagementunitSchedulingRunResultParams) error
-	/*
-	   GetWorkforcemanagementManagementunitSchedulingRuns gones scheduling has moved under business units
-	*/
-	GetWorkforcemanagementManagementunitSchedulingRuns(ctx context.Context, params *GetWorkforcemanagementManagementunitSchedulingRunsParams) error
-	/*
-	   GetWorkforcemanagementManagementunitServicegoalgroup gones replaced with service goal templates and planning groups under business units
-	*/
-	GetWorkforcemanagementManagementunitServicegoalgroup(ctx context.Context, params *GetWorkforcemanagementManagementunitServicegoalgroupParams) error
-	/*
-	   GetWorkforcemanagementManagementunitServicegoalgroups gones replaced with service goal templates and planning groups under business units
-	*/
-	GetWorkforcemanagementManagementunitServicegoalgroups(ctx context.Context, params *GetWorkforcemanagementManagementunitServicegoalgroupsParams) error
-	/*
-	   GetWorkforcemanagementManagementunitSettings gones get management unit settings via expand parameters on the g e t management unit
-	*/
-	GetWorkforcemanagementManagementunitSettings(ctx context.Context, params *GetWorkforcemanagementManagementunitSettingsParams) error
 	/*
 	   GetWorkforcemanagementManagementunitShifttradesMatched gets a summary of all shift trades in the matched state
 	*/
@@ -256,10 +204,6 @@ type API interface {
 	*/
 	GetWorkforcemanagementManagementunitWeekSchedule(ctx context.Context, params *GetWorkforcemanagementManagementunitWeekScheduleParams) (*GetWorkforcemanagementManagementunitWeekScheduleOK, error)
 	/*
-	   GetWorkforcemanagementManagementunitWeekScheduleGenerationresults gones scheduling has moved under business units
-	*/
-	GetWorkforcemanagementManagementunitWeekScheduleGenerationresults(ctx context.Context, params *GetWorkforcemanagementManagementunitWeekScheduleGenerationresultsParams) error
-	/*
 	   GetWorkforcemanagementManagementunitWeekSchedules deprecateds use the equivalent business unit resource instead get the list of schedules in a week in management unit
 	*/
 	GetWorkforcemanagementManagementunitWeekSchedules(ctx context.Context, params *GetWorkforcemanagementManagementunitWeekSchedulesParams) (*GetWorkforcemanagementManagementunitWeekSchedulesOK, error)
@@ -267,14 +211,6 @@ type API interface {
 	   GetWorkforcemanagementManagementunitWeekShifttrades gets all the shift trades for a given week
 	*/
 	GetWorkforcemanagementManagementunitWeekShifttrades(ctx context.Context, params *GetWorkforcemanagementManagementunitWeekShifttradesParams) (*GetWorkforcemanagementManagementunitWeekShifttradesOK, error)
-	/*
-	   GetWorkforcemanagementManagementunitWeekShorttermforecastFinal gones use equivalent business unit resource instead
-	*/
-	GetWorkforcemanagementManagementunitWeekShorttermforecastFinal(ctx context.Context, params *GetWorkforcemanagementManagementunitWeekShorttermforecastFinalParams) error
-	/*
-	   GetWorkforcemanagementManagementunitWeekShorttermforecasts gones use equivalent business unit resource instead
-	*/
-	GetWorkforcemanagementManagementunitWeekShorttermforecasts(ctx context.Context, params *GetWorkforcemanagementManagementunitWeekShorttermforecastsParams) error
 	/*
 	   GetWorkforcemanagementManagementunitWorkplan gets a work plan
 	*/
@@ -336,29 +272,9 @@ type API interface {
 	*/
 	PatchWorkforcemanagementManagementunit(ctx context.Context, params *PatchWorkforcemanagementManagementunitParams) (*PatchWorkforcemanagementManagementunitOK, error)
 	/*
-	   PatchWorkforcemanagementManagementunitActivitycode deprecateds gone use the new business unit activity code resources
-	*/
-	PatchWorkforcemanagementManagementunitActivitycode(ctx context.Context, params *PatchWorkforcemanagementManagementunitActivitycodeParams) error
-	/*
-	   PatchWorkforcemanagementManagementunitSchedulingRun gones scheduling has moved under business units
-	*/
-	PatchWorkforcemanagementManagementunitSchedulingRun(ctx context.Context, params *PatchWorkforcemanagementManagementunitSchedulingRunParams) error
-	/*
-	   PatchWorkforcemanagementManagementunitServicegoalgroup gones replaced with service goal templates and planning groups under business units
-	*/
-	PatchWorkforcemanagementManagementunitServicegoalgroup(ctx context.Context, params *PatchWorkforcemanagementManagementunitServicegoalgroupParams) error
-	/*
-	   PatchWorkforcemanagementManagementunitSettings gones update settings by p a t c hing the management unit
-	*/
-	PatchWorkforcemanagementManagementunitSettings(ctx context.Context, params *PatchWorkforcemanagementManagementunitSettingsParams) error
-	/*
 	   PatchWorkforcemanagementManagementunitUserTimeoffrequest updates a time off request
 	*/
 	PatchWorkforcemanagementManagementunitUserTimeoffrequest(ctx context.Context, params *PatchWorkforcemanagementManagementunitUserTimeoffrequestParams) (*PatchWorkforcemanagementManagementunitUserTimeoffrequestOK, error)
-	/*
-	   PatchWorkforcemanagementManagementunitWeekSchedule gones scheduling has moved under business units
-	*/
-	PatchWorkforcemanagementManagementunitWeekSchedule(ctx context.Context, params *PatchWorkforcemanagementManagementunitWeekScheduleParams) error
 	/*
 	   PatchWorkforcemanagementManagementunitWeekShifttrade updates a shift trade this route can only be called by the initiating agent
 	*/
@@ -433,10 +349,6 @@ type API interface {
 	*/
 	PostWorkforcemanagementBusinessunits(ctx context.Context, params *PostWorkforcemanagementBusinessunitsParams) (*PostWorkforcemanagementBusinessunitsOK, *PostWorkforcemanagementBusinessunitsCreated, error)
 	/*
-	   PostWorkforcemanagementManagementunitActivitycodes deprecateds gone use the new business unit activity code resources
-	*/
-	PostWorkforcemanagementManagementunitActivitycodes(ctx context.Context, params *PostWorkforcemanagementManagementunitActivitycodesParams) error
-	/*
 	   PostWorkforcemanagementManagementunitAgentschedulesSearch queries published schedules for given given time range for set of users
 	*/
 	PostWorkforcemanagementManagementunitAgentschedulesSearch(ctx context.Context, params *PostWorkforcemanagementManagementunitAgentschedulesSearchParams) (*PostWorkforcemanagementManagementunitAgentschedulesSearchOK, error)
@@ -445,10 +357,6 @@ type API interface {
 	   The maximum supported range for historical adherence queries is 31 days, or 7 days with includeExceptions = true
 	*/
 	PostWorkforcemanagementManagementunitHistoricaladherencequery(ctx context.Context, params *PostWorkforcemanagementManagementunitHistoricaladherencequeryParams) (*PostWorkforcemanagementManagementunitHistoricaladherencequeryAccepted, error)
-	/*
-	   PostWorkforcemanagementManagementunitIntraday gones moved under business units
-	*/
-	PostWorkforcemanagementManagementunitIntraday(ctx context.Context, params *PostWorkforcemanagementManagementunitIntradayParams) error
 	/*
 	   PostWorkforcemanagementManagementunitMove moves the requested management unit to a new business unit
 	   Returns status 200 if the management unit is already in the requested business unit
@@ -459,41 +367,13 @@ type API interface {
 	*/
 	PostWorkforcemanagementManagementunitSchedulesSearch(ctx context.Context, params *PostWorkforcemanagementManagementunitSchedulesSearchParams) (*PostWorkforcemanagementManagementunitSchedulesSearchOK, error)
 	/*
-	   PostWorkforcemanagementManagementunitServicegoalgroups gones replaced with service goal templates and planning groups under business units
-	*/
-	PostWorkforcemanagementManagementunitServicegoalgroups(ctx context.Context, params *PostWorkforcemanagementManagementunitServicegoalgroupsParams) error
-	/*
 	   PostWorkforcemanagementManagementunitTimeoffrequests creates a new time off request
 	*/
 	PostWorkforcemanagementManagementunitTimeoffrequests(ctx context.Context, params *PostWorkforcemanagementManagementunitTimeoffrequestsParams) (*PostWorkforcemanagementManagementunitTimeoffrequestsOK, error)
 	/*
-	   PostWorkforcemanagementManagementunitTimeoffrequestsFetchdetails gones all data is now returned in the query route
-	*/
-	PostWorkforcemanagementManagementunitTimeoffrequestsFetchdetails(ctx context.Context, params *PostWorkforcemanagementManagementunitTimeoffrequestsFetchdetailsParams) error
-	/*
 	   PostWorkforcemanagementManagementunitTimeoffrequestsQuery gets the lookup ids to fetch the specified set of requests
 	*/
 	PostWorkforcemanagementManagementunitTimeoffrequestsQuery(ctx context.Context, params *PostWorkforcemanagementManagementunitTimeoffrequestsQueryParams) (*PostWorkforcemanagementManagementunitTimeoffrequestsQueryOK, error)
-	/*
-	   PostWorkforcemanagementManagementunitWeekScheduleCopy gones scheduling has moved under business units
-	*/
-	PostWorkforcemanagementManagementunitWeekScheduleCopy(ctx context.Context, params *PostWorkforcemanagementManagementunitWeekScheduleCopyParams) error
-	/*
-	   PostWorkforcemanagementManagementunitWeekScheduleReschedule gones scheduling has moved under business units
-	*/
-	PostWorkforcemanagementManagementunitWeekScheduleReschedule(ctx context.Context, params *PostWorkforcemanagementManagementunitWeekScheduleRescheduleParams) error
-	/*
-	   PostWorkforcemanagementManagementunitWeekSchedules gones scheduling has moved under business units
-	*/
-	PostWorkforcemanagementManagementunitWeekSchedules(ctx context.Context, params *PostWorkforcemanagementManagementunitWeekSchedulesParams) error
-	/*
-	   PostWorkforcemanagementManagementunitWeekSchedulesGenerate gones scheduling has moved under business units
-	*/
-	PostWorkforcemanagementManagementunitWeekSchedulesGenerate(ctx context.Context, params *PostWorkforcemanagementManagementunitWeekSchedulesGenerateParams) error
-	/*
-	   PostWorkforcemanagementManagementunitWeekSchedulesPartialupload gones scheduling has moved under business units
-	*/
-	PostWorkforcemanagementManagementunitWeekSchedulesPartialupload(ctx context.Context, params *PostWorkforcemanagementManagementunitWeekSchedulesPartialuploadParams) error
 	/*
 	   PostWorkforcemanagementManagementunitWeekShifttradeMatch matches a shift trade this route can only be called by the receiving agent
 	*/
@@ -511,22 +391,6 @@ type API interface {
 	   Admin functionality is not supported with "mine".
 	*/
 	PostWorkforcemanagementManagementunitWeekShifttradesStateBulk(ctx context.Context, params *PostWorkforcemanagementManagementunitWeekShifttradesStateBulkParams) (*PostWorkforcemanagementManagementunitWeekShifttradesStateBulkOK, error)
-	/*
-	   PostWorkforcemanagementManagementunitWeekShorttermforecastCopy gones use equivalent business unit resource instead
-	*/
-	PostWorkforcemanagementManagementunitWeekShorttermforecastCopy(ctx context.Context, params *PostWorkforcemanagementManagementunitWeekShorttermforecastCopyParams) error
-	/*
-	   PostWorkforcemanagementManagementunitWeekShorttermforecasts gones use equivalent business unit resource instead
-	*/
-	PostWorkforcemanagementManagementunitWeekShorttermforecasts(ctx context.Context, params *PostWorkforcemanagementManagementunitWeekShorttermforecastsParams) error
-	/*
-	   PostWorkforcemanagementManagementunitWeekShorttermforecastsGenerate gones use equivalent business unit resource instead
-	*/
-	PostWorkforcemanagementManagementunitWeekShorttermforecastsGenerate(ctx context.Context, params *PostWorkforcemanagementManagementunitWeekShorttermforecastsGenerateParams) error
-	/*
-	   PostWorkforcemanagementManagementunitWeekShorttermforecastsPartialupload gones use equivalent business unit resource instead
-	*/
-	PostWorkforcemanagementManagementunitWeekShorttermforecastsPartialupload(ctx context.Context, params *PostWorkforcemanagementManagementunitWeekShorttermforecastsPartialuploadParams) error
 	/*
 	   PostWorkforcemanagementManagementunitWorkplanCopy creates a copy of work plan
 	*/
@@ -783,131 +647,6 @@ func (a *Client) DeleteWorkforcemanagementManagementunit(ctx context.Context, pa
 		return nil, err
 	}
 	return result.(*DeleteWorkforcemanagementManagementunitNoContent), nil
-
-}
-
-/*
-DeleteWorkforcemanagementManagementunitActivitycode deprecateds gone use the new business unit activity code resources
-*/
-func (a *Client) DeleteWorkforcemanagementManagementunitActivitycode(ctx context.Context, params *DeleteWorkforcemanagementManagementunitActivitycodeParams) (*DeleteWorkforcemanagementManagementunitActivitycodeNoContent, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "deleteWorkforcemanagementManagementunitActivitycode",
-		Method:             "DELETE",
-		PathPattern:        "/api/v2/workforcemanagement/managementunits/{muId}/activitycodes/{acId}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &DeleteWorkforcemanagementManagementunitActivitycodeReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*DeleteWorkforcemanagementManagementunitActivitycodeNoContent), nil
-
-}
-
-/*
-DeleteWorkforcemanagementManagementunitSchedulingRun gones scheduling has moved under business units
-*/
-func (a *Client) DeleteWorkforcemanagementManagementunitSchedulingRun(ctx context.Context, params *DeleteWorkforcemanagementManagementunitSchedulingRunParams) error {
-
-	_, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "deleteWorkforcemanagementManagementunitSchedulingRun",
-		Method:             "DELETE",
-		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/scheduling/runs/{runId}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &DeleteWorkforcemanagementManagementunitSchedulingRunReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return err
-	}
-	return nil
-
-}
-
-/*
-DeleteWorkforcemanagementManagementunitServicegoalgroup gones replaced with service goal templates and planning groups under business units
-*/
-func (a *Client) DeleteWorkforcemanagementManagementunitServicegoalgroup(ctx context.Context, params *DeleteWorkforcemanagementManagementunitServicegoalgroupParams) error {
-
-	_, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "deleteWorkforcemanagementManagementunitServicegoalgroup",
-		Method:             "DELETE",
-		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/servicegoalgroups/{serviceGoalGroupId}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &DeleteWorkforcemanagementManagementunitServicegoalgroupReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return err
-	}
-	return nil
-
-}
-
-/*
-DeleteWorkforcemanagementManagementunitWeekSchedule gones scheduling has moved under business units
-*/
-func (a *Client) DeleteWorkforcemanagementManagementunitWeekSchedule(ctx context.Context, params *DeleteWorkforcemanagementManagementunitWeekScheduleParams) error {
-
-	_, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "deleteWorkforcemanagementManagementunitWeekSchedule",
-		Method:             "DELETE",
-		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/weeks/{weekId}/schedules/{scheduleId}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &DeleteWorkforcemanagementManagementunitWeekScheduleReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return err
-	}
-	return nil
-
-}
-
-/*
-DeleteWorkforcemanagementManagementunitWeekShorttermforecast gones use equivalent business unit resource instead
-*/
-func (a *Client) DeleteWorkforcemanagementManagementunitWeekShorttermforecast(ctx context.Context, params *DeleteWorkforcemanagementManagementunitWeekShorttermforecastParams) error {
-
-	_, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "deleteWorkforcemanagementManagementunitWeekShorttermforecast",
-		Method:             "DELETE",
-		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &DeleteWorkforcemanagementManagementunitWeekShorttermforecastReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return err
-	}
-	return nil
 
 }
 
@@ -1595,31 +1334,6 @@ func (a *Client) GetWorkforcemanagementManagementunit(ctx context.Context, param
 }
 
 /*
-GetWorkforcemanagementManagementunitActivitycode gets an activity code
-*/
-func (a *Client) GetWorkforcemanagementManagementunitActivitycode(ctx context.Context, params *GetWorkforcemanagementManagementunitActivitycodeParams) (*GetWorkforcemanagementManagementunitActivitycodeOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "getWorkforcemanagementManagementunitActivitycode",
-		Method:             "GET",
-		PathPattern:        "/api/v2/workforcemanagement/managementunits/{muId}/activitycodes/{acId}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetWorkforcemanagementManagementunitActivitycodeReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*GetWorkforcemanagementManagementunitActivitycodeOK), nil
-
-}
-
-/*
 GetWorkforcemanagementManagementunitActivitycodes gets activity codes
 */
 func (a *Client) GetWorkforcemanagementManagementunitActivitycodes(ctx context.Context, params *GetWorkforcemanagementManagementunitActivitycodesParams) (*GetWorkforcemanagementManagementunitActivitycodesOK, error) {
@@ -1716,181 +1430,6 @@ func (a *Client) GetWorkforcemanagementManagementunitAgentShifttrades(ctx contex
 		return nil, err
 	}
 	return result.(*GetWorkforcemanagementManagementunitAgentShifttradesOK), nil
-
-}
-
-/*
-GetWorkforcemanagementManagementunitIntradayQueues gones moved under business units
-*/
-func (a *Client) GetWorkforcemanagementManagementunitIntradayQueues(ctx context.Context, params *GetWorkforcemanagementManagementunitIntradayQueuesParams) error {
-
-	_, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "getWorkforcemanagementManagementunitIntradayQueues",
-		Method:             "GET",
-		PathPattern:        "/api/v2/workforcemanagement/managementunits/{muId}/intraday/queues",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetWorkforcemanagementManagementunitIntradayQueuesReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return err
-	}
-	return nil
-
-}
-
-/*
-GetWorkforcemanagementManagementunitSchedulingRun gones scheduling has moved under business units
-*/
-func (a *Client) GetWorkforcemanagementManagementunitSchedulingRun(ctx context.Context, params *GetWorkforcemanagementManagementunitSchedulingRunParams) error {
-
-	_, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "getWorkforcemanagementManagementunitSchedulingRun",
-		Method:             "GET",
-		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/scheduling/runs/{runId}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetWorkforcemanagementManagementunitSchedulingRunReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return err
-	}
-	return nil
-
-}
-
-/*
-GetWorkforcemanagementManagementunitSchedulingRunResult gones scheduling has moved under business units
-*/
-func (a *Client) GetWorkforcemanagementManagementunitSchedulingRunResult(ctx context.Context, params *GetWorkforcemanagementManagementunitSchedulingRunResultParams) error {
-
-	_, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "getWorkforcemanagementManagementunitSchedulingRunResult",
-		Method:             "GET",
-		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/scheduling/runs/{runId}/result",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetWorkforcemanagementManagementunitSchedulingRunResultReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return err
-	}
-	return nil
-
-}
-
-/*
-GetWorkforcemanagementManagementunitSchedulingRuns gones scheduling has moved under business units
-*/
-func (a *Client) GetWorkforcemanagementManagementunitSchedulingRuns(ctx context.Context, params *GetWorkforcemanagementManagementunitSchedulingRunsParams) error {
-
-	_, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "getWorkforcemanagementManagementunitSchedulingRuns",
-		Method:             "GET",
-		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/scheduling/runs",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetWorkforcemanagementManagementunitSchedulingRunsReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return err
-	}
-	return nil
-
-}
-
-/*
-GetWorkforcemanagementManagementunitServicegoalgroup gones replaced with service goal templates and planning groups under business units
-*/
-func (a *Client) GetWorkforcemanagementManagementunitServicegoalgroup(ctx context.Context, params *GetWorkforcemanagementManagementunitServicegoalgroupParams) error {
-
-	_, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "getWorkforcemanagementManagementunitServicegoalgroup",
-		Method:             "GET",
-		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/servicegoalgroups/{serviceGoalGroupId}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetWorkforcemanagementManagementunitServicegoalgroupReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return err
-	}
-	return nil
-
-}
-
-/*
-GetWorkforcemanagementManagementunitServicegoalgroups gones replaced with service goal templates and planning groups under business units
-*/
-func (a *Client) GetWorkforcemanagementManagementunitServicegoalgroups(ctx context.Context, params *GetWorkforcemanagementManagementunitServicegoalgroupsParams) error {
-
-	_, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "getWorkforcemanagementManagementunitServicegoalgroups",
-		Method:             "GET",
-		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/servicegoalgroups",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetWorkforcemanagementManagementunitServicegoalgroupsReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return err
-	}
-	return nil
-
-}
-
-/*
-GetWorkforcemanagementManagementunitSettings gones get management unit settings via expand parameters on the g e t management unit
-*/
-func (a *Client) GetWorkforcemanagementManagementunitSettings(ctx context.Context, params *GetWorkforcemanagementManagementunitSettingsParams) error {
-
-	_, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "getWorkforcemanagementManagementunitSettings",
-		Method:             "GET",
-		PathPattern:        "/api/v2/workforcemanagement/managementunits/{muId}/settings",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetWorkforcemanagementManagementunitSettingsReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return err
-	}
-	return nil
 
 }
 
@@ -2045,31 +1584,6 @@ func (a *Client) GetWorkforcemanagementManagementunitWeekSchedule(ctx context.Co
 }
 
 /*
-GetWorkforcemanagementManagementunitWeekScheduleGenerationresults gones scheduling has moved under business units
-*/
-func (a *Client) GetWorkforcemanagementManagementunitWeekScheduleGenerationresults(ctx context.Context, params *GetWorkforcemanagementManagementunitWeekScheduleGenerationresultsParams) error {
-
-	_, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "getWorkforcemanagementManagementunitWeekScheduleGenerationresults",
-		Method:             "GET",
-		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/weeks/{weekId}/schedules/{scheduleId}/generationresults",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetWorkforcemanagementManagementunitWeekScheduleGenerationresultsReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return err
-	}
-	return nil
-
-}
-
-/*
 GetWorkforcemanagementManagementunitWeekSchedules deprecateds use the equivalent business unit resource instead get the list of schedules in a week in management unit
 */
 func (a *Client) GetWorkforcemanagementManagementunitWeekSchedules(ctx context.Context, params *GetWorkforcemanagementManagementunitWeekSchedulesParams) (*GetWorkforcemanagementManagementunitWeekSchedulesOK, error) {
@@ -2116,56 +1630,6 @@ func (a *Client) GetWorkforcemanagementManagementunitWeekShifttrades(ctx context
 		return nil, err
 	}
 	return result.(*GetWorkforcemanagementManagementunitWeekShifttradesOK), nil
-
-}
-
-/*
-GetWorkforcemanagementManagementunitWeekShorttermforecastFinal gones use equivalent business unit resource instead
-*/
-func (a *Client) GetWorkforcemanagementManagementunitWeekShorttermforecastFinal(ctx context.Context, params *GetWorkforcemanagementManagementunitWeekShorttermforecastFinalParams) error {
-
-	_, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "getWorkforcemanagementManagementunitWeekShorttermforecastFinal",
-		Method:             "GET",
-		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}/final",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetWorkforcemanagementManagementunitWeekShorttermforecastFinalReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return err
-	}
-	return nil
-
-}
-
-/*
-GetWorkforcemanagementManagementunitWeekShorttermforecasts gones use equivalent business unit resource instead
-*/
-func (a *Client) GetWorkforcemanagementManagementunitWeekShorttermforecasts(ctx context.Context, params *GetWorkforcemanagementManagementunitWeekShorttermforecastsParams) error {
-
-	_, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "getWorkforcemanagementManagementunitWeekShorttermforecasts",
-		Method:             "GET",
-		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/weeks/{weekDateId}/shorttermforecasts",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetWorkforcemanagementManagementunitWeekShorttermforecastsReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return err
-	}
-	return nil
 
 }
 
@@ -2545,106 +2009,6 @@ func (a *Client) PatchWorkforcemanagementManagementunit(ctx context.Context, par
 }
 
 /*
-PatchWorkforcemanagementManagementunitActivitycode deprecateds gone use the new business unit activity code resources
-*/
-func (a *Client) PatchWorkforcemanagementManagementunitActivitycode(ctx context.Context, params *PatchWorkforcemanagementManagementunitActivitycodeParams) error {
-
-	_, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "patchWorkforcemanagementManagementunitActivitycode",
-		Method:             "PATCH",
-		PathPattern:        "/api/v2/workforcemanagement/managementunits/{muId}/activitycodes/{acId}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PatchWorkforcemanagementManagementunitActivitycodeReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return err
-	}
-	return nil
-
-}
-
-/*
-PatchWorkforcemanagementManagementunitSchedulingRun gones scheduling has moved under business units
-*/
-func (a *Client) PatchWorkforcemanagementManagementunitSchedulingRun(ctx context.Context, params *PatchWorkforcemanagementManagementunitSchedulingRunParams) error {
-
-	_, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "patchWorkforcemanagementManagementunitSchedulingRun",
-		Method:             "PATCH",
-		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/scheduling/runs/{runId}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PatchWorkforcemanagementManagementunitSchedulingRunReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return err
-	}
-	return nil
-
-}
-
-/*
-PatchWorkforcemanagementManagementunitServicegoalgroup gones replaced with service goal templates and planning groups under business units
-*/
-func (a *Client) PatchWorkforcemanagementManagementunitServicegoalgroup(ctx context.Context, params *PatchWorkforcemanagementManagementunitServicegoalgroupParams) error {
-
-	_, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "patchWorkforcemanagementManagementunitServicegoalgroup",
-		Method:             "PATCH",
-		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/servicegoalgroups/{serviceGoalGroupId}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PatchWorkforcemanagementManagementunitServicegoalgroupReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return err
-	}
-	return nil
-
-}
-
-/*
-PatchWorkforcemanagementManagementunitSettings gones update settings by p a t c hing the management unit
-*/
-func (a *Client) PatchWorkforcemanagementManagementunitSettings(ctx context.Context, params *PatchWorkforcemanagementManagementunitSettingsParams) error {
-
-	_, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "patchWorkforcemanagementManagementunitSettings",
-		Method:             "PATCH",
-		PathPattern:        "/api/v2/workforcemanagement/managementunits/{muId}/settings",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PatchWorkforcemanagementManagementunitSettingsReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return err
-	}
-	return nil
-
-}
-
-/*
 PatchWorkforcemanagementManagementunitUserTimeoffrequest updates a time off request
 */
 func (a *Client) PatchWorkforcemanagementManagementunitUserTimeoffrequest(ctx context.Context, params *PatchWorkforcemanagementManagementunitUserTimeoffrequestParams) (*PatchWorkforcemanagementManagementunitUserTimeoffrequestOK, error) {
@@ -2666,31 +2030,6 @@ func (a *Client) PatchWorkforcemanagementManagementunitUserTimeoffrequest(ctx co
 		return nil, err
 	}
 	return result.(*PatchWorkforcemanagementManagementunitUserTimeoffrequestOK), nil
-
-}
-
-/*
-PatchWorkforcemanagementManagementunitWeekSchedule gones scheduling has moved under business units
-*/
-func (a *Client) PatchWorkforcemanagementManagementunitWeekSchedule(ctx context.Context, params *PatchWorkforcemanagementManagementunitWeekScheduleParams) error {
-
-	_, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "patchWorkforcemanagementManagementunitWeekSchedule",
-		Method:             "PATCH",
-		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/weeks/{weekId}/schedules/{scheduleId}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PatchWorkforcemanagementManagementunitWeekScheduleReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return err
-	}
-	return nil
 
 }
 
@@ -3169,31 +2508,6 @@ func (a *Client) PostWorkforcemanagementBusinessunits(ctx context.Context, param
 }
 
 /*
-PostWorkforcemanagementManagementunitActivitycodes deprecateds gone use the new business unit activity code resources
-*/
-func (a *Client) PostWorkforcemanagementManagementunitActivitycodes(ctx context.Context, params *PostWorkforcemanagementManagementunitActivitycodesParams) error {
-
-	_, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "postWorkforcemanagementManagementunitActivitycodes",
-		Method:             "POST",
-		PathPattern:        "/api/v2/workforcemanagement/managementunits/{muId}/activitycodes",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PostWorkforcemanagementManagementunitActivitycodesReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return err
-	}
-	return nil
-
-}
-
-/*
 PostWorkforcemanagementManagementunitAgentschedulesSearch queries published schedules for given given time range for set of users
 */
 func (a *Client) PostWorkforcemanagementManagementunitAgentschedulesSearch(ctx context.Context, params *PostWorkforcemanagementManagementunitAgentschedulesSearchParams) (*PostWorkforcemanagementManagementunitAgentschedulesSearchOK, error) {
@@ -3242,31 +2556,6 @@ func (a *Client) PostWorkforcemanagementManagementunitHistoricaladherencequery(c
 		return nil, err
 	}
 	return result.(*PostWorkforcemanagementManagementunitHistoricaladherencequeryAccepted), nil
-
-}
-
-/*
-PostWorkforcemanagementManagementunitIntraday gones moved under business units
-*/
-func (a *Client) PostWorkforcemanagementManagementunitIntraday(ctx context.Context, params *PostWorkforcemanagementManagementunitIntradayParams) error {
-
-	_, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "postWorkforcemanagementManagementunitIntraday",
-		Method:             "POST",
-		PathPattern:        "/api/v2/workforcemanagement/managementunits/{muId}/intraday",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PostWorkforcemanagementManagementunitIntradayReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return err
-	}
-	return nil
 
 }
 
@@ -3329,31 +2618,6 @@ func (a *Client) PostWorkforcemanagementManagementunitSchedulesSearch(ctx contex
 }
 
 /*
-PostWorkforcemanagementManagementunitServicegoalgroups gones replaced with service goal templates and planning groups under business units
-*/
-func (a *Client) PostWorkforcemanagementManagementunitServicegoalgroups(ctx context.Context, params *PostWorkforcemanagementManagementunitServicegoalgroupsParams) error {
-
-	_, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "postWorkforcemanagementManagementunitServicegoalgroups",
-		Method:             "POST",
-		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/servicegoalgroups",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PostWorkforcemanagementManagementunitServicegoalgroupsReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return err
-	}
-	return nil
-
-}
-
-/*
 PostWorkforcemanagementManagementunitTimeoffrequests creates a new time off request
 */
 func (a *Client) PostWorkforcemanagementManagementunitTimeoffrequests(ctx context.Context, params *PostWorkforcemanagementManagementunitTimeoffrequestsParams) (*PostWorkforcemanagementManagementunitTimeoffrequestsOK, error) {
@@ -3379,31 +2643,6 @@ func (a *Client) PostWorkforcemanagementManagementunitTimeoffrequests(ctx contex
 }
 
 /*
-PostWorkforcemanagementManagementunitTimeoffrequestsFetchdetails gones all data is now returned in the query route
-*/
-func (a *Client) PostWorkforcemanagementManagementunitTimeoffrequestsFetchdetails(ctx context.Context, params *PostWorkforcemanagementManagementunitTimeoffrequestsFetchdetailsParams) error {
-
-	_, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "postWorkforcemanagementManagementunitTimeoffrequestsFetchdetails",
-		Method:             "POST",
-		PathPattern:        "/api/v2/workforcemanagement/managementunits/{muId}/timeoffrequests/fetchdetails",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PostWorkforcemanagementManagementunitTimeoffrequestsFetchdetailsReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return err
-	}
-	return nil
-
-}
-
-/*
 PostWorkforcemanagementManagementunitTimeoffrequestsQuery gets the lookup ids to fetch the specified set of requests
 */
 func (a *Client) PostWorkforcemanagementManagementunitTimeoffrequestsQuery(ctx context.Context, params *PostWorkforcemanagementManagementunitTimeoffrequestsQueryParams) (*PostWorkforcemanagementManagementunitTimeoffrequestsQueryOK, error) {
@@ -3425,131 +2664,6 @@ func (a *Client) PostWorkforcemanagementManagementunitTimeoffrequestsQuery(ctx c
 		return nil, err
 	}
 	return result.(*PostWorkforcemanagementManagementunitTimeoffrequestsQueryOK), nil
-
-}
-
-/*
-PostWorkforcemanagementManagementunitWeekScheduleCopy gones scheduling has moved under business units
-*/
-func (a *Client) PostWorkforcemanagementManagementunitWeekScheduleCopy(ctx context.Context, params *PostWorkforcemanagementManagementunitWeekScheduleCopyParams) error {
-
-	_, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "postWorkforcemanagementManagementunitWeekScheduleCopy",
-		Method:             "POST",
-		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/weeks/{weekId}/schedules/{scheduleId}/copy",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PostWorkforcemanagementManagementunitWeekScheduleCopyReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return err
-	}
-	return nil
-
-}
-
-/*
-PostWorkforcemanagementManagementunitWeekScheduleReschedule gones scheduling has moved under business units
-*/
-func (a *Client) PostWorkforcemanagementManagementunitWeekScheduleReschedule(ctx context.Context, params *PostWorkforcemanagementManagementunitWeekScheduleRescheduleParams) error {
-
-	_, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "postWorkforcemanagementManagementunitWeekScheduleReschedule",
-		Method:             "POST",
-		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/weeks/{weekId}/schedules/{scheduleId}/reschedule",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PostWorkforcemanagementManagementunitWeekScheduleRescheduleReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return err
-	}
-	return nil
-
-}
-
-/*
-PostWorkforcemanagementManagementunitWeekSchedules gones scheduling has moved under business units
-*/
-func (a *Client) PostWorkforcemanagementManagementunitWeekSchedules(ctx context.Context, params *PostWorkforcemanagementManagementunitWeekSchedulesParams) error {
-
-	_, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "postWorkforcemanagementManagementunitWeekSchedules",
-		Method:             "POST",
-		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/weeks/{weekId}/schedules",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PostWorkforcemanagementManagementunitWeekSchedulesReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return err
-	}
-	return nil
-
-}
-
-/*
-PostWorkforcemanagementManagementunitWeekSchedulesGenerate gones scheduling has moved under business units
-*/
-func (a *Client) PostWorkforcemanagementManagementunitWeekSchedulesGenerate(ctx context.Context, params *PostWorkforcemanagementManagementunitWeekSchedulesGenerateParams) error {
-
-	_, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "postWorkforcemanagementManagementunitWeekSchedulesGenerate",
-		Method:             "POST",
-		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/weeks/{weekId}/schedules/generate",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PostWorkforcemanagementManagementunitWeekSchedulesGenerateReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return err
-	}
-	return nil
-
-}
-
-/*
-PostWorkforcemanagementManagementunitWeekSchedulesPartialupload gones scheduling has moved under business units
-*/
-func (a *Client) PostWorkforcemanagementManagementunitWeekSchedulesPartialupload(ctx context.Context, params *PostWorkforcemanagementManagementunitWeekSchedulesPartialuploadParams) error {
-
-	_, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "postWorkforcemanagementManagementunitWeekSchedulesPartialupload",
-		Method:             "POST",
-		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/weeks/{weekId}/schedules/partialupload",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PostWorkforcemanagementManagementunitWeekSchedulesPartialuploadReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return err
-	}
-	return nil
 
 }
 
@@ -3652,106 +2766,6 @@ func (a *Client) PostWorkforcemanagementManagementunitWeekShifttradesStateBulk(c
 		return nil, err
 	}
 	return result.(*PostWorkforcemanagementManagementunitWeekShifttradesStateBulkOK), nil
-
-}
-
-/*
-PostWorkforcemanagementManagementunitWeekShorttermforecastCopy gones use equivalent business unit resource instead
-*/
-func (a *Client) PostWorkforcemanagementManagementunitWeekShorttermforecastCopy(ctx context.Context, params *PostWorkforcemanagementManagementunitWeekShorttermforecastCopyParams) error {
-
-	_, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "postWorkforcemanagementManagementunitWeekShorttermforecastCopy",
-		Method:             "POST",
-		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}/copy",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PostWorkforcemanagementManagementunitWeekShorttermforecastCopyReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return err
-	}
-	return nil
-
-}
-
-/*
-PostWorkforcemanagementManagementunitWeekShorttermforecasts gones use equivalent business unit resource instead
-*/
-func (a *Client) PostWorkforcemanagementManagementunitWeekShorttermforecasts(ctx context.Context, params *PostWorkforcemanagementManagementunitWeekShorttermforecastsParams) error {
-
-	_, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "postWorkforcemanagementManagementunitWeekShorttermforecasts",
-		Method:             "POST",
-		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/weeks/{weekDateId}/shorttermforecasts",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PostWorkforcemanagementManagementunitWeekShorttermforecastsReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return err
-	}
-	return nil
-
-}
-
-/*
-PostWorkforcemanagementManagementunitWeekShorttermforecastsGenerate gones use equivalent business unit resource instead
-*/
-func (a *Client) PostWorkforcemanagementManagementunitWeekShorttermforecastsGenerate(ctx context.Context, params *PostWorkforcemanagementManagementunitWeekShorttermforecastsGenerateParams) error {
-
-	_, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "postWorkforcemanagementManagementunitWeekShorttermforecastsGenerate",
-		Method:             "POST",
-		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/weeks/{weekDateId}/shorttermforecasts/generate",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PostWorkforcemanagementManagementunitWeekShorttermforecastsGenerateReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return err
-	}
-	return nil
-
-}
-
-/*
-PostWorkforcemanagementManagementunitWeekShorttermforecastsPartialupload gones use equivalent business unit resource instead
-*/
-func (a *Client) PostWorkforcemanagementManagementunitWeekShorttermforecastsPartialupload(ctx context.Context, params *PostWorkforcemanagementManagementunitWeekShorttermforecastsPartialuploadParams) error {
-
-	_, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "postWorkforcemanagementManagementunitWeekShorttermforecastsPartialupload",
-		Method:             "POST",
-		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/weeks/{weekDateId}/shorttermforecasts/partialupload",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PostWorkforcemanagementManagementunitWeekShorttermforecastsPartialuploadReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return err
-	}
-	return nil
 
 }
 

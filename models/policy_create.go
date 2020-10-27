@@ -23,7 +23,7 @@ type PolicyCreate struct {
 	// Conditions
 	Conditions *PolicyConditions `json:"conditions,omitempty"`
 
-	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	CreatedDate strfmt.DateTime `json:"createdDate,omitempty"`
 
@@ -40,7 +40,7 @@ type PolicyCreate struct {
 	// Conditions and actions per media type
 	MediaPolicies *MediaPolicies `json:"mediaPolicies,omitempty"`
 
-	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	ModifiedDate strfmt.DateTime `json:"modifiedDate,omitempty"`
 

@@ -22,7 +22,7 @@ type BuHeadcountForecast struct {
 	// entities
 	Entities []*BuPlanningGroupHeadcountForecast `json:"entities"`
 
-	// Reference start date for the interval values in each forecast entity. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Reference start date for the interval values in each forecast entity. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	ReferenceStartDate strfmt.DateTime `json:"referenceStartDate,omitempty"`
 }

@@ -17,7 +17,7 @@ import (
 // swagger:model CredentialInfo
 type CredentialInfo struct {
 
-	// Date the credentials were created. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date the credentials were created. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Read Only: true
 	// Format: date-time
 	CreatedDate strfmt.DateTime `json:"createdDate,omitempty"`
@@ -26,7 +26,7 @@ type CredentialInfo struct {
 	// Read Only: true
 	ID string `json:"id,omitempty"`
 
-	// Date credentials were last modified. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date credentials were last modified. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Read Only: true
 	// Format: date-time
 	ModifiedDate strfmt.DateTime `json:"modifiedDate,omitempty"`

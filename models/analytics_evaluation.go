@@ -32,7 +32,7 @@ type AnalyticsEvaluation struct {
 	// A unique identifier of the PureCloud user who evaluated the interaction
 	EvaluatorID string `json:"evaluatorId,omitempty"`
 
-	// Specifies when an evaluation occurred. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Specifies when an evaluation occurred. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	EventTime strfmt.DateTime `json:"eventTime,omitempty"`
 

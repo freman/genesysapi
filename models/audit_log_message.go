@@ -37,7 +37,7 @@ type AuditLogMessage struct {
 	// Enum: [Document Queue Recording Role VoicemailUserPolicy WrapupCode AccessToken OAuthClient OAuthClientAuthorization AuthOrganization AuthUser BulkActions Feedback Topic Program Segment Outcome SessionType EventType ClickstreamSettings Schedule Trigger Response]
 	EntityType string `json:"entityType,omitempty"`
 
-	// Date and time of when the audit message was logged. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date and time of when the audit message was logged. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	EventDate strfmt.DateTime `json:"eventDate,omitempty"`
 

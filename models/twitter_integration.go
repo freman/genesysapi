@@ -27,14 +27,23 @@ type TwitterIntegration struct {
 	// Required: true
 	ConsumerKey *string `json:"consumerKey"`
 
+	// Error information returned, if createStatus is set to Error
+	// Read Only: true
+	CreateError *ErrorBody `json:"createError,omitempty"`
+
+	// Status of asynchronous create operation
+	// Read Only: true
+	// Enum: [Initiated Completed Error]
+	CreateStatus string `json:"createStatus,omitempty"`
+
 	// User reference that created this Integration
 	CreatedBy *DomainEntityRef `json:"createdBy,omitempty"`
 
-	// Date this Integration was created. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date this Integration was created. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	DateCreated strfmt.DateTime `json:"dateCreated,omitempty"`
 
-	// Date this Integration was modified. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date this Integration was modified. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	DateModified strfmt.DateTime `json:"dateModified,omitempty"`
 
@@ -90,6 +99,14 @@ func (m *TwitterIntegration) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateConsumerKey(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCreateError(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCreateStatus(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -151,6 +168,70 @@ func (m *TwitterIntegration) validateAccessTokenKey(formats strfmt.Registry) err
 func (m *TwitterIntegration) validateConsumerKey(formats strfmt.Registry) error {
 
 	if err := validate.Required("consumerKey", "body", m.ConsumerKey); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *TwitterIntegration) validateCreateError(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.CreateError) { // not required
+		return nil
+	}
+
+	if m.CreateError != nil {
+		if err := m.CreateError.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("createError")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+var twitterIntegrationTypeCreateStatusPropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Initiated","Completed","Error"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		twitterIntegrationTypeCreateStatusPropEnum = append(twitterIntegrationTypeCreateStatusPropEnum, v)
+	}
+}
+
+const (
+
+	// TwitterIntegrationCreateStatusInitiated captures enum value "Initiated"
+	TwitterIntegrationCreateStatusInitiated string = "Initiated"
+
+	// TwitterIntegrationCreateStatusCompleted captures enum value "Completed"
+	TwitterIntegrationCreateStatusCompleted string = "Completed"
+
+	// TwitterIntegrationCreateStatusError captures enum value "Error"
+	TwitterIntegrationCreateStatusError string = "Error"
+)
+
+// prop value enum
+func (m *TwitterIntegration) validateCreateStatusEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, twitterIntegrationTypeCreateStatusPropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *TwitterIntegration) validateCreateStatus(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.CreateStatus) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateCreateStatusEnum("createStatus", "body", m.CreateStatus); err != nil {
 		return err
 	}
 

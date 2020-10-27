@@ -125,7 +125,7 @@ type API interface {
 	PatchScimV2User(ctx context.Context, params *PatchScimV2UserParams) (*PatchScimV2UserOK, error)
 	/*
 	   PostScimGroups creates a group
-	   Creates a Genesys Cloud group with group visibility set to "public" and rules visibility set to "true". Auto-creates an "externalId". "externalId" is used to determine if DELETE /api/v2/scim/groups/{groupId} or DELETE /api/v2/scim/v2/groups/{groupId} should be allowed.
+	   Creates a Genesys Cloud group with group visibility set to "public" and rules visibility set to "true". Auto-creates an "externalId". "externalId" is used to determine if DELETE /api/v2/scim/groups/{groupId} or DELETE /api/v2/scim/v2/groups/{groupId} is allowed.
 	*/
 	PostScimGroups(ctx context.Context, params *PostScimGroupsParams) (*PostScimGroupsOK, error)
 	/*
@@ -846,7 +846,7 @@ func (a *Client) PatchScimV2User(ctx context.Context, params *PatchScimV2UserPar
 /*
 PostScimGroups creates a group
 
-Creates a Genesys Cloud group with group visibility set to "public" and rules visibility set to "true". Auto-creates an "externalId". "externalId" is used to determine if DELETE /api/v2/scim/groups/{groupId} or DELETE /api/v2/scim/v2/groups/{groupId} should be allowed.
+Creates a Genesys Cloud group with group visibility set to "public" and rules visibility set to "true". Auto-creates an "externalId". "externalId" is used to determine if DELETE /api/v2/scim/groups/{groupId} or DELETE /api/v2/scim/v2/groups/{groupId} is allowed.
 */
 func (a *Client) PostScimGroups(ctx context.Context, params *PostScimGroupsParams) (*PostScimGroupsOK, error) {
 

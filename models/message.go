@@ -26,7 +26,7 @@ type Message struct {
 	// Indicates if after-call work is required for a communication. Only used when the ACW Setting is Agent Requested.
 	AfterCallWorkRequired bool `json:"afterCallWorkRequired"`
 
-	// The timestamp when this communication was connected in the cloud clock. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The timestamp when this communication was connected in the cloud clock. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	ConnectedTime strfmt.DateTime `json:"connectedTime,omitempty"`
 
@@ -38,7 +38,7 @@ type Message struct {
 	// Enum: [endpoint client system timeout transfer transfer.conference transfer.consult transfer.forward transfer.noanswer transfer.notavailable transport.failure error peer other spam uncallable]
 	DisconnectType string `json:"disconnectType,omitempty"`
 
-	// The timestamp when this communication disconnected from the conversation in the provider clock. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The timestamp when this communication disconnected from the conversation in the provider clock. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	DisconnectedTime strfmt.DateTime `json:"disconnectedTime,omitempty"`
 
@@ -53,6 +53,9 @@ type Message struct {
 
 	// A globally unique identifier for this communication.
 	ID string `json:"id,omitempty"`
+
+	// A subset of the Journey System's data relevant to a part of a conversation (for external linkage and internal usage/context).
+	JourneyContext *JourneyContext `json:"journeyContext,omitempty"`
 
 	// The messages sent on this communication channel.
 	Messages []*MessageDetails `json:"messages"`
@@ -78,11 +81,11 @@ type Message struct {
 	// The time line of the participant's message, divided into activity segments.
 	Segments []*Segment `json:"segments"`
 
-	// The timestamp the communication has when it is first put into an alerting state. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The timestamp the communication has when it is first put into an alerting state. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	StartAlertingTime strfmt.DateTime `json:"startAlertingTime,omitempty"`
 
-	// The timestamp the message was placed on hold in the cloud clock if the message is currently on hold. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The timestamp the message was placed on hold in the cloud clock if the message is currently on hold. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	StartHoldTime strfmt.DateTime `json:"startHoldTime,omitempty"`
 
@@ -130,6 +133,10 @@ func (m *Message) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateFromAddress(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateJourneyContext(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -371,6 +378,24 @@ func (m *Message) validateFromAddress(formats strfmt.Registry) error {
 		if err := m.FromAddress.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("fromAddress")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Message) validateJourneyContext(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.JourneyContext) { // not required
+		return nil
+	}
+
+	if m.JourneyContext != nil {
+		if err := m.JourneyContext.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("journeyContext")
 			}
 			return err
 		}

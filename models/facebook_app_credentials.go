@@ -17,7 +17,7 @@ import (
 // swagger:model FacebookAppCredentials
 type FacebookAppCredentials struct {
 
-	// Genesys Facebook App Id
+	// Genesys Cloud Facebook App Id
 	// Required: true
 	// Read Only: true
 	ID string `json:"id"`

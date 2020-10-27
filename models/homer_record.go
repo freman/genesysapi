@@ -50,7 +50,7 @@ type HomerRecord struct {
 	// metadata associated to the SIP calls
 	Cseq string `json:"cseq,omitempty"`
 
-	// metadata associated to the SIP calls. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// metadata associated to the SIP calls. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	Date strfmt.DateTime `json:"date,omitempty"`
 

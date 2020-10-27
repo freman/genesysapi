@@ -20,23 +20,23 @@ import (
 // swagger:model TrusteeBillingOverview
 type TrusteeBillingOverview struct {
 
-	// Date-time the billing period ended. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date-time the billing period ended. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	BillingPeriodEndDate strfmt.DateTime `json:"billingPeriodEndDate,omitempty"`
 
-	// Date-time the billing period started. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date-time the billing period started. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	BillingPeriodStartDate strfmt.DateTime `json:"billingPeriodStartDate,omitempty"`
 
-	// Date-time the contract was last amended. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date-time the contract was last amended. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	ContractAmendmentDate strfmt.DateTime `json:"contractAmendmentDate,omitempty"`
 
-	// Date-time the contract became effective. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date-time the contract became effective. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	ContractEffectiveDate strfmt.DateTime `json:"contractEffectiveDate,omitempty"`
 
-	// Date-time the contract ends. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date-time the contract ends. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	ContractEndDate strfmt.DateTime `json:"contractEndDate,omitempty"`
 
@@ -65,11 +65,11 @@ type TrusteeBillingOverview struct {
 	// Required: true
 	Organization *NamedEntity `json:"organization"`
 
-	// Date-time the ramp period ends. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date-time the ramp period ends. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	RampPeriodEndDate strfmt.DateTime `json:"rampPeriodEndDate,omitempty"`
 
-	// Date-time the ramp period starts. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Date-time the ramp period starts. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	RampPeriodStartDate strfmt.DateTime `json:"rampPeriodStartDate,omitempty"`
 

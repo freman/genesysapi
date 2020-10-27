@@ -20,7 +20,7 @@ import (
 // swagger:model ReportingExportJobResponse
 type ReportingExportJobResponse struct {
 
-	// The created date/time of the request. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The created date/time of the request. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Required: true
 	// Format: date-time
 	CreatedDateTime *strfmt.DateTime `json:"createdDateTime"`
@@ -84,7 +84,7 @@ type ReportingExportJobResponse struct {
 	// Required: true
 	Locale *string `json:"locale"`
 
-	// The last modified date/time of the request. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The last modified date/time of the request. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Required: true
 	// Format: date-time
 	ModifiedDateTime *strfmt.DateTime `json:"modifiedDateTime"`

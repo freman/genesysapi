@@ -15,7 +15,7 @@ import (
 // swagger:model ScimGenesysUserExternalId
 type ScimGenesysUserExternalID struct {
 
-	// Authority, or scope, of the external id.  Allows multiple external ids to be defined and should represent the source of the external identifier
+	// Authority, or scope, of "externalId". Allows multiple external identifiers to be defined. Represents the source of the external identifier.
 	Authority string `json:"authority,omitempty"`
 
 	// Identifier of the user in an external system.

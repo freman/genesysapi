@@ -17,7 +17,7 @@ import (
 // swagger:model VoicemailCopyRecord
 type VoicemailCopyRecord struct {
 
-	// The date when the voicemail was copied. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// The date when the voicemail was copied. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Read Only: true
 	// Format: date-time
 	Date strfmt.DateTime `json:"date,omitempty"`

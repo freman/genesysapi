@@ -512,6 +512,7 @@ type API interface {
 	PostConversationsFaxes(ctx context.Context, params *PostConversationsFaxesParams) (*PostConversationsFaxesOK, error)
 	/*
 	   PostConversationsMessageCommunicationMessages sends message
+	   Send message on existing conversation/communication. Only one message body field can be accepted, per request. Example: 1 textBody, 1 mediaId, 1 stickerId, or 1 messageTemplate.
 	*/
 	PostConversationsMessageCommunicationMessages(ctx context.Context, params *PostConversationsMessageCommunicationMessagesParams) (*PostConversationsMessageCommunicationMessagesOK, *PostConversationsMessageCommunicationMessagesAccepted, error)
 	/*
@@ -540,15 +541,15 @@ type API interface {
 	/*
 	   PostConversationsMessagingIntegrationsFacebook creates a facebook integration
 	*/
-	PostConversationsMessagingIntegrationsFacebook(ctx context.Context, params *PostConversationsMessagingIntegrationsFacebookParams) (*PostConversationsMessagingIntegrationsFacebookOK, error)
+	PostConversationsMessagingIntegrationsFacebook(ctx context.Context, params *PostConversationsMessagingIntegrationsFacebookParams) (*PostConversationsMessagingIntegrationsFacebookOK, *PostConversationsMessagingIntegrationsFacebookAccepted, error)
 	/*
 	   PostConversationsMessagingIntegrationsLine creates a l i n e messenger integration
 	*/
-	PostConversationsMessagingIntegrationsLine(ctx context.Context, params *PostConversationsMessagingIntegrationsLineParams) (*PostConversationsMessagingIntegrationsLineOK, error)
+	PostConversationsMessagingIntegrationsLine(ctx context.Context, params *PostConversationsMessagingIntegrationsLineParams) (*PostConversationsMessagingIntegrationsLineOK, *PostConversationsMessagingIntegrationsLineAccepted, error)
 	/*
 	   PostConversationsMessagingIntegrationsTwitter creates a twitter integration
 	*/
-	PostConversationsMessagingIntegrationsTwitter(ctx context.Context, params *PostConversationsMessagingIntegrationsTwitterParams) (*PostConversationsMessagingIntegrationsTwitterOK, error)
+	PostConversationsMessagingIntegrationsTwitter(ctx context.Context, params *PostConversationsMessagingIntegrationsTwitterParams) (*PostConversationsMessagingIntegrationsTwitterOK, *PostConversationsMessagingIntegrationsTwitterAccepted, error)
 	/*
 	   PostConversationsMessagingIntegrationsWhatsapp creates a whats app integration
 	   You must be approved by WhatsApp to use this feature. Your approved e164-formatted phone number and valid WhatsApp certificate for your number are required. Your WhatsApp certificate must have valid base64 encoding. Please paste carefully and do not add any leading or trailing spaces. Do not alter any characters. An integration must be activated within 7 days of certificate generation. If you cannot complete the addition and activation of the number within 7 days, please obtain a new certificate before creating the integration. Integrations created with an invalid number or certificate may immediately incur additional integration fees. Please carefully enter your number and certificate as described.
@@ -3682,6 +3683,8 @@ func (a *Client) PostConversationsFaxes(ctx context.Context, params *PostConvers
 
 /*
 PostConversationsMessageCommunicationMessages sends message
+
+Send message on existing conversation/communication. Only one message body field can be accepted, per request. Example: 1 textBody, 1 mediaId, 1 stickerId, or 1 messageTemplate.
 */
 func (a *Client) PostConversationsMessageCommunicationMessages(ctx context.Context, params *PostConversationsMessageCommunicationMessagesParams) (*PostConversationsMessageCommunicationMessagesOK, *PostConversationsMessageCommunicationMessagesAccepted, error) {
 
@@ -3857,7 +3860,7 @@ func (a *Client) PostConversationsMessagesAgentless(ctx context.Context, params 
 /*
 PostConversationsMessagingIntegrationsFacebook creates a facebook integration
 */
-func (a *Client) PostConversationsMessagingIntegrationsFacebook(ctx context.Context, params *PostConversationsMessagingIntegrationsFacebookParams) (*PostConversationsMessagingIntegrationsFacebookOK, error) {
+func (a *Client) PostConversationsMessagingIntegrationsFacebook(ctx context.Context, params *PostConversationsMessagingIntegrationsFacebookParams) (*PostConversationsMessagingIntegrationsFacebookOK, *PostConversationsMessagingIntegrationsFacebookAccepted, error) {
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "postConversationsMessagingIntegrationsFacebook",
@@ -3873,16 +3876,22 @@ func (a *Client) PostConversationsMessagingIntegrationsFacebook(ctx context.Cont
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
-	return result.(*PostConversationsMessagingIntegrationsFacebookOK), nil
+	switch value := result.(type) {
+	case *PostConversationsMessagingIntegrationsFacebookOK:
+		return value, nil, nil
+	case *PostConversationsMessagingIntegrationsFacebookAccepted:
+		return nil, value, nil
+	}
+	return nil, nil, nil
 
 }
 
 /*
 PostConversationsMessagingIntegrationsLine creates a l i n e messenger integration
 */
-func (a *Client) PostConversationsMessagingIntegrationsLine(ctx context.Context, params *PostConversationsMessagingIntegrationsLineParams) (*PostConversationsMessagingIntegrationsLineOK, error) {
+func (a *Client) PostConversationsMessagingIntegrationsLine(ctx context.Context, params *PostConversationsMessagingIntegrationsLineParams) (*PostConversationsMessagingIntegrationsLineOK, *PostConversationsMessagingIntegrationsLineAccepted, error) {
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "postConversationsMessagingIntegrationsLine",
@@ -3898,16 +3907,22 @@ func (a *Client) PostConversationsMessagingIntegrationsLine(ctx context.Context,
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
-	return result.(*PostConversationsMessagingIntegrationsLineOK), nil
+	switch value := result.(type) {
+	case *PostConversationsMessagingIntegrationsLineOK:
+		return value, nil, nil
+	case *PostConversationsMessagingIntegrationsLineAccepted:
+		return nil, value, nil
+	}
+	return nil, nil, nil
 
 }
 
 /*
 PostConversationsMessagingIntegrationsTwitter creates a twitter integration
 */
-func (a *Client) PostConversationsMessagingIntegrationsTwitter(ctx context.Context, params *PostConversationsMessagingIntegrationsTwitterParams) (*PostConversationsMessagingIntegrationsTwitterOK, error) {
+func (a *Client) PostConversationsMessagingIntegrationsTwitter(ctx context.Context, params *PostConversationsMessagingIntegrationsTwitterParams) (*PostConversationsMessagingIntegrationsTwitterOK, *PostConversationsMessagingIntegrationsTwitterAccepted, error) {
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "postConversationsMessagingIntegrationsTwitter",
@@ -3923,9 +3938,15 @@ func (a *Client) PostConversationsMessagingIntegrationsTwitter(ctx context.Conte
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
-	return result.(*PostConversationsMessagingIntegrationsTwitterOK), nil
+	switch value := result.(type) {
+	case *PostConversationsMessagingIntegrationsTwitterOK:
+		return value, nil, nil
+	case *PostConversationsMessagingIntegrationsTwitterAccepted:
+		return nil, value, nil
+	}
+	return nil, nil, nil
 
 }
 

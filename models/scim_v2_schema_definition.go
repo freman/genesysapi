@@ -30,7 +30,7 @@ type ScimV2SchemaDefinition struct {
 	// Read Only: true
 	ID string `json:"id,omitempty"`
 
-	// The metadata of the SCIM resource. Only location and resourceType are set for Schema resources.
+	// The metadata of the SCIM resource. Only "location" and "resourceType" are set for "Schema" resources.
 	// Read Only: true
 	Meta *ScimMetadata `json:"meta,omitempty"`
 

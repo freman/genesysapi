@@ -20,7 +20,7 @@ type AddShiftTradeRequest struct {
 	// acceptable intervals
 	AcceptableIntervals []string `json:"acceptableIntervals"`
 
-	// When this shift trade request should expire. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// When this shift trade request should expire. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	Expiration strfmt.DateTime `json:"expiration,omitempty"`
 

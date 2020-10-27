@@ -63,7 +63,7 @@ for the post scim v2 groups operation typically these are written to a http.Requ
 type PostScimV2GroupsParams struct {
 
 	/*Body
-	  Creates a group.
+	  The information used to create a group.
 
 	*/
 	Body *models.ScimV2Group
