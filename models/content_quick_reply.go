@@ -29,6 +29,9 @@ type ContentQuickReply struct {
 	// Image associated with quick reply
 	Image string `json:"image,omitempty"`
 
+	// Content of the textback payload after clicking a quick reply
+	Payload string `json:"payload,omitempty"`
+
 	// Text to show inside the quick reply. This is also used as the response text after clicking on the quick reply.
 	// Required: true
 	Text *string `json:"text"`

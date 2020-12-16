@@ -23,10 +23,12 @@ func NewGetQualityFormsEvaluationVersionsParams() *GetQualityFormsEvaluationVers
 	var (
 		pageNumberDefault = int32(1)
 		pageSizeDefault   = int32(25)
+		sortOrderDefault  = string("asc")
 	)
 	return &GetQualityFormsEvaluationVersionsParams{
 		PageNumber: &pageNumberDefault,
 		PageSize:   &pageSizeDefault,
+		SortOrder:  &sortOrderDefault,
 
 		timeout: cr.DefaultTimeout,
 	}
@@ -38,10 +40,12 @@ func NewGetQualityFormsEvaluationVersionsParamsWithTimeout(timeout time.Duration
 	var (
 		pageNumberDefault = int32(1)
 		pageSizeDefault   = int32(25)
+		sortOrderDefault  = string("asc")
 	)
 	return &GetQualityFormsEvaluationVersionsParams{
 		PageNumber: &pageNumberDefault,
 		PageSize:   &pageSizeDefault,
+		SortOrder:  &sortOrderDefault,
 
 		timeout: timeout,
 	}
@@ -53,10 +57,12 @@ func NewGetQualityFormsEvaluationVersionsParamsWithContext(ctx context.Context) 
 	var (
 		pageNumberDefault = int32(1)
 		pageSizeDefault   = int32(25)
+		sortOrderDefault  = string("asc")
 	)
 	return &GetQualityFormsEvaluationVersionsParams{
 		PageNumber: &pageNumberDefault,
 		PageSize:   &pageSizeDefault,
+		SortOrder:  &sortOrderDefault,
 
 		Context: ctx,
 	}
@@ -68,10 +74,12 @@ func NewGetQualityFormsEvaluationVersionsParamsWithHTTPClient(client *http.Clien
 	var (
 		pageNumberDefault = int32(1)
 		pageSizeDefault   = int32(25)
+		sortOrderDefault  = string("asc")
 	)
 	return &GetQualityFormsEvaluationVersionsParams{
 		PageNumber: &pageNumberDefault,
 		PageSize:   &pageSizeDefault,
+		SortOrder:  &sortOrderDefault,
 		HTTPClient: client,
 	}
 }
@@ -96,6 +104,11 @@ type GetQualityFormsEvaluationVersionsParams struct {
 
 	*/
 	PageSize *int32
+	/*SortOrder
+	  Sort order
+
+	*/
+	SortOrder *string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -168,6 +181,17 @@ func (o *GetQualityFormsEvaluationVersionsParams) SetPageSize(pageSize *int32) {
 	o.PageSize = pageSize
 }
 
+// WithSortOrder adds the sortOrder to the get quality forms evaluation versions params
+func (o *GetQualityFormsEvaluationVersionsParams) WithSortOrder(sortOrder *string) *GetQualityFormsEvaluationVersionsParams {
+	o.SetSortOrder(sortOrder)
+	return o
+}
+
+// SetSortOrder adds the sortOrder to the get quality forms evaluation versions params
+func (o *GetQualityFormsEvaluationVersionsParams) SetSortOrder(sortOrder *string) {
+	o.SortOrder = sortOrder
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *GetQualityFormsEvaluationVersionsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -207,6 +231,22 @@ func (o *GetQualityFormsEvaluationVersionsParams) WriteToRequest(r runtime.Clien
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	if o.SortOrder != nil {
+
+		// query param sortOrder
+		var qrSortOrder string
+		if o.SortOrder != nil {
+			qrSortOrder = *o.SortOrder
+		}
+		qSortOrder := qrSortOrder
+		if qSortOrder != "" {
+			if err := r.SetQueryParam("sortOrder", qSortOrder); err != nil {
 				return err
 			}
 		}

@@ -46,6 +46,9 @@ type ActionTarget struct {
 	// Service Level of the action target. Chat offers for the target will be throttled with the aim of achieving this service level.
 	ServiceLevel *ServiceLevel `json:"serviceLevel,omitempty"`
 
+	// Indicates the non-default short abandon threshold
+	ShortAbandonThreshold int32 `json:"shortAbandonThreshold,omitempty"`
+
 	// Indicates the state of the target.
 	// Enum: [active inactive deleted]
 	State string `json:"state,omitempty"`

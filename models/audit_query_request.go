@@ -29,7 +29,7 @@ type AuditQueryRequest struct {
 
 	// Name of the service to query audits for.
 	// Required: true
-	// Enum: [ContactCenter ContentManagement PeoplePermissions Quality LanguageUnderstanding TopicsDefinitions PredictiveEngagement WorkforceManagement Triggers ResponseManagement]
+	// Enum: [Architect ContactCenter ContentManagement PeoplePermissions Quality LanguageUnderstanding TopicsDefinitions PredictiveEngagement WorkforceManagement Triggers ResponseManagement Groups Telephony]
 	ServiceName *string `json:"serviceName"`
 
 	// Sort parameter for the query.
@@ -100,7 +100,7 @@ var auditQueryRequestTypeServiceNamePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["ContactCenter","ContentManagement","PeoplePermissions","Quality","LanguageUnderstanding","TopicsDefinitions","PredictiveEngagement","WorkforceManagement","Triggers","ResponseManagement"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Architect","ContactCenter","ContentManagement","PeoplePermissions","Quality","LanguageUnderstanding","TopicsDefinitions","PredictiveEngagement","WorkforceManagement","Triggers","ResponseManagement","Groups","Telephony"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -109,6 +109,9 @@ func init() {
 }
 
 const (
+
+	// AuditQueryRequestServiceNameArchitect captures enum value "Architect"
+	AuditQueryRequestServiceNameArchitect string = "Architect"
 
 	// AuditQueryRequestServiceNameContactCenter captures enum value "ContactCenter"
 	AuditQueryRequestServiceNameContactCenter string = "ContactCenter"
@@ -139,6 +142,12 @@ const (
 
 	// AuditQueryRequestServiceNameResponseManagement captures enum value "ResponseManagement"
 	AuditQueryRequestServiceNameResponseManagement string = "ResponseManagement"
+
+	// AuditQueryRequestServiceNameGroups captures enum value "Groups"
+	AuditQueryRequestServiceNameGroups string = "Groups"
+
+	// AuditQueryRequestServiceNameTelephony captures enum value "Telephony"
+	AuditQueryRequestServiceNameTelephony string = "Telephony"
 )
 
 // prop value enum

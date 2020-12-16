@@ -105,20 +105,20 @@ func NewGetCoachingAppointmentStatusesOK() *GetCoachingAppointmentStatusesOK {
 Retrieved appointment statuses
 */
 type GetCoachingAppointmentStatusesOK struct {
-	Payload *models.CoachingAppointmentStatusDtoList
+	Payload *models.CoachingAppointmentStatusResponseList
 }
 
 func (o *GetCoachingAppointmentStatusesOK) Error() string {
 	return fmt.Sprintf("[GET /api/v2/coaching/appointments/{appointmentId}/statuses][%d] getCoachingAppointmentStatusesOK  %+v", 200, o.Payload)
 }
 
-func (o *GetCoachingAppointmentStatusesOK) GetPayload() *models.CoachingAppointmentStatusDtoList {
+func (o *GetCoachingAppointmentStatusesOK) GetPayload() *models.CoachingAppointmentStatusResponseList {
 	return o.Payload
 }
 
 func (o *GetCoachingAppointmentStatusesOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.CoachingAppointmentStatusDtoList)
+	o.Payload = new(models.CoachingAppointmentStatusResponseList)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

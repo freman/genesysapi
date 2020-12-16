@@ -24,11 +24,13 @@ func NewGetRoutingWrapupcodesParams() *GetRoutingWrapupcodesParams {
 		pageNumberDefault = int32(1)
 		pageSizeDefault   = int32(25)
 		sortByDefault     = string("name")
+		sortOrderDefault  = string("ascending")
 	)
 	return &GetRoutingWrapupcodesParams{
 		PageNumber: &pageNumberDefault,
 		PageSize:   &pageSizeDefault,
 		SortBy:     &sortByDefault,
+		SortOrder:  &sortOrderDefault,
 
 		timeout: cr.DefaultTimeout,
 	}
@@ -41,11 +43,13 @@ func NewGetRoutingWrapupcodesParamsWithTimeout(timeout time.Duration) *GetRoutin
 		pageNumberDefault = int32(1)
 		pageSizeDefault   = int32(25)
 		sortByDefault     = string("name")
+		sortOrderDefault  = string("ascending")
 	)
 	return &GetRoutingWrapupcodesParams{
 		PageNumber: &pageNumberDefault,
 		PageSize:   &pageSizeDefault,
 		SortBy:     &sortByDefault,
+		SortOrder:  &sortOrderDefault,
 
 		timeout: timeout,
 	}
@@ -58,11 +62,13 @@ func NewGetRoutingWrapupcodesParamsWithContext(ctx context.Context) *GetRoutingW
 		pageNumberDefault = int32(1)
 		pageSizeDefault   = int32(25)
 		sortByDefault     = string("name")
+		sortOrderDefault  = string("ascending")
 	)
 	return &GetRoutingWrapupcodesParams{
 		PageNumber: &pageNumberDefault,
 		PageSize:   &pageSizeDefault,
 		SortBy:     &sortByDefault,
+		SortOrder:  &sortOrderDefault,
 
 		Context: ctx,
 	}
@@ -75,11 +81,13 @@ func NewGetRoutingWrapupcodesParamsWithHTTPClient(client *http.Client) *GetRouti
 		pageNumberDefault = int32(1)
 		pageSizeDefault   = int32(25)
 		sortByDefault     = string("name")
+		sortOrderDefault  = string("ascending")
 	)
 	return &GetRoutingWrapupcodesParams{
 		PageNumber: &pageNumberDefault,
 		PageSize:   &pageSizeDefault,
 		SortBy:     &sortByDefault,
+		SortOrder:  &sortOrderDefault,
 		HTTPClient: client,
 	}
 }
@@ -109,6 +117,11 @@ type GetRoutingWrapupcodesParams struct {
 
 	*/
 	SortBy *string
+	/*SortOrder
+	  Sort order
+
+	*/
+	SortOrder *string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -192,6 +205,17 @@ func (o *GetRoutingWrapupcodesParams) SetSortBy(sortBy *string) {
 	o.SortBy = sortBy
 }
 
+// WithSortOrder adds the sortOrder to the get routing wrapupcodes params
+func (o *GetRoutingWrapupcodesParams) WithSortOrder(sortOrder *string) *GetRoutingWrapupcodesParams {
+	o.SetSortOrder(sortOrder)
+	return o
+}
+
+// SetSortOrder adds the sortOrder to the get routing wrapupcodes params
+func (o *GetRoutingWrapupcodesParams) SetSortOrder(sortOrder *string) {
+	o.SortOrder = sortOrder
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *GetRoutingWrapupcodesParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -258,6 +282,22 @@ func (o *GetRoutingWrapupcodesParams) WriteToRequest(r runtime.ClientRequest, re
 		qSortBy := qrSortBy
 		if qSortBy != "" {
 			if err := r.SetQueryParam("sortBy", qSortBy); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	if o.SortOrder != nil {
+
+		// query param sortOrder
+		var qrSortOrder string
+		if o.SortOrder != nil {
+			qrSortOrder = *o.SortOrder
+		}
+		qSortOrder := qrSortOrder
+		if qSortOrder != "" {
+			if err := r.SetQueryParam("sortOrder", qSortOrder); err != nil {
 				return err
 			}
 		}

@@ -27,7 +27,7 @@ type UserSearchRequest struct {
 	Expand []string `json:"expand"`
 
 	// Gets an integration presence for users instead of their defaults. This parameter will only be used when presence is provided as an "expand". When using this parameter the maximum number of users that can be returned is 10.
-	// Enum: [MicrosoftTeams ZoomPhone]
+	// Enum: [MicrosoftTeams ZoomPhone RingCentral]
 	IntegrationPresenceSource string `json:"integrationPresenceSource,omitempty"`
 
 	// The page of resources you want to retrieve
@@ -80,7 +80,7 @@ var userSearchRequestTypeIntegrationPresenceSourcePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["MicrosoftTeams","ZoomPhone"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["MicrosoftTeams","ZoomPhone","RingCentral"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -95,6 +95,9 @@ const (
 
 	// UserSearchRequestIntegrationPresenceSourceZoomPhone captures enum value "ZoomPhone"
 	UserSearchRequestIntegrationPresenceSourceZoomPhone string = "ZoomPhone"
+
+	// UserSearchRequestIntegrationPresenceSourceRingCentral captures enum value "RingCentral"
+	UserSearchRequestIntegrationPresenceSourceRingCentral string = "RingCentral"
 )
 
 // prop value enum

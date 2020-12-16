@@ -72,6 +72,11 @@ type PatchWorkforcemanagementManagementunitWorkplanParams struct {
 
 	*/
 	ManagementUnitID string
+	/*ValidationMode
+	  Allows to update work plan even if validation result is invalid
+
+	*/
+	ValidationMode *string
 	/*WorkPlanID
 	  The ID of the work plan to update
 
@@ -138,6 +143,17 @@ func (o *PatchWorkforcemanagementManagementunitWorkplanParams) SetManagementUnit
 	o.ManagementUnitID = managementUnitID
 }
 
+// WithValidationMode adds the validationMode to the patch workforcemanagement managementunit workplan params
+func (o *PatchWorkforcemanagementManagementunitWorkplanParams) WithValidationMode(validationMode *string) *PatchWorkforcemanagementManagementunitWorkplanParams {
+	o.SetValidationMode(validationMode)
+	return o
+}
+
+// SetValidationMode adds the validationMode to the patch workforcemanagement managementunit workplan params
+func (o *PatchWorkforcemanagementManagementunitWorkplanParams) SetValidationMode(validationMode *string) {
+	o.ValidationMode = validationMode
+}
+
 // WithWorkPlanID adds the workPlanID to the patch workforcemanagement managementunit workplan params
 func (o *PatchWorkforcemanagementManagementunitWorkplanParams) WithWorkPlanID(workPlanID string) *PatchWorkforcemanagementManagementunitWorkplanParams {
 	o.SetWorkPlanID(workPlanID)
@@ -166,6 +182,22 @@ func (o *PatchWorkforcemanagementManagementunitWorkplanParams) WriteToRequest(r 
 	// path param managementUnitId
 	if err := r.SetPathParam("managementUnitId", o.ManagementUnitID); err != nil {
 		return err
+	}
+
+	if o.ValidationMode != nil {
+
+		// query param validationMode
+		var qrValidationMode string
+		if o.ValidationMode != nil {
+			qrValidationMode = *o.ValidationMode
+		}
+		qValidationMode := qrValidationMode
+		if qValidationMode != "" {
+			if err := r.SetQueryParam("validationMode", qValidationMode); err != nil {
+				return err
+			}
+		}
+
 	}
 
 	// path param workPlanId

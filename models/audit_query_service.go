@@ -24,7 +24,7 @@ type AuditQueryService struct {
 	Entities []*AuditQueryEntity `json:"entities"`
 
 	// Name of the Service
-	// Enum: [ContactCenter ContentManagement PeoplePermissions Quality LanguageUnderstanding TopicsDefinitions PredictiveEngagement WorkforceManagement Triggers ResponseManagement]
+	// Enum: [Architect ContactCenter ContentManagement PeoplePermissions Quality LanguageUnderstanding TopicsDefinitions PredictiveEngagement WorkforceManagement Triggers ResponseManagement Groups Telephony]
 	Name string `json:"name,omitempty"`
 }
 
@@ -75,7 +75,7 @@ var auditQueryServiceTypeNamePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["ContactCenter","ContentManagement","PeoplePermissions","Quality","LanguageUnderstanding","TopicsDefinitions","PredictiveEngagement","WorkforceManagement","Triggers","ResponseManagement"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Architect","ContactCenter","ContentManagement","PeoplePermissions","Quality","LanguageUnderstanding","TopicsDefinitions","PredictiveEngagement","WorkforceManagement","Triggers","ResponseManagement","Groups","Telephony"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -84,6 +84,9 @@ func init() {
 }
 
 const (
+
+	// AuditQueryServiceNameArchitect captures enum value "Architect"
+	AuditQueryServiceNameArchitect string = "Architect"
 
 	// AuditQueryServiceNameContactCenter captures enum value "ContactCenter"
 	AuditQueryServiceNameContactCenter string = "ContactCenter"
@@ -114,6 +117,12 @@ const (
 
 	// AuditQueryServiceNameResponseManagement captures enum value "ResponseManagement"
 	AuditQueryServiceNameResponseManagement string = "ResponseManagement"
+
+	// AuditQueryServiceNameGroups captures enum value "Groups"
+	AuditQueryServiceNameGroups string = "Groups"
+
+	// AuditQueryServiceNameTelephony captures enum value "Telephony"
+	AuditQueryServiceNameTelephony string = "Telephony"
 )
 
 // prop value enum

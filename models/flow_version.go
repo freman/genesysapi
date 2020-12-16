@@ -7,6 +7,7 @@ package models
 
 import (
 	"encoding/json"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -52,7 +53,7 @@ type FlowVersion struct {
 	// name
 	Name string `json:"name,omitempty"`
 
-	// Information about the NLU domain version for the flow version
+	// Information about the natural language understanding configuration for the flow version
 	// Read Only: true
 	NluInfo *NluInfo `json:"nluInfo,omitempty"`
 
@@ -70,6 +71,10 @@ type FlowVersion struct {
 	// Read Only: true
 	// Format: uri
 	SelfURI strfmt.URI `json:"selfUri,omitempty"`
+
+	// List of supported languages for this version of the flow
+	// Read Only: true
+	SupportedLanguages []*SupportedLanguage `json:"supportedLanguages"`
 
 	// type
 	// Enum: [PUBLISH CHECKIN SAVE]
@@ -105,6 +110,10 @@ func (m *FlowVersion) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateSelfURI(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSupportedLanguages(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -229,6 +238,31 @@ func (m *FlowVersion) validateSelfURI(formats strfmt.Registry) error {
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *FlowVersion) validateSupportedLanguages(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.SupportedLanguages) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.SupportedLanguages); i++ {
+		if swag.IsZero(m.SupportedLanguages[i]) { // not required
+			continue
+		}
+
+		if m.SupportedLanguages[i] != nil {
+			if err := m.SupportedLanguages[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("supportedLanguages" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

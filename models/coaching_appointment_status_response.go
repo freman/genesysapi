@@ -14,10 +14,10 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// CoachingAppointmentStatusDto coaching appointment status dto
+// CoachingAppointmentStatusResponse coaching appointment status response
 //
-// swagger:model CoachingAppointmentStatusDto
-type CoachingAppointmentStatusDto struct {
+// swagger:model CoachingAppointmentStatusResponse
+type CoachingAppointmentStatusResponse struct {
 
 	// The coaching appointment this status belongs to
 	// Read Only: true
@@ -33,13 +33,13 @@ type CoachingAppointmentStatusDto struct {
 	DateCreated strfmt.DateTime `json:"dateCreated,omitempty"`
 
 	// The status of the coaching appointment
-	// Required: true
-	// Enum: [Scheduled InProgress Completed]
-	Status *string `json:"status"`
+	// Read Only: true
+	// Enum: [Scheduled InProgress Completed InvalidSchedule]
+	Status string `json:"status,omitempty"`
 }
 
-// Validate validates this coaching appointment status dto
-func (m *CoachingAppointmentStatusDto) Validate(formats strfmt.Registry) error {
+// Validate validates this coaching appointment status response
+func (m *CoachingAppointmentStatusResponse) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateAppointment(formats); err != nil {
@@ -64,7 +64,7 @@ func (m *CoachingAppointmentStatusDto) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *CoachingAppointmentStatusDto) validateAppointment(formats strfmt.Registry) error {
+func (m *CoachingAppointmentStatusResponse) validateAppointment(formats strfmt.Registry) error {
 
 	if swag.IsZero(m.Appointment) { // not required
 		return nil
@@ -82,7 +82,7 @@ func (m *CoachingAppointmentStatusDto) validateAppointment(formats strfmt.Regist
 	return nil
 }
 
-func (m *CoachingAppointmentStatusDto) validateCreatedBy(formats strfmt.Registry) error {
+func (m *CoachingAppointmentStatusResponse) validateCreatedBy(formats strfmt.Registry) error {
 
 	if swag.IsZero(m.CreatedBy) { // not required
 		return nil
@@ -100,7 +100,7 @@ func (m *CoachingAppointmentStatusDto) validateCreatedBy(formats strfmt.Registry
 	return nil
 }
 
-func (m *CoachingAppointmentStatusDto) validateDateCreated(formats strfmt.Registry) error {
+func (m *CoachingAppointmentStatusResponse) validateDateCreated(formats strfmt.Registry) error {
 
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
@@ -113,46 +113,49 @@ func (m *CoachingAppointmentStatusDto) validateDateCreated(formats strfmt.Regist
 	return nil
 }
 
-var coachingAppointmentStatusDtoTypeStatusPropEnum []interface{}
+var coachingAppointmentStatusResponseTypeStatusPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Scheduled","InProgress","Completed"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Scheduled","InProgress","Completed","InvalidSchedule"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
-		coachingAppointmentStatusDtoTypeStatusPropEnum = append(coachingAppointmentStatusDtoTypeStatusPropEnum, v)
+		coachingAppointmentStatusResponseTypeStatusPropEnum = append(coachingAppointmentStatusResponseTypeStatusPropEnum, v)
 	}
 }
 
 const (
 
-	// CoachingAppointmentStatusDtoStatusScheduled captures enum value "Scheduled"
-	CoachingAppointmentStatusDtoStatusScheduled string = "Scheduled"
+	// CoachingAppointmentStatusResponseStatusScheduled captures enum value "Scheduled"
+	CoachingAppointmentStatusResponseStatusScheduled string = "Scheduled"
 
-	// CoachingAppointmentStatusDtoStatusInProgress captures enum value "InProgress"
-	CoachingAppointmentStatusDtoStatusInProgress string = "InProgress"
+	// CoachingAppointmentStatusResponseStatusInProgress captures enum value "InProgress"
+	CoachingAppointmentStatusResponseStatusInProgress string = "InProgress"
 
-	// CoachingAppointmentStatusDtoStatusCompleted captures enum value "Completed"
-	CoachingAppointmentStatusDtoStatusCompleted string = "Completed"
+	// CoachingAppointmentStatusResponseStatusCompleted captures enum value "Completed"
+	CoachingAppointmentStatusResponseStatusCompleted string = "Completed"
+
+	// CoachingAppointmentStatusResponseStatusInvalidSchedule captures enum value "InvalidSchedule"
+	CoachingAppointmentStatusResponseStatusInvalidSchedule string = "InvalidSchedule"
 )
 
 // prop value enum
-func (m *CoachingAppointmentStatusDto) validateStatusEnum(path, location string, value string) error {
-	if err := validate.EnumCase(path, location, value, coachingAppointmentStatusDtoTypeStatusPropEnum, true); err != nil {
+func (m *CoachingAppointmentStatusResponse) validateStatusEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, coachingAppointmentStatusResponseTypeStatusPropEnum, true); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (m *CoachingAppointmentStatusDto) validateStatus(formats strfmt.Registry) error {
+func (m *CoachingAppointmentStatusResponse) validateStatus(formats strfmt.Registry) error {
 
-	if err := validate.Required("status", "body", m.Status); err != nil {
-		return err
+	if swag.IsZero(m.Status) { // not required
+		return nil
 	}
 
 	// value enum
-	if err := m.validateStatusEnum("status", "body", *m.Status); err != nil {
+	if err := m.validateStatusEnum("status", "body", m.Status); err != nil {
 		return err
 	}
 
@@ -160,7 +163,7 @@ func (m *CoachingAppointmentStatusDto) validateStatus(formats strfmt.Registry) e
 }
 
 // MarshalBinary interface implementation
-func (m *CoachingAppointmentStatusDto) MarshalBinary() ([]byte, error) {
+func (m *CoachingAppointmentStatusResponse) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -168,8 +171,8 @@ func (m *CoachingAppointmentStatusDto) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *CoachingAppointmentStatusDto) UnmarshalBinary(b []byte) error {
-	var res CoachingAppointmentStatusDto
+func (m *CoachingAppointmentStatusResponse) UnmarshalBinary(b []byte) error {
+	var res CoachingAppointmentStatusResponse
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

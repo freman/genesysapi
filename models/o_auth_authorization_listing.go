@@ -25,6 +25,9 @@ type OAuthAuthorizationListing struct {
 	// self Uri
 	// Format: uri
 	SelfURI strfmt.URI `json:"selfUri,omitempty"`
+
+	// total
+	Total int64 `json:"total,omitempty"`
 }
 
 // Validate validates this o auth authorization listing

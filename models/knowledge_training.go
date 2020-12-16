@@ -42,7 +42,7 @@ type KnowledgeTraining struct {
 	// Read Only: true
 	ID string `json:"id,omitempty"`
 
-	// Knowledge base which Training does belong to
+	// Knowledge Base that the training belongs to.
 	// Read Only: true
 	KnowledgeBase *KnowledgeBase `json:"knowledgeBase,omitempty"`
 
@@ -51,19 +51,16 @@ type KnowledgeTraining struct {
 	// Enum: [Draft Active Discarded Archived]
 	KnowledgeDocumentsState string `json:"knowledgeDocumentsState,omitempty"`
 
-	// Actual language of the Training
+	// Language of the documents that are trained.
 	// Read Only: true
 	LanguageCode string `json:"languageCode,omitempty"`
-
-	// name
-	Name string `json:"name,omitempty"`
 
 	// The URI for this object
 	// Read Only: true
 	// Format: uri
 	SelfURI strfmt.URI `json:"selfUri,omitempty"`
 
-	// Training status
+	// Training status.
 	// Read Only: true
 	// Enum: [Queued InProgress Succeeded Failed]
 	Status string `json:"status,omitempty"`

@@ -56,6 +56,10 @@ type API interface {
 	*/
 	DeleteWorkforcemanagementManagementunitWorkplan(ctx context.Context, params *DeleteWorkforcemanagementManagementunitWorkplanParams) (*DeleteWorkforcemanagementManagementunitWorkplanNoContent, error)
 	/*
+	   DeleteWorkforcemanagementManagementunitWorkplanrotation deletes a work plan rotation
+	*/
+	DeleteWorkforcemanagementManagementunitWorkplanrotation(ctx context.Context, params *DeleteWorkforcemanagementManagementunitWorkplanrotationParams) (*DeleteWorkforcemanagementManagementunitWorkplanrotationNoContent, error)
+	/*
 	   GetWorkforcemanagementAdherence gets a list of user schedule adherence records for the requested users
 	*/
 	GetWorkforcemanagementAdherence(ctx context.Context, params *GetWorkforcemanagementAdherenceParams) (*GetWorkforcemanagementAdherenceOK, error)
@@ -216,6 +220,14 @@ type API interface {
 	*/
 	GetWorkforcemanagementManagementunitWorkplan(ctx context.Context, params *GetWorkforcemanagementManagementunitWorkplanParams) (*GetWorkforcemanagementManagementunitWorkplanOK, error)
 	/*
+	   GetWorkforcemanagementManagementunitWorkplanrotation gets a work plan rotation
+	*/
+	GetWorkforcemanagementManagementunitWorkplanrotation(ctx context.Context, params *GetWorkforcemanagementManagementunitWorkplanrotationParams) (*GetWorkforcemanagementManagementunitWorkplanrotationOK, error)
+	/*
+	   GetWorkforcemanagementManagementunitWorkplanrotations gets work plan rotations
+	*/
+	GetWorkforcemanagementManagementunitWorkplanrotations(ctx context.Context, params *GetWorkforcemanagementManagementunitWorkplanrotationsParams) (*GetWorkforcemanagementManagementunitWorkplanrotationsOK, error)
+	/*
 	   GetWorkforcemanagementManagementunitWorkplans gets work plans
 	*/
 	GetWorkforcemanagementManagementunitWorkplans(ctx context.Context, params *GetWorkforcemanagementManagementunitWorkplansParams) (*GetWorkforcemanagementManagementunitWorkplansOK, error)
@@ -283,6 +295,10 @@ type API interface {
 	   PatchWorkforcemanagementManagementunitWorkplan updates a work plan
 	*/
 	PatchWorkforcemanagementManagementunitWorkplan(ctx context.Context, params *PatchWorkforcemanagementManagementunitWorkplanParams) (*PatchWorkforcemanagementManagementunitWorkplanOK, error)
+	/*
+	   PatchWorkforcemanagementManagementunitWorkplanrotation updates a work plan rotation
+	*/
+	PatchWorkforcemanagementManagementunitWorkplanrotation(ctx context.Context, params *PatchWorkforcemanagementManagementunitWorkplanrotationParams) (*PatchWorkforcemanagementManagementunitWorkplanrotationOK, error)
 	/*
 	   PatchWorkforcemanagementTimeoffrequest updates a time off request for the current user
 	*/
@@ -399,6 +415,14 @@ type API interface {
 	   PostWorkforcemanagementManagementunitWorkplanValidate validates work plan
 	*/
 	PostWorkforcemanagementManagementunitWorkplanValidate(ctx context.Context, params *PostWorkforcemanagementManagementunitWorkplanValidateParams) (*PostWorkforcemanagementManagementunitWorkplanValidateOK, error)
+	/*
+	   PostWorkforcemanagementManagementunitWorkplanrotationCopy creates a copy of work plan rotation
+	*/
+	PostWorkforcemanagementManagementunitWorkplanrotationCopy(ctx context.Context, params *PostWorkforcemanagementManagementunitWorkplanrotationCopyParams) (*PostWorkforcemanagementManagementunitWorkplanrotationCopyOK, error)
+	/*
+	   PostWorkforcemanagementManagementunitWorkplanrotations creates a new work plan rotation
+	*/
+	PostWorkforcemanagementManagementunitWorkplanrotations(ctx context.Context, params *PostWorkforcemanagementManagementunitWorkplanrotationsParams) (*PostWorkforcemanagementManagementunitWorkplanrotationsOK, *PostWorkforcemanagementManagementunitWorkplanrotationsCreated, error)
 	/*
 	   PostWorkforcemanagementManagementunitWorkplans creates a new work plan
 	*/
@@ -672,6 +696,31 @@ func (a *Client) DeleteWorkforcemanagementManagementunitWorkplan(ctx context.Con
 		return nil, err
 	}
 	return result.(*DeleteWorkforcemanagementManagementunitWorkplanNoContent), nil
+
+}
+
+/*
+DeleteWorkforcemanagementManagementunitWorkplanrotation deletes a work plan rotation
+*/
+func (a *Client) DeleteWorkforcemanagementManagementunitWorkplanrotation(ctx context.Context, params *DeleteWorkforcemanagementManagementunitWorkplanrotationParams) (*DeleteWorkforcemanagementManagementunitWorkplanrotationNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteWorkforcemanagementManagementunitWorkplanrotation",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/workplanrotations/{workPlanRotationId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteWorkforcemanagementManagementunitWorkplanrotationReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteWorkforcemanagementManagementunitWorkplanrotationNoContent), nil
 
 }
 
@@ -1659,6 +1708,56 @@ func (a *Client) GetWorkforcemanagementManagementunitWorkplan(ctx context.Contex
 }
 
 /*
+GetWorkforcemanagementManagementunitWorkplanrotation gets a work plan rotation
+*/
+func (a *Client) GetWorkforcemanagementManagementunitWorkplanrotation(ctx context.Context, params *GetWorkforcemanagementManagementunitWorkplanrotationParams) (*GetWorkforcemanagementManagementunitWorkplanrotationOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getWorkforcemanagementManagementunitWorkplanrotation",
+		Method:             "GET",
+		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/workplanrotations/{workPlanRotationId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetWorkforcemanagementManagementunitWorkplanrotationReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetWorkforcemanagementManagementunitWorkplanrotationOK), nil
+
+}
+
+/*
+GetWorkforcemanagementManagementunitWorkplanrotations gets work plan rotations
+*/
+func (a *Client) GetWorkforcemanagementManagementunitWorkplanrotations(ctx context.Context, params *GetWorkforcemanagementManagementunitWorkplanrotationsParams) (*GetWorkforcemanagementManagementunitWorkplanrotationsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getWorkforcemanagementManagementunitWorkplanrotations",
+		Method:             "GET",
+		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/workplanrotations",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetWorkforcemanagementManagementunitWorkplanrotationsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetWorkforcemanagementManagementunitWorkplanrotationsOK), nil
+
+}
+
+/*
 GetWorkforcemanagementManagementunitWorkplans gets work plans
 */
 func (a *Client) GetWorkforcemanagementManagementunitWorkplans(ctx context.Context, params *GetWorkforcemanagementManagementunitWorkplansParams) (*GetWorkforcemanagementManagementunitWorkplansOK, error) {
@@ -2080,6 +2179,31 @@ func (a *Client) PatchWorkforcemanagementManagementunitWorkplan(ctx context.Cont
 		return nil, err
 	}
 	return result.(*PatchWorkforcemanagementManagementunitWorkplanOK), nil
+
+}
+
+/*
+PatchWorkforcemanagementManagementunitWorkplanrotation updates a work plan rotation
+*/
+func (a *Client) PatchWorkforcemanagementManagementunitWorkplanrotation(ctx context.Context, params *PatchWorkforcemanagementManagementunitWorkplanrotationParams) (*PatchWorkforcemanagementManagementunitWorkplanrotationOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "patchWorkforcemanagementManagementunitWorkplanrotation",
+		Method:             "PATCH",
+		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/workplanrotations/{workPlanRotationId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchWorkforcemanagementManagementunitWorkplanrotationReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PatchWorkforcemanagementManagementunitWorkplanrotationOK), nil
 
 }
 
@@ -2816,6 +2940,62 @@ func (a *Client) PostWorkforcemanagementManagementunitWorkplanValidate(ctx conte
 		return nil, err
 	}
 	return result.(*PostWorkforcemanagementManagementunitWorkplanValidateOK), nil
+
+}
+
+/*
+PostWorkforcemanagementManagementunitWorkplanrotationCopy creates a copy of work plan rotation
+*/
+func (a *Client) PostWorkforcemanagementManagementunitWorkplanrotationCopy(ctx context.Context, params *PostWorkforcemanagementManagementunitWorkplanrotationCopyParams) (*PostWorkforcemanagementManagementunitWorkplanrotationCopyOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postWorkforcemanagementManagementunitWorkplanrotationCopy",
+		Method:             "POST",
+		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/workplanrotations/{workPlanRotationId}/copy",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostWorkforcemanagementManagementunitWorkplanrotationCopyReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostWorkforcemanagementManagementunitWorkplanrotationCopyOK), nil
+
+}
+
+/*
+PostWorkforcemanagementManagementunitWorkplanrotations creates a new work plan rotation
+*/
+func (a *Client) PostWorkforcemanagementManagementunitWorkplanrotations(ctx context.Context, params *PostWorkforcemanagementManagementunitWorkplanrotationsParams) (*PostWorkforcemanagementManagementunitWorkplanrotationsOK, *PostWorkforcemanagementManagementunitWorkplanrotationsCreated, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postWorkforcemanagementManagementunitWorkplanrotations",
+		Method:             "POST",
+		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/workplanrotations",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostWorkforcemanagementManagementunitWorkplanrotationsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PostWorkforcemanagementManagementunitWorkplanrotationsOK:
+		return value, nil, nil
+	case *PostWorkforcemanagementManagementunitWorkplanrotationsCreated:
+		return nil, value, nil
+	}
+	return nil, nil, nil
 
 }
 

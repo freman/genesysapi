@@ -13,13 +13,13 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// CoachingAppointmentStatusDtoList coaching appointment status dto list
+// CoachingAppointmentStatusResponseList coaching appointment status response list
 //
-// swagger:model CoachingAppointmentStatusDtoList
-type CoachingAppointmentStatusDtoList struct {
+// swagger:model CoachingAppointmentStatusResponseList
+type CoachingAppointmentStatusResponseList struct {
 
 	// entities
-	Entities []*CoachingAppointmentStatusDto `json:"entities"`
+	Entities []*CoachingAppointmentStatusResponse `json:"entities"`
 
 	// page count
 	PageCount int32 `json:"pageCount,omitempty"`
@@ -34,8 +34,8 @@ type CoachingAppointmentStatusDtoList struct {
 	Total int64 `json:"total,omitempty"`
 }
 
-// Validate validates this coaching appointment status dto list
-func (m *CoachingAppointmentStatusDtoList) Validate(formats strfmt.Registry) error {
+// Validate validates this coaching appointment status response list
+func (m *CoachingAppointmentStatusResponseList) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateEntities(formats); err != nil {
@@ -48,7 +48,7 @@ func (m *CoachingAppointmentStatusDtoList) Validate(formats strfmt.Registry) err
 	return nil
 }
 
-func (m *CoachingAppointmentStatusDtoList) validateEntities(formats strfmt.Registry) error {
+func (m *CoachingAppointmentStatusResponseList) validateEntities(formats strfmt.Registry) error {
 
 	if swag.IsZero(m.Entities) { // not required
 		return nil
@@ -74,7 +74,7 @@ func (m *CoachingAppointmentStatusDtoList) validateEntities(formats strfmt.Regis
 }
 
 // MarshalBinary interface implementation
-func (m *CoachingAppointmentStatusDtoList) MarshalBinary() ([]byte, error) {
+func (m *CoachingAppointmentStatusResponseList) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -82,8 +82,8 @@ func (m *CoachingAppointmentStatusDtoList) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *CoachingAppointmentStatusDtoList) UnmarshalBinary(b []byte) error {
-	var res CoachingAppointmentStatusDtoList
+func (m *CoachingAppointmentStatusResponseList) UnmarshalBinary(b []byte) error {
+	var res CoachingAppointmentStatusResponseList
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

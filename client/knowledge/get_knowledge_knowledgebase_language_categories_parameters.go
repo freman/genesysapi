@@ -85,6 +85,11 @@ type GetKnowledgeKnowledgebaseLanguageCategoriesParams struct {
 
 	*/
 	Limit *string
+	/*Name
+	  Filter to return the categories that starts with the given category name.
+
+	*/
+	Name *string
 	/*PageSize
 	  Number of entities to return. Maximum of 200.
 
@@ -184,6 +189,17 @@ func (o *GetKnowledgeKnowledgebaseLanguageCategoriesParams) SetLimit(limit *stri
 	o.Limit = limit
 }
 
+// WithName adds the name to the get knowledge knowledgebase language categories params
+func (o *GetKnowledgeKnowledgebaseLanguageCategoriesParams) WithName(name *string) *GetKnowledgeKnowledgebaseLanguageCategoriesParams {
+	o.SetName(name)
+	return o
+}
+
+// SetName adds the name to the get knowledge knowledgebase language categories params
+func (o *GetKnowledgeKnowledgebaseLanguageCategoriesParams) SetName(name *string) {
+	o.Name = name
+}
+
 // WithPageSize adds the pageSize to the get knowledge knowledgebase language categories params
 func (o *GetKnowledgeKnowledgebaseLanguageCategoriesParams) WithPageSize(pageSize *string) *GetKnowledgeKnowledgebaseLanguageCategoriesParams {
 	o.SetPageSize(pageSize)
@@ -255,6 +271,22 @@ func (o *GetKnowledgeKnowledgebaseLanguageCategoriesParams) WriteToRequest(r run
 		qLimit := qrLimit
 		if qLimit != "" {
 			if err := r.SetQueryParam("limit", qLimit); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	if o.Name != nil {
+
+		// query param name
+		var qrName string
+		if o.Name != nil {
+			qrName = *o.Name
+		}
+		qName := qrName
+		if qName != "" {
+			if err := r.SetQueryParam("name", qName); err != nil {
 				return err
 			}
 		}

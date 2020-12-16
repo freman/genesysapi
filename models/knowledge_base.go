@@ -29,6 +29,11 @@ type KnowledgeBase struct {
 	// Format: date-time
 	DateCreated strfmt.DateTime `json:"dateCreated,omitempty"`
 
+	// The date representing when the last document is modified. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+	// Read Only: true
+	// Format: date-time
+	DateDocumentLastModified strfmt.DateTime `json:"dateDocumentLastModified,omitempty"`
+
 	// Knowledge base last modification date-time. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Read Only: true
 	// Format: date-time
@@ -38,6 +43,7 @@ type KnowledgeBase struct {
 	Description string `json:"description,omitempty"`
 
 	// The count representing the number of documents of type FAQ per KnowledgeBase
+	// Read Only: true
 	FaqCount int32 `json:"faqCount,omitempty"`
 
 	// The globally unique identifier for the object.
@@ -62,6 +68,10 @@ func (m *KnowledgeBase) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateDateCreated(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDateDocumentLastModified(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -129,6 +139,19 @@ func (m *KnowledgeBase) validateDateCreated(formats strfmt.Registry) error {
 	}
 
 	if err := validate.FormatOf("dateCreated", "body", "date-time", m.DateCreated.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KnowledgeBase) validateDateDocumentLastModified(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.DateDocumentLastModified) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("dateDocumentLastModified", "body", "date-time", m.DateDocumentLastModified.String(), formats); err != nil {
 		return err
 	}
 

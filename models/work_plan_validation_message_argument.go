@@ -20,7 +20,7 @@ import (
 type WorkPlanValidationMessageArgument struct {
 
 	// The type of the argument associated with violation messages
-	// Enum: [Count MaxShiftCount Minutes ShiftId]
+	// Enum: [ActivityId ActivityId2 ActivityPaidTimeMinutes ActivityStartTimeMinutes ActivityValidationId ActivityValidationId2 ApplicableDays Count DailyPaidTimeMinutes MaximumDays MaxShiftCount Minutes PaidTimeGranularityMinutes RequiredDays ShiftId ShiftPaidTimeMinutes ShiftStartTimeMinutes ShiftStopTimeMinutes ShiftValidationId WeeklyPaidTimeMinutes Weeks WorkTimeMinutes]
 	Type string `json:"type,omitempty"`
 
 	// The value of the argument
@@ -45,7 +45,7 @@ var workPlanValidationMessageArgumentTypeTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Count","MaxShiftCount","Minutes","ShiftId"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["ActivityId","ActivityId2","ActivityPaidTimeMinutes","ActivityStartTimeMinutes","ActivityValidationId","ActivityValidationId2","ApplicableDays","Count","DailyPaidTimeMinutes","MaximumDays","MaxShiftCount","Minutes","PaidTimeGranularityMinutes","RequiredDays","ShiftId","ShiftPaidTimeMinutes","ShiftStartTimeMinutes","ShiftStopTimeMinutes","ShiftValidationId","WeeklyPaidTimeMinutes","Weeks","WorkTimeMinutes"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -55,8 +55,35 @@ func init() {
 
 const (
 
+	// WorkPlanValidationMessageArgumentTypeActivityID captures enum value "ActivityId"
+	WorkPlanValidationMessageArgumentTypeActivityID string = "ActivityId"
+
+	// WorkPlanValidationMessageArgumentTypeActivityId2 captures enum value "ActivityId2"
+	WorkPlanValidationMessageArgumentTypeActivityId2 string = "ActivityId2"
+
+	// WorkPlanValidationMessageArgumentTypeActivityPaidTimeMinutes captures enum value "ActivityPaidTimeMinutes"
+	WorkPlanValidationMessageArgumentTypeActivityPaidTimeMinutes string = "ActivityPaidTimeMinutes"
+
+	// WorkPlanValidationMessageArgumentTypeActivityStartTimeMinutes captures enum value "ActivityStartTimeMinutes"
+	WorkPlanValidationMessageArgumentTypeActivityStartTimeMinutes string = "ActivityStartTimeMinutes"
+
+	// WorkPlanValidationMessageArgumentTypeActivityValidationID captures enum value "ActivityValidationId"
+	WorkPlanValidationMessageArgumentTypeActivityValidationID string = "ActivityValidationId"
+
+	// WorkPlanValidationMessageArgumentTypeActivityValidationId2 captures enum value "ActivityValidationId2"
+	WorkPlanValidationMessageArgumentTypeActivityValidationId2 string = "ActivityValidationId2"
+
+	// WorkPlanValidationMessageArgumentTypeApplicableDays captures enum value "ApplicableDays"
+	WorkPlanValidationMessageArgumentTypeApplicableDays string = "ApplicableDays"
+
 	// WorkPlanValidationMessageArgumentTypeCount captures enum value "Count"
 	WorkPlanValidationMessageArgumentTypeCount string = "Count"
+
+	// WorkPlanValidationMessageArgumentTypeDailyPaidTimeMinutes captures enum value "DailyPaidTimeMinutes"
+	WorkPlanValidationMessageArgumentTypeDailyPaidTimeMinutes string = "DailyPaidTimeMinutes"
+
+	// WorkPlanValidationMessageArgumentTypeMaximumDays captures enum value "MaximumDays"
+	WorkPlanValidationMessageArgumentTypeMaximumDays string = "MaximumDays"
 
 	// WorkPlanValidationMessageArgumentTypeMaxShiftCount captures enum value "MaxShiftCount"
 	WorkPlanValidationMessageArgumentTypeMaxShiftCount string = "MaxShiftCount"
@@ -64,8 +91,35 @@ const (
 	// WorkPlanValidationMessageArgumentTypeMinutes captures enum value "Minutes"
 	WorkPlanValidationMessageArgumentTypeMinutes string = "Minutes"
 
+	// WorkPlanValidationMessageArgumentTypePaidTimeGranularityMinutes captures enum value "PaidTimeGranularityMinutes"
+	WorkPlanValidationMessageArgumentTypePaidTimeGranularityMinutes string = "PaidTimeGranularityMinutes"
+
+	// WorkPlanValidationMessageArgumentTypeRequiredDays captures enum value "RequiredDays"
+	WorkPlanValidationMessageArgumentTypeRequiredDays string = "RequiredDays"
+
 	// WorkPlanValidationMessageArgumentTypeShiftID captures enum value "ShiftId"
 	WorkPlanValidationMessageArgumentTypeShiftID string = "ShiftId"
+
+	// WorkPlanValidationMessageArgumentTypeShiftPaidTimeMinutes captures enum value "ShiftPaidTimeMinutes"
+	WorkPlanValidationMessageArgumentTypeShiftPaidTimeMinutes string = "ShiftPaidTimeMinutes"
+
+	// WorkPlanValidationMessageArgumentTypeShiftStartTimeMinutes captures enum value "ShiftStartTimeMinutes"
+	WorkPlanValidationMessageArgumentTypeShiftStartTimeMinutes string = "ShiftStartTimeMinutes"
+
+	// WorkPlanValidationMessageArgumentTypeShiftStopTimeMinutes captures enum value "ShiftStopTimeMinutes"
+	WorkPlanValidationMessageArgumentTypeShiftStopTimeMinutes string = "ShiftStopTimeMinutes"
+
+	// WorkPlanValidationMessageArgumentTypeShiftValidationID captures enum value "ShiftValidationId"
+	WorkPlanValidationMessageArgumentTypeShiftValidationID string = "ShiftValidationId"
+
+	// WorkPlanValidationMessageArgumentTypeWeeklyPaidTimeMinutes captures enum value "WeeklyPaidTimeMinutes"
+	WorkPlanValidationMessageArgumentTypeWeeklyPaidTimeMinutes string = "WeeklyPaidTimeMinutes"
+
+	// WorkPlanValidationMessageArgumentTypeWeeks captures enum value "Weeks"
+	WorkPlanValidationMessageArgumentTypeWeeks string = "Weeks"
+
+	// WorkPlanValidationMessageArgumentTypeWorkTimeMinutes captures enum value "WorkTimeMinutes"
+	WorkPlanValidationMessageArgumentTypeWorkTimeMinutes string = "WorkTimeMinutes"
 )
 
 // prop value enum

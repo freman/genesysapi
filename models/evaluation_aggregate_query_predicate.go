@@ -20,7 +20,7 @@ import (
 type EvaluationAggregateQueryPredicate struct {
 
 	// Left hand side for dimension predicates
-	// Enum: [calibrationId contextId conversationId divisionId evaluationCreatedDate evaluationId evaluatorId formId queueId rescind rescored userId]
+	// Enum: [calibrationId contextId conversationId divisionId evaluationCreatedDate evaluationId evaluatorId formId queueId rescind rescored teamId userId]
 	Dimension string `json:"dimension,omitempty"`
 
 	// Optional operator, default is matches
@@ -68,7 +68,7 @@ var evaluationAggregateQueryPredicateTypeDimensionPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["calibrationId","contextId","conversationId","divisionId","evaluationCreatedDate","evaluationId","evaluatorId","formId","queueId","rescind","rescored","userId"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["calibrationId","contextId","conversationId","divisionId","evaluationCreatedDate","evaluationId","evaluatorId","formId","queueId","rescind","rescored","teamId","userId"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -110,6 +110,9 @@ const (
 
 	// EvaluationAggregateQueryPredicateDimensionRescored captures enum value "rescored"
 	EvaluationAggregateQueryPredicateDimensionRescored string = "rescored"
+
+	// EvaluationAggregateQueryPredicateDimensionTeamID captures enum value "teamId"
+	EvaluationAggregateQueryPredicateDimensionTeamID string = "teamId"
 
 	// EvaluationAggregateQueryPredicateDimensionUserID captures enum value "userId"
 	EvaluationAggregateQueryPredicateDimensionUserID string = "userId"

@@ -95,6 +95,11 @@ type GetKnowledgeKnowledgebaseLanguageDocumentsParams struct {
 
 	*/
 	PageSize *string
+	/*Title
+	  Filter by document title.
+
+	*/
+	Title *string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -211,6 +216,17 @@ func (o *GetKnowledgeKnowledgebaseLanguageDocumentsParams) SetPageSize(pageSize 
 	o.PageSize = pageSize
 }
 
+// WithTitle adds the title to the get knowledge knowledgebase language documents params
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsParams) WithTitle(title *string) *GetKnowledgeKnowledgebaseLanguageDocumentsParams {
+	o.SetTitle(title)
+	return o
+}
+
+// SetTitle adds the title to the get knowledge knowledgebase language documents params
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsParams) SetTitle(title *string) {
+	o.Title = title
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *GetKnowledgeKnowledgebaseLanguageDocumentsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -303,6 +319,22 @@ func (o *GetKnowledgeKnowledgebaseLanguageDocumentsParams) WriteToRequest(r runt
 		qPageSize := qrPageSize
 		if qPageSize != "" {
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	if o.Title != nil {
+
+		// query param title
+		var qrTitle string
+		if o.Title != nil {
+			qrTitle = *o.Title
+		}
+		qTitle := qrTitle
+		if qTitle != "" {
+			if err := r.SetQueryParam("title", qTitle); err != nil {
 				return err
 			}
 		}

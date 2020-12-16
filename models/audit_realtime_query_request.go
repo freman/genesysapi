@@ -35,7 +35,7 @@ type AuditRealtimeQueryRequest struct {
 
 	// Name of the service to query audits for.
 	// Required: true
-	// Enum: [ContactCenter ContentManagement PeoplePermissions Quality LanguageUnderstanding TopicsDefinitions PredictiveEngagement WorkforceManagement Triggers ResponseManagement]
+	// Enum: [Architect ContactCenter ContentManagement PeoplePermissions Quality LanguageUnderstanding TopicsDefinitions PredictiveEngagement WorkforceManagement Triggers ResponseManagement Groups Telephony]
 	ServiceName *string `json:"serviceName"`
 
 	// Sort parameter for the query.
@@ -106,7 +106,7 @@ var auditRealtimeQueryRequestTypeServiceNamePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["ContactCenter","ContentManagement","PeoplePermissions","Quality","LanguageUnderstanding","TopicsDefinitions","PredictiveEngagement","WorkforceManagement","Triggers","ResponseManagement"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Architect","ContactCenter","ContentManagement","PeoplePermissions","Quality","LanguageUnderstanding","TopicsDefinitions","PredictiveEngagement","WorkforceManagement","Triggers","ResponseManagement","Groups","Telephony"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -115,6 +115,9 @@ func init() {
 }
 
 const (
+
+	// AuditRealtimeQueryRequestServiceNameArchitect captures enum value "Architect"
+	AuditRealtimeQueryRequestServiceNameArchitect string = "Architect"
 
 	// AuditRealtimeQueryRequestServiceNameContactCenter captures enum value "ContactCenter"
 	AuditRealtimeQueryRequestServiceNameContactCenter string = "ContactCenter"
@@ -145,6 +148,12 @@ const (
 
 	// AuditRealtimeQueryRequestServiceNameResponseManagement captures enum value "ResponseManagement"
 	AuditRealtimeQueryRequestServiceNameResponseManagement string = "ResponseManagement"
+
+	// AuditRealtimeQueryRequestServiceNameGroups captures enum value "Groups"
+	AuditRealtimeQueryRequestServiceNameGroups string = "Groups"
+
+	// AuditRealtimeQueryRequestServiceNameTelephony captures enum value "Telephony"
+	AuditRealtimeQueryRequestServiceNameTelephony string = "Telephony"
 )
 
 // prop value enum

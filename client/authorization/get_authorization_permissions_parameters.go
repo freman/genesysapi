@@ -91,6 +91,16 @@ type GetAuthorizationPermissionsParams struct {
 
 	*/
 	PageSize *int32
+	/*Query
+	  Comma-separated list of permissions or domains to query
+
+	*/
+	Query *string
+	/*QueryType
+	  Query filter type
+
+	*/
+	QueryType *string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -152,6 +162,28 @@ func (o *GetAuthorizationPermissionsParams) SetPageSize(pageSize *int32) {
 	o.PageSize = pageSize
 }
 
+// WithQuery adds the query to the get authorization permissions params
+func (o *GetAuthorizationPermissionsParams) WithQuery(query *string) *GetAuthorizationPermissionsParams {
+	o.SetQuery(query)
+	return o
+}
+
+// SetQuery adds the query to the get authorization permissions params
+func (o *GetAuthorizationPermissionsParams) SetQuery(query *string) {
+	o.Query = query
+}
+
+// WithQueryType adds the queryType to the get authorization permissions params
+func (o *GetAuthorizationPermissionsParams) WithQueryType(queryType *string) *GetAuthorizationPermissionsParams {
+	o.SetQueryType(queryType)
+	return o
+}
+
+// SetQueryType adds the queryType to the get authorization permissions params
+func (o *GetAuthorizationPermissionsParams) SetQueryType(queryType *string) {
+	o.QueryType = queryType
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *GetAuthorizationPermissionsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -186,6 +218,38 @@ func (o *GetAuthorizationPermissionsParams) WriteToRequest(r runtime.ClientReque
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	if o.Query != nil {
+
+		// query param query
+		var qrQuery string
+		if o.Query != nil {
+			qrQuery = *o.Query
+		}
+		qQuery := qrQuery
+		if qQuery != "" {
+			if err := r.SetQueryParam("query", qQuery); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	if o.QueryType != nil {
+
+		// query param queryType
+		var qrQueryType string
+		if o.QueryType != nil {
+			qrQueryType = *o.QueryType
+		}
+		qQueryType := qrQueryType
+		if qQueryType != "" {
+			if err := r.SetQueryParam("queryType", qQueryType); err != nil {
 				return err
 			}
 		}

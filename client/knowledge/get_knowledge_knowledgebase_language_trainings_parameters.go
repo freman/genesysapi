@@ -75,6 +75,11 @@ type GetKnowledgeKnowledgebaseLanguageTrainingsParams struct {
 
 	*/
 	KnowledgeBaseID string
+	/*KnowledgeDocumentsState
+	  Return the training with the specified state of the trained documents.
+
+	*/
+	KnowledgeDocumentsState *string
 	/*LanguageCode
 	  Language code, format: iso2-LOCALE
 
@@ -162,6 +167,17 @@ func (o *GetKnowledgeKnowledgebaseLanguageTrainingsParams) SetKnowledgeBaseID(kn
 	o.KnowledgeBaseID = knowledgeBaseID
 }
 
+// WithKnowledgeDocumentsState adds the knowledgeDocumentsState to the get knowledge knowledgebase language trainings params
+func (o *GetKnowledgeKnowledgebaseLanguageTrainingsParams) WithKnowledgeDocumentsState(knowledgeDocumentsState *string) *GetKnowledgeKnowledgebaseLanguageTrainingsParams {
+	o.SetKnowledgeDocumentsState(knowledgeDocumentsState)
+	return o
+}
+
+// SetKnowledgeDocumentsState adds the knowledgeDocumentsState to the get knowledge knowledgebase language trainings params
+func (o *GetKnowledgeKnowledgebaseLanguageTrainingsParams) SetKnowledgeDocumentsState(knowledgeDocumentsState *string) {
+	o.KnowledgeDocumentsState = knowledgeDocumentsState
+}
+
 // WithLanguageCode adds the languageCode to the get knowledge knowledgebase language trainings params
 func (o *GetKnowledgeKnowledgebaseLanguageTrainingsParams) WithLanguageCode(languageCode string) *GetKnowledgeKnowledgebaseLanguageTrainingsParams {
 	o.SetLanguageCode(languageCode)
@@ -238,6 +254,22 @@ func (o *GetKnowledgeKnowledgebaseLanguageTrainingsParams) WriteToRequest(r runt
 	// path param knowledgeBaseId
 	if err := r.SetPathParam("knowledgeBaseId", o.KnowledgeBaseID); err != nil {
 		return err
+	}
+
+	if o.KnowledgeDocumentsState != nil {
+
+		// query param knowledgeDocumentsState
+		var qrKnowledgeDocumentsState string
+		if o.KnowledgeDocumentsState != nil {
+			qrKnowledgeDocumentsState = *o.KnowledgeDocumentsState
+		}
+		qKnowledgeDocumentsState := qrKnowledgeDocumentsState
+		if qKnowledgeDocumentsState != "" {
+			if err := r.SetQueryParam("knowledgeDocumentsState", qKnowledgeDocumentsState); err != nil {
+				return err
+			}
+		}
+
 	}
 
 	// path param languageCode

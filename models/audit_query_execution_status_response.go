@@ -30,7 +30,7 @@ type AuditQueryExecutionStatusResponse struct {
 	Interval string `json:"interval,omitempty"`
 
 	// Service name for the audit query.
-	// Enum: [ContactCenter ContentManagement PeoplePermissions Quality LanguageUnderstanding TopicsDefinitions PredictiveEngagement WorkforceManagement Triggers ResponseManagement]
+	// Enum: [Architect ContactCenter ContentManagement PeoplePermissions Quality LanguageUnderstanding TopicsDefinitions PredictiveEngagement WorkforceManagement Triggers ResponseManagement Groups Telephony]
 	ServiceName string `json:"serviceName,omitempty"`
 
 	// Sort parameter for the audit query.
@@ -104,7 +104,7 @@ var auditQueryExecutionStatusResponseTypeServiceNamePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["ContactCenter","ContentManagement","PeoplePermissions","Quality","LanguageUnderstanding","TopicsDefinitions","PredictiveEngagement","WorkforceManagement","Triggers","ResponseManagement"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Architect","ContactCenter","ContentManagement","PeoplePermissions","Quality","LanguageUnderstanding","TopicsDefinitions","PredictiveEngagement","WorkforceManagement","Triggers","ResponseManagement","Groups","Telephony"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -113,6 +113,9 @@ func init() {
 }
 
 const (
+
+	// AuditQueryExecutionStatusResponseServiceNameArchitect captures enum value "Architect"
+	AuditQueryExecutionStatusResponseServiceNameArchitect string = "Architect"
 
 	// AuditQueryExecutionStatusResponseServiceNameContactCenter captures enum value "ContactCenter"
 	AuditQueryExecutionStatusResponseServiceNameContactCenter string = "ContactCenter"
@@ -143,6 +146,12 @@ const (
 
 	// AuditQueryExecutionStatusResponseServiceNameResponseManagement captures enum value "ResponseManagement"
 	AuditQueryExecutionStatusResponseServiceNameResponseManagement string = "ResponseManagement"
+
+	// AuditQueryExecutionStatusResponseServiceNameGroups captures enum value "Groups"
+	AuditQueryExecutionStatusResponseServiceNameGroups string = "Groups"
+
+	// AuditQueryExecutionStatusResponseServiceNameTelephony captures enum value "Telephony"
+	AuditQueryExecutionStatusResponseServiceNameTelephony string = "Telephony"
 )
 
 // prop value enum

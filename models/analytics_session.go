@@ -20,6 +20,9 @@ import (
 // swagger:model AnalyticsSession
 type AnalyticsSession struct {
 
+	// Marker for an agent that skipped after call work
+	AcwSkipped bool `json:"acwSkipped"`
+
 	// address from
 	AddressFrom string `json:"addressFrom,omitempty"`
 
@@ -37,6 +40,9 @@ type AnalyticsSession struct {
 
 	// Automatic Number Identification (caller's number)
 	Ani string `json:"ani,omitempty"`
+
+	// ID of the user that manually assigned a conversation
+	AssignerID string `json:"assignerId,omitempty"`
 
 	// List of numbers to callback
 	CallbackNumbers []string `json:"callbackNumbers"`

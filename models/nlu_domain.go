@@ -35,6 +35,9 @@ type NluDomain struct {
 	// Read Only: true
 	ID string `json:"id,omitempty"`
 
+	// The language culture of the NLU domain, e.g. `en-us`, `de-de`.
+	Language string `json:"language,omitempty"`
+
 	// The last published version of that NLU domain.
 	// Read Only: true
 	LastPublishedVersion *NluDomainVersion `json:"lastPublishedVersion,omitempty"`

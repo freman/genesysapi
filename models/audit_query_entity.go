@@ -24,7 +24,7 @@ type AuditQueryEntity struct {
 	Actions []string `json:"actions"`
 
 	// Name of the Entity
-	// Enum: [Document Queue Recording Role VoicemailUserPolicy WrapupCode AccessToken OAuthClient OAuthClientAuthorization AuthOrganization AuthUser BulkActions Feedback Topic Program Segment Outcome SessionType EventType ClickstreamSettings Schedule Trigger Response]
+	// Enum: [Document Queue Recording Role VoicemailUserPolicy WrapupCode AccessToken OAuthClient OAuthClientAuthorization AuthOrganization AuthUser BulkActions Feedback Topic Program Segment Outcome SessionType EventType ClickstreamSettings Schedule ScheduleGroup EmergencyGroup IVR Trigger Response DependencyTrackingBuild Flow Prompt PromptResource FlowOutcome FlowMilestone Team Edge EdgeGroup Trunk TrunkBase DID DIDPool Extension ExtensionPool Phone PhoneBase Line LineBase OutboundRoute NumberPlan Site]
 	Name string `json:"name,omitempty"`
 }
 
@@ -50,7 +50,7 @@ var auditQueryEntityActionsItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Create","View","Update","Delete","Download","MemberAdd","MemberUpdate","MemberRemove","Read","ApplyProtection","RevokeProtection","UpdateRetention","ReadAll","Execute","Publish","Unpublish","Enable","Disable","Authorize","Deauthorize","Authenticate","ChangePassword"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Create","View","Update","Delete","Download","Upload","MemberAdd","MemberUpdate","MemberRemove","Read","ApplyProtection","RevokeProtection","UpdateRetention","ReadAll","Execute","Publish","Unpublish","Activate","Checkin","Checkout","Deactivate","Debug","Save","Revert","Transcode","Enable","Disable","Authorize","Deauthorize","Authenticate","ChangePassword"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -87,7 +87,7 @@ var auditQueryEntityTypeNamePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Document","Queue","Recording","Role","VoicemailUserPolicy","WrapupCode","AccessToken","OAuthClient","OAuthClientAuthorization","AuthOrganization","AuthUser","BulkActions","Feedback","Topic","Program","Segment","Outcome","SessionType","EventType","ClickstreamSettings","Schedule","Trigger","Response"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Document","Queue","Recording","Role","VoicemailUserPolicy","WrapupCode","AccessToken","OAuthClient","OAuthClientAuthorization","AuthOrganization","AuthUser","BulkActions","Feedback","Topic","Program","Segment","Outcome","SessionType","EventType","ClickstreamSettings","Schedule","ScheduleGroup","EmergencyGroup","IVR","Trigger","Response","DependencyTrackingBuild","Flow","Prompt","PromptResource","FlowOutcome","FlowMilestone","Team","Edge","EdgeGroup","Trunk","TrunkBase","DID","DIDPool","Extension","ExtensionPool","Phone","PhoneBase","Line","LineBase","OutboundRoute","NumberPlan","Site"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -160,11 +160,86 @@ const (
 	// AuditQueryEntityNameSchedule captures enum value "Schedule"
 	AuditQueryEntityNameSchedule string = "Schedule"
 
+	// AuditQueryEntityNameScheduleGroup captures enum value "ScheduleGroup"
+	AuditQueryEntityNameScheduleGroup string = "ScheduleGroup"
+
+	// AuditQueryEntityNameEmergencyGroup captures enum value "EmergencyGroup"
+	AuditQueryEntityNameEmergencyGroup string = "EmergencyGroup"
+
+	// AuditQueryEntityNameIVR captures enum value "IVR"
+	AuditQueryEntityNameIVR string = "IVR"
+
 	// AuditQueryEntityNameTrigger captures enum value "Trigger"
 	AuditQueryEntityNameTrigger string = "Trigger"
 
 	// AuditQueryEntityNameResponse captures enum value "Response"
 	AuditQueryEntityNameResponse string = "Response"
+
+	// AuditQueryEntityNameDependencyTrackingBuild captures enum value "DependencyTrackingBuild"
+	AuditQueryEntityNameDependencyTrackingBuild string = "DependencyTrackingBuild"
+
+	// AuditQueryEntityNameFlow captures enum value "Flow"
+	AuditQueryEntityNameFlow string = "Flow"
+
+	// AuditQueryEntityNamePrompt captures enum value "Prompt"
+	AuditQueryEntityNamePrompt string = "Prompt"
+
+	// AuditQueryEntityNamePromptResource captures enum value "PromptResource"
+	AuditQueryEntityNamePromptResource string = "PromptResource"
+
+	// AuditQueryEntityNameFlowOutcome captures enum value "FlowOutcome"
+	AuditQueryEntityNameFlowOutcome string = "FlowOutcome"
+
+	// AuditQueryEntityNameFlowMilestone captures enum value "FlowMilestone"
+	AuditQueryEntityNameFlowMilestone string = "FlowMilestone"
+
+	// AuditQueryEntityNameTeam captures enum value "Team"
+	AuditQueryEntityNameTeam string = "Team"
+
+	// AuditQueryEntityNameEdge captures enum value "Edge"
+	AuditQueryEntityNameEdge string = "Edge"
+
+	// AuditQueryEntityNameEdgeGroup captures enum value "EdgeGroup"
+	AuditQueryEntityNameEdgeGroup string = "EdgeGroup"
+
+	// AuditQueryEntityNameTrunk captures enum value "Trunk"
+	AuditQueryEntityNameTrunk string = "Trunk"
+
+	// AuditQueryEntityNameTrunkBase captures enum value "TrunkBase"
+	AuditQueryEntityNameTrunkBase string = "TrunkBase"
+
+	// AuditQueryEntityNameDID captures enum value "DID"
+	AuditQueryEntityNameDID string = "DID"
+
+	// AuditQueryEntityNameDIDPool captures enum value "DIDPool"
+	AuditQueryEntityNameDIDPool string = "DIDPool"
+
+	// AuditQueryEntityNameExtension captures enum value "Extension"
+	AuditQueryEntityNameExtension string = "Extension"
+
+	// AuditQueryEntityNameExtensionPool captures enum value "ExtensionPool"
+	AuditQueryEntityNameExtensionPool string = "ExtensionPool"
+
+	// AuditQueryEntityNamePhone captures enum value "Phone"
+	AuditQueryEntityNamePhone string = "Phone"
+
+	// AuditQueryEntityNamePhoneBase captures enum value "PhoneBase"
+	AuditQueryEntityNamePhoneBase string = "PhoneBase"
+
+	// AuditQueryEntityNameLine captures enum value "Line"
+	AuditQueryEntityNameLine string = "Line"
+
+	// AuditQueryEntityNameLineBase captures enum value "LineBase"
+	AuditQueryEntityNameLineBase string = "LineBase"
+
+	// AuditQueryEntityNameOutboundRoute captures enum value "OutboundRoute"
+	AuditQueryEntityNameOutboundRoute string = "OutboundRoute"
+
+	// AuditQueryEntityNameNumberPlan captures enum value "NumberPlan"
+	AuditQueryEntityNameNumberPlan string = "NumberPlan"
+
+	// AuditQueryEntityNameSite captures enum value "Site"
+	AuditQueryEntityNameSite string = "Site"
 )
 
 // prop value enum

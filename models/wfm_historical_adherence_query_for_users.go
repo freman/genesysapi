@@ -29,15 +29,10 @@ type WfmHistoricalAdherenceQueryForUsers struct {
 	// Format: date-time
 	StartDate *strfmt.DateTime `json:"startDate"`
 
-	// The teamIds to report on. Note: Only one of [teamIds, userIds] can be requested
-	// Required: true
-	// Unique: true
-	TeamIds []string `json:"teamIds"`
-
 	// The time zone to use for returned results in olson format. If it is not set, the business unit time zone will be used to compute adherence
 	TimeZone string `json:"timeZone,omitempty"`
 
-	// The userIds to report on. Note: Only one of [teamIds, userIds] can be requested
+	// The userIds to report on
 	// Required: true
 	// Unique: true
 	UserIds []string `json:"userIds"`
@@ -52,10 +47,6 @@ func (m *WfmHistoricalAdherenceQueryForUsers) Validate(formats strfmt.Registry) 
 	}
 
 	if err := m.validateStartDate(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateTeamIds(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -89,19 +80,6 @@ func (m *WfmHistoricalAdherenceQueryForUsers) validateStartDate(formats strfmt.R
 	}
 
 	if err := validate.FormatOf("startDate", "body", "date-time", m.StartDate.String(), formats); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *WfmHistoricalAdherenceQueryForUsers) validateTeamIds(formats strfmt.Registry) error {
-
-	if err := validate.Required("teamIds", "body", m.TeamIds); err != nil {
-		return err
-	}
-
-	if err := validate.UniqueItems("teamIds", "body", m.TeamIds); err != nil {
 		return err
 	}
 

@@ -150,7 +150,7 @@ var surveyAggregationQueryGroupByItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["conversationId","divisionId","externalContactId","mediaType","queueId","requestedLanguageId","requestedRoutingSkillId","surveyAnswerId","surveyCreatedDate","surveyErrorReason","surveyFormContextId","surveyFormId","surveyFormName","surveyId","surveyPreviousStatus","surveyPromoterScore","surveyQuestionGroupId","surveyQuestionId","surveyStatus","userId","wrapUpCode"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["conversationId","divisionId","externalContactId","mediaType","queueId","requestedLanguageId","requestedRoutingSkillId","surveyAnswerId","surveyCreatedDate","surveyErrorReason","surveyFormContextId","surveyFormId","surveyFormName","surveyId","surveyPreviousStatus","surveyPromoterScore","surveyQuestionGroupId","surveyQuestionId","surveyStatus","teamId","userId","wrapUpCode"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {

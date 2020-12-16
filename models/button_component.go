@@ -22,10 +22,10 @@ type ButtonComponent struct {
 	// An ID assigned to this component
 	ID string `json:"id,omitempty"`
 
-	// Text to show inside the button
+	// Deprecated - Use title instead
 	Text string `json:"text,omitempty"`
 
-	// Tooltip text to show when hovering over the button
+	// Text to show inside the button
 	Title string `json:"title,omitempty"`
 }
 

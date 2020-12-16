@@ -20,6 +20,9 @@ import (
 // swagger:model DocumentationSearchCriteria
 type DocumentationSearchCriteria struct {
 
+	// Set date format for criteria values when using date range search type.  Supports Java date format syntax, example yyyy-MM-dd'T'HH:mm:ss.SSSX.
+	DateFormat string `json:"dateFormat,omitempty"`
+
 	// The end value of the range. This field is used for range search types.
 	EndValue string `json:"endValue,omitempty"`
 

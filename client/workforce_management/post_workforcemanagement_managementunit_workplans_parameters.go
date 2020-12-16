@@ -72,6 +72,11 @@ type PostWorkforcemanagementManagementunitWorkplansParams struct {
 
 	*/
 	ManagementUnitID string
+	/*ValidationMode
+	  Allows to create work plan even if the validation result is invalid
+
+	*/
+	ValidationMode *string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -133,6 +138,17 @@ func (o *PostWorkforcemanagementManagementunitWorkplansParams) SetManagementUnit
 	o.ManagementUnitID = managementUnitID
 }
 
+// WithValidationMode adds the validationMode to the post workforcemanagement managementunit workplans params
+func (o *PostWorkforcemanagementManagementunitWorkplansParams) WithValidationMode(validationMode *string) *PostWorkforcemanagementManagementunitWorkplansParams {
+	o.SetValidationMode(validationMode)
+	return o
+}
+
+// SetValidationMode adds the validationMode to the post workforcemanagement managementunit workplans params
+func (o *PostWorkforcemanagementManagementunitWorkplansParams) SetValidationMode(validationMode *string) {
+	o.ValidationMode = validationMode
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *PostWorkforcemanagementManagementunitWorkplansParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -150,6 +166,22 @@ func (o *PostWorkforcemanagementManagementunitWorkplansParams) WriteToRequest(r 
 	// path param managementUnitId
 	if err := r.SetPathParam("managementUnitId", o.ManagementUnitID); err != nil {
 		return err
+	}
+
+	if o.ValidationMode != nil {
+
+		// query param validationMode
+		var qrValidationMode string
+		if o.ValidationMode != nil {
+			qrValidationMode = *o.ValidationMode
+		}
+		qValidationMode := qrValidationMode
+		if qValidationMode != "" {
+			if err := r.SetQueryParam("validationMode", qValidationMode); err != nil {
+				return err
+			}
+		}
+
 	}
 
 	if len(res) > 0 {

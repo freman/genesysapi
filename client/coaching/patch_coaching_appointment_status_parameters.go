@@ -71,7 +71,7 @@ type PatchCoachingAppointmentStatusParams struct {
 	  Updated status of the coaching appointment
 
 	*/
-	Body *models.CoachingAppointmentStatusDto
+	Body *models.CoachingAppointmentStatusRequest
 
 	timeout    time.Duration
 	Context    context.Context
@@ -123,13 +123,13 @@ func (o *PatchCoachingAppointmentStatusParams) SetAppointmentID(appointmentID st
 }
 
 // WithBody adds the body to the patch coaching appointment status params
-func (o *PatchCoachingAppointmentStatusParams) WithBody(body *models.CoachingAppointmentStatusDto) *PatchCoachingAppointmentStatusParams {
+func (o *PatchCoachingAppointmentStatusParams) WithBody(body *models.CoachingAppointmentStatusRequest) *PatchCoachingAppointmentStatusParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the patch coaching appointment status params
-func (o *PatchCoachingAppointmentStatusParams) SetBody(body *models.CoachingAppointmentStatusDto) {
+func (o *PatchCoachingAppointmentStatusParams) SetBody(body *models.CoachingAppointmentStatusRequest) {
 	o.Body = body
 }
 

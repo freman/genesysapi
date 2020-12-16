@@ -19,7 +19,11 @@ type UploadURLResponse struct {
 	// Read Only: true
 	Headers map[string]string `json:"headers,omitempty"`
 
-	// Presigned url to PUT the file to
+	// Key that identifies the file in the storage including the file name
+	// Read Only: true
+	UploadKey string `json:"uploadKey,omitempty"`
+
+	// Presigned URL to PUT the file to
 	// Read Only: true
 	URL string `json:"url,omitempty"`
 }

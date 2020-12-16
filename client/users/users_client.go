@@ -115,6 +115,7 @@ type API interface {
 	GetUsersDevelopmentActivitiesMe(ctx context.Context, params *GetUsersDevelopmentActivitiesMeParams) (*GetUsersDevelopmentActivitiesMeOK, error)
 	/*
 	   GetUsersDevelopmentActivity gets a development activity
+	   Permission not required if you are the attendee, creator or facilitator of the coaching appointment or you are the assigned user of the learning assignment.
 	*/
 	GetUsersDevelopmentActivity(ctx context.Context, params *GetUsersDevelopmentActivityParams) (*GetUsersDevelopmentActivityOK, error)
 	/*
@@ -806,6 +807,8 @@ func (a *Client) GetUsersDevelopmentActivitiesMe(ctx context.Context, params *Ge
 
 /*
 GetUsersDevelopmentActivity gets a development activity
+
+Permission not required if you are the attendee, creator or facilitator of the coaching appointment or you are the assigned user of the learning assignment.
 */
 func (a *Client) GetUsersDevelopmentActivity(ctx context.Context, params *GetUsersDevelopmentActivityParams) (*GetUsersDevelopmentActivityOK, error) {
 

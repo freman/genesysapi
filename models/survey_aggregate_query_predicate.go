@@ -20,7 +20,7 @@ import (
 type SurveyAggregateQueryPredicate struct {
 
 	// Left hand side for dimension predicates
-	// Enum: [conversationId divisionId externalContactId mediaType queueId requestedLanguageId requestedRoutingSkillId surveyAnswerId surveyCreatedDate surveyErrorReason surveyFormContextId surveyFormId surveyFormName surveyId surveyPreviousStatus surveyPromoterScore surveyQuestionGroupId surveyQuestionId surveyStatus userId wrapUpCode]
+	// Enum: [conversationId divisionId externalContactId mediaType queueId requestedLanguageId requestedRoutingSkillId surveyAnswerId surveyCreatedDate surveyErrorReason surveyFormContextId surveyFormId surveyFormName surveyId surveyPreviousStatus surveyPromoterScore surveyQuestionGroupId surveyQuestionId surveyStatus teamId userId wrapUpCode]
 	Dimension string `json:"dimension,omitempty"`
 
 	// Optional operator, default is matches
@@ -68,7 +68,7 @@ var surveyAggregateQueryPredicateTypeDimensionPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["conversationId","divisionId","externalContactId","mediaType","queueId","requestedLanguageId","requestedRoutingSkillId","surveyAnswerId","surveyCreatedDate","surveyErrorReason","surveyFormContextId","surveyFormId","surveyFormName","surveyId","surveyPreviousStatus","surveyPromoterScore","surveyQuestionGroupId","surveyQuestionId","surveyStatus","userId","wrapUpCode"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["conversationId","divisionId","externalContactId","mediaType","queueId","requestedLanguageId","requestedRoutingSkillId","surveyAnswerId","surveyCreatedDate","surveyErrorReason","surveyFormContextId","surveyFormId","surveyFormName","surveyId","surveyPreviousStatus","surveyPromoterScore","surveyQuestionGroupId","surveyQuestionId","surveyStatus","teamId","userId","wrapUpCode"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -134,6 +134,9 @@ const (
 
 	// SurveyAggregateQueryPredicateDimensionSurveyStatus captures enum value "surveyStatus"
 	SurveyAggregateQueryPredicateDimensionSurveyStatus string = "surveyStatus"
+
+	// SurveyAggregateQueryPredicateDimensionTeamID captures enum value "teamId"
+	SurveyAggregateQueryPredicateDimensionTeamID string = "teamId"
 
 	// SurveyAggregateQueryPredicateDimensionUserID captures enum value "userId"
 	SurveyAggregateQueryPredicateDimensionUserID string = "userId"

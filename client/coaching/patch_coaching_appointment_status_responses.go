@@ -111,20 +111,20 @@ func NewPatchCoachingAppointmentStatusOK() *PatchCoachingAppointmentStatusOK {
 The status is posted successfully
 */
 type PatchCoachingAppointmentStatusOK struct {
-	Payload *models.CoachingAppointmentStatusDto
+	Payload *models.CoachingAppointmentStatusResponse
 }
 
 func (o *PatchCoachingAppointmentStatusOK) Error() string {
 	return fmt.Sprintf("[PATCH /api/v2/coaching/appointments/{appointmentId}/status][%d] patchCoachingAppointmentStatusOK  %+v", 200, o.Payload)
 }
 
-func (o *PatchCoachingAppointmentStatusOK) GetPayload() *models.CoachingAppointmentStatusDto {
+func (o *PatchCoachingAppointmentStatusOK) GetPayload() *models.CoachingAppointmentStatusResponse {
 	return o.Payload
 }
 
 func (o *PatchCoachingAppointmentStatusOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.CoachingAppointmentStatusDto)
+	o.Payload = new(models.CoachingAppointmentStatusResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

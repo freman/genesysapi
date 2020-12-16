@@ -41,7 +41,7 @@ type UpdateCoachingAppointmentRequest struct {
 	Name string `json:"name,omitempty"`
 
 	// The status of the coaching appointment.
-	// Enum: [Scheduled InProgress Completed InvalidSchedule]
+	// Enum: [Scheduled InProgress Completed]
 	Status string `json:"status,omitempty"`
 }
 
@@ -114,7 +114,7 @@ var updateCoachingAppointmentRequestTypeStatusPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Scheduled","InProgress","Completed","InvalidSchedule"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Scheduled","InProgress","Completed"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -132,9 +132,6 @@ const (
 
 	// UpdateCoachingAppointmentRequestStatusCompleted captures enum value "Completed"
 	UpdateCoachingAppointmentRequestStatusCompleted string = "Completed"
-
-	// UpdateCoachingAppointmentRequestStatusInvalidSchedule captures enum value "InvalidSchedule"
-	UpdateCoachingAppointmentRequestStatusInvalidSchedule string = "InvalidSchedule"
 )
 
 // prop value enum

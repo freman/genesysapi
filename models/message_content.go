@@ -7,6 +7,7 @@ package models
 
 import (
 	"encoding/json"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -24,7 +25,7 @@ type MessageContent struct {
 
 	// Type of this content element. If contentType = "Attachment" only one item is allowed.
 	// Required: true
-	// Enum: [Attachment Location QuickReply Notification GenericTemplate ListTemplate]
+	// Enum: [Attachment Location QuickReply Notification GenericTemplate ListTemplate Postback Reactions Mention]
 	ContentType *string `json:"contentType"`
 
 	// Generic content object
@@ -36,8 +37,17 @@ type MessageContent struct {
 	// Location object
 	Location *ContentLocation `json:"location,omitempty"`
 
+	// This is used to identify who the message is sent to, as well as who it was sent from. This information is channel specific - depends on capabilities to describe party by the platform
+	Mention *MessagingRecipient `json:"mention,omitempty"`
+
+	// The postback object result of a user clicking in a button
+	Postback *ContentPostback `json:"postback,omitempty"`
+
 	// Quick reply object
 	QuickReply *ContentQuickReply `json:"quickReply,omitempty"`
+
+	// A list of reactions
+	Reactions []*ContentReaction `json:"reactions"`
 
 	// Template notification object
 	Template *ContentNotificationTemplate `json:"template,omitempty"`
@@ -67,7 +77,19 @@ func (m *MessageContent) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateMention(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePostback(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateQuickReply(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateReactions(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -103,7 +125,7 @@ var messageContentTypeContentTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Attachment","Location","QuickReply","Notification","GenericTemplate","ListTemplate"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Attachment","Location","QuickReply","Notification","GenericTemplate","ListTemplate","Postback","Reactions","Mention"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -130,6 +152,15 @@ const (
 
 	// MessageContentContentTypeListTemplate captures enum value "ListTemplate"
 	MessageContentContentTypeListTemplate string = "ListTemplate"
+
+	// MessageContentContentTypePostback captures enum value "Postback"
+	MessageContentContentTypePostback string = "Postback"
+
+	// MessageContentContentTypeReactions captures enum value "Reactions"
+	MessageContentContentTypeReactions string = "Reactions"
+
+	// MessageContentContentTypeMention captures enum value "Mention"
+	MessageContentContentTypeMention string = "Mention"
 )
 
 // prop value enum
@@ -208,6 +239,42 @@ func (m *MessageContent) validateLocation(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *MessageContent) validateMention(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Mention) { // not required
+		return nil
+	}
+
+	if m.Mention != nil {
+		if err := m.Mention.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("mention")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *MessageContent) validatePostback(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Postback) { // not required
+		return nil
+	}
+
+	if m.Postback != nil {
+		if err := m.Postback.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("postback")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *MessageContent) validateQuickReply(formats strfmt.Registry) error {
 
 	if swag.IsZero(m.QuickReply) { // not required
@@ -221,6 +288,31 @@ func (m *MessageContent) validateQuickReply(formats strfmt.Registry) error {
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *MessageContent) validateReactions(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Reactions) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Reactions); i++ {
+		if swag.IsZero(m.Reactions[i]) { // not required
+			continue
+		}
+
+		if m.Reactions[i] != nil {
+			if err := m.Reactions[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("reactions" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil
