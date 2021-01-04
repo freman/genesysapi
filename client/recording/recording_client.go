@@ -26,6 +26,15 @@ type API interface {
 	*/
 	DeleteOrphanrecording(ctx context.Context, params *DeleteOrphanrecordingParams) (*DeleteOrphanrecordingOK, error)
 	/*
+	   DeleteRecordingCrossplatformMediaretentionpolicies deletes media retention policies
+	   Bulk delete of media retention policies, this will only delete the polices that match the ids specified in the query param.
+	*/
+	DeleteRecordingCrossplatformMediaretentionpolicies(ctx context.Context, params *DeleteRecordingCrossplatformMediaretentionpoliciesParams) (*DeleteRecordingCrossplatformMediaretentionpoliciesOK, error)
+	/*
+	   DeleteRecordingCrossplatformMediaretentionpolicy deletes a media retention policy
+	*/
+	DeleteRecordingCrossplatformMediaretentionpolicy(ctx context.Context, params *DeleteRecordingCrossplatformMediaretentionpolicyParams) (*DeleteRecordingCrossplatformMediaretentionpolicyOK, error)
+	/*
 	   DeleteRecordingJob deletes the recording bulk job
 	*/
 	DeleteRecordingJob(ctx context.Context, params *DeleteRecordingJobParams) (*DeleteRecordingJobNoContent, error)
@@ -80,6 +89,15 @@ type API interface {
 	*/
 	GetRecordingBatchrequest(ctx context.Context, params *GetRecordingBatchrequestParams) (*GetRecordingBatchrequestOK, error)
 	/*
+	   GetRecordingCrossplatformMediaretentionpolicies gets media retention policy list with query options to filter on name and enabled
+	   for a less verbose response, add summary=true to this endpoint
+	*/
+	GetRecordingCrossplatformMediaretentionpolicies(ctx context.Context, params *GetRecordingCrossplatformMediaretentionpoliciesParams) (*GetRecordingCrossplatformMediaretentionpoliciesOK, error)
+	/*
+	   GetRecordingCrossplatformMediaretentionpolicy gets a media retention policy
+	*/
+	GetRecordingCrossplatformMediaretentionpolicy(ctx context.Context, params *GetRecordingCrossplatformMediaretentionpolicyParams) (*GetRecordingCrossplatformMediaretentionpolicyOK, error)
+	/*
 	   GetRecordingJob gets the status of the job associated with the job id
 	*/
 	GetRecordingJob(ctx context.Context, params *GetRecordingJobParams) (*GetRecordingJobOK, error)
@@ -121,6 +139,10 @@ type API interface {
 	*/
 	GetRecordingsScreensessions(ctx context.Context, params *GetRecordingsScreensessionsParams) (*GetRecordingsScreensessionsOK, error)
 	/*
+	   PatchRecordingCrossplatformMediaretentionpolicy patches a media retention policy
+	*/
+	PatchRecordingCrossplatformMediaretentionpolicy(ctx context.Context, params *PatchRecordingCrossplatformMediaretentionpolicyParams) (*PatchRecordingCrossplatformMediaretentionpolicyOK, error)
+	/*
 	   PatchRecordingMediaretentionpolicy patches a media retention policy
 	*/
 	PatchRecordingMediaretentionpolicy(ctx context.Context, params *PatchRecordingMediaretentionpolicyParams) (*PatchRecordingMediaretentionpolicyOK, error)
@@ -136,6 +158,10 @@ type API interface {
 	   PostRecordingBatchrequests submits a batch download request for recordings recordings in response will be in their original format codec configured in the trunk configuration
 	*/
 	PostRecordingBatchrequests(ctx context.Context, params *PostRecordingBatchrequestsParams) (*PostRecordingBatchrequestsOK, error)
+	/*
+	   PostRecordingCrossplatformMediaretentionpolicies creates media retention policy
+	*/
+	PostRecordingCrossplatformMediaretentionpolicies(ctx context.Context, params *PostRecordingCrossplatformMediaretentionpoliciesParams) (*PostRecordingCrossplatformMediaretentionpoliciesOK, error)
 	/*
 	   PostRecordingJobs creates a recording bulk job
 	*/
@@ -174,6 +200,10 @@ type API interface {
 	   If this operation is successful the orphan will no longer exist. It will be replaced by the resulting recording in the response. This replacement recording is accessible by the normal Recording api.
 	*/
 	PutOrphanrecording(ctx context.Context, params *PutOrphanrecordingParams) (*PutOrphanrecordingOK, error)
+	/*
+	   PutRecordingCrossplatformMediaretentionpolicy updates a media retention policy
+	*/
+	PutRecordingCrossplatformMediaretentionpolicy(ctx context.Context, params *PutRecordingCrossplatformMediaretentionpolicyParams) (*PutRecordingCrossplatformMediaretentionpolicyOK, error)
 	/*
 	   PutRecordingJob executes the recording bulk job
 	   A job must be executed by the same user whom originally created the job.  In addition, the user must have permission to update the recording's retention.
@@ -266,6 +296,58 @@ func (a *Client) DeleteOrphanrecording(ctx context.Context, params *DeleteOrphan
 		return nil, err
 	}
 	return result.(*DeleteOrphanrecordingOK), nil
+
+}
+
+/*
+DeleteRecordingCrossplatformMediaretentionpolicies deletes media retention policies
+
+Bulk delete of media retention policies, this will only delete the polices that match the ids specified in the query param.
+*/
+func (a *Client) DeleteRecordingCrossplatformMediaretentionpolicies(ctx context.Context, params *DeleteRecordingCrossplatformMediaretentionpoliciesParams) (*DeleteRecordingCrossplatformMediaretentionpoliciesOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteRecordingCrossplatformMediaretentionpolicies",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/recording/crossplatform/mediaretentionpolicies",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteRecordingCrossplatformMediaretentionpoliciesReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteRecordingCrossplatformMediaretentionpoliciesOK), nil
+
+}
+
+/*
+DeleteRecordingCrossplatformMediaretentionpolicy deletes a media retention policy
+*/
+func (a *Client) DeleteRecordingCrossplatformMediaretentionpolicy(ctx context.Context, params *DeleteRecordingCrossplatformMediaretentionpolicyParams) (*DeleteRecordingCrossplatformMediaretentionpolicyOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteRecordingCrossplatformMediaretentionpolicy",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/recording/crossplatform/mediaretentionpolicies/{policyId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteRecordingCrossplatformMediaretentionpolicyReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteRecordingCrossplatformMediaretentionpolicyOK), nil
 
 }
 
@@ -611,6 +693,58 @@ func (a *Client) GetRecordingBatchrequest(ctx context.Context, params *GetRecord
 }
 
 /*
+GetRecordingCrossplatformMediaretentionpolicies gets media retention policy list with query options to filter on name and enabled
+
+for a less verbose response, add summary=true to this endpoint
+*/
+func (a *Client) GetRecordingCrossplatformMediaretentionpolicies(ctx context.Context, params *GetRecordingCrossplatformMediaretentionpoliciesParams) (*GetRecordingCrossplatformMediaretentionpoliciesOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getRecordingCrossplatformMediaretentionpolicies",
+		Method:             "GET",
+		PathPattern:        "/api/v2/recording/crossplatform/mediaretentionpolicies",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetRecordingCrossplatformMediaretentionpoliciesReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetRecordingCrossplatformMediaretentionpoliciesOK), nil
+
+}
+
+/*
+GetRecordingCrossplatformMediaretentionpolicy gets a media retention policy
+*/
+func (a *Client) GetRecordingCrossplatformMediaretentionpolicy(ctx context.Context, params *GetRecordingCrossplatformMediaretentionpolicyParams) (*GetRecordingCrossplatformMediaretentionpolicyOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getRecordingCrossplatformMediaretentionpolicy",
+		Method:             "GET",
+		PathPattern:        "/api/v2/recording/crossplatform/mediaretentionpolicies/{policyId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetRecordingCrossplatformMediaretentionpolicyReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetRecordingCrossplatformMediaretentionpolicyOK), nil
+
+}
+
+/*
 GetRecordingJob gets the status of the job associated with the job id
 */
 func (a *Client) GetRecordingJob(ctx context.Context, params *GetRecordingJobParams) (*GetRecordingJobOK, error) {
@@ -863,6 +997,31 @@ func (a *Client) GetRecordingsScreensessions(ctx context.Context, params *GetRec
 }
 
 /*
+PatchRecordingCrossplatformMediaretentionpolicy patches a media retention policy
+*/
+func (a *Client) PatchRecordingCrossplatformMediaretentionpolicy(ctx context.Context, params *PatchRecordingCrossplatformMediaretentionpolicyParams) (*PatchRecordingCrossplatformMediaretentionpolicyOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "patchRecordingCrossplatformMediaretentionpolicy",
+		Method:             "PATCH",
+		PathPattern:        "/api/v2/recording/crossplatform/mediaretentionpolicies/{policyId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchRecordingCrossplatformMediaretentionpolicyReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PatchRecordingCrossplatformMediaretentionpolicyOK), nil
+
+}
+
+/*
 PatchRecordingMediaretentionpolicy patches a media retention policy
 */
 func (a *Client) PatchRecordingMediaretentionpolicy(ctx context.Context, params *PatchRecordingMediaretentionpolicyParams) (*PatchRecordingMediaretentionpolicyOK, error) {
@@ -959,6 +1118,31 @@ func (a *Client) PostRecordingBatchrequests(ctx context.Context, params *PostRec
 		return nil, err
 	}
 	return result.(*PostRecordingBatchrequestsOK), nil
+
+}
+
+/*
+PostRecordingCrossplatformMediaretentionpolicies creates media retention policy
+*/
+func (a *Client) PostRecordingCrossplatformMediaretentionpolicies(ctx context.Context, params *PostRecordingCrossplatformMediaretentionpoliciesParams) (*PostRecordingCrossplatformMediaretentionpoliciesOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postRecordingCrossplatformMediaretentionpolicies",
+		Method:             "POST",
+		PathPattern:        "/api/v2/recording/crossplatform/mediaretentionpolicies",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostRecordingCrossplatformMediaretentionpoliciesReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostRecordingCrossplatformMediaretentionpoliciesOK), nil
 
 }
 
@@ -1188,6 +1372,31 @@ func (a *Client) PutOrphanrecording(ctx context.Context, params *PutOrphanrecord
 		return nil, err
 	}
 	return result.(*PutOrphanrecordingOK), nil
+
+}
+
+/*
+PutRecordingCrossplatformMediaretentionpolicy updates a media retention policy
+*/
+func (a *Client) PutRecordingCrossplatformMediaretentionpolicy(ctx context.Context, params *PutRecordingCrossplatformMediaretentionpolicyParams) (*PutRecordingCrossplatformMediaretentionpolicyOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "putRecordingCrossplatformMediaretentionpolicy",
+		Method:             "PUT",
+		PathPattern:        "/api/v2/recording/crossplatform/mediaretentionpolicies/{policyId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PutRecordingCrossplatformMediaretentionpolicyReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutRecordingCrossplatformMediaretentionpolicyOK), nil
 
 }
 

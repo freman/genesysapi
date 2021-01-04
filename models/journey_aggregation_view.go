@@ -33,7 +33,7 @@ type JourneyAggregationView struct {
 
 	// Target metric name
 	// Required: true
-	// Enum: [nJourneyOutcomesAchieved nJourneyOutcomesAttributed nJourneySegmentsAssigned nJourneySessions nWebActionsAbandoned nWebActionsAccepted nWebActionsEngaged nWebActionsErrored nWebActionsIgnored nWebActionsOffered nWebActionsQualified nWebActionsQualifiedOutsideSchedule nWebActionsRejected nWebActionsStarted nWebActionsTimedout]
+	// Enum: [nJourneyOutcomesAchieved nJourneyOutcomesAttributed nJourneySegmentsAssigned nJourneySessions nWebActionsAbandoned nWebActionsAccepted nWebActionsEngaged nWebActionsErrored nWebActionsIgnored nWebActionsOffered nWebActionsQualified nWebActionsQualifiedOutsideSchedule nWebActionsRejected nWebActionsStarted nWebActionsTimedout nWebActionsFrequencyCapReached]
 	Target *string `json:"target"`
 }
 
@@ -134,7 +134,7 @@ var journeyAggregationViewTypeTargetPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["nJourneyOutcomesAchieved","nJourneyOutcomesAttributed","nJourneySegmentsAssigned","nJourneySessions","nWebActionsAbandoned","nWebActionsAccepted","nWebActionsEngaged","nWebActionsErrored","nWebActionsIgnored","nWebActionsOffered","nWebActionsQualified","nWebActionsQualifiedOutsideSchedule","nWebActionsRejected","nWebActionsStarted","nWebActionsTimedout"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["nJourneyOutcomesAchieved","nJourneyOutcomesAttributed","nJourneySegmentsAssigned","nJourneySessions","nWebActionsAbandoned","nWebActionsAccepted","nWebActionsEngaged","nWebActionsErrored","nWebActionsIgnored","nWebActionsOffered","nWebActionsQualified","nWebActionsQualifiedOutsideSchedule","nWebActionsRejected","nWebActionsStarted","nWebActionsTimedout","nWebActionsFrequencyCapReached"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -188,6 +188,9 @@ const (
 
 	// JourneyAggregationViewTargetNWebActionsTimedout captures enum value "nWebActionsTimedout"
 	JourneyAggregationViewTargetNWebActionsTimedout string = "nWebActionsTimedout"
+
+	// JourneyAggregationViewTargetNWebActionsFrequencyCapReached captures enum value "nWebActionsFrequencyCapReached"
+	JourneyAggregationViewTargetNWebActionsFrequencyCapReached string = "nWebActionsFrequencyCapReached"
 )
 
 // prop value enum

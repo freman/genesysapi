@@ -59,6 +59,12 @@ func (o *PutFlowsMilestoneReader) ReadResponse(response runtime.ClientResponse, 
 			return nil, err
 		}
 		return nil, result
+	case 409:
+		result := NewPutFlowsMilestoneConflict()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPutFlowsMilestoneRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -288,6 +294,39 @@ func (o *PutFlowsMilestoneMethodNotAllowed) GetPayload() *models.ErrorBody {
 }
 
 func (o *PutFlowsMilestoneMethodNotAllowed) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPutFlowsMilestoneConflict creates a PutFlowsMilestoneConflict with default headers values
+func NewPutFlowsMilestoneConflict() *PutFlowsMilestoneConflict {
+	return &PutFlowsMilestoneConflict{}
+}
+
+/*PutFlowsMilestoneConflict handles this case with default header values.
+
+Conflict
+*/
+type PutFlowsMilestoneConflict struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PutFlowsMilestoneConflict) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/flows/milestones/{milestoneId}][%d] putFlowsMilestoneConflict  %+v", 409, o.Payload)
+}
+
+func (o *PutFlowsMilestoneConflict) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PutFlowsMilestoneConflict) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ErrorBody)
 

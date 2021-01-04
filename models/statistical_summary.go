@@ -18,6 +18,12 @@ type StatisticalSummary struct {
 	// count
 	Count int64 `json:"count,omitempty"`
 
+	// count negative
+	CountNegative int64 `json:"countNegative,omitempty"`
+
+	// count positive
+	CountPositive int64 `json:"countPositive,omitempty"`
+
 	// current
 	Current float64 `json:"current,omitempty"`
 

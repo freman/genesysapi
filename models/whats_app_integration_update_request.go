@@ -20,9 +20,8 @@ import (
 type WhatsAppIntegrationUpdateRequest struct {
 
 	// The action used to activate and then confirm a WhatsApp Integration.
-	// Required: true
 	// Enum: [Activate Confirm]
-	Action *string `json:"action"`
+	Action string `json:"action,omitempty"`
 
 	// The authentication method used to confirm a WhatsApp Integration activation. If action is set to Activate, then authenticationMethod is a required field.
 	// Enum: [Sms Voice]
@@ -98,12 +97,12 @@ func (m *WhatsAppIntegrationUpdateRequest) validateActionEnum(path, location str
 
 func (m *WhatsAppIntegrationUpdateRequest) validateAction(formats strfmt.Registry) error {
 
-	if err := validate.Required("action", "body", m.Action); err != nil {
-		return err
+	if swag.IsZero(m.Action) { // not required
+		return nil
 	}
 
 	// value enum
-	if err := m.validateActionEnum("action", "body", *m.Action); err != nil {
+	if err := m.validateActionEnum("action", "body", m.Action); err != nil {
 		return err
 	}
 

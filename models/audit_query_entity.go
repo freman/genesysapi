@@ -24,7 +24,7 @@ type AuditQueryEntity struct {
 	Actions []string `json:"actions"`
 
 	// Name of the Entity
-	// Enum: [Document Queue Recording Role VoicemailUserPolicy WrapupCode AccessToken OAuthClient OAuthClientAuthorization AuthOrganization AuthUser BulkActions Feedback Topic Program Segment Outcome SessionType EventType ClickstreamSettings Schedule ScheduleGroup EmergencyGroup IVR Trigger Response DependencyTrackingBuild Flow Prompt PromptResource FlowOutcome FlowMilestone Team Edge EdgeGroup Trunk TrunkBase DID DIDPool Extension ExtensionPool Phone PhoneBase Line LineBase OutboundRoute NumberPlan Site]
+	// Enum: [Document Queue Recording Role VoicemailUserPolicy UserPresence WrapupCode MaxOrgRoutingUtilizationCapacity AccessToken OAuthClient OAuthClientAuthorization AuthOrganization AuthUser OrganizationAuthorizationTrust OrganizationAuthorizationUserTrust BulkActions Feedback Topic Program Segment Outcome SessionType EventType ClickstreamSettings Schedule ScheduleGroup EmergencyGroup IVR Trigger Response DependencyTrackingBuild Flow Prompt PromptResource FlowOutcome FlowMilestone Team Edge EdgeGroup Trunk TrunkBase DID DIDPool Extension ExtensionPool Phone PhoneBase Line LineBase OutboundRoute NumberPlan Site]
 	Name string `json:"name,omitempty"`
 }
 
@@ -50,7 +50,7 @@ var auditQueryEntityActionsItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Create","View","Update","Delete","Download","Upload","MemberAdd","MemberUpdate","MemberRemove","Read","ApplyProtection","RevokeProtection","UpdateRetention","ReadAll","Execute","Publish","Unpublish","Activate","Checkin","Checkout","Deactivate","Debug","Save","Revert","Transcode","Enable","Disable","Authorize","Deauthorize","Authenticate","ChangePassword"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Create","View","Update","Delete","Download","Upload","MemberAdd","MemberUpdate","MemberRemove","Read","ApplyProtection","RevokeProtection","UpdateRetention","ReadAll","Execute","Publish","Unpublish","Activate","Checkin","Checkout","Deactivate","Debug","Save","Revert","Transcode","Enable","Disable","Authorize","Deauthorize","Authenticate","ChangePassword","Revoke"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -87,7 +87,7 @@ var auditQueryEntityTypeNamePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Document","Queue","Recording","Role","VoicemailUserPolicy","WrapupCode","AccessToken","OAuthClient","OAuthClientAuthorization","AuthOrganization","AuthUser","BulkActions","Feedback","Topic","Program","Segment","Outcome","SessionType","EventType","ClickstreamSettings","Schedule","ScheduleGroup","EmergencyGroup","IVR","Trigger","Response","DependencyTrackingBuild","Flow","Prompt","PromptResource","FlowOutcome","FlowMilestone","Team","Edge","EdgeGroup","Trunk","TrunkBase","DID","DIDPool","Extension","ExtensionPool","Phone","PhoneBase","Line","LineBase","OutboundRoute","NumberPlan","Site"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Document","Queue","Recording","Role","VoicemailUserPolicy","UserPresence","WrapupCode","MaxOrgRoutingUtilizationCapacity","AccessToken","OAuthClient","OAuthClientAuthorization","AuthOrganization","AuthUser","OrganizationAuthorizationTrust","OrganizationAuthorizationUserTrust","BulkActions","Feedback","Topic","Program","Segment","Outcome","SessionType","EventType","ClickstreamSettings","Schedule","ScheduleGroup","EmergencyGroup","IVR","Trigger","Response","DependencyTrackingBuild","Flow","Prompt","PromptResource","FlowOutcome","FlowMilestone","Team","Edge","EdgeGroup","Trunk","TrunkBase","DID","DIDPool","Extension","ExtensionPool","Phone","PhoneBase","Line","LineBase","OutboundRoute","NumberPlan","Site"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -112,8 +112,14 @@ const (
 	// AuditQueryEntityNameVoicemailUserPolicy captures enum value "VoicemailUserPolicy"
 	AuditQueryEntityNameVoicemailUserPolicy string = "VoicemailUserPolicy"
 
+	// AuditQueryEntityNameUserPresence captures enum value "UserPresence"
+	AuditQueryEntityNameUserPresence string = "UserPresence"
+
 	// AuditQueryEntityNameWrapupCode captures enum value "WrapupCode"
 	AuditQueryEntityNameWrapupCode string = "WrapupCode"
+
+	// AuditQueryEntityNameMaxOrgRoutingUtilizationCapacity captures enum value "MaxOrgRoutingUtilizationCapacity"
+	AuditQueryEntityNameMaxOrgRoutingUtilizationCapacity string = "MaxOrgRoutingUtilizationCapacity"
 
 	// AuditQueryEntityNameAccessToken captures enum value "AccessToken"
 	AuditQueryEntityNameAccessToken string = "AccessToken"
@@ -129,6 +135,12 @@ const (
 
 	// AuditQueryEntityNameAuthUser captures enum value "AuthUser"
 	AuditQueryEntityNameAuthUser string = "AuthUser"
+
+	// AuditQueryEntityNameOrganizationAuthorizationTrust captures enum value "OrganizationAuthorizationTrust"
+	AuditQueryEntityNameOrganizationAuthorizationTrust string = "OrganizationAuthorizationTrust"
+
+	// AuditQueryEntityNameOrganizationAuthorizationUserTrust captures enum value "OrganizationAuthorizationUserTrust"
+	AuditQueryEntityNameOrganizationAuthorizationUserTrust string = "OrganizationAuthorizationUserTrust"
 
 	// AuditQueryEntityNameBulkActions captures enum value "BulkActions"
 	AuditQueryEntityNameBulkActions string = "BulkActions"

@@ -30,7 +30,7 @@ type AuditQueryExecutionStatusResponse struct {
 	Interval string `json:"interval,omitempty"`
 
 	// Service name for the audit query.
-	// Enum: [Architect ContactCenter ContentManagement PeoplePermissions Quality LanguageUnderstanding TopicsDefinitions PredictiveEngagement WorkforceManagement Triggers ResponseManagement Groups Telephony]
+	// Enum: [Architect ContactCenter ContentManagement PeoplePermissions Presence Quality LanguageUnderstanding TopicsDefinitions PredictiveEngagement WorkforceManagement Triggers ResponseManagement Groups Telephony]
 	ServiceName string `json:"serviceName,omitempty"`
 
 	// Sort parameter for the audit query.
@@ -104,7 +104,7 @@ var auditQueryExecutionStatusResponseTypeServiceNamePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Architect","ContactCenter","ContentManagement","PeoplePermissions","Quality","LanguageUnderstanding","TopicsDefinitions","PredictiveEngagement","WorkforceManagement","Triggers","ResponseManagement","Groups","Telephony"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Architect","ContactCenter","ContentManagement","PeoplePermissions","Presence","Quality","LanguageUnderstanding","TopicsDefinitions","PredictiveEngagement","WorkforceManagement","Triggers","ResponseManagement","Groups","Telephony"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -125,6 +125,9 @@ const (
 
 	// AuditQueryExecutionStatusResponseServiceNamePeoplePermissions captures enum value "PeoplePermissions"
 	AuditQueryExecutionStatusResponseServiceNamePeoplePermissions string = "PeoplePermissions"
+
+	// AuditQueryExecutionStatusResponseServiceNamePresence captures enum value "Presence"
+	AuditQueryExecutionStatusResponseServiceNamePresence string = "Presence"
 
 	// AuditQueryExecutionStatusResponseServiceNameQuality captures enum value "Quality"
 	AuditQueryExecutionStatusResponseServiceNameQuality string = "Quality"

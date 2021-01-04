@@ -98,7 +98,7 @@ for the get routing wrapupcodes operation typically these are written to a http.
 type GetRoutingWrapupcodesParams struct {
 
 	/*Name
-	  Name
+	  Wrapup code's name ('Sort by' param is ignored unless this field is provided)
 
 	*/
 	Name *string

@@ -389,7 +389,11 @@ type API interface {
 	*/
 	PatchConversationsMessagingIntegrationsFacebookIntegrationID(ctx context.Context, params *PatchConversationsMessagingIntegrationsFacebookIntegrationIDParams) (*PatchConversationsMessagingIntegrationsFacebookIntegrationIDOK, error)
 	/*
-	   PatchConversationsMessagingIntegrationsWhatsappIntegrationID activates a whats app messaging integration
+	   PatchConversationsMessagingIntegrationsTwitterIntegrationID updates twitter messaging integration
+	*/
+	PatchConversationsMessagingIntegrationsTwitterIntegrationID(ctx context.Context, params *PatchConversationsMessagingIntegrationsTwitterIntegrationIDParams) (*PatchConversationsMessagingIntegrationsTwitterIntegrationIDOK, error)
+	/*
+	   PatchConversationsMessagingIntegrationsWhatsappIntegrationID updates or activate a whats app messaging integration
 	   The following steps are required in order to fully activate a Whatsapp Integration: Initially, you will need to get an activation code by sending: an action set to Activate, and an authenticationMethod choosing from Sms or Voice. Finally, once you have been informed of an activation code on selected authenticationMethod, you will need to confirm the code by sending: an action set to Confirm, and the confirmationCode you have received from Whatsapp.
 	*/
 	PatchConversationsMessagingIntegrationsWhatsappIntegrationID(ctx context.Context, params *PatchConversationsMessagingIntegrationsWhatsappIntegrationIDParams) (*PatchConversationsMessagingIntegrationsWhatsappIntegrationIDOK, *PatchConversationsMessagingIntegrationsWhatsappIntegrationIDAccepted, error)
@@ -2916,7 +2920,32 @@ func (a *Client) PatchConversationsMessagingIntegrationsFacebookIntegrationID(ct
 }
 
 /*
-PatchConversationsMessagingIntegrationsWhatsappIntegrationID activates a whats app messaging integration
+PatchConversationsMessagingIntegrationsTwitterIntegrationID updates twitter messaging integration
+*/
+func (a *Client) PatchConversationsMessagingIntegrationsTwitterIntegrationID(ctx context.Context, params *PatchConversationsMessagingIntegrationsTwitterIntegrationIDParams) (*PatchConversationsMessagingIntegrationsTwitterIntegrationIDOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "patchConversationsMessagingIntegrationsTwitterIntegrationId",
+		Method:             "PATCH",
+		PathPattern:        "/api/v2/conversations/messaging/integrations/twitter/{integrationId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchConversationsMessagingIntegrationsTwitterIntegrationIDReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PatchConversationsMessagingIntegrationsTwitterIntegrationIDOK), nil
+
+}
+
+/*
+PatchConversationsMessagingIntegrationsWhatsappIntegrationID updates or activate a whats app messaging integration
 
 The following steps are required in order to fully activate a Whatsapp Integration: Initially, you will need to get an activation code by sending: an action set to Activate, and an authenticationMethod choosing from Sms or Voice. Finally, once you have been informed of an activation code on selected authenticationMethod, you will need to confirm the code by sending: an action set to Confirm, and the confirmationCode you have received from Whatsapp.
 */

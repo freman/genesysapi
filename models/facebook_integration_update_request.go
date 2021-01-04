@@ -6,8 +6,10 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // FacebookIntegrationUpdateRequest facebook integration update request
@@ -15,10 +17,22 @@ import (
 // swagger:model FacebookIntegrationUpdateRequest
 type FacebookIntegrationUpdateRequest struct {
 
+	// The globally unique identifier for the object.
+	// Read Only: true
+	ID string `json:"id,omitempty"`
+
+	// The name of the Facebook Integration
+	Name string `json:"name,omitempty"`
+
 	// The long-lived Page Access Token of a facebook page.
 	// See https://developers.facebook.com/docs/facebook-login/access-tokens.
 	// Either pageAccessToken or userAccessToken should be provided.
 	PageAccessToken string `json:"pageAccessToken,omitempty"`
+
+	// The URI for this object
+	// Read Only: true
+	// Format: uri
+	SelfURI strfmt.URI `json:"selfUri,omitempty"`
 
 	// The short-lived User Access Token of the facebook user logged into the facebook app.
 	// See https://developers.facebook.com/docs/facebook-login/access-tokens.
@@ -28,6 +42,28 @@ type FacebookIntegrationUpdateRequest struct {
 
 // Validate validates this facebook integration update request
 func (m *FacebookIntegrationUpdateRequest) Validate(formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.validateSelfURI(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *FacebookIntegrationUpdateRequest) validateSelfURI(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.SelfURI) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+		return err
+	}
+
 	return nil
 }
 

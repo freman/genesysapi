@@ -21,7 +21,7 @@ import (
 type AuditLogMessage struct {
 
 	// Action that took place.
-	// Enum: [Create View Update Delete Download Upload MemberAdd MemberUpdate MemberRemove Read ApplyProtection RevokeProtection UpdateRetention ReadAll Execute Publish Unpublish Activate Checkin Checkout Deactivate Debug Save Revert Transcode Enable Disable Authorize Deauthorize Authenticate ChangePassword]
+	// Enum: [Create View Update Delete Download Upload MemberAdd MemberUpdate MemberRemove Read ApplyProtection RevokeProtection UpdateRetention ReadAll Execute Publish Unpublish Activate Checkin Checkout Deactivate Debug Save Revert Transcode Enable Disable Authorize Deauthorize Authenticate ChangePassword Revoke]
 	Action string `json:"action,omitempty"`
 
 	// Client associated with this audit message.
@@ -34,7 +34,7 @@ type AuditLogMessage struct {
 	Entity *DomainEntityRef `json:"entity,omitempty"`
 
 	// Type of the entity that was impacted.
-	// Enum: [Document Queue Recording Role VoicemailUserPolicy WrapupCode AccessToken OAuthClient OAuthClientAuthorization AuthOrganization AuthUser BulkActions Feedback Topic Program Segment Outcome SessionType EventType ClickstreamSettings Schedule ScheduleGroup EmergencyGroup IVR Trigger Response DependencyTrackingBuild Flow Prompt PromptResource FlowOutcome FlowMilestone Team Edge EdgeGroup Trunk TrunkBase DID DIDPool Extension ExtensionPool Phone PhoneBase Line LineBase OutboundRoute NumberPlan Site]
+	// Enum: [Document Queue Recording Role VoicemailUserPolicy UserPresence WrapupCode MaxOrgRoutingUtilizationCapacity AccessToken OAuthClient OAuthClientAuthorization AuthOrganization AuthUser OrganizationAuthorizationTrust OrganizationAuthorizationUserTrust BulkActions Feedback Topic Program Segment Outcome SessionType EventType ClickstreamSettings Schedule ScheduleGroup EmergencyGroup IVR Trigger Response DependencyTrackingBuild Flow Prompt PromptResource FlowOutcome FlowMilestone Team Edge EdgeGroup Trunk TrunkBase DID DIDPool Extension ExtensionPool Phone PhoneBase Line LineBase OutboundRoute NumberPlan Site]
 	EntityType string `json:"entityType,omitempty"`
 
 	// Date and time of when the audit message was logged. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
@@ -54,11 +54,14 @@ type AuditLogMessage struct {
 	RemoteIP []string `json:"remoteIp"`
 
 	// Name of the service that logged this audit message.
-	// Enum: [Architect ContactCenter ContentManagement PeoplePermissions Quality LanguageUnderstanding TopicsDefinitions PredictiveEngagement WorkforceManagement Triggers ResponseManagement Groups Telephony]
+	// Enum: [Architect ContactCenter ContentManagement PeoplePermissions Presence Quality LanguageUnderstanding TopicsDefinitions PredictiveEngagement WorkforceManagement Triggers ResponseManagement Groups Telephony]
 	ServiceName string `json:"serviceName,omitempty"`
 
 	// User associated with this audit message.
 	User *DomainEntityRef `json:"user,omitempty"`
+
+	// Home Organization Id associated with this audit message.
+	UserHomeOrgID string `json:"userHomeOrgId,omitempty"`
 }
 
 // Validate validates this audit log message
@@ -111,7 +114,7 @@ var auditLogMessageTypeActionPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Create","View","Update","Delete","Download","Upload","MemberAdd","MemberUpdate","MemberRemove","Read","ApplyProtection","RevokeProtection","UpdateRetention","ReadAll","Execute","Publish","Unpublish","Activate","Checkin","Checkout","Deactivate","Debug","Save","Revert","Transcode","Enable","Disable","Authorize","Deauthorize","Authenticate","ChangePassword"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Create","View","Update","Delete","Download","Upload","MemberAdd","MemberUpdate","MemberRemove","Read","ApplyProtection","RevokeProtection","UpdateRetention","ReadAll","Execute","Publish","Unpublish","Activate","Checkin","Checkout","Deactivate","Debug","Save","Revert","Transcode","Enable","Disable","Authorize","Deauthorize","Authenticate","ChangePassword","Revoke"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -213,6 +216,9 @@ const (
 
 	// AuditLogMessageActionChangePassword captures enum value "ChangePassword"
 	AuditLogMessageActionChangePassword string = "ChangePassword"
+
+	// AuditLogMessageActionRevoke captures enum value "Revoke"
+	AuditLogMessageActionRevoke string = "Revoke"
 )
 
 // prop value enum
@@ -277,7 +283,7 @@ var auditLogMessageTypeEntityTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Document","Queue","Recording","Role","VoicemailUserPolicy","WrapupCode","AccessToken","OAuthClient","OAuthClientAuthorization","AuthOrganization","AuthUser","BulkActions","Feedback","Topic","Program","Segment","Outcome","SessionType","EventType","ClickstreamSettings","Schedule","ScheduleGroup","EmergencyGroup","IVR","Trigger","Response","DependencyTrackingBuild","Flow","Prompt","PromptResource","FlowOutcome","FlowMilestone","Team","Edge","EdgeGroup","Trunk","TrunkBase","DID","DIDPool","Extension","ExtensionPool","Phone","PhoneBase","Line","LineBase","OutboundRoute","NumberPlan","Site"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Document","Queue","Recording","Role","VoicemailUserPolicy","UserPresence","WrapupCode","MaxOrgRoutingUtilizationCapacity","AccessToken","OAuthClient","OAuthClientAuthorization","AuthOrganization","AuthUser","OrganizationAuthorizationTrust","OrganizationAuthorizationUserTrust","BulkActions","Feedback","Topic","Program","Segment","Outcome","SessionType","EventType","ClickstreamSettings","Schedule","ScheduleGroup","EmergencyGroup","IVR","Trigger","Response","DependencyTrackingBuild","Flow","Prompt","PromptResource","FlowOutcome","FlowMilestone","Team","Edge","EdgeGroup","Trunk","TrunkBase","DID","DIDPool","Extension","ExtensionPool","Phone","PhoneBase","Line","LineBase","OutboundRoute","NumberPlan","Site"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -302,8 +308,14 @@ const (
 	// AuditLogMessageEntityTypeVoicemailUserPolicy captures enum value "VoicemailUserPolicy"
 	AuditLogMessageEntityTypeVoicemailUserPolicy string = "VoicemailUserPolicy"
 
+	// AuditLogMessageEntityTypeUserPresence captures enum value "UserPresence"
+	AuditLogMessageEntityTypeUserPresence string = "UserPresence"
+
 	// AuditLogMessageEntityTypeWrapupCode captures enum value "WrapupCode"
 	AuditLogMessageEntityTypeWrapupCode string = "WrapupCode"
+
+	// AuditLogMessageEntityTypeMaxOrgRoutingUtilizationCapacity captures enum value "MaxOrgRoutingUtilizationCapacity"
+	AuditLogMessageEntityTypeMaxOrgRoutingUtilizationCapacity string = "MaxOrgRoutingUtilizationCapacity"
 
 	// AuditLogMessageEntityTypeAccessToken captures enum value "AccessToken"
 	AuditLogMessageEntityTypeAccessToken string = "AccessToken"
@@ -319,6 +331,12 @@ const (
 
 	// AuditLogMessageEntityTypeAuthUser captures enum value "AuthUser"
 	AuditLogMessageEntityTypeAuthUser string = "AuthUser"
+
+	// AuditLogMessageEntityTypeOrganizationAuthorizationTrust captures enum value "OrganizationAuthorizationTrust"
+	AuditLogMessageEntityTypeOrganizationAuthorizationTrust string = "OrganizationAuthorizationTrust"
+
+	// AuditLogMessageEntityTypeOrganizationAuthorizationUserTrust captures enum value "OrganizationAuthorizationUserTrust"
+	AuditLogMessageEntityTypeOrganizationAuthorizationUserTrust string = "OrganizationAuthorizationUserTrust"
 
 	// AuditLogMessageEntityTypeBulkActions captures enum value "BulkActions"
 	AuditLogMessageEntityTypeBulkActions string = "BulkActions"
@@ -514,7 +532,7 @@ var auditLogMessageTypeServiceNamePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Architect","ContactCenter","ContentManagement","PeoplePermissions","Quality","LanguageUnderstanding","TopicsDefinitions","PredictiveEngagement","WorkforceManagement","Triggers","ResponseManagement","Groups","Telephony"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Architect","ContactCenter","ContentManagement","PeoplePermissions","Presence","Quality","LanguageUnderstanding","TopicsDefinitions","PredictiveEngagement","WorkforceManagement","Triggers","ResponseManagement","Groups","Telephony"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -535,6 +553,9 @@ const (
 
 	// AuditLogMessageServiceNamePeoplePermissions captures enum value "PeoplePermissions"
 	AuditLogMessageServiceNamePeoplePermissions string = "PeoplePermissions"
+
+	// AuditLogMessageServiceNamePresence captures enum value "Presence"
+	AuditLogMessageServiceNamePresence string = "Presence"
 
 	// AuditLogMessageServiceNameQuality captures enum value "Quality"
 	AuditLogMessageServiceNameQuality string = "Quality"

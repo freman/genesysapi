@@ -35,6 +35,7 @@ type API interface {
 	GetAuthorizationDivision(ctx context.Context, params *GetAuthorizationDivisionParams) (*GetAuthorizationDivisionOK, error)
 	/*
 	   GetAuthorizationDivisionGrants gets all grants for a given division
+	   Returns all grants assigned to a given division. Maximum page size is 500.
 	*/
 	GetAuthorizationDivisionGrants(ctx context.Context, params *GetAuthorizationDivisionGrantsParams) (*GetAuthorizationDivisionGrantsOK, error)
 	/*
@@ -310,6 +311,8 @@ func (a *Client) GetAuthorizationDivision(ctx context.Context, params *GetAuthor
 
 /*
 GetAuthorizationDivisionGrants gets all grants for a given division
+
+Returns all grants assigned to a given division. Maximum page size is 500.
 */
 func (a *Client) GetAuthorizationDivisionGrants(ctx context.Context, params *GetAuthorizationDivisionGrantsParams) (*GetAuthorizationDivisionGrantsOK, error) {
 

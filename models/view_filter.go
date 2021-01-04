@@ -98,6 +98,9 @@ type ViewFilter struct {
 	// The queue ids are used to fetch associated users for the view
 	FilterUsersByQueueIds []string `json:"filterUsersByQueueIds"`
 
+	// The team ids are used to fetch associated users for the view
+	FilterUsersByTeamIds []string `json:"filterUsersByTeamIds"`
+
 	// The list of destination types of the flow
 	FlowDestinationTypes []string `json:"flowDestinationTypes"`
 
@@ -197,6 +200,9 @@ type ViewFilter struct {
 	// The outbound contact list ids are used to filter the view
 	OutboundContactListIds []string `json:"outboundContactListIds"`
 
+	// A list of participant purpose requested
+	ParticipantPurposes []string `json:"participantPurposes"`
+
 	// The list of promoter score ranges used to filter the view
 	PromoterScores []*NumericRange `json:"promoterScores"`
 
@@ -220,6 +226,9 @@ type ViewFilter struct {
 
 	// The list of session dnis used to filter the view
 	SessionDnisList []string `json:"sessionDnisList"`
+
+	// Indicates filtering for first queue data
+	ShowFirstQueue bool `json:"showFirstQueue"`
 
 	// The list of SIP call ids used to filter the view
 	SipCallIds []string `json:"sipCallIds"`
@@ -256,6 +265,15 @@ type ViewFilter struct {
 
 	// The talk durations in milliseconds used to filter the view
 	TalkDurationsMilliseconds []*NumericRange `json:"talkDurationsMilliseconds"`
+
+	// The team ids used to filter the view data
+	TeamIds []string `json:"teamIds"`
+
+	// A list of transcript languages requested
+	TranscriptLanguages []string `json:"transcriptLanguages"`
+
+	// A list of transcript contents requested
+	Transcripts []*Transcripts `json:"transcripts"`
 
 	// Indicates filtering for transfers
 	Transferred bool `json:"transferred"`
@@ -350,6 +368,10 @@ func (m *ViewFilter) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateParticipantPurposes(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validatePromoterScores(formats); err != nil {
 		res = append(res, err)
 	}
@@ -379,6 +401,10 @@ func (m *ViewFilter) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateTalkDurationsMilliseconds(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTranscripts(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -947,6 +973,43 @@ func (m *ViewFilter) validateOriginatingDirections(formats strfmt.Registry) erro
 	return nil
 }
 
+var viewFilterParticipantPurposesItemsEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["internal","external"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		viewFilterParticipantPurposesItemsEnum = append(viewFilterParticipantPurposesItemsEnum, v)
+	}
+}
+
+func (m *ViewFilter) validateParticipantPurposesItemsEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, viewFilterParticipantPurposesItemsEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *ViewFilter) validateParticipantPurposes(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.ParticipantPurposes) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.ParticipantPurposes); i++ {
+
+		// value enum
+		if err := m.validateParticipantPurposesItemsEnum("participantPurposes"+"."+strconv.Itoa(i), "body", m.ParticipantPurposes[i]); err != nil {
+			return err
+		}
+
+	}
+
+	return nil
+}
+
 func (m *ViewFilter) validatePromoterScores(formats strfmt.Registry) error {
 
 	if swag.IsZero(m.PromoterScores) { // not required
@@ -1121,6 +1184,31 @@ func (m *ViewFilter) validateTalkDurationsMilliseconds(formats strfmt.Registry) 
 			if err := m.TalkDurationsMilliseconds[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("talkDurationsMilliseconds" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ViewFilter) validateTranscripts(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Transcripts) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Transcripts); i++ {
+		if swag.IsZero(m.Transcripts[i]) { // not required
+			continue
+		}
+
+		if m.Transcripts[i] != nil {
+			if err := m.Transcripts[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("transcripts" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
