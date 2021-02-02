@@ -90,6 +90,11 @@ type API interface {
 	*/
 	PostCoachingAppointmentAnnotations(ctx context.Context, params *PostCoachingAppointmentAnnotationsParams) (*PostCoachingAppointmentAnnotationsCreated, error)
 	/*
+	   PostCoachingAppointmentConversations adds a conversation to an appointment
+	   Permission not required if you are the creator or facilitator of the appointment
+	*/
+	PostCoachingAppointmentConversations(ctx context.Context, params *PostCoachingAppointmentConversationsParams) (*PostCoachingAppointmentConversationsOK, error)
+	/*
 	   PostCoachingAppointments creates a new appointment
 	*/
 	PostCoachingAppointments(ctx context.Context, params *PostCoachingAppointmentsParams) (*PostCoachingAppointmentsCreated, *PostCoachingAppointmentsAccepted, error)
@@ -525,6 +530,33 @@ func (a *Client) PostCoachingAppointmentAnnotations(ctx context.Context, params 
 		return nil, err
 	}
 	return result.(*PostCoachingAppointmentAnnotationsCreated), nil
+
+}
+
+/*
+PostCoachingAppointmentConversations adds a conversation to an appointment
+
+Permission not required if you are the creator or facilitator of the appointment
+*/
+func (a *Client) PostCoachingAppointmentConversations(ctx context.Context, params *PostCoachingAppointmentConversationsParams) (*PostCoachingAppointmentConversationsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postCoachingAppointmentConversations",
+		Method:             "POST",
+		PathPattern:        "/api/v2/coaching/appointments/{appointmentId}/conversations",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostCoachingAppointmentConversationsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostCoachingAppointmentConversationsOK), nil
 
 }
 

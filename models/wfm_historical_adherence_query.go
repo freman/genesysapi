@@ -29,14 +29,14 @@ type WfmHistoricalAdherenceQuery struct {
 	// Format: date-time
 	StartDate *strfmt.DateTime `json:"startDate"`
 
-	// The teamIds to report on. If null or not set, adherence will be computed for requested users if applicable or otherwise all users in the management unit. Note: Only one of [teamIds, userIds] can be requested
+	// The teamIds to report on. If null or not set, adherence will be computed for requested users if applicable or otherwise all users in the management unit. Note: If teamIds is also specified, only adherence for users in the requested teams will be returned
 	// Unique: true
 	TeamIds []string `json:"teamIds"`
 
 	// The time zone to use for returned results in olson format. If it is not set, the business unit time zone will be used to compute adherence
 	TimeZone string `json:"timeZone,omitempty"`
 
-	// The userIds to report on. If null or not set, adherence will be computed for all the users in management unit or requested teamIds. Note: Only one of [teamIds, userIds] can be requested
+	// The userIds to report on. If null or not set, adherence will be computed for all the users in management unit or requested teamIds
 	// Unique: true
 	UserIds []string `json:"userIds"`
 }

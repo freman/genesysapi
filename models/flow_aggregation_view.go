@@ -33,7 +33,7 @@ type FlowAggregationView struct {
 
 	// Target metric name
 	// Required: true
-	// Enum: [nFlow nFlowMilestone nFlowOutcome nFlowOutcomeFailed oFlow oFlowMilestone tFlow tFlowDisconnect tFlowExit tFlowOutcome]
+	// Enum: [nFlow nFlowMilestone nFlowOutcome nFlowOutcomeFailed oFlowMilestone tFlow tFlowDisconnect tFlowExit tFlowOutcome]
 	Target *string `json:"target"`
 }
 
@@ -134,7 +134,7 @@ var flowAggregationViewTypeTargetPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["nFlow","nFlowMilestone","nFlowOutcome","nFlowOutcomeFailed","oFlow","oFlowMilestone","tFlow","tFlowDisconnect","tFlowExit","tFlowOutcome"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["nFlow","nFlowMilestone","nFlowOutcome","nFlowOutcomeFailed","oFlowMilestone","tFlow","tFlowDisconnect","tFlowExit","tFlowOutcome"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -155,9 +155,6 @@ const (
 
 	// FlowAggregationViewTargetNFlowOutcomeFailed captures enum value "nFlowOutcomeFailed"
 	FlowAggregationViewTargetNFlowOutcomeFailed string = "nFlowOutcomeFailed"
-
-	// FlowAggregationViewTargetOFlow captures enum value "oFlow"
-	FlowAggregationViewTargetOFlow string = "oFlow"
 
 	// FlowAggregationViewTargetOFlowMilestone captures enum value "oFlowMilestone"
 	FlowAggregationViewTargetOFlowMilestone string = "oFlowMilestone"

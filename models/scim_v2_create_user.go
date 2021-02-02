@@ -35,7 +35,7 @@ type ScimV2CreateUser struct {
 	// The list of groups that the user is a member of.
 	Groups []*ScimV2GroupReference `json:"groups"`
 
-	// The new password for the Genesys Cloud user. Does not return an existing password. When creating a user if a password is not supplied a password will be randomly generated which is 40 characters in length and will contain five characters from each of the password policy groups.
+	// The new password for the Genesys Cloud user. Does not return an existing password. When creating a user, if a password is not supplied, then a password will be randomly generated that is 40 characters in length and contains five characters from each of the password policy groups.
 	Password string `json:"password,omitempty"`
 
 	// The list of the user's phone numbers.

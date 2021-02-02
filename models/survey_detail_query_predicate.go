@@ -20,7 +20,7 @@ import (
 type SurveyDetailQueryPredicate struct {
 
 	// Left hand side for dimension predicates
-	// Enum: [eventTime queueId surveyCompletedDate surveyFormContextId surveyFormId surveyFormName surveyId surveyPromoterScore surveyStatus userId]
+	// Enum: [eventTime queueId surveyCompletedDate surveyFormContextId surveyFormId surveyId surveyPromoterScore surveyStatus userId]
 	Dimension string `json:"dimension,omitempty"`
 
 	// Left hand side for metric predicates
@@ -76,7 +76,7 @@ var surveyDetailQueryPredicateTypeDimensionPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["eventTime","queueId","surveyCompletedDate","surveyFormContextId","surveyFormId","surveyFormName","surveyId","surveyPromoterScore","surveyStatus","userId"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["eventTime","queueId","surveyCompletedDate","surveyFormContextId","surveyFormId","surveyId","surveyPromoterScore","surveyStatus","userId"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -100,9 +100,6 @@ const (
 
 	// SurveyDetailQueryPredicateDimensionSurveyFormID captures enum value "surveyFormId"
 	SurveyDetailQueryPredicateDimensionSurveyFormID string = "surveyFormId"
-
-	// SurveyDetailQueryPredicateDimensionSurveyFormName captures enum value "surveyFormName"
-	SurveyDetailQueryPredicateDimensionSurveyFormName string = "surveyFormName"
 
 	// SurveyDetailQueryPredicateDimensionSurveyID captures enum value "surveyId"
 	SurveyDetailQueryPredicateDimensionSurveyID string = "surveyId"

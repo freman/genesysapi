@@ -83,6 +83,10 @@ type API interface {
 	*/
 	PostAnalyticsReportingSchedules(ctx context.Context, params *PostAnalyticsReportingSchedulesParams) (*PostAnalyticsReportingSchedulesOK, error)
 	/*
+	   PostAnalyticsTranscriptsAggregatesQuery queries for transcript aggregates
+	*/
+	PostAnalyticsTranscriptsAggregatesQuery(ctx context.Context, params *PostAnalyticsTranscriptsAggregatesQueryParams) (*PostAnalyticsTranscriptsAggregatesQueryOK, error)
+	/*
 	   PutAnalyticsReportingSchedule updates a scheduled report job
 	*/
 	PutAnalyticsReportingSchedule(ctx context.Context, params *PutAnalyticsReportingScheduleParams) (*PutAnalyticsReportingScheduleOK, error)
@@ -488,6 +492,31 @@ func (a *Client) PostAnalyticsReportingSchedules(ctx context.Context, params *Po
 		return nil, err
 	}
 	return result.(*PostAnalyticsReportingSchedulesOK), nil
+
+}
+
+/*
+PostAnalyticsTranscriptsAggregatesQuery queries for transcript aggregates
+*/
+func (a *Client) PostAnalyticsTranscriptsAggregatesQuery(ctx context.Context, params *PostAnalyticsTranscriptsAggregatesQueryParams) (*PostAnalyticsTranscriptsAggregatesQueryOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postAnalyticsTranscriptsAggregatesQuery",
+		Method:             "POST",
+		PathPattern:        "/api/v2/analytics/transcripts/aggregates/query",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostAnalyticsTranscriptsAggregatesQueryReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostAnalyticsTranscriptsAggregatesQueryOK), nil
 
 }
 

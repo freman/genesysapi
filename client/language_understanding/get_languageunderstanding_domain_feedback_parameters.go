@@ -21,12 +21,14 @@ import (
 // with the default values initialized.
 func NewGetLanguageunderstandingDomainFeedbackParams() *GetLanguageunderstandingDomainFeedbackParams {
 	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
+		enableCursorPaginationDefault = bool(false)
+		pageNumberDefault             = int32(1)
+		pageSizeDefault               = int32(25)
 	)
 	return &GetLanguageunderstandingDomainFeedbackParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
+		EnableCursorPagination: &enableCursorPaginationDefault,
+		PageNumber:             &pageNumberDefault,
+		PageSize:               &pageSizeDefault,
 
 		timeout: cr.DefaultTimeout,
 	}
@@ -36,12 +38,14 @@ func NewGetLanguageunderstandingDomainFeedbackParams() *GetLanguageunderstanding
 // with the default values initialized, and the ability to set a timeout on a request
 func NewGetLanguageunderstandingDomainFeedbackParamsWithTimeout(timeout time.Duration) *GetLanguageunderstandingDomainFeedbackParams {
 	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
+		enableCursorPaginationDefault = bool(false)
+		pageNumberDefault             = int32(1)
+		pageSizeDefault               = int32(25)
 	)
 	return &GetLanguageunderstandingDomainFeedbackParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
+		EnableCursorPagination: &enableCursorPaginationDefault,
+		PageNumber:             &pageNumberDefault,
+		PageSize:               &pageSizeDefault,
 
 		timeout: timeout,
 	}
@@ -51,12 +55,14 @@ func NewGetLanguageunderstandingDomainFeedbackParamsWithTimeout(timeout time.Dur
 // with the default values initialized, and the ability to set a context for a request
 func NewGetLanguageunderstandingDomainFeedbackParamsWithContext(ctx context.Context) *GetLanguageunderstandingDomainFeedbackParams {
 	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
+		enableCursorPaginationDefault = bool(false)
+		pageNumberDefault             = int32(1)
+		pageSizeDefault               = int32(25)
 	)
 	return &GetLanguageunderstandingDomainFeedbackParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
+		EnableCursorPagination: &enableCursorPaginationDefault,
+		PageNumber:             &pageNumberDefault,
+		PageSize:               &pageSizeDefault,
 
 		Context: ctx,
 	}
@@ -66,13 +72,15 @@ func NewGetLanguageunderstandingDomainFeedbackParamsWithContext(ctx context.Cont
 // with the default values initialized, and the ability to set a custom HTTPClient for a request
 func NewGetLanguageunderstandingDomainFeedbackParamsWithHTTPClient(client *http.Client) *GetLanguageunderstandingDomainFeedbackParams {
 	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
+		enableCursorPaginationDefault = bool(false)
+		pageNumberDefault             = int32(1)
+		pageSizeDefault               = int32(25)
 	)
 	return &GetLanguageunderstandingDomainFeedbackParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		HTTPClient: client,
+		EnableCursorPagination: &enableCursorPaginationDefault,
+		PageNumber:             &pageNumberDefault,
+		PageSize:               &pageSizeDefault,
+		HTTPClient:             client,
 	}
 }
 
@@ -81,6 +89,11 @@ for the get languageunderstanding domain feedback operation typically these are 
 */
 type GetLanguageunderstandingDomainFeedbackParams struct {
 
+	/*After
+	  The cursor that points to the end of the set of entities that has been returned. This is considered only when enableCursorPagination=true
+
+	*/
+	After *string
 	/*Assessment
 	  The top assessment to retrieve feedback for.
 
@@ -101,6 +114,11 @@ type GetLanguageunderstandingDomainFeedbackParams struct {
 
 	*/
 	DomainID string
+	/*EnableCursorPagination
+	  Enable Cursor Pagination
+
+	*/
+	EnableCursorPagination *bool
 	/*Fields
 	  Fields and properties to get, comma-separated
 
@@ -165,6 +183,17 @@ func (o *GetLanguageunderstandingDomainFeedbackParams) SetHTTPClient(client *htt
 	o.HTTPClient = client
 }
 
+// WithAfter adds the after to the get languageunderstanding domain feedback params
+func (o *GetLanguageunderstandingDomainFeedbackParams) WithAfter(after *string) *GetLanguageunderstandingDomainFeedbackParams {
+	o.SetAfter(after)
+	return o
+}
+
+// SetAfter adds the after to the get languageunderstanding domain feedback params
+func (o *GetLanguageunderstandingDomainFeedbackParams) SetAfter(after *string) {
+	o.After = after
+}
+
 // WithAssessment adds the assessment to the get languageunderstanding domain feedback params
 func (o *GetLanguageunderstandingDomainFeedbackParams) WithAssessment(assessment *string) *GetLanguageunderstandingDomainFeedbackParams {
 	o.SetAssessment(assessment)
@@ -207,6 +236,17 @@ func (o *GetLanguageunderstandingDomainFeedbackParams) WithDomainID(domainID str
 // SetDomainID adds the domainId to the get languageunderstanding domain feedback params
 func (o *GetLanguageunderstandingDomainFeedbackParams) SetDomainID(domainID string) {
 	o.DomainID = domainID
+}
+
+// WithEnableCursorPagination adds the enableCursorPagination to the get languageunderstanding domain feedback params
+func (o *GetLanguageunderstandingDomainFeedbackParams) WithEnableCursorPagination(enableCursorPagination *bool) *GetLanguageunderstandingDomainFeedbackParams {
+	o.SetEnableCursorPagination(enableCursorPagination)
+	return o
+}
+
+// SetEnableCursorPagination adds the enableCursorPagination to the get languageunderstanding domain feedback params
+func (o *GetLanguageunderstandingDomainFeedbackParams) SetEnableCursorPagination(enableCursorPagination *bool) {
+	o.EnableCursorPagination = enableCursorPagination
 }
 
 // WithFields adds the fields to the get languageunderstanding domain feedback params
@@ -272,6 +312,22 @@ func (o *GetLanguageunderstandingDomainFeedbackParams) WriteToRequest(r runtime.
 	}
 	var res []error
 
+	if o.After != nil {
+
+		// query param after
+		var qrAfter string
+		if o.After != nil {
+			qrAfter = *o.After
+		}
+		qAfter := qrAfter
+		if qAfter != "" {
+			if err := r.SetQueryParam("after", qAfter); err != nil {
+				return err
+			}
+		}
+
+	}
+
 	if o.Assessment != nil {
 
 		// query param assessment
@@ -323,6 +379,22 @@ func (o *GetLanguageunderstandingDomainFeedbackParams) WriteToRequest(r runtime.
 	// path param domainId
 	if err := r.SetPathParam("domainId", o.DomainID); err != nil {
 		return err
+	}
+
+	if o.EnableCursorPagination != nil {
+
+		// query param enableCursorPagination
+		var qrEnableCursorPagination bool
+		if o.EnableCursorPagination != nil {
+			qrEnableCursorPagination = *o.EnableCursorPagination
+		}
+		qEnableCursorPagination := swag.FormatBool(qrEnableCursorPagination)
+		if qEnableCursorPagination != "" {
+			if err := r.SetQueryParam("enableCursorPagination", qEnableCursorPagination); err != nil {
+				return err
+			}
+		}
+
 	}
 
 	valuesFields := o.Fields

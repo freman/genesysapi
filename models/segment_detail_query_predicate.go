@@ -20,7 +20,7 @@ import (
 type SegmentDetailQueryPredicate struct {
 
 	// Left hand side for dimension predicates
-	// Enum: [addressFrom addressOther addressSelf addressTo agentAssistantId agentRank agentScore ani audioMuted callbackNumber callbackScheduledTime callbackUserName cobrowseRole cobrowseRoomId conference destinationConversationId destinationSessionId direction disconnectType dispositionAnalyzer dispositionName dnis edgeId endingLanguage entryReason entryType errorCode exitReason externalContactId externalOrganizationId flaggedReason flowId flowName flowOutType flowOutcome flowOutcomeEndTimestamp flowOutcomeId flowOutcomeStartTimestamp flowOutcomeValue flowType flowVersion groupId issuedCallback journeyActionId journeyActionMapId journeyActionMapVersion journeyCustomerId journeyCustomerIdType journeyCustomerSessionId journeyCustomerSessionIdType journeySegmentScope mediaBridgeId mediaCount mediaType messageType monitoredParticipantId outboundCampaignId outboundContactId outboundContactListId participantId participantName peerId proposedAgentId protocolCallId provider purpose q850ResponseCode queueId recording remote remoteNameDisplayable requestedLanguageId requestedRouting requestedRoutingSkillId requestedRoutingUserId roomId scoredAgentId screenShareAddressSelf screenShareRoomId scriptId segmentEnd segmentType selectedAgentId selectedAgentRank sessionDnis sessionId sharingScreen sipResponseCode skipEnabled sourceConversationId sourceSessionId startingLanguage subject teamId timeoutSeconds transferTargetAddress transferTargetName transferType usedRouting userId videoAddressSelf videoMuted videoRoomId wrapUpCode wrapUpNote wrapUpTag]
+	// Enum: [addressFrom addressTo agentAssistantId ani callbackNumber callbackScheduledTime conference destinationConversationId direction disconnectType dnis edgeId errorCode exitReason externalContactId externalOrganizationId flaggedReason flowId flowName flowOutType flowOutcome flowOutcomeId flowOutcomeValue flowVersion groupId journeyActionId journeyActionMapId journeyCustomerId journeyCustomerIdType journeyCustomerSessionId mediaCount mediaType messageType monitoredParticipantId outboundCampaignId outboundContactId outboundContactListId participantName protocolCallId provider purpose queueId recording remote remoteNameDisplayable requestedLanguageId requestedRouting requestedRoutingSkillId scoredAgentId scriptId segmentEnd segmentType sessionDnis sipResponseCode subject teamId transferTargetAddress transferTargetName transferType usedRouting userId wrapUpCode wrapUpNote]
 	Dimension string `json:"dimension,omitempty"`
 
 	// Left hand side for metric predicates
@@ -87,7 +87,7 @@ var segmentDetailQueryPredicateTypeDimensionPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["addressFrom","addressOther","addressSelf","addressTo","agentAssistantId","agentRank","agentScore","ani","audioMuted","callbackNumber","callbackScheduledTime","callbackUserName","cobrowseRole","cobrowseRoomId","conference","destinationConversationId","destinationSessionId","direction","disconnectType","dispositionAnalyzer","dispositionName","dnis","edgeId","endingLanguage","entryReason","entryType","errorCode","exitReason","externalContactId","externalOrganizationId","flaggedReason","flowId","flowName","flowOutType","flowOutcome","flowOutcomeEndTimestamp","flowOutcomeId","flowOutcomeStartTimestamp","flowOutcomeValue","flowType","flowVersion","groupId","issuedCallback","journeyActionId","journeyActionMapId","journeyActionMapVersion","journeyCustomerId","journeyCustomerIdType","journeyCustomerSessionId","journeyCustomerSessionIdType","journeySegmentScope","mediaBridgeId","mediaCount","mediaType","messageType","monitoredParticipantId","outboundCampaignId","outboundContactId","outboundContactListId","participantId","participantName","peerId","proposedAgentId","protocolCallId","provider","purpose","q850ResponseCode","queueId","recording","remote","remoteNameDisplayable","requestedLanguageId","requestedRouting","requestedRoutingSkillId","requestedRoutingUserId","roomId","scoredAgentId","screenShareAddressSelf","screenShareRoomId","scriptId","segmentEnd","segmentType","selectedAgentId","selectedAgentRank","sessionDnis","sessionId","sharingScreen","sipResponseCode","skipEnabled","sourceConversationId","sourceSessionId","startingLanguage","subject","teamId","timeoutSeconds","transferTargetAddress","transferTargetName","transferType","usedRouting","userId","videoAddressSelf","videoMuted","videoRoomId","wrapUpCode","wrapUpNote","wrapUpTag"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["addressFrom","addressTo","agentAssistantId","ani","callbackNumber","callbackScheduledTime","conference","destinationConversationId","direction","disconnectType","dnis","edgeId","errorCode","exitReason","externalContactId","externalOrganizationId","flaggedReason","flowId","flowName","flowOutType","flowOutcome","flowOutcomeId","flowOutcomeValue","flowVersion","groupId","journeyActionId","journeyActionMapId","journeyCustomerId","journeyCustomerIdType","journeyCustomerSessionId","mediaCount","mediaType","messageType","monitoredParticipantId","outboundCampaignId","outboundContactId","outboundContactListId","participantName","protocolCallId","provider","purpose","queueId","recording","remote","remoteNameDisplayable","requestedLanguageId","requestedRouting","requestedRoutingSkillId","scoredAgentId","scriptId","segmentEnd","segmentType","sessionDnis","sipResponseCode","subject","teamId","transferTargetAddress","transferTargetName","transferType","usedRouting","userId","wrapUpCode","wrapUpNote"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -100,29 +100,14 @@ const (
 	// SegmentDetailQueryPredicateDimensionAddressFrom captures enum value "addressFrom"
 	SegmentDetailQueryPredicateDimensionAddressFrom string = "addressFrom"
 
-	// SegmentDetailQueryPredicateDimensionAddressOther captures enum value "addressOther"
-	SegmentDetailQueryPredicateDimensionAddressOther string = "addressOther"
-
-	// SegmentDetailQueryPredicateDimensionAddressSelf captures enum value "addressSelf"
-	SegmentDetailQueryPredicateDimensionAddressSelf string = "addressSelf"
-
 	// SegmentDetailQueryPredicateDimensionAddressTo captures enum value "addressTo"
 	SegmentDetailQueryPredicateDimensionAddressTo string = "addressTo"
 
 	// SegmentDetailQueryPredicateDimensionAgentAssistantID captures enum value "agentAssistantId"
 	SegmentDetailQueryPredicateDimensionAgentAssistantID string = "agentAssistantId"
 
-	// SegmentDetailQueryPredicateDimensionAgentRank captures enum value "agentRank"
-	SegmentDetailQueryPredicateDimensionAgentRank string = "agentRank"
-
-	// SegmentDetailQueryPredicateDimensionAgentScore captures enum value "agentScore"
-	SegmentDetailQueryPredicateDimensionAgentScore string = "agentScore"
-
 	// SegmentDetailQueryPredicateDimensionAni captures enum value "ani"
 	SegmentDetailQueryPredicateDimensionAni string = "ani"
-
-	// SegmentDetailQueryPredicateDimensionAudioMuted captures enum value "audioMuted"
-	SegmentDetailQueryPredicateDimensionAudioMuted string = "audioMuted"
 
 	// SegmentDetailQueryPredicateDimensionCallbackNumber captures enum value "callbackNumber"
 	SegmentDetailQueryPredicateDimensionCallbackNumber string = "callbackNumber"
@@ -130,23 +115,11 @@ const (
 	// SegmentDetailQueryPredicateDimensionCallbackScheduledTime captures enum value "callbackScheduledTime"
 	SegmentDetailQueryPredicateDimensionCallbackScheduledTime string = "callbackScheduledTime"
 
-	// SegmentDetailQueryPredicateDimensionCallbackUserName captures enum value "callbackUserName"
-	SegmentDetailQueryPredicateDimensionCallbackUserName string = "callbackUserName"
-
-	// SegmentDetailQueryPredicateDimensionCobrowseRole captures enum value "cobrowseRole"
-	SegmentDetailQueryPredicateDimensionCobrowseRole string = "cobrowseRole"
-
-	// SegmentDetailQueryPredicateDimensionCobrowseRoomID captures enum value "cobrowseRoomId"
-	SegmentDetailQueryPredicateDimensionCobrowseRoomID string = "cobrowseRoomId"
-
 	// SegmentDetailQueryPredicateDimensionConference captures enum value "conference"
 	SegmentDetailQueryPredicateDimensionConference string = "conference"
 
 	// SegmentDetailQueryPredicateDimensionDestinationConversationID captures enum value "destinationConversationId"
 	SegmentDetailQueryPredicateDimensionDestinationConversationID string = "destinationConversationId"
-
-	// SegmentDetailQueryPredicateDimensionDestinationSessionID captures enum value "destinationSessionId"
-	SegmentDetailQueryPredicateDimensionDestinationSessionID string = "destinationSessionId"
 
 	// SegmentDetailQueryPredicateDimensionDirection captures enum value "direction"
 	SegmentDetailQueryPredicateDimensionDirection string = "direction"
@@ -154,26 +127,11 @@ const (
 	// SegmentDetailQueryPredicateDimensionDisconnectType captures enum value "disconnectType"
 	SegmentDetailQueryPredicateDimensionDisconnectType string = "disconnectType"
 
-	// SegmentDetailQueryPredicateDimensionDispositionAnalyzer captures enum value "dispositionAnalyzer"
-	SegmentDetailQueryPredicateDimensionDispositionAnalyzer string = "dispositionAnalyzer"
-
-	// SegmentDetailQueryPredicateDimensionDispositionName captures enum value "dispositionName"
-	SegmentDetailQueryPredicateDimensionDispositionName string = "dispositionName"
-
 	// SegmentDetailQueryPredicateDimensionDnis captures enum value "dnis"
 	SegmentDetailQueryPredicateDimensionDnis string = "dnis"
 
 	// SegmentDetailQueryPredicateDimensionEdgeID captures enum value "edgeId"
 	SegmentDetailQueryPredicateDimensionEdgeID string = "edgeId"
-
-	// SegmentDetailQueryPredicateDimensionEndingLanguage captures enum value "endingLanguage"
-	SegmentDetailQueryPredicateDimensionEndingLanguage string = "endingLanguage"
-
-	// SegmentDetailQueryPredicateDimensionEntryReason captures enum value "entryReason"
-	SegmentDetailQueryPredicateDimensionEntryReason string = "entryReason"
-
-	// SegmentDetailQueryPredicateDimensionEntryType captures enum value "entryType"
-	SegmentDetailQueryPredicateDimensionEntryType string = "entryType"
 
 	// SegmentDetailQueryPredicateDimensionErrorCode captures enum value "errorCode"
 	SegmentDetailQueryPredicateDimensionErrorCode string = "errorCode"
@@ -202,20 +160,11 @@ const (
 	// SegmentDetailQueryPredicateDimensionFlowOutcome captures enum value "flowOutcome"
 	SegmentDetailQueryPredicateDimensionFlowOutcome string = "flowOutcome"
 
-	// SegmentDetailQueryPredicateDimensionFlowOutcomeEndTimestamp captures enum value "flowOutcomeEndTimestamp"
-	SegmentDetailQueryPredicateDimensionFlowOutcomeEndTimestamp string = "flowOutcomeEndTimestamp"
-
 	// SegmentDetailQueryPredicateDimensionFlowOutcomeID captures enum value "flowOutcomeId"
 	SegmentDetailQueryPredicateDimensionFlowOutcomeID string = "flowOutcomeId"
 
-	// SegmentDetailQueryPredicateDimensionFlowOutcomeStartTimestamp captures enum value "flowOutcomeStartTimestamp"
-	SegmentDetailQueryPredicateDimensionFlowOutcomeStartTimestamp string = "flowOutcomeStartTimestamp"
-
 	// SegmentDetailQueryPredicateDimensionFlowOutcomeValue captures enum value "flowOutcomeValue"
 	SegmentDetailQueryPredicateDimensionFlowOutcomeValue string = "flowOutcomeValue"
-
-	// SegmentDetailQueryPredicateDimensionFlowType captures enum value "flowType"
-	SegmentDetailQueryPredicateDimensionFlowType string = "flowType"
 
 	// SegmentDetailQueryPredicateDimensionFlowVersion captures enum value "flowVersion"
 	SegmentDetailQueryPredicateDimensionFlowVersion string = "flowVersion"
@@ -223,17 +172,11 @@ const (
 	// SegmentDetailQueryPredicateDimensionGroupID captures enum value "groupId"
 	SegmentDetailQueryPredicateDimensionGroupID string = "groupId"
 
-	// SegmentDetailQueryPredicateDimensionIssuedCallback captures enum value "issuedCallback"
-	SegmentDetailQueryPredicateDimensionIssuedCallback string = "issuedCallback"
-
 	// SegmentDetailQueryPredicateDimensionJourneyActionID captures enum value "journeyActionId"
 	SegmentDetailQueryPredicateDimensionJourneyActionID string = "journeyActionId"
 
 	// SegmentDetailQueryPredicateDimensionJourneyActionMapID captures enum value "journeyActionMapId"
 	SegmentDetailQueryPredicateDimensionJourneyActionMapID string = "journeyActionMapId"
-
-	// SegmentDetailQueryPredicateDimensionJourneyActionMapVersion captures enum value "journeyActionMapVersion"
-	SegmentDetailQueryPredicateDimensionJourneyActionMapVersion string = "journeyActionMapVersion"
 
 	// SegmentDetailQueryPredicateDimensionJourneyCustomerID captures enum value "journeyCustomerId"
 	SegmentDetailQueryPredicateDimensionJourneyCustomerID string = "journeyCustomerId"
@@ -243,15 +186,6 @@ const (
 
 	// SegmentDetailQueryPredicateDimensionJourneyCustomerSessionID captures enum value "journeyCustomerSessionId"
 	SegmentDetailQueryPredicateDimensionJourneyCustomerSessionID string = "journeyCustomerSessionId"
-
-	// SegmentDetailQueryPredicateDimensionJourneyCustomerSessionIDType captures enum value "journeyCustomerSessionIdType"
-	SegmentDetailQueryPredicateDimensionJourneyCustomerSessionIDType string = "journeyCustomerSessionIdType"
-
-	// SegmentDetailQueryPredicateDimensionJourneySegmentScope captures enum value "journeySegmentScope"
-	SegmentDetailQueryPredicateDimensionJourneySegmentScope string = "journeySegmentScope"
-
-	// SegmentDetailQueryPredicateDimensionMediaBridgeID captures enum value "mediaBridgeId"
-	SegmentDetailQueryPredicateDimensionMediaBridgeID string = "mediaBridgeId"
 
 	// SegmentDetailQueryPredicateDimensionMediaCount captures enum value "mediaCount"
 	SegmentDetailQueryPredicateDimensionMediaCount string = "mediaCount"
@@ -274,17 +208,8 @@ const (
 	// SegmentDetailQueryPredicateDimensionOutboundContactListID captures enum value "outboundContactListId"
 	SegmentDetailQueryPredicateDimensionOutboundContactListID string = "outboundContactListId"
 
-	// SegmentDetailQueryPredicateDimensionParticipantID captures enum value "participantId"
-	SegmentDetailQueryPredicateDimensionParticipantID string = "participantId"
-
 	// SegmentDetailQueryPredicateDimensionParticipantName captures enum value "participantName"
 	SegmentDetailQueryPredicateDimensionParticipantName string = "participantName"
-
-	// SegmentDetailQueryPredicateDimensionPeerID captures enum value "peerId"
-	SegmentDetailQueryPredicateDimensionPeerID string = "peerId"
-
-	// SegmentDetailQueryPredicateDimensionProposedAgentID captures enum value "proposedAgentId"
-	SegmentDetailQueryPredicateDimensionProposedAgentID string = "proposedAgentId"
 
 	// SegmentDetailQueryPredicateDimensionProtocolCallID captures enum value "protocolCallId"
 	SegmentDetailQueryPredicateDimensionProtocolCallID string = "protocolCallId"
@@ -294,9 +219,6 @@ const (
 
 	// SegmentDetailQueryPredicateDimensionPurpose captures enum value "purpose"
 	SegmentDetailQueryPredicateDimensionPurpose string = "purpose"
-
-	// SegmentDetailQueryPredicateDimensionQ850ResponseCode captures enum value "q850ResponseCode"
-	SegmentDetailQueryPredicateDimensionQ850ResponseCode string = "q850ResponseCode"
 
 	// SegmentDetailQueryPredicateDimensionQueueID captures enum value "queueId"
 	SegmentDetailQueryPredicateDimensionQueueID string = "queueId"
@@ -319,20 +241,8 @@ const (
 	// SegmentDetailQueryPredicateDimensionRequestedRoutingSkillID captures enum value "requestedRoutingSkillId"
 	SegmentDetailQueryPredicateDimensionRequestedRoutingSkillID string = "requestedRoutingSkillId"
 
-	// SegmentDetailQueryPredicateDimensionRequestedRoutingUserID captures enum value "requestedRoutingUserId"
-	SegmentDetailQueryPredicateDimensionRequestedRoutingUserID string = "requestedRoutingUserId"
-
-	// SegmentDetailQueryPredicateDimensionRoomID captures enum value "roomId"
-	SegmentDetailQueryPredicateDimensionRoomID string = "roomId"
-
 	// SegmentDetailQueryPredicateDimensionScoredAgentID captures enum value "scoredAgentId"
 	SegmentDetailQueryPredicateDimensionScoredAgentID string = "scoredAgentId"
-
-	// SegmentDetailQueryPredicateDimensionScreenShareAddressSelf captures enum value "screenShareAddressSelf"
-	SegmentDetailQueryPredicateDimensionScreenShareAddressSelf string = "screenShareAddressSelf"
-
-	// SegmentDetailQueryPredicateDimensionScreenShareRoomID captures enum value "screenShareRoomId"
-	SegmentDetailQueryPredicateDimensionScreenShareRoomID string = "screenShareRoomId"
 
 	// SegmentDetailQueryPredicateDimensionScriptID captures enum value "scriptId"
 	SegmentDetailQueryPredicateDimensionScriptID string = "scriptId"
@@ -343,44 +253,17 @@ const (
 	// SegmentDetailQueryPredicateDimensionSegmentType captures enum value "segmentType"
 	SegmentDetailQueryPredicateDimensionSegmentType string = "segmentType"
 
-	// SegmentDetailQueryPredicateDimensionSelectedAgentID captures enum value "selectedAgentId"
-	SegmentDetailQueryPredicateDimensionSelectedAgentID string = "selectedAgentId"
-
-	// SegmentDetailQueryPredicateDimensionSelectedAgentRank captures enum value "selectedAgentRank"
-	SegmentDetailQueryPredicateDimensionSelectedAgentRank string = "selectedAgentRank"
-
 	// SegmentDetailQueryPredicateDimensionSessionDnis captures enum value "sessionDnis"
 	SegmentDetailQueryPredicateDimensionSessionDnis string = "sessionDnis"
 
-	// SegmentDetailQueryPredicateDimensionSessionID captures enum value "sessionId"
-	SegmentDetailQueryPredicateDimensionSessionID string = "sessionId"
-
-	// SegmentDetailQueryPredicateDimensionSharingScreen captures enum value "sharingScreen"
-	SegmentDetailQueryPredicateDimensionSharingScreen string = "sharingScreen"
-
 	// SegmentDetailQueryPredicateDimensionSipResponseCode captures enum value "sipResponseCode"
 	SegmentDetailQueryPredicateDimensionSipResponseCode string = "sipResponseCode"
-
-	// SegmentDetailQueryPredicateDimensionSkipEnabled captures enum value "skipEnabled"
-	SegmentDetailQueryPredicateDimensionSkipEnabled string = "skipEnabled"
-
-	// SegmentDetailQueryPredicateDimensionSourceConversationID captures enum value "sourceConversationId"
-	SegmentDetailQueryPredicateDimensionSourceConversationID string = "sourceConversationId"
-
-	// SegmentDetailQueryPredicateDimensionSourceSessionID captures enum value "sourceSessionId"
-	SegmentDetailQueryPredicateDimensionSourceSessionID string = "sourceSessionId"
-
-	// SegmentDetailQueryPredicateDimensionStartingLanguage captures enum value "startingLanguage"
-	SegmentDetailQueryPredicateDimensionStartingLanguage string = "startingLanguage"
 
 	// SegmentDetailQueryPredicateDimensionSubject captures enum value "subject"
 	SegmentDetailQueryPredicateDimensionSubject string = "subject"
 
 	// SegmentDetailQueryPredicateDimensionTeamID captures enum value "teamId"
 	SegmentDetailQueryPredicateDimensionTeamID string = "teamId"
-
-	// SegmentDetailQueryPredicateDimensionTimeoutSeconds captures enum value "timeoutSeconds"
-	SegmentDetailQueryPredicateDimensionTimeoutSeconds string = "timeoutSeconds"
 
 	// SegmentDetailQueryPredicateDimensionTransferTargetAddress captures enum value "transferTargetAddress"
 	SegmentDetailQueryPredicateDimensionTransferTargetAddress string = "transferTargetAddress"
@@ -397,23 +280,11 @@ const (
 	// SegmentDetailQueryPredicateDimensionUserID captures enum value "userId"
 	SegmentDetailQueryPredicateDimensionUserID string = "userId"
 
-	// SegmentDetailQueryPredicateDimensionVideoAddressSelf captures enum value "videoAddressSelf"
-	SegmentDetailQueryPredicateDimensionVideoAddressSelf string = "videoAddressSelf"
-
-	// SegmentDetailQueryPredicateDimensionVideoMuted captures enum value "videoMuted"
-	SegmentDetailQueryPredicateDimensionVideoMuted string = "videoMuted"
-
-	// SegmentDetailQueryPredicateDimensionVideoRoomID captures enum value "videoRoomId"
-	SegmentDetailQueryPredicateDimensionVideoRoomID string = "videoRoomId"
-
 	// SegmentDetailQueryPredicateDimensionWrapUpCode captures enum value "wrapUpCode"
 	SegmentDetailQueryPredicateDimensionWrapUpCode string = "wrapUpCode"
 
 	// SegmentDetailQueryPredicateDimensionWrapUpNote captures enum value "wrapUpNote"
 	SegmentDetailQueryPredicateDimensionWrapUpNote string = "wrapUpNote"
-
-	// SegmentDetailQueryPredicateDimensionWrapUpTag captures enum value "wrapUpTag"
-	SegmentDetailQueryPredicateDimensionWrapUpTag string = "wrapUpTag"
 )
 
 // prop value enum

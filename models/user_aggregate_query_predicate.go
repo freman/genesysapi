@@ -20,7 +20,7 @@ import (
 type UserAggregateQueryPredicate struct {
 
 	// Left hand side for dimension predicates
-	// Enum: [organizationPresenceId routingStatus systemPresence userId]
+	// Enum: [userId]
 	Dimension string `json:"dimension,omitempty"`
 
 	// Optional operator, default is matches
@@ -68,7 +68,7 @@ var userAggregateQueryPredicateTypeDimensionPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["organizationPresenceId","routingStatus","systemPresence","userId"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["userId"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -77,15 +77,6 @@ func init() {
 }
 
 const (
-
-	// UserAggregateQueryPredicateDimensionOrganizationPresenceID captures enum value "organizationPresenceId"
-	UserAggregateQueryPredicateDimensionOrganizationPresenceID string = "organizationPresenceId"
-
-	// UserAggregateQueryPredicateDimensionRoutingStatus captures enum value "routingStatus"
-	UserAggregateQueryPredicateDimensionRoutingStatus string = "routingStatus"
-
-	// UserAggregateQueryPredicateDimensionSystemPresence captures enum value "systemPresence"
-	UserAggregateQueryPredicateDimensionSystemPresence string = "systemPresence"
 
 	// UserAggregateQueryPredicateDimensionUserID captures enum value "userId"
 	UserAggregateQueryPredicateDimensionUserID string = "userId"

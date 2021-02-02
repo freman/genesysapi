@@ -178,10 +178,6 @@ type API interface {
 	*/
 	PostAnalyticsSurveysAggregatesQuery(ctx context.Context, params *PostAnalyticsSurveysAggregatesQueryParams) (*PostAnalyticsSurveysAggregatesQueryOK, error)
 	/*
-	   PostAnalyticsTranscriptsAggregatesQuery queries for transcript aggregates
-	*/
-	PostAnalyticsTranscriptsAggregatesQuery(ctx context.Context, params *PostAnalyticsTranscriptsAggregatesQueryParams) (*PostAnalyticsTranscriptsAggregatesQueryOK, error)
-	/*
 	   PostQualityCalibrations creates a calibration
 	*/
 	PostQualityCalibrations(ctx context.Context, params *PostQualityCalibrationsParams) (*PostQualityCalibrationsOK, error)
@@ -1257,31 +1253,6 @@ func (a *Client) PostAnalyticsSurveysAggregatesQuery(ctx context.Context, params
 		return nil, err
 	}
 	return result.(*PostAnalyticsSurveysAggregatesQueryOK), nil
-
-}
-
-/*
-PostAnalyticsTranscriptsAggregatesQuery queries for transcript aggregates
-*/
-func (a *Client) PostAnalyticsTranscriptsAggregatesQuery(ctx context.Context, params *PostAnalyticsTranscriptsAggregatesQueryParams) (*PostAnalyticsTranscriptsAggregatesQueryOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "postAnalyticsTranscriptsAggregatesQuery",
-		Method:             "POST",
-		PathPattern:        "/api/v2/analytics/transcripts/aggregates/query",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PostAnalyticsTranscriptsAggregatesQueryReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*PostAnalyticsTranscriptsAggregatesQueryOK), nil
 
 }
 

@@ -82,7 +82,7 @@ for the get flow versions operation typically these are written to a http.Reques
 type GetFlowVersionsParams struct {
 
 	/*Deleted
-	  Include deleted flows
+	  Include Deleted flows
 
 	*/
 	Deleted *bool

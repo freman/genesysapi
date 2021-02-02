@@ -173,6 +173,18 @@ type ViewFilter struct {
 	// Indicates filtering for survey
 	IsSurveyed bool `json:"isSurveyed"`
 
+	// The journey action map ids are used to fetch action maps for the associated view
+	JourneyActionMapIds []string `json:"journeyActionMapIds"`
+
+	// The journey action map types are used to filter action map data for the associated view
+	JourneyActionMapTypes []string `json:"journeyActionMapTypes"`
+
+	// The journey outcome ids are used to fetch outcomes for the associated view
+	JourneyOutcomeIds []string `json:"journeyOutcomeIds"`
+
+	// The journey segment ids are used to fetch segments for the associated view
+	JourneySegmentIds []string `json:"journeySegmentIds"`
+
 	// The language groups used to filter the view
 	LanguageGroups []string `json:"languageGroups"`
 
@@ -349,6 +361,10 @@ func (m *ViewFilter) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateHoldDurationsMilliseconds(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateJourneyActionMapTypes(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -837,6 +853,43 @@ func (m *ViewFilter) validateHoldDurationsMilliseconds(formats strfmt.Registry) 
 				}
 				return err
 			}
+		}
+
+	}
+
+	return nil
+}
+
+var viewFilterJourneyActionMapTypesItemsEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["webchat","webMessagingOffer","contentOffer","integrationAction","architectFlow"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		viewFilterJourneyActionMapTypesItemsEnum = append(viewFilterJourneyActionMapTypesItemsEnum, v)
+	}
+}
+
+func (m *ViewFilter) validateJourneyActionMapTypesItemsEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, viewFilterJourneyActionMapTypesItemsEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *ViewFilter) validateJourneyActionMapTypes(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.JourneyActionMapTypes) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.JourneyActionMapTypes); i++ {
+
+		// value enum
+		if err := m.validateJourneyActionMapTypesItemsEnum("journeyActionMapTypes"+"."+strconv.Itoa(i), "body", m.JourneyActionMapTypes[i]); err != nil {
+			return err
 		}
 
 	}

@@ -20,7 +20,7 @@ import (
 type ConversationDetailQueryPredicate struct {
 
 	// Left hand side for dimension predicates
-	// Enum: [conversationEnd conversationId divisionId mediaStatsMinConversationMos mediaStatsMinConversationRFactor originatingDirection]
+	// Enum: [conversationEnd conversationId conversationStart divisionId mediaStatsMinConversationMos originatingDirection]
 	Dimension string `json:"dimension,omitempty"`
 
 	// Left hand side for metric predicates
@@ -76,7 +76,7 @@ var conversationDetailQueryPredicateTypeDimensionPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["conversationEnd","conversationId","divisionId","mediaStatsMinConversationMos","mediaStatsMinConversationRFactor","originatingDirection"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["conversationEnd","conversationId","conversationStart","divisionId","mediaStatsMinConversationMos","originatingDirection"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -92,14 +92,14 @@ const (
 	// ConversationDetailQueryPredicateDimensionConversationID captures enum value "conversationId"
 	ConversationDetailQueryPredicateDimensionConversationID string = "conversationId"
 
+	// ConversationDetailQueryPredicateDimensionConversationStart captures enum value "conversationStart"
+	ConversationDetailQueryPredicateDimensionConversationStart string = "conversationStart"
+
 	// ConversationDetailQueryPredicateDimensionDivisionID captures enum value "divisionId"
 	ConversationDetailQueryPredicateDimensionDivisionID string = "divisionId"
 
 	// ConversationDetailQueryPredicateDimensionMediaStatsMinConversationMos captures enum value "mediaStatsMinConversationMos"
 	ConversationDetailQueryPredicateDimensionMediaStatsMinConversationMos string = "mediaStatsMinConversationMos"
-
-	// ConversationDetailQueryPredicateDimensionMediaStatsMinConversationRFactor captures enum value "mediaStatsMinConversationRFactor"
-	ConversationDetailQueryPredicateDimensionMediaStatsMinConversationRFactor string = "mediaStatsMinConversationRFactor"
 
 	// ConversationDetailQueryPredicateDimensionOriginatingDirection captures enum value "originatingDirection"
 	ConversationDetailQueryPredicateDimensionOriginatingDirection string = "originatingDirection"

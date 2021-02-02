@@ -41,7 +41,7 @@ type ScimV2User struct {
 	// Read Only: true
 	Meta *ScimMetadata `json:"meta,omitempty"`
 
-	// The new password for the Genesys Cloud user. Does not return an existing password. When creating a user if a password is not supplied a password will be randomly generated which is 40 characters in length and will contain five characters from each of the password policy groups.
+	// The new password for the Genesys Cloud user. Does not return an existing password. When creating a user, if a password is not supplied, then a password will be randomly generated that is 40 characters in length and contains five characters from each of the password policy groups.
 	Password string `json:"password,omitempty"`
 
 	// The list of the user's phone numbers.

@@ -74,7 +74,7 @@ for the get flow operation typically these are written to a http.Request
 type GetFlowParams struct {
 
 	/*Deleted
-	  Include deleted flows
+	  Deleted flows
 
 	*/
 	Deleted *bool

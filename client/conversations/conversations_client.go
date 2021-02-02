@@ -442,6 +442,10 @@ type API interface {
 	*/
 	PostConversationsCall(ctx context.Context, params *PostConversationsCallParams) (*PostConversationsCallOK, error)
 	/*
+	   PostConversationsCallParticipantCoach listens in on the conversation from the point of view of a given participant while speaking to just the given participant
+	*/
+	PostConversationsCallParticipantCoach(ctx context.Context, params *PostConversationsCallParticipantCoachParams) (*PostConversationsCallParticipantCoachCreated, error)
+	/*
 	   PostConversationsCallParticipantConsult initiates and update consult transfer
 	*/
 	PostConversationsCallParticipantConsult(ctx context.Context, params *PostConversationsCallParticipantConsultParams) (*PostConversationsCallParticipantConsultOK, error)
@@ -3249,6 +3253,31 @@ func (a *Client) PostConversationsCall(ctx context.Context, params *PostConversa
 		return nil, err
 	}
 	return result.(*PostConversationsCallOK), nil
+
+}
+
+/*
+PostConversationsCallParticipantCoach listens in on the conversation from the point of view of a given participant while speaking to just the given participant
+*/
+func (a *Client) PostConversationsCallParticipantCoach(ctx context.Context, params *PostConversationsCallParticipantCoachParams) (*PostConversationsCallParticipantCoachCreated, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postConversationsCallParticipantCoach",
+		Method:             "POST",
+		PathPattern:        "/api/v2/conversations/calls/{conversationId}/participants/{participantId}/coach",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostConversationsCallParticipantCoachReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostConversationsCallParticipantCoachCreated), nil
 
 }
 

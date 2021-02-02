@@ -74,7 +74,7 @@ for the get flow latestconfiguration operation typically these are written to a 
 type GetFlowLatestconfigurationParams struct {
 
 	/*Deleted
-	  Include deleted flows
+	  Deleted flows
 
 	*/
 	Deleted *bool

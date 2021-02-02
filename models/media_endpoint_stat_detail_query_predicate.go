@@ -20,7 +20,7 @@ import (
 type MediaEndpointStatDetailQueryPredicate struct {
 
 	// Left hand side for dimension predicates
-	// Enum: [codec discardedPackets duplicatePackets eventTime invalidPackets maxLatencyMs minMos minRFactor overrunPackets receivedPackets underrunPackets]
+	// Enum: [codec discardedPackets duplicatePackets eventTime invalidPackets maxLatencyMs overrunPackets receivedPackets underrunPackets]
 	Dimension string `json:"dimension,omitempty"`
 
 	// Optional operator, default is matches
@@ -68,7 +68,7 @@ var mediaEndpointStatDetailQueryPredicateTypeDimensionPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["codec","discardedPackets","duplicatePackets","eventTime","invalidPackets","maxLatencyMs","minMos","minRFactor","overrunPackets","receivedPackets","underrunPackets"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["codec","discardedPackets","duplicatePackets","eventTime","invalidPackets","maxLatencyMs","overrunPackets","receivedPackets","underrunPackets"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -95,12 +95,6 @@ const (
 
 	// MediaEndpointStatDetailQueryPredicateDimensionMaxLatencyMs captures enum value "maxLatencyMs"
 	MediaEndpointStatDetailQueryPredicateDimensionMaxLatencyMs string = "maxLatencyMs"
-
-	// MediaEndpointStatDetailQueryPredicateDimensionMinMos captures enum value "minMos"
-	MediaEndpointStatDetailQueryPredicateDimensionMinMos string = "minMos"
-
-	// MediaEndpointStatDetailQueryPredicateDimensionMinRFactor captures enum value "minRFactor"
-	MediaEndpointStatDetailQueryPredicateDimensionMinRFactor string = "minRFactor"
 
 	// MediaEndpointStatDetailQueryPredicateDimensionOverrunPackets captures enum value "overrunPackets"
 	MediaEndpointStatDetailQueryPredicateDimensionOverrunPackets string = "overrunPackets"

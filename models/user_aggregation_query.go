@@ -147,7 +147,7 @@ var userAggregationQueryGroupByItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["organizationPresenceId","routingStatus","systemPresence","userId"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["userId"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {

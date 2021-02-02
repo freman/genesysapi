@@ -129,6 +129,10 @@ type API interface {
 	*/
 	GetWorkforcemanagementBusinessunitWeekScheduleHeadcountforecast(ctx context.Context, params *GetWorkforcemanagementBusinessunitWeekScheduleHeadcountforecastParams) (*GetWorkforcemanagementBusinessunitWeekScheduleHeadcountforecastOK, error)
 	/*
+	   GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgent loads agent s schedule history
+	*/
+	GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgent(ctx context.Context, params *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentParams) (*GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentOK, error)
+	/*
 	   GetWorkforcemanagementBusinessunitWeekSchedules gets the list of week schedules for the specified week
 	   Use "recent" for the `weekId` path parameter to fetch all forecasts for +/- 26 weeks from the current date. Response will include any schedule which spans the specified week
 	*/
@@ -1148,6 +1152,31 @@ func (a *Client) GetWorkforcemanagementBusinessunitWeekScheduleHeadcountforecast
 		return nil, err
 	}
 	return result.(*GetWorkforcemanagementBusinessunitWeekScheduleHeadcountforecastOK), nil
+
+}
+
+/*
+GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgent loads agent s schedule history
+*/
+func (a *Client) GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgent(ctx context.Context, params *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentParams) (*GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getWorkforcemanagementBusinessunitWeekScheduleHistoryAgent",
+		Method:             "GET",
+		PathPattern:        "/api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules/{scheduleId}/history/agents/{agentId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentOK), nil
 
 }
 

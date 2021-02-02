@@ -18,6 +18,10 @@ import (
 // API is the interface of the journey client
 type API interface {
 	/*
+	   DeleteJourneySegment deletes a segment
+	*/
+	DeleteJourneySegment(ctx context.Context, params *DeleteJourneySegmentParams) (*DeleteJourneySegmentNoContent, error)
+	/*
 	   GetJourneyActiontarget retrieves a single action target
 	*/
 	GetJourneyActiontarget(ctx context.Context, params *GetJourneyActiontargetParams) (*GetJourneyActiontargetOK, error)
@@ -26,13 +30,29 @@ type API interface {
 	*/
 	GetJourneyActiontargets(ctx context.Context, params *GetJourneyActiontargetsParams) (*GetJourneyActiontargetsOK, error)
 	/*
+	   GetJourneySegment retrieves a single segment
+	*/
+	GetJourneySegment(ctx context.Context, params *GetJourneySegmentParams) (*GetJourneySegmentOK, error)
+	/*
+	   GetJourneySegments retrieves all segments
+	*/
+	GetJourneySegments(ctx context.Context, params *GetJourneySegmentsParams) (*GetJourneySegmentsOK, error)
+	/*
 	   PatchJourneyActiontarget updates a single action target
 	*/
 	PatchJourneyActiontarget(ctx context.Context, params *PatchJourneyActiontargetParams) (*PatchJourneyActiontargetOK, error)
 	/*
+	   PatchJourneySegment updates a segment
+	*/
+	PatchJourneySegment(ctx context.Context, params *PatchJourneySegmentParams) (*PatchJourneySegmentOK, error)
+	/*
 	   PostAnalyticsJourneysAggregatesQuery queries for journey aggregates
 	*/
 	PostAnalyticsJourneysAggregatesQuery(ctx context.Context, params *PostAnalyticsJourneysAggregatesQueryParams) (*PostAnalyticsJourneysAggregatesQueryOK, error)
+	/*
+	   PostJourneySegments creates a segment
+	*/
+	PostJourneySegments(ctx context.Context, params *PostJourneySegmentsParams) (*PostJourneySegmentsOK, *PostJourneySegmentsCreated, error)
 }
 
 // New creates a new journey API client.
@@ -51,6 +71,31 @@ type Client struct {
 	transport runtime.ClientTransport
 	formats   strfmt.Registry
 	authInfo  runtime.ClientAuthInfoWriter
+}
+
+/*
+DeleteJourneySegment deletes a segment
+*/
+func (a *Client) DeleteJourneySegment(ctx context.Context, params *DeleteJourneySegmentParams) (*DeleteJourneySegmentNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteJourneySegment",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/journey/segments/{segmentId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteJourneySegmentReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteJourneySegmentNoContent), nil
+
 }
 
 /*
@@ -104,6 +149,56 @@ func (a *Client) GetJourneyActiontargets(ctx context.Context, params *GetJourney
 }
 
 /*
+GetJourneySegment retrieves a single segment
+*/
+func (a *Client) GetJourneySegment(ctx context.Context, params *GetJourneySegmentParams) (*GetJourneySegmentOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getJourneySegment",
+		Method:             "GET",
+		PathPattern:        "/api/v2/journey/segments/{segmentId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetJourneySegmentReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetJourneySegmentOK), nil
+
+}
+
+/*
+GetJourneySegments retrieves all segments
+*/
+func (a *Client) GetJourneySegments(ctx context.Context, params *GetJourneySegmentsParams) (*GetJourneySegmentsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getJourneySegments",
+		Method:             "GET",
+		PathPattern:        "/api/v2/journey/segments",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetJourneySegmentsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetJourneySegmentsOK), nil
+
+}
+
+/*
 PatchJourneyActiontarget updates a single action target
 */
 func (a *Client) PatchJourneyActiontarget(ctx context.Context, params *PatchJourneyActiontargetParams) (*PatchJourneyActiontargetOK, error) {
@@ -129,6 +224,31 @@ func (a *Client) PatchJourneyActiontarget(ctx context.Context, params *PatchJour
 }
 
 /*
+PatchJourneySegment updates a segment
+*/
+func (a *Client) PatchJourneySegment(ctx context.Context, params *PatchJourneySegmentParams) (*PatchJourneySegmentOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "patchJourneySegment",
+		Method:             "PATCH",
+		PathPattern:        "/api/v2/journey/segments/{segmentId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchJourneySegmentReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PatchJourneySegmentOK), nil
+
+}
+
+/*
 PostAnalyticsJourneysAggregatesQuery queries for journey aggregates
 */
 func (a *Client) PostAnalyticsJourneysAggregatesQuery(ctx context.Context, params *PostAnalyticsJourneysAggregatesQueryParams) (*PostAnalyticsJourneysAggregatesQueryOK, error) {
@@ -150,5 +270,36 @@ func (a *Client) PostAnalyticsJourneysAggregatesQuery(ctx context.Context, param
 		return nil, err
 	}
 	return result.(*PostAnalyticsJourneysAggregatesQueryOK), nil
+
+}
+
+/*
+PostJourneySegments creates a segment
+*/
+func (a *Client) PostJourneySegments(ctx context.Context, params *PostJourneySegmentsParams) (*PostJourneySegmentsOK, *PostJourneySegmentsCreated, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postJourneySegments",
+		Method:             "POST",
+		PathPattern:        "/api/v2/journey/segments",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostJourneySegmentsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PostJourneySegmentsOK:
+		return value, nil, nil
+	case *PostJourneySegmentsCreated:
+		return nil, value, nil
+	}
+	return nil, nil, nil
 
 }

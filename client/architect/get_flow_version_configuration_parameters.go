@@ -61,7 +61,7 @@ for the get flow version configuration operation typically these are written to 
 type GetFlowVersionConfigurationParams struct {
 
 	/*Deleted
-	  Include deleted flows
+	  Deleted flows
 
 	*/
 	Deleted *string
