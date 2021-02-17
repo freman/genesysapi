@@ -74,6 +74,10 @@ type API interface {
 	*/
 	PostSearchSuggest(ctx context.Context, params *PostSearchSuggestParams) (*PostSearchSuggestOK, error)
 	/*
+	   PostSpeechandtextanalyticsTranscriptsSearch searches resources
+	*/
+	PostSpeechandtextanalyticsTranscriptsSearch(ctx context.Context, params *PostSpeechandtextanalyticsTranscriptsSearchParams) (*PostSpeechandtextanalyticsTranscriptsSearchOK, error)
+	/*
 	   PostUsersSearch searches users
 	*/
 	PostUsersSearch(ctx context.Context, params *PostUsersSearchParams) (*PostUsersSearchOK, error)
@@ -444,6 +448,31 @@ func (a *Client) PostSearchSuggest(ctx context.Context, params *PostSearchSugges
 		return nil, err
 	}
 	return result.(*PostSearchSuggestOK), nil
+
+}
+
+/*
+PostSpeechandtextanalyticsTranscriptsSearch searches resources
+*/
+func (a *Client) PostSpeechandtextanalyticsTranscriptsSearch(ctx context.Context, params *PostSpeechandtextanalyticsTranscriptsSearchParams) (*PostSpeechandtextanalyticsTranscriptsSearchOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postSpeechandtextanalyticsTranscriptsSearch",
+		Method:             "POST",
+		PathPattern:        "/api/v2/speechandtextanalytics/transcripts/search",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostSpeechandtextanalyticsTranscriptsSearchReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostSpeechandtextanalyticsTranscriptsSearchOK), nil
 
 }
 

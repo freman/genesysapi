@@ -26,6 +26,7 @@ import (
 	"github.com/freman/genesysapi/client/audit"
 	"github.com/freman/genesysapi/client/authorization"
 	"github.com/freman/genesysapi/client/billing"
+	"github.com/freman/genesysapi/client/chat"
 	"github.com/freman/genesysapi/client/coaching"
 	"github.com/freman/genesysapi/client/content_management"
 	"github.com/freman/genesysapi/client/conversations"
@@ -157,6 +158,7 @@ func New(c Config) *Genesys {
 	cli.Audit = audit.New(transport, strfmt.Default, nil)
 	cli.Authorization = authorization.New(transport, strfmt.Default, nil)
 	cli.Billing = billing.New(transport, strfmt.Default, nil)
+	cli.Chat = chat.New(transport, strfmt.Default, nil)
 	cli.Coaching = coaching.New(transport, strfmt.Default, nil)
 	cli.ContentManagement = content_management.New(transport, strfmt.Default, nil)
 	cli.Conversations = conversations.New(transport, strfmt.Default, nil)
@@ -220,6 +222,7 @@ type Genesys struct {
 	Audit                           *audit.Client
 	Authorization                   *authorization.Client
 	Billing                         *billing.Client
+	Chat                            *chat.Client
 	Coaching                        *coaching.Client
 	ContentManagement               *content_management.Client
 	Conversations                   *conversations.Client

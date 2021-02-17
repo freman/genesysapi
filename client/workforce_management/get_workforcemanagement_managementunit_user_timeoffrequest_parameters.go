@@ -60,11 +60,11 @@ for the get workforcemanagement managementunit user timeoffrequest operation typ
 */
 type GetWorkforcemanagementManagementunitUserTimeoffrequestParams struct {
 
-	/*MuID
+	/*ManagementUnitID
 	  The muId of the management unit, or 'mine' for the management unit of the logged-in user.
 
 	*/
-	MuID string
+	ManagementUnitID string
 	/*TimeOffRequestID
 	  Time Off Request Id
 
@@ -114,15 +114,15 @@ func (o *GetWorkforcemanagementManagementunitUserTimeoffrequestParams) SetHTTPCl
 	o.HTTPClient = client
 }
 
-// WithMuID adds the muID to the get workforcemanagement managementunit user timeoffrequest params
-func (o *GetWorkforcemanagementManagementunitUserTimeoffrequestParams) WithMuID(muID string) *GetWorkforcemanagementManagementunitUserTimeoffrequestParams {
-	o.SetMuID(muID)
+// WithManagementUnitID adds the managementUnitID to the get workforcemanagement managementunit user timeoffrequest params
+func (o *GetWorkforcemanagementManagementunitUserTimeoffrequestParams) WithManagementUnitID(managementUnitID string) *GetWorkforcemanagementManagementunitUserTimeoffrequestParams {
+	o.SetManagementUnitID(managementUnitID)
 	return o
 }
 
-// SetMuID adds the muId to the get workforcemanagement managementunit user timeoffrequest params
-func (o *GetWorkforcemanagementManagementunitUserTimeoffrequestParams) SetMuID(muID string) {
-	o.MuID = muID
+// SetManagementUnitID adds the managementUnitId to the get workforcemanagement managementunit user timeoffrequest params
+func (o *GetWorkforcemanagementManagementunitUserTimeoffrequestParams) SetManagementUnitID(managementUnitID string) {
+	o.ManagementUnitID = managementUnitID
 }
 
 // WithTimeOffRequestID adds the timeOffRequestID to the get workforcemanagement managementunit user timeoffrequest params
@@ -155,8 +155,8 @@ func (o *GetWorkforcemanagementManagementunitUserTimeoffrequestParams) WriteToRe
 	}
 	var res []error
 
-	// path param muId
-	if err := r.SetPathParam("muId", o.MuID); err != nil {
+	// path param managementUnitId
+	if err := r.SetPathParam("managementUnitId", o.ManagementUnitID); err != nil {
 		return err
 	}
 

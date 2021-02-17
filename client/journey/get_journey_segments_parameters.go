@@ -96,6 +96,11 @@ type GetJourneySegmentsParams struct {
 
 	*/
 	PageSize *int32
+	/*SegmentIds
+	  IDs of segments to return. Use of this parameter is not compatible with pagination or sorting. A maximum of 100 segments are allowed per request.
+
+	*/
+	SegmentIds []string
 	/*SortBy
 	  Field(s) to sort by. The response can be sorted by any first level property on the Outcome response. Prefix with '-' for descending (e.g. sortBy=displayName,-createdDate).
 
@@ -173,6 +178,17 @@ func (o *GetJourneySegmentsParams) SetPageSize(pageSize *int32) {
 	o.PageSize = pageSize
 }
 
+// WithSegmentIds adds the segmentIds to the get journey segments params
+func (o *GetJourneySegmentsParams) WithSegmentIds(segmentIds []string) *GetJourneySegmentsParams {
+	o.SetSegmentIds(segmentIds)
+	return o
+}
+
+// SetSegmentIds adds the segmentIds to the get journey segments params
+func (o *GetJourneySegmentsParams) SetSegmentIds(segmentIds []string) {
+	o.SegmentIds = segmentIds
+}
+
 // WithSortBy adds the sortBy to the get journey segments params
 func (o *GetJourneySegmentsParams) WithSortBy(sortBy *string) *GetJourneySegmentsParams {
 	o.SetSortBy(sortBy)
@@ -238,6 +254,14 @@ func (o *GetJourneySegmentsParams) WriteToRequest(r runtime.ClientRequest, reg s
 			}
 		}
 
+	}
+
+	valuesSegmentIds := o.SegmentIds
+
+	joinedSegmentIds := swag.JoinByFormat(valuesSegmentIds, "multi")
+	// query array param segmentIds
+	if err := r.SetQueryParam("segmentIds", joinedSegmentIds...); err != nil {
+		return err
 	}
 
 	if o.SortBy != nil {

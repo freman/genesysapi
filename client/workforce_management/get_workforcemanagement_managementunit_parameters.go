@@ -63,11 +63,11 @@ type GetWorkforcemanagementManagementunitParams struct {
 
 	/*Expand*/
 	Expand []string
-	/*MuID
+	/*ManagementUnitID
 	  The ID of the management unit, or 'mine' for the management unit of the logged-in user.
 
 	*/
-	MuID string
+	ManagementUnitID string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -118,15 +118,15 @@ func (o *GetWorkforcemanagementManagementunitParams) SetExpand(expand []string) 
 	o.Expand = expand
 }
 
-// WithMuID adds the muID to the get workforcemanagement managementunit params
-func (o *GetWorkforcemanagementManagementunitParams) WithMuID(muID string) *GetWorkforcemanagementManagementunitParams {
-	o.SetMuID(muID)
+// WithManagementUnitID adds the managementUnitID to the get workforcemanagement managementunit params
+func (o *GetWorkforcemanagementManagementunitParams) WithManagementUnitID(managementUnitID string) *GetWorkforcemanagementManagementunitParams {
+	o.SetManagementUnitID(managementUnitID)
 	return o
 }
 
-// SetMuID adds the muId to the get workforcemanagement managementunit params
-func (o *GetWorkforcemanagementManagementunitParams) SetMuID(muID string) {
-	o.MuID = muID
+// SetManagementUnitID adds the managementUnitId to the get workforcemanagement managementunit params
+func (o *GetWorkforcemanagementManagementunitParams) SetManagementUnitID(managementUnitID string) {
+	o.ManagementUnitID = managementUnitID
 }
 
 // WriteToRequest writes these params to a swagger request
@@ -145,8 +145,8 @@ func (o *GetWorkforcemanagementManagementunitParams) WriteToRequest(r runtime.Cl
 		return err
 	}
 
-	// path param muId
-	if err := r.SetPathParam("muId", o.MuID); err != nil {
+	// path param managementUnitId
+	if err := r.SetPathParam("managementUnitId", o.ManagementUnitID); err != nil {
 		return err
 	}
 

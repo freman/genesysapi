@@ -60,11 +60,11 @@ for the get workforcemanagement businessunit activitycodes operation typically t
 */
 type GetWorkforcemanagementBusinessunitActivitycodesParams struct {
 
-	/*BuID
+	/*BusinessUnitID
 	  The ID of the business unit, or 'mine' for the business unit of the logged-in user.
 
 	*/
-	BuID string
+	BusinessUnitID string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -104,15 +104,15 @@ func (o *GetWorkforcemanagementBusinessunitActivitycodesParams) SetHTTPClient(cl
 	o.HTTPClient = client
 }
 
-// WithBuID adds the buID to the get workforcemanagement businessunit activitycodes params
-func (o *GetWorkforcemanagementBusinessunitActivitycodesParams) WithBuID(buID string) *GetWorkforcemanagementBusinessunitActivitycodesParams {
-	o.SetBuID(buID)
+// WithBusinessUnitID adds the businessUnitID to the get workforcemanagement businessunit activitycodes params
+func (o *GetWorkforcemanagementBusinessunitActivitycodesParams) WithBusinessUnitID(businessUnitID string) *GetWorkforcemanagementBusinessunitActivitycodesParams {
+	o.SetBusinessUnitID(businessUnitID)
 	return o
 }
 
-// SetBuID adds the buId to the get workforcemanagement businessunit activitycodes params
-func (o *GetWorkforcemanagementBusinessunitActivitycodesParams) SetBuID(buID string) {
-	o.BuID = buID
+// SetBusinessUnitID adds the businessUnitId to the get workforcemanagement businessunit activitycodes params
+func (o *GetWorkforcemanagementBusinessunitActivitycodesParams) SetBusinessUnitID(businessUnitID string) {
+	o.BusinessUnitID = businessUnitID
 }
 
 // WriteToRequest writes these params to a swagger request
@@ -123,8 +123,8 @@ func (o *GetWorkforcemanagementBusinessunitActivitycodesParams) WriteToRequest(r
 	}
 	var res []error
 
-	// path param buId
-	if err := r.SetPathParam("buId", o.BuID); err != nil {
+	// path param businessUnitId
+	if err := r.SetPathParam("businessUnitId", o.BusinessUnitID); err != nil {
 		return err
 	}
 

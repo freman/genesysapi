@@ -115,7 +115,7 @@ type PostWorkforcemanagementManagementunitSchedulesSearchOK struct {
 }
 
 func (o *PostWorkforcemanagementManagementunitSchedulesSearchOK) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/schedules/search][%d] postWorkforcemanagementManagementunitSchedulesSearchOK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/schedules/search][%d] postWorkforcemanagementManagementunitSchedulesSearchOK  %+v", 200, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitSchedulesSearchOK) GetPayload() *models.UserScheduleContainer {
@@ -148,7 +148,7 @@ type PostWorkforcemanagementManagementunitSchedulesSearchBadRequest struct {
 }
 
 func (o *PostWorkforcemanagementManagementunitSchedulesSearchBadRequest) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/schedules/search][%d] postWorkforcemanagementManagementunitSchedulesSearchBadRequest  %+v", 400, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/schedules/search][%d] postWorkforcemanagementManagementunitSchedulesSearchBadRequest  %+v", 400, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitSchedulesSearchBadRequest) GetPayload() *models.ErrorBody {
@@ -181,7 +181,7 @@ type PostWorkforcemanagementManagementunitSchedulesSearchUnauthorized struct {
 }
 
 func (o *PostWorkforcemanagementManagementunitSchedulesSearchUnauthorized) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/schedules/search][%d] postWorkforcemanagementManagementunitSchedulesSearchUnauthorized  %+v", 401, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/schedules/search][%d] postWorkforcemanagementManagementunitSchedulesSearchUnauthorized  %+v", 401, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitSchedulesSearchUnauthorized) GetPayload() *models.ErrorBody {
@@ -214,7 +214,7 @@ type PostWorkforcemanagementManagementunitSchedulesSearchForbidden struct {
 }
 
 func (o *PostWorkforcemanagementManagementunitSchedulesSearchForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/schedules/search][%d] postWorkforcemanagementManagementunitSchedulesSearchForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/schedules/search][%d] postWorkforcemanagementManagementunitSchedulesSearchForbidden  %+v", 403, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitSchedulesSearchForbidden) GetPayload() *models.ErrorBody {
@@ -247,7 +247,7 @@ type PostWorkforcemanagementManagementunitSchedulesSearchNotFound struct {
 }
 
 func (o *PostWorkforcemanagementManagementunitSchedulesSearchNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/schedules/search][%d] postWorkforcemanagementManagementunitSchedulesSearchNotFound  %+v", 404, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/schedules/search][%d] postWorkforcemanagementManagementunitSchedulesSearchNotFound  %+v", 404, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitSchedulesSearchNotFound) GetPayload() *models.ErrorBody {
@@ -280,7 +280,7 @@ type PostWorkforcemanagementManagementunitSchedulesSearchRequestTimeout struct {
 }
 
 func (o *PostWorkforcemanagementManagementunitSchedulesSearchRequestTimeout) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/schedules/search][%d] postWorkforcemanagementManagementunitSchedulesSearchRequestTimeout  %+v", 408, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/schedules/search][%d] postWorkforcemanagementManagementunitSchedulesSearchRequestTimeout  %+v", 408, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitSchedulesSearchRequestTimeout) GetPayload() *models.ErrorBody {
@@ -313,7 +313,7 @@ type PostWorkforcemanagementManagementunitSchedulesSearchRequestEntityTooLarge s
 }
 
 func (o *PostWorkforcemanagementManagementunitSchedulesSearchRequestEntityTooLarge) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/schedules/search][%d] postWorkforcemanagementManagementunitSchedulesSearchRequestEntityTooLarge  %+v", 413, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/schedules/search][%d] postWorkforcemanagementManagementunitSchedulesSearchRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitSchedulesSearchRequestEntityTooLarge) GetPayload() *models.ErrorBody {
@@ -346,7 +346,7 @@ type PostWorkforcemanagementManagementunitSchedulesSearchUnsupportedMediaType st
 }
 
 func (o *PostWorkforcemanagementManagementunitSchedulesSearchUnsupportedMediaType) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/schedules/search][%d] postWorkforcemanagementManagementunitSchedulesSearchUnsupportedMediaType  %+v", 415, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/schedules/search][%d] postWorkforcemanagementManagementunitSchedulesSearchUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitSchedulesSearchUnsupportedMediaType) GetPayload() *models.ErrorBody {
@@ -379,7 +379,7 @@ type PostWorkforcemanagementManagementunitSchedulesSearchTooManyRequests struct 
 }
 
 func (o *PostWorkforcemanagementManagementunitSchedulesSearchTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/schedules/search][%d] postWorkforcemanagementManagementunitSchedulesSearchTooManyRequests  %+v", 429, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/schedules/search][%d] postWorkforcemanagementManagementunitSchedulesSearchTooManyRequests  %+v", 429, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitSchedulesSearchTooManyRequests) GetPayload() *models.ErrorBody {
@@ -412,7 +412,7 @@ type PostWorkforcemanagementManagementunitSchedulesSearchInternalServerError str
 }
 
 func (o *PostWorkforcemanagementManagementunitSchedulesSearchInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/schedules/search][%d] postWorkforcemanagementManagementunitSchedulesSearchInternalServerError  %+v", 500, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/schedules/search][%d] postWorkforcemanagementManagementunitSchedulesSearchInternalServerError  %+v", 500, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitSchedulesSearchInternalServerError) GetPayload() *models.ErrorBody {
@@ -445,7 +445,7 @@ type PostWorkforcemanagementManagementunitSchedulesSearchServiceUnavailable stru
 }
 
 func (o *PostWorkforcemanagementManagementunitSchedulesSearchServiceUnavailable) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/schedules/search][%d] postWorkforcemanagementManagementunitSchedulesSearchServiceUnavailable  %+v", 503, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/schedules/search][%d] postWorkforcemanagementManagementunitSchedulesSearchServiceUnavailable  %+v", 503, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitSchedulesSearchServiceUnavailable) GetPayload() *models.ErrorBody {
@@ -478,7 +478,7 @@ type PostWorkforcemanagementManagementunitSchedulesSearchGatewayTimeout struct {
 }
 
 func (o *PostWorkforcemanagementManagementunitSchedulesSearchGatewayTimeout) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/schedules/search][%d] postWorkforcemanagementManagementunitSchedulesSearchGatewayTimeout  %+v", 504, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/schedules/search][%d] postWorkforcemanagementManagementunitSchedulesSearchGatewayTimeout  %+v", 504, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitSchedulesSearchGatewayTimeout) GetPayload() *models.ErrorBody {

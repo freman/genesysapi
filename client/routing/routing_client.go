@@ -30,7 +30,7 @@ type API interface {
 	*/
 	DeleteRoutingQueue(ctx context.Context, params *DeleteRoutingQueueParams) (*DeleteRoutingQueueOK, error)
 	/*
-	   DeleteRoutingQueueUser deletes queue member
+	   DeleteRoutingQueueUser ds e p r e c a t e d use d e l e t e routing queues queue Id members member Id delete queue member
 	*/
 	DeleteRoutingQueueUser(ctx context.Context, params *DeleteRoutingQueueUserParams) (*DeleteRoutingQueueUserOK, error)
 	/*
@@ -118,7 +118,7 @@ type API interface {
 	*/
 	GetRoutingQueueMediatypeEstimatedwaittime(ctx context.Context, params *GetRoutingQueueMediatypeEstimatedwaittimeParams) (*GetRoutingQueueMediatypeEstimatedwaittimeOK, error)
 	/*
-	   GetRoutingQueueUsers gets the members of this queue
+	   GetRoutingQueueUsers ds e p r e c a t e d use g e t routing queues queue Id members get the members of this queue
 	*/
 	GetRoutingQueueUsers(ctx context.Context, params *GetRoutingQueueUsersParams) (*GetRoutingQueueUsersOK, error)
 	/*
@@ -215,11 +215,11 @@ type API interface {
 	*/
 	PatchRoutingEmailDomain(ctx context.Context, params *PatchRoutingEmailDomainParams) (*PatchRoutingEmailDomainOK, error)
 	/*
-	   PatchRoutingQueueUser updates the ring number o r joined status for a user in a queue
+	   PatchRoutingQueueUser ds e p r e c a t e d use p a t c h routing queues queue Id members member Id update the ring number o r joined status for a user in a queue
 	*/
 	PatchRoutingQueueUser(ctx context.Context, params *PatchRoutingQueueUserParams) (*PatchRoutingQueueUserOK, *PatchRoutingQueueUserAccepted, error)
 	/*
-	   PatchRoutingQueueUsers joins or unjoin a set of users for a queue
+	   PatchRoutingQueueUsers ds e p r e c a t e d use p a t c h routing queues queue Id members join or unjoin a set of users for a queue
 	*/
 	PatchRoutingQueueUsers(ctx context.Context, params *PatchRoutingQueueUsersParams) (*PatchRoutingQueueUsersOK, error)
 	/*
@@ -268,7 +268,7 @@ type API interface {
 	*/
 	PostRoutingLanguages(ctx context.Context, params *PostRoutingLanguagesParams) (*PostRoutingLanguagesOK, error)
 	/*
-	   PostRoutingQueueUsers bulks add or delete up to 100 queue members
+	   PostRoutingQueueUsers ds e p r e c a t e d use p o s t routing queues queue Id members bulk add or delete up to 100 queue members
 	*/
 	PostRoutingQueueUsers(ctx context.Context, params *PostRoutingQueueUsersParams) (*PostRoutingQueueUsersOK, error)
 	/*
@@ -443,7 +443,7 @@ func (a *Client) DeleteRoutingQueue(ctx context.Context, params *DeleteRoutingQu
 }
 
 /*
-DeleteRoutingQueueUser deletes queue member
+DeleteRoutingQueueUser ds e p r e c a t e d use d e l e t e routing queues queue Id members member Id delete queue member
 */
 func (a *Client) DeleteRoutingQueueUser(ctx context.Context, params *DeleteRoutingQueueUserParams) (*DeleteRoutingQueueUserOK, error) {
 
@@ -993,7 +993,7 @@ func (a *Client) GetRoutingQueueMediatypeEstimatedwaittime(ctx context.Context, 
 }
 
 /*
-GetRoutingQueueUsers gets the members of this queue
+GetRoutingQueueUsers ds e p r e c a t e d use g e t routing queues queue Id members get the members of this queue
 */
 func (a *Client) GetRoutingQueueUsers(ctx context.Context, params *GetRoutingQueueUsersParams) (*GetRoutingQueueUsersOK, error) {
 
@@ -1595,7 +1595,7 @@ func (a *Client) PatchRoutingEmailDomain(ctx context.Context, params *PatchRouti
 }
 
 /*
-PatchRoutingQueueUser updates the ring number o r joined status for a user in a queue
+PatchRoutingQueueUser ds e p r e c a t e d use p a t c h routing queues queue Id members member Id update the ring number o r joined status for a user in a queue
 */
 func (a *Client) PatchRoutingQueueUser(ctx context.Context, params *PatchRoutingQueueUserParams) (*PatchRoutingQueueUserOK, *PatchRoutingQueueUserAccepted, error) {
 
@@ -1626,7 +1626,7 @@ func (a *Client) PatchRoutingQueueUser(ctx context.Context, params *PatchRouting
 }
 
 /*
-PatchRoutingQueueUsers joins or unjoin a set of users for a queue
+PatchRoutingQueueUsers ds e p r e c a t e d use p a t c h routing queues queue Id members join or unjoin a set of users for a queue
 */
 func (a *Client) PatchRoutingQueueUsers(ctx context.Context, params *PatchRoutingQueueUsersParams) (*PatchRoutingQueueUsersOK, error) {
 
@@ -1928,7 +1928,7 @@ func (a *Client) PostRoutingLanguages(ctx context.Context, params *PostRoutingLa
 }
 
 /*
-PostRoutingQueueUsers bulks add or delete up to 100 queue members
+PostRoutingQueueUsers ds e p r e c a t e d use p o s t routing queues queue Id members bulk add or delete up to 100 queue members
 */
 func (a *Client) PostRoutingQueueUsers(ctx context.Context, params *PostRoutingQueueUsersParams) (*PostRoutingQueueUsersOK, error) {
 

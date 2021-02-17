@@ -44,6 +44,9 @@ type AsyncConversationQuery struct {
 	// Enum: [conversationStart conversationEnd segmentStart segmentEnd]
 	OrderBy string `json:"orderBy,omitempty"`
 
+	// Filters that target resolutions
+	ResolutionFilters []*ResolutionDetailQueryFilter `json:"resolutionFilters"`
+
 	// Filters that target individual segments within a conversation
 	SegmentFilters []*SegmentDetailQueryFilter `json:"segmentFilters"`
 
@@ -79,6 +82,10 @@ func (m *AsyncConversationQuery) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateOrderBy(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateResolutionFilters(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -267,6 +274,31 @@ func (m *AsyncConversationQuery) validateOrderBy(formats strfmt.Registry) error 
 	// value enum
 	if err := m.validateOrderByEnum("orderBy", "body", m.OrderBy); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *AsyncConversationQuery) validateResolutionFilters(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.ResolutionFilters) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.ResolutionFilters); i++ {
+		if swag.IsZero(m.ResolutionFilters[i]) { // not required
+			continue
+		}
+
+		if m.ResolutionFilters[i] != nil {
+			if err := m.ResolutionFilters[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("resolutionFilters" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

@@ -19,6 +19,9 @@ import (
 // swagger:model JourneySegment
 type JourneySegment struct {
 
+	// Time, in days, from when the segment is assigned until it is automatically unassigned.
+	AssignmentExpirationDays int32 `json:"assignmentExpirationDays,omitempty"`
+
 	// The hexadecimal color value of the segment.
 	Color string `json:"color,omitempty"`
 

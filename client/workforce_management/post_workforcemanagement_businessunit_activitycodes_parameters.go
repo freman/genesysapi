@@ -67,11 +67,11 @@ type PostWorkforcemanagementBusinessunitActivitycodesParams struct {
 
 	*/
 	Body *models.CreateActivityCodeRequest
-	/*BuID
+	/*BusinessUnitID
 	  The ID of the business unit, or 'mine' for the business unit of the logged-in user.
 
 	*/
-	BuID string
+	BusinessUnitID string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -122,15 +122,15 @@ func (o *PostWorkforcemanagementBusinessunitActivitycodesParams) SetBody(body *m
 	o.Body = body
 }
 
-// WithBuID adds the buID to the post workforcemanagement businessunit activitycodes params
-func (o *PostWorkforcemanagementBusinessunitActivitycodesParams) WithBuID(buID string) *PostWorkforcemanagementBusinessunitActivitycodesParams {
-	o.SetBuID(buID)
+// WithBusinessUnitID adds the businessUnitID to the post workforcemanagement businessunit activitycodes params
+func (o *PostWorkforcemanagementBusinessunitActivitycodesParams) WithBusinessUnitID(businessUnitID string) *PostWorkforcemanagementBusinessunitActivitycodesParams {
+	o.SetBusinessUnitID(businessUnitID)
 	return o
 }
 
-// SetBuID adds the buId to the post workforcemanagement businessunit activitycodes params
-func (o *PostWorkforcemanagementBusinessunitActivitycodesParams) SetBuID(buID string) {
-	o.BuID = buID
+// SetBusinessUnitID adds the businessUnitId to the post workforcemanagement businessunit activitycodes params
+func (o *PostWorkforcemanagementBusinessunitActivitycodesParams) SetBusinessUnitID(businessUnitID string) {
+	o.BusinessUnitID = businessUnitID
 }
 
 // WriteToRequest writes these params to a swagger request
@@ -147,8 +147,8 @@ func (o *PostWorkforcemanagementBusinessunitActivitycodesParams) WriteToRequest(
 		}
 	}
 
-	// path param buId
-	if err := r.SetPathParam("buId", o.BuID); err != nil {
+	// path param businessUnitId
+	if err := r.SetPathParam("businessUnitId", o.BusinessUnitID); err != nil {
 		return err
 	}
 

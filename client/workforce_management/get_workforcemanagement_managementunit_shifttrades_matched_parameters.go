@@ -60,11 +60,11 @@ for the get workforcemanagement managementunit shifttrades matched operation typ
 */
 type GetWorkforcemanagementManagementunitShifttradesMatchedParams struct {
 
-	/*MuID
+	/*ManagementUnitID
 	  The management unit ID of the management unit, or 'mine' for the management unit of the logged-in user.
 
 	*/
-	MuID string
+	ManagementUnitID string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -104,15 +104,15 @@ func (o *GetWorkforcemanagementManagementunitShifttradesMatchedParams) SetHTTPCl
 	o.HTTPClient = client
 }
 
-// WithMuID adds the muID to the get workforcemanagement managementunit shifttrades matched params
-func (o *GetWorkforcemanagementManagementunitShifttradesMatchedParams) WithMuID(muID string) *GetWorkforcemanagementManagementunitShifttradesMatchedParams {
-	o.SetMuID(muID)
+// WithManagementUnitID adds the managementUnitID to the get workforcemanagement managementunit shifttrades matched params
+func (o *GetWorkforcemanagementManagementunitShifttradesMatchedParams) WithManagementUnitID(managementUnitID string) *GetWorkforcemanagementManagementunitShifttradesMatchedParams {
+	o.SetManagementUnitID(managementUnitID)
 	return o
 }
 
-// SetMuID adds the muId to the get workforcemanagement managementunit shifttrades matched params
-func (o *GetWorkforcemanagementManagementunitShifttradesMatchedParams) SetMuID(muID string) {
-	o.MuID = muID
+// SetManagementUnitID adds the managementUnitId to the get workforcemanagement managementunit shifttrades matched params
+func (o *GetWorkforcemanagementManagementunitShifttradesMatchedParams) SetManagementUnitID(managementUnitID string) {
+	o.ManagementUnitID = managementUnitID
 }
 
 // WriteToRequest writes these params to a swagger request
@@ -123,8 +123,8 @@ func (o *GetWorkforcemanagementManagementunitShifttradesMatchedParams) WriteToRe
 	}
 	var res []error
 
-	// path param muId
-	if err := r.SetPathParam("muId", o.MuID); err != nil {
+	// path param managementUnitId
+	if err := r.SetPathParam("managementUnitId", o.ManagementUnitID); err != nil {
 		return err
 	}
 

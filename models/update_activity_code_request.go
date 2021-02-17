@@ -35,7 +35,7 @@ type UpdateActivityCodeRequest struct {
 	// The default length of the activity in minutes
 	LengthInMinutes int32 `json:"lengthInMinutes,omitempty"`
 
-	// Version metadata for the associated management unit's list of activity codes
+	// Version metadata for the associated business unit's list of activity codes
 	// Required: true
 	Metadata *WfmVersionedEntityMetadata `json:"metadata"`
 

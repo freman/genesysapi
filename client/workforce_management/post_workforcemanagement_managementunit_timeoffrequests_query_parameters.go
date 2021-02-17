@@ -67,11 +67,11 @@ type PostWorkforcemanagementManagementunitTimeoffrequestsQueryParams struct {
 
 	*/
 	Body *models.TimeOffRequestQueryBody
-	/*MuID
+	/*ManagementUnitID
 	  The muId of the management unit, or 'mine' for the management unit of the logged-in user.
 
 	*/
-	MuID string
+	ManagementUnitID string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -122,15 +122,15 @@ func (o *PostWorkforcemanagementManagementunitTimeoffrequestsQueryParams) SetBod
 	o.Body = body
 }
 
-// WithMuID adds the muID to the post workforcemanagement managementunit timeoffrequests query params
-func (o *PostWorkforcemanagementManagementunitTimeoffrequestsQueryParams) WithMuID(muID string) *PostWorkforcemanagementManagementunitTimeoffrequestsQueryParams {
-	o.SetMuID(muID)
+// WithManagementUnitID adds the managementUnitID to the post workforcemanagement managementunit timeoffrequests query params
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsQueryParams) WithManagementUnitID(managementUnitID string) *PostWorkforcemanagementManagementunitTimeoffrequestsQueryParams {
+	o.SetManagementUnitID(managementUnitID)
 	return o
 }
 
-// SetMuID adds the muId to the post workforcemanagement managementunit timeoffrequests query params
-func (o *PostWorkforcemanagementManagementunitTimeoffrequestsQueryParams) SetMuID(muID string) {
-	o.MuID = muID
+// SetManagementUnitID adds the managementUnitId to the post workforcemanagement managementunit timeoffrequests query params
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsQueryParams) SetManagementUnitID(managementUnitID string) {
+	o.ManagementUnitID = managementUnitID
 }
 
 // WriteToRequest writes these params to a swagger request
@@ -147,8 +147,8 @@ func (o *PostWorkforcemanagementManagementunitTimeoffrequestsQueryParams) WriteT
 		}
 	}
 
-	// path param muId
-	if err := r.SetPathParam("muId", o.MuID); err != nil {
+	// path param managementUnitId
+	if err := r.SetPathParam("managementUnitId", o.ManagementUnitID); err != nil {
 		return err
 	}
 

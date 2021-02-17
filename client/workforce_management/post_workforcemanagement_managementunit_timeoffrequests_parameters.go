@@ -67,11 +67,11 @@ type PostWorkforcemanagementManagementunitTimeoffrequestsParams struct {
 
 	*/
 	Body *models.CreateAdminTimeOffRequest
-	/*MuID
+	/*ManagementUnitID
 	  The muId of the management unit, or 'mine' for the management unit of the logged-in user.
 
 	*/
-	MuID string
+	ManagementUnitID string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -122,15 +122,15 @@ func (o *PostWorkforcemanagementManagementunitTimeoffrequestsParams) SetBody(bod
 	o.Body = body
 }
 
-// WithMuID adds the muID to the post workforcemanagement managementunit timeoffrequests params
-func (o *PostWorkforcemanagementManagementunitTimeoffrequestsParams) WithMuID(muID string) *PostWorkforcemanagementManagementunitTimeoffrequestsParams {
-	o.SetMuID(muID)
+// WithManagementUnitID adds the managementUnitID to the post workforcemanagement managementunit timeoffrequests params
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsParams) WithManagementUnitID(managementUnitID string) *PostWorkforcemanagementManagementunitTimeoffrequestsParams {
+	o.SetManagementUnitID(managementUnitID)
 	return o
 }
 
-// SetMuID adds the muId to the post workforcemanagement managementunit timeoffrequests params
-func (o *PostWorkforcemanagementManagementunitTimeoffrequestsParams) SetMuID(muID string) {
-	o.MuID = muID
+// SetManagementUnitID adds the managementUnitId to the post workforcemanagement managementunit timeoffrequests params
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsParams) SetManagementUnitID(managementUnitID string) {
+	o.ManagementUnitID = managementUnitID
 }
 
 // WriteToRequest writes these params to a swagger request
@@ -147,8 +147,8 @@ func (o *PostWorkforcemanagementManagementunitTimeoffrequestsParams) WriteToRequ
 		}
 	}
 
-	// path param muId
-	if err := r.SetPathParam("muId", o.MuID); err != nil {
+	// path param managementUnitId
+	if err := r.SetPathParam("managementUnitId", o.ManagementUnitID); err != nil {
 		return err
 	}
 

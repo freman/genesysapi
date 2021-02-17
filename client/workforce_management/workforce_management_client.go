@@ -503,7 +503,7 @@ func (a *Client) DeleteWorkforcemanagementBusinessunitActivitycode(ctx context.C
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "deleteWorkforcemanagementBusinessunitActivitycode",
 		Method:             "DELETE",
-		PathPattern:        "/api/v2/workforcemanagement/businessunits/{buId}/activitycodes/{acId}",
+		PathPattern:        "/api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes/{activityCodeId}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
@@ -661,7 +661,7 @@ func (a *Client) DeleteWorkforcemanagementManagementunit(ctx context.Context, pa
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "deleteWorkforcemanagementManagementunit",
 		Method:             "DELETE",
-		PathPattern:        "/api/v2/workforcemanagement/managementunits/{muId}",
+		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
@@ -813,7 +813,7 @@ func (a *Client) GetWorkforcemanagementBusinessunitActivitycode(ctx context.Cont
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "getWorkforcemanagementBusinessunitActivitycode",
 		Method:             "GET",
-		PathPattern:        "/api/v2/workforcemanagement/businessunits/{buId}/activitycodes/{acId}",
+		PathPattern:        "/api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes/{activityCodeId}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
@@ -838,7 +838,7 @@ func (a *Client) GetWorkforcemanagementBusinessunitActivitycodes(ctx context.Con
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "getWorkforcemanagementBusinessunitActivitycodes",
 		Method:             "GET",
-		PathPattern:        "/api/v2/workforcemanagement/businessunits/{buId}/activitycodes",
+		PathPattern:        "/api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
@@ -1394,7 +1394,7 @@ func (a *Client) GetWorkforcemanagementManagementunit(ctx context.Context, param
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "getWorkforcemanagementManagementunit",
 		Method:             "GET",
-		PathPattern:        "/api/v2/workforcemanagement/managementunits/{muId}",
+		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
@@ -1419,7 +1419,7 @@ func (a *Client) GetWorkforcemanagementManagementunitActivitycodes(ctx context.C
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "getWorkforcemanagementManagementunitActivitycodes",
 		Method:             "GET",
-		PathPattern:        "/api/v2/workforcemanagement/managementunits/{muId}/activitycodes",
+		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/activitycodes",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
@@ -1519,7 +1519,7 @@ func (a *Client) GetWorkforcemanagementManagementunitShifttradesMatched(ctx cont
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "getWorkforcemanagementManagementunitShifttradesMatched",
 		Method:             "GET",
-		PathPattern:        "/api/v2/workforcemanagement/managementunits/{muId}/shifttrades/matched",
+		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/shifttrades/matched",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
@@ -1544,7 +1544,7 @@ func (a *Client) GetWorkforcemanagementManagementunitShifttradesUsers(ctx contex
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "getWorkforcemanagementManagementunitShifttradesUsers",
 		Method:             "GET",
-		PathPattern:        "/api/v2/workforcemanagement/managementunits/{muId}/shifttrades/users",
+		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/shifttrades/users",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
@@ -1569,7 +1569,7 @@ func (a *Client) GetWorkforcemanagementManagementunitUserTimeoffrequest(ctx cont
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "getWorkforcemanagementManagementunitUserTimeoffrequest",
 		Method:             "GET",
-		PathPattern:        "/api/v2/workforcemanagement/managementunits/{muId}/users/{userId}/timeoffrequests/{timeOffRequestId}",
+		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/users/{userId}/timeoffrequests/{timeOffRequestId}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
@@ -1594,7 +1594,7 @@ func (a *Client) GetWorkforcemanagementManagementunitUserTimeoffrequests(ctx con
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "getWorkforcemanagementManagementunitUserTimeoffrequests",
 		Method:             "GET",
-		PathPattern:        "/api/v2/workforcemanagement/managementunits/{muId}/users/{userId}/timeoffrequests",
+		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/users/{userId}/timeoffrequests",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
@@ -1619,7 +1619,7 @@ func (a *Client) GetWorkforcemanagementManagementunitUsers(ctx context.Context, 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "getWorkforcemanagementManagementunitUsers",
 		Method:             "GET",
-		PathPattern:        "/api/v2/workforcemanagement/managementunits/{muId}/users",
+		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/users",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
@@ -2019,7 +2019,7 @@ func (a *Client) PatchWorkforcemanagementBusinessunitActivitycode(ctx context.Co
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "patchWorkforcemanagementBusinessunitActivitycode",
 		Method:             "PATCH",
-		PathPattern:        "/api/v2/workforcemanagement/businessunits/{buId}/activitycodes/{acId}",
+		PathPattern:        "/api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes/{activityCodeId}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
@@ -2119,7 +2119,7 @@ func (a *Client) PatchWorkforcemanagementManagementunit(ctx context.Context, par
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "patchWorkforcemanagementManagementunit",
 		Method:             "PATCH",
-		PathPattern:        "/api/v2/workforcemanagement/managementunits/{muId}",
+		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
@@ -2144,7 +2144,7 @@ func (a *Client) PatchWorkforcemanagementManagementunitUserTimeoffrequest(ctx co
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "patchWorkforcemanagementManagementunitUserTimeoffrequest",
 		Method:             "PATCH",
-		PathPattern:        "/api/v2/workforcemanagement/managementunits/{muId}/users/{userId}/timeoffrequests/{timeOffRequestId}",
+		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/users/{userId}/timeoffrequests/{timeOffRequestId}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
@@ -2319,7 +2319,7 @@ func (a *Client) PostWorkforcemanagementBusinessunitActivitycodes(ctx context.Co
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "postWorkforcemanagementBusinessunitActivitycodes",
 		Method:             "POST",
-		PathPattern:        "/api/v2/workforcemanagement/businessunits/{buId}/activitycodes",
+		PathPattern:        "/api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
@@ -2668,7 +2668,7 @@ func (a *Client) PostWorkforcemanagementManagementunitAgentschedulesSearch(ctx c
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "postWorkforcemanagementManagementunitAgentschedulesSearch",
 		Method:             "POST",
-		PathPattern:        "/api/v2/workforcemanagement/managementunits/{muId}/agentschedules/search",
+		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/agentschedules/search",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
@@ -2695,7 +2695,7 @@ func (a *Client) PostWorkforcemanagementManagementunitHistoricaladherencequery(c
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "postWorkforcemanagementManagementunitHistoricaladherencequery",
 		Method:             "POST",
-		PathPattern:        "/api/v2/workforcemanagement/managementunits/{muId}/historicaladherencequery",
+		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/historicaladherencequery",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
@@ -2722,7 +2722,7 @@ func (a *Client) PostWorkforcemanagementManagementunitMove(ctx context.Context, 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "postWorkforcemanagementManagementunitMove",
 		Method:             "POST",
-		PathPattern:        "/api/v2/workforcemanagement/managementunits/{muId}/move",
+		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/move",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
@@ -2753,7 +2753,7 @@ func (a *Client) PostWorkforcemanagementManagementunitSchedulesSearch(ctx contex
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "postWorkforcemanagementManagementunitSchedulesSearch",
 		Method:             "POST",
-		PathPattern:        "/api/v2/workforcemanagement/managementunits/{muId}/schedules/search",
+		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/schedules/search",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
@@ -2778,7 +2778,7 @@ func (a *Client) PostWorkforcemanagementManagementunitTimeoffrequests(ctx contex
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "postWorkforcemanagementManagementunitTimeoffrequests",
 		Method:             "POST",
-		PathPattern:        "/api/v2/workforcemanagement/managementunits/{muId}/timeoffrequests",
+		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffrequests",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
@@ -2803,7 +2803,7 @@ func (a *Client) PostWorkforcemanagementManagementunitTimeoffrequestsQuery(ctx c
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "postWorkforcemanagementManagementunitTimeoffrequestsQuery",
 		Method:             "POST",
-		PathPattern:        "/api/v2/workforcemanagement/managementunits/{muId}/timeoffrequests/query",
+		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffrequests/query",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},

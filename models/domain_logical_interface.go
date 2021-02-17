@@ -151,6 +151,10 @@ type DomainLogicalInterface struct {
 	// This interface will be used for all internal edge-to-edge communication using settings from the edgeTrunkBaseAssignment on the Edge Group.
 	UseForInternalEdgeCommunication bool `json:"useForInternalEdgeCommunication"`
 
+	// This interface will be used for all communication with the internet.
+	// Read Only: true
+	UseForWanInterface *bool `json:"useForWanInterface"`
+
 	// The current version of the resource.
 	Version int32 `json:"version,omitempty"`
 

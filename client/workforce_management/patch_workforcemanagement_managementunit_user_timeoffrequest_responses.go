@@ -115,7 +115,7 @@ type PatchWorkforcemanagementManagementunitUserTimeoffrequestOK struct {
 }
 
 func (o *PatchWorkforcemanagementManagementunitUserTimeoffrequestOK) Error() string {
-	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/managementunits/{muId}/users/{userId}/timeoffrequests/{timeOffRequestId}][%d] patchWorkforcemanagementManagementunitUserTimeoffrequestOK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/managementunits/{managementUnitId}/users/{userId}/timeoffrequests/{timeOffRequestId}][%d] patchWorkforcemanagementManagementunitUserTimeoffrequestOK  %+v", 200, o.Payload)
 }
 
 func (o *PatchWorkforcemanagementManagementunitUserTimeoffrequestOK) GetPayload() *models.TimeOffRequestResponse {
@@ -148,7 +148,7 @@ type PatchWorkforcemanagementManagementunitUserTimeoffrequestBadRequest struct {
 }
 
 func (o *PatchWorkforcemanagementManagementunitUserTimeoffrequestBadRequest) Error() string {
-	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/managementunits/{muId}/users/{userId}/timeoffrequests/{timeOffRequestId}][%d] patchWorkforcemanagementManagementunitUserTimeoffrequestBadRequest  %+v", 400, o.Payload)
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/managementunits/{managementUnitId}/users/{userId}/timeoffrequests/{timeOffRequestId}][%d] patchWorkforcemanagementManagementunitUserTimeoffrequestBadRequest  %+v", 400, o.Payload)
 }
 
 func (o *PatchWorkforcemanagementManagementunitUserTimeoffrequestBadRequest) GetPayload() *models.ErrorBody {
@@ -181,7 +181,7 @@ type PatchWorkforcemanagementManagementunitUserTimeoffrequestUnauthorized struct
 }
 
 func (o *PatchWorkforcemanagementManagementunitUserTimeoffrequestUnauthorized) Error() string {
-	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/managementunits/{muId}/users/{userId}/timeoffrequests/{timeOffRequestId}][%d] patchWorkforcemanagementManagementunitUserTimeoffrequestUnauthorized  %+v", 401, o.Payload)
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/managementunits/{managementUnitId}/users/{userId}/timeoffrequests/{timeOffRequestId}][%d] patchWorkforcemanagementManagementunitUserTimeoffrequestUnauthorized  %+v", 401, o.Payload)
 }
 
 func (o *PatchWorkforcemanagementManagementunitUserTimeoffrequestUnauthorized) GetPayload() *models.ErrorBody {
@@ -214,7 +214,7 @@ type PatchWorkforcemanagementManagementunitUserTimeoffrequestForbidden struct {
 }
 
 func (o *PatchWorkforcemanagementManagementunitUserTimeoffrequestForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/managementunits/{muId}/users/{userId}/timeoffrequests/{timeOffRequestId}][%d] patchWorkforcemanagementManagementunitUserTimeoffrequestForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/managementunits/{managementUnitId}/users/{userId}/timeoffrequests/{timeOffRequestId}][%d] patchWorkforcemanagementManagementunitUserTimeoffrequestForbidden  %+v", 403, o.Payload)
 }
 
 func (o *PatchWorkforcemanagementManagementunitUserTimeoffrequestForbidden) GetPayload() *models.ErrorBody {
@@ -247,7 +247,7 @@ type PatchWorkforcemanagementManagementunitUserTimeoffrequestNotFound struct {
 }
 
 func (o *PatchWorkforcemanagementManagementunitUserTimeoffrequestNotFound) Error() string {
-	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/managementunits/{muId}/users/{userId}/timeoffrequests/{timeOffRequestId}][%d] patchWorkforcemanagementManagementunitUserTimeoffrequestNotFound  %+v", 404, o.Payload)
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/managementunits/{managementUnitId}/users/{userId}/timeoffrequests/{timeOffRequestId}][%d] patchWorkforcemanagementManagementunitUserTimeoffrequestNotFound  %+v", 404, o.Payload)
 }
 
 func (o *PatchWorkforcemanagementManagementunitUserTimeoffrequestNotFound) GetPayload() *models.ErrorBody {
@@ -280,7 +280,7 @@ type PatchWorkforcemanagementManagementunitUserTimeoffrequestConflict struct {
 }
 
 func (o *PatchWorkforcemanagementManagementunitUserTimeoffrequestConflict) Error() string {
-	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/managementunits/{muId}/users/{userId}/timeoffrequests/{timeOffRequestId}][%d] patchWorkforcemanagementManagementunitUserTimeoffrequestConflict  %+v", 409, o.Payload)
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/managementunits/{managementUnitId}/users/{userId}/timeoffrequests/{timeOffRequestId}][%d] patchWorkforcemanagementManagementunitUserTimeoffrequestConflict  %+v", 409, o.Payload)
 }
 
 func (o *PatchWorkforcemanagementManagementunitUserTimeoffrequestConflict) GetPayload() *models.ErrorBody {
@@ -313,7 +313,7 @@ type PatchWorkforcemanagementManagementunitUserTimeoffrequestRequestEntityTooLar
 }
 
 func (o *PatchWorkforcemanagementManagementunitUserTimeoffrequestRequestEntityTooLarge) Error() string {
-	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/managementunits/{muId}/users/{userId}/timeoffrequests/{timeOffRequestId}][%d] patchWorkforcemanagementManagementunitUserTimeoffrequestRequestEntityTooLarge  %+v", 413, o.Payload)
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/managementunits/{managementUnitId}/users/{userId}/timeoffrequests/{timeOffRequestId}][%d] patchWorkforcemanagementManagementunitUserTimeoffrequestRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
 func (o *PatchWorkforcemanagementManagementunitUserTimeoffrequestRequestEntityTooLarge) GetPayload() *models.ErrorBody {
@@ -346,7 +346,7 @@ type PatchWorkforcemanagementManagementunitUserTimeoffrequestUnsupportedMediaTyp
 }
 
 func (o *PatchWorkforcemanagementManagementunitUserTimeoffrequestUnsupportedMediaType) Error() string {
-	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/managementunits/{muId}/users/{userId}/timeoffrequests/{timeOffRequestId}][%d] patchWorkforcemanagementManagementunitUserTimeoffrequestUnsupportedMediaType  %+v", 415, o.Payload)
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/managementunits/{managementUnitId}/users/{userId}/timeoffrequests/{timeOffRequestId}][%d] patchWorkforcemanagementManagementunitUserTimeoffrequestUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
 func (o *PatchWorkforcemanagementManagementunitUserTimeoffrequestUnsupportedMediaType) GetPayload() *models.ErrorBody {
@@ -379,7 +379,7 @@ type PatchWorkforcemanagementManagementunitUserTimeoffrequestTooManyRequests str
 }
 
 func (o *PatchWorkforcemanagementManagementunitUserTimeoffrequestTooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/managementunits/{muId}/users/{userId}/timeoffrequests/{timeOffRequestId}][%d] patchWorkforcemanagementManagementunitUserTimeoffrequestTooManyRequests  %+v", 429, o.Payload)
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/managementunits/{managementUnitId}/users/{userId}/timeoffrequests/{timeOffRequestId}][%d] patchWorkforcemanagementManagementunitUserTimeoffrequestTooManyRequests  %+v", 429, o.Payload)
 }
 
 func (o *PatchWorkforcemanagementManagementunitUserTimeoffrequestTooManyRequests) GetPayload() *models.ErrorBody {
@@ -412,7 +412,7 @@ type PatchWorkforcemanagementManagementunitUserTimeoffrequestInternalServerError
 }
 
 func (o *PatchWorkforcemanagementManagementunitUserTimeoffrequestInternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/managementunits/{muId}/users/{userId}/timeoffrequests/{timeOffRequestId}][%d] patchWorkforcemanagementManagementunitUserTimeoffrequestInternalServerError  %+v", 500, o.Payload)
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/managementunits/{managementUnitId}/users/{userId}/timeoffrequests/{timeOffRequestId}][%d] patchWorkforcemanagementManagementunitUserTimeoffrequestInternalServerError  %+v", 500, o.Payload)
 }
 
 func (o *PatchWorkforcemanagementManagementunitUserTimeoffrequestInternalServerError) GetPayload() *models.ErrorBody {
@@ -445,7 +445,7 @@ type PatchWorkforcemanagementManagementunitUserTimeoffrequestServiceUnavailable 
 }
 
 func (o *PatchWorkforcemanagementManagementunitUserTimeoffrequestServiceUnavailable) Error() string {
-	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/managementunits/{muId}/users/{userId}/timeoffrequests/{timeOffRequestId}][%d] patchWorkforcemanagementManagementunitUserTimeoffrequestServiceUnavailable  %+v", 503, o.Payload)
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/managementunits/{managementUnitId}/users/{userId}/timeoffrequests/{timeOffRequestId}][%d] patchWorkforcemanagementManagementunitUserTimeoffrequestServiceUnavailable  %+v", 503, o.Payload)
 }
 
 func (o *PatchWorkforcemanagementManagementunitUserTimeoffrequestServiceUnavailable) GetPayload() *models.ErrorBody {
@@ -478,7 +478,7 @@ type PatchWorkforcemanagementManagementunitUserTimeoffrequestGatewayTimeout stru
 }
 
 func (o *PatchWorkforcemanagementManagementunitUserTimeoffrequestGatewayTimeout) Error() string {
-	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/managementunits/{muId}/users/{userId}/timeoffrequests/{timeOffRequestId}][%d] patchWorkforcemanagementManagementunitUserTimeoffrequestGatewayTimeout  %+v", 504, o.Payload)
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/managementunits/{managementUnitId}/users/{userId}/timeoffrequests/{timeOffRequestId}][%d] patchWorkforcemanagementManagementunitUserTimeoffrequestGatewayTimeout  %+v", 504, o.Payload)
 }
 
 func (o *PatchWorkforcemanagementManagementunitUserTimeoffrequestGatewayTimeout) GetPayload() *models.ErrorBody {

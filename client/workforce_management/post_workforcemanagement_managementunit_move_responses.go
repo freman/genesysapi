@@ -115,7 +115,7 @@ type PostWorkforcemanagementManagementunitMoveOK struct {
 }
 
 func (o *PostWorkforcemanagementManagementunitMoveOK) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/move][%d] postWorkforcemanagementManagementunitMoveOK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/move][%d] postWorkforcemanagementManagementunitMoveOK  %+v", 200, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitMoveOK) GetPayload() *models.MoveManagementUnitResponse {
@@ -148,7 +148,7 @@ type PostWorkforcemanagementManagementunitMoveAccepted struct {
 }
 
 func (o *PostWorkforcemanagementManagementunitMoveAccepted) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/move][%d] postWorkforcemanagementManagementunitMoveAccepted  %+v", 202, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/move][%d] postWorkforcemanagementManagementunitMoveAccepted  %+v", 202, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitMoveAccepted) GetPayload() *models.MoveManagementUnitResponse {
@@ -181,7 +181,7 @@ type PostWorkforcemanagementManagementunitMoveBadRequest struct {
 }
 
 func (o *PostWorkforcemanagementManagementunitMoveBadRequest) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/move][%d] postWorkforcemanagementManagementunitMoveBadRequest  %+v", 400, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/move][%d] postWorkforcemanagementManagementunitMoveBadRequest  %+v", 400, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitMoveBadRequest) GetPayload() *models.ErrorBody {
@@ -214,7 +214,7 @@ type PostWorkforcemanagementManagementunitMoveUnauthorized struct {
 }
 
 func (o *PostWorkforcemanagementManagementunitMoveUnauthorized) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/move][%d] postWorkforcemanagementManagementunitMoveUnauthorized  %+v", 401, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/move][%d] postWorkforcemanagementManagementunitMoveUnauthorized  %+v", 401, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitMoveUnauthorized) GetPayload() *models.ErrorBody {
@@ -247,7 +247,7 @@ type PostWorkforcemanagementManagementunitMoveForbidden struct {
 }
 
 func (o *PostWorkforcemanagementManagementunitMoveForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/move][%d] postWorkforcemanagementManagementunitMoveForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/move][%d] postWorkforcemanagementManagementunitMoveForbidden  %+v", 403, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitMoveForbidden) GetPayload() *models.ErrorBody {
@@ -280,7 +280,7 @@ type PostWorkforcemanagementManagementunitMoveNotFound struct {
 }
 
 func (o *PostWorkforcemanagementManagementunitMoveNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/move][%d] postWorkforcemanagementManagementunitMoveNotFound  %+v", 404, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/move][%d] postWorkforcemanagementManagementunitMoveNotFound  %+v", 404, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitMoveNotFound) GetPayload() *models.ErrorBody {
@@ -313,7 +313,7 @@ type PostWorkforcemanagementManagementunitMoveRequestEntityTooLarge struct {
 }
 
 func (o *PostWorkforcemanagementManagementunitMoveRequestEntityTooLarge) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/move][%d] postWorkforcemanagementManagementunitMoveRequestEntityTooLarge  %+v", 413, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/move][%d] postWorkforcemanagementManagementunitMoveRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitMoveRequestEntityTooLarge) GetPayload() *models.ErrorBody {
@@ -346,7 +346,7 @@ type PostWorkforcemanagementManagementunitMoveUnsupportedMediaType struct {
 }
 
 func (o *PostWorkforcemanagementManagementunitMoveUnsupportedMediaType) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/move][%d] postWorkforcemanagementManagementunitMoveUnsupportedMediaType  %+v", 415, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/move][%d] postWorkforcemanagementManagementunitMoveUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitMoveUnsupportedMediaType) GetPayload() *models.ErrorBody {
@@ -379,7 +379,7 @@ type PostWorkforcemanagementManagementunitMoveTooManyRequests struct {
 }
 
 func (o *PostWorkforcemanagementManagementunitMoveTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/move][%d] postWorkforcemanagementManagementunitMoveTooManyRequests  %+v", 429, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/move][%d] postWorkforcemanagementManagementunitMoveTooManyRequests  %+v", 429, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitMoveTooManyRequests) GetPayload() *models.ErrorBody {
@@ -412,7 +412,7 @@ type PostWorkforcemanagementManagementunitMoveInternalServerError struct {
 }
 
 func (o *PostWorkforcemanagementManagementunitMoveInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/move][%d] postWorkforcemanagementManagementunitMoveInternalServerError  %+v", 500, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/move][%d] postWorkforcemanagementManagementunitMoveInternalServerError  %+v", 500, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitMoveInternalServerError) GetPayload() *models.ErrorBody {
@@ -445,7 +445,7 @@ type PostWorkforcemanagementManagementunitMoveServiceUnavailable struct {
 }
 
 func (o *PostWorkforcemanagementManagementunitMoveServiceUnavailable) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/move][%d] postWorkforcemanagementManagementunitMoveServiceUnavailable  %+v", 503, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/move][%d] postWorkforcemanagementManagementunitMoveServiceUnavailable  %+v", 503, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitMoveServiceUnavailable) GetPayload() *models.ErrorBody {
@@ -478,7 +478,7 @@ type PostWorkforcemanagementManagementunitMoveGatewayTimeout struct {
 }
 
 func (o *PostWorkforcemanagementManagementunitMoveGatewayTimeout) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/move][%d] postWorkforcemanagementManagementunitMoveGatewayTimeout  %+v", 504, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/move][%d] postWorkforcemanagementManagementunitMoveGatewayTimeout  %+v", 504, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitMoveGatewayTimeout) GetPayload() *models.ErrorBody {

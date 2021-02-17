@@ -108,7 +108,7 @@ type DeleteWorkforcemanagementManagementunitNoContent struct {
 }
 
 func (o *DeleteWorkforcemanagementManagementunitNoContent) Error() string {
-	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/managementunits/{muId}][%d] deleteWorkforcemanagementManagementunitNoContent ", 204)
+	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/managementunits/{managementUnitId}][%d] deleteWorkforcemanagementManagementunitNoContent ", 204)
 }
 
 func (o *DeleteWorkforcemanagementManagementunitNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -130,7 +130,7 @@ type DeleteWorkforcemanagementManagementunitBadRequest struct {
 }
 
 func (o *DeleteWorkforcemanagementManagementunitBadRequest) Error() string {
-	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/managementunits/{muId}][%d] deleteWorkforcemanagementManagementunitBadRequest  %+v", 400, o.Payload)
+	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/managementunits/{managementUnitId}][%d] deleteWorkforcemanagementManagementunitBadRequest  %+v", 400, o.Payload)
 }
 
 func (o *DeleteWorkforcemanagementManagementunitBadRequest) GetPayload() *models.ErrorBody {
@@ -163,7 +163,7 @@ type DeleteWorkforcemanagementManagementunitUnauthorized struct {
 }
 
 func (o *DeleteWorkforcemanagementManagementunitUnauthorized) Error() string {
-	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/managementunits/{muId}][%d] deleteWorkforcemanagementManagementunitUnauthorized  %+v", 401, o.Payload)
+	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/managementunits/{managementUnitId}][%d] deleteWorkforcemanagementManagementunitUnauthorized  %+v", 401, o.Payload)
 }
 
 func (o *DeleteWorkforcemanagementManagementunitUnauthorized) GetPayload() *models.ErrorBody {
@@ -196,7 +196,7 @@ type DeleteWorkforcemanagementManagementunitForbidden struct {
 }
 
 func (o *DeleteWorkforcemanagementManagementunitForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/managementunits/{muId}][%d] deleteWorkforcemanagementManagementunitForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/managementunits/{managementUnitId}][%d] deleteWorkforcemanagementManagementunitForbidden  %+v", 403, o.Payload)
 }
 
 func (o *DeleteWorkforcemanagementManagementunitForbidden) GetPayload() *models.ErrorBody {
@@ -229,7 +229,7 @@ type DeleteWorkforcemanagementManagementunitNotFound struct {
 }
 
 func (o *DeleteWorkforcemanagementManagementunitNotFound) Error() string {
-	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/managementunits/{muId}][%d] deleteWorkforcemanagementManagementunitNotFound  %+v", 404, o.Payload)
+	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/managementunits/{managementUnitId}][%d] deleteWorkforcemanagementManagementunitNotFound  %+v", 404, o.Payload)
 }
 
 func (o *DeleteWorkforcemanagementManagementunitNotFound) GetPayload() *models.ErrorBody {
@@ -262,7 +262,7 @@ type DeleteWorkforcemanagementManagementunitRequestEntityTooLarge struct {
 }
 
 func (o *DeleteWorkforcemanagementManagementunitRequestEntityTooLarge) Error() string {
-	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/managementunits/{muId}][%d] deleteWorkforcemanagementManagementunitRequestEntityTooLarge  %+v", 413, o.Payload)
+	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/managementunits/{managementUnitId}][%d] deleteWorkforcemanagementManagementunitRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
 func (o *DeleteWorkforcemanagementManagementunitRequestEntityTooLarge) GetPayload() *models.ErrorBody {
@@ -295,7 +295,7 @@ type DeleteWorkforcemanagementManagementunitUnsupportedMediaType struct {
 }
 
 func (o *DeleteWorkforcemanagementManagementunitUnsupportedMediaType) Error() string {
-	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/managementunits/{muId}][%d] deleteWorkforcemanagementManagementunitUnsupportedMediaType  %+v", 415, o.Payload)
+	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/managementunits/{managementUnitId}][%d] deleteWorkforcemanagementManagementunitUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
 func (o *DeleteWorkforcemanagementManagementunitUnsupportedMediaType) GetPayload() *models.ErrorBody {
@@ -328,7 +328,7 @@ type DeleteWorkforcemanagementManagementunitTooManyRequests struct {
 }
 
 func (o *DeleteWorkforcemanagementManagementunitTooManyRequests) Error() string {
-	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/managementunits/{muId}][%d] deleteWorkforcemanagementManagementunitTooManyRequests  %+v", 429, o.Payload)
+	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/managementunits/{managementUnitId}][%d] deleteWorkforcemanagementManagementunitTooManyRequests  %+v", 429, o.Payload)
 }
 
 func (o *DeleteWorkforcemanagementManagementunitTooManyRequests) GetPayload() *models.ErrorBody {
@@ -361,7 +361,7 @@ type DeleteWorkforcemanagementManagementunitInternalServerError struct {
 }
 
 func (o *DeleteWorkforcemanagementManagementunitInternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/managementunits/{muId}][%d] deleteWorkforcemanagementManagementunitInternalServerError  %+v", 500, o.Payload)
+	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/managementunits/{managementUnitId}][%d] deleteWorkforcemanagementManagementunitInternalServerError  %+v", 500, o.Payload)
 }
 
 func (o *DeleteWorkforcemanagementManagementunitInternalServerError) GetPayload() *models.ErrorBody {
@@ -394,7 +394,7 @@ type DeleteWorkforcemanagementManagementunitServiceUnavailable struct {
 }
 
 func (o *DeleteWorkforcemanagementManagementunitServiceUnavailable) Error() string {
-	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/managementunits/{muId}][%d] deleteWorkforcemanagementManagementunitServiceUnavailable  %+v", 503, o.Payload)
+	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/managementunits/{managementUnitId}][%d] deleteWorkforcemanagementManagementunitServiceUnavailable  %+v", 503, o.Payload)
 }
 
 func (o *DeleteWorkforcemanagementManagementunitServiceUnavailable) GetPayload() *models.ErrorBody {
@@ -427,7 +427,7 @@ type DeleteWorkforcemanagementManagementunitGatewayTimeout struct {
 }
 
 func (o *DeleteWorkforcemanagementManagementunitGatewayTimeout) Error() string {
-	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/managementunits/{muId}][%d] deleteWorkforcemanagementManagementunitGatewayTimeout  %+v", 504, o.Payload)
+	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/managementunits/{managementUnitId}][%d] deleteWorkforcemanagementManagementunitGatewayTimeout  %+v", 504, o.Payload)
 }
 
 func (o *DeleteWorkforcemanagementManagementunitGatewayTimeout) GetPayload() *models.ErrorBody {

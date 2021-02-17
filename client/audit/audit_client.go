@@ -18,7 +18,7 @@ import (
 // API is the interface of the audit client
 type API interface {
 	/*
-	   GetAuditsQueryRealtimeServicemapping gets service mapping information used in audits
+	   GetAuditsQueryRealtimeServicemapping gets service mapping information used in realtime audits
 	*/
 	GetAuditsQueryRealtimeServicemapping(ctx context.Context, params *GetAuditsQueryRealtimeServicemappingParams) (*GetAuditsQueryRealtimeServicemappingOK, error)
 	/*
@@ -62,7 +62,7 @@ type Client struct {
 }
 
 /*
-GetAuditsQueryRealtimeServicemapping gets service mapping information used in audits
+GetAuditsQueryRealtimeServicemapping gets service mapping information used in realtime audits
 */
 func (a *Client) GetAuditsQueryRealtimeServicemapping(ctx context.Context, params *GetAuditsQueryRealtimeServicemappingParams) (*GetAuditsQueryRealtimeServicemappingOK, error) {
 

@@ -67,11 +67,11 @@ type PatchWorkforcemanagementManagementunitUserTimeoffrequestParams struct {
 
 	*/
 	Body *models.AdminTimeOffRequestPatch
-	/*MuID
+	/*ManagementUnitID
 	  The muId of the management unit, or 'mine' for the management unit of the logged-in user.
 
 	*/
-	MuID string
+	ManagementUnitID string
 	/*TimeOffRequestID
 	  The id of the time off request to update
 
@@ -132,15 +132,15 @@ func (o *PatchWorkforcemanagementManagementunitUserTimeoffrequestParams) SetBody
 	o.Body = body
 }
 
-// WithMuID adds the muID to the patch workforcemanagement managementunit user timeoffrequest params
-func (o *PatchWorkforcemanagementManagementunitUserTimeoffrequestParams) WithMuID(muID string) *PatchWorkforcemanagementManagementunitUserTimeoffrequestParams {
-	o.SetMuID(muID)
+// WithManagementUnitID adds the managementUnitID to the patch workforcemanagement managementunit user timeoffrequest params
+func (o *PatchWorkforcemanagementManagementunitUserTimeoffrequestParams) WithManagementUnitID(managementUnitID string) *PatchWorkforcemanagementManagementunitUserTimeoffrequestParams {
+	o.SetManagementUnitID(managementUnitID)
 	return o
 }
 
-// SetMuID adds the muId to the patch workforcemanagement managementunit user timeoffrequest params
-func (o *PatchWorkforcemanagementManagementunitUserTimeoffrequestParams) SetMuID(muID string) {
-	o.MuID = muID
+// SetManagementUnitID adds the managementUnitId to the patch workforcemanagement managementunit user timeoffrequest params
+func (o *PatchWorkforcemanagementManagementunitUserTimeoffrequestParams) SetManagementUnitID(managementUnitID string) {
+	o.ManagementUnitID = managementUnitID
 }
 
 // WithTimeOffRequestID adds the timeOffRequestID to the patch workforcemanagement managementunit user timeoffrequest params
@@ -179,8 +179,8 @@ func (o *PatchWorkforcemanagementManagementunitUserTimeoffrequestParams) WriteTo
 		}
 	}
 
-	// path param muId
-	if err := r.SetPathParam("muId", o.MuID); err != nil {
+	// path param managementUnitId
+	if err := r.SetPathParam("managementUnitId", o.ManagementUnitID); err != nil {
 		return err
 	}
 

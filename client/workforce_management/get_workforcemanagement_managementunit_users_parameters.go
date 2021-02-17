@@ -60,11 +60,11 @@ for the get workforcemanagement managementunit users operation typically these a
 */
 type GetWorkforcemanagementManagementunitUsersParams struct {
 
-	/*MuID
+	/*ManagementUnitID
 	  The management unit ID of the management unit, or 'mine' for the management unit of the logged-in user.
 
 	*/
-	MuID string
+	ManagementUnitID string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -104,15 +104,15 @@ func (o *GetWorkforcemanagementManagementunitUsersParams) SetHTTPClient(client *
 	o.HTTPClient = client
 }
 
-// WithMuID adds the muID to the get workforcemanagement managementunit users params
-func (o *GetWorkforcemanagementManagementunitUsersParams) WithMuID(muID string) *GetWorkforcemanagementManagementunitUsersParams {
-	o.SetMuID(muID)
+// WithManagementUnitID adds the managementUnitID to the get workforcemanagement managementunit users params
+func (o *GetWorkforcemanagementManagementunitUsersParams) WithManagementUnitID(managementUnitID string) *GetWorkforcemanagementManagementunitUsersParams {
+	o.SetManagementUnitID(managementUnitID)
 	return o
 }
 
-// SetMuID adds the muId to the get workforcemanagement managementunit users params
-func (o *GetWorkforcemanagementManagementunitUsersParams) SetMuID(muID string) {
-	o.MuID = muID
+// SetManagementUnitID adds the managementUnitId to the get workforcemanagement managementunit users params
+func (o *GetWorkforcemanagementManagementunitUsersParams) SetManagementUnitID(managementUnitID string) {
+	o.ManagementUnitID = managementUnitID
 }
 
 // WriteToRequest writes these params to a swagger request
@@ -123,8 +123,8 @@ func (o *GetWorkforcemanagementManagementunitUsersParams) WriteToRequest(r runti
 	}
 	var res []error
 
-	// path param muId
-	if err := r.SetPathParam("muId", o.MuID); err != nil {
+	// path param managementUnitId
+	if err := r.SetPathParam("managementUnitId", o.ManagementUnitID); err != nil {
 		return err
 	}
 

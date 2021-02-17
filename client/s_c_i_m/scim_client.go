@@ -18,17 +18,9 @@ import (
 // API is the interface of the s c i m client
 type API interface {
 	/*
-	   DeleteScimGroup deletes a group
-	*/
-	DeleteScimGroup(ctx context.Context, params *DeleteScimGroupParams) (*DeleteScimGroupNoContent, error)
-	/*
 	   DeleteScimUser deletes a user
 	*/
 	DeleteScimUser(ctx context.Context, params *DeleteScimUserParams) (*DeleteScimUserOK, *DeleteScimUserNoContent, error)
-	/*
-	   DeleteScimV2Group deletes a group
-	*/
-	DeleteScimV2Group(ctx context.Context, params *DeleteScimV2GroupParams) (*DeleteScimV2GroupNoContent, error)
 	/*
 	   DeleteScimV2User deletes a user
 	*/
@@ -124,19 +116,9 @@ type API interface {
 	*/
 	PatchScimV2User(ctx context.Context, params *PatchScimV2UserParams) (*PatchScimV2UserOK, error)
 	/*
-	   PostScimGroups creates a group
-	   Creates a Genesys Cloud group with group visibility set to "public" and rules visibility set to "true". Auto-creates an "externalId". "externalId" is used to determine if DELETE /api/v2/scim/groups/{groupId} or DELETE /api/v2/scim/v2/groups/{groupId} is allowed.
-	*/
-	PostScimGroups(ctx context.Context, params *PostScimGroupsParams) (*PostScimGroupsOK, error)
-	/*
 	   PostScimUsers creates a user
 	*/
 	PostScimUsers(ctx context.Context, params *PostScimUsersParams) (*PostScimUsersOK, *PostScimUsersCreated, error)
-	/*
-	   PostScimV2Groups creates a group
-	   Creates an "official" Genesys Cloud group with group visibility set to "public" and rules visibility set to "true". Auto-creates an "externalId". "externalId" is used to determine if DELETE /api/v2/scim/groups/{groupId} or DELETE /api/v2/scim/v2/groups/{groupId} should be allowed.
-	*/
-	PostScimV2Groups(ctx context.Context, params *PostScimV2GroupsParams) (*PostScimV2GroupsOK, error)
 	/*
 	   PostScimV2Users creates a user
 	*/
@@ -178,31 +160,6 @@ type Client struct {
 }
 
 /*
-DeleteScimGroup deletes a group
-*/
-func (a *Client) DeleteScimGroup(ctx context.Context, params *DeleteScimGroupParams) (*DeleteScimGroupNoContent, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "deleteScimGroup",
-		Method:             "DELETE",
-		PathPattern:        "/api/v2/scim/groups/{groupId}",
-		ProducesMediaTypes: []string{"application/json", "application/scim+json"},
-		ConsumesMediaTypes: []string{"application/json", "application/scim+json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &DeleteScimGroupReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*DeleteScimGroupNoContent), nil
-
-}
-
-/*
 DeleteScimUser deletes a user
 */
 func (a *Client) DeleteScimUser(ctx context.Context, params *DeleteScimUserParams) (*DeleteScimUserOK, *DeleteScimUserNoContent, error) {
@@ -230,31 +187,6 @@ func (a *Client) DeleteScimUser(ctx context.Context, params *DeleteScimUserParam
 		return nil, value, nil
 	}
 	return nil, nil, nil
-
-}
-
-/*
-DeleteScimV2Group deletes a group
-*/
-func (a *Client) DeleteScimV2Group(ctx context.Context, params *DeleteScimV2GroupParams) (*DeleteScimV2GroupNoContent, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "deleteScimV2Group",
-		Method:             "DELETE",
-		PathPattern:        "/api/v2/scim/v2/groups/{groupId}",
-		ProducesMediaTypes: []string{"application/json", "application/scim+json"},
-		ConsumesMediaTypes: []string{"application/json", "application/scim+json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &DeleteScimV2GroupReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*DeleteScimV2GroupNoContent), nil
 
 }
 
@@ -844,33 +776,6 @@ func (a *Client) PatchScimV2User(ctx context.Context, params *PatchScimV2UserPar
 }
 
 /*
-PostScimGroups creates a group
-
-Creates a Genesys Cloud group with group visibility set to "public" and rules visibility set to "true". Auto-creates an "externalId". "externalId" is used to determine if DELETE /api/v2/scim/groups/{groupId} or DELETE /api/v2/scim/v2/groups/{groupId} is allowed.
-*/
-func (a *Client) PostScimGroups(ctx context.Context, params *PostScimGroupsParams) (*PostScimGroupsOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "postScimGroups",
-		Method:             "POST",
-		PathPattern:        "/api/v2/scim/groups",
-		ProducesMediaTypes: []string{"application/json", "application/scim+json"},
-		ConsumesMediaTypes: []string{"application/json", "application/scim+json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PostScimGroupsReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*PostScimGroupsOK), nil
-
-}
-
-/*
 PostScimUsers creates a user
 */
 func (a *Client) PostScimUsers(ctx context.Context, params *PostScimUsersParams) (*PostScimUsersOK, *PostScimUsersCreated, error) {
@@ -898,33 +803,6 @@ func (a *Client) PostScimUsers(ctx context.Context, params *PostScimUsersParams)
 		return nil, value, nil
 	}
 	return nil, nil, nil
-
-}
-
-/*
-PostScimV2Groups creates a group
-
-Creates an "official" Genesys Cloud group with group visibility set to "public" and rules visibility set to "true". Auto-creates an "externalId". "externalId" is used to determine if DELETE /api/v2/scim/groups/{groupId} or DELETE /api/v2/scim/v2/groups/{groupId} should be allowed.
-*/
-func (a *Client) PostScimV2Groups(ctx context.Context, params *PostScimV2GroupsParams) (*PostScimV2GroupsOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "postScimV2Groups",
-		Method:             "POST",
-		PathPattern:        "/api/v2/scim/v2/groups",
-		ProducesMediaTypes: []string{"application/json", "application/scim+json"},
-		ConsumesMediaTypes: []string{"application/json", "application/scim+json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PostScimV2GroupsReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*PostScimV2GroupsOK), nil
 
 }
 

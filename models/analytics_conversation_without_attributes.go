@@ -50,6 +50,9 @@ type AnalyticsConversationWithoutAttributes struct {
 	// Participants in the conversation
 	Participants []*AnalyticsParticipantWithoutAttributes `json:"participants"`
 
+	// Resolutions tied to this conversation
+	Resolutions []*AnalyticsResolution `json:"resolutions"`
+
 	// Surveys tied to this conversation
 	Surveys []*AnalyticsSurvey `json:"surveys"`
 }
@@ -75,6 +78,10 @@ func (m *AnalyticsConversationWithoutAttributes) Validate(formats strfmt.Registr
 	}
 
 	if err := m.validateParticipants(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateResolutions(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -197,6 +204,31 @@ func (m *AnalyticsConversationWithoutAttributes) validateParticipants(formats st
 			if err := m.Participants[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("participants" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *AnalyticsConversationWithoutAttributes) validateResolutions(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Resolutions) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Resolutions); i++ {
+		if swag.IsZero(m.Resolutions[i]) { // not required
+			continue
+		}
+
+		if m.Resolutions[i] != nil {
+			if err := m.Resolutions[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("resolutions" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

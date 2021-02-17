@@ -47,6 +47,9 @@ type ConversationQuery struct {
 	// Page size and number to control iterating through large result sets. Default page size is 25
 	Paging *PagingSpec `json:"paging,omitempty"`
 
+	// Filters that target resolutions
+	ResolutionFilters []*ResolutionDetailQueryFilter `json:"resolutionFilters"`
+
 	// Filters that target individual segments within a conversation
 	SegmentFilters []*SegmentDetailQueryFilter `json:"segmentFilters"`
 
@@ -87,6 +90,10 @@ func (m *ConversationQuery) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validatePaging(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateResolutionFilters(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -318,6 +325,31 @@ func (m *ConversationQuery) validatePaging(formats strfmt.Registry) error {
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *ConversationQuery) validateResolutionFilters(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.ResolutionFilters) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.ResolutionFilters); i++ {
+		if swag.IsZero(m.ResolutionFilters[i]) { // not required
+			continue
+		}
+
+		if m.ResolutionFilters[i] != nil {
+			if err := m.ResolutionFilters[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("resolutionFilters" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

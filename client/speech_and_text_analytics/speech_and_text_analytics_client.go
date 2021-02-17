@@ -25,6 +25,14 @@ type API interface {
 	   GetSpeechandtextanalyticsConversationCommunicationTranscripturl gets the pre signed s3 URL for the transcript of a specific communication of a conversation
 	*/
 	GetSpeechandtextanalyticsConversationCommunicationTranscripturl(ctx context.Context, params *GetSpeechandtextanalyticsConversationCommunicationTranscripturlParams) (*GetSpeechandtextanalyticsConversationCommunicationTranscripturlOK, error)
+	/*
+	   GetSpeechandtextanalyticsSettings gets speech and text analytics settings
+	*/
+	GetSpeechandtextanalyticsSettings(ctx context.Context, params *GetSpeechandtextanalyticsSettingsParams) (*GetSpeechandtextanalyticsSettingsOK, error)
+	/*
+	   PatchSpeechandtextanalyticsSettings patches speech and text analytics settings
+	*/
+	PatchSpeechandtextanalyticsSettings(ctx context.Context, params *PatchSpeechandtextanalyticsSettingsParams) (*PatchSpeechandtextanalyticsSettingsOK, error)
 }
 
 // New creates a new speech and text analytics API client.
@@ -92,5 +100,55 @@ func (a *Client) GetSpeechandtextanalyticsConversationCommunicationTranscripturl
 		return nil, err
 	}
 	return result.(*GetSpeechandtextanalyticsConversationCommunicationTranscripturlOK), nil
+
+}
+
+/*
+GetSpeechandtextanalyticsSettings gets speech and text analytics settings
+*/
+func (a *Client) GetSpeechandtextanalyticsSettings(ctx context.Context, params *GetSpeechandtextanalyticsSettingsParams) (*GetSpeechandtextanalyticsSettingsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getSpeechandtextanalyticsSettings",
+		Method:             "GET",
+		PathPattern:        "/api/v2/speechandtextanalytics/settings",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetSpeechandtextanalyticsSettingsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetSpeechandtextanalyticsSettingsOK), nil
+
+}
+
+/*
+PatchSpeechandtextanalyticsSettings patches speech and text analytics settings
+*/
+func (a *Client) PatchSpeechandtextanalyticsSettings(ctx context.Context, params *PatchSpeechandtextanalyticsSettingsParams) (*PatchSpeechandtextanalyticsSettingsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "patchSpeechandtextanalyticsSettings",
+		Method:             "PATCH",
+		PathPattern:        "/api/v2/speechandtextanalytics/settings",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchSpeechandtextanalyticsSettingsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PatchSpeechandtextanalyticsSettingsOK), nil
 
 }

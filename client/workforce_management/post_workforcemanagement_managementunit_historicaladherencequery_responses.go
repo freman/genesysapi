@@ -109,7 +109,7 @@ type PostWorkforcemanagementManagementunitHistoricaladherencequeryAccepted struc
 }
 
 func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryAccepted) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/historicaladherencequery][%d] postWorkforcemanagementManagementunitHistoricaladherencequeryAccepted  %+v", 202, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/historicaladherencequery][%d] postWorkforcemanagementManagementunitHistoricaladherencequeryAccepted  %+v", 202, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryAccepted) GetPayload() *models.WfmHistoricalAdherenceResponse {
@@ -142,7 +142,7 @@ type PostWorkforcemanagementManagementunitHistoricaladherencequeryBadRequest str
 }
 
 func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryBadRequest) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/historicaladherencequery][%d] postWorkforcemanagementManagementunitHistoricaladherencequeryBadRequest  %+v", 400, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/historicaladherencequery][%d] postWorkforcemanagementManagementunitHistoricaladherencequeryBadRequest  %+v", 400, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryBadRequest) GetPayload() *models.ErrorBody {
@@ -175,7 +175,7 @@ type PostWorkforcemanagementManagementunitHistoricaladherencequeryUnauthorized s
 }
 
 func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryUnauthorized) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/historicaladherencequery][%d] postWorkforcemanagementManagementunitHistoricaladherencequeryUnauthorized  %+v", 401, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/historicaladherencequery][%d] postWorkforcemanagementManagementunitHistoricaladherencequeryUnauthorized  %+v", 401, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryUnauthorized) GetPayload() *models.ErrorBody {
@@ -208,7 +208,7 @@ type PostWorkforcemanagementManagementunitHistoricaladherencequeryForbidden stru
 }
 
 func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/historicaladherencequery][%d] postWorkforcemanagementManagementunitHistoricaladherencequeryForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/historicaladherencequery][%d] postWorkforcemanagementManagementunitHistoricaladherencequeryForbidden  %+v", 403, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryForbidden) GetPayload() *models.ErrorBody {
@@ -241,7 +241,7 @@ type PostWorkforcemanagementManagementunitHistoricaladherencequeryNotFound struc
 }
 
 func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/historicaladherencequery][%d] postWorkforcemanagementManagementunitHistoricaladherencequeryNotFound  %+v", 404, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/historicaladherencequery][%d] postWorkforcemanagementManagementunitHistoricaladherencequeryNotFound  %+v", 404, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryNotFound) GetPayload() *models.ErrorBody {
@@ -274,7 +274,7 @@ type PostWorkforcemanagementManagementunitHistoricaladherencequeryRequestEntityT
 }
 
 func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryRequestEntityTooLarge) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/historicaladherencequery][%d] postWorkforcemanagementManagementunitHistoricaladherencequeryRequestEntityTooLarge  %+v", 413, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/historicaladherencequery][%d] postWorkforcemanagementManagementunitHistoricaladherencequeryRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryRequestEntityTooLarge) GetPayload() *models.ErrorBody {
@@ -307,7 +307,7 @@ type PostWorkforcemanagementManagementunitHistoricaladherencequeryUnsupportedMed
 }
 
 func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryUnsupportedMediaType) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/historicaladherencequery][%d] postWorkforcemanagementManagementunitHistoricaladherencequeryUnsupportedMediaType  %+v", 415, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/historicaladherencequery][%d] postWorkforcemanagementManagementunitHistoricaladherencequeryUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryUnsupportedMediaType) GetPayload() *models.ErrorBody {
@@ -340,7 +340,7 @@ type PostWorkforcemanagementManagementunitHistoricaladherencequeryTooManyRequest
 }
 
 func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/historicaladherencequery][%d] postWorkforcemanagementManagementunitHistoricaladherencequeryTooManyRequests  %+v", 429, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/historicaladherencequery][%d] postWorkforcemanagementManagementunitHistoricaladherencequeryTooManyRequests  %+v", 429, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryTooManyRequests) GetPayload() *models.ErrorBody {
@@ -373,7 +373,7 @@ type PostWorkforcemanagementManagementunitHistoricaladherencequeryInternalServer
 }
 
 func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/historicaladherencequery][%d] postWorkforcemanagementManagementunitHistoricaladherencequeryInternalServerError  %+v", 500, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/historicaladherencequery][%d] postWorkforcemanagementManagementunitHistoricaladherencequeryInternalServerError  %+v", 500, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryInternalServerError) GetPayload() *models.ErrorBody {
@@ -406,7 +406,7 @@ type PostWorkforcemanagementManagementunitHistoricaladherencequeryServiceUnavail
 }
 
 func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryServiceUnavailable) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/historicaladherencequery][%d] postWorkforcemanagementManagementunitHistoricaladherencequeryServiceUnavailable  %+v", 503, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/historicaladherencequery][%d] postWorkforcemanagementManagementunitHistoricaladherencequeryServiceUnavailable  %+v", 503, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryServiceUnavailable) GetPayload() *models.ErrorBody {
@@ -439,7 +439,7 @@ type PostWorkforcemanagementManagementunitHistoricaladherencequeryGatewayTimeout
 }
 
 func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryGatewayTimeout) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/historicaladherencequery][%d] postWorkforcemanagementManagementunitHistoricaladherencequeryGatewayTimeout  %+v", 504, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/historicaladherencequery][%d] postWorkforcemanagementManagementunitHistoricaladherencequeryGatewayTimeout  %+v", 504, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryGatewayTimeout) GetPayload() *models.ErrorBody {

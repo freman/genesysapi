@@ -109,7 +109,7 @@ type PostWorkforcemanagementManagementunitTimeoffrequestsOK struct {
 }
 
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsOK) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/timeoffrequests][%d] postWorkforcemanagementManagementunitTimeoffrequestsOK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffrequests][%d] postWorkforcemanagementManagementunitTimeoffrequestsOK  %+v", 200, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsOK) GetPayload() *models.TimeOffRequestList {
@@ -142,7 +142,7 @@ type PostWorkforcemanagementManagementunitTimeoffrequestsBadRequest struct {
 }
 
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsBadRequest) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/timeoffrequests][%d] postWorkforcemanagementManagementunitTimeoffrequestsBadRequest  %+v", 400, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffrequests][%d] postWorkforcemanagementManagementunitTimeoffrequestsBadRequest  %+v", 400, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsBadRequest) GetPayload() *models.ErrorBody {
@@ -175,7 +175,7 @@ type PostWorkforcemanagementManagementunitTimeoffrequestsUnauthorized struct {
 }
 
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsUnauthorized) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/timeoffrequests][%d] postWorkforcemanagementManagementunitTimeoffrequestsUnauthorized  %+v", 401, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffrequests][%d] postWorkforcemanagementManagementunitTimeoffrequestsUnauthorized  %+v", 401, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsUnauthorized) GetPayload() *models.ErrorBody {
@@ -208,7 +208,7 @@ type PostWorkforcemanagementManagementunitTimeoffrequestsForbidden struct {
 }
 
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/timeoffrequests][%d] postWorkforcemanagementManagementunitTimeoffrequestsForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffrequests][%d] postWorkforcemanagementManagementunitTimeoffrequestsForbidden  %+v", 403, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsForbidden) GetPayload() *models.ErrorBody {
@@ -241,7 +241,7 @@ type PostWorkforcemanagementManagementunitTimeoffrequestsNotFound struct {
 }
 
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/timeoffrequests][%d] postWorkforcemanagementManagementunitTimeoffrequestsNotFound  %+v", 404, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffrequests][%d] postWorkforcemanagementManagementunitTimeoffrequestsNotFound  %+v", 404, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsNotFound) GetPayload() *models.ErrorBody {
@@ -274,7 +274,7 @@ type PostWorkforcemanagementManagementunitTimeoffrequestsRequestEntityTooLarge s
 }
 
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsRequestEntityTooLarge) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/timeoffrequests][%d] postWorkforcemanagementManagementunitTimeoffrequestsRequestEntityTooLarge  %+v", 413, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffrequests][%d] postWorkforcemanagementManagementunitTimeoffrequestsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsRequestEntityTooLarge) GetPayload() *models.ErrorBody {
@@ -307,7 +307,7 @@ type PostWorkforcemanagementManagementunitTimeoffrequestsUnsupportedMediaType st
 }
 
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsUnsupportedMediaType) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/timeoffrequests][%d] postWorkforcemanagementManagementunitTimeoffrequestsUnsupportedMediaType  %+v", 415, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffrequests][%d] postWorkforcemanagementManagementunitTimeoffrequestsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsUnsupportedMediaType) GetPayload() *models.ErrorBody {
@@ -340,7 +340,7 @@ type PostWorkforcemanagementManagementunitTimeoffrequestsTooManyRequests struct 
 }
 
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/timeoffrequests][%d] postWorkforcemanagementManagementunitTimeoffrequestsTooManyRequests  %+v", 429, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffrequests][%d] postWorkforcemanagementManagementunitTimeoffrequestsTooManyRequests  %+v", 429, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsTooManyRequests) GetPayload() *models.ErrorBody {
@@ -373,7 +373,7 @@ type PostWorkforcemanagementManagementunitTimeoffrequestsInternalServerError str
 }
 
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/timeoffrequests][%d] postWorkforcemanagementManagementunitTimeoffrequestsInternalServerError  %+v", 500, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffrequests][%d] postWorkforcemanagementManagementunitTimeoffrequestsInternalServerError  %+v", 500, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsInternalServerError) GetPayload() *models.ErrorBody {
@@ -406,7 +406,7 @@ type PostWorkforcemanagementManagementunitTimeoffrequestsServiceUnavailable stru
 }
 
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsServiceUnavailable) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/timeoffrequests][%d] postWorkforcemanagementManagementunitTimeoffrequestsServiceUnavailable  %+v", 503, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffrequests][%d] postWorkforcemanagementManagementunitTimeoffrequestsServiceUnavailable  %+v", 503, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsServiceUnavailable) GetPayload() *models.ErrorBody {
@@ -439,7 +439,7 @@ type PostWorkforcemanagementManagementunitTimeoffrequestsGatewayTimeout struct {
 }
 
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsGatewayTimeout) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/timeoffrequests][%d] postWorkforcemanagementManagementunitTimeoffrequestsGatewayTimeout  %+v", 504, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffrequests][%d] postWorkforcemanagementManagementunitTimeoffrequestsGatewayTimeout  %+v", 504, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsGatewayTimeout) GetPayload() *models.ErrorBody {

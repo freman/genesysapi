@@ -109,7 +109,7 @@ type GetWorkforcemanagementManagementunitActivitycodesOK struct {
 }
 
 func (o *GetWorkforcemanagementManagementunitActivitycodesOK) Error() string {
-	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{muId}/activitycodes][%d] getWorkforcemanagementManagementunitActivitycodesOK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{managementUnitId}/activitycodes][%d] getWorkforcemanagementManagementunitActivitycodesOK  %+v", 200, o.Payload)
 }
 
 func (o *GetWorkforcemanagementManagementunitActivitycodesOK) GetPayload() *models.ActivityCodeContainer {
@@ -142,7 +142,7 @@ type GetWorkforcemanagementManagementunitActivitycodesBadRequest struct {
 }
 
 func (o *GetWorkforcemanagementManagementunitActivitycodesBadRequest) Error() string {
-	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{muId}/activitycodes][%d] getWorkforcemanagementManagementunitActivitycodesBadRequest  %+v", 400, o.Payload)
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{managementUnitId}/activitycodes][%d] getWorkforcemanagementManagementunitActivitycodesBadRequest  %+v", 400, o.Payload)
 }
 
 func (o *GetWorkforcemanagementManagementunitActivitycodesBadRequest) GetPayload() *models.ErrorBody {
@@ -175,7 +175,7 @@ type GetWorkforcemanagementManagementunitActivitycodesUnauthorized struct {
 }
 
 func (o *GetWorkforcemanagementManagementunitActivitycodesUnauthorized) Error() string {
-	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{muId}/activitycodes][%d] getWorkforcemanagementManagementunitActivitycodesUnauthorized  %+v", 401, o.Payload)
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{managementUnitId}/activitycodes][%d] getWorkforcemanagementManagementunitActivitycodesUnauthorized  %+v", 401, o.Payload)
 }
 
 func (o *GetWorkforcemanagementManagementunitActivitycodesUnauthorized) GetPayload() *models.ErrorBody {
@@ -208,7 +208,7 @@ type GetWorkforcemanagementManagementunitActivitycodesForbidden struct {
 }
 
 func (o *GetWorkforcemanagementManagementunitActivitycodesForbidden) Error() string {
-	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{muId}/activitycodes][%d] getWorkforcemanagementManagementunitActivitycodesForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{managementUnitId}/activitycodes][%d] getWorkforcemanagementManagementunitActivitycodesForbidden  %+v", 403, o.Payload)
 }
 
 func (o *GetWorkforcemanagementManagementunitActivitycodesForbidden) GetPayload() *models.ErrorBody {
@@ -241,7 +241,7 @@ type GetWorkforcemanagementManagementunitActivitycodesNotFound struct {
 }
 
 func (o *GetWorkforcemanagementManagementunitActivitycodesNotFound) Error() string {
-	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{muId}/activitycodes][%d] getWorkforcemanagementManagementunitActivitycodesNotFound  %+v", 404, o.Payload)
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{managementUnitId}/activitycodes][%d] getWorkforcemanagementManagementunitActivitycodesNotFound  %+v", 404, o.Payload)
 }
 
 func (o *GetWorkforcemanagementManagementunitActivitycodesNotFound) GetPayload() *models.ErrorBody {
@@ -274,7 +274,7 @@ type GetWorkforcemanagementManagementunitActivitycodesRequestEntityTooLarge stru
 }
 
 func (o *GetWorkforcemanagementManagementunitActivitycodesRequestEntityTooLarge) Error() string {
-	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{muId}/activitycodes][%d] getWorkforcemanagementManagementunitActivitycodesRequestEntityTooLarge  %+v", 413, o.Payload)
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{managementUnitId}/activitycodes][%d] getWorkforcemanagementManagementunitActivitycodesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
 func (o *GetWorkforcemanagementManagementunitActivitycodesRequestEntityTooLarge) GetPayload() *models.ErrorBody {
@@ -307,7 +307,7 @@ type GetWorkforcemanagementManagementunitActivitycodesUnsupportedMediaType struc
 }
 
 func (o *GetWorkforcemanagementManagementunitActivitycodesUnsupportedMediaType) Error() string {
-	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{muId}/activitycodes][%d] getWorkforcemanagementManagementunitActivitycodesUnsupportedMediaType  %+v", 415, o.Payload)
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{managementUnitId}/activitycodes][%d] getWorkforcemanagementManagementunitActivitycodesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
 func (o *GetWorkforcemanagementManagementunitActivitycodesUnsupportedMediaType) GetPayload() *models.ErrorBody {
@@ -340,7 +340,7 @@ type GetWorkforcemanagementManagementunitActivitycodesTooManyRequests struct {
 }
 
 func (o *GetWorkforcemanagementManagementunitActivitycodesTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{muId}/activitycodes][%d] getWorkforcemanagementManagementunitActivitycodesTooManyRequests  %+v", 429, o.Payload)
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{managementUnitId}/activitycodes][%d] getWorkforcemanagementManagementunitActivitycodesTooManyRequests  %+v", 429, o.Payload)
 }
 
 func (o *GetWorkforcemanagementManagementunitActivitycodesTooManyRequests) GetPayload() *models.ErrorBody {
@@ -373,7 +373,7 @@ type GetWorkforcemanagementManagementunitActivitycodesInternalServerError struct
 }
 
 func (o *GetWorkforcemanagementManagementunitActivitycodesInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{muId}/activitycodes][%d] getWorkforcemanagementManagementunitActivitycodesInternalServerError  %+v", 500, o.Payload)
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{managementUnitId}/activitycodes][%d] getWorkforcemanagementManagementunitActivitycodesInternalServerError  %+v", 500, o.Payload)
 }
 
 func (o *GetWorkforcemanagementManagementunitActivitycodesInternalServerError) GetPayload() *models.ErrorBody {
@@ -406,7 +406,7 @@ type GetWorkforcemanagementManagementunitActivitycodesServiceUnavailable struct 
 }
 
 func (o *GetWorkforcemanagementManagementunitActivitycodesServiceUnavailable) Error() string {
-	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{muId}/activitycodes][%d] getWorkforcemanagementManagementunitActivitycodesServiceUnavailable  %+v", 503, o.Payload)
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{managementUnitId}/activitycodes][%d] getWorkforcemanagementManagementunitActivitycodesServiceUnavailable  %+v", 503, o.Payload)
 }
 
 func (o *GetWorkforcemanagementManagementunitActivitycodesServiceUnavailable) GetPayload() *models.ErrorBody {
@@ -439,7 +439,7 @@ type GetWorkforcemanagementManagementunitActivitycodesGatewayTimeout struct {
 }
 
 func (o *GetWorkforcemanagementManagementunitActivitycodesGatewayTimeout) Error() string {
-	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{muId}/activitycodes][%d] getWorkforcemanagementManagementunitActivitycodesGatewayTimeout  %+v", 504, o.Payload)
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{managementUnitId}/activitycodes][%d] getWorkforcemanagementManagementunitActivitycodesGatewayTimeout  %+v", 504, o.Payload)
 }
 
 func (o *GetWorkforcemanagementManagementunitActivitycodesGatewayTimeout) GetPayload() *models.ErrorBody {

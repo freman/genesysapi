@@ -60,11 +60,11 @@ for the delete workforcemanagement managementunit operation typically these are 
 */
 type DeleteWorkforcemanagementManagementunitParams struct {
 
-	/*MuID
+	/*ManagementUnitID
 	  The ID of the management unit, or 'mine' for the management unit of the logged-in user.
 
 	*/
-	MuID string
+	ManagementUnitID string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -104,15 +104,15 @@ func (o *DeleteWorkforcemanagementManagementunitParams) SetHTTPClient(client *ht
 	o.HTTPClient = client
 }
 
-// WithMuID adds the muID to the delete workforcemanagement managementunit params
-func (o *DeleteWorkforcemanagementManagementunitParams) WithMuID(muID string) *DeleteWorkforcemanagementManagementunitParams {
-	o.SetMuID(muID)
+// WithManagementUnitID adds the managementUnitID to the delete workforcemanagement managementunit params
+func (o *DeleteWorkforcemanagementManagementunitParams) WithManagementUnitID(managementUnitID string) *DeleteWorkforcemanagementManagementunitParams {
+	o.SetManagementUnitID(managementUnitID)
 	return o
 }
 
-// SetMuID adds the muId to the delete workforcemanagement managementunit params
-func (o *DeleteWorkforcemanagementManagementunitParams) SetMuID(muID string) {
-	o.MuID = muID
+// SetManagementUnitID adds the managementUnitId to the delete workforcemanagement managementunit params
+func (o *DeleteWorkforcemanagementManagementunitParams) SetManagementUnitID(managementUnitID string) {
+	o.ManagementUnitID = managementUnitID
 }
 
 // WriteToRequest writes these params to a swagger request
@@ -123,8 +123,8 @@ func (o *DeleteWorkforcemanagementManagementunitParams) WriteToRequest(r runtime
 	}
 	var res []error
 
-	// path param muId
-	if err := r.SetPathParam("muId", o.MuID); err != nil {
+	// path param managementUnitId
+	if err := r.SetPathParam("managementUnitId", o.ManagementUnitID); err != nil {
 		return err
 	}
 

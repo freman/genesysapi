@@ -20,6 +20,9 @@ type IdentityNow struct {
 	// certificate
 	Certificate string `json:"certificate,omitempty"`
 
+	// certificates
+	Certificates []string `json:"certificates"`
+
 	// disabled
 	Disabled bool `json:"disabled"`
 

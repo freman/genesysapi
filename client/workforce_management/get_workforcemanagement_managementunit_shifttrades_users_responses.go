@@ -109,7 +109,7 @@ type GetWorkforcemanagementManagementunitShifttradesUsersOK struct {
 }
 
 func (o *GetWorkforcemanagementManagementunitShifttradesUsersOK) Error() string {
-	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{muId}/shifttrades/users][%d] getWorkforcemanagementManagementunitShifttradesUsersOK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{managementUnitId}/shifttrades/users][%d] getWorkforcemanagementManagementunitShifttradesUsersOK  %+v", 200, o.Payload)
 }
 
 func (o *GetWorkforcemanagementManagementunitShifttradesUsersOK) GetPayload() *models.WfmUserEntityListing {
@@ -142,7 +142,7 @@ type GetWorkforcemanagementManagementunitShifttradesUsersBadRequest struct {
 }
 
 func (o *GetWorkforcemanagementManagementunitShifttradesUsersBadRequest) Error() string {
-	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{muId}/shifttrades/users][%d] getWorkforcemanagementManagementunitShifttradesUsersBadRequest  %+v", 400, o.Payload)
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{managementUnitId}/shifttrades/users][%d] getWorkforcemanagementManagementunitShifttradesUsersBadRequest  %+v", 400, o.Payload)
 }
 
 func (o *GetWorkforcemanagementManagementunitShifttradesUsersBadRequest) GetPayload() *models.ErrorBody {
@@ -175,7 +175,7 @@ type GetWorkforcemanagementManagementunitShifttradesUsersUnauthorized struct {
 }
 
 func (o *GetWorkforcemanagementManagementunitShifttradesUsersUnauthorized) Error() string {
-	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{muId}/shifttrades/users][%d] getWorkforcemanagementManagementunitShifttradesUsersUnauthorized  %+v", 401, o.Payload)
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{managementUnitId}/shifttrades/users][%d] getWorkforcemanagementManagementunitShifttradesUsersUnauthorized  %+v", 401, o.Payload)
 }
 
 func (o *GetWorkforcemanagementManagementunitShifttradesUsersUnauthorized) GetPayload() *models.ErrorBody {
@@ -208,7 +208,7 @@ type GetWorkforcemanagementManagementunitShifttradesUsersForbidden struct {
 }
 
 func (o *GetWorkforcemanagementManagementunitShifttradesUsersForbidden) Error() string {
-	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{muId}/shifttrades/users][%d] getWorkforcemanagementManagementunitShifttradesUsersForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{managementUnitId}/shifttrades/users][%d] getWorkforcemanagementManagementunitShifttradesUsersForbidden  %+v", 403, o.Payload)
 }
 
 func (o *GetWorkforcemanagementManagementunitShifttradesUsersForbidden) GetPayload() *models.ErrorBody {
@@ -241,7 +241,7 @@ type GetWorkforcemanagementManagementunitShifttradesUsersNotFound struct {
 }
 
 func (o *GetWorkforcemanagementManagementunitShifttradesUsersNotFound) Error() string {
-	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{muId}/shifttrades/users][%d] getWorkforcemanagementManagementunitShifttradesUsersNotFound  %+v", 404, o.Payload)
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{managementUnitId}/shifttrades/users][%d] getWorkforcemanagementManagementunitShifttradesUsersNotFound  %+v", 404, o.Payload)
 }
 
 func (o *GetWorkforcemanagementManagementunitShifttradesUsersNotFound) GetPayload() *models.ErrorBody {
@@ -274,7 +274,7 @@ type GetWorkforcemanagementManagementunitShifttradesUsersRequestEntityTooLarge s
 }
 
 func (o *GetWorkforcemanagementManagementunitShifttradesUsersRequestEntityTooLarge) Error() string {
-	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{muId}/shifttrades/users][%d] getWorkforcemanagementManagementunitShifttradesUsersRequestEntityTooLarge  %+v", 413, o.Payload)
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{managementUnitId}/shifttrades/users][%d] getWorkforcemanagementManagementunitShifttradesUsersRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
 func (o *GetWorkforcemanagementManagementunitShifttradesUsersRequestEntityTooLarge) GetPayload() *models.ErrorBody {
@@ -307,7 +307,7 @@ type GetWorkforcemanagementManagementunitShifttradesUsersUnsupportedMediaType st
 }
 
 func (o *GetWorkforcemanagementManagementunitShifttradesUsersUnsupportedMediaType) Error() string {
-	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{muId}/shifttrades/users][%d] getWorkforcemanagementManagementunitShifttradesUsersUnsupportedMediaType  %+v", 415, o.Payload)
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{managementUnitId}/shifttrades/users][%d] getWorkforcemanagementManagementunitShifttradesUsersUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
 func (o *GetWorkforcemanagementManagementunitShifttradesUsersUnsupportedMediaType) GetPayload() *models.ErrorBody {
@@ -340,7 +340,7 @@ type GetWorkforcemanagementManagementunitShifttradesUsersTooManyRequests struct 
 }
 
 func (o *GetWorkforcemanagementManagementunitShifttradesUsersTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{muId}/shifttrades/users][%d] getWorkforcemanagementManagementunitShifttradesUsersTooManyRequests  %+v", 429, o.Payload)
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{managementUnitId}/shifttrades/users][%d] getWorkforcemanagementManagementunitShifttradesUsersTooManyRequests  %+v", 429, o.Payload)
 }
 
 func (o *GetWorkforcemanagementManagementunitShifttradesUsersTooManyRequests) GetPayload() *models.ErrorBody {
@@ -373,7 +373,7 @@ type GetWorkforcemanagementManagementunitShifttradesUsersInternalServerError str
 }
 
 func (o *GetWorkforcemanagementManagementunitShifttradesUsersInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{muId}/shifttrades/users][%d] getWorkforcemanagementManagementunitShifttradesUsersInternalServerError  %+v", 500, o.Payload)
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{managementUnitId}/shifttrades/users][%d] getWorkforcemanagementManagementunitShifttradesUsersInternalServerError  %+v", 500, o.Payload)
 }
 
 func (o *GetWorkforcemanagementManagementunitShifttradesUsersInternalServerError) GetPayload() *models.ErrorBody {
@@ -406,7 +406,7 @@ type GetWorkforcemanagementManagementunitShifttradesUsersServiceUnavailable stru
 }
 
 func (o *GetWorkforcemanagementManagementunitShifttradesUsersServiceUnavailable) Error() string {
-	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{muId}/shifttrades/users][%d] getWorkforcemanagementManagementunitShifttradesUsersServiceUnavailable  %+v", 503, o.Payload)
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{managementUnitId}/shifttrades/users][%d] getWorkforcemanagementManagementunitShifttradesUsersServiceUnavailable  %+v", 503, o.Payload)
 }
 
 func (o *GetWorkforcemanagementManagementunitShifttradesUsersServiceUnavailable) GetPayload() *models.ErrorBody {
@@ -439,7 +439,7 @@ type GetWorkforcemanagementManagementunitShifttradesUsersGatewayTimeout struct {
 }
 
 func (o *GetWorkforcemanagementManagementunitShifttradesUsersGatewayTimeout) Error() string {
-	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{muId}/shifttrades/users][%d] getWorkforcemanagementManagementunitShifttradesUsersGatewayTimeout  %+v", 504, o.Payload)
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{managementUnitId}/shifttrades/users][%d] getWorkforcemanagementManagementunitShifttradesUsersGatewayTimeout  %+v", 504, o.Payload)
 }
 
 func (o *GetWorkforcemanagementManagementunitShifttradesUsersGatewayTimeout) GetPayload() *models.ErrorBody {

@@ -73,11 +73,11 @@ for the get workforcemanagement managementunit user timeoffrequests operation ty
 */
 type GetWorkforcemanagementManagementunitUserTimeoffrequestsParams struct {
 
-	/*MuID
+	/*ManagementUnitID
 	  The muId of the management unit, or 'mine' for the management unit of the logged-in user.
 
 	*/
-	MuID string
+	ManagementUnitID string
 	/*RecentlyReviewed
 	  Limit results to requests that have been reviewed within the preceding 30 days
 
@@ -127,15 +127,15 @@ func (o *GetWorkforcemanagementManagementunitUserTimeoffrequestsParams) SetHTTPC
 	o.HTTPClient = client
 }
 
-// WithMuID adds the muID to the get workforcemanagement managementunit user timeoffrequests params
-func (o *GetWorkforcemanagementManagementunitUserTimeoffrequestsParams) WithMuID(muID string) *GetWorkforcemanagementManagementunitUserTimeoffrequestsParams {
-	o.SetMuID(muID)
+// WithManagementUnitID adds the managementUnitID to the get workforcemanagement managementunit user timeoffrequests params
+func (o *GetWorkforcemanagementManagementunitUserTimeoffrequestsParams) WithManagementUnitID(managementUnitID string) *GetWorkforcemanagementManagementunitUserTimeoffrequestsParams {
+	o.SetManagementUnitID(managementUnitID)
 	return o
 }
 
-// SetMuID adds the muId to the get workforcemanagement managementunit user timeoffrequests params
-func (o *GetWorkforcemanagementManagementunitUserTimeoffrequestsParams) SetMuID(muID string) {
-	o.MuID = muID
+// SetManagementUnitID adds the managementUnitId to the get workforcemanagement managementunit user timeoffrequests params
+func (o *GetWorkforcemanagementManagementunitUserTimeoffrequestsParams) SetManagementUnitID(managementUnitID string) {
+	o.ManagementUnitID = managementUnitID
 }
 
 // WithRecentlyReviewed adds the recentlyReviewed to the get workforcemanagement managementunit user timeoffrequests params
@@ -168,8 +168,8 @@ func (o *GetWorkforcemanagementManagementunitUserTimeoffrequestsParams) WriteToR
 	}
 	var res []error
 
-	// path param muId
-	if err := r.SetPathParam("muId", o.MuID); err != nil {
+	// path param managementUnitId
+	if err := r.SetPathParam("managementUnitId", o.ManagementUnitID); err != nil {
 		return err
 	}
 

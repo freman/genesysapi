@@ -62,21 +62,21 @@ for the patch workforcemanagement businessunit activitycode operation typically 
 */
 type PatchWorkforcemanagementBusinessunitActivitycodeParams struct {
 
-	/*AcID
+	/*ActivityCodeID
 	  The ID of the activity code to update
 
 	*/
-	AcID string
+	ActivityCodeID string
 	/*Body
 	  body
 
 	*/
 	Body *models.UpdateActivityCodeRequest
-	/*BuID
+	/*BusinessUnitID
 	  The ID of the business unit, or 'mine' for the business unit of the logged-in user.
 
 	*/
-	BuID string
+	BusinessUnitID string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -116,15 +116,15 @@ func (o *PatchWorkforcemanagementBusinessunitActivitycodeParams) SetHTTPClient(c
 	o.HTTPClient = client
 }
 
-// WithAcID adds the acID to the patch workforcemanagement businessunit activitycode params
-func (o *PatchWorkforcemanagementBusinessunitActivitycodeParams) WithAcID(acID string) *PatchWorkforcemanagementBusinessunitActivitycodeParams {
-	o.SetAcID(acID)
+// WithActivityCodeID adds the activityCodeID to the patch workforcemanagement businessunit activitycode params
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeParams) WithActivityCodeID(activityCodeID string) *PatchWorkforcemanagementBusinessunitActivitycodeParams {
+	o.SetActivityCodeID(activityCodeID)
 	return o
 }
 
-// SetAcID adds the acId to the patch workforcemanagement businessunit activitycode params
-func (o *PatchWorkforcemanagementBusinessunitActivitycodeParams) SetAcID(acID string) {
-	o.AcID = acID
+// SetActivityCodeID adds the activityCodeId to the patch workforcemanagement businessunit activitycode params
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeParams) SetActivityCodeID(activityCodeID string) {
+	o.ActivityCodeID = activityCodeID
 }
 
 // WithBody adds the body to the patch workforcemanagement businessunit activitycode params
@@ -138,15 +138,15 @@ func (o *PatchWorkforcemanagementBusinessunitActivitycodeParams) SetBody(body *m
 	o.Body = body
 }
 
-// WithBuID adds the buID to the patch workforcemanagement businessunit activitycode params
-func (o *PatchWorkforcemanagementBusinessunitActivitycodeParams) WithBuID(buID string) *PatchWorkforcemanagementBusinessunitActivitycodeParams {
-	o.SetBuID(buID)
+// WithBusinessUnitID adds the businessUnitID to the patch workforcemanagement businessunit activitycode params
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeParams) WithBusinessUnitID(businessUnitID string) *PatchWorkforcemanagementBusinessunitActivitycodeParams {
+	o.SetBusinessUnitID(businessUnitID)
 	return o
 }
 
-// SetBuID adds the buId to the patch workforcemanagement businessunit activitycode params
-func (o *PatchWorkforcemanagementBusinessunitActivitycodeParams) SetBuID(buID string) {
-	o.BuID = buID
+// SetBusinessUnitID adds the businessUnitId to the patch workforcemanagement businessunit activitycode params
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeParams) SetBusinessUnitID(businessUnitID string) {
+	o.BusinessUnitID = businessUnitID
 }
 
 // WriteToRequest writes these params to a swagger request
@@ -157,8 +157,8 @@ func (o *PatchWorkforcemanagementBusinessunitActivitycodeParams) WriteToRequest(
 	}
 	var res []error
 
-	// path param acId
-	if err := r.SetPathParam("acId", o.AcID); err != nil {
+	// path param activityCodeId
+	if err := r.SetPathParam("activityCodeId", o.ActivityCodeID); err != nil {
 		return err
 	}
 
@@ -168,8 +168,8 @@ func (o *PatchWorkforcemanagementBusinessunitActivitycodeParams) WriteToRequest(
 		}
 	}
 
-	// path param buId
-	if err := r.SetPathParam("buId", o.BuID); err != nil {
+	// path param businessUnitId
+	if err := r.SetPathParam("businessUnitId", o.BusinessUnitID); err != nil {
 		return err
 	}
 

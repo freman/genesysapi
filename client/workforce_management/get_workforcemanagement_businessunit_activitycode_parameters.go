@@ -60,16 +60,16 @@ for the get workforcemanagement businessunit activitycode operation typically th
 */
 type GetWorkforcemanagementBusinessunitActivitycodeParams struct {
 
-	/*AcID
+	/*ActivityCodeID
 	  The ID of the activity code to fetch
 
 	*/
-	AcID string
-	/*BuID
+	ActivityCodeID string
+	/*BusinessUnitID
 	  The ID of the business unit, or 'mine' for the business unit of the logged-in user.
 
 	*/
-	BuID string
+	BusinessUnitID string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -109,26 +109,26 @@ func (o *GetWorkforcemanagementBusinessunitActivitycodeParams) SetHTTPClient(cli
 	o.HTTPClient = client
 }
 
-// WithAcID adds the acID to the get workforcemanagement businessunit activitycode params
-func (o *GetWorkforcemanagementBusinessunitActivitycodeParams) WithAcID(acID string) *GetWorkforcemanagementBusinessunitActivitycodeParams {
-	o.SetAcID(acID)
+// WithActivityCodeID adds the activityCodeID to the get workforcemanagement businessunit activitycode params
+func (o *GetWorkforcemanagementBusinessunitActivitycodeParams) WithActivityCodeID(activityCodeID string) *GetWorkforcemanagementBusinessunitActivitycodeParams {
+	o.SetActivityCodeID(activityCodeID)
 	return o
 }
 
-// SetAcID adds the acId to the get workforcemanagement businessunit activitycode params
-func (o *GetWorkforcemanagementBusinessunitActivitycodeParams) SetAcID(acID string) {
-	o.AcID = acID
+// SetActivityCodeID adds the activityCodeId to the get workforcemanagement businessunit activitycode params
+func (o *GetWorkforcemanagementBusinessunitActivitycodeParams) SetActivityCodeID(activityCodeID string) {
+	o.ActivityCodeID = activityCodeID
 }
 
-// WithBuID adds the buID to the get workforcemanagement businessunit activitycode params
-func (o *GetWorkforcemanagementBusinessunitActivitycodeParams) WithBuID(buID string) *GetWorkforcemanagementBusinessunitActivitycodeParams {
-	o.SetBuID(buID)
+// WithBusinessUnitID adds the businessUnitID to the get workforcemanagement businessunit activitycode params
+func (o *GetWorkforcemanagementBusinessunitActivitycodeParams) WithBusinessUnitID(businessUnitID string) *GetWorkforcemanagementBusinessunitActivitycodeParams {
+	o.SetBusinessUnitID(businessUnitID)
 	return o
 }
 
-// SetBuID adds the buId to the get workforcemanagement businessunit activitycode params
-func (o *GetWorkforcemanagementBusinessunitActivitycodeParams) SetBuID(buID string) {
-	o.BuID = buID
+// SetBusinessUnitID adds the businessUnitId to the get workforcemanagement businessunit activitycode params
+func (o *GetWorkforcemanagementBusinessunitActivitycodeParams) SetBusinessUnitID(businessUnitID string) {
+	o.BusinessUnitID = businessUnitID
 }
 
 // WriteToRequest writes these params to a swagger request
@@ -139,13 +139,13 @@ func (o *GetWorkforcemanagementBusinessunitActivitycodeParams) WriteToRequest(r 
 	}
 	var res []error
 
-	// path param acId
-	if err := r.SetPathParam("acId", o.AcID); err != nil {
+	// path param activityCodeId
+	if err := r.SetPathParam("activityCodeId", o.ActivityCodeID); err != nil {
 		return err
 	}
 
-	// path param buId
-	if err := r.SetPathParam("buId", o.BuID); err != nil {
+	// path param businessUnitId
+	if err := r.SetPathParam("businessUnitId", o.BusinessUnitID); err != nil {
 		return err
 	}
 

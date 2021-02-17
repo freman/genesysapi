@@ -60,16 +60,16 @@ for the delete workforcemanagement businessunit activitycode operation typically
 */
 type DeleteWorkforcemanagementBusinessunitActivitycodeParams struct {
 
-	/*AcID
+	/*ActivityCodeID
 	  The ID of the activity code to delete
 
 	*/
-	AcID string
-	/*BuID
+	ActivityCodeID string
+	/*BusinessUnitID
 	  The ID of the business unit, or 'mine' for the business unit of the logged-in user.
 
 	*/
-	BuID string
+	BusinessUnitID string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -109,26 +109,26 @@ func (o *DeleteWorkforcemanagementBusinessunitActivitycodeParams) SetHTTPClient(
 	o.HTTPClient = client
 }
 
-// WithAcID adds the acID to the delete workforcemanagement businessunit activitycode params
-func (o *DeleteWorkforcemanagementBusinessunitActivitycodeParams) WithAcID(acID string) *DeleteWorkforcemanagementBusinessunitActivitycodeParams {
-	o.SetAcID(acID)
+// WithActivityCodeID adds the activityCodeID to the delete workforcemanagement businessunit activitycode params
+func (o *DeleteWorkforcemanagementBusinessunitActivitycodeParams) WithActivityCodeID(activityCodeID string) *DeleteWorkforcemanagementBusinessunitActivitycodeParams {
+	o.SetActivityCodeID(activityCodeID)
 	return o
 }
 
-// SetAcID adds the acId to the delete workforcemanagement businessunit activitycode params
-func (o *DeleteWorkforcemanagementBusinessunitActivitycodeParams) SetAcID(acID string) {
-	o.AcID = acID
+// SetActivityCodeID adds the activityCodeId to the delete workforcemanagement businessunit activitycode params
+func (o *DeleteWorkforcemanagementBusinessunitActivitycodeParams) SetActivityCodeID(activityCodeID string) {
+	o.ActivityCodeID = activityCodeID
 }
 
-// WithBuID adds the buID to the delete workforcemanagement businessunit activitycode params
-func (o *DeleteWorkforcemanagementBusinessunitActivitycodeParams) WithBuID(buID string) *DeleteWorkforcemanagementBusinessunitActivitycodeParams {
-	o.SetBuID(buID)
+// WithBusinessUnitID adds the businessUnitID to the delete workforcemanagement businessunit activitycode params
+func (o *DeleteWorkforcemanagementBusinessunitActivitycodeParams) WithBusinessUnitID(businessUnitID string) *DeleteWorkforcemanagementBusinessunitActivitycodeParams {
+	o.SetBusinessUnitID(businessUnitID)
 	return o
 }
 
-// SetBuID adds the buId to the delete workforcemanagement businessunit activitycode params
-func (o *DeleteWorkforcemanagementBusinessunitActivitycodeParams) SetBuID(buID string) {
-	o.BuID = buID
+// SetBusinessUnitID adds the businessUnitId to the delete workforcemanagement businessunit activitycode params
+func (o *DeleteWorkforcemanagementBusinessunitActivitycodeParams) SetBusinessUnitID(businessUnitID string) {
+	o.BusinessUnitID = businessUnitID
 }
 
 // WriteToRequest writes these params to a swagger request
@@ -139,13 +139,13 @@ func (o *DeleteWorkforcemanagementBusinessunitActivitycodeParams) WriteToRequest
 	}
 	var res []error
 
-	// path param acId
-	if err := r.SetPathParam("acId", o.AcID); err != nil {
+	// path param activityCodeId
+	if err := r.SetPathParam("activityCodeId", o.ActivityCodeID); err != nil {
 		return err
 	}
 
-	// path param buId
-	if err := r.SetPathParam("buId", o.BuID); err != nil {
+	// path param businessUnitId
+	if err := r.SetPathParam("businessUnitId", o.BusinessUnitID); err != nil {
 		return err
 	}
 

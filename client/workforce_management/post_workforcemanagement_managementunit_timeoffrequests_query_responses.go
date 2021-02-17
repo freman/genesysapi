@@ -109,7 +109,7 @@ type PostWorkforcemanagementManagementunitTimeoffrequestsQueryOK struct {
 }
 
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsQueryOK) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/timeoffrequests/query][%d] postWorkforcemanagementManagementunitTimeoffrequestsQueryOK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffrequests/query][%d] postWorkforcemanagementManagementunitTimeoffrequestsQueryOK  %+v", 200, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsQueryOK) GetPayload() *models.TimeOffRequestListing {
@@ -142,7 +142,7 @@ type PostWorkforcemanagementManagementunitTimeoffrequestsQueryBadRequest struct 
 }
 
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsQueryBadRequest) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/timeoffrequests/query][%d] postWorkforcemanagementManagementunitTimeoffrequestsQueryBadRequest  %+v", 400, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffrequests/query][%d] postWorkforcemanagementManagementunitTimeoffrequestsQueryBadRequest  %+v", 400, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsQueryBadRequest) GetPayload() *models.ErrorBody {
@@ -175,7 +175,7 @@ type PostWorkforcemanagementManagementunitTimeoffrequestsQueryUnauthorized struc
 }
 
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsQueryUnauthorized) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/timeoffrequests/query][%d] postWorkforcemanagementManagementunitTimeoffrequestsQueryUnauthorized  %+v", 401, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffrequests/query][%d] postWorkforcemanagementManagementunitTimeoffrequestsQueryUnauthorized  %+v", 401, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsQueryUnauthorized) GetPayload() *models.ErrorBody {
@@ -208,7 +208,7 @@ type PostWorkforcemanagementManagementunitTimeoffrequestsQueryForbidden struct {
 }
 
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsQueryForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/timeoffrequests/query][%d] postWorkforcemanagementManagementunitTimeoffrequestsQueryForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffrequests/query][%d] postWorkforcemanagementManagementunitTimeoffrequestsQueryForbidden  %+v", 403, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsQueryForbidden) GetPayload() *models.ErrorBody {
@@ -241,7 +241,7 @@ type PostWorkforcemanagementManagementunitTimeoffrequestsQueryNotFound struct {
 }
 
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsQueryNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/timeoffrequests/query][%d] postWorkforcemanagementManagementunitTimeoffrequestsQueryNotFound  %+v", 404, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffrequests/query][%d] postWorkforcemanagementManagementunitTimeoffrequestsQueryNotFound  %+v", 404, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsQueryNotFound) GetPayload() *models.ErrorBody {
@@ -274,7 +274,7 @@ type PostWorkforcemanagementManagementunitTimeoffrequestsQueryRequestEntityTooLa
 }
 
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsQueryRequestEntityTooLarge) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/timeoffrequests/query][%d] postWorkforcemanagementManagementunitTimeoffrequestsQueryRequestEntityTooLarge  %+v", 413, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffrequests/query][%d] postWorkforcemanagementManagementunitTimeoffrequestsQueryRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsQueryRequestEntityTooLarge) GetPayload() *models.ErrorBody {
@@ -307,7 +307,7 @@ type PostWorkforcemanagementManagementunitTimeoffrequestsQueryUnsupportedMediaTy
 }
 
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsQueryUnsupportedMediaType) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/timeoffrequests/query][%d] postWorkforcemanagementManagementunitTimeoffrequestsQueryUnsupportedMediaType  %+v", 415, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffrequests/query][%d] postWorkforcemanagementManagementunitTimeoffrequestsQueryUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsQueryUnsupportedMediaType) GetPayload() *models.ErrorBody {
@@ -340,7 +340,7 @@ type PostWorkforcemanagementManagementunitTimeoffrequestsQueryTooManyRequests st
 }
 
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsQueryTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/timeoffrequests/query][%d] postWorkforcemanagementManagementunitTimeoffrequestsQueryTooManyRequests  %+v", 429, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffrequests/query][%d] postWorkforcemanagementManagementunitTimeoffrequestsQueryTooManyRequests  %+v", 429, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsQueryTooManyRequests) GetPayload() *models.ErrorBody {
@@ -373,7 +373,7 @@ type PostWorkforcemanagementManagementunitTimeoffrequestsQueryInternalServerErro
 }
 
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsQueryInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/timeoffrequests/query][%d] postWorkforcemanagementManagementunitTimeoffrequestsQueryInternalServerError  %+v", 500, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffrequests/query][%d] postWorkforcemanagementManagementunitTimeoffrequestsQueryInternalServerError  %+v", 500, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsQueryInternalServerError) GetPayload() *models.ErrorBody {
@@ -406,7 +406,7 @@ type PostWorkforcemanagementManagementunitTimeoffrequestsQueryServiceUnavailable
 }
 
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsQueryServiceUnavailable) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/timeoffrequests/query][%d] postWorkforcemanagementManagementunitTimeoffrequestsQueryServiceUnavailable  %+v", 503, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffrequests/query][%d] postWorkforcemanagementManagementunitTimeoffrequestsQueryServiceUnavailable  %+v", 503, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsQueryServiceUnavailable) GetPayload() *models.ErrorBody {
@@ -439,7 +439,7 @@ type PostWorkforcemanagementManagementunitTimeoffrequestsQueryGatewayTimeout str
 }
 
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsQueryGatewayTimeout) Error() string {
-	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{muId}/timeoffrequests/query][%d] postWorkforcemanagementManagementunitTimeoffrequestsQueryGatewayTimeout  %+v", 504, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffrequests/query][%d] postWorkforcemanagementManagementunitTimeoffrequestsQueryGatewayTimeout  %+v", 504, o.Payload)
 }
 
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsQueryGatewayTimeout) GetPayload() *models.ErrorBody {

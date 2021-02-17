@@ -67,11 +67,11 @@ type PostWorkforcemanagementManagementunitMoveParams struct {
 
 	*/
 	Body *models.MoveManagementUnitRequest
-	/*MuID
+	/*ManagementUnitID
 	  The ID of the management unit, or 'mine' for the management unit of the logged-in user.
 
 	*/
-	MuID string
+	ManagementUnitID string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -122,15 +122,15 @@ func (o *PostWorkforcemanagementManagementunitMoveParams) SetBody(body *models.M
 	o.Body = body
 }
 
-// WithMuID adds the muID to the post workforcemanagement managementunit move params
-func (o *PostWorkforcemanagementManagementunitMoveParams) WithMuID(muID string) *PostWorkforcemanagementManagementunitMoveParams {
-	o.SetMuID(muID)
+// WithManagementUnitID adds the managementUnitID to the post workforcemanagement managementunit move params
+func (o *PostWorkforcemanagementManagementunitMoveParams) WithManagementUnitID(managementUnitID string) *PostWorkforcemanagementManagementunitMoveParams {
+	o.SetManagementUnitID(managementUnitID)
 	return o
 }
 
-// SetMuID adds the muId to the post workforcemanagement managementunit move params
-func (o *PostWorkforcemanagementManagementunitMoveParams) SetMuID(muID string) {
-	o.MuID = muID
+// SetManagementUnitID adds the managementUnitId to the post workforcemanagement managementunit move params
+func (o *PostWorkforcemanagementManagementunitMoveParams) SetManagementUnitID(managementUnitID string) {
+	o.ManagementUnitID = managementUnitID
 }
 
 // WriteToRequest writes these params to a swagger request
@@ -147,8 +147,8 @@ func (o *PostWorkforcemanagementManagementunitMoveParams) WriteToRequest(r runti
 		}
 	}
 
-	// path param muId
-	if err := r.SetPathParam("muId", o.MuID); err != nil {
+	// path param managementUnitId
+	if err := r.SetPathParam("managementUnitId", o.ManagementUnitID); err != nil {
 		return err
 	}
 

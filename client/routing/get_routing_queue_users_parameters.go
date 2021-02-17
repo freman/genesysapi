@@ -115,7 +115,7 @@ type GetRoutingQueueUsersParams struct {
 	*/
 	PageNumber *int32
 	/*PageSize
-	  Page size
+	  Page size [max 100]
 
 	*/
 	PageSize *int32

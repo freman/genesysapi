@@ -115,7 +115,7 @@ type PatchWorkforcemanagementBusinessunitActivitycodeOK struct {
 }
 
 func (o *PatchWorkforcemanagementBusinessunitActivitycodeOK) Error() string {
-	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{buId}/activitycodes/{acId}][%d] patchWorkforcemanagementBusinessunitActivitycodeOK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes/{activityCodeId}][%d] patchWorkforcemanagementBusinessunitActivitycodeOK  %+v", 200, o.Payload)
 }
 
 func (o *PatchWorkforcemanagementBusinessunitActivitycodeOK) GetPayload() *models.BusinessUnitActivityCode {
@@ -148,7 +148,7 @@ type PatchWorkforcemanagementBusinessunitActivitycodeBadRequest struct {
 }
 
 func (o *PatchWorkforcemanagementBusinessunitActivitycodeBadRequest) Error() string {
-	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{buId}/activitycodes/{acId}][%d] patchWorkforcemanagementBusinessunitActivitycodeBadRequest  %+v", 400, o.Payload)
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes/{activityCodeId}][%d] patchWorkforcemanagementBusinessunitActivitycodeBadRequest  %+v", 400, o.Payload)
 }
 
 func (o *PatchWorkforcemanagementBusinessunitActivitycodeBadRequest) GetPayload() *models.ErrorBody {
@@ -181,7 +181,7 @@ type PatchWorkforcemanagementBusinessunitActivitycodeUnauthorized struct {
 }
 
 func (o *PatchWorkforcemanagementBusinessunitActivitycodeUnauthorized) Error() string {
-	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{buId}/activitycodes/{acId}][%d] patchWorkforcemanagementBusinessunitActivitycodeUnauthorized  %+v", 401, o.Payload)
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes/{activityCodeId}][%d] patchWorkforcemanagementBusinessunitActivitycodeUnauthorized  %+v", 401, o.Payload)
 }
 
 func (o *PatchWorkforcemanagementBusinessunitActivitycodeUnauthorized) GetPayload() *models.ErrorBody {
@@ -214,7 +214,7 @@ type PatchWorkforcemanagementBusinessunitActivitycodeForbidden struct {
 }
 
 func (o *PatchWorkforcemanagementBusinessunitActivitycodeForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{buId}/activitycodes/{acId}][%d] patchWorkforcemanagementBusinessunitActivitycodeForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes/{activityCodeId}][%d] patchWorkforcemanagementBusinessunitActivitycodeForbidden  %+v", 403, o.Payload)
 }
 
 func (o *PatchWorkforcemanagementBusinessunitActivitycodeForbidden) GetPayload() *models.ErrorBody {
@@ -247,7 +247,7 @@ type PatchWorkforcemanagementBusinessunitActivitycodeNotFound struct {
 }
 
 func (o *PatchWorkforcemanagementBusinessunitActivitycodeNotFound) Error() string {
-	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{buId}/activitycodes/{acId}][%d] patchWorkforcemanagementBusinessunitActivitycodeNotFound  %+v", 404, o.Payload)
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes/{activityCodeId}][%d] patchWorkforcemanagementBusinessunitActivitycodeNotFound  %+v", 404, o.Payload)
 }
 
 func (o *PatchWorkforcemanagementBusinessunitActivitycodeNotFound) GetPayload() *models.ErrorBody {
@@ -280,7 +280,7 @@ type PatchWorkforcemanagementBusinessunitActivitycodeConflict struct {
 }
 
 func (o *PatchWorkforcemanagementBusinessunitActivitycodeConflict) Error() string {
-	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{buId}/activitycodes/{acId}][%d] patchWorkforcemanagementBusinessunitActivitycodeConflict  %+v", 409, o.Payload)
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes/{activityCodeId}][%d] patchWorkforcemanagementBusinessunitActivitycodeConflict  %+v", 409, o.Payload)
 }
 
 func (o *PatchWorkforcemanagementBusinessunitActivitycodeConflict) GetPayload() *models.ErrorBody {
@@ -313,7 +313,7 @@ type PatchWorkforcemanagementBusinessunitActivitycodeRequestEntityTooLarge struc
 }
 
 func (o *PatchWorkforcemanagementBusinessunitActivitycodeRequestEntityTooLarge) Error() string {
-	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{buId}/activitycodes/{acId}][%d] patchWorkforcemanagementBusinessunitActivitycodeRequestEntityTooLarge  %+v", 413, o.Payload)
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes/{activityCodeId}][%d] patchWorkforcemanagementBusinessunitActivitycodeRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
 func (o *PatchWorkforcemanagementBusinessunitActivitycodeRequestEntityTooLarge) GetPayload() *models.ErrorBody {
@@ -346,7 +346,7 @@ type PatchWorkforcemanagementBusinessunitActivitycodeUnsupportedMediaType struct
 }
 
 func (o *PatchWorkforcemanagementBusinessunitActivitycodeUnsupportedMediaType) Error() string {
-	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{buId}/activitycodes/{acId}][%d] patchWorkforcemanagementBusinessunitActivitycodeUnsupportedMediaType  %+v", 415, o.Payload)
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes/{activityCodeId}][%d] patchWorkforcemanagementBusinessunitActivitycodeUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
 func (o *PatchWorkforcemanagementBusinessunitActivitycodeUnsupportedMediaType) GetPayload() *models.ErrorBody {
@@ -379,7 +379,7 @@ type PatchWorkforcemanagementBusinessunitActivitycodeTooManyRequests struct {
 }
 
 func (o *PatchWorkforcemanagementBusinessunitActivitycodeTooManyRequests) Error() string {
-	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{buId}/activitycodes/{acId}][%d] patchWorkforcemanagementBusinessunitActivitycodeTooManyRequests  %+v", 429, o.Payload)
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes/{activityCodeId}][%d] patchWorkforcemanagementBusinessunitActivitycodeTooManyRequests  %+v", 429, o.Payload)
 }
 
 func (o *PatchWorkforcemanagementBusinessunitActivitycodeTooManyRequests) GetPayload() *models.ErrorBody {
@@ -412,7 +412,7 @@ type PatchWorkforcemanagementBusinessunitActivitycodeInternalServerError struct 
 }
 
 func (o *PatchWorkforcemanagementBusinessunitActivitycodeInternalServerError) Error() string {
-	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{buId}/activitycodes/{acId}][%d] patchWorkforcemanagementBusinessunitActivitycodeInternalServerError  %+v", 500, o.Payload)
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes/{activityCodeId}][%d] patchWorkforcemanagementBusinessunitActivitycodeInternalServerError  %+v", 500, o.Payload)
 }
 
 func (o *PatchWorkforcemanagementBusinessunitActivitycodeInternalServerError) GetPayload() *models.ErrorBody {
@@ -445,7 +445,7 @@ type PatchWorkforcemanagementBusinessunitActivitycodeServiceUnavailable struct {
 }
 
 func (o *PatchWorkforcemanagementBusinessunitActivitycodeServiceUnavailable) Error() string {
-	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{buId}/activitycodes/{acId}][%d] patchWorkforcemanagementBusinessunitActivitycodeServiceUnavailable  %+v", 503, o.Payload)
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes/{activityCodeId}][%d] patchWorkforcemanagementBusinessunitActivitycodeServiceUnavailable  %+v", 503, o.Payload)
 }
 
 func (o *PatchWorkforcemanagementBusinessunitActivitycodeServiceUnavailable) GetPayload() *models.ErrorBody {
@@ -478,7 +478,7 @@ type PatchWorkforcemanagementBusinessunitActivitycodeGatewayTimeout struct {
 }
 
 func (o *PatchWorkforcemanagementBusinessunitActivitycodeGatewayTimeout) Error() string {
-	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{buId}/activitycodes/{acId}][%d] patchWorkforcemanagementBusinessunitActivitycodeGatewayTimeout  %+v", 504, o.Payload)
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes/{activityCodeId}][%d] patchWorkforcemanagementBusinessunitActivitycodeGatewayTimeout  %+v", 504, o.Payload)
 }
 
 func (o *PatchWorkforcemanagementBusinessunitActivitycodeGatewayTimeout) GetPayload() *models.ErrorBody {

@@ -65,6 +65,12 @@ func (o *GetUserStationReader) ReadResponse(response runtime.ClientResponse, con
 			return nil, err
 		}
 		return nil, result
+	case 424:
+		result := NewGetUserStationFailedDependency()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 429:
 		result := NewGetUserStationTooManyRequests()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -315,6 +321,39 @@ func (o *GetUserStationUnsupportedMediaType) GetPayload() *models.ErrorBody {
 }
 
 func (o *GetUserStationUnsupportedMediaType) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewGetUserStationFailedDependency creates a GetUserStationFailedDependency with default headers values
+func NewGetUserStationFailedDependency() *GetUserStationFailedDependency {
+	return &GetUserStationFailedDependency{}
+}
+
+/*GetUserStationFailedDependency handles this case with default header values.
+
+GetUserStationFailedDependency get user station failed dependency
+*/
+type GetUserStationFailedDependency struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetUserStationFailedDependency) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/station][%d] getUserStationFailedDependency  %+v", 424, o.Payload)
+}
+
+func (o *GetUserStationFailedDependency) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetUserStationFailedDependency) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ErrorBody)
 
