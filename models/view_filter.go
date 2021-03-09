@@ -59,6 +59,25 @@ type ViewFilter struct {
 	// A grouping of conversation level filters
 	ConversationProperties *ConversationProperties `json:"conversationProperties,omitempty"`
 
+	// Indicates filtering for development activities
+	DevelopmentActivityOverdue bool `json:"developmentActivityOverdue"`
+
+	// Represents due or completed to filter agent development view
+	// Enum: [Due Completed]
+	DevelopmentKeyType string `json:"developmentKeyType,omitempty"`
+
+	// The list of development moduleIds used to filter agent development view
+	DevelopmentModuleIds []string `json:"developmentModuleIds"`
+
+	// The list of development roles used to filter agent development view
+	DevelopmentRoleList []string `json:"developmentRoleList"`
+
+	// The list of development status used to filter agent development view
+	DevelopmentStatusList []string `json:"developmentStatusList"`
+
+	// The list of development types used to filter agent development view
+	DevelopmentTypeList []string `json:"developmentTypeList"`
+
 	// The directions are used to filter the view
 	Directions []string `json:"directions"`
 
@@ -320,6 +339,22 @@ func (m *ViewFilter) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateDevelopmentKeyType(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDevelopmentRoleList(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDevelopmentStatusList(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDevelopmentTypeList(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateDirections(formats); err != nil {
 		res = append(res, err)
 	}
@@ -522,6 +557,160 @@ func (m *ViewFilter) validateConversationProperties(formats strfmt.Registry) err
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+var viewFilterTypeDevelopmentKeyTypePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Due","Completed"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		viewFilterTypeDevelopmentKeyTypePropEnum = append(viewFilterTypeDevelopmentKeyTypePropEnum, v)
+	}
+}
+
+const (
+
+	// ViewFilterDevelopmentKeyTypeDue captures enum value "Due"
+	ViewFilterDevelopmentKeyTypeDue string = "Due"
+
+	// ViewFilterDevelopmentKeyTypeCompleted captures enum value "Completed"
+	ViewFilterDevelopmentKeyTypeCompleted string = "Completed"
+)
+
+// prop value enum
+func (m *ViewFilter) validateDevelopmentKeyTypeEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, viewFilterTypeDevelopmentKeyTypePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *ViewFilter) validateDevelopmentKeyType(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.DevelopmentKeyType) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateDevelopmentKeyTypeEnum("developmentKeyType", "body", m.DevelopmentKeyType); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+var viewFilterDevelopmentRoleListItemsEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Creator","Facilitator","Attendee"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		viewFilterDevelopmentRoleListItemsEnum = append(viewFilterDevelopmentRoleListItemsEnum, v)
+	}
+}
+
+func (m *ViewFilter) validateDevelopmentRoleListItemsEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, viewFilterDevelopmentRoleListItemsEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *ViewFilter) validateDevelopmentRoleList(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.DevelopmentRoleList) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.DevelopmentRoleList); i++ {
+
+		// value enum
+		if err := m.validateDevelopmentRoleListItemsEnum("developmentRoleList"+"."+strconv.Itoa(i), "body", m.DevelopmentRoleList[i]); err != nil {
+			return err
+		}
+
+	}
+
+	return nil
+}
+
+var viewFilterDevelopmentStatusListItemsEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Planned","Scheduled","InvalidSchedule","InProgress","Completed"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		viewFilterDevelopmentStatusListItemsEnum = append(viewFilterDevelopmentStatusListItemsEnum, v)
+	}
+}
+
+func (m *ViewFilter) validateDevelopmentStatusListItemsEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, viewFilterDevelopmentStatusListItemsEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *ViewFilter) validateDevelopmentStatusList(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.DevelopmentStatusList) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.DevelopmentStatusList); i++ {
+
+		// value enum
+		if err := m.validateDevelopmentStatusListItemsEnum("developmentStatusList"+"."+strconv.Itoa(i), "body", m.DevelopmentStatusList[i]); err != nil {
+			return err
+		}
+
+	}
+
+	return nil
+}
+
+var viewFilterDevelopmentTypeListItemsEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Informational","Coaching"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		viewFilterDevelopmentTypeListItemsEnum = append(viewFilterDevelopmentTypeListItemsEnum, v)
+	}
+}
+
+func (m *ViewFilter) validateDevelopmentTypeListItemsEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, viewFilterDevelopmentTypeListItemsEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *ViewFilter) validateDevelopmentTypeList(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.DevelopmentTypeList) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.DevelopmentTypeList); i++ {
+
+		// value enum
+		if err := m.validateDevelopmentTypeListItemsEnum("developmentTypeList"+"."+strconv.Itoa(i), "body", m.DevelopmentTypeList[i]); err != nil {
+			return err
+		}
+
 	}
 
 	return nil

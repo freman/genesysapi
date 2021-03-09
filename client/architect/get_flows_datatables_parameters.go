@@ -97,6 +97,11 @@ for the get flows datatables operation typically these are written to a http.Req
 */
 type GetFlowsDatatablesParams struct {
 
+	/*DivisionID
+	  division ID(s)
+
+	*/
+	DivisionID []string
 	/*Expand
 	  Expand instructions for the result
 
@@ -161,6 +166,17 @@ func (o *GetFlowsDatatablesParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithDivisionID adds the divisionID to the get flows datatables params
+func (o *GetFlowsDatatablesParams) WithDivisionID(divisionID []string) *GetFlowsDatatablesParams {
+	o.SetDivisionID(divisionID)
+	return o
+}
+
+// SetDivisionID adds the divisionId to the get flows datatables params
+func (o *GetFlowsDatatablesParams) SetDivisionID(divisionID []string) {
+	o.DivisionID = divisionID
+}
+
 // WithExpand adds the expand to the get flows datatables params
 func (o *GetFlowsDatatablesParams) WithExpand(expand *string) *GetFlowsDatatablesParams {
 	o.SetExpand(expand)
@@ -223,6 +239,14 @@ func (o *GetFlowsDatatablesParams) WriteToRequest(r runtime.ClientRequest, reg s
 		return err
 	}
 	var res []error
+
+	valuesDivisionID := o.DivisionID
+
+	joinedDivisionID := swag.JoinByFormat(valuesDivisionID, "multi")
+	// query array param divisionId
+	if err := r.SetQueryParam("divisionId", joinedDivisionID...); err != nil {
+		return err
+	}
 
 	if o.Expand != nil {
 

@@ -49,7 +49,7 @@ type OrphanRecording struct {
 	ProviderEndpoint *Endpoint `json:"providerEndpoint,omitempty"`
 
 	// provider type
-	// Enum: [EDGE CHAT EMAIL SCREEN_RECORDING]
+	// Enum: [EDGE CHAT EMAIL SCREEN_RECORDING PUREENGAGE PURECONNECT]
 	ProviderType string `json:"providerType,omitempty"`
 
 	// recording
@@ -305,7 +305,7 @@ var orphanRecordingTypeProviderTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["EDGE","CHAT","EMAIL","SCREEN_RECORDING"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["EDGE","CHAT","EMAIL","SCREEN_RECORDING","PUREENGAGE","PURECONNECT"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -326,6 +326,12 @@ const (
 
 	// OrphanRecordingProviderTypeSCREENRECORDING captures enum value "SCREEN_RECORDING"
 	OrphanRecordingProviderTypeSCREENRECORDING string = "SCREEN_RECORDING"
+
+	// OrphanRecordingProviderTypePUREENGAGE captures enum value "PUREENGAGE"
+	OrphanRecordingProviderTypePUREENGAGE string = "PUREENGAGE"
+
+	// OrphanRecordingProviderTypePURECONNECT captures enum value "PURECONNECT"
+	OrphanRecordingProviderTypePURECONNECT string = "PURECONNECT"
 )
 
 // prop value enum

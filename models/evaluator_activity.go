@@ -45,6 +45,9 @@ type EvaluatorActivity struct {
 	// num evaluations started
 	NumEvaluationsStarted int32 `json:"numEvaluationsStarted,omitempty"`
 
+	// num evaluations without view permission
+	NumEvaluationsWithoutViewPermission int32 `json:"numEvaluationsWithoutViewPermission,omitempty"`
+
 	// The URI for this object
 	// Read Only: true
 	// Format: uri

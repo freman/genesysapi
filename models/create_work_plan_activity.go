@@ -42,6 +42,12 @@ type CreateWorkPlanActivity struct {
 	// Length of the activity in minutes
 	LengthMinutes int32 `json:"lengthMinutes,omitempty"`
 
+	// The minimum duration between shift item (e.g., break or meal) end and shift end in minutes
+	MinimumLengthFromShiftEndMinutes int32 `json:"minimumLengthFromShiftEndMinutes,omitempty"`
+
+	// The minimum duration between shift start and shift item (e.g., break or meal) start in minutes
+	MinimumLengthFromShiftStartMinutes int32 `json:"minimumLengthFromShiftStartMinutes,omitempty"`
+
 	// Increment in offset minutes that would contribute to different possible start times for the activity
 	StartTimeIncrementMinutes int32 `json:"startTimeIncrementMinutes,omitempty"`
 

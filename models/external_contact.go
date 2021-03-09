@@ -53,7 +53,6 @@ type ExternalContact struct {
 	HomePhone *PhoneNumber `json:"homePhone,omitempty"`
 
 	// The globally unique identifier for the object.
-	// Read Only: true
 	ID string `json:"id,omitempty"`
 
 	// The last name of the contact.

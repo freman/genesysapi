@@ -19,6 +19,9 @@ import (
 // swagger:model ManagementUnit
 type ManagementUnit struct {
 
+	// The business unit to which this management unit belongs
+	BusinessUnit *BusinessUnitReference `json:"businessUnit,omitempty"`
+
 	// The date and time at which this entity was last modified.  Deprecated, use field from settings.metadata instead. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Read Only: true
 	// Format: date-time
@@ -65,6 +68,10 @@ type ManagementUnit struct {
 func (m *ManagementUnit) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateBusinessUnit(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateDateModified(formats); err != nil {
 		res = append(res, err)
 	}
@@ -96,6 +103,24 @@ func (m *ManagementUnit) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *ManagementUnit) validateBusinessUnit(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.BusinessUnit) { // not required
+		return nil
+	}
+
+	if m.BusinessUnit != nil {
+		if err := m.BusinessUnit.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("businessUnit")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

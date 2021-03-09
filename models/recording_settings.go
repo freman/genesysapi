@@ -15,7 +15,10 @@ import (
 // swagger:model RecordingSettings
 type RecordingSettings struct {
 
-	// max simultaneous streams
+	// Upper limit that maxSimultaneousStreams can be configured
+	MaxConfigurableScreenRecordingStreams int32 `json:"maxConfigurableScreenRecordingStreams,omitempty"`
+
+	// Maximum number of simultaneous screen recording streams
 	MaxSimultaneousStreams int32 `json:"maxSimultaneousStreams,omitempty"`
 }
 

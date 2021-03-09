@@ -22,28 +22,28 @@ type ManagementUnitListing struct {
 	// entities
 	Entities []*ManagementUnit `json:"entities"`
 
-	// first Uri
+	// Deprecated, paging is not supported
 	// Format: uri
 	FirstURI strfmt.URI `json:"firstUri,omitempty"`
 
-	// last Uri
+	// Deprecated, paging is not supported
 	// Format: uri
 	LastURI strfmt.URI `json:"lastUri,omitempty"`
 
-	// next Uri
+	// Deprecated, paging is not supported
 	// Format: uri
 	NextURI strfmt.URI `json:"nextUri,omitempty"`
 
-	// page count
+	// Deprecated, paging is not supported
 	PageCount int32 `json:"pageCount,omitempty"`
 
-	// page number
+	// Deprecated, paging is not supported
 	PageNumber int32 `json:"pageNumber,omitempty"`
 
-	// page size
+	// Deprecated, paging is not supported
 	PageSize int32 `json:"pageSize,omitempty"`
 
-	// previous Uri
+	// Deprecated, paging is not supported
 	// Format: uri
 	PreviousURI strfmt.URI `json:"previousUri,omitempty"`
 
@@ -51,7 +51,7 @@ type ManagementUnitListing struct {
 	// Format: uri
 	SelfURI strfmt.URI `json:"selfUri,omitempty"`
 
-	// total
+	// Deprecated, paging is not supported
 	Total int64 `json:"total,omitempty"`
 }
 

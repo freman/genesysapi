@@ -21,6 +21,18 @@ type API interface {
 	   PostUploadsPublicassetsImages creates presigned url for uploading a public asset image
 	*/
 	PostUploadsPublicassetsImages(ctx context.Context, params *PostUploadsPublicassetsImagesParams) (*PostUploadsPublicassetsImagesOK, error)
+	/*
+	   PostUploadsRecordings creates presigned url for uploading a recording file
+	*/
+	PostUploadsRecordings(ctx context.Context, params *PostUploadsRecordingsParams) (*PostUploadsRecordingsOK, error)
+	/*
+	   PostUploadsWorkforcemanagementHistoricaldataCsv creates presigned url for uploading w f m historical data file requires data in csv format
+	*/
+	PostUploadsWorkforcemanagementHistoricaldataCsv(ctx context.Context, params *PostUploadsWorkforcemanagementHistoricaldataCsvParams) (*PostUploadsWorkforcemanagementHistoricaldataCsvOK, error)
+	/*
+	   PostUploadsWorkforcemanagementHistoricaldataJSON creates presigned url for uploading w f m historical data file requires data in json format
+	*/
+	PostUploadsWorkforcemanagementHistoricaldataJSON(ctx context.Context, params *PostUploadsWorkforcemanagementHistoricaldataJSONParams) (*PostUploadsWorkforcemanagementHistoricaldataJSONOK, error)
 }
 
 // New creates a new uploads API client.
@@ -63,5 +75,80 @@ func (a *Client) PostUploadsPublicassetsImages(ctx context.Context, params *Post
 		return nil, err
 	}
 	return result.(*PostUploadsPublicassetsImagesOK), nil
+
+}
+
+/*
+PostUploadsRecordings creates presigned url for uploading a recording file
+*/
+func (a *Client) PostUploadsRecordings(ctx context.Context, params *PostUploadsRecordingsParams) (*PostUploadsRecordingsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postUploadsRecordings",
+		Method:             "POST",
+		PathPattern:        "/api/v2/uploads/recordings",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostUploadsRecordingsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostUploadsRecordingsOK), nil
+
+}
+
+/*
+PostUploadsWorkforcemanagementHistoricaldataCsv creates presigned url for uploading w f m historical data file requires data in csv format
+*/
+func (a *Client) PostUploadsWorkforcemanagementHistoricaldataCsv(ctx context.Context, params *PostUploadsWorkforcemanagementHistoricaldataCsvParams) (*PostUploadsWorkforcemanagementHistoricaldataCsvOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postUploadsWorkforcemanagementHistoricaldataCsv",
+		Method:             "POST",
+		PathPattern:        "/api/v2/uploads/workforcemanagement/historicaldata/csv",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostUploadsWorkforcemanagementHistoricaldataCsvReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostUploadsWorkforcemanagementHistoricaldataCsvOK), nil
+
+}
+
+/*
+PostUploadsWorkforcemanagementHistoricaldataJSON creates presigned url for uploading w f m historical data file requires data in json format
+*/
+func (a *Client) PostUploadsWorkforcemanagementHistoricaldataJSON(ctx context.Context, params *PostUploadsWorkforcemanagementHistoricaldataJSONParams) (*PostUploadsWorkforcemanagementHistoricaldataJSONOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postUploadsWorkforcemanagementHistoricaldataJson",
+		Method:             "POST",
+		PathPattern:        "/api/v2/uploads/workforcemanagement/historicaldata/json",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostUploadsWorkforcemanagementHistoricaldataJSONReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostUploadsWorkforcemanagementHistoricaldataJSONOK), nil
 
 }

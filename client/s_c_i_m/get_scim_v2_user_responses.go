@@ -59,6 +59,12 @@ func (o *GetScimV2UserReader) ReadResponse(response runtime.ClientResponse, cons
 			return nil, err
 		}
 		return nil, result
+	case 409:
+		result := NewGetScimV2UserConflict()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetScimV2UserRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -276,6 +282,39 @@ func (o *GetScimV2UserNotFound) GetPayload() *models.ErrorBody {
 }
 
 func (o *GetScimV2UserNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewGetScimV2UserConflict creates a GetScimV2UserConflict with default headers values
+func NewGetScimV2UserConflict() *GetScimV2UserConflict {
+	return &GetScimV2UserConflict{}
+}
+
+/*GetScimV2UserConflict handles this case with default header values.
+
+Conflict
+*/
+type GetScimV2UserConflict struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetScimV2UserConflict) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/v2/users/{userId}][%d] getScimV2UserConflict  %+v", 409, o.Payload)
+}
+
+func (o *GetScimV2UserConflict) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetScimV2UserConflict) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ErrorBody)
 

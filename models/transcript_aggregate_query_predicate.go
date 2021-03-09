@@ -20,7 +20,7 @@ import (
 type TranscriptAggregateQueryPredicate struct {
 
 	// Left hand side for dimension predicates
-	// Enum: [addressFrom addressTo ani channel conversationId direction divisionId dnis flowId mediaType messageType queueId teamId topic userId]
+	// Enum: [addressFrom addressTo ani channel conversationId direction divisionId dnis flowId flowVersion mediaType messageType queueId teamId topicId userId]
 	Dimension string `json:"dimension,omitempty"`
 
 	// Optional operator, default is matches
@@ -68,7 +68,7 @@ var transcriptAggregateQueryPredicateTypeDimensionPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["addressFrom","addressTo","ani","channel","conversationId","direction","divisionId","dnis","flowId","mediaType","messageType","queueId","teamId","topic","userId"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["addressFrom","addressTo","ani","channel","conversationId","direction","divisionId","dnis","flowId","flowVersion","mediaType","messageType","queueId","teamId","topicId","userId"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -105,6 +105,9 @@ const (
 	// TranscriptAggregateQueryPredicateDimensionFlowID captures enum value "flowId"
 	TranscriptAggregateQueryPredicateDimensionFlowID string = "flowId"
 
+	// TranscriptAggregateQueryPredicateDimensionFlowVersion captures enum value "flowVersion"
+	TranscriptAggregateQueryPredicateDimensionFlowVersion string = "flowVersion"
+
 	// TranscriptAggregateQueryPredicateDimensionMediaType captures enum value "mediaType"
 	TranscriptAggregateQueryPredicateDimensionMediaType string = "mediaType"
 
@@ -117,8 +120,8 @@ const (
 	// TranscriptAggregateQueryPredicateDimensionTeamID captures enum value "teamId"
 	TranscriptAggregateQueryPredicateDimensionTeamID string = "teamId"
 
-	// TranscriptAggregateQueryPredicateDimensionTopic captures enum value "topic"
-	TranscriptAggregateQueryPredicateDimensionTopic string = "topic"
+	// TranscriptAggregateQueryPredicateDimensionTopicID captures enum value "topicId"
+	TranscriptAggregateQueryPredicateDimensionTopicID string = "topicId"
 
 	// TranscriptAggregateQueryPredicateDimensionUserID captures enum value "userId"
 	TranscriptAggregateQueryPredicateDimensionUserID string = "userId"

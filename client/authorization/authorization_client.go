@@ -125,7 +125,7 @@ type API interface {
 	/*
 	   PostAuthorizationDivisionObject assigns a list of objects to a division
 	   Set the division of a specified list of objects. The objects must all be of the same type, one of:
-	   CAMPAIGN, MANAGEMENTUNIT, FLOW, QUEUE, or USER.
+	   CAMPAIGN, MANAGEMENTUNIT, FLOW, QUEUE, DATATABLES or USER.
 	   The body of the request is a list of object IDs, which are expected to be
 	   GUIDs, e.g. ["206ce31f-61ec-40ed-a8b1-be6f06303998","250a754e-f5e4-4f51-800f-a92f09d3bf8c"]
 	*/
@@ -813,7 +813,7 @@ func (a *Client) PatchAuthorizationRole(ctx context.Context, params *PatchAuthor
 PostAuthorizationDivisionObject assigns a list of objects to a division
 
 Set the division of a specified list of objects. The objects must all be of the same type, one of:
-CAMPAIGN, MANAGEMENTUNIT, FLOW, QUEUE, or USER.
+CAMPAIGN, MANAGEMENTUNIT, FLOW, QUEUE, DATATABLES or USER.
 The body of the request is a list of object IDs, which are expected to be
 GUIDs, e.g. ["206ce31f-61ec-40ed-a8b1-be6f06303998","250a754e-f5e4-4f51-800f-a92f09d3bf8c"]
 */

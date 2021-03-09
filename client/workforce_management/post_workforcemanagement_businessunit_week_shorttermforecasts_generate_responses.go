@@ -89,6 +89,12 @@ func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateReader
 			return nil, err
 		}
 		return nil, result
+	case 502:
+		result := NewPostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateBadGateway()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 503:
 		result := NewPostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateServiceUnavailable()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -459,6 +465,39 @@ func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateIntern
 }
 
 func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateBadGateway creates a PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateBadGateway with default headers values
+func NewPostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateBadGateway() *PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateBadGateway {
+	return &PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateBadGateway{}
+}
+
+/*PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateBadGateway handles this case with default header values.
+
+Bad Gateway
+*/
+type PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateBadGateway struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateBadGateway) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/generate][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateBadGateway  %+v", 502, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateBadGateway) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateBadGateway) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ErrorBody)
 

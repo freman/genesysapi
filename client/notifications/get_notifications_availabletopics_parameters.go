@@ -20,8 +20,11 @@ import (
 // NewGetNotificationsAvailabletopicsParams creates a new GetNotificationsAvailabletopicsParams object
 // with the default values initialized.
 func NewGetNotificationsAvailabletopicsParams() *GetNotificationsAvailabletopicsParams {
-	var ()
+	var (
+		includePreviewDefault = bool(true)
+	)
 	return &GetNotificationsAvailabletopicsParams{
+		IncludePreview: &includePreviewDefault,
 
 		timeout: cr.DefaultTimeout,
 	}
@@ -30,8 +33,11 @@ func NewGetNotificationsAvailabletopicsParams() *GetNotificationsAvailabletopics
 // NewGetNotificationsAvailabletopicsParamsWithTimeout creates a new GetNotificationsAvailabletopicsParams object
 // with the default values initialized, and the ability to set a timeout on a request
 func NewGetNotificationsAvailabletopicsParamsWithTimeout(timeout time.Duration) *GetNotificationsAvailabletopicsParams {
-	var ()
+	var (
+		includePreviewDefault = bool(true)
+	)
 	return &GetNotificationsAvailabletopicsParams{
+		IncludePreview: &includePreviewDefault,
 
 		timeout: timeout,
 	}
@@ -40,8 +46,11 @@ func NewGetNotificationsAvailabletopicsParamsWithTimeout(timeout time.Duration) 
 // NewGetNotificationsAvailabletopicsParamsWithContext creates a new GetNotificationsAvailabletopicsParams object
 // with the default values initialized, and the ability to set a context for a request
 func NewGetNotificationsAvailabletopicsParamsWithContext(ctx context.Context) *GetNotificationsAvailabletopicsParams {
-	var ()
+	var (
+		includePreviewDefault = bool(true)
+	)
 	return &GetNotificationsAvailabletopicsParams{
+		IncludePreview: &includePreviewDefault,
 
 		Context: ctx,
 	}
@@ -50,9 +59,12 @@ func NewGetNotificationsAvailabletopicsParamsWithContext(ctx context.Context) *G
 // NewGetNotificationsAvailabletopicsParamsWithHTTPClient creates a new GetNotificationsAvailabletopicsParams object
 // with the default values initialized, and the ability to set a custom HTTPClient for a request
 func NewGetNotificationsAvailabletopicsParamsWithHTTPClient(client *http.Client) *GetNotificationsAvailabletopicsParams {
-	var ()
+	var (
+		includePreviewDefault = bool(true)
+	)
 	return &GetNotificationsAvailabletopicsParams{
-		HTTPClient: client,
+		IncludePreview: &includePreviewDefault,
+		HTTPClient:     client,
 	}
 }
 
@@ -66,6 +78,11 @@ type GetNotificationsAvailabletopicsParams struct {
 
 	*/
 	Expand []string
+	/*IncludePreview
+	  Whether or not to include Preview topics
+
+	*/
+	IncludePreview *bool
 
 	timeout    time.Duration
 	Context    context.Context
@@ -116,6 +133,17 @@ func (o *GetNotificationsAvailabletopicsParams) SetExpand(expand []string) {
 	o.Expand = expand
 }
 
+// WithIncludePreview adds the includePreview to the get notifications availabletopics params
+func (o *GetNotificationsAvailabletopicsParams) WithIncludePreview(includePreview *bool) *GetNotificationsAvailabletopicsParams {
+	o.SetIncludePreview(includePreview)
+	return o
+}
+
+// SetIncludePreview adds the includePreview to the get notifications availabletopics params
+func (o *GetNotificationsAvailabletopicsParams) SetIncludePreview(includePreview *bool) {
+	o.IncludePreview = includePreview
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *GetNotificationsAvailabletopicsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -130,6 +158,22 @@ func (o *GetNotificationsAvailabletopicsParams) WriteToRequest(r runtime.ClientR
 	// query array param expand
 	if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
 		return err
+	}
+
+	if o.IncludePreview != nil {
+
+		// query param includePreview
+		var qrIncludePreview bool
+		if o.IncludePreview != nil {
+			qrIncludePreview = *o.IncludePreview
+		}
+		qIncludePreview := swag.FormatBool(qrIncludePreview)
+		if qIncludePreview != "" {
+			if err := r.SetQueryParam("includePreview", qIncludePreview); err != nil {
+				return err
+			}
+		}
+
 	}
 
 	if len(res) > 0 {

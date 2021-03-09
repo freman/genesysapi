@@ -189,6 +189,10 @@ type API interface {
 	*/
 	GetTelephonyProvidersEdgesDidpools(ctx context.Context, params *GetTelephonyProvidersEdgesDidpoolsParams) (*GetTelephonyProvidersEdgesDidpoolsOK, error)
 	/*
+	   GetTelephonyProvidersEdgesDidpoolsDids gets a listing of unassigned and or assigned numbers in a set of d ID pools
+	*/
+	GetTelephonyProvidersEdgesDidpoolsDids(ctx context.Context, params *GetTelephonyProvidersEdgesDidpoolsDidsParams) (*GetTelephonyProvidersEdgesDidpoolsDidsOK, error)
+	/*
 	   GetTelephonyProvidersEdgesDids gets a listing of d i ds
 	*/
 	GetTelephonyProvidersEdgesDids(ctx context.Context, params *GetTelephonyProvidersEdgesDidsParams) (*GetTelephonyProvidersEdgesDidsOK, error)
@@ -1618,6 +1622,31 @@ func (a *Client) GetTelephonyProvidersEdgesDidpools(ctx context.Context, params 
 		return nil, err
 	}
 	return result.(*GetTelephonyProvidersEdgesDidpoolsOK), nil
+
+}
+
+/*
+GetTelephonyProvidersEdgesDidpoolsDids gets a listing of unassigned and or assigned numbers in a set of d ID pools
+*/
+func (a *Client) GetTelephonyProvidersEdgesDidpoolsDids(ctx context.Context, params *GetTelephonyProvidersEdgesDidpoolsDidsParams) (*GetTelephonyProvidersEdgesDidpoolsDidsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getTelephonyProvidersEdgesDidpoolsDids",
+		Method:             "GET",
+		PathPattern:        "/api/v2/telephony/providers/edges/didpools/dids",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetTelephonyProvidersEdgesDidpoolsDidsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetTelephonyProvidersEdgesDidpoolsDidsOK), nil
 
 }
 

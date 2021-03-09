@@ -18,6 +18,14 @@ import (
 // API is the interface of the speech and text analytics client
 type API interface {
 	/*
+	   DeleteSpeechandtextanalyticsProgram deletes a speech and text analytics program by id
+	*/
+	DeleteSpeechandtextanalyticsProgram(ctx context.Context, params *DeleteSpeechandtextanalyticsProgramParams) (*DeleteSpeechandtextanalyticsProgramNoContent, error)
+	/*
+	   DeleteSpeechandtextanalyticsTopic deletes a speech and text analytics topic by id
+	*/
+	DeleteSpeechandtextanalyticsTopic(ctx context.Context, params *DeleteSpeechandtextanalyticsTopicParams) (*DeleteSpeechandtextanalyticsTopicNoContent, error)
+	/*
 	   GetSpeechandtextanalyticsConversation gets speech and text analytics for a specific conversation
 	*/
 	GetSpeechandtextanalyticsConversation(ctx context.Context, params *GetSpeechandtextanalyticsConversationParams) (*GetSpeechandtextanalyticsConversationOK, error)
@@ -26,13 +34,81 @@ type API interface {
 	*/
 	GetSpeechandtextanalyticsConversationCommunicationTranscripturl(ctx context.Context, params *GetSpeechandtextanalyticsConversationCommunicationTranscripturlParams) (*GetSpeechandtextanalyticsConversationCommunicationTranscripturlOK, error)
 	/*
+	   GetSpeechandtextanalyticsDialects gets list of supported speech and text analytics dialects
+	*/
+	GetSpeechandtextanalyticsDialects(ctx context.Context, params *GetSpeechandtextanalyticsDialectsParams) (*GetSpeechandtextanalyticsDialectsOK, error)
+	/*
+	   GetSpeechandtextanalyticsProgram gets a speech and text analytics program by id
+	*/
+	GetSpeechandtextanalyticsProgram(ctx context.Context, params *GetSpeechandtextanalyticsProgramParams) (*GetSpeechandtextanalyticsProgramOK, error)
+	/*
+	   GetSpeechandtextanalyticsPrograms gets the list of speech and text analytics programs
+	*/
+	GetSpeechandtextanalyticsPrograms(ctx context.Context, params *GetSpeechandtextanalyticsProgramsParams) (*GetSpeechandtextanalyticsProgramsOK, error)
+	/*
+	   GetSpeechandtextanalyticsProgramsGeneralJob gets a speech and text analytics general program job by id
+	*/
+	GetSpeechandtextanalyticsProgramsGeneralJob(ctx context.Context, params *GetSpeechandtextanalyticsProgramsGeneralJobParams) (*GetSpeechandtextanalyticsProgramsGeneralJobOK, error)
+	/*
+	   GetSpeechandtextanalyticsProgramsPublishjob gets a speech and text analytics publish programs job by id
+	*/
+	GetSpeechandtextanalyticsProgramsPublishjob(ctx context.Context, params *GetSpeechandtextanalyticsProgramsPublishjobParams) (*GetSpeechandtextanalyticsProgramsPublishjobOK, error)
+	/*
+	   GetSpeechandtextanalyticsProgramsUnpublished gets the list of speech and text analytics unpublished programs
+	*/
+	GetSpeechandtextanalyticsProgramsUnpublished(ctx context.Context, params *GetSpeechandtextanalyticsProgramsUnpublishedParams) (*GetSpeechandtextanalyticsProgramsUnpublishedOK, error)
+	/*
 	   GetSpeechandtextanalyticsSettings gets speech and text analytics settings
 	*/
 	GetSpeechandtextanalyticsSettings(ctx context.Context, params *GetSpeechandtextanalyticsSettingsParams) (*GetSpeechandtextanalyticsSettingsOK, error)
 	/*
+	   GetSpeechandtextanalyticsTopic gets a speech and text analytics topic by id
+	*/
+	GetSpeechandtextanalyticsTopic(ctx context.Context, params *GetSpeechandtextanalyticsTopicParams) (*GetSpeechandtextanalyticsTopicOK, error)
+	/*
+	   GetSpeechandtextanalyticsTopics gets the list of speech and text analytics topics
+	*/
+	GetSpeechandtextanalyticsTopics(ctx context.Context, params *GetSpeechandtextanalyticsTopicsParams) (*GetSpeechandtextanalyticsTopicsOK, error)
+	/*
+	   GetSpeechandtextanalyticsTopicsGeneral gets the speech and text analytics general topics for a given dialect
+	*/
+	GetSpeechandtextanalyticsTopicsGeneral(ctx context.Context, params *GetSpeechandtextanalyticsTopicsGeneralParams) (*GetSpeechandtextanalyticsTopicsGeneralOK, error)
+	/*
+	   GetSpeechandtextanalyticsTopicsPublishjob gets a speech and text analytics publish topics job by id
+	*/
+	GetSpeechandtextanalyticsTopicsPublishjob(ctx context.Context, params *GetSpeechandtextanalyticsTopicsPublishjobParams) (*GetSpeechandtextanalyticsTopicsPublishjobOK, error)
+	/*
 	   PatchSpeechandtextanalyticsSettings patches speech and text analytics settings
 	*/
 	PatchSpeechandtextanalyticsSettings(ctx context.Context, params *PatchSpeechandtextanalyticsSettingsParams) (*PatchSpeechandtextanalyticsSettingsOK, error)
+	/*
+	   PostSpeechandtextanalyticsPrograms creates new speech and text analytics program
+	*/
+	PostSpeechandtextanalyticsPrograms(ctx context.Context, params *PostSpeechandtextanalyticsProgramsParams) (*PostSpeechandtextanalyticsProgramsOK, error)
+	/*
+	   PostSpeechandtextanalyticsProgramsGeneralJobs creates new speech and text analytics general program job
+	*/
+	PostSpeechandtextanalyticsProgramsGeneralJobs(ctx context.Context, params *PostSpeechandtextanalyticsProgramsGeneralJobsParams) (*PostSpeechandtextanalyticsProgramsGeneralJobsOK, error)
+	/*
+	   PostSpeechandtextanalyticsProgramsPublishjobs creates new speech and text analytics publish programs job
+	*/
+	PostSpeechandtextanalyticsProgramsPublishjobs(ctx context.Context, params *PostSpeechandtextanalyticsProgramsPublishjobsParams) (*PostSpeechandtextanalyticsProgramsPublishjobsOK, error)
+	/*
+	   PostSpeechandtextanalyticsTopics creates new speech and text analytics topic
+	*/
+	PostSpeechandtextanalyticsTopics(ctx context.Context, params *PostSpeechandtextanalyticsTopicsParams) (*PostSpeechandtextanalyticsTopicsOK, error)
+	/*
+	   PostSpeechandtextanalyticsTopicsPublishjobs creates new speech and text analytics publish topics job
+	*/
+	PostSpeechandtextanalyticsTopicsPublishjobs(ctx context.Context, params *PostSpeechandtextanalyticsTopicsPublishjobsParams) (*PostSpeechandtextanalyticsTopicsPublishjobsOK, error)
+	/*
+	   PutSpeechandtextanalyticsProgram updates existing speech and text analytics program
+	*/
+	PutSpeechandtextanalyticsProgram(ctx context.Context, params *PutSpeechandtextanalyticsProgramParams) (*PutSpeechandtextanalyticsProgramOK, error)
+	/*
+	   PutSpeechandtextanalyticsTopic updates existing speech and text analytics topic
+	*/
+	PutSpeechandtextanalyticsTopic(ctx context.Context, params *PutSpeechandtextanalyticsTopicParams) (*PutSpeechandtextanalyticsTopicOK, error)
 }
 
 // New creates a new speech and text analytics API client.
@@ -51,6 +127,56 @@ type Client struct {
 	transport runtime.ClientTransport
 	formats   strfmt.Registry
 	authInfo  runtime.ClientAuthInfoWriter
+}
+
+/*
+DeleteSpeechandtextanalyticsProgram deletes a speech and text analytics program by id
+*/
+func (a *Client) DeleteSpeechandtextanalyticsProgram(ctx context.Context, params *DeleteSpeechandtextanalyticsProgramParams) (*DeleteSpeechandtextanalyticsProgramNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteSpeechandtextanalyticsProgram",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/speechandtextanalytics/programs/{programId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteSpeechandtextanalyticsProgramReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteSpeechandtextanalyticsProgramNoContent), nil
+
+}
+
+/*
+DeleteSpeechandtextanalyticsTopic deletes a speech and text analytics topic by id
+*/
+func (a *Client) DeleteSpeechandtextanalyticsTopic(ctx context.Context, params *DeleteSpeechandtextanalyticsTopicParams) (*DeleteSpeechandtextanalyticsTopicNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteSpeechandtextanalyticsTopic",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/speechandtextanalytics/topics/{topicId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteSpeechandtextanalyticsTopicReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteSpeechandtextanalyticsTopicNoContent), nil
+
 }
 
 /*
@@ -104,6 +230,156 @@ func (a *Client) GetSpeechandtextanalyticsConversationCommunicationTranscripturl
 }
 
 /*
+GetSpeechandtextanalyticsDialects gets list of supported speech and text analytics dialects
+*/
+func (a *Client) GetSpeechandtextanalyticsDialects(ctx context.Context, params *GetSpeechandtextanalyticsDialectsParams) (*GetSpeechandtextanalyticsDialectsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getSpeechandtextanalyticsDialects",
+		Method:             "GET",
+		PathPattern:        "/api/v2/speechandtextanalytics/dialects",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetSpeechandtextanalyticsDialectsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetSpeechandtextanalyticsDialectsOK), nil
+
+}
+
+/*
+GetSpeechandtextanalyticsProgram gets a speech and text analytics program by id
+*/
+func (a *Client) GetSpeechandtextanalyticsProgram(ctx context.Context, params *GetSpeechandtextanalyticsProgramParams) (*GetSpeechandtextanalyticsProgramOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getSpeechandtextanalyticsProgram",
+		Method:             "GET",
+		PathPattern:        "/api/v2/speechandtextanalytics/programs/{programId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetSpeechandtextanalyticsProgramReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetSpeechandtextanalyticsProgramOK), nil
+
+}
+
+/*
+GetSpeechandtextanalyticsPrograms gets the list of speech and text analytics programs
+*/
+func (a *Client) GetSpeechandtextanalyticsPrograms(ctx context.Context, params *GetSpeechandtextanalyticsProgramsParams) (*GetSpeechandtextanalyticsProgramsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getSpeechandtextanalyticsPrograms",
+		Method:             "GET",
+		PathPattern:        "/api/v2/speechandtextanalytics/programs",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetSpeechandtextanalyticsProgramsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetSpeechandtextanalyticsProgramsOK), nil
+
+}
+
+/*
+GetSpeechandtextanalyticsProgramsGeneralJob gets a speech and text analytics general program job by id
+*/
+func (a *Client) GetSpeechandtextanalyticsProgramsGeneralJob(ctx context.Context, params *GetSpeechandtextanalyticsProgramsGeneralJobParams) (*GetSpeechandtextanalyticsProgramsGeneralJobOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getSpeechandtextanalyticsProgramsGeneralJob",
+		Method:             "GET",
+		PathPattern:        "/api/v2/speechandtextanalytics/programs/general/jobs/{jobId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetSpeechandtextanalyticsProgramsGeneralJobReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetSpeechandtextanalyticsProgramsGeneralJobOK), nil
+
+}
+
+/*
+GetSpeechandtextanalyticsProgramsPublishjob gets a speech and text analytics publish programs job by id
+*/
+func (a *Client) GetSpeechandtextanalyticsProgramsPublishjob(ctx context.Context, params *GetSpeechandtextanalyticsProgramsPublishjobParams) (*GetSpeechandtextanalyticsProgramsPublishjobOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getSpeechandtextanalyticsProgramsPublishjob",
+		Method:             "GET",
+		PathPattern:        "/api/v2/speechandtextanalytics/programs/publishjobs/{jobId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetSpeechandtextanalyticsProgramsPublishjobReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetSpeechandtextanalyticsProgramsPublishjobOK), nil
+
+}
+
+/*
+GetSpeechandtextanalyticsProgramsUnpublished gets the list of speech and text analytics unpublished programs
+*/
+func (a *Client) GetSpeechandtextanalyticsProgramsUnpublished(ctx context.Context, params *GetSpeechandtextanalyticsProgramsUnpublishedParams) (*GetSpeechandtextanalyticsProgramsUnpublishedOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getSpeechandtextanalyticsProgramsUnpublished",
+		Method:             "GET",
+		PathPattern:        "/api/v2/speechandtextanalytics/programs/unpublished",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetSpeechandtextanalyticsProgramsUnpublishedReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetSpeechandtextanalyticsProgramsUnpublishedOK), nil
+
+}
+
+/*
 GetSpeechandtextanalyticsSettings gets speech and text analytics settings
 */
 func (a *Client) GetSpeechandtextanalyticsSettings(ctx context.Context, params *GetSpeechandtextanalyticsSettingsParams) (*GetSpeechandtextanalyticsSettingsOK, error) {
@@ -129,6 +405,106 @@ func (a *Client) GetSpeechandtextanalyticsSettings(ctx context.Context, params *
 }
 
 /*
+GetSpeechandtextanalyticsTopic gets a speech and text analytics topic by id
+*/
+func (a *Client) GetSpeechandtextanalyticsTopic(ctx context.Context, params *GetSpeechandtextanalyticsTopicParams) (*GetSpeechandtextanalyticsTopicOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getSpeechandtextanalyticsTopic",
+		Method:             "GET",
+		PathPattern:        "/api/v2/speechandtextanalytics/topics/{topicId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetSpeechandtextanalyticsTopicReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetSpeechandtextanalyticsTopicOK), nil
+
+}
+
+/*
+GetSpeechandtextanalyticsTopics gets the list of speech and text analytics topics
+*/
+func (a *Client) GetSpeechandtextanalyticsTopics(ctx context.Context, params *GetSpeechandtextanalyticsTopicsParams) (*GetSpeechandtextanalyticsTopicsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getSpeechandtextanalyticsTopics",
+		Method:             "GET",
+		PathPattern:        "/api/v2/speechandtextanalytics/topics",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetSpeechandtextanalyticsTopicsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetSpeechandtextanalyticsTopicsOK), nil
+
+}
+
+/*
+GetSpeechandtextanalyticsTopicsGeneral gets the speech and text analytics general topics for a given dialect
+*/
+func (a *Client) GetSpeechandtextanalyticsTopicsGeneral(ctx context.Context, params *GetSpeechandtextanalyticsTopicsGeneralParams) (*GetSpeechandtextanalyticsTopicsGeneralOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getSpeechandtextanalyticsTopicsGeneral",
+		Method:             "GET",
+		PathPattern:        "/api/v2/speechandtextanalytics/topics/general",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetSpeechandtextanalyticsTopicsGeneralReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetSpeechandtextanalyticsTopicsGeneralOK), nil
+
+}
+
+/*
+GetSpeechandtextanalyticsTopicsPublishjob gets a speech and text analytics publish topics job by id
+*/
+func (a *Client) GetSpeechandtextanalyticsTopicsPublishjob(ctx context.Context, params *GetSpeechandtextanalyticsTopicsPublishjobParams) (*GetSpeechandtextanalyticsTopicsPublishjobOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getSpeechandtextanalyticsTopicsPublishjob",
+		Method:             "GET",
+		PathPattern:        "/api/v2/speechandtextanalytics/topics/publishjobs/{jobId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetSpeechandtextanalyticsTopicsPublishjobReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetSpeechandtextanalyticsTopicsPublishjobOK), nil
+
+}
+
+/*
 PatchSpeechandtextanalyticsSettings patches speech and text analytics settings
 */
 func (a *Client) PatchSpeechandtextanalyticsSettings(ctx context.Context, params *PatchSpeechandtextanalyticsSettingsParams) (*PatchSpeechandtextanalyticsSettingsOK, error) {
@@ -150,5 +526,180 @@ func (a *Client) PatchSpeechandtextanalyticsSettings(ctx context.Context, params
 		return nil, err
 	}
 	return result.(*PatchSpeechandtextanalyticsSettingsOK), nil
+
+}
+
+/*
+PostSpeechandtextanalyticsPrograms creates new speech and text analytics program
+*/
+func (a *Client) PostSpeechandtextanalyticsPrograms(ctx context.Context, params *PostSpeechandtextanalyticsProgramsParams) (*PostSpeechandtextanalyticsProgramsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postSpeechandtextanalyticsPrograms",
+		Method:             "POST",
+		PathPattern:        "/api/v2/speechandtextanalytics/programs",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostSpeechandtextanalyticsProgramsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostSpeechandtextanalyticsProgramsOK), nil
+
+}
+
+/*
+PostSpeechandtextanalyticsProgramsGeneralJobs creates new speech and text analytics general program job
+*/
+func (a *Client) PostSpeechandtextanalyticsProgramsGeneralJobs(ctx context.Context, params *PostSpeechandtextanalyticsProgramsGeneralJobsParams) (*PostSpeechandtextanalyticsProgramsGeneralJobsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postSpeechandtextanalyticsProgramsGeneralJobs",
+		Method:             "POST",
+		PathPattern:        "/api/v2/speechandtextanalytics/programs/general/jobs",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostSpeechandtextanalyticsProgramsGeneralJobsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostSpeechandtextanalyticsProgramsGeneralJobsOK), nil
+
+}
+
+/*
+PostSpeechandtextanalyticsProgramsPublishjobs creates new speech and text analytics publish programs job
+*/
+func (a *Client) PostSpeechandtextanalyticsProgramsPublishjobs(ctx context.Context, params *PostSpeechandtextanalyticsProgramsPublishjobsParams) (*PostSpeechandtextanalyticsProgramsPublishjobsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postSpeechandtextanalyticsProgramsPublishjobs",
+		Method:             "POST",
+		PathPattern:        "/api/v2/speechandtextanalytics/programs/publishjobs",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostSpeechandtextanalyticsProgramsPublishjobsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostSpeechandtextanalyticsProgramsPublishjobsOK), nil
+
+}
+
+/*
+PostSpeechandtextanalyticsTopics creates new speech and text analytics topic
+*/
+func (a *Client) PostSpeechandtextanalyticsTopics(ctx context.Context, params *PostSpeechandtextanalyticsTopicsParams) (*PostSpeechandtextanalyticsTopicsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postSpeechandtextanalyticsTopics",
+		Method:             "POST",
+		PathPattern:        "/api/v2/speechandtextanalytics/topics",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostSpeechandtextanalyticsTopicsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostSpeechandtextanalyticsTopicsOK), nil
+
+}
+
+/*
+PostSpeechandtextanalyticsTopicsPublishjobs creates new speech and text analytics publish topics job
+*/
+func (a *Client) PostSpeechandtextanalyticsTopicsPublishjobs(ctx context.Context, params *PostSpeechandtextanalyticsTopicsPublishjobsParams) (*PostSpeechandtextanalyticsTopicsPublishjobsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postSpeechandtextanalyticsTopicsPublishjobs",
+		Method:             "POST",
+		PathPattern:        "/api/v2/speechandtextanalytics/topics/publishjobs",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostSpeechandtextanalyticsTopicsPublishjobsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostSpeechandtextanalyticsTopicsPublishjobsOK), nil
+
+}
+
+/*
+PutSpeechandtextanalyticsProgram updates existing speech and text analytics program
+*/
+func (a *Client) PutSpeechandtextanalyticsProgram(ctx context.Context, params *PutSpeechandtextanalyticsProgramParams) (*PutSpeechandtextanalyticsProgramOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "putSpeechandtextanalyticsProgram",
+		Method:             "PUT",
+		PathPattern:        "/api/v2/speechandtextanalytics/programs/{programId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PutSpeechandtextanalyticsProgramReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutSpeechandtextanalyticsProgramOK), nil
+
+}
+
+/*
+PutSpeechandtextanalyticsTopic updates existing speech and text analytics topic
+*/
+func (a *Client) PutSpeechandtextanalyticsTopic(ctx context.Context, params *PutSpeechandtextanalyticsTopicParams) (*PutSpeechandtextanalyticsTopicOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "putSpeechandtextanalyticsTopic",
+		Method:             "PUT",
+		PathPattern:        "/api/v2/speechandtextanalytics/topics/{topicId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PutSpeechandtextanalyticsTopicReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutSpeechandtextanalyticsTopicOK), nil
 
 }

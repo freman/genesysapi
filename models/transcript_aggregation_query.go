@@ -147,7 +147,7 @@ var transcriptAggregationQueryGroupByItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["addressFrom","addressTo","ani","channel","conversationId","direction","divisionId","dnis","flowId","mediaType","messageType","queueId","teamId","topic","userId"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["addressFrom","addressTo","ani","channel","conversationId","direction","divisionId","dnis","flowId","flowVersion","mediaType","messageType","queueId","teamId","topicId","userId"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {

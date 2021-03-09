@@ -128,7 +128,7 @@ type GetUsersDevelopmentActivitiesParams struct {
 	*/
 	PageSize *int32
 	/*Relationship
-	  Specifies how the current user relation should be interpreted, and filters the activities returned to only those that have the specified relationship. If not specified, all relationships are returned.
+	  Specifies how the current user relation should be interpreted, and filters the activities returned to only the activities that have the specified relationship. If a value besides Attendee is specified, it will only return Coaching Appointments. If not specified, no filtering is applied.
 
 	*/
 	Relationship []string

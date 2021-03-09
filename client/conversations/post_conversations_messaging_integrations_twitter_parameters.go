@@ -14,7 +14,6 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
-	"github.com/go-openapi/swag"
 
 	"github.com/freman/genesysapi/models"
 )
@@ -22,11 +21,8 @@ import (
 // NewPostConversationsMessagingIntegrationsTwitterParams creates a new PostConversationsMessagingIntegrationsTwitterParams object
 // with the default values initialized.
 func NewPostConversationsMessagingIntegrationsTwitterParams() *PostConversationsMessagingIntegrationsTwitterParams {
-	var (
-		asyncDefault = bool(false)
-	)
+	var ()
 	return &PostConversationsMessagingIntegrationsTwitterParams{
-		Async: &asyncDefault,
 
 		timeout: cr.DefaultTimeout,
 	}
@@ -35,11 +31,8 @@ func NewPostConversationsMessagingIntegrationsTwitterParams() *PostConversations
 // NewPostConversationsMessagingIntegrationsTwitterParamsWithTimeout creates a new PostConversationsMessagingIntegrationsTwitterParams object
 // with the default values initialized, and the ability to set a timeout on a request
 func NewPostConversationsMessagingIntegrationsTwitterParamsWithTimeout(timeout time.Duration) *PostConversationsMessagingIntegrationsTwitterParams {
-	var (
-		asyncDefault = bool(false)
-	)
+	var ()
 	return &PostConversationsMessagingIntegrationsTwitterParams{
-		Async: &asyncDefault,
 
 		timeout: timeout,
 	}
@@ -48,11 +41,8 @@ func NewPostConversationsMessagingIntegrationsTwitterParamsWithTimeout(timeout t
 // NewPostConversationsMessagingIntegrationsTwitterParamsWithContext creates a new PostConversationsMessagingIntegrationsTwitterParams object
 // with the default values initialized, and the ability to set a context for a request
 func NewPostConversationsMessagingIntegrationsTwitterParamsWithContext(ctx context.Context) *PostConversationsMessagingIntegrationsTwitterParams {
-	var (
-		asyncDefault = bool(false)
-	)
+	var ()
 	return &PostConversationsMessagingIntegrationsTwitterParams{
-		Async: &asyncDefault,
 
 		Context: ctx,
 	}
@@ -61,11 +51,8 @@ func NewPostConversationsMessagingIntegrationsTwitterParamsWithContext(ctx conte
 // NewPostConversationsMessagingIntegrationsTwitterParamsWithHTTPClient creates a new PostConversationsMessagingIntegrationsTwitterParams object
 // with the default values initialized, and the ability to set a custom HTTPClient for a request
 func NewPostConversationsMessagingIntegrationsTwitterParamsWithHTTPClient(client *http.Client) *PostConversationsMessagingIntegrationsTwitterParams {
-	var (
-		asyncDefault = bool(false)
-	)
+	var ()
 	return &PostConversationsMessagingIntegrationsTwitterParams{
-		Async:      &asyncDefault,
 		HTTPClient: client,
 	}
 }
@@ -75,11 +62,6 @@ for the post conversations messaging integrations twitter operation typically th
 */
 type PostConversationsMessagingIntegrationsTwitterParams struct {
 
-	/*Async
-	  Create a Twitter integration in an asynchronous manner. If the parameter value is true, this initiates the generation of a new Twitter integration. An integration ID is returned, it can be used to query the integration. Check the integration's createStatus for Completed or Error to detect the create is finished.
-
-	*/
-	Async *bool
 	/*Body
 	  TwitterIntegrationRequest
 
@@ -124,17 +106,6 @@ func (o *PostConversationsMessagingIntegrationsTwitterParams) SetHTTPClient(clie
 	o.HTTPClient = client
 }
 
-// WithAsync adds the async to the post conversations messaging integrations twitter params
-func (o *PostConversationsMessagingIntegrationsTwitterParams) WithAsync(async *bool) *PostConversationsMessagingIntegrationsTwitterParams {
-	o.SetAsync(async)
-	return o
-}
-
-// SetAsync adds the async to the post conversations messaging integrations twitter params
-func (o *PostConversationsMessagingIntegrationsTwitterParams) SetAsync(async *bool) {
-	o.Async = async
-}
-
 // WithBody adds the body to the post conversations messaging integrations twitter params
 func (o *PostConversationsMessagingIntegrationsTwitterParams) WithBody(body *models.TwitterIntegrationRequest) *PostConversationsMessagingIntegrationsTwitterParams {
 	o.SetBody(body)
@@ -153,22 +124,6 @@ func (o *PostConversationsMessagingIntegrationsTwitterParams) WriteToRequest(r r
 		return err
 	}
 	var res []error
-
-	if o.Async != nil {
-
-		// query param async
-		var qrAsync bool
-		if o.Async != nil {
-			qrAsync = *o.Async
-		}
-		qAsync := swag.FormatBool(qrAsync)
-		if qAsync != "" {
-			if err := r.SetQueryParam("async", qAsync); err != nil {
-				return err
-			}
-		}
-
-	}
 
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {

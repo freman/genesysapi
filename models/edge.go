@@ -23,11 +23,13 @@ type Edge struct {
 	// api version
 	APIVersion string `json:"apiVersion,omitempty"`
 
-	// call draining state
+	// The current state of the Edge's call draining process before it can be safely rebooted or updated.
+	// Read Only: true
 	// Enum: [NONE WAIT WAIT_TIMEOUT TERMINATE COMPLETE]
 	CallDrainingState string `json:"callDrainingState,omitempty"`
 
-	// conversation count
+	// The remaining number of conversations the Edge has to drain before it can be safely rebooted or updated. When an Edge is not draining conversations, this will be NULL or 0.
+	// Read Only: true
 	ConversationCount int32 `json:"conversationCount,omitempty"`
 
 	// The ID of the user that created the resource.

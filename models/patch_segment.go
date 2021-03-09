@@ -37,6 +37,9 @@ type PatchSegment struct {
 	// Required: true
 	DisplayName *string `json:"displayName"`
 
+	// Details of an entity corresponding to this segment in an external system.
+	ExternalSegment *PatchExternalSegment `json:"externalSegment,omitempty"`
+
 	// The globally unique identifier for the object.
 	// Read Only: true
 	ID string `json:"id,omitempty"`
@@ -76,6 +79,10 @@ func (m *PatchSegment) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateDisplayName(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateExternalSegment(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -132,6 +139,24 @@ func (m *PatchSegment) validateDisplayName(formats strfmt.Registry) error {
 
 	if err := validate.Required("displayName", "body", m.DisplayName); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *PatchSegment) validateExternalSegment(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.ExternalSegment) { // not required
+		return nil
+	}
+
+	if m.ExternalSegment != nil {
+		if err := m.ExternalSegment.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("externalSegment")
+			}
+			return err
+		}
 	}
 
 	return nil

@@ -23,8 +23,14 @@ type AvailableTopic struct {
 	// description
 	Description string `json:"description,omitempty"`
 
+	// Whether or not the permissions on this topic are enforced
+	Enforced bool `json:"enforced"`
+
 	// id
 	ID string `json:"id,omitempty"`
+
+	// Full detailed permissions required to subscribe to the topic
+	PermissionDetails []*PermissionDetails `json:"permissionDetails"`
 
 	// public Api template Uri paths
 	PublicAPITemplateURIPaths []string `json:"publicApiTemplateUriPaths"`
@@ -35,6 +41,9 @@ type AvailableTopic struct {
 	// True if permissions are only required when the topic user ID does not match the subscribing user ID
 	RequiresCurrentUserOrPermission bool `json:"requiresCurrentUserOrPermission"`
 
+	// True if the subscribing user must belong to the same division as the topic object ID
+	RequiresDivisionPermissions bool `json:"requiresDivisionPermissions"`
+
 	// Permissions required to subscribe to the topic
 	RequiresPermissions []string `json:"requiresPermissions"`
 
@@ -43,19 +52,56 @@ type AvailableTopic struct {
 
 	// Transports that support events for the topic
 	Transports []string `json:"transports"`
+
+	// Visibility of this topic (Public or Preview)
+	// Enum: [Public Preview]
+	Visibility string `json:"visibility,omitempty"`
 }
 
 // Validate validates this available topic
 func (m *AvailableTopic) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validatePermissionDetails(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateTransports(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateVisibility(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *AvailableTopic) validatePermissionDetails(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.PermissionDetails) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.PermissionDetails); i++ {
+		if swag.IsZero(m.PermissionDetails[i]) { // not required
+			continue
+		}
+
+		if m.PermissionDetails[i] != nil {
+			if err := m.PermissionDetails[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("permissionDetails" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 
@@ -91,6 +137,49 @@ func (m *AvailableTopic) validateTransports(formats strfmt.Registry) error {
 			return err
 		}
 
+	}
+
+	return nil
+}
+
+var availableTopicTypeVisibilityPropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Public","Preview"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		availableTopicTypeVisibilityPropEnum = append(availableTopicTypeVisibilityPropEnum, v)
+	}
+}
+
+const (
+
+	// AvailableTopicVisibilityPublic captures enum value "Public"
+	AvailableTopicVisibilityPublic string = "Public"
+
+	// AvailableTopicVisibilityPreview captures enum value "Preview"
+	AvailableTopicVisibilityPreview string = "Preview"
+)
+
+// prop value enum
+func (m *AvailableTopic) validateVisibilityEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, availableTopicTypeVisibilityPropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *AvailableTopic) validateVisibility(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Visibility) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateVisibilityEnum("visibility", "body", m.Visibility); err != nil {
+		return err
 	}
 
 	return nil

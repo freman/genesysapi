@@ -25,6 +25,9 @@ type CreateWorkPlanShift struct {
 	// Whether the contiguous time constraint for the shift is enabled
 	ConstrainContiguousWorkTime bool `json:"constrainContiguousWorkTime"`
 
+	// Whether the earliest stop time constraint for the shift is enabled
+	ConstrainEarliestStopTime bool `json:"constrainEarliestStopTime"`
+
 	// Whether the latest stop time constraint for the shift is enabled
 	ConstrainLatestStopTime bool `json:"constrainLatestStopTime"`
 
@@ -36,6 +39,9 @@ type CreateWorkPlanShift struct {
 
 	// Earliest start time of the shift defined as offset minutes from midnight. Used if flexibleStartTime == true
 	EarliestStartTimeMinutesFromMidnight int32 `json:"earliestStartTimeMinutesFromMidnight,omitempty"`
+
+	// This is the earliest time a shift can end
+	EarliestStopTimeMinutesFromMidnight int32 `json:"earliestStopTimeMinutesFromMidnight,omitempty"`
 
 	// Exact paid time in minutes configured for the shift. Used if flexiblePaidTime == false
 	ExactPaidTimeMinutes int32 `json:"exactPaidTimeMinutes,omitempty"`

@@ -169,6 +169,7 @@ type API interface {
 	GetWorkforcemanagementBusinessunitsDivisionviews(ctx context.Context, params *GetWorkforcemanagementBusinessunitsDivisionviewsParams) (*GetWorkforcemanagementBusinessunitsDivisionviewsOK, error)
 	/*
 	   GetWorkforcemanagementManagementunit gets management unit
+	   settings.shortTermForecasting is deprecated and now lives on the business unit
 	*/
 	GetWorkforcemanagementManagementunit(ctx context.Context, params *GetWorkforcemanagementManagementunitParams) (*GetWorkforcemanagementManagementunitOK, error)
 	/*
@@ -1388,6 +1389,8 @@ func (a *Client) GetWorkforcemanagementBusinessunitsDivisionviews(ctx context.Co
 
 /*
 GetWorkforcemanagementManagementunit gets management unit
+
+settings.shortTermForecasting is deprecated and now lives on the business unit
 */
 func (a *Client) GetWorkforcemanagementManagementunit(ctx context.Context, params *GetWorkforcemanagementManagementunitParams) (*GetWorkforcemanagementManagementunitOK, error) {
 

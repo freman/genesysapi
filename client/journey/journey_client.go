@@ -18,9 +18,29 @@ import (
 // API is the interface of the journey client
 type API interface {
 	/*
+	   DeleteJourneyActionmap deletes single action map
+	*/
+	DeleteJourneyActionmap(ctx context.Context, params *DeleteJourneyActionmapParams) (*DeleteJourneyActionmapNoContent, error)
+	/*
+	   DeleteJourneyActiontemplate deletes a single action template
+	*/
+	DeleteJourneyActiontemplate(ctx context.Context, params *DeleteJourneyActiontemplateParams) (*DeleteJourneyActiontemplateNoContent, error)
+	/*
+	   DeleteJourneyOutcome deletes an outcome
+	*/
+	DeleteJourneyOutcome(ctx context.Context, params *DeleteJourneyOutcomeParams) (*DeleteJourneyOutcomeNoContent, error)
+	/*
 	   DeleteJourneySegment deletes a segment
 	*/
 	DeleteJourneySegment(ctx context.Context, params *DeleteJourneySegmentParams) (*DeleteJourneySegmentNoContent, error)
+	/*
+	   GetJourneyActionmap retrieves a single action map
+	*/
+	GetJourneyActionmap(ctx context.Context, params *GetJourneyActionmapParams) (*GetJourneyActionmapOK, error)
+	/*
+	   GetJourneyActionmaps retrieves all action maps
+	*/
+	GetJourneyActionmaps(ctx context.Context, params *GetJourneyActionmapsParams) (*GetJourneyActionmapsOK, error)
 	/*
 	   GetJourneyActiontarget retrieves a single action target
 	*/
@@ -30,6 +50,22 @@ type API interface {
 	*/
 	GetJourneyActiontargets(ctx context.Context, params *GetJourneyActiontargetsParams) (*GetJourneyActiontargetsOK, error)
 	/*
+	   GetJourneyActiontemplate retrieves a single action template
+	*/
+	GetJourneyActiontemplate(ctx context.Context, params *GetJourneyActiontemplateParams) (*GetJourneyActiontemplateOK, error)
+	/*
+	   GetJourneyActiontemplates retrieves all action templates
+	*/
+	GetJourneyActiontemplates(ctx context.Context, params *GetJourneyActiontemplatesParams) (*GetJourneyActiontemplatesOK, error)
+	/*
+	   GetJourneyOutcome retrieves a single outcome
+	*/
+	GetJourneyOutcome(ctx context.Context, params *GetJourneyOutcomeParams) (*GetJourneyOutcomeOK, error)
+	/*
+	   GetJourneyOutcomes retrieves all outcomes
+	*/
+	GetJourneyOutcomes(ctx context.Context, params *GetJourneyOutcomesParams) (*GetJourneyOutcomesOK, error)
+	/*
 	   GetJourneySegment retrieves a single segment
 	*/
 	GetJourneySegment(ctx context.Context, params *GetJourneySegmentParams) (*GetJourneySegmentOK, error)
@@ -38,9 +74,21 @@ type API interface {
 	*/
 	GetJourneySegments(ctx context.Context, params *GetJourneySegmentsParams) (*GetJourneySegmentsOK, error)
 	/*
+	   PatchJourneyActionmap updates single action map
+	*/
+	PatchJourneyActionmap(ctx context.Context, params *PatchJourneyActionmapParams) (*PatchJourneyActionmapOK, error)
+	/*
 	   PatchJourneyActiontarget updates a single action target
 	*/
 	PatchJourneyActiontarget(ctx context.Context, params *PatchJourneyActiontargetParams) (*PatchJourneyActiontargetOK, error)
+	/*
+	   PatchJourneyActiontemplate updates a single action template
+	*/
+	PatchJourneyActiontemplate(ctx context.Context, params *PatchJourneyActiontemplateParams) (*PatchJourneyActiontemplateOK, error)
+	/*
+	   PatchJourneyOutcome updates an outcome
+	*/
+	PatchJourneyOutcome(ctx context.Context, params *PatchJourneyOutcomeParams) (*PatchJourneyOutcomeOK, error)
 	/*
 	   PatchJourneySegment updates a segment
 	*/
@@ -49,6 +97,18 @@ type API interface {
 	   PostAnalyticsJourneysAggregatesQuery queries for journey aggregates
 	*/
 	PostAnalyticsJourneysAggregatesQuery(ctx context.Context, params *PostAnalyticsJourneysAggregatesQueryParams) (*PostAnalyticsJourneysAggregatesQueryOK, error)
+	/*
+	   PostJourneyActionmaps creates an action map
+	*/
+	PostJourneyActionmaps(ctx context.Context, params *PostJourneyActionmapsParams) (*PostJourneyActionmapsOK, *PostJourneyActionmapsCreated, error)
+	/*
+	   PostJourneyActiontemplates creates a single action template
+	*/
+	PostJourneyActiontemplates(ctx context.Context, params *PostJourneyActiontemplatesParams) (*PostJourneyActiontemplatesOK, *PostJourneyActiontemplatesCreated, error)
+	/*
+	   PostJourneyOutcomes creates an outcome
+	*/
+	PostJourneyOutcomes(ctx context.Context, params *PostJourneyOutcomesParams) (*PostJourneyOutcomesOK, *PostJourneyOutcomesCreated, error)
 	/*
 	   PostJourneySegments creates a segment
 	*/
@@ -74,6 +134,81 @@ type Client struct {
 }
 
 /*
+DeleteJourneyActionmap deletes single action map
+*/
+func (a *Client) DeleteJourneyActionmap(ctx context.Context, params *DeleteJourneyActionmapParams) (*DeleteJourneyActionmapNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteJourneyActionmap",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/journey/actionmaps/{actionMapId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteJourneyActionmapReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteJourneyActionmapNoContent), nil
+
+}
+
+/*
+DeleteJourneyActiontemplate deletes a single action template
+*/
+func (a *Client) DeleteJourneyActiontemplate(ctx context.Context, params *DeleteJourneyActiontemplateParams) (*DeleteJourneyActiontemplateNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteJourneyActiontemplate",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/journey/actiontemplates/{actionTemplateId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteJourneyActiontemplateReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteJourneyActiontemplateNoContent), nil
+
+}
+
+/*
+DeleteJourneyOutcome deletes an outcome
+*/
+func (a *Client) DeleteJourneyOutcome(ctx context.Context, params *DeleteJourneyOutcomeParams) (*DeleteJourneyOutcomeNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteJourneyOutcome",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/journey/outcomes/{outcomeId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteJourneyOutcomeReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteJourneyOutcomeNoContent), nil
+
+}
+
+/*
 DeleteJourneySegment deletes a segment
 */
 func (a *Client) DeleteJourneySegment(ctx context.Context, params *DeleteJourneySegmentParams) (*DeleteJourneySegmentNoContent, error) {
@@ -95,6 +230,56 @@ func (a *Client) DeleteJourneySegment(ctx context.Context, params *DeleteJourney
 		return nil, err
 	}
 	return result.(*DeleteJourneySegmentNoContent), nil
+
+}
+
+/*
+GetJourneyActionmap retrieves a single action map
+*/
+func (a *Client) GetJourneyActionmap(ctx context.Context, params *GetJourneyActionmapParams) (*GetJourneyActionmapOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getJourneyActionmap",
+		Method:             "GET",
+		PathPattern:        "/api/v2/journey/actionmaps/{actionMapId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetJourneyActionmapReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetJourneyActionmapOK), nil
+
+}
+
+/*
+GetJourneyActionmaps retrieves all action maps
+*/
+func (a *Client) GetJourneyActionmaps(ctx context.Context, params *GetJourneyActionmapsParams) (*GetJourneyActionmapsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getJourneyActionmaps",
+		Method:             "GET",
+		PathPattern:        "/api/v2/journey/actionmaps",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetJourneyActionmapsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetJourneyActionmapsOK), nil
 
 }
 
@@ -149,6 +334,106 @@ func (a *Client) GetJourneyActiontargets(ctx context.Context, params *GetJourney
 }
 
 /*
+GetJourneyActiontemplate retrieves a single action template
+*/
+func (a *Client) GetJourneyActiontemplate(ctx context.Context, params *GetJourneyActiontemplateParams) (*GetJourneyActiontemplateOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getJourneyActiontemplate",
+		Method:             "GET",
+		PathPattern:        "/api/v2/journey/actiontemplates/{actionTemplateId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetJourneyActiontemplateReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetJourneyActiontemplateOK), nil
+
+}
+
+/*
+GetJourneyActiontemplates retrieves all action templates
+*/
+func (a *Client) GetJourneyActiontemplates(ctx context.Context, params *GetJourneyActiontemplatesParams) (*GetJourneyActiontemplatesOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getJourneyActiontemplates",
+		Method:             "GET",
+		PathPattern:        "/api/v2/journey/actiontemplates",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetJourneyActiontemplatesReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetJourneyActiontemplatesOK), nil
+
+}
+
+/*
+GetJourneyOutcome retrieves a single outcome
+*/
+func (a *Client) GetJourneyOutcome(ctx context.Context, params *GetJourneyOutcomeParams) (*GetJourneyOutcomeOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getJourneyOutcome",
+		Method:             "GET",
+		PathPattern:        "/api/v2/journey/outcomes/{outcomeId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetJourneyOutcomeReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetJourneyOutcomeOK), nil
+
+}
+
+/*
+GetJourneyOutcomes retrieves all outcomes
+*/
+func (a *Client) GetJourneyOutcomes(ctx context.Context, params *GetJourneyOutcomesParams) (*GetJourneyOutcomesOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getJourneyOutcomes",
+		Method:             "GET",
+		PathPattern:        "/api/v2/journey/outcomes",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetJourneyOutcomesReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetJourneyOutcomesOK), nil
+
+}
+
+/*
 GetJourneySegment retrieves a single segment
 */
 func (a *Client) GetJourneySegment(ctx context.Context, params *GetJourneySegmentParams) (*GetJourneySegmentOK, error) {
@@ -199,6 +484,31 @@ func (a *Client) GetJourneySegments(ctx context.Context, params *GetJourneySegme
 }
 
 /*
+PatchJourneyActionmap updates single action map
+*/
+func (a *Client) PatchJourneyActionmap(ctx context.Context, params *PatchJourneyActionmapParams) (*PatchJourneyActionmapOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "patchJourneyActionmap",
+		Method:             "PATCH",
+		PathPattern:        "/api/v2/journey/actionmaps/{actionMapId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchJourneyActionmapReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PatchJourneyActionmapOK), nil
+
+}
+
+/*
 PatchJourneyActiontarget updates a single action target
 */
 func (a *Client) PatchJourneyActiontarget(ctx context.Context, params *PatchJourneyActiontargetParams) (*PatchJourneyActiontargetOK, error) {
@@ -220,6 +530,56 @@ func (a *Client) PatchJourneyActiontarget(ctx context.Context, params *PatchJour
 		return nil, err
 	}
 	return result.(*PatchJourneyActiontargetOK), nil
+
+}
+
+/*
+PatchJourneyActiontemplate updates a single action template
+*/
+func (a *Client) PatchJourneyActiontemplate(ctx context.Context, params *PatchJourneyActiontemplateParams) (*PatchJourneyActiontemplateOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "patchJourneyActiontemplate",
+		Method:             "PATCH",
+		PathPattern:        "/api/v2/journey/actiontemplates/{actionTemplateId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchJourneyActiontemplateReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PatchJourneyActiontemplateOK), nil
+
+}
+
+/*
+PatchJourneyOutcome updates an outcome
+*/
+func (a *Client) PatchJourneyOutcome(ctx context.Context, params *PatchJourneyOutcomeParams) (*PatchJourneyOutcomeOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "patchJourneyOutcome",
+		Method:             "PATCH",
+		PathPattern:        "/api/v2/journey/outcomes/{outcomeId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchJourneyOutcomeReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PatchJourneyOutcomeOK), nil
 
 }
 
@@ -270,6 +630,99 @@ func (a *Client) PostAnalyticsJourneysAggregatesQuery(ctx context.Context, param
 		return nil, err
 	}
 	return result.(*PostAnalyticsJourneysAggregatesQueryOK), nil
+
+}
+
+/*
+PostJourneyActionmaps creates an action map
+*/
+func (a *Client) PostJourneyActionmaps(ctx context.Context, params *PostJourneyActionmapsParams) (*PostJourneyActionmapsOK, *PostJourneyActionmapsCreated, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postJourneyActionmaps",
+		Method:             "POST",
+		PathPattern:        "/api/v2/journey/actionmaps",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostJourneyActionmapsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PostJourneyActionmapsOK:
+		return value, nil, nil
+	case *PostJourneyActionmapsCreated:
+		return nil, value, nil
+	}
+	return nil, nil, nil
+
+}
+
+/*
+PostJourneyActiontemplates creates a single action template
+*/
+func (a *Client) PostJourneyActiontemplates(ctx context.Context, params *PostJourneyActiontemplatesParams) (*PostJourneyActiontemplatesOK, *PostJourneyActiontemplatesCreated, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postJourneyActiontemplates",
+		Method:             "POST",
+		PathPattern:        "/api/v2/journey/actiontemplates",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostJourneyActiontemplatesReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PostJourneyActiontemplatesOK:
+		return value, nil, nil
+	case *PostJourneyActiontemplatesCreated:
+		return nil, value, nil
+	}
+	return nil, nil, nil
+
+}
+
+/*
+PostJourneyOutcomes creates an outcome
+*/
+func (a *Client) PostJourneyOutcomes(ctx context.Context, params *PostJourneyOutcomesParams) (*PostJourneyOutcomesOK, *PostJourneyOutcomesCreated, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postJourneyOutcomes",
+		Method:             "POST",
+		PathPattern:        "/api/v2/journey/outcomes",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostJourneyOutcomesReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PostJourneyOutcomesOK:
+		return value, nil, nil
+	case *PostJourneyOutcomesCreated:
+		return nil, value, nil
+	}
+	return nil, nil, nil
 
 }
 

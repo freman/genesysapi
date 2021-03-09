@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -22,10 +23,16 @@ type WorkPlan struct {
 	// Agents in this work plan
 	Agents []*DeletableUserReference `json:"agents"`
 
+	// Whether to constrain the maximum consecutive working days
+	ConstrainMaximumConsecutiveWorkingDays bool `json:"constrainMaximumConsecutiveWorkingDays"`
+
+	// Whether to constrain the maximum consecutive working weekends
+	ConstrainMaximumConsecutiveWorkingWeekends bool `json:"constrainMaximumConsecutiveWorkingWeekends"`
+
 	// Whether the minimum time between shifts constraint is enabled for this work plan
 	ConstrainMinimumTimeBetweenShifts bool `json:"constrainMinimumTimeBetweenShifts"`
 
-	// Whether paid time granularity is constrained for this workplan
+	// Whether paid time granularity is constrained for this work plan
 	ConstrainPaidTimeGranularity bool `json:"constrainPaidTimeGranularity"`
 
 	// Whether the weekly paid time constraint is enabled for this work plan
@@ -41,12 +48,36 @@ type WorkPlan struct {
 	// Read Only: true
 	ID string `json:"id,omitempty"`
 
+	// The maximum number of consecutive days that agents assigned to this work plan are allowed to work. Used if constrainMaximumConsecutiveWorkingDays == true
+	MaximumConsecutiveWorkingDays int32 `json:"maximumConsecutiveWorkingDays,omitempty"`
+
+	// The maximum number of consecutive weekends that agents who are assigned to this work plan are allowed to work
+	MaximumConsecutiveWorkingWeekends int32 `json:"maximumConsecutiveWorkingWeekends,omitempty"`
+
 	// Maximum number days in a week allowed to be scheduled for this work plan
 	MaximumDays int32 `json:"maximumDays,omitempty"`
+
+	// Maximum days off in the planning period
+	MaximumDaysOffPerPlanningPeriod int32 `json:"maximumDaysOffPerPlanningPeriod,omitempty"`
+
+	// Maximum paid minutes in the planning period
+	MaximumPaidMinutesPerPlanningPeriod int32 `json:"maximumPaidMinutesPerPlanningPeriod,omitempty"`
 
 	// Version metadata for this work plan
 	// Required: true
 	Metadata *WfmVersionedEntityMetadata `json:"metadata"`
+
+	// Minimum amount of consecutive non working minutes per week that agents who are assigned this work plan are allowed to have off
+	MinimumConsecutiveNonWorkingMinutesPerWeek int32 `json:"minimumConsecutiveNonWorkingMinutesPerWeek,omitempty"`
+
+	// Minimum days off in the planning period
+	MinimumDaysOffPerPlanningPeriod int32 `json:"minimumDaysOffPerPlanningPeriod,omitempty"`
+
+	// Minimum paid minutes in the planning period
+	MinimumPaidMinutesPerPlanningPeriod int32 `json:"minimumPaidMinutesPerPlanningPeriod,omitempty"`
+
+	// The time period in minutes for the duration between the start times of two consecutive working days
+	MinimumShiftStartDistanceMinutes int32 `json:"minimumShiftStartDistanceMinutes,omitempty"`
 
 	// Minimum time between shifts in minutes defined in this work plan. Used if constrainMinimumTimeBetweenShifts == true
 	MinimumTimeBetweenShiftsMinutes int32 `json:"minimumTimeBetweenShiftsMinutes,omitempty"`
@@ -67,6 +98,10 @@ type WorkPlan struct {
 	// Read Only: true
 	// Format: uri
 	SelfURI strfmt.URI `json:"selfUri,omitempty"`
+
+	// This constraint ensures that an agent starts each workday within a user-defined time threshold
+	// Enum: [ShiftStart ShiftStartAndPaidDuration]
+	ShiftStartVarianceType string `json:"shiftStartVarianceType,omitempty"`
 
 	// Variance in minutes among start times of shifts in this work plan
 	ShiftStartVariances *ListWrapperShiftStartVariance `json:"shiftStartVariances,omitempty"`
@@ -101,6 +136,10 @@ func (m *WorkPlan) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateSelfURI(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateShiftStartVarianceType(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -186,6 +225,49 @@ func (m *WorkPlan) validateSelfURI(formats strfmt.Registry) error {
 	}
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+var workPlanTypeShiftStartVarianceTypePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["ShiftStart","ShiftStartAndPaidDuration"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		workPlanTypeShiftStartVarianceTypePropEnum = append(workPlanTypeShiftStartVarianceTypePropEnum, v)
+	}
+}
+
+const (
+
+	// WorkPlanShiftStartVarianceTypeShiftStart captures enum value "ShiftStart"
+	WorkPlanShiftStartVarianceTypeShiftStart string = "ShiftStart"
+
+	// WorkPlanShiftStartVarianceTypeShiftStartAndPaidDuration captures enum value "ShiftStartAndPaidDuration"
+	WorkPlanShiftStartVarianceTypeShiftStartAndPaidDuration string = "ShiftStartAndPaidDuration"
+)
+
+// prop value enum
+func (m *WorkPlan) validateShiftStartVarianceTypeEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, workPlanTypeShiftStartVarianceTypePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *WorkPlan) validateShiftStartVarianceType(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.ShiftStartVarianceType) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateShiftStartVarianceTypeEnum("shiftStartVarianceType", "body", m.ShiftStartVarianceType); err != nil {
 		return err
 	}
 

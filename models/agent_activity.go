@@ -56,6 +56,9 @@ type AgentActivity struct {
 	// num evaluations
 	NumEvaluations int32 `json:"numEvaluations,omitempty"`
 
+	// num evaluations without view permission
+	NumEvaluationsWithoutViewPermission int32 `json:"numEvaluationsWithoutViewPermission,omitempty"`
+
 	// The URI for this object
 	// Read Only: true
 	// Format: uri

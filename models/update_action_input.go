@@ -17,13 +17,13 @@ import (
 // swagger:model UpdateActionInput
 type UpdateActionInput struct {
 
-	// Category of action
+	// Category of action, Can be up to 256 characters long
 	Category string `json:"category,omitempty"`
 
 	// Configuration to support request and response processing
 	Config *ActionConfig `json:"config,omitempty"`
 
-	// Name of action
+	// Name of action, Can be up to 256 characters long
 	Name string `json:"name,omitempty"`
 
 	// Version of this action

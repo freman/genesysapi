@@ -23,12 +23,6 @@ type PostRoutingQueueUsersReader struct {
 // ReadResponse reads a server response into the received o.
 func (o *PostRoutingQueueUsersReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {
-	case 200:
-		result := NewPostRoutingQueueUsersOK()
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		return result, nil
 	case 400:
 		result := NewPostRoutingQueueUsersBadRequest()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -89,41 +83,16 @@ func (o *PostRoutingQueueUsersReader) ReadResponse(response runtime.ClientRespon
 			return nil, err
 		}
 		return nil, result
-
 	default:
-		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
+		result := NewPostRoutingQueueUsersDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
-}
-
-// NewPostRoutingQueueUsersOK creates a PostRoutingQueueUsersOK with default headers values
-func NewPostRoutingQueueUsersOK() *PostRoutingQueueUsersOK {
-	return &PostRoutingQueueUsersOK{}
-}
-
-/*PostRoutingQueueUsersOK handles this case with default header values.
-
-successful operation
-*/
-type PostRoutingQueueUsersOK struct {
-	Payload string
-}
-
-func (o *PostRoutingQueueUsersOK) Error() string {
-	return fmt.Sprintf("[POST /api/v2/routing/queues/{queueId}/users][%d] postRoutingQueueUsersOK  %+v", 200, o.Payload)
-}
-
-func (o *PostRoutingQueueUsersOK) GetPayload() string {
-	return o.Payload
-}
-
-func (o *PostRoutingQueueUsersOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
 }
 
 // NewPostRoutingQueueUsersBadRequest creates a PostRoutingQueueUsersBadRequest with default headers values
@@ -452,6 +421,35 @@ func (o *PostRoutingQueueUsersGatewayTimeout) readResponse(response runtime.Clie
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
+
+	return nil
+}
+
+// NewPostRoutingQueueUsersDefault creates a PostRoutingQueueUsersDefault with default headers values
+func NewPostRoutingQueueUsersDefault(code int) *PostRoutingQueueUsersDefault {
+	return &PostRoutingQueueUsersDefault{
+		_statusCode: code,
+	}
+}
+
+/*PostRoutingQueueUsersDefault handles this case with default header values.
+
+successful operation
+*/
+type PostRoutingQueueUsersDefault struct {
+	_statusCode int
+}
+
+// Code gets the status code for the post routing queue users default response
+func (o *PostRoutingQueueUsersDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *PostRoutingQueueUsersDefault) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/queues/{queueId}/users][%d] postRoutingQueueUsers default ", o._statusCode)
+}
+
+func (o *PostRoutingQueueUsersDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	return nil
 }

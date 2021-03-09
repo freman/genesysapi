@@ -27,11 +27,11 @@ type SendAgentlessOutboundMessageRequest struct {
 	// Required: true
 	TextBody *string `json:"textBody"`
 
-	// The messaging address of the recipient of the message. For an SMS messenger type, the phone number address must be in E.164 format. E.g. +13175555555 or +34234234234
+	// The messaging address of the recipient of the message. For an SMS messenger type, the phone number address must be in E.164 format. E.g. +13175555555 or +34234234234.
 	// Required: true
 	ToAddress *string `json:"toAddress"`
 
-	// The recipient messaging address messenger type.
+	// The recipient messaging address messenger type. Currently SMS is the only supported type.
 	// Required: true
 	// Enum: [sms facebook twitter line whatsapp webmessaging]
 	ToAddressMessengerType *string `json:"toAddressMessengerType"`

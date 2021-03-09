@@ -17,7 +17,7 @@ import (
 // swagger:model UpdateDraftInput
 type UpdateDraftInput struct {
 
-	// Category of action
+	// Category of action, Can be up to 256 characters long
 	Category string `json:"category,omitempty"`
 
 	// Configuration to support request and response processing
@@ -26,7 +26,7 @@ type UpdateDraftInput struct {
 	// Action contract
 	Contract *ActionContractInput `json:"contract,omitempty"`
 
-	// Name of action
+	// Name of action, Can be up to 256 characters long
 	Name string `json:"name,omitempty"`
 
 	// Indication of whether or not the action is designed to accept sensitive data

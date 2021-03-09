@@ -30,6 +30,10 @@ type API interface {
 	*/
 	DeleteRoutingQueue(ctx context.Context, params *DeleteRoutingQueueParams) (*DeleteRoutingQueueOK, error)
 	/*
+	   DeleteRoutingQueueMember deletes a queue member
+	*/
+	DeleteRoutingQueueMember(ctx context.Context, params *DeleteRoutingQueueMemberParams) (*DeleteRoutingQueueMemberNoContent, error)
+	/*
 	   DeleteRoutingQueueUser ds e p r e c a t e d use d e l e t e routing queues queue Id members member Id delete queue member
 	*/
 	DeleteRoutingQueueUser(ctx context.Context, params *DeleteRoutingQueueUserParams) (*DeleteRoutingQueueUserOK, error)
@@ -117,6 +121,10 @@ type API interface {
 	   GetRoutingQueueMediatypeEstimatedwaittime gets estimated wait time
 	*/
 	GetRoutingQueueMediatypeEstimatedwaittime(ctx context.Context, params *GetRoutingQueueMediatypeEstimatedwaittimeParams) (*GetRoutingQueueMediatypeEstimatedwaittimeOK, error)
+	/*
+	   GetRoutingQueueMembers gets the members of this queue
+	*/
+	GetRoutingQueueMembers(ctx context.Context, params *GetRoutingQueueMembersParams) (*GetRoutingQueueMembersOK, error)
 	/*
 	   GetRoutingQueueUsers ds e p r e c a t e d use g e t routing queues queue Id members get the members of this queue
 	*/
@@ -215,6 +223,18 @@ type API interface {
 	*/
 	PatchRoutingEmailDomain(ctx context.Context, params *PatchRoutingEmailDomainParams) (*PatchRoutingEmailDomainOK, error)
 	/*
+	   PatchRoutingEmailDomainValidate validates domain settings
+	*/
+	PatchRoutingEmailDomainValidate(ctx context.Context, params *PatchRoutingEmailDomainValidateParams) (*PatchRoutingEmailDomainValidateOK, error)
+	/*
+	   PatchRoutingQueueMember updates the ring number o r joined status for a queue member
+	*/
+	PatchRoutingQueueMember(ctx context.Context, params *PatchRoutingQueueMemberParams) (*PatchRoutingQueueMemberOK, *PatchRoutingQueueMemberAccepted, error)
+	/*
+	   PatchRoutingQueueMembers joins or unjoin a set of users for a queue
+	*/
+	PatchRoutingQueueMembers(ctx context.Context, params *PatchRoutingQueueMembersParams) (*PatchRoutingQueueMembersOK, error)
+	/*
 	   PatchRoutingQueueUser ds e p r e c a t e d use p a t c h routing queues queue Id members member Id update the ring number o r joined status for a user in a queue
 	*/
 	PatchRoutingQueueUser(ctx context.Context, params *PatchRoutingQueueUserParams) (*PatchRoutingQueueUserOK, *PatchRoutingQueueUserAccepted, error)
@@ -268,9 +288,13 @@ type API interface {
 	*/
 	PostRoutingLanguages(ctx context.Context, params *PostRoutingLanguagesParams) (*PostRoutingLanguagesOK, error)
 	/*
+	   PostRoutingQueueMembers bulks add or delete up to 100 queue members
+	*/
+	PostRoutingQueueMembers(ctx context.Context, params *PostRoutingQueueMembersParams) error
+	/*
 	   PostRoutingQueueUsers ds e p r e c a t e d use p o s t routing queues queue Id members bulk add or delete up to 100 queue members
 	*/
-	PostRoutingQueueUsers(ctx context.Context, params *PostRoutingQueueUsersParams) (*PostRoutingQueueUsersOK, error)
+	PostRoutingQueueUsers(ctx context.Context, params *PostRoutingQueueUsersParams) error
 	/*
 	   PostRoutingQueueWrapupcodes adds up to 100 wrap up codes to a queue
 	*/
@@ -439,6 +463,31 @@ func (a *Client) DeleteRoutingQueue(ctx context.Context, params *DeleteRoutingQu
 		return nil, err
 	}
 	return result.(*DeleteRoutingQueueOK), nil
+
+}
+
+/*
+DeleteRoutingQueueMember deletes a queue member
+*/
+func (a *Client) DeleteRoutingQueueMember(ctx context.Context, params *DeleteRoutingQueueMemberParams) (*DeleteRoutingQueueMemberNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteRoutingQueueMember",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/routing/queues/{queueId}/members/{memberId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteRoutingQueueMemberReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteRoutingQueueMemberNoContent), nil
 
 }
 
@@ -989,6 +1038,31 @@ func (a *Client) GetRoutingQueueMediatypeEstimatedwaittime(ctx context.Context, 
 		return nil, err
 	}
 	return result.(*GetRoutingQueueMediatypeEstimatedwaittimeOK), nil
+
+}
+
+/*
+GetRoutingQueueMembers gets the members of this queue
+*/
+func (a *Client) GetRoutingQueueMembers(ctx context.Context, params *GetRoutingQueueMembersParams) (*GetRoutingQueueMembersOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getRoutingQueueMembers",
+		Method:             "GET",
+		PathPattern:        "/api/v2/routing/queues/{queueId}/members",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetRoutingQueueMembersReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetRoutingQueueMembersOK), nil
 
 }
 
@@ -1595,6 +1669,87 @@ func (a *Client) PatchRoutingEmailDomain(ctx context.Context, params *PatchRouti
 }
 
 /*
+PatchRoutingEmailDomainValidate validates domain settings
+*/
+func (a *Client) PatchRoutingEmailDomainValidate(ctx context.Context, params *PatchRoutingEmailDomainValidateParams) (*PatchRoutingEmailDomainValidateOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "patchRoutingEmailDomainValidate",
+		Method:             "PATCH",
+		PathPattern:        "/api/v2/routing/email/domains/{domainId}/validate",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchRoutingEmailDomainValidateReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PatchRoutingEmailDomainValidateOK), nil
+
+}
+
+/*
+PatchRoutingQueueMember updates the ring number o r joined status for a queue member
+*/
+func (a *Client) PatchRoutingQueueMember(ctx context.Context, params *PatchRoutingQueueMemberParams) (*PatchRoutingQueueMemberOK, *PatchRoutingQueueMemberAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "patchRoutingQueueMember",
+		Method:             "PATCH",
+		PathPattern:        "/api/v2/routing/queues/{queueId}/members/{memberId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchRoutingQueueMemberReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PatchRoutingQueueMemberOK:
+		return value, nil, nil
+	case *PatchRoutingQueueMemberAccepted:
+		return nil, value, nil
+	}
+	return nil, nil, nil
+
+}
+
+/*
+PatchRoutingQueueMembers joins or unjoin a set of users for a queue
+*/
+func (a *Client) PatchRoutingQueueMembers(ctx context.Context, params *PatchRoutingQueueMembersParams) (*PatchRoutingQueueMembersOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "patchRoutingQueueMembers",
+		Method:             "PATCH",
+		PathPattern:        "/api/v2/routing/queues/{queueId}/members",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchRoutingQueueMembersReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PatchRoutingQueueMembersOK), nil
+
+}
+
+/*
 PatchRoutingQueueUser ds e p r e c a t e d use p a t c h routing queues queue Id members member Id update the ring number o r joined status for a user in a queue
 */
 func (a *Client) PatchRoutingQueueUser(ctx context.Context, params *PatchRoutingQueueUserParams) (*PatchRoutingQueueUserOK, *PatchRoutingQueueUserAccepted, error) {
@@ -1928,11 +2083,36 @@ func (a *Client) PostRoutingLanguages(ctx context.Context, params *PostRoutingLa
 }
 
 /*
+PostRoutingQueueMembers bulks add or delete up to 100 queue members
+*/
+func (a *Client) PostRoutingQueueMembers(ctx context.Context, params *PostRoutingQueueMembersParams) error {
+
+	_, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postRoutingQueueMembers",
+		Method:             "POST",
+		PathPattern:        "/api/v2/routing/queues/{queueId}/members",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostRoutingQueueMembersReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return err
+	}
+	return nil
+
+}
+
+/*
 PostRoutingQueueUsers ds e p r e c a t e d use p o s t routing queues queue Id members bulk add or delete up to 100 queue members
 */
-func (a *Client) PostRoutingQueueUsers(ctx context.Context, params *PostRoutingQueueUsersParams) (*PostRoutingQueueUsersOK, error) {
+func (a *Client) PostRoutingQueueUsers(ctx context.Context, params *PostRoutingQueueUsersParams) error {
 
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	_, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "postRoutingQueueUsers",
 		Method:             "POST",
 		PathPattern:        "/api/v2/routing/queues/{queueId}/users",
@@ -1946,9 +2126,9 @@ func (a *Client) PostRoutingQueueUsers(ctx context.Context, params *PostRoutingQ
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
-		return nil, err
+		return err
 	}
-	return result.(*PostRoutingQueueUsersOK), nil
+	return nil
 
 }
 

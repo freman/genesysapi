@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"strconv"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -30,6 +32,9 @@ type RoutingData struct {
 	// Required: true
 	QueueID *string `json:"queueId"`
 
+	// A list of scored agents for routing decisions
+	ScoredAgents []*ScoredAgent `json:"scoredAgents"`
+
 	// A list of skill identifiers to be considered in routing
 	SkillIds []string `json:"skillIds"`
 }
@@ -39,6 +44,10 @@ func (m *RoutingData) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateQueueID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateScoredAgents(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -52,6 +61,31 @@ func (m *RoutingData) validateQueueID(formats strfmt.Registry) error {
 
 	if err := validate.Required("queueId", "body", m.QueueID); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *RoutingData) validateScoredAgents(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.ScoredAgents) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.ScoredAgents); i++ {
+		if swag.IsZero(m.ScoredAgents[i]) { // not required
+			continue
+		}
+
+		if m.ScoredAgents[i] != nil {
+			if err := m.ScoredAgents[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("scoredAgents" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

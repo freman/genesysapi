@@ -53,6 +53,12 @@ func (o *PutOutboundSchedulesSequenceReader) ReadResponse(response runtime.Clien
 			return nil, err
 		}
 		return nil, result
+	case 409:
+		result := NewPutOutboundSchedulesSequenceConflict()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPutOutboundSchedulesSequenceRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -249,6 +255,39 @@ func (o *PutOutboundSchedulesSequenceNotFound) GetPayload() *models.ErrorBody {
 }
 
 func (o *PutOutboundSchedulesSequenceNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPutOutboundSchedulesSequenceConflict creates a PutOutboundSchedulesSequenceConflict with default headers values
+func NewPutOutboundSchedulesSequenceConflict() *PutOutboundSchedulesSequenceConflict {
+	return &PutOutboundSchedulesSequenceConflict{}
+}
+
+/*PutOutboundSchedulesSequenceConflict handles this case with default header values.
+
+Conflict
+*/
+type PutOutboundSchedulesSequenceConflict struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PutOutboundSchedulesSequenceConflict) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/schedules/sequences/{sequenceId}][%d] putOutboundSchedulesSequenceConflict  %+v", 409, o.Payload)
+}
+
+func (o *PutOutboundSchedulesSequenceConflict) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PutOutboundSchedulesSequenceConflict) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ErrorBody)
 

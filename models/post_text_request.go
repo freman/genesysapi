@@ -43,6 +43,9 @@ type PostTextRequest struct {
 	// Override timeout for the bot session. This should be greater than 10 minutes.
 	BotSessionTimeoutMinutes int32 `json:"botSessionTimeoutMinutes,omitempty"`
 
+	// genesys bot connector
+	GenesysBotConnector *GenesysBotConnector `json:"genesysBotConnector,omitempty"`
+
 	// google dialogflow
 	GoogleDialogflow *GoogleDialogflowCustomSettings `json:"googleDialogflow,omitempty"`
 
@@ -79,6 +82,10 @@ func (m *PostTextRequest) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateBotSessionID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateGenesysBotConnector(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -172,6 +179,24 @@ func (m *PostTextRequest) validateBotSessionID(formats strfmt.Registry) error {
 
 	if err := validate.Required("botSessionId", "body", m.BotSessionID); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *PostTextRequest) validateGenesysBotConnector(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.GenesysBotConnector) { // not required
+		return nil
+	}
+
+	if m.GenesysBotConnector != nil {
+		if err := m.GenesysBotConnector.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("genesysBotConnector")
+			}
+			return err
+		}
 	}
 
 	return nil

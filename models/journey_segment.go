@@ -39,6 +39,9 @@ type JourneySegment struct {
 	// Required: true
 	DisplayName *string `json:"displayName"`
 
+	// Details of an entity corresponding to this segment in an external system.
+	ExternalSegment *ExternalSegment `json:"externalSegment,omitempty"`
+
 	// The globally unique identifier for the object.
 	// Read Only: true
 	ID string `json:"id,omitempty"`
@@ -82,6 +85,10 @@ func (m *JourneySegment) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateDisplayName(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateExternalSegment(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -142,6 +149,24 @@ func (m *JourneySegment) validateDisplayName(formats strfmt.Registry) error {
 
 	if err := validate.Required("displayName", "body", m.DisplayName); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *JourneySegment) validateExternalSegment(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.ExternalSegment) { // not required
+		return nil
+	}
+
+	if m.ExternalSegment != nil {
+		if err := m.ExternalSegment.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("externalSegment")
+			}
+			return err
+		}
 	}
 
 	return nil

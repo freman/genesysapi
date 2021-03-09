@@ -53,6 +53,12 @@ func (o *PostIntegrationsActionExecuteReader) ReadResponse(response runtime.Clie
 			return nil, err
 		}
 		return nil, result
+	case 405:
+		result := NewPostIntegrationsActionExecuteMethodNotAllowed()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostIntegrationsActionExecuteRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -247,6 +253,39 @@ func (o *PostIntegrationsActionExecuteNotFound) GetPayload() *models.ErrorBody {
 }
 
 func (o *PostIntegrationsActionExecuteNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPostIntegrationsActionExecuteMethodNotAllowed creates a PostIntegrationsActionExecuteMethodNotAllowed with default headers values
+func NewPostIntegrationsActionExecuteMethodNotAllowed() *PostIntegrationsActionExecuteMethodNotAllowed {
+	return &PostIntegrationsActionExecuteMethodNotAllowed{}
+}
+
+/*PostIntegrationsActionExecuteMethodNotAllowed handles this case with default header values.
+
+Method Not Allowed
+*/
+type PostIntegrationsActionExecuteMethodNotAllowed struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostIntegrationsActionExecuteMethodNotAllowed) Error() string {
+	return fmt.Sprintf("[POST /api/v2/integrations/actions/{actionId}/execute][%d] postIntegrationsActionExecuteMethodNotAllowed  %+v", 405, o.Payload)
+}
+
+func (o *PostIntegrationsActionExecuteMethodNotAllowed) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostIntegrationsActionExecuteMethodNotAllowed) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ErrorBody)
 

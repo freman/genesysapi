@@ -19,7 +19,7 @@ import (
 // swagger:model CreateManagementUnitApiRequest
 type CreateManagementUnitAPIRequest struct {
 
-	// The id of the business unit to which this management unit belongs.  Required after business unit launch
+	// The id of the business unit to which this management unit belongs
 	// Required: true
 	BusinessUnitID *string `json:"businessUnitId"`
 

@@ -14,7 +14,6 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
-	"github.com/go-openapi/swag"
 
 	"github.com/freman/genesysapi/models"
 )
@@ -22,11 +21,8 @@ import (
 // NewPostConversationsMessagingIntegrationsWhatsappParams creates a new PostConversationsMessagingIntegrationsWhatsappParams object
 // with the default values initialized.
 func NewPostConversationsMessagingIntegrationsWhatsappParams() *PostConversationsMessagingIntegrationsWhatsappParams {
-	var (
-		asyncDefault = bool(false)
-	)
+	var ()
 	return &PostConversationsMessagingIntegrationsWhatsappParams{
-		Async: &asyncDefault,
 
 		timeout: cr.DefaultTimeout,
 	}
@@ -35,11 +31,8 @@ func NewPostConversationsMessagingIntegrationsWhatsappParams() *PostConversation
 // NewPostConversationsMessagingIntegrationsWhatsappParamsWithTimeout creates a new PostConversationsMessagingIntegrationsWhatsappParams object
 // with the default values initialized, and the ability to set a timeout on a request
 func NewPostConversationsMessagingIntegrationsWhatsappParamsWithTimeout(timeout time.Duration) *PostConversationsMessagingIntegrationsWhatsappParams {
-	var (
-		asyncDefault = bool(false)
-	)
+	var ()
 	return &PostConversationsMessagingIntegrationsWhatsappParams{
-		Async: &asyncDefault,
 
 		timeout: timeout,
 	}
@@ -48,11 +41,8 @@ func NewPostConversationsMessagingIntegrationsWhatsappParamsWithTimeout(timeout 
 // NewPostConversationsMessagingIntegrationsWhatsappParamsWithContext creates a new PostConversationsMessagingIntegrationsWhatsappParams object
 // with the default values initialized, and the ability to set a context for a request
 func NewPostConversationsMessagingIntegrationsWhatsappParamsWithContext(ctx context.Context) *PostConversationsMessagingIntegrationsWhatsappParams {
-	var (
-		asyncDefault = bool(false)
-	)
+	var ()
 	return &PostConversationsMessagingIntegrationsWhatsappParams{
-		Async: &asyncDefault,
 
 		Context: ctx,
 	}
@@ -61,11 +51,8 @@ func NewPostConversationsMessagingIntegrationsWhatsappParamsWithContext(ctx cont
 // NewPostConversationsMessagingIntegrationsWhatsappParamsWithHTTPClient creates a new PostConversationsMessagingIntegrationsWhatsappParams object
 // with the default values initialized, and the ability to set a custom HTTPClient for a request
 func NewPostConversationsMessagingIntegrationsWhatsappParamsWithHTTPClient(client *http.Client) *PostConversationsMessagingIntegrationsWhatsappParams {
-	var (
-		asyncDefault = bool(false)
-	)
+	var ()
 	return &PostConversationsMessagingIntegrationsWhatsappParams{
-		Async:      &asyncDefault,
 		HTTPClient: client,
 	}
 }
@@ -75,11 +62,6 @@ for the post conversations messaging integrations whatsapp operation typically t
 */
 type PostConversationsMessagingIntegrationsWhatsappParams struct {
 
-	/*Async
-	  Create a WhatsApp integration in an asynchronous manner. If the parameter value is true, this initiates the generation of a new WhatsApp integration. An integration ID is returned, it can be used to query the integration. Check the integration's createStatus for Completed or Error to detect the create is finished.
-
-	*/
-	Async *bool
 	/*Body
 	  WhatsAppIntegrationRequest
 
@@ -124,17 +106,6 @@ func (o *PostConversationsMessagingIntegrationsWhatsappParams) SetHTTPClient(cli
 	o.HTTPClient = client
 }
 
-// WithAsync adds the async to the post conversations messaging integrations whatsapp params
-func (o *PostConversationsMessagingIntegrationsWhatsappParams) WithAsync(async *bool) *PostConversationsMessagingIntegrationsWhatsappParams {
-	o.SetAsync(async)
-	return o
-}
-
-// SetAsync adds the async to the post conversations messaging integrations whatsapp params
-func (o *PostConversationsMessagingIntegrationsWhatsappParams) SetAsync(async *bool) {
-	o.Async = async
-}
-
 // WithBody adds the body to the post conversations messaging integrations whatsapp params
 func (o *PostConversationsMessagingIntegrationsWhatsappParams) WithBody(body *models.WhatsAppIntegrationRequest) *PostConversationsMessagingIntegrationsWhatsappParams {
 	o.SetBody(body)
@@ -153,22 +124,6 @@ func (o *PostConversationsMessagingIntegrationsWhatsappParams) WriteToRequest(r 
 		return err
 	}
 	var res []error
-
-	if o.Async != nil {
-
-		// query param async
-		var qrAsync bool
-		if o.Async != nil {
-			qrAsync = *o.Async
-		}
-		qAsync := swag.FormatBool(qrAsync)
-		if qAsync != "" {
-			if err := r.SetQueryParam("async", qAsync); err != nil {
-				return err
-			}
-		}
-
-	}
 
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {

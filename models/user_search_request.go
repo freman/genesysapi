@@ -20,7 +20,7 @@ import (
 // swagger:model UserSearchRequest
 type UserSearchRequest struct {
 
-	// Enforce view permission on request
+	// When set to true add additional search criteria to filter users by directory:user:view
 	EnforcePermissions bool `json:"enforcePermissions"`
 
 	// Provides more details about a specified resource

@@ -63,13 +63,22 @@ type GetWorkforcemanagementManagementunitsParams struct {
 
 	/*DivisionID*/
 	DivisionID *string
-	/*Expand*/
+	/*Expand
+	  Deprecated, expand settings on the single MU route
+
+	*/
 	Expand *string
 	/*Feature*/
 	Feature *string
-	/*PageNumber*/
+	/*PageNumber
+	  Deprecated, paging is not supported
+
+	*/
 	PageNumber *int32
-	/*PageSize*/
+	/*PageSize
+	  Deprecated, paging is not supported
+
+	*/
 	PageSize *int32
 
 	timeout    time.Duration

@@ -17,7 +17,7 @@ import (
 // swagger:model PostActionInput
 type PostActionInput struct {
 
-	// Category of action
+	// Category of action, Can be up to 256 characters long
 	// Required: true
 	Category *string `json:"category"`
 
@@ -33,7 +33,7 @@ type PostActionInput struct {
 	// Required: true
 	IntegrationID *string `json:"integrationId"`
 
-	// Name of action
+	// Name of action, Can be up to 256 characters long
 	// Required: true
 	Name *string `json:"name"`
 

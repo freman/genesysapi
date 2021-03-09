@@ -20,6 +20,9 @@ type DataTable struct {
 	// The description from the JSON schema (equates to the Description field on the JSON schema.)
 	Description string `json:"description,omitempty"`
 
+	// The division to which this entity belongs.
+	Division *Division `json:"division,omitempty"`
+
 	// The globally unique identifier for the object.
 	// Read Only: true
 	ID string `json:"id,omitempty"`
@@ -40,6 +43,10 @@ type DataTable struct {
 func (m *DataTable) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateDivision(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateSchema(formats); err != nil {
 		res = append(res, err)
 	}
@@ -51,6 +58,24 @@ func (m *DataTable) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DataTable) validateDivision(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Division) { // not required
+		return nil
+	}
+
+	if m.Division != nil {
+		if err := m.Division.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("division")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

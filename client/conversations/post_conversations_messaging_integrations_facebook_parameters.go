@@ -14,7 +14,6 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
-	"github.com/go-openapi/swag"
 
 	"github.com/freman/genesysapi/models"
 )
@@ -22,11 +21,8 @@ import (
 // NewPostConversationsMessagingIntegrationsFacebookParams creates a new PostConversationsMessagingIntegrationsFacebookParams object
 // with the default values initialized.
 func NewPostConversationsMessagingIntegrationsFacebookParams() *PostConversationsMessagingIntegrationsFacebookParams {
-	var (
-		asyncDefault = bool(false)
-	)
+	var ()
 	return &PostConversationsMessagingIntegrationsFacebookParams{
-		Async: &asyncDefault,
 
 		timeout: cr.DefaultTimeout,
 	}
@@ -35,11 +31,8 @@ func NewPostConversationsMessagingIntegrationsFacebookParams() *PostConversation
 // NewPostConversationsMessagingIntegrationsFacebookParamsWithTimeout creates a new PostConversationsMessagingIntegrationsFacebookParams object
 // with the default values initialized, and the ability to set a timeout on a request
 func NewPostConversationsMessagingIntegrationsFacebookParamsWithTimeout(timeout time.Duration) *PostConversationsMessagingIntegrationsFacebookParams {
-	var (
-		asyncDefault = bool(false)
-	)
+	var ()
 	return &PostConversationsMessagingIntegrationsFacebookParams{
-		Async: &asyncDefault,
 
 		timeout: timeout,
 	}
@@ -48,11 +41,8 @@ func NewPostConversationsMessagingIntegrationsFacebookParamsWithTimeout(timeout 
 // NewPostConversationsMessagingIntegrationsFacebookParamsWithContext creates a new PostConversationsMessagingIntegrationsFacebookParams object
 // with the default values initialized, and the ability to set a context for a request
 func NewPostConversationsMessagingIntegrationsFacebookParamsWithContext(ctx context.Context) *PostConversationsMessagingIntegrationsFacebookParams {
-	var (
-		asyncDefault = bool(false)
-	)
+	var ()
 	return &PostConversationsMessagingIntegrationsFacebookParams{
-		Async: &asyncDefault,
 
 		Context: ctx,
 	}
@@ -61,11 +51,8 @@ func NewPostConversationsMessagingIntegrationsFacebookParamsWithContext(ctx cont
 // NewPostConversationsMessagingIntegrationsFacebookParamsWithHTTPClient creates a new PostConversationsMessagingIntegrationsFacebookParams object
 // with the default values initialized, and the ability to set a custom HTTPClient for a request
 func NewPostConversationsMessagingIntegrationsFacebookParamsWithHTTPClient(client *http.Client) *PostConversationsMessagingIntegrationsFacebookParams {
-	var (
-		asyncDefault = bool(false)
-	)
+	var ()
 	return &PostConversationsMessagingIntegrationsFacebookParams{
-		Async:      &asyncDefault,
 		HTTPClient: client,
 	}
 }
@@ -75,11 +62,6 @@ for the post conversations messaging integrations facebook operation typically t
 */
 type PostConversationsMessagingIntegrationsFacebookParams struct {
 
-	/*Async
-	  Create a Facebook integration in an asynchronous manner. If the parameter value is true, this initiates the generation of a new Facebook integration. An integration ID is returned, it can be used to query the integration. Check the integration's createStatus for Completed or Error to detect the create is finished.
-
-	*/
-	Async *bool
 	/*Body
 	  FacebookIntegrationRequest
 
@@ -124,17 +106,6 @@ func (o *PostConversationsMessagingIntegrationsFacebookParams) SetHTTPClient(cli
 	o.HTTPClient = client
 }
 
-// WithAsync adds the async to the post conversations messaging integrations facebook params
-func (o *PostConversationsMessagingIntegrationsFacebookParams) WithAsync(async *bool) *PostConversationsMessagingIntegrationsFacebookParams {
-	o.SetAsync(async)
-	return o
-}
-
-// SetAsync adds the async to the post conversations messaging integrations facebook params
-func (o *PostConversationsMessagingIntegrationsFacebookParams) SetAsync(async *bool) {
-	o.Async = async
-}
-
 // WithBody adds the body to the post conversations messaging integrations facebook params
 func (o *PostConversationsMessagingIntegrationsFacebookParams) WithBody(body *models.FacebookIntegrationRequest) *PostConversationsMessagingIntegrationsFacebookParams {
 	o.SetBody(body)
@@ -153,22 +124,6 @@ func (o *PostConversationsMessagingIntegrationsFacebookParams) WriteToRequest(r 
 		return err
 	}
 	var res []error
-
-	if o.Async != nil {
-
-		// query param async
-		var qrAsync bool
-		if o.Async != nil {
-			qrAsync = *o.Async
-		}
-		qAsync := swag.FormatBool(qrAsync)
-		if qAsync != "" {
-			if err := r.SetQueryParam("async", qAsync); err != nil {
-				return err
-			}
-		}
-
-	}
 
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
