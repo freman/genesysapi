@@ -147,7 +147,7 @@ var transcriptAggregationQueryGroupByItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["addressFrom","addressTo","ani","channel","conversationId","direction","divisionId","dnis","flowId","flowVersion","mediaType","messageType","queueId","teamId","topicId","userId"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["addressFrom","addressTo","ani","channel","conversationId","direction","divisionId","dnis","flowId","flowVersion","mediaType","messageType","queueId","resultsBy","teamId","topicId","userId"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -193,7 +193,7 @@ var transcriptAggregationQueryMetricsItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["nTopicCommunications","nTopicSegments","oCustomerSentiment"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["nTopicCommunications","oCustomerSentiment"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {

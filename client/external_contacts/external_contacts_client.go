@@ -142,6 +142,38 @@ type API interface {
 	*/
 	GetExternalcontactsScanRelationships(ctx context.Context, params *GetExternalcontactsScanRelationshipsParams) (*GetExternalcontactsScanRelationshipsOK, error)
 	/*
+	   PostExternalcontactsBulkContacts bulks fetch contacts
+	*/
+	PostExternalcontactsBulkContacts(ctx context.Context, params *PostExternalcontactsBulkContactsParams) (*PostExternalcontactsBulkContactsOK, error)
+	/*
+	   PostExternalcontactsBulkContactsAdd bulks add contacts
+	*/
+	PostExternalcontactsBulkContactsAdd(ctx context.Context, params *PostExternalcontactsBulkContactsAddParams) (*PostExternalcontactsBulkContactsAddOK, error)
+	/*
+	   PostExternalcontactsBulkContactsRemove bulks remove contacts
+	*/
+	PostExternalcontactsBulkContactsRemove(ctx context.Context, params *PostExternalcontactsBulkContactsRemoveParams) (*PostExternalcontactsBulkContactsRemoveOK, error)
+	/*
+	   PostExternalcontactsBulkContactsUpdate bulks update contacts
+	*/
+	PostExternalcontactsBulkContactsUpdate(ctx context.Context, params *PostExternalcontactsBulkContactsUpdateParams) (*PostExternalcontactsBulkContactsUpdateOK, error)
+	/*
+	   PostExternalcontactsBulkOrganizations bulks fetch organizations
+	*/
+	PostExternalcontactsBulkOrganizations(ctx context.Context, params *PostExternalcontactsBulkOrganizationsParams) (*PostExternalcontactsBulkOrganizationsOK, error)
+	/*
+	   PostExternalcontactsBulkOrganizationsAdd bulks add organizations
+	*/
+	PostExternalcontactsBulkOrganizationsAdd(ctx context.Context, params *PostExternalcontactsBulkOrganizationsAddParams) (*PostExternalcontactsBulkOrganizationsAddOK, error)
+	/*
+	   PostExternalcontactsBulkOrganizationsRemove bulks remove organizations
+	*/
+	PostExternalcontactsBulkOrganizationsRemove(ctx context.Context, params *PostExternalcontactsBulkOrganizationsRemoveParams) (*PostExternalcontactsBulkOrganizationsRemoveOK, error)
+	/*
+	   PostExternalcontactsBulkOrganizationsUpdate bulks update organizations
+	*/
+	PostExternalcontactsBulkOrganizationsUpdate(ctx context.Context, params *PostExternalcontactsBulkOrganizationsUpdateParams) (*PostExternalcontactsBulkOrganizationsUpdateOK, error)
+	/*
 	   PostExternalcontactsContactNotes creates a note for an external contact
 	*/
 	PostExternalcontactsContactNotes(ctx context.Context, params *PostExternalcontactsContactNotesParams) (*PostExternalcontactsContactNotesOK, error)
@@ -998,6 +1030,206 @@ func (a *Client) GetExternalcontactsScanRelationships(ctx context.Context, param
 		return nil, err
 	}
 	return result.(*GetExternalcontactsScanRelationshipsOK), nil
+
+}
+
+/*
+PostExternalcontactsBulkContacts bulks fetch contacts
+*/
+func (a *Client) PostExternalcontactsBulkContacts(ctx context.Context, params *PostExternalcontactsBulkContactsParams) (*PostExternalcontactsBulkContactsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postExternalcontactsBulkContacts",
+		Method:             "POST",
+		PathPattern:        "/api/v2/externalcontacts/bulk/contacts",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostExternalcontactsBulkContactsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostExternalcontactsBulkContactsOK), nil
+
+}
+
+/*
+PostExternalcontactsBulkContactsAdd bulks add contacts
+*/
+func (a *Client) PostExternalcontactsBulkContactsAdd(ctx context.Context, params *PostExternalcontactsBulkContactsAddParams) (*PostExternalcontactsBulkContactsAddOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postExternalcontactsBulkContactsAdd",
+		Method:             "POST",
+		PathPattern:        "/api/v2/externalcontacts/bulk/contacts/add",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostExternalcontactsBulkContactsAddReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostExternalcontactsBulkContactsAddOK), nil
+
+}
+
+/*
+PostExternalcontactsBulkContactsRemove bulks remove contacts
+*/
+func (a *Client) PostExternalcontactsBulkContactsRemove(ctx context.Context, params *PostExternalcontactsBulkContactsRemoveParams) (*PostExternalcontactsBulkContactsRemoveOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postExternalcontactsBulkContactsRemove",
+		Method:             "POST",
+		PathPattern:        "/api/v2/externalcontacts/bulk/contacts/remove",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostExternalcontactsBulkContactsRemoveReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostExternalcontactsBulkContactsRemoveOK), nil
+
+}
+
+/*
+PostExternalcontactsBulkContactsUpdate bulks update contacts
+*/
+func (a *Client) PostExternalcontactsBulkContactsUpdate(ctx context.Context, params *PostExternalcontactsBulkContactsUpdateParams) (*PostExternalcontactsBulkContactsUpdateOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postExternalcontactsBulkContactsUpdate",
+		Method:             "POST",
+		PathPattern:        "/api/v2/externalcontacts/bulk/contacts/update",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostExternalcontactsBulkContactsUpdateReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostExternalcontactsBulkContactsUpdateOK), nil
+
+}
+
+/*
+PostExternalcontactsBulkOrganizations bulks fetch organizations
+*/
+func (a *Client) PostExternalcontactsBulkOrganizations(ctx context.Context, params *PostExternalcontactsBulkOrganizationsParams) (*PostExternalcontactsBulkOrganizationsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postExternalcontactsBulkOrganizations",
+		Method:             "POST",
+		PathPattern:        "/api/v2/externalcontacts/bulk/organizations",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostExternalcontactsBulkOrganizationsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostExternalcontactsBulkOrganizationsOK), nil
+
+}
+
+/*
+PostExternalcontactsBulkOrganizationsAdd bulks add organizations
+*/
+func (a *Client) PostExternalcontactsBulkOrganizationsAdd(ctx context.Context, params *PostExternalcontactsBulkOrganizationsAddParams) (*PostExternalcontactsBulkOrganizationsAddOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postExternalcontactsBulkOrganizationsAdd",
+		Method:             "POST",
+		PathPattern:        "/api/v2/externalcontacts/bulk/organizations/add",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostExternalcontactsBulkOrganizationsAddReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostExternalcontactsBulkOrganizationsAddOK), nil
+
+}
+
+/*
+PostExternalcontactsBulkOrganizationsRemove bulks remove organizations
+*/
+func (a *Client) PostExternalcontactsBulkOrganizationsRemove(ctx context.Context, params *PostExternalcontactsBulkOrganizationsRemoveParams) (*PostExternalcontactsBulkOrganizationsRemoveOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postExternalcontactsBulkOrganizationsRemove",
+		Method:             "POST",
+		PathPattern:        "/api/v2/externalcontacts/bulk/organizations/remove",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostExternalcontactsBulkOrganizationsRemoveReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostExternalcontactsBulkOrganizationsRemoveOK), nil
+
+}
+
+/*
+PostExternalcontactsBulkOrganizationsUpdate bulks update organizations
+*/
+func (a *Client) PostExternalcontactsBulkOrganizationsUpdate(ctx context.Context, params *PostExternalcontactsBulkOrganizationsUpdateParams) (*PostExternalcontactsBulkOrganizationsUpdateOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postExternalcontactsBulkOrganizationsUpdate",
+		Method:             "POST",
+		PathPattern:        "/api/v2/externalcontacts/bulk/organizations/update",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostExternalcontactsBulkOrganizationsUpdateReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostExternalcontactsBulkOrganizationsUpdateOK), nil
 
 }
 

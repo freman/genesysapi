@@ -20,7 +20,7 @@ import (
 type TranscriptAggregateQueryPredicate struct {
 
 	// Left hand side for dimension predicates
-	// Enum: [addressFrom addressTo ani channel conversationId direction divisionId dnis flowId flowVersion mediaType messageType queueId teamId topicId userId]
+	// Enum: [addressFrom addressTo ani channel conversationId direction divisionId dnis flowId flowVersion mediaType messageType queueId resultsBy teamId topicId userId]
 	Dimension string `json:"dimension,omitempty"`
 
 	// Optional operator, default is matches
@@ -68,7 +68,7 @@ var transcriptAggregateQueryPredicateTypeDimensionPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["addressFrom","addressTo","ani","channel","conversationId","direction","divisionId","dnis","flowId","flowVersion","mediaType","messageType","queueId","teamId","topicId","userId"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["addressFrom","addressTo","ani","channel","conversationId","direction","divisionId","dnis","flowId","flowVersion","mediaType","messageType","queueId","resultsBy","teamId","topicId","userId"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -116,6 +116,9 @@ const (
 
 	// TranscriptAggregateQueryPredicateDimensionQueueID captures enum value "queueId"
 	TranscriptAggregateQueryPredicateDimensionQueueID string = "queueId"
+
+	// TranscriptAggregateQueryPredicateDimensionResultsBy captures enum value "resultsBy"
+	TranscriptAggregateQueryPredicateDimensionResultsBy string = "resultsBy"
 
 	// TranscriptAggregateQueryPredicateDimensionTeamID captures enum value "teamId"
 	TranscriptAggregateQueryPredicateDimensionTeamID string = "teamId"

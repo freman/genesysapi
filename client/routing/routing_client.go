@@ -219,6 +219,11 @@ type API interface {
 	*/
 	GetUserRoutingskills(ctx context.Context, params *GetUserRoutingskillsParams) (*GetUserRoutingskillsOK, error)
 	/*
+	   PatchRoutingConversation updates attributes of an in queue conversation
+	   Returns an object indicating the updated values of all settable attributes.  Supported attributes: priority (each point of priority is equivalent to one minute of time in queue).
+	*/
+	PatchRoutingConversation(ctx context.Context, params *PatchRoutingConversationParams) (*PatchRoutingConversationOK, error)
+	/*
 	   PatchRoutingEmailDomain updates domain settings
 	*/
 	PatchRoutingEmailDomain(ctx context.Context, params *PatchRoutingEmailDomainParams) (*PatchRoutingEmailDomainOK, error)
@@ -1640,6 +1645,33 @@ func (a *Client) GetUserRoutingskills(ctx context.Context, params *GetUserRoutin
 		return nil, err
 	}
 	return result.(*GetUserRoutingskillsOK), nil
+
+}
+
+/*
+PatchRoutingConversation updates attributes of an in queue conversation
+
+Returns an object indicating the updated values of all settable attributes.  Supported attributes: priority (each point of priority is equivalent to one minute of time in queue).
+*/
+func (a *Client) PatchRoutingConversation(ctx context.Context, params *PatchRoutingConversationParams) (*PatchRoutingConversationOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "patchRoutingConversation",
+		Method:             "PATCH",
+		PathPattern:        "/api/v2/routing/conversations/{conversationId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchRoutingConversationReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PatchRoutingConversationOK), nil
 
 }
 

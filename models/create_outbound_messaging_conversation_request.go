@@ -35,7 +35,7 @@ type CreateOutboundMessagingConversationRequest struct {
 
 	// The messaging address messenger type.
 	// Required: true
-	// Enum: [sms facebook twitter line whatsapp webmessaging]
+	// Enum: [sms facebook twitter line whatsapp webmessaging open]
 	ToAddressMessengerType *string `json:"toAddressMessengerType"`
 
 	// An override to use an existing conversation.
@@ -88,7 +88,7 @@ var createOutboundMessagingConversationRequestTypeToAddressMessengerTypePropEnum
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["sms","facebook","twitter","line","whatsapp","webmessaging"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["sms","facebook","twitter","line","whatsapp","webmessaging","open"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -115,6 +115,9 @@ const (
 
 	// CreateOutboundMessagingConversationRequestToAddressMessengerTypeWebmessaging captures enum value "webmessaging"
 	CreateOutboundMessagingConversationRequestToAddressMessengerTypeWebmessaging string = "webmessaging"
+
+	// CreateOutboundMessagingConversationRequestToAddressMessengerTypeOpen captures enum value "open"
+	CreateOutboundMessagingConversationRequestToAddressMessengerTypeOpen string = "open"
 )
 
 // prop value enum

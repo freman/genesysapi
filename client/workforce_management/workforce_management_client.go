@@ -392,7 +392,8 @@ type API interface {
 	*/
 	PostWorkforcemanagementManagementunitTimeoffrequests(ctx context.Context, params *PostWorkforcemanagementManagementunitTimeoffrequestsParams) (*PostWorkforcemanagementManagementunitTimeoffrequestsOK, error)
 	/*
-	   PostWorkforcemanagementManagementunitTimeoffrequestsQuery gets the lookup ids to fetch the specified set of requests
+	   PostWorkforcemanagementManagementunitTimeoffrequestsQuery fetches time off requests matching the conditions specified in the request body
+	   Request body requires one of the following: User ID is specified, statuses == [Pending] or date range to be specified and less than or equal to 33 days.  All other fields are filters
 	*/
 	PostWorkforcemanagementManagementunitTimeoffrequestsQuery(ctx context.Context, params *PostWorkforcemanagementManagementunitTimeoffrequestsQueryParams) (*PostWorkforcemanagementManagementunitTimeoffrequestsQueryOK, error)
 	/*
@@ -2799,7 +2800,9 @@ func (a *Client) PostWorkforcemanagementManagementunitTimeoffrequests(ctx contex
 }
 
 /*
-PostWorkforcemanagementManagementunitTimeoffrequestsQuery gets the lookup ids to fetch the specified set of requests
+PostWorkforcemanagementManagementunitTimeoffrequestsQuery fetches time off requests matching the conditions specified in the request body
+
+Request body requires one of the following: User ID is specified, statuses == [Pending] or date range to be specified and less than or equal to 33 days.  All other fields are filters
 */
 func (a *Client) PostWorkforcemanagementManagementunitTimeoffrequestsQuery(ctx context.Context, params *PostWorkforcemanagementManagementunitTimeoffrequestsQueryParams) (*PostWorkforcemanagementManagementunitTimeoffrequestsQueryOK, error) {
 

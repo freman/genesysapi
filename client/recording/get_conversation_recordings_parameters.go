@@ -87,7 +87,7 @@ type GetConversationRecordingsParams struct {
 	*/
 	ConversationID string
 	/*FormatID
-	  The desired media format. Possible values: NONE, MP3, WAV, or WEBM
+	  The desired media format
 
 	*/
 	FormatID *string

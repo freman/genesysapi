@@ -6,8 +6,10 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // EdgeAutoUpdateConfig edge auto update config
@@ -16,20 +18,81 @@ import (
 type EdgeAutoUpdateConfig struct {
 
 	// Date time is represented as an ISO-8601 string without a timezone. For example: yyyy-MM-ddTHH:mm:ss.SSS
-	End string `json:"end,omitempty"`
+	// Required: true
+	End *string `json:"end"`
 
-	// rrule
-	Rrule string `json:"rrule,omitempty"`
+	// The recurrence rule for updating the Edges assigned to the site. The only supported frequencies are daily and weekly. Weekly frequencies require a day list with at least oneday specified. All other configurations are not supported.
+	// Required: true
+	Rrule *string `json:"rrule"`
 
 	// Date time is represented as an ISO-8601 string without a timezone. For example: yyyy-MM-ddTHH:mm:ss.SSS
-	Start string `json:"start,omitempty"`
+	// Required: true
+	Start *string `json:"start"`
 
-	// time zone
-	TimeZone string `json:"timeZone,omitempty"`
+	// The timezone of the window in which any updates to the edges assigned to the site can be applied. The minimum size of the window is 2 hours.
+	// Required: true
+	TimeZone *string `json:"timeZone"`
 }
 
 // Validate validates this edge auto update config
 func (m *EdgeAutoUpdateConfig) Validate(formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.validateEnd(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateRrule(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateStart(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTimeZone(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *EdgeAutoUpdateConfig) validateEnd(formats strfmt.Registry) error {
+
+	if err := validate.Required("end", "body", m.End); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *EdgeAutoUpdateConfig) validateRrule(formats strfmt.Registry) error {
+
+	if err := validate.Required("rrule", "body", m.Rrule); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *EdgeAutoUpdateConfig) validateStart(formats strfmt.Registry) error {
+
+	if err := validate.Required("start", "body", m.Start); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *EdgeAutoUpdateConfig) validateTimeZone(formats strfmt.Registry) error {
+
+	if err := validate.Required("timeZone", "body", m.TimeZone); err != nil {
+		return err
+	}
+
 	return nil
 }
 

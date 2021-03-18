@@ -65,6 +65,12 @@ func (o *GetExternalcontactsScanRelationshipsReader) ReadResponse(response runti
 			return nil, err
 		}
 		return nil, result
+	case 422:
+		result := NewGetExternalcontactsScanRelationshipsUnprocessableEntity()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 429:
 		result := NewGetExternalcontactsScanRelationshipsTooManyRequests()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -315,6 +321,39 @@ func (o *GetExternalcontactsScanRelationshipsUnsupportedMediaType) GetPayload() 
 }
 
 func (o *GetExternalcontactsScanRelationshipsUnsupportedMediaType) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewGetExternalcontactsScanRelationshipsUnprocessableEntity creates a GetExternalcontactsScanRelationshipsUnprocessableEntity with default headers values
+func NewGetExternalcontactsScanRelationshipsUnprocessableEntity() *GetExternalcontactsScanRelationshipsUnprocessableEntity {
+	return &GetExternalcontactsScanRelationshipsUnprocessableEntity{}
+}
+
+/*GetExternalcontactsScanRelationshipsUnprocessableEntity handles this case with default header values.
+
+GetExternalcontactsScanRelationshipsUnprocessableEntity get externalcontacts scan relationships unprocessable entity
+*/
+type GetExternalcontactsScanRelationshipsUnprocessableEntity struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetExternalcontactsScanRelationshipsUnprocessableEntity) Error() string {
+	return fmt.Sprintf("[GET /api/v2/externalcontacts/scan/relationships][%d] getExternalcontactsScanRelationshipsUnprocessableEntity  %+v", 422, o.Payload)
+}
+
+func (o *GetExternalcontactsScanRelationshipsUnprocessableEntity) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetExternalcontactsScanRelationshipsUnprocessableEntity) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ErrorBody)
 

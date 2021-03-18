@@ -30,7 +30,7 @@ type SendAgentlessOutboundMessageResponse struct {
 	ID string `json:"id,omitempty"`
 
 	// Type of text messenger.
-	// Enum: [sms facebook twitter line whatsapp webmessaging]
+	// Enum: [sms facebook twitter line whatsapp webmessaging open]
 	MessengerType string `json:"messengerType,omitempty"`
 
 	// The URI for this object
@@ -83,7 +83,7 @@ var sendAgentlessOutboundMessageResponseTypeMessengerTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["sms","facebook","twitter","line","whatsapp","webmessaging"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["sms","facebook","twitter","line","whatsapp","webmessaging","open"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -110,6 +110,9 @@ const (
 
 	// SendAgentlessOutboundMessageResponseMessengerTypeWebmessaging captures enum value "webmessaging"
 	SendAgentlessOutboundMessageResponseMessengerTypeWebmessaging string = "webmessaging"
+
+	// SendAgentlessOutboundMessageResponseMessengerTypeOpen captures enum value "open"
+	SendAgentlessOutboundMessageResponseMessengerTypeOpen string = "open"
 )
 
 // prop value enum

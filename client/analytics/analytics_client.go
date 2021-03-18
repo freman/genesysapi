@@ -69,6 +69,10 @@ type API interface {
 	*/
 	GetAnalyticsReportingTimeperiods(ctx context.Context, params *GetAnalyticsReportingTimeperiodsParams) (*GetAnalyticsReportingTimeperiodsOK, error)
 	/*
+	   PostAnalyticsBotsAggregatesQuery queries for bot aggregates
+	*/
+	PostAnalyticsBotsAggregatesQuery(ctx context.Context, params *PostAnalyticsBotsAggregatesQueryParams) (*PostAnalyticsBotsAggregatesQueryOK, error)
+	/*
 	   PostAnalyticsReportingExports generates a view export request
 	   This API creates a reporting export but the desired way to export analytics data is to use the analytics query APIs instead
 	*/
@@ -413,6 +417,31 @@ func (a *Client) GetAnalyticsReportingTimeperiods(ctx context.Context, params *G
 		return nil, err
 	}
 	return result.(*GetAnalyticsReportingTimeperiodsOK), nil
+
+}
+
+/*
+PostAnalyticsBotsAggregatesQuery queries for bot aggregates
+*/
+func (a *Client) PostAnalyticsBotsAggregatesQuery(ctx context.Context, params *PostAnalyticsBotsAggregatesQueryParams) (*PostAnalyticsBotsAggregatesQueryOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postAnalyticsBotsAggregatesQuery",
+		Method:             "POST",
+		PathPattern:        "/api/v2/analytics/bots/aggregates/query",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostAnalyticsBotsAggregatesQueryReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostAnalyticsBotsAggregatesQueryOK), nil
 
 }
 

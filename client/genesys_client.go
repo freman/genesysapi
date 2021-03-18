@@ -34,6 +34,7 @@ import (
 	"github.com/freman/genesysapi/client/external_contacts"
 	"github.com/freman/genesysapi/client/fax"
 	"github.com/freman/genesysapi/client/flows"
+	"github.com/freman/genesysapi/client/gamification"
 	"github.com/freman/genesysapi/client/general_data_protection_regulation"
 	"github.com/freman/genesysapi/client/geolocation"
 	"github.com/freman/genesysapi/client/greetings"
@@ -166,6 +167,7 @@ func New(c Config) *Genesys {
 	cli.ExternalContacts = external_contacts.New(transport, strfmt.Default, nil)
 	cli.Fax = fax.New(transport, strfmt.Default, nil)
 	cli.Flows = flows.New(transport, strfmt.Default, nil)
+	cli.Gamification = gamification.New(transport, strfmt.Default, nil)
 	cli.GeneralDataProtectionRegulation = general_data_protection_regulation.New(transport, strfmt.Default, nil)
 	cli.Geolocation = geolocation.New(transport, strfmt.Default, nil)
 	cli.Greetings = greetings.New(transport, strfmt.Default, nil)
@@ -230,6 +232,7 @@ type Genesys struct {
 	ExternalContacts                *external_contacts.Client
 	Fax                             *fax.Client
 	Flows                           *flows.Client
+	Gamification                    *gamification.Client
 	GeneralDataProtectionRegulation *general_data_protection_regulation.Client
 	Geolocation                     *geolocation.Client
 	Greetings                       *greetings.Client

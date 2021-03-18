@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -29,6 +31,10 @@ type MessagingRecipient struct {
 	// Required: true
 	ID *string `json:"id"`
 
+	// The recipient identifier type. This is used to indicate the format used by the recipient identifier.
+	// Enum: [Email Phone Opaque]
+	IDType string `json:"idType,omitempty"`
+
 	// Avatar image
 	// Read Only: true
 	Image string `json:"image,omitempty"`
@@ -50,6 +56,10 @@ func (m *MessagingRecipient) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateIDType(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
@@ -59,6 +69,52 @@ func (m *MessagingRecipient) Validate(formats strfmt.Registry) error {
 func (m *MessagingRecipient) validateID(formats strfmt.Registry) error {
 
 	if err := validate.Required("id", "body", m.ID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+var messagingRecipientTypeIDTypePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Email","Phone","Opaque"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		messagingRecipientTypeIDTypePropEnum = append(messagingRecipientTypeIDTypePropEnum, v)
+	}
+}
+
+const (
+
+	// MessagingRecipientIDTypeEmail captures enum value "Email"
+	MessagingRecipientIDTypeEmail string = "Email"
+
+	// MessagingRecipientIDTypePhone captures enum value "Phone"
+	MessagingRecipientIDTypePhone string = "Phone"
+
+	// MessagingRecipientIDTypeOpaque captures enum value "Opaque"
+	MessagingRecipientIDTypeOpaque string = "Opaque"
+)
+
+// prop value enum
+func (m *MessagingRecipient) validateIDTypeEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, messagingRecipientTypeIDTypePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *MessagingRecipient) validateIDType(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.IDType) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateIDTypeEnum("idType", "body", m.IDType); err != nil {
 		return err
 	}
 
