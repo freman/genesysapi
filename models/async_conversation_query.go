@@ -33,9 +33,6 @@ type AsyncConversationQuery struct {
 	// Specify number of results to be returned
 	Limit int32 `json:"limit,omitempty"`
 
-	// Filters that target mediaEndpointStats
-	MediaEndpointStatFilters []*MediaEndpointStatDetailQueryFilter `json:"mediaEndpointStatFilters"`
-
 	// Sort the result set in ascending/descending order. Default is ascending
 	// Enum: [asc desc]
 	Order string `json:"order,omitempty"`
@@ -70,10 +67,6 @@ func (m *AsyncConversationQuery) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateInterval(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateMediaEndpointStatFilters(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -157,31 +150,6 @@ func (m *AsyncConversationQuery) validateInterval(formats strfmt.Registry) error
 
 	if err := validate.Required("interval", "body", m.Interval); err != nil {
 		return err
-	}
-
-	return nil
-}
-
-func (m *AsyncConversationQuery) validateMediaEndpointStatFilters(formats strfmt.Registry) error {
-
-	if swag.IsZero(m.MediaEndpointStatFilters) { // not required
-		return nil
-	}
-
-	for i := 0; i < len(m.MediaEndpointStatFilters); i++ {
-		if swag.IsZero(m.MediaEndpointStatFilters[i]) { // not required
-			continue
-		}
-
-		if m.MediaEndpointStatFilters[i] != nil {
-			if err := m.MediaEndpointStatFilters[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("mediaEndpointStatFilters" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
-		}
-
 	}
 
 	return nil

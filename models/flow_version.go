@@ -23,6 +23,10 @@ type FlowVersion struct {
 	// commit version
 	CommitVersion string `json:"commitVersion,omitempty"`
 
+	// Compatible flow types designate which flow types are allowed to embed a flow’s configuration within their own flow configuration.  Currently the only flows that can be embedded are Common Module flows and the embedding flow can invoke them using the Call Common Module action.
+	// Read Only: true
+	CompatibleFlowTypes []string `json:"compatibleFlowTypes"`
+
 	// configuration Uri
 	ConfigurationURI string `json:"configurationUri,omitempty"`
 
@@ -85,6 +89,10 @@ type FlowVersion struct {
 func (m *FlowVersion) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateCompatibleFlowTypes(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateCreatedBy(formats); err != nil {
 		res = append(res, err)
 	}
@@ -124,6 +132,43 @@ func (m *FlowVersion) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+var flowVersionCompatibleFlowTypesItemsEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["BOT","COMMONMODULE","INBOUNDCALL","INBOUNDCHAT","INBOUNDEMAIL","INBOUNDSHORTMESSAGE","INQUEUECALL","OUTBOUNDCALL","SECURECALL","SPEECH","SURVEYINVITE","WORKFLOW"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		flowVersionCompatibleFlowTypesItemsEnum = append(flowVersionCompatibleFlowTypesItemsEnum, v)
+	}
+}
+
+func (m *FlowVersion) validateCompatibleFlowTypesItemsEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, flowVersionCompatibleFlowTypesItemsEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *FlowVersion) validateCompatibleFlowTypes(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.CompatibleFlowTypes) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.CompatibleFlowTypes); i++ {
+
+		// value enum
+		if err := m.validateCompatibleFlowTypesItemsEnum("compatibleFlowTypes"+"."+strconv.Itoa(i), "body", m.CompatibleFlowTypes[i]); err != nil {
+			return err
+		}
+
+	}
+
 	return nil
 }
 

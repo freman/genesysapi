@@ -54,7 +54,6 @@ type ContactList struct {
 	Name string `json:"name,omitempty"`
 
 	// Indicates which columns are phone numbers.
-	// Required: true
 	PhoneColumns []*ContactPhoneNumberColumn `json:"phoneColumns"`
 
 	// The values in the previewModeColumnName column that indicate a contact should always be dialed in preview mode.
@@ -212,8 +211,8 @@ func (m *ContactList) validateImportStatus(formats strfmt.Registry) error {
 
 func (m *ContactList) validatePhoneColumns(formats strfmt.Registry) error {
 
-	if err := validate.Required("phoneColumns", "body", m.PhoneColumns); err != nil {
-		return err
+	if swag.IsZero(m.PhoneColumns) { // not required
+		return nil
 	}
 
 	for i := 0; i < len(m.PhoneColumns); i++ {

@@ -152,13 +152,18 @@ type GetTelephonyProvidersEdgesPhonesParams struct {
 
 	*/
 	PhoneHardwareID *string
+	/*SecondaryStatusOperationalStatus
+	  The secondary status to filter by
+
+	*/
+	SecondaryStatusOperationalStatus *string
 	/*SiteID
 	  Filter by site.id
 
 	*/
 	SiteID *string
 	/*SortBy
-	  Value by which to sort
+	  The field to sort by
 
 	*/
 	SortBy *string
@@ -167,6 +172,11 @@ type GetTelephonyProvidersEdgesPhonesParams struct {
 
 	*/
 	SortOrder *string
+	/*StatusOperationalStatus
+	  The primary status to filter by
+
+	*/
+	StatusOperationalStatus *string
 	/*WebRtcUserID
 	  Filter by webRtcUser.id
 
@@ -332,6 +342,17 @@ func (o *GetTelephonyProvidersEdgesPhonesParams) SetPhoneHardwareID(phoneHardwar
 	o.PhoneHardwareID = phoneHardwareID
 }
 
+// WithSecondaryStatusOperationalStatus adds the secondaryStatusOperationalStatus to the get telephony providers edges phones params
+func (o *GetTelephonyProvidersEdgesPhonesParams) WithSecondaryStatusOperationalStatus(secondaryStatusOperationalStatus *string) *GetTelephonyProvidersEdgesPhonesParams {
+	o.SetSecondaryStatusOperationalStatus(secondaryStatusOperationalStatus)
+	return o
+}
+
+// SetSecondaryStatusOperationalStatus adds the secondaryStatusOperationalStatus to the get telephony providers edges phones params
+func (o *GetTelephonyProvidersEdgesPhonesParams) SetSecondaryStatusOperationalStatus(secondaryStatusOperationalStatus *string) {
+	o.SecondaryStatusOperationalStatus = secondaryStatusOperationalStatus
+}
+
 // WithSiteID adds the siteID to the get telephony providers edges phones params
 func (o *GetTelephonyProvidersEdgesPhonesParams) WithSiteID(siteID *string) *GetTelephonyProvidersEdgesPhonesParams {
 	o.SetSiteID(siteID)
@@ -363,6 +384,17 @@ func (o *GetTelephonyProvidersEdgesPhonesParams) WithSortOrder(sortOrder *string
 // SetSortOrder adds the sortOrder to the get telephony providers edges phones params
 func (o *GetTelephonyProvidersEdgesPhonesParams) SetSortOrder(sortOrder *string) {
 	o.SortOrder = sortOrder
+}
+
+// WithStatusOperationalStatus adds the statusOperationalStatus to the get telephony providers edges phones params
+func (o *GetTelephonyProvidersEdgesPhonesParams) WithStatusOperationalStatus(statusOperationalStatus *string) *GetTelephonyProvidersEdgesPhonesParams {
+	o.SetStatusOperationalStatus(statusOperationalStatus)
+	return o
+}
+
+// SetStatusOperationalStatus adds the statusOperationalStatus to the get telephony providers edges phones params
+func (o *GetTelephonyProvidersEdgesPhonesParams) SetStatusOperationalStatus(statusOperationalStatus *string) {
+	o.StatusOperationalStatus = statusOperationalStatus
 }
 
 // WithWebRtcUserID adds the webRtcUserID to the get telephony providers edges phones params
@@ -544,6 +576,22 @@ func (o *GetTelephonyProvidersEdgesPhonesParams) WriteToRequest(r runtime.Client
 
 	}
 
+	if o.SecondaryStatusOperationalStatus != nil {
+
+		// query param secondaryStatus.operationalStatus
+		var qrSecondaryStatusOperationalStatus string
+		if o.SecondaryStatusOperationalStatus != nil {
+			qrSecondaryStatusOperationalStatus = *o.SecondaryStatusOperationalStatus
+		}
+		qSecondaryStatusOperationalStatus := qrSecondaryStatusOperationalStatus
+		if qSecondaryStatusOperationalStatus != "" {
+			if err := r.SetQueryParam("secondaryStatus.operationalStatus", qSecondaryStatusOperationalStatus); err != nil {
+				return err
+			}
+		}
+
+	}
+
 	if o.SiteID != nil {
 
 		// query param site.id
@@ -586,6 +634,22 @@ func (o *GetTelephonyProvidersEdgesPhonesParams) WriteToRequest(r runtime.Client
 		qSortOrder := qrSortOrder
 		if qSortOrder != "" {
 			if err := r.SetQueryParam("sortOrder", qSortOrder); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	if o.StatusOperationalStatus != nil {
+
+		// query param status.operationalStatus
+		var qrStatusOperationalStatus string
+		if o.StatusOperationalStatus != nil {
+			qrStatusOperationalStatus = *o.StatusOperationalStatus
+		}
+		qStatusOperationalStatus := qrStatusOperationalStatus
+		if qStatusOperationalStatus != "" {
+			if err := r.SetQueryParam("status.operationalStatus", qStatusOperationalStatus); err != nil {
 				return err
 			}
 		}

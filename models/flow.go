@@ -26,6 +26,10 @@ type Flow struct {
 	// checked in version
 	CheckedInVersion *FlowVersion `json:"checkedInVersion,omitempty"`
 
+	// Compatible flow types designate which flow types are allowed to embed a flow’s configuration within their own flow configuration.  Currently the only flows that can be embedded are Common Module flows and the embedding flow can invoke them using the Call Common Module action.
+	// Read Only: true
+	CompatibleFlowTypes []string `json:"compatibleFlowTypes"`
+
 	// current operation
 	CurrentOperation *Operation `json:"currentOperation,omitempty"`
 
@@ -95,6 +99,10 @@ func (m *Flow) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateCheckedInVersion(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCompatibleFlowTypes(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -169,6 +177,43 @@ func (m *Flow) validateCheckedInVersion(formats strfmt.Registry) error {
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+var flowCompatibleFlowTypesItemsEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["BOT","COMMONMODULE","INBOUNDCALL","INBOUNDCHAT","INBOUNDEMAIL","INBOUNDSHORTMESSAGE","INQUEUECALL","OUTBOUNDCALL","SECURECALL","SPEECH","SURVEYINVITE","WORKFLOW"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		flowCompatibleFlowTypesItemsEnum = append(flowCompatibleFlowTypesItemsEnum, v)
+	}
+}
+
+func (m *Flow) validateCompatibleFlowTypesItemsEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, flowCompatibleFlowTypesItemsEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *Flow) validateCompatibleFlowTypes(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.CompatibleFlowTypes) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.CompatibleFlowTypes); i++ {
+
+		// value enum
+		if err := m.validateCompatibleFlowTypesItemsEnum("compatibleFlowTypes"+"."+strconv.Itoa(i), "body", m.CompatibleFlowTypes[i]); err != nil {
+			return err
+		}
+
 	}
 
 	return nil

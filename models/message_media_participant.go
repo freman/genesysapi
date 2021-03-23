@@ -127,7 +127,7 @@ type MessageMediaParticipant struct {
 	ToAddress *Address `json:"toAddress,omitempty"`
 
 	// Indicates the type of message platform from which the message originated.
-	// Enum: [unknown sms twitter facebook line whatsapp telegram kakao webmessaging]
+	// Enum: [unknown sms twitter facebook line whatsapp telegram kakao webmessaging open]
 	Type string `json:"type,omitempty"`
 
 	// The PureCloud user for this participant.
@@ -774,7 +774,7 @@ var messageMediaParticipantTypeTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["unknown","sms","twitter","facebook","line","whatsapp","telegram","kakao","webmessaging"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["unknown","sms","twitter","facebook","line","whatsapp","telegram","kakao","webmessaging","open"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -810,6 +810,9 @@ const (
 
 	// MessageMediaParticipantTypeWebmessaging captures enum value "webmessaging"
 	MessageMediaParticipantTypeWebmessaging string = "webmessaging"
+
+	// MessageMediaParticipantTypeOpen captures enum value "open"
+	MessageMediaParticipantTypeOpen string = "open"
 )
 
 // prop value enum

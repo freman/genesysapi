@@ -24,6 +24,10 @@ type DialerContact struct {
 	// Indicates whether or not the contact can be called.
 	Callable bool `json:"callable"`
 
+	// the priority property within ConfigurationOverides indicates whether or not the contact to be placed in front of the queue or at the end of the queue
+	// Read Only: true
+	ConfigurationOverrides *ConfigurationOverrides `json:"configurationOverrides,omitempty"`
+
 	// Map containing data about the timezone the contact is mapped to. This will only be populated if the contact list has automatic timezone mapping turned on. The key is the column name. The value is the timezone it mapped to and the type of column: Phone or Zip
 	// Read Only: true
 	ContactColumnTimeZones map[string]ContactColumnTimeZone `json:"contactColumnTimeZones,omitempty"`
@@ -57,6 +61,10 @@ func (m *DialerContact) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateCallRecords(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateConfigurationOverrides(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -103,6 +111,24 @@ func (m *DialerContact) validateCallRecords(formats strfmt.Registry) error {
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *DialerContact) validateConfigurationOverrides(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.ConfigurationOverrides) { // not required
+		return nil
+	}
+
+	if m.ConfigurationOverrides != nil {
+		if err := m.ConfigurationOverrides.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("configurationOverrides")
+			}
+			return err
+		}
 	}
 
 	return nil

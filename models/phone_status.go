@@ -41,7 +41,7 @@ type PhoneStatus struct {
 	Name string `json:"name,omitempty"`
 
 	// The Operational Status of this phone
-	// Enum: [OPERATIONAL DEGRADED OFFLINE]
+	// Enum: [OPERATIONAL DEGRADED OFFLINE UNKNOWN]
 	OperationalStatus string `json:"operationalStatus,omitempty"`
 
 	// The phone status's edge assignment type.
@@ -191,7 +191,7 @@ var phoneStatusTypeOperationalStatusPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["OPERATIONAL","DEGRADED","OFFLINE"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["OPERATIONAL","DEGRADED","OFFLINE","UNKNOWN"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -209,6 +209,9 @@ const (
 
 	// PhoneStatusOperationalStatusOFFLINE captures enum value "OFFLINE"
 	PhoneStatusOperationalStatusOFFLINE string = "OFFLINE"
+
+	// PhoneStatusOperationalStatusUNKNOWN captures enum value "UNKNOWN"
+	PhoneStatusOperationalStatusUNKNOWN string = "UNKNOWN"
 )
 
 // prop value enum

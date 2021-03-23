@@ -1127,7 +1127,7 @@ var viewFilterMessageTypesItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["sms","twitter","line","facebook","whatsapp","webmessaging","general"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["sms","twitter","line","facebook","whatsapp","webmessaging","open"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {

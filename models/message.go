@@ -97,7 +97,7 @@ type Message struct {
 	ToAddress *Address `json:"toAddress,omitempty"`
 
 	// Indicates the type of message platform from which the message originated.
-	// Enum: [unknown sms twitter facebook line whatsapp telegram kakao webmessaging]
+	// Enum: [unknown sms twitter facebook line whatsapp telegram kakao webmessaging open]
 	Type string `json:"type,omitempty"`
 
 	// Call wrap up or disposition data.
@@ -548,7 +548,7 @@ var messageTypeTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["unknown","sms","twitter","facebook","line","whatsapp","telegram","kakao","webmessaging"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["unknown","sms","twitter","facebook","line","whatsapp","telegram","kakao","webmessaging","open"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -584,6 +584,9 @@ const (
 
 	// MessageTypeWebmessaging captures enum value "webmessaging"
 	MessageTypeWebmessaging string = "webmessaging"
+
+	// MessageTypeOpen captures enum value "open"
+	MessageTypeOpen string = "open"
 )
 
 // prop value enum
