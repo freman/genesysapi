@@ -21,22 +21,22 @@ type EvaluationQuestionGroupScore struct {
 	// marked n a
 	MarkedNA bool `json:"markedNA"`
 
-	// max total critical score
+	// Maximum possible score of only the critical questions in the group
 	MaxTotalCriticalScore float32 `json:"maxTotalCriticalScore,omitempty"`
 
-	// max total critical score unweighted
+	// Maximum possible unweighted score of only the critical questions in the group
 	MaxTotalCriticalScoreUnweighted float32 `json:"maxTotalCriticalScoreUnweighted,omitempty"`
 
-	// max total non critical score
+	// Maximum possible score of only the non critical questions in the group
 	MaxTotalNonCriticalScore float32 `json:"maxTotalNonCriticalScore,omitempty"`
 
-	// max total non critical score unweighted
+	// Maximum possible unweighted score of only the non critical questions in the group
 	MaxTotalNonCriticalScoreUnweighted float32 `json:"maxTotalNonCriticalScoreUnweighted,omitempty"`
 
-	// max total score
+	// Maximum possible score of all questions in the group
 	MaxTotalScore float32 `json:"maxTotalScore,omitempty"`
 
-	// max total score unweighted
+	// Maximum possible unweighted score of all questions in the group
 	MaxTotalScoreUnweighted float32 `json:"maxTotalScoreUnweighted,omitempty"`
 
 	// question group Id
@@ -45,22 +45,22 @@ type EvaluationQuestionGroupScore struct {
 	// question scores
 	QuestionScores []*EvaluationQuestionScore `json:"questionScores"`
 
-	// total critical score
+	// Score of only the critical questions in the group
 	TotalCriticalScore float32 `json:"totalCriticalScore,omitempty"`
 
-	// total critical score unweighted
+	// Unweighted score of only the critical questions in the group
 	TotalCriticalScoreUnweighted float32 `json:"totalCriticalScoreUnweighted,omitempty"`
 
-	// total non critical score
+	// Score of only the non critical questions in the group
 	TotalNonCriticalScore float32 `json:"totalNonCriticalScore,omitempty"`
 
-	// total non critical score unweighted
+	// Unweighted score of only the non critical questions in the group
 	TotalNonCriticalScoreUnweighted float32 `json:"totalNonCriticalScoreUnweighted,omitempty"`
 
-	// total score
+	// Score of all questions in the group
 	TotalScore float32 `json:"totalScore,omitempty"`
 
-	// total score unweighted
+	// Unweighted score of all questions in the group
 	TotalScoreUnweighted float32 `json:"totalScoreUnweighted,omitempty"`
 }
 

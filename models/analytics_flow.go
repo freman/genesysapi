@@ -26,8 +26,8 @@ type AnalyticsFlow struct {
 	// The particular entry reason for this flow, e.g. an address, userId, or flowId
 	EntryReason string `json:"entryReason,omitempty"`
 
-	// The entry type for this flow
-	// Enum: [dnis direct flow agent outbound]
+	// The entry type for this flow, e.g. dnis, dialer, agent, flow, or direct
+	// Enum: [agent direct dnis flow outbound]
 	EntryType string `json:"entryType,omitempty"`
 
 	// The exit reason for this flow, e.g. DISCONNECT
@@ -36,7 +36,7 @@ type AnalyticsFlow struct {
 	// The unique identifier of this flow
 	FlowID string `json:"flowId,omitempty"`
 
-	// The name of this flow
+	// The name of this flow at the time of flow execution
 	FlowName string `json:"flowName,omitempty"`
 
 	// The type of this flow
@@ -52,13 +52,16 @@ type AnalyticsFlow struct {
 	// Flow outcomes
 	Outcomes []*AnalyticsFlowOutcome `json:"outcomes"`
 
+	// The recognition failure reason causing to exit/disconnect
+	RecognitionFailureReason string `json:"recognitionFailureReason,omitempty"`
+
 	// Flow starting language, e.g. en-us
 	StartingLanguage string `json:"startingLanguage,omitempty"`
 
-	// The address of a transfer target
+	// The address of a flow transfer target, e.g. a phone number, an email address, or a queueId
 	TransferTargetAddress string `json:"transferTargetAddress,omitempty"`
 
-	// The name of a transfer target
+	// The name of a flow transfer target
 	TransferTargetName string `json:"transferTargetName,omitempty"`
 
 	// The type of transfer for flows that ended with a transfer
@@ -91,7 +94,7 @@ var analyticsFlowTypeEntryTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["dnis","direct","flow","agent","outbound"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["agent","direct","dnis","flow","outbound"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -101,17 +104,17 @@ func init() {
 
 const (
 
-	// AnalyticsFlowEntryTypeDnis captures enum value "dnis"
-	AnalyticsFlowEntryTypeDnis string = "dnis"
+	// AnalyticsFlowEntryTypeAgent captures enum value "agent"
+	AnalyticsFlowEntryTypeAgent string = "agent"
 
 	// AnalyticsFlowEntryTypeDirect captures enum value "direct"
 	AnalyticsFlowEntryTypeDirect string = "direct"
 
+	// AnalyticsFlowEntryTypeDnis captures enum value "dnis"
+	AnalyticsFlowEntryTypeDnis string = "dnis"
+
 	// AnalyticsFlowEntryTypeFlow captures enum value "flow"
 	AnalyticsFlowEntryTypeFlow string = "flow"
-
-	// AnalyticsFlowEntryTypeAgent captures enum value "agent"
-	AnalyticsFlowEntryTypeAgent string = "agent"
 
 	// AnalyticsFlowEntryTypeOutbound captures enum value "outbound"
 	AnalyticsFlowEntryTypeOutbound string = "outbound"

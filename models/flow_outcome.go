@@ -23,6 +23,9 @@ type FlowOutcome struct {
 	// description
 	Description string `json:"description,omitempty"`
 
+	// The division to which this entity belongs.
+	Division *WritableDivision `json:"division,omitempty"`
+
 	// The flow outcome identifier
 	ID string `json:"id,omitempty"`
 
@@ -41,6 +44,10 @@ func (m *FlowOutcome) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateCurrentOperation(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDivision(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -68,6 +75,24 @@ func (m *FlowOutcome) validateCurrentOperation(formats strfmt.Registry) error {
 		if err := m.CurrentOperation.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("currentOperation")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *FlowOutcome) validateDivision(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Division) { // not required
+		return nil
+	}
+
+	if m.Division != nil {
+		if err := m.Division.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("division")
 			}
 			return err
 		}

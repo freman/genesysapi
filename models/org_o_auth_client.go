@@ -28,7 +28,7 @@ type OrgOAuthClient struct {
 	// Client Credential grant type - Used to created access tokens that are tied only to the client.
 	//
 	// Required: true
-	// Enum: [CODE CODE_PKCE TOKEN SAML2BEARER PASSWORD CLIENT_CREDENTIALS]
+	// Enum: [CODE TOKEN SAML2BEARER PASSWORD CLIENT_CREDENTIALS]
 	AuthorizedGrantType *string `json:"authorizedGrantType"`
 
 	// User that created this client
@@ -130,7 +130,7 @@ var orgOAuthClientTypeAuthorizedGrantTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["CODE","CODE_PKCE","TOKEN","SAML2BEARER","PASSWORD","CLIENT_CREDENTIALS"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["CODE","TOKEN","SAML2BEARER","PASSWORD","CLIENT_CREDENTIALS"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -142,9 +142,6 @@ const (
 
 	// OrgOAuthClientAuthorizedGrantTypeCODE captures enum value "CODE"
 	OrgOAuthClientAuthorizedGrantTypeCODE string = "CODE"
-
-	// OrgOAuthClientAuthorizedGrantTypeCODEPKCE captures enum value "CODE_PKCE"
-	OrgOAuthClientAuthorizedGrantTypeCODEPKCE string = "CODE_PKCE"
 
 	// OrgOAuthClientAuthorizedGrantTypeTOKEN captures enum value "TOKEN"
 	OrgOAuthClientAuthorizedGrantTypeTOKEN string = "TOKEN"

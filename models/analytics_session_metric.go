@@ -18,17 +18,14 @@ import (
 type AnalyticsSessionMetric struct {
 
 	// Metric emission date. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
-	// Required: true
 	// Format: date-time
-	EmitDate *strfmt.DateTime `json:"emitDate"`
+	EmitDate strfmt.DateTime `json:"emitDate,omitempty"`
 
 	// Unique name of this metric
-	// Required: true
-	Name *string `json:"name"`
+	Name string `json:"name,omitempty"`
 
 	// The metric value
-	// Required: true
-	Value *int64 `json:"value"`
+	Value int64 `json:"value,omitempty"`
 }
 
 // Validate validates this analytics session metric
@@ -36,14 +33,6 @@ func (m *AnalyticsSessionMetric) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateEmitDate(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateName(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateValue(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -55,29 +44,11 @@ func (m *AnalyticsSessionMetric) Validate(formats strfmt.Registry) error {
 
 func (m *AnalyticsSessionMetric) validateEmitDate(formats strfmt.Registry) error {
 
-	if err := validate.Required("emitDate", "body", m.EmitDate); err != nil {
-		return err
+	if swag.IsZero(m.EmitDate) { // not required
+		return nil
 	}
 
 	if err := validate.FormatOf("emitDate", "body", "date-time", m.EmitDate.String(), formats); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *AnalyticsSessionMetric) validateName(formats strfmt.Registry) error {
-
-	if err := validate.Required("name", "body", m.Name); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *AnalyticsSessionMetric) validateValue(formats strfmt.Registry) error {
-
-	if err := validate.Required("value", "body", m.Value); err != nil {
 		return err
 	}
 

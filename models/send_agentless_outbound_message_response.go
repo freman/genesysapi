@@ -22,14 +22,17 @@ type SendAgentlessOutboundMessageResponse struct {
 	// The identifier of the conversation.
 	ConversationID string `json:"conversationId,omitempty"`
 
-	// The sender of the text message.
+	// The sender of the message.
 	FromAddress string `json:"fromAddress,omitempty"`
 
 	// The globally unique identifier for the object.
 	// Read Only: true
 	ID string `json:"id,omitempty"`
 
-	// Type of text messenger.
+	// The messaging template sent
+	MessagingTemplate *MessagingTemplateRequest `json:"messagingTemplate,omitempty"`
+
+	// Type of messenger.
 	// Enum: [sms facebook twitter line whatsapp webmessaging open]
 	MessengerType string `json:"messengerType,omitempty"`
 
@@ -45,7 +48,7 @@ type SendAgentlessOutboundMessageResponse struct {
 	// Format: date-time
 	Timestamp strfmt.DateTime `json:"timestamp,omitempty"`
 
-	// The recipient of the text message.
+	// The recipient of the message.
 	ToAddress string `json:"toAddress,omitempty"`
 
 	// Details of the user created the job
@@ -56,6 +59,10 @@ type SendAgentlessOutboundMessageResponse struct {
 // Validate validates this send agentless outbound message response
 func (m *SendAgentlessOutboundMessageResponse) Validate(formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.validateMessagingTemplate(formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.validateMessengerType(formats); err != nil {
 		res = append(res, err)
@@ -76,6 +83,24 @@ func (m *SendAgentlessOutboundMessageResponse) Validate(formats strfmt.Registry)
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *SendAgentlessOutboundMessageResponse) validateMessagingTemplate(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.MessagingTemplate) { // not required
+		return nil
+	}
+
+	if m.MessagingTemplate != nil {
+		if err := m.MessagingTemplate.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("messagingTemplate")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

@@ -17,17 +17,17 @@ import (
 // swagger:model AnalyticsFlowOutcome
 type AnalyticsFlowOutcome struct {
 
-	// Colon-separated combinations of unique flow outcome identifier and value
+	// Combination of unique flow outcome identifier and its value separated by colon
 	FlowOutcome string `json:"flowOutcome,omitempty"`
 
-	// Date/time the outcome ended. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+	// The outcome ending timestamp in ISO 8601 format. This may be null if the outcome did not succeed.
 	// Format: date-time
 	FlowOutcomeEndTimestamp strfmt.DateTime `json:"flowOutcomeEndTimestamp,omitempty"`
 
-	// Unique identifiers of a flow outcome
+	// Unique identifier of a flow outcome
 	FlowOutcomeID string `json:"flowOutcomeId,omitempty"`
 
-	// Date/time the outcome started. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+	// The outcome starting timestamp in ISO 8601 format
 	// Format: date-time
 	FlowOutcomeStartTimestamp strfmt.DateTime `json:"flowOutcomeStartTimestamp,omitempty"`
 

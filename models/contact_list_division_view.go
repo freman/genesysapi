@@ -38,7 +38,6 @@ type ContactListDivisionView struct {
 	Name string `json:"name,omitempty"`
 
 	// Indicates which columns are phone numbers.
-	// Required: true
 	PhoneColumns []*ContactPhoneNumberColumn `json:"phoneColumns"`
 
 	// The URI for this object
@@ -128,8 +127,8 @@ func (m *ContactListDivisionView) validateImportStatus(formats strfmt.Registry) 
 
 func (m *ContactListDivisionView) validatePhoneColumns(formats strfmt.Registry) error {
 
-	if err := validate.Required("phoneColumns", "body", m.PhoneColumns); err != nil {
-		return err
+	if swag.IsZero(m.PhoneColumns) { // not required
+		return nil
 	}
 
 	for i := 0; i < len(m.PhoneColumns); i++ {

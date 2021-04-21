@@ -18,7 +18,7 @@ type AnalyticsProposedAgent struct {
 	// Proposed agent rank for this conversation from predictive routing (lower is better)
 	AgentRank int32 `json:"agentRank,omitempty"`
 
-	// Unique identifier of an agent that was proposed by predictive routing
+	// Unique identifier for the agent that was proposed by predictive routing
 	ProposedAgentID string `json:"proposedAgentId,omitempty"`
 }
 

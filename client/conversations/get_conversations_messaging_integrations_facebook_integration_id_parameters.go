@@ -60,6 +60,11 @@ for the get conversations messaging integrations facebook integration Id operati
 */
 type GetConversationsMessagingIntegrationsFacebookIntegrationIDParams struct {
 
+	/*Expand
+	  Expand instructions for the return value.
+
+	*/
+	Expand *string
 	/*IntegrationID
 	  Integration ID
 
@@ -104,6 +109,17 @@ func (o *GetConversationsMessagingIntegrationsFacebookIntegrationIDParams) SetHT
 	o.HTTPClient = client
 }
 
+// WithExpand adds the expand to the get conversations messaging integrations facebook integration Id params
+func (o *GetConversationsMessagingIntegrationsFacebookIntegrationIDParams) WithExpand(expand *string) *GetConversationsMessagingIntegrationsFacebookIntegrationIDParams {
+	o.SetExpand(expand)
+	return o
+}
+
+// SetExpand adds the expand to the get conversations messaging integrations facebook integration Id params
+func (o *GetConversationsMessagingIntegrationsFacebookIntegrationIDParams) SetExpand(expand *string) {
+	o.Expand = expand
+}
+
 // WithIntegrationID adds the integrationID to the get conversations messaging integrations facebook integration Id params
 func (o *GetConversationsMessagingIntegrationsFacebookIntegrationIDParams) WithIntegrationID(integrationID string) *GetConversationsMessagingIntegrationsFacebookIntegrationIDParams {
 	o.SetIntegrationID(integrationID)
@@ -122,6 +138,22 @@ func (o *GetConversationsMessagingIntegrationsFacebookIntegrationIDParams) Write
 		return err
 	}
 	var res []error
+
+	if o.Expand != nil {
+
+		// query param expand
+		var qrExpand string
+		if o.Expand != nil {
+			qrExpand = *o.Expand
+		}
+		qExpand := qrExpand
+		if qExpand != "" {
+			if err := r.SetQueryParam("expand", qExpand); err != nil {
+				return err
+			}
+		}
+
+	}
 
 	// path param integrationId
 	if err := r.SetPathParam("integrationId", o.IntegrationID); err != nil {

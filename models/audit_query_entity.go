@@ -24,7 +24,7 @@ type AuditQueryEntity struct {
 	Actions []string `json:"actions"`
 
 	// Name of the Entity
-	// Enum: [Document Queue Recording Role VoicemailPolicy VoicemailUserPolicy UserPresence WrapupCode MaxOrgRoutingUtilizationCapacity AccessToken OAuthClient OAuthClientAuthorization AuthOrganization AuthUser OrganizationAuthorizationTrust OrganizationAuthorizationUserTrust BulkActions Feedback Topic Program Segment Outcome SessionType EventType ClickstreamSettings Schedule ScheduleGroup EmergencyGroup IVR Trigger Response DependencyTrackingBuild Flow Prompt PromptResource FlowOutcome FlowMilestone Team Edge EdgeGroup Trunk TrunkBase DID DIDPool Extension ExtensionPool Phone PhoneBase Line LineBase OutboundRoute NumberPlan Site AttemptLimits CallableTimeSet Campaign CampaignRule Sequence ContactList ContactListFilter DNCList CallAnalysisResponseSet RuleSet CampaignSchedule SequenceSchedule OrganizationSettings WrapUpCodeMapping MessagingCampaign TranscriptionSettings RoutingTranscriptionSettings SpeechTextAnalyticsSettings Predictor WorkPlan]
+	// Enum: [Document Queue Recording Role VoicemailPolicy VoicemailUserPolicy UserPresence WrapupCode MaxOrgRoutingUtilizationCapacity AccessToken OAuthClient OAuthClientAuthorization AuthOrganization AuthUser OrganizationAuthorizationTrust OrganizationAuthorizationUserTrust BulkActions Feedback Topic Program Segment Outcome SessionType EventType ClickstreamSettings Schedule ScheduleGroup EmergencyGroup IVR Trigger Response DependencyTrackingBuild Flow Prompt PromptResource FlowOutcome FlowMilestone Team Edge EdgeGroup Trunk TrunkBase DID DIDPool Extension ExtensionPool Phone PhoneBase Line LineBase OutboundRoute NumberPlan Site AttemptLimits CallableTimeSet Campaign CampaignRule Sequence ContactList ContactListFilter DNCList CallAnalysisResponseSet RuleSet CampaignSchedule SequenceSchedule OrganizationSettings WrapUpCodeMapping MessagingCampaign TranscriptionSettings RoutingTranscriptionSettings SpeechTextAnalyticsSettings Predictor WorkPlan SentimentFeedback Integration]
 	Name string `json:"name,omitempty"`
 }
 
@@ -50,7 +50,7 @@ var auditQueryEntityActionsItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Create","View","Update","Delete","Download","Upload","MemberAdd","MemberUpdate","MemberRemove","Read","ApplyProtection","RevokeProtection","UpdateRetention","ReadAll","Execute","Publish","Unpublish","Activate","Checkin","Checkout","Deactivate","Debug","Save","Revert","Transcode","Enable","Disable","Authorize","Deauthorize","Authenticate","ChangePassword","Revoke","Export","Append","Recycle"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Create","View","Update","Delete","DeleteAll","Download","Upload","MemberAdd","MemberUpdate","MemberRemove","Read","ApplyProtection","RevokeProtection","UpdateRetention","ReadAll","Execute","Publish","Unpublish","Activate","Checkin","Checkout","Deactivate","Debug","Save","Revert","Transcode","Enable","Disable","Authorize","Deauthorize","Authenticate","ChangePassword","Revoke","Export","Append","Recycle"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -87,7 +87,7 @@ var auditQueryEntityTypeNamePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Document","Queue","Recording","Role","VoicemailPolicy","VoicemailUserPolicy","UserPresence","WrapupCode","MaxOrgRoutingUtilizationCapacity","AccessToken","OAuthClient","OAuthClientAuthorization","AuthOrganization","AuthUser","OrganizationAuthorizationTrust","OrganizationAuthorizationUserTrust","BulkActions","Feedback","Topic","Program","Segment","Outcome","SessionType","EventType","ClickstreamSettings","Schedule","ScheduleGroup","EmergencyGroup","IVR","Trigger","Response","DependencyTrackingBuild","Flow","Prompt","PromptResource","FlowOutcome","FlowMilestone","Team","Edge","EdgeGroup","Trunk","TrunkBase","DID","DIDPool","Extension","ExtensionPool","Phone","PhoneBase","Line","LineBase","OutboundRoute","NumberPlan","Site","AttemptLimits","CallableTimeSet","Campaign","CampaignRule","Sequence","ContactList","ContactListFilter","DNCList","CallAnalysisResponseSet","RuleSet","CampaignSchedule","SequenceSchedule","OrganizationSettings","WrapUpCodeMapping","MessagingCampaign","TranscriptionSettings","RoutingTranscriptionSettings","SpeechTextAnalyticsSettings","Predictor","WorkPlan"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Document","Queue","Recording","Role","VoicemailPolicy","VoicemailUserPolicy","UserPresence","WrapupCode","MaxOrgRoutingUtilizationCapacity","AccessToken","OAuthClient","OAuthClientAuthorization","AuthOrganization","AuthUser","OrganizationAuthorizationTrust","OrganizationAuthorizationUserTrust","BulkActions","Feedback","Topic","Program","Segment","Outcome","SessionType","EventType","ClickstreamSettings","Schedule","ScheduleGroup","EmergencyGroup","IVR","Trigger","Response","DependencyTrackingBuild","Flow","Prompt","PromptResource","FlowOutcome","FlowMilestone","Team","Edge","EdgeGroup","Trunk","TrunkBase","DID","DIDPool","Extension","ExtensionPool","Phone","PhoneBase","Line","LineBase","OutboundRoute","NumberPlan","Site","AttemptLimits","CallableTimeSet","Campaign","CampaignRule","Sequence","ContactList","ContactListFilter","DNCList","CallAnalysisResponseSet","RuleSet","CampaignSchedule","SequenceSchedule","OrganizationSettings","WrapUpCodeMapping","MessagingCampaign","TranscriptionSettings","RoutingTranscriptionSettings","SpeechTextAnalyticsSettings","Predictor","WorkPlan","SentimentFeedback","Integration"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -315,6 +315,12 @@ const (
 
 	// AuditQueryEntityNameWorkPlan captures enum value "WorkPlan"
 	AuditQueryEntityNameWorkPlan string = "WorkPlan"
+
+	// AuditQueryEntityNameSentimentFeedback captures enum value "SentimentFeedback"
+	AuditQueryEntityNameSentimentFeedback string = "SentimentFeedback"
+
+	// AuditQueryEntityNameIntegration captures enum value "Integration"
+	AuditQueryEntityNameIntegration string = "Integration"
 )
 
 // prop value enum

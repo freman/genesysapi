@@ -20,47 +20,27 @@ import (
 type AnalyticsProperty struct {
 
 	// User-defined rather than intrinsic system-observed values. These are tagged onto segments by other components within PureCloud or by API users directly.  This is the name of the user-defined property.
-	// Required: true
-	Property *string `json:"property"`
+	Property string `json:"property,omitempty"`
 
 	// Indicates what the data type is (e.g. integer vs string) and therefore how to evaluate what would constitute a match
-	// Required: true
 	// Enum: [bool integer real date string uuid]
-	PropertyType *string `json:"propertyType"`
+	PropertyType string `json:"propertyType,omitempty"`
 
 	// What property value to match against
-	// Required: true
-	Value *string `json:"value"`
+	Value string `json:"value,omitempty"`
 }
 
 // Validate validates this analytics property
 func (m *AnalyticsProperty) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateProperty(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validatePropertyType(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateValue(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *AnalyticsProperty) validateProperty(formats strfmt.Registry) error {
-
-	if err := validate.Required("property", "body", m.Property); err != nil {
-		return err
-	}
-
 	return nil
 }
 
@@ -107,21 +87,12 @@ func (m *AnalyticsProperty) validatePropertyTypeEnum(path, location string, valu
 
 func (m *AnalyticsProperty) validatePropertyType(formats strfmt.Registry) error {
 
-	if err := validate.Required("propertyType", "body", m.PropertyType); err != nil {
-		return err
+	if swag.IsZero(m.PropertyType) { // not required
+		return nil
 	}
 
 	// value enum
-	if err := m.validatePropertyTypeEnum("propertyType", "body", *m.PropertyType); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *AnalyticsProperty) validateValue(formats strfmt.Registry) error {
-
-	if err := validate.Required("value", "body", m.Value); err != nil {
+	if err := m.validatePropertyTypeEnum("propertyType", "body", m.PropertyType); err != nil {
 		return err
 	}
 

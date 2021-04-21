@@ -42,6 +42,9 @@ type Trustee struct {
 	// Read Only: true
 	// Format: uri
 	SelfURI strfmt.URI `json:"selfUri,omitempty"`
+
+	// Denotes if trustee uses admin role by default.
+	UsesDefaultRole bool `json:"usesDefaultRole"`
 }
 
 // Validate validates this trustee

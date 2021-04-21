@@ -35,7 +35,7 @@ type MessagingRecipient struct {
 	// Enum: [Email Phone Opaque]
 	IDType string `json:"idType,omitempty"`
 
-	// Avatar image
+	// Path or URI to an image file containing an avatar
 	// Read Only: true
 	Image string `json:"image,omitempty"`
 

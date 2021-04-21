@@ -60,6 +60,11 @@ for the get conversations messaging integrations twitter integration Id operatio
 */
 type GetConversationsMessagingIntegrationsTwitterIntegrationIDParams struct {
 
+	/*Expand
+	  Expand instructions for the return value.
+
+	*/
+	Expand *string
 	/*IntegrationID
 	  Integration ID
 
@@ -104,6 +109,17 @@ func (o *GetConversationsMessagingIntegrationsTwitterIntegrationIDParams) SetHTT
 	o.HTTPClient = client
 }
 
+// WithExpand adds the expand to the get conversations messaging integrations twitter integration Id params
+func (o *GetConversationsMessagingIntegrationsTwitterIntegrationIDParams) WithExpand(expand *string) *GetConversationsMessagingIntegrationsTwitterIntegrationIDParams {
+	o.SetExpand(expand)
+	return o
+}
+
+// SetExpand adds the expand to the get conversations messaging integrations twitter integration Id params
+func (o *GetConversationsMessagingIntegrationsTwitterIntegrationIDParams) SetExpand(expand *string) {
+	o.Expand = expand
+}
+
 // WithIntegrationID adds the integrationID to the get conversations messaging integrations twitter integration Id params
 func (o *GetConversationsMessagingIntegrationsTwitterIntegrationIDParams) WithIntegrationID(integrationID string) *GetConversationsMessagingIntegrationsTwitterIntegrationIDParams {
 	o.SetIntegrationID(integrationID)
@@ -122,6 +138,22 @@ func (o *GetConversationsMessagingIntegrationsTwitterIntegrationIDParams) WriteT
 		return err
 	}
 	var res []error
+
+	if o.Expand != nil {
+
+		// query param expand
+		var qrExpand string
+		if o.Expand != nil {
+			qrExpand = *o.Expand
+		}
+		qExpand := qrExpand
+		if qExpand != "" {
+			if err := r.SetQueryParam("expand", qExpand); err != nil {
+				return err
+			}
+		}
+
+	}
 
 	// path param integrationId
 	if err := r.SetPathParam("integrationId", o.IntegrationID); err != nil {

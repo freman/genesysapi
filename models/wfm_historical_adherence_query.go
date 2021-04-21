@@ -29,10 +29,6 @@ type WfmHistoricalAdherenceQuery struct {
 	// Format: date-time
 	StartDate *strfmt.DateTime `json:"startDate"`
 
-	// The teamIds to report on. If null or not set, adherence will be computed for requested users if applicable or otherwise all users in the management unit. Note: If teamIds is also specified, only adherence for users in the requested teams will be returned
-	// Unique: true
-	TeamIds []string `json:"teamIds"`
-
 	// The time zone to use for returned results in olson format. If it is not set, the business unit time zone will be used to compute adherence
 	TimeZone string `json:"timeZone,omitempty"`
 
@@ -50,10 +46,6 @@ func (m *WfmHistoricalAdherenceQuery) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateStartDate(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateTeamIds(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -87,19 +79,6 @@ func (m *WfmHistoricalAdherenceQuery) validateStartDate(formats strfmt.Registry)
 	}
 
 	if err := validate.FormatOf("startDate", "body", "date-time", m.StartDate.String(), formats); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *WfmHistoricalAdherenceQuery) validateTeamIds(formats strfmt.Registry) error {
-
-	if swag.IsZero(m.TeamIds) { // not required
-		return nil
-	}
-
-	if err := validate.UniqueItems("teamIds", "body", m.TeamIds); err != nil {
 		return err
 	}
 

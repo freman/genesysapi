@@ -234,7 +234,7 @@ type API interface {
 	/*
 	   PatchRoutingQueueMember updates the ring number o r joined status for a queue member
 	*/
-	PatchRoutingQueueMember(ctx context.Context, params *PatchRoutingQueueMemberParams) (*PatchRoutingQueueMemberOK, *PatchRoutingQueueMemberAccepted, error)
+	PatchRoutingQueueMember(ctx context.Context, params *PatchRoutingQueueMemberParams) (*PatchRoutingQueueMemberAccepted, error)
 	/*
 	   PatchRoutingQueueMembers joins or unjoin a set of users for a queue
 	*/
@@ -242,7 +242,7 @@ type API interface {
 	/*
 	   PatchRoutingQueueUser ds e p r e c a t e d use p a t c h routing queues queue Id members member Id update the ring number o r joined status for a user in a queue
 	*/
-	PatchRoutingQueueUser(ctx context.Context, params *PatchRoutingQueueUserParams) (*PatchRoutingQueueUserOK, *PatchRoutingQueueUserAccepted, error)
+	PatchRoutingQueueUser(ctx context.Context, params *PatchRoutingQueueUserParams) (*PatchRoutingQueueUserAccepted, error)
 	/*
 	   PatchRoutingQueueUsers ds e p r e c a t e d use p a t c h routing queues queue Id members join or unjoin a set of users for a queue
 	*/
@@ -1728,7 +1728,7 @@ func (a *Client) PatchRoutingEmailDomainValidate(ctx context.Context, params *Pa
 /*
 PatchRoutingQueueMember updates the ring number o r joined status for a queue member
 */
-func (a *Client) PatchRoutingQueueMember(ctx context.Context, params *PatchRoutingQueueMemberParams) (*PatchRoutingQueueMemberOK, *PatchRoutingQueueMemberAccepted, error) {
+func (a *Client) PatchRoutingQueueMember(ctx context.Context, params *PatchRoutingQueueMemberParams) (*PatchRoutingQueueMemberAccepted, error) {
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "patchRoutingQueueMember",
@@ -1744,15 +1744,9 @@ func (a *Client) PatchRoutingQueueMember(ctx context.Context, params *PatchRouti
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
-		return nil, nil, err
+		return nil, err
 	}
-	switch value := result.(type) {
-	case *PatchRoutingQueueMemberOK:
-		return value, nil, nil
-	case *PatchRoutingQueueMemberAccepted:
-		return nil, value, nil
-	}
-	return nil, nil, nil
+	return result.(*PatchRoutingQueueMemberAccepted), nil
 
 }
 
@@ -1784,7 +1778,7 @@ func (a *Client) PatchRoutingQueueMembers(ctx context.Context, params *PatchRout
 /*
 PatchRoutingQueueUser ds e p r e c a t e d use p a t c h routing queues queue Id members member Id update the ring number o r joined status for a user in a queue
 */
-func (a *Client) PatchRoutingQueueUser(ctx context.Context, params *PatchRoutingQueueUserParams) (*PatchRoutingQueueUserOK, *PatchRoutingQueueUserAccepted, error) {
+func (a *Client) PatchRoutingQueueUser(ctx context.Context, params *PatchRoutingQueueUserParams) (*PatchRoutingQueueUserAccepted, error) {
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "patchRoutingQueueUser",
@@ -1800,15 +1794,9 @@ func (a *Client) PatchRoutingQueueUser(ctx context.Context, params *PatchRouting
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
-		return nil, nil, err
+		return nil, err
 	}
-	switch value := result.(type) {
-	case *PatchRoutingQueueUserOK:
-		return value, nil, nil
-	case *PatchRoutingQueueUserAccepted:
-		return nil, value, nil
-	}
-	return nil, nil, nil
+	return result.(*PatchRoutingQueueUserAccepted), nil
 
 }
 

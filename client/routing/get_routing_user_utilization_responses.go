@@ -105,20 +105,20 @@ func NewGetRoutingUserUtilizationOK() *GetRoutingUserUtilizationOK {
 successful operation
 */
 type GetRoutingUserUtilizationOK struct {
-	Payload *models.Utilization
+	Payload *models.AgentMaxUtilization
 }
 
 func (o *GetRoutingUserUtilizationOK) Error() string {
 	return fmt.Sprintf("[GET /api/v2/routing/users/{userId}/utilization][%d] getRoutingUserUtilizationOK  %+v", 200, o.Payload)
 }
 
-func (o *GetRoutingUserUtilizationOK) GetPayload() *models.Utilization {
+func (o *GetRoutingUserUtilizationOK) GetPayload() *models.AgentMaxUtilization {
 	return o.Payload
 }
 
 func (o *GetRoutingUserUtilizationOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.Utilization)
+	o.Payload = new(models.AgentMaxUtilization)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

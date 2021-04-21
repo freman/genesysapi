@@ -20,84 +20,83 @@ import (
 // swagger:model AnalyticsConversationSegment
 type AnalyticsConversationSegment struct {
 
-	// audio muted
+	// Flag indicating if audio is muted or not (true/false)
 	AudioMuted bool `json:"audioMuted"`
 
 	// Indicates whether the segment was a conference
 	Conference bool `json:"conference"`
 
-	// destination conversation Id
+	// The unique identifier of a new conversation when a conversation is ended for a conference
 	DestinationConversationID string `json:"destinationConversationId,omitempty"`
 
-	// destination session Id
+	// The unique identifier of a new session when a session is ended for a conference
 	DestinationSessionID string `json:"destinationSessionId,omitempty"`
 
-	// A description of the event that disconnected the segment
-	// Enum: [endpoint client system transfer error peer other spam transportFailure conferenceTransfer consultTransfer forwardTransfer timeout noAnswerTransfer notAvailableTransfer uncallable]
+	// The session disconnect type
+	// Enum: [client conferenceTransfer consultTransfer endpoint error forwardTransfer noAnswerTransfer notAvailableTransfer other peer spam system timeout transfer transportFailure uncallable]
 	DisconnectType string `json:"disconnectType,omitempty"`
 
-	// error code
+	// A code corresponding to the error that occurred
 	ErrorCode string `json:"errorCode,omitempty"`
 
-	// group Id
+	// Unique identifier for a PureCloud group
 	GroupID string `json:"groupId,omitempty"`
 
-	// properties
+	// Additional segment properties
 	Properties []*AnalyticsProperty `json:"properties"`
 
-	// q850 response codes
+	// Q.850 response code(s)
 	Q850ResponseCodes []int64 `json:"q850ResponseCodes"`
 
 	// Queue identifier
 	QueueID string `json:"queueId,omitempty"`
 
-	// A unique identifier for the language requested for an interaction.
+	// Unique identifier for the language requested for an interaction
 	RequestedLanguageID string `json:"requestedLanguageId,omitempty"`
 
-	// requested routing skill ids
-	// Unique: true
+	// Unique identifier(s) for skill(s) requested for an interaction
 	RequestedRoutingSkillIds []string `json:"requestedRoutingSkillIds"`
 
-	// requested routing user ids
+	// Unique identifier(s) for agent(s) requested for an interaction
 	RequestedRoutingUserIds []string `json:"requestedRoutingUserIds"`
 
-	// scored agents
+	// Scored agents
 	ScoredAgents []*AnalyticsScoredAgent `json:"scoredAgents"`
 
-	// The timestamp when this segment ended. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+	// The end time of a segment. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	SegmentEnd strfmt.DateTime `json:"segmentEnd,omitempty"`
 
-	// The timestamp when this segment began. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+	// The start time of a segment. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	SegmentStart strfmt.DateTime `json:"segmentStart,omitempty"`
 
-	// The activity taking place for the participant in the segment
-	// Enum: [unknown alert system delay hold interact ivr dialing wrapup voicemail scheduled contacting transmitting converting uploading sharing callback]
+	// The activity that takes place in the segment, such as hold or interact
+	// Enum: [alert callback contacting converting delay dialing hold interact ivr scheduled sharing system transmitting unknown uploading voicemail wrapup]
 	SegmentType string `json:"segmentType,omitempty"`
 
-	// sip response codes
+	// SIP response code(s)
 	SipResponseCodes []int64 `json:"sipResponseCodes"`
 
-	// source conversation Id
+	// The unique identifier of the previous conversation when a new conversation is created for a conference
 	SourceConversationID string `json:"sourceConversationId,omitempty"`
 
-	// source session Id
+	// The unique identifier of the previous session when a new session is created for a conference
 	SourceSessionID string `json:"sourceSessionId,omitempty"`
 
-	// subject
+	// The subject for the initial email that started this conversation
 	Subject string `json:"subject,omitempty"`
 
-	// video muted
+	// Flag indicating if video is muted/paused or not (true/false)
 	VideoMuted bool `json:"videoMuted"`
 
-	// Wrapup Code id
+	// Wrap up code
 	WrapUpCode string `json:"wrapUpCode,omitempty"`
 
 	// Note entered by an agent during after-call work
 	WrapUpNote string `json:"wrapUpNote,omitempty"`
 
-	// wrap up tags
+	// Tag(s) assigned during after-call work
 	WrapUpTags []string `json:"wrapUpTags"`
 }
 
@@ -110,10 +109,6 @@ func (m *AnalyticsConversationSegment) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateProperties(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateRequestedRoutingSkillIds(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -143,7 +138,7 @@ var analyticsConversationSegmentTypeDisconnectTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["endpoint","client","system","transfer","error","peer","other","spam","transportFailure","conferenceTransfer","consultTransfer","forwardTransfer","timeout","noAnswerTransfer","notAvailableTransfer","uncallable"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["client","conferenceTransfer","consultTransfer","endpoint","error","forwardTransfer","noAnswerTransfer","notAvailableTransfer","other","peer","spam","system","timeout","transfer","transportFailure","uncallable"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -153,32 +148,8 @@ func init() {
 
 const (
 
-	// AnalyticsConversationSegmentDisconnectTypeEndpoint captures enum value "endpoint"
-	AnalyticsConversationSegmentDisconnectTypeEndpoint string = "endpoint"
-
 	// AnalyticsConversationSegmentDisconnectTypeClient captures enum value "client"
 	AnalyticsConversationSegmentDisconnectTypeClient string = "client"
-
-	// AnalyticsConversationSegmentDisconnectTypeSystem captures enum value "system"
-	AnalyticsConversationSegmentDisconnectTypeSystem string = "system"
-
-	// AnalyticsConversationSegmentDisconnectTypeTransfer captures enum value "transfer"
-	AnalyticsConversationSegmentDisconnectTypeTransfer string = "transfer"
-
-	// AnalyticsConversationSegmentDisconnectTypeError captures enum value "error"
-	AnalyticsConversationSegmentDisconnectTypeError string = "error"
-
-	// AnalyticsConversationSegmentDisconnectTypePeer captures enum value "peer"
-	AnalyticsConversationSegmentDisconnectTypePeer string = "peer"
-
-	// AnalyticsConversationSegmentDisconnectTypeOther captures enum value "other"
-	AnalyticsConversationSegmentDisconnectTypeOther string = "other"
-
-	// AnalyticsConversationSegmentDisconnectTypeSpam captures enum value "spam"
-	AnalyticsConversationSegmentDisconnectTypeSpam string = "spam"
-
-	// AnalyticsConversationSegmentDisconnectTypeTransportFailure captures enum value "transportFailure"
-	AnalyticsConversationSegmentDisconnectTypeTransportFailure string = "transportFailure"
 
 	// AnalyticsConversationSegmentDisconnectTypeConferenceTransfer captures enum value "conferenceTransfer"
 	AnalyticsConversationSegmentDisconnectTypeConferenceTransfer string = "conferenceTransfer"
@@ -186,17 +157,41 @@ const (
 	// AnalyticsConversationSegmentDisconnectTypeConsultTransfer captures enum value "consultTransfer"
 	AnalyticsConversationSegmentDisconnectTypeConsultTransfer string = "consultTransfer"
 
+	// AnalyticsConversationSegmentDisconnectTypeEndpoint captures enum value "endpoint"
+	AnalyticsConversationSegmentDisconnectTypeEndpoint string = "endpoint"
+
+	// AnalyticsConversationSegmentDisconnectTypeError captures enum value "error"
+	AnalyticsConversationSegmentDisconnectTypeError string = "error"
+
 	// AnalyticsConversationSegmentDisconnectTypeForwardTransfer captures enum value "forwardTransfer"
 	AnalyticsConversationSegmentDisconnectTypeForwardTransfer string = "forwardTransfer"
-
-	// AnalyticsConversationSegmentDisconnectTypeTimeout captures enum value "timeout"
-	AnalyticsConversationSegmentDisconnectTypeTimeout string = "timeout"
 
 	// AnalyticsConversationSegmentDisconnectTypeNoAnswerTransfer captures enum value "noAnswerTransfer"
 	AnalyticsConversationSegmentDisconnectTypeNoAnswerTransfer string = "noAnswerTransfer"
 
 	// AnalyticsConversationSegmentDisconnectTypeNotAvailableTransfer captures enum value "notAvailableTransfer"
 	AnalyticsConversationSegmentDisconnectTypeNotAvailableTransfer string = "notAvailableTransfer"
+
+	// AnalyticsConversationSegmentDisconnectTypeOther captures enum value "other"
+	AnalyticsConversationSegmentDisconnectTypeOther string = "other"
+
+	// AnalyticsConversationSegmentDisconnectTypePeer captures enum value "peer"
+	AnalyticsConversationSegmentDisconnectTypePeer string = "peer"
+
+	// AnalyticsConversationSegmentDisconnectTypeSpam captures enum value "spam"
+	AnalyticsConversationSegmentDisconnectTypeSpam string = "spam"
+
+	// AnalyticsConversationSegmentDisconnectTypeSystem captures enum value "system"
+	AnalyticsConversationSegmentDisconnectTypeSystem string = "system"
+
+	// AnalyticsConversationSegmentDisconnectTypeTimeout captures enum value "timeout"
+	AnalyticsConversationSegmentDisconnectTypeTimeout string = "timeout"
+
+	// AnalyticsConversationSegmentDisconnectTypeTransfer captures enum value "transfer"
+	AnalyticsConversationSegmentDisconnectTypeTransfer string = "transfer"
+
+	// AnalyticsConversationSegmentDisconnectTypeTransportFailure captures enum value "transportFailure"
+	AnalyticsConversationSegmentDisconnectTypeTransportFailure string = "transportFailure"
 
 	// AnalyticsConversationSegmentDisconnectTypeUncallable captures enum value "uncallable"
 	AnalyticsConversationSegmentDisconnectTypeUncallable string = "uncallable"
@@ -244,19 +239,6 @@ func (m *AnalyticsConversationSegment) validateProperties(formats strfmt.Registr
 			}
 		}
 
-	}
-
-	return nil
-}
-
-func (m *AnalyticsConversationSegment) validateRequestedRoutingSkillIds(formats strfmt.Registry) error {
-
-	if swag.IsZero(m.RequestedRoutingSkillIds) { // not required
-		return nil
-	}
-
-	if err := validate.UniqueItems("requestedRoutingSkillIds", "body", m.RequestedRoutingSkillIds); err != nil {
-		return err
 	}
 
 	return nil
@@ -317,7 +299,7 @@ var analyticsConversationSegmentTypeSegmentTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["unknown","alert","system","delay","hold","interact","ivr","dialing","wrapup","voicemail","scheduled","contacting","transmitting","converting","uploading","sharing","callback"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["alert","callback","contacting","converting","delay","dialing","hold","interact","ivr","scheduled","sharing","system","transmitting","unknown","uploading","voicemail","wrapup"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -327,17 +309,23 @@ func init() {
 
 const (
 
-	// AnalyticsConversationSegmentSegmentTypeUnknown captures enum value "unknown"
-	AnalyticsConversationSegmentSegmentTypeUnknown string = "unknown"
-
 	// AnalyticsConversationSegmentSegmentTypeAlert captures enum value "alert"
 	AnalyticsConversationSegmentSegmentTypeAlert string = "alert"
 
-	// AnalyticsConversationSegmentSegmentTypeSystem captures enum value "system"
-	AnalyticsConversationSegmentSegmentTypeSystem string = "system"
+	// AnalyticsConversationSegmentSegmentTypeCallback captures enum value "callback"
+	AnalyticsConversationSegmentSegmentTypeCallback string = "callback"
+
+	// AnalyticsConversationSegmentSegmentTypeContacting captures enum value "contacting"
+	AnalyticsConversationSegmentSegmentTypeContacting string = "contacting"
+
+	// AnalyticsConversationSegmentSegmentTypeConverting captures enum value "converting"
+	AnalyticsConversationSegmentSegmentTypeConverting string = "converting"
 
 	// AnalyticsConversationSegmentSegmentTypeDelay captures enum value "delay"
 	AnalyticsConversationSegmentSegmentTypeDelay string = "delay"
+
+	// AnalyticsConversationSegmentSegmentTypeDialing captures enum value "dialing"
+	AnalyticsConversationSegmentSegmentTypeDialing string = "dialing"
 
 	// AnalyticsConversationSegmentSegmentTypeHold captures enum value "hold"
 	AnalyticsConversationSegmentSegmentTypeHold string = "hold"
@@ -348,35 +336,29 @@ const (
 	// AnalyticsConversationSegmentSegmentTypeIvr captures enum value "ivr"
 	AnalyticsConversationSegmentSegmentTypeIvr string = "ivr"
 
-	// AnalyticsConversationSegmentSegmentTypeDialing captures enum value "dialing"
-	AnalyticsConversationSegmentSegmentTypeDialing string = "dialing"
-
-	// AnalyticsConversationSegmentSegmentTypeWrapup captures enum value "wrapup"
-	AnalyticsConversationSegmentSegmentTypeWrapup string = "wrapup"
-
-	// AnalyticsConversationSegmentSegmentTypeVoicemail captures enum value "voicemail"
-	AnalyticsConversationSegmentSegmentTypeVoicemail string = "voicemail"
-
 	// AnalyticsConversationSegmentSegmentTypeScheduled captures enum value "scheduled"
 	AnalyticsConversationSegmentSegmentTypeScheduled string = "scheduled"
-
-	// AnalyticsConversationSegmentSegmentTypeContacting captures enum value "contacting"
-	AnalyticsConversationSegmentSegmentTypeContacting string = "contacting"
-
-	// AnalyticsConversationSegmentSegmentTypeTransmitting captures enum value "transmitting"
-	AnalyticsConversationSegmentSegmentTypeTransmitting string = "transmitting"
-
-	// AnalyticsConversationSegmentSegmentTypeConverting captures enum value "converting"
-	AnalyticsConversationSegmentSegmentTypeConverting string = "converting"
-
-	// AnalyticsConversationSegmentSegmentTypeUploading captures enum value "uploading"
-	AnalyticsConversationSegmentSegmentTypeUploading string = "uploading"
 
 	// AnalyticsConversationSegmentSegmentTypeSharing captures enum value "sharing"
 	AnalyticsConversationSegmentSegmentTypeSharing string = "sharing"
 
-	// AnalyticsConversationSegmentSegmentTypeCallback captures enum value "callback"
-	AnalyticsConversationSegmentSegmentTypeCallback string = "callback"
+	// AnalyticsConversationSegmentSegmentTypeSystem captures enum value "system"
+	AnalyticsConversationSegmentSegmentTypeSystem string = "system"
+
+	// AnalyticsConversationSegmentSegmentTypeTransmitting captures enum value "transmitting"
+	AnalyticsConversationSegmentSegmentTypeTransmitting string = "transmitting"
+
+	// AnalyticsConversationSegmentSegmentTypeUnknown captures enum value "unknown"
+	AnalyticsConversationSegmentSegmentTypeUnknown string = "unknown"
+
+	// AnalyticsConversationSegmentSegmentTypeUploading captures enum value "uploading"
+	AnalyticsConversationSegmentSegmentTypeUploading string = "uploading"
+
+	// AnalyticsConversationSegmentSegmentTypeVoicemail captures enum value "voicemail"
+	AnalyticsConversationSegmentSegmentTypeVoicemail string = "voicemail"
+
+	// AnalyticsConversationSegmentSegmentTypeWrapup captures enum value "wrapup"
+	AnalyticsConversationSegmentSegmentTypeWrapup string = "wrapup"
 )
 
 // prop value enum

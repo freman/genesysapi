@@ -6,8 +6,10 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // AnalyticsResolution analytics resolution
@@ -15,8 +17,12 @@ import (
 // swagger:model AnalyticsResolution
 type AnalyticsResolution struct {
 
-	// The number of interactions for which next contact was avoided.
-	GetnNextContactAvoided int64 `json:"getnNextContactAvoided,omitempty"`
+	// Specifies when an event occurred. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+	// Format: date-time
+	EventTime strfmt.DateTime `json:"eventTime,omitempty"`
+
+	// n next contact avoided
+	NNextContactAvoided int64 `json:"nNextContactAvoided,omitempty"`
 
 	// The ID of the last queue on which the conversation was handled.
 	QueueID string `json:"queueId,omitempty"`
@@ -27,6 +33,28 @@ type AnalyticsResolution struct {
 
 // Validate validates this analytics resolution
 func (m *AnalyticsResolution) Validate(formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.validateEventTime(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *AnalyticsResolution) validateEventTime(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.EventTime) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("eventTime", "body", "date-time", m.EventTime.String(), formats); err != nil {
+		return err
+	}
+
 	return nil
 }
 

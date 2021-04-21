@@ -18,7 +18,7 @@ type AnalyticsScoredAgent struct {
 	// Assigned agent score for this conversation (0 - 100, higher being better)
 	AgentScore int32 `json:"agentScore,omitempty"`
 
-	// Unique identifier of an agent that was scored for this conversation
+	// Unique identifier for the agent that was scored for this conversation
 	ScoredAgentID string `json:"scoredAgentId,omitempty"`
 }
 

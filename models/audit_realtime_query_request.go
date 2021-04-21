@@ -35,7 +35,7 @@ type AuditRealtimeQueryRequest struct {
 
 	// Name of the service to query audits for.
 	// Required: true
-	// Enum: [Architect ContactCenter ContentManagement PeoplePermissions Presence Quality LanguageUnderstanding TopicsDefinitions PredictiveEngagement WorkforceManagement Triggers ResponseManagement Groups Telephony Outbound SpeechAndTextAnalytics Routing]
+	// Enum: [Architect ContactCenter ContentManagement Integrations PeoplePermissions Presence Quality LanguageUnderstanding TopicsDefinitions PredictiveEngagement WorkforceManagement Triggers ResponseManagement Groups Telephony Outbound SpeechAndTextAnalytics Routing]
 	ServiceName *string `json:"serviceName"`
 
 	// Sort parameter for the query.
@@ -106,7 +106,7 @@ var auditRealtimeQueryRequestTypeServiceNamePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Architect","ContactCenter","ContentManagement","PeoplePermissions","Presence","Quality","LanguageUnderstanding","TopicsDefinitions","PredictiveEngagement","WorkforceManagement","Triggers","ResponseManagement","Groups","Telephony","Outbound","SpeechAndTextAnalytics","Routing"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Architect","ContactCenter","ContentManagement","Integrations","PeoplePermissions","Presence","Quality","LanguageUnderstanding","TopicsDefinitions","PredictiveEngagement","WorkforceManagement","Triggers","ResponseManagement","Groups","Telephony","Outbound","SpeechAndTextAnalytics","Routing"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -124,6 +124,9 @@ const (
 
 	// AuditRealtimeQueryRequestServiceNameContentManagement captures enum value "ContentManagement"
 	AuditRealtimeQueryRequestServiceNameContentManagement string = "ContentManagement"
+
+	// AuditRealtimeQueryRequestServiceNameIntegrations captures enum value "Integrations"
+	AuditRealtimeQueryRequestServiceNameIntegrations string = "Integrations"
 
 	// AuditRealtimeQueryRequestServiceNamePeoplePermissions captures enum value "PeoplePermissions"
 	AuditRealtimeQueryRequestServiceNamePeoplePermissions string = "PeoplePermissions"

@@ -18,25 +18,25 @@ import (
 // swagger:model EvaluationScoringSet
 type EvaluationScoringSet struct {
 
-	// agent comments
+	// Comments from the agent while reviewing evaluation results
 	AgentComments string `json:"agentComments,omitempty"`
 
-	// any failed kill questions
+	// Indicates that at least one fatal question was answered without having the highest score available for the question
 	AnyFailedKillQuestions bool `json:"anyFailedKillQuestions"`
 
-	// comments
+	// Overall comments from the evaluator
 	Comments string `json:"comments,omitempty"`
 
 	// question group scores
 	QuestionGroupScores []*EvaluationQuestionGroupScore `json:"questionGroupScores"`
 
-	// total critical score
+	// Score of only the critical questions
 	TotalCriticalScore float32 `json:"totalCriticalScore,omitempty"`
 
-	// total non critical score
+	// Score of only the non-critical questions
 	TotalNonCriticalScore float32 `json:"totalNonCriticalScore,omitempty"`
 
-	// total score
+	// Score of all questions
 	TotalScore float32 `json:"totalScore,omitempty"`
 }
 

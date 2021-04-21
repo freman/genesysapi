@@ -14,6 +14,7 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+	"github.com/go-openapi/swag"
 )
 
 // NewGetKnowledgeKnowledgebaseLanguageDocumentsParams creates a new GetKnowledgeKnowledgebaseLanguageDocumentsParams object
@@ -75,6 +76,11 @@ type GetKnowledgeKnowledgebaseLanguageDocumentsParams struct {
 
 	*/
 	Categories *string
+	/*DocumentIds
+	  Comma-separated list of document identifiers to fetch by.
+
+	*/
+	DocumentIds []string
 	/*KnowledgeBaseID
 	  Knowledge base ID
 
@@ -170,6 +176,17 @@ func (o *GetKnowledgeKnowledgebaseLanguageDocumentsParams) WithCategories(catego
 // SetCategories adds the categories to the get knowledge knowledgebase language documents params
 func (o *GetKnowledgeKnowledgebaseLanguageDocumentsParams) SetCategories(categories *string) {
 	o.Categories = categories
+}
+
+// WithDocumentIds adds the documentIds to the get knowledge knowledgebase language documents params
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsParams) WithDocumentIds(documentIds []string) *GetKnowledgeKnowledgebaseLanguageDocumentsParams {
+	o.SetDocumentIds(documentIds)
+	return o
+}
+
+// SetDocumentIds adds the documentIds to the get knowledge knowledgebase language documents params
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsParams) SetDocumentIds(documentIds []string) {
+	o.DocumentIds = documentIds
 }
 
 // WithKnowledgeBaseID adds the knowledgeBaseID to the get knowledge knowledgebase language documents params
@@ -281,6 +298,14 @@ func (o *GetKnowledgeKnowledgebaseLanguageDocumentsParams) WriteToRequest(r runt
 			}
 		}
 
+	}
+
+	valuesDocumentIds := o.DocumentIds
+
+	joinedDocumentIds := swag.JoinByFormat(valuesDocumentIds, "multi")
+	// query array param documentIds
+	if err := r.SetQueryParam("documentIds", joinedDocumentIds...); err != nil {
+		return err
 	}
 
 	// path param knowledgeBaseId

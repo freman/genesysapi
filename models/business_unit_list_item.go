@@ -22,7 +22,7 @@ type BusinessUnitListItem struct {
 	Authorized *bool `json:"authorized"`
 
 	// The division to which this entity belongs.
-	Division *Division `json:"division,omitempty"`
+	Division *DivisionReference `json:"division,omitempty"`
 
 	// The globally unique identifier for the object.
 	// Read Only: true

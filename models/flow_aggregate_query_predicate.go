@@ -20,7 +20,7 @@ import (
 type FlowAggregateQueryPredicate struct {
 
 	// Left hand side for dimension predicates
-	// Enum: [addressFrom addressTo agentAssistantId agentRank agentScore ani assignerId conversationId convertedFrom convertedTo direction disconnectType divisionId dnis edgeId endingLanguage entryReason entryType exitReason externalContactId externalMediaCount externalOrganizationId firstQueue flaggedReason flowId flowInType flowMilestoneId flowName flowOutType flowOutcome flowOutcomeId flowOutcomeValue flowType flowVersion groupId interactionType journeyActionId journeyActionMapId journeyActionMapVersion journeyCustomerId journeyCustomerIdType journeyCustomerSessionId journeyCustomerSessionIdType mediaCount mediaType messageType originatingDirection outboundCampaignId outboundContactId outboundContactListId participantName peerId proposedAgentId provider purpose queueId remote reoffered requestedLanguageId requestedRouting requestedRoutingSkillId roomId routingPriority scoredAgentId selectedAgentId selectedAgentRank sessionDnis sessionId startingLanguage stationId teamId transferTargetAddress transferTargetName transferType usedRouting userId wrapUpCode]
+	// Enum: [activeSkillId addressFrom addressTo agentAssistantId agentBullseyeRing agentRank agentScore ani assignerId authenticated conversationId convertedFrom convertedTo direction disconnectType divisionId dnis edgeId endingLanguage entryReason entryType exitReason externalContactId externalMediaCount externalOrganizationId externalTag firstQueue flaggedReason flowId flowInType flowMilestoneId flowName flowOutType flowOutcome flowOutcomeId flowOutcomeValue flowType flowVersion groupId interactionType journeyActionId journeyActionMapId journeyActionMapVersion journeyCustomerId journeyCustomerIdType journeyCustomerSessionId journeyCustomerSessionIdType mediaCount mediaType messageType originatingDirection outboundCampaignId outboundContactId outboundContactListId participantName peerId proposedAgentId provider purpose queueId recognitionFailureReason remote removedSkillId reoffered requestedLanguageId requestedRouting requestedRoutingSkillId roomId routingPriority routingRing scoredAgentId selectedAgentId selectedAgentRank sessionDnis sessionId startingLanguage stationId teamId transferTargetAddress transferTargetName transferType usedRouting userId wrapUpCode]
 	Dimension string `json:"dimension,omitempty"`
 
 	// Optional operator, default is matches
@@ -68,7 +68,7 @@ var flowAggregateQueryPredicateTypeDimensionPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["addressFrom","addressTo","agentAssistantId","agentRank","agentScore","ani","assignerId","conversationId","convertedFrom","convertedTo","direction","disconnectType","divisionId","dnis","edgeId","endingLanguage","entryReason","entryType","exitReason","externalContactId","externalMediaCount","externalOrganizationId","firstQueue","flaggedReason","flowId","flowInType","flowMilestoneId","flowName","flowOutType","flowOutcome","flowOutcomeId","flowOutcomeValue","flowType","flowVersion","groupId","interactionType","journeyActionId","journeyActionMapId","journeyActionMapVersion","journeyCustomerId","journeyCustomerIdType","journeyCustomerSessionId","journeyCustomerSessionIdType","mediaCount","mediaType","messageType","originatingDirection","outboundCampaignId","outboundContactId","outboundContactListId","participantName","peerId","proposedAgentId","provider","purpose","queueId","remote","reoffered","requestedLanguageId","requestedRouting","requestedRoutingSkillId","roomId","routingPriority","scoredAgentId","selectedAgentId","selectedAgentRank","sessionDnis","sessionId","startingLanguage","stationId","teamId","transferTargetAddress","transferTargetName","transferType","usedRouting","userId","wrapUpCode"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["activeSkillId","addressFrom","addressTo","agentAssistantId","agentBullseyeRing","agentRank","agentScore","ani","assignerId","authenticated","conversationId","convertedFrom","convertedTo","direction","disconnectType","divisionId","dnis","edgeId","endingLanguage","entryReason","entryType","exitReason","externalContactId","externalMediaCount","externalOrganizationId","externalTag","firstQueue","flaggedReason","flowId","flowInType","flowMilestoneId","flowName","flowOutType","flowOutcome","flowOutcomeId","flowOutcomeValue","flowType","flowVersion","groupId","interactionType","journeyActionId","journeyActionMapId","journeyActionMapVersion","journeyCustomerId","journeyCustomerIdType","journeyCustomerSessionId","journeyCustomerSessionIdType","mediaCount","mediaType","messageType","originatingDirection","outboundCampaignId","outboundContactId","outboundContactListId","participantName","peerId","proposedAgentId","provider","purpose","queueId","recognitionFailureReason","remote","removedSkillId","reoffered","requestedLanguageId","requestedRouting","requestedRoutingSkillId","roomId","routingPriority","routingRing","scoredAgentId","selectedAgentId","selectedAgentRank","sessionDnis","sessionId","startingLanguage","stationId","teamId","transferTargetAddress","transferTargetName","transferType","usedRouting","userId","wrapUpCode"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -78,6 +78,9 @@ func init() {
 
 const (
 
+	// FlowAggregateQueryPredicateDimensionActiveSkillID captures enum value "activeSkillId"
+	FlowAggregateQueryPredicateDimensionActiveSkillID string = "activeSkillId"
+
 	// FlowAggregateQueryPredicateDimensionAddressFrom captures enum value "addressFrom"
 	FlowAggregateQueryPredicateDimensionAddressFrom string = "addressFrom"
 
@@ -86,6 +89,9 @@ const (
 
 	// FlowAggregateQueryPredicateDimensionAgentAssistantID captures enum value "agentAssistantId"
 	FlowAggregateQueryPredicateDimensionAgentAssistantID string = "agentAssistantId"
+
+	// FlowAggregateQueryPredicateDimensionAgentBullseyeRing captures enum value "agentBullseyeRing"
+	FlowAggregateQueryPredicateDimensionAgentBullseyeRing string = "agentBullseyeRing"
 
 	// FlowAggregateQueryPredicateDimensionAgentRank captures enum value "agentRank"
 	FlowAggregateQueryPredicateDimensionAgentRank string = "agentRank"
@@ -98,6 +104,9 @@ const (
 
 	// FlowAggregateQueryPredicateDimensionAssignerID captures enum value "assignerId"
 	FlowAggregateQueryPredicateDimensionAssignerID string = "assignerId"
+
+	// FlowAggregateQueryPredicateDimensionAuthenticated captures enum value "authenticated"
+	FlowAggregateQueryPredicateDimensionAuthenticated string = "authenticated"
 
 	// FlowAggregateQueryPredicateDimensionConversationID captures enum value "conversationId"
 	FlowAggregateQueryPredicateDimensionConversationID string = "conversationId"
@@ -143,6 +152,9 @@ const (
 
 	// FlowAggregateQueryPredicateDimensionExternalOrganizationID captures enum value "externalOrganizationId"
 	FlowAggregateQueryPredicateDimensionExternalOrganizationID string = "externalOrganizationId"
+
+	// FlowAggregateQueryPredicateDimensionExternalTag captures enum value "externalTag"
+	FlowAggregateQueryPredicateDimensionExternalTag string = "externalTag"
 
 	// FlowAggregateQueryPredicateDimensionFirstQueue captures enum value "firstQueue"
 	FlowAggregateQueryPredicateDimensionFirstQueue string = "firstQueue"
@@ -246,8 +258,14 @@ const (
 	// FlowAggregateQueryPredicateDimensionQueueID captures enum value "queueId"
 	FlowAggregateQueryPredicateDimensionQueueID string = "queueId"
 
+	// FlowAggregateQueryPredicateDimensionRecognitionFailureReason captures enum value "recognitionFailureReason"
+	FlowAggregateQueryPredicateDimensionRecognitionFailureReason string = "recognitionFailureReason"
+
 	// FlowAggregateQueryPredicateDimensionRemote captures enum value "remote"
 	FlowAggregateQueryPredicateDimensionRemote string = "remote"
+
+	// FlowAggregateQueryPredicateDimensionRemovedSkillID captures enum value "removedSkillId"
+	FlowAggregateQueryPredicateDimensionRemovedSkillID string = "removedSkillId"
 
 	// FlowAggregateQueryPredicateDimensionReoffered captures enum value "reoffered"
 	FlowAggregateQueryPredicateDimensionReoffered string = "reoffered"
@@ -266,6 +284,9 @@ const (
 
 	// FlowAggregateQueryPredicateDimensionRoutingPriority captures enum value "routingPriority"
 	FlowAggregateQueryPredicateDimensionRoutingPriority string = "routingPriority"
+
+	// FlowAggregateQueryPredicateDimensionRoutingRing captures enum value "routingRing"
+	FlowAggregateQueryPredicateDimensionRoutingRing string = "routingRing"
 
 	// FlowAggregateQueryPredicateDimensionScoredAgentID captures enum value "scoredAgentId"
 	FlowAggregateQueryPredicateDimensionScoredAgentID string = "scoredAgentId"

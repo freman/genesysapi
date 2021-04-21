@@ -21,7 +21,7 @@ type SurveyQuestionGroupScore struct {
 	// marked n a
 	MarkedNA bool `json:"markedNA"`
 
-	// max total score
+	// Maximum possible score of all questions in the group
 	MaxTotalScore float32 `json:"maxTotalScore,omitempty"`
 
 	// question group Id
@@ -30,7 +30,7 @@ type SurveyQuestionGroupScore struct {
 	// question scores
 	QuestionScores []*SurveyQuestionScore `json:"questionScores"`
 
-	// total score
+	// Score of all questions in the group
 	TotalScore float32 `json:"totalScore,omitempty"`
 }
 

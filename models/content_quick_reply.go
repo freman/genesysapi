@@ -26,7 +26,7 @@ type ContentQuickReply struct {
 	// An ID assigned to the quick reply. Each object inside the content array has a unique ID.
 	ID string `json:"id,omitempty"`
 
-	// Image associated with quick reply
+	// Path or URI to an image file associated with quick reply
 	Image string `json:"image,omitempty"`
 
 	// Content of the textback payload after clicking a quick reply

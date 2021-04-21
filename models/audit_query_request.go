@@ -29,7 +29,7 @@ type AuditQueryRequest struct {
 
 	// Name of the service to query audits for.
 	// Required: true
-	// Enum: [Architect ContactCenter ContentManagement PeoplePermissions Presence Quality LanguageUnderstanding TopicsDefinitions PredictiveEngagement WorkforceManagement Triggers ResponseManagement Groups Telephony Outbound SpeechAndTextAnalytics Routing]
+	// Enum: [Architect ContactCenter ContentManagement Integrations PeoplePermissions Presence Quality LanguageUnderstanding TopicsDefinitions PredictiveEngagement WorkforceManagement Triggers ResponseManagement Groups Telephony Outbound SpeechAndTextAnalytics Routing]
 	ServiceName *string `json:"serviceName"`
 
 	// Sort parameter for the query.
@@ -100,7 +100,7 @@ var auditQueryRequestTypeServiceNamePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Architect","ContactCenter","ContentManagement","PeoplePermissions","Presence","Quality","LanguageUnderstanding","TopicsDefinitions","PredictiveEngagement","WorkforceManagement","Triggers","ResponseManagement","Groups","Telephony","Outbound","SpeechAndTextAnalytics","Routing"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Architect","ContactCenter","ContentManagement","Integrations","PeoplePermissions","Presence","Quality","LanguageUnderstanding","TopicsDefinitions","PredictiveEngagement","WorkforceManagement","Triggers","ResponseManagement","Groups","Telephony","Outbound","SpeechAndTextAnalytics","Routing"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -118,6 +118,9 @@ const (
 
 	// AuditQueryRequestServiceNameContentManagement captures enum value "ContentManagement"
 	AuditQueryRequestServiceNameContentManagement string = "ContentManagement"
+
+	// AuditQueryRequestServiceNameIntegrations captures enum value "Integrations"
+	AuditQueryRequestServiceNameIntegrations string = "Integrations"
 
 	// AuditQueryRequestServiceNamePeoplePermissions captures enum value "PeoplePermissions"
 	AuditQueryRequestServiceNamePeoplePermissions string = "PeoplePermissions"

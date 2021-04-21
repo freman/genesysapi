@@ -31,6 +31,9 @@ type PostTextResponse struct {
 	// Enum: [Complete Failed MoreData]
 	BotState *string `json:"botState"`
 
+	// Raw data response from Genesys' BotConnector (if called)
+	GenesysBotConnector map[string]interface{} `json:"genesysBotConnector,omitempty"`
+
 	// Raw data response from Genesys' Dialogengine (if called)
 	GenesysDialogEngine map[string]interface{} `json:"genesysDialogEngine,omitempty"`
 

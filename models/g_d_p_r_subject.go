@@ -28,6 +28,9 @@ type GDPRSubject struct {
 	// external contact Id
 	ExternalContactID string `json:"externalContactId,omitempty"`
 
+	// external Id
+	ExternalID string `json:"externalId,omitempty"`
+
 	// journey customer
 	JourneyCustomer *GDPRJourneyCustomer `json:"journeyCustomer,omitempty"`
 

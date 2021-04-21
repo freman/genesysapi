@@ -77,7 +77,7 @@ type ObservationValue struct {
 	TeamID string `json:"teamId,omitempty"`
 
 	// Complete routing method
-	// Enum: [Predictive Preferred Manual Last Bullseye Standard]
+	// Enum: [Bullseye Last Manual Predictive Preferred Standard]
 	UsedRouting string `json:"usedRouting,omitempty"`
 
 	// Unique identifier for the user
@@ -191,7 +191,7 @@ var observationValueRequestedRoutingsItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Predictive","Preferred","Manual","Last","Bullseye","Standard"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Bullseye","Last","Manual","Predictive","Preferred","Standard"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -257,7 +257,7 @@ var observationValueTypeUsedRoutingPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Predictive","Preferred","Manual","Last","Bullseye","Standard"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Bullseye","Last","Manual","Predictive","Preferred","Standard"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -267,20 +267,20 @@ func init() {
 
 const (
 
+	// ObservationValueUsedRoutingBullseye captures enum value "Bullseye"
+	ObservationValueUsedRoutingBullseye string = "Bullseye"
+
+	// ObservationValueUsedRoutingLast captures enum value "Last"
+	ObservationValueUsedRoutingLast string = "Last"
+
+	// ObservationValueUsedRoutingManual captures enum value "Manual"
+	ObservationValueUsedRoutingManual string = "Manual"
+
 	// ObservationValueUsedRoutingPredictive captures enum value "Predictive"
 	ObservationValueUsedRoutingPredictive string = "Predictive"
 
 	// ObservationValueUsedRoutingPreferred captures enum value "Preferred"
 	ObservationValueUsedRoutingPreferred string = "Preferred"
-
-	// ObservationValueUsedRoutingManual captures enum value "Manual"
-	ObservationValueUsedRoutingManual string = "Manual"
-
-	// ObservationValueUsedRoutingLast captures enum value "Last"
-	ObservationValueUsedRoutingLast string = "Last"
-
-	// ObservationValueUsedRoutingBullseye captures enum value "Bullseye"
-	ObservationValueUsedRoutingBullseye string = "Bullseye"
 
 	// ObservationValueUsedRoutingStandard captures enum value "Standard"
 	ObservationValueUsedRoutingStandard string = "Standard"

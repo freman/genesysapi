@@ -81,6 +81,11 @@ for the get conversations messaging integrations whatsapp operation typically th
 */
 type GetConversationsMessagingIntegrationsWhatsappParams struct {
 
+	/*Expand
+	  Expand instructions for the return value.
+
+	*/
+	Expand *string
 	/*PageNumber
 	  Page number
 
@@ -91,6 +96,11 @@ type GetConversationsMessagingIntegrationsWhatsappParams struct {
 
 	*/
 	PageSize *int32
+	/*SupportedContentID
+	  Filter integrations returned based on the supported content ID
+
+	*/
+	SupportedContentID *string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -130,6 +140,17 @@ func (o *GetConversationsMessagingIntegrationsWhatsappParams) SetHTTPClient(clie
 	o.HTTPClient = client
 }
 
+// WithExpand adds the expand to the get conversations messaging integrations whatsapp params
+func (o *GetConversationsMessagingIntegrationsWhatsappParams) WithExpand(expand *string) *GetConversationsMessagingIntegrationsWhatsappParams {
+	o.SetExpand(expand)
+	return o
+}
+
+// SetExpand adds the expand to the get conversations messaging integrations whatsapp params
+func (o *GetConversationsMessagingIntegrationsWhatsappParams) SetExpand(expand *string) {
+	o.Expand = expand
+}
+
 // WithPageNumber adds the pageNumber to the get conversations messaging integrations whatsapp params
 func (o *GetConversationsMessagingIntegrationsWhatsappParams) WithPageNumber(pageNumber *int32) *GetConversationsMessagingIntegrationsWhatsappParams {
 	o.SetPageNumber(pageNumber)
@@ -152,6 +173,17 @@ func (o *GetConversationsMessagingIntegrationsWhatsappParams) SetPageSize(pageSi
 	o.PageSize = pageSize
 }
 
+// WithSupportedContentID adds the supportedContentID to the get conversations messaging integrations whatsapp params
+func (o *GetConversationsMessagingIntegrationsWhatsappParams) WithSupportedContentID(supportedContentID *string) *GetConversationsMessagingIntegrationsWhatsappParams {
+	o.SetSupportedContentID(supportedContentID)
+	return o
+}
+
+// SetSupportedContentID adds the supportedContentId to the get conversations messaging integrations whatsapp params
+func (o *GetConversationsMessagingIntegrationsWhatsappParams) SetSupportedContentID(supportedContentID *string) {
+	o.SupportedContentID = supportedContentID
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *GetConversationsMessagingIntegrationsWhatsappParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -159,6 +191,22 @@ func (o *GetConversationsMessagingIntegrationsWhatsappParams) WriteToRequest(r r
 		return err
 	}
 	var res []error
+
+	if o.Expand != nil {
+
+		// query param expand
+		var qrExpand string
+		if o.Expand != nil {
+			qrExpand = *o.Expand
+		}
+		qExpand := qrExpand
+		if qExpand != "" {
+			if err := r.SetQueryParam("expand", qExpand); err != nil {
+				return err
+			}
+		}
+
+	}
 
 	if o.PageNumber != nil {
 
@@ -186,6 +234,22 @@ func (o *GetConversationsMessagingIntegrationsWhatsappParams) WriteToRequest(r r
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	if o.SupportedContentID != nil {
+
+		// query param supportedContent.id
+		var qrSupportedContentID string
+		if o.SupportedContentID != nil {
+			qrSupportedContentID = *o.SupportedContentID
+		}
+		qSupportedContentID := qrSupportedContentID
+		if qSupportedContentID != "" {
+			if err := r.SetQueryParam("supportedContent.id", qSupportedContentID); err != nil {
 				return err
 			}
 		}

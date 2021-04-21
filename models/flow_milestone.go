@@ -20,6 +20,9 @@ type FlowMilestone struct {
 	// The flow milestone description.
 	Description string `json:"description,omitempty"`
 
+	// The division to which this entity belongs.
+	Division *WritableDivision `json:"division,omitempty"`
+
 	// The flow milestone identifier
 	// Read Only: true
 	ID string `json:"id,omitempty"`
@@ -38,6 +41,10 @@ type FlowMilestone struct {
 func (m *FlowMilestone) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateDivision(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateName(formats); err != nil {
 		res = append(res, err)
 	}
@@ -49,6 +56,24 @@ func (m *FlowMilestone) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *FlowMilestone) validateDivision(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Division) { // not required
+		return nil
+	}
+
+	if m.Division != nil {
+		if err := m.Division.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("division")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

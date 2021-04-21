@@ -17,29 +17,29 @@ import (
 // swagger:model AnalyticsEvaluation
 type AnalyticsEvaluation struct {
 
-	// The calibration id used for the purpose of training evaluators
+	// The calibration ID used for the purpose of training evaluators
 	CalibrationID string `json:"calibrationId,omitempty"`
 
 	// A unique identifier for an evaluation form, regardless of version
 	ContextID string `json:"contextId,omitempty"`
 
-	// Whether this evaluation has been deleted
+	// Whether the evaluation has been deleted
 	Deleted bool `json:"deleted"`
 
 	// Unique identifier for the evaluation
 	EvaluationID string `json:"evaluationId,omitempty"`
 
-	// A unique identifier of the PureCloud user who evaluated the interaction
+	// A unique identifier of the user who evaluated the interaction
 	EvaluatorID string `json:"evaluatorId,omitempty"`
 
 	// Specifies when an evaluation occurred. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	EventTime strfmt.DateTime `json:"eventTime,omitempty"`
 
-	// Unique identifier for the form used to evaluate the conversation/agent
+	// ID of the evaluation form used
 	FormID string `json:"formId,omitempty"`
 
-	// Name of the evaluation form
+	// Name of the evaluation form used
 	FormName string `json:"formName,omitempty"`
 
 	// o total critical score
@@ -48,13 +48,13 @@ type AnalyticsEvaluation struct {
 	// o total score
 	OTotalScore int64 `json:"oTotalScore,omitempty"`
 
-	// Unique identifier for the queue the conversation was on
+	// The ID of the associated queue
 	QueueID string `json:"queueId,omitempty"`
 
-	// Whether this evaluation has ever been rescored
+	// Whether the evaluation has been rescored at least once
 	Rescored bool `json:"rescored"`
 
-	// Unique identifier for the user being evaluated
+	// ID of the agent the evaluation was performed against
 	UserID string `json:"userId,omitempty"`
 }
 

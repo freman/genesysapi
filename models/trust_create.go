@@ -26,9 +26,8 @@ type TrustCreate struct {
 	// The list of groups and their roles to which access will be granted. The groups are from the trustee and the roles are from the trustor. If no groups are specified, at least one user is required.
 	Groups []*TrustMemberCreate `json:"groups"`
 
-	// The pairing Id created by the trustee. This is required to prove that the trustee agrees to the relationship.
-	// Required: true
-	PairingID *string `json:"pairingId"`
+	// The pairing Id created by the trustee. This is required to prove that the trustee agrees to the relationship.  Not required when creating a default pairing with Customer Care.
+	PairingID string `json:"pairingId,omitempty"`
 
 	// The list of users and their roles to which access will be granted. The users are from the trustee and the roles are from the trustor. If no users are specified, at least one group is required.
 	Users []*TrustMemberCreate `json:"users"`
@@ -43,10 +42,6 @@ func (m *TrustCreate) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateGroups(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validatePairingID(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -89,15 +84,6 @@ func (m *TrustCreate) validateGroups(formats strfmt.Registry) error {
 			}
 		}
 
-	}
-
-	return nil
-}
-
-func (m *TrustCreate) validatePairingID(formats strfmt.Registry) error {
-
-	if err := validate.Required("pairingId", "body", m.PairingID); err != nil {
-		return err
 	}
 
 	return nil

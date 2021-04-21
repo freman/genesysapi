@@ -213,6 +213,7 @@ type API interface {
 	GetConversationsMessage(ctx context.Context, params *GetConversationsMessageParams) (*GetConversationsMessageOK, error)
 	/*
 	   GetConversationsMessageCommunicationMessagesMediaMediaID gets media
+	   See https://developer.genesys.cloud/api/rest/v2/conversations/messaging-media-upload for example usage.
 	*/
 	GetConversationsMessageCommunicationMessagesMediaMediaID(ctx context.Context, params *GetConversationsMessageCommunicationMessagesMediaMediaIDParams) (*GetConversationsMessageCommunicationMessagesMediaMediaIDOK, error)
 	/*
@@ -525,8 +526,9 @@ type API interface {
 	PostConversationsMessageCommunicationMessages(ctx context.Context, params *PostConversationsMessageCommunicationMessagesParams) (*PostConversationsMessageCommunicationMessagesOK, *PostConversationsMessageCommunicationMessagesAccepted, error)
 	/*
 	   PostConversationsMessageCommunicationMessagesMedia creates media
+	   See https://developer.genesys.cloud/api/rest/v2/conversations/messaging-media-upload for example usage.
 	*/
-	PostConversationsMessageCommunicationMessagesMedia(ctx context.Context, params *PostConversationsMessageCommunicationMessagesMediaParams) (*PostConversationsMessageCommunicationMessagesMediaOK, *PostConversationsMessageCommunicationMessagesMediaAccepted, error)
+	PostConversationsMessageCommunicationMessagesMedia(ctx context.Context, params *PostConversationsMessageCommunicationMessagesMediaParams) (*PostConversationsMessageCommunicationMessagesMediaAccepted, error)
 	/*
 	   PostConversationsMessageMessagesBulk gets messages in batch
 	   The path parameter [conversationId] should contain the conversationId of the conversation being filtered. The body should contain the messageId(s) of messages being requested. For example: ["a3069a33b-bbb1-4703-9d68-061d9e9db96e", "55bc6be3-078c-4a49-a4e6-1e05776ed7e8"]
@@ -1817,6 +1819,8 @@ func (a *Client) GetConversationsMessage(ctx context.Context, params *GetConvers
 
 /*
 GetConversationsMessageCommunicationMessagesMediaMediaID gets media
+
+See https://developer.genesys.cloud/api/rest/v2/conversations/messaging-media-upload for example usage.
 */
 func (a *Client) GetConversationsMessageCommunicationMessagesMediaMediaID(ctx context.Context, params *GetConversationsMessageCommunicationMessagesMediaMediaIDParams) (*GetConversationsMessageCommunicationMessagesMediaMediaIDOK, error) {
 
@@ -3774,8 +3778,10 @@ func (a *Client) PostConversationsMessageCommunicationMessages(ctx context.Conte
 
 /*
 PostConversationsMessageCommunicationMessagesMedia creates media
+
+See https://developer.genesys.cloud/api/rest/v2/conversations/messaging-media-upload for example usage.
 */
-func (a *Client) PostConversationsMessageCommunicationMessagesMedia(ctx context.Context, params *PostConversationsMessageCommunicationMessagesMediaParams) (*PostConversationsMessageCommunicationMessagesMediaOK, *PostConversationsMessageCommunicationMessagesMediaAccepted, error) {
+func (a *Client) PostConversationsMessageCommunicationMessagesMedia(ctx context.Context, params *PostConversationsMessageCommunicationMessagesMediaParams) (*PostConversationsMessageCommunicationMessagesMediaAccepted, error) {
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "postConversationsMessageCommunicationMessagesMedia",
@@ -3791,15 +3797,9 @@ func (a *Client) PostConversationsMessageCommunicationMessagesMedia(ctx context.
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
-		return nil, nil, err
+		return nil, err
 	}
-	switch value := result.(type) {
-	case *PostConversationsMessageCommunicationMessagesMediaOK:
-		return value, nil, nil
-	case *PostConversationsMessageCommunicationMessagesMediaAccepted:
-		return nil, value, nil
-	}
-	return nil, nil, nil
+	return result.(*PostConversationsMessageCommunicationMessagesMediaAccepted), nil
 
 }
 

@@ -18,10 +18,10 @@ type EvaluationQuestionScore struct {
 	// answer Id
 	AnswerID string `json:"answerId,omitempty"`
 
-	// comments
+	// Comments from the evaluator specific to this question
 	Comments string `json:"comments,omitempty"`
 
-	// failed kill question
+	// Applicable only on fatal questions. Indicates that the answer selected was not the highest score available for the question
 	FailedKillQuestion bool `json:"failedKillQuestion"`
 
 	// marked n a
@@ -30,7 +30,7 @@ type EvaluationQuestionScore struct {
 	// question Id
 	QuestionID string `json:"questionId,omitempty"`
 
-	// score
+	// Unweighted score of the question
 	Score int32 `json:"score,omitempty"`
 }
 

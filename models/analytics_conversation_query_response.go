@@ -23,6 +23,9 @@ type AnalyticsConversationQueryResponse struct {
 
 	// conversations
 	Conversations []*AnalyticsConversationWithoutAttributes `json:"conversations"`
+
+	// total hits
+	TotalHits int32 `json:"totalHits,omitempty"`
 }
 
 // Validate validates this analytics conversation query response

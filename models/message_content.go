@@ -23,9 +23,12 @@ type MessageContent struct {
 	// Attachment object
 	Attachment *ContentAttachment `json:"attachment,omitempty"`
 
+	// Button response object
+	ButtonResponse *ContentButtonResponse `json:"buttonResponse,omitempty"`
+
 	// Type of this content element. If contentType = "Attachment" only one item is allowed.
 	// Required: true
-	// Enum: [Attachment Location QuickReply Notification GenericTemplate ListTemplate Postback Reactions Mention]
+	// Enum: [Attachment Location QuickReply ButtonResponse Notification GenericTemplate ListTemplate Postback Reactions Mention]
 	ContentType *string `json:"contentType"`
 
 	// Generic content object
@@ -58,6 +61,10 @@ func (m *MessageContent) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateAttachment(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateButtonResponse(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -121,11 +128,29 @@ func (m *MessageContent) validateAttachment(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *MessageContent) validateButtonResponse(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.ButtonResponse) { // not required
+		return nil
+	}
+
+	if m.ButtonResponse != nil {
+		if err := m.ButtonResponse.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("buttonResponse")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 var messageContentTypeContentTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Attachment","Location","QuickReply","Notification","GenericTemplate","ListTemplate","Postback","Reactions","Mention"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Attachment","Location","QuickReply","ButtonResponse","Notification","GenericTemplate","ListTemplate","Postback","Reactions","Mention"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -143,6 +168,9 @@ const (
 
 	// MessageContentContentTypeQuickReply captures enum value "QuickReply"
 	MessageContentContentTypeQuickReply string = "QuickReply"
+
+	// MessageContentContentTypeButtonResponse captures enum value "ButtonResponse"
+	MessageContentContentTypeButtonResponse string = "ButtonResponse"
 
 	// MessageContentContentTypeNotification captures enum value "Notification"
 	MessageContentContentTypeNotification string = "Notification"

@@ -102,6 +102,11 @@ type GetFlowsOutcomesParams struct {
 
 	*/
 	Description *string
+	/*DivisionID
+	  division ID(s)
+
+	*/
+	DivisionID []string
 	/*ID
 	  ID
 
@@ -185,6 +190,17 @@ func (o *GetFlowsOutcomesParams) WithDescription(description *string) *GetFlowsO
 // SetDescription adds the description to the get flows outcomes params
 func (o *GetFlowsOutcomesParams) SetDescription(description *string) {
 	o.Description = description
+}
+
+// WithDivisionID adds the divisionID to the get flows outcomes params
+func (o *GetFlowsOutcomesParams) WithDivisionID(divisionID []string) *GetFlowsOutcomesParams {
+	o.SetDivisionID(divisionID)
+	return o
+}
+
+// SetDivisionID adds the divisionId to the get flows outcomes params
+func (o *GetFlowsOutcomesParams) SetDivisionID(divisionID []string) {
+	o.DivisionID = divisionID
 }
 
 // WithID adds the id to the get flows outcomes params
@@ -286,6 +302,14 @@ func (o *GetFlowsOutcomesParams) WriteToRequest(r runtime.ClientRequest, reg str
 			}
 		}
 
+	}
+
+	valuesDivisionID := o.DivisionID
+
+	joinedDivisionID := swag.JoinByFormat(valuesDivisionID, "multi")
+	// query array param divisionId
+	if err := r.SetQueryParam("divisionId", joinedDivisionID...); err != nil {
+		return err
 	}
 
 	valuesID := o.ID

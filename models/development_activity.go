@@ -64,7 +64,7 @@ type DevelopmentActivity struct {
 	Status string `json:"status,omitempty"`
 
 	// The type of activity
-	// Enum: [Informational Coaching]
+	// Enum: [Informational Coaching AssessedContent Questionnaire]
 	Type string `json:"type,omitempty"`
 }
 
@@ -280,7 +280,7 @@ var developmentActivityTypeTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Informational","Coaching"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Informational","Coaching","AssessedContent","Questionnaire"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -295,6 +295,12 @@ const (
 
 	// DevelopmentActivityTypeCoaching captures enum value "Coaching"
 	DevelopmentActivityTypeCoaching string = "Coaching"
+
+	// DevelopmentActivityTypeAssessedContent captures enum value "AssessedContent"
+	DevelopmentActivityTypeAssessedContent string = "AssessedContent"
+
+	// DevelopmentActivityTypeQuestionnaire captures enum value "Questionnaire"
+	DevelopmentActivityTypeQuestionnaire string = "Questionnaire"
 )
 
 // prop value enum

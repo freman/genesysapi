@@ -21,6 +21,9 @@ type AnalyticsUserDetailsQueryResponse struct {
 	// aggregations
 	Aggregations []*AggregationResult `json:"aggregations"`
 
+	// total hits
+	TotalHits int32 `json:"totalHits,omitempty"`
+
 	// user details
 	UserDetails []*AnalyticsUserDetail `json:"userDetails"`
 }

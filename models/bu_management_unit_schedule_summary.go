@@ -23,6 +23,7 @@ type BuManagementUnitScheduleSummary struct {
 	AgentCount int32 `json:"agentCount,omitempty"`
 
 	// The agents in the management unit who are part of this schedule, or in schedule change notifications, the agents that were changed. Note this will come back as an empty list unless the appropriate expand query parameter is passed
+	// Unique: true
 	Agents []*UserReference `json:"agents"`
 
 	// The end of the schedule change in the management unit. Only populated in schedule update notifications. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
@@ -67,6 +68,10 @@ func (m *BuManagementUnitScheduleSummary) validateAgents(formats strfmt.Registry
 
 	if swag.IsZero(m.Agents) { // not required
 		return nil
+	}
+
+	if err := validate.UniqueItems("agents", "body", m.Agents); err != nil {
+		return err
 	}
 
 	for i := 0; i < len(m.Agents); i++ {

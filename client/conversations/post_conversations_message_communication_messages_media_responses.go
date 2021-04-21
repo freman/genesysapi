@@ -23,12 +23,6 @@ type PostConversationsMessageCommunicationMessagesMediaReader struct {
 // ReadResponse reads a server response into the received o.
 func (o *PostConversationsMessageCommunicationMessagesMediaReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {
-	case 200:
-		result := NewPostConversationsMessageCommunicationMessagesMediaOK()
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		return result, nil
 	case 202:
 		result := NewPostConversationsMessageCommunicationMessagesMediaAccepted()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -101,39 +95,6 @@ func (o *PostConversationsMessageCommunicationMessagesMediaReader) ReadResponse(
 	}
 }
 
-// NewPostConversationsMessageCommunicationMessagesMediaOK creates a PostConversationsMessageCommunicationMessagesMediaOK with default headers values
-func NewPostConversationsMessageCommunicationMessagesMediaOK() *PostConversationsMessageCommunicationMessagesMediaOK {
-	return &PostConversationsMessageCommunicationMessagesMediaOK{}
-}
-
-/*PostConversationsMessageCommunicationMessagesMediaOK handles this case with default header values.
-
-successful operation
-*/
-type PostConversationsMessageCommunicationMessagesMediaOK struct {
-	Payload *models.MessageMediaData
-}
-
-func (o *PostConversationsMessageCommunicationMessagesMediaOK) Error() string {
-	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media][%d] postConversationsMessageCommunicationMessagesMediaOK  %+v", 200, o.Payload)
-}
-
-func (o *PostConversationsMessageCommunicationMessagesMediaOK) GetPayload() *models.MessageMediaData {
-	return o.Payload
-}
-
-func (o *PostConversationsMessageCommunicationMessagesMediaOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.MessageMediaData)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
 // NewPostConversationsMessageCommunicationMessagesMediaAccepted creates a PostConversationsMessageCommunicationMessagesMediaAccepted with default headers values
 func NewPostConversationsMessageCommunicationMessagesMediaAccepted() *PostConversationsMessageCommunicationMessagesMediaAccepted {
 	return &PostConversationsMessageCommunicationMessagesMediaAccepted{}
@@ -144,13 +105,25 @@ func NewPostConversationsMessageCommunicationMessagesMediaAccepted() *PostConver
 Accepted
 */
 type PostConversationsMessageCommunicationMessagesMediaAccepted struct {
+	Payload *models.MessageMediaData
 }
 
 func (o *PostConversationsMessageCommunicationMessagesMediaAccepted) Error() string {
-	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media][%d] postConversationsMessageCommunicationMessagesMediaAccepted ", 202)
+	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media][%d] postConversationsMessageCommunicationMessagesMediaAccepted  %+v", 202, o.Payload)
+}
+
+func (o *PostConversationsMessageCommunicationMessagesMediaAccepted) GetPayload() *models.MessageMediaData {
+	return o.Payload
 }
 
 func (o *PostConversationsMessageCommunicationMessagesMediaAccepted) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.MessageMediaData)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
 
 	return nil
 }

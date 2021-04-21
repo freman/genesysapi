@@ -271,6 +271,11 @@ type API interface {
 	*/
 	GetFlowsMilestones(ctx context.Context, params *GetFlowsMilestonesParams) (*GetFlowsMilestonesOK, error)
 	/*
+	   GetFlowsMilestonesDivisionviews gets a pageable list of basic flow milestone information objects filterable by query parameters
+	   This returns flow milestones consisting of name and division. If one or more IDs are specified, the search will fetch flow milestones that match the given ID(s) and not use any additional supplied query parameters in the search.
+	*/
+	GetFlowsMilestonesDivisionviews(ctx context.Context, params *GetFlowsMilestonesDivisionviewsParams) (*GetFlowsMilestonesDivisionviewsOK, error)
+	/*
 	   GetFlowsOutcome gets a flow outcome
 	   Returns a specified flow outcome
 	*/
@@ -280,6 +285,11 @@ type API interface {
 	   Multiple IDs can be specified, in which case all matching flow outcomes will be returned, and no other parameters will be evaluated.
 	*/
 	GetFlowsOutcomes(ctx context.Context, params *GetFlowsOutcomesParams) (*GetFlowsOutcomesOK, error)
+	/*
+	   GetFlowsOutcomesDivisionviews gets a pageable list of basic flow outcome information objects filterable by query parameters
+	   This returns flow outcomes consisting of name and division. If one or more IDs are specified, the search will fetch flow outcomes that match the given ID(s) and not use any additional supplied query parameters in the search.
+	*/
+	GetFlowsOutcomesDivisionviews(ctx context.Context, params *GetFlowsOutcomesDivisionviewsParams) (*GetFlowsOutcomesDivisionviewsOK, error)
 	/*
 	   PostArchitectDependencytrackingBuild rebuilds dependency tracking data for an organization
 	   Asynchronous.  Notification topic: v2.architect.dependencytracking.build
@@ -2037,6 +2047,33 @@ func (a *Client) GetFlowsMilestones(ctx context.Context, params *GetFlowsMilesto
 }
 
 /*
+GetFlowsMilestonesDivisionviews gets a pageable list of basic flow milestone information objects filterable by query parameters
+
+This returns flow milestones consisting of name and division. If one or more IDs are specified, the search will fetch flow milestones that match the given ID(s) and not use any additional supplied query parameters in the search.
+*/
+func (a *Client) GetFlowsMilestonesDivisionviews(ctx context.Context, params *GetFlowsMilestonesDivisionviewsParams) (*GetFlowsMilestonesDivisionviewsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getFlowsMilestonesDivisionviews",
+		Method:             "GET",
+		PathPattern:        "/api/v2/flows/milestones/divisionviews",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetFlowsMilestonesDivisionviewsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetFlowsMilestonesDivisionviewsOK), nil
+
+}
+
+/*
 GetFlowsOutcome gets a flow outcome
 
 Returns a specified flow outcome
@@ -2087,6 +2124,33 @@ func (a *Client) GetFlowsOutcomes(ctx context.Context, params *GetFlowsOutcomesP
 		return nil, err
 	}
 	return result.(*GetFlowsOutcomesOK), nil
+
+}
+
+/*
+GetFlowsOutcomesDivisionviews gets a pageable list of basic flow outcome information objects filterable by query parameters
+
+This returns flow outcomes consisting of name and division. If one or more IDs are specified, the search will fetch flow outcomes that match the given ID(s) and not use any additional supplied query parameters in the search.
+*/
+func (a *Client) GetFlowsOutcomesDivisionviews(ctx context.Context, params *GetFlowsOutcomesDivisionviewsParams) (*GetFlowsOutcomesDivisionviewsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getFlowsOutcomesDivisionviews",
+		Method:             "GET",
+		PathPattern:        "/api/v2/flows/outcomes/divisionviews",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetFlowsOutcomesDivisionviewsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetFlowsOutcomesDivisionviewsOK), nil
 
 }
 

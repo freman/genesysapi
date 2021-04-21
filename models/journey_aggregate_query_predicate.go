@@ -20,7 +20,7 @@ import (
 type JourneyAggregateQueryPredicate struct {
 
 	// Left hand side for dimension predicates
-	// Enum: [journeyActionId journeyActionMapId journeyActionMapVersion journeyActionMediaType journeyActionTemplateId journeyCustomerId journeyCustomerIdType journeyDeviceCategory journeyDeviceType journeyOutcomeId journeySegmentId journeySegmentScope journeySessionSegmentId journeySessionType touchpointActionMapId]
+	// Enum: [containsAllCondition containsAnyCondition endsWithCondition equalCondition greaterThanCondition greaterThanOrEqualCondition journeyActionId journeyActionMapId journeyActionMapVersion journeyActionMediaType journeyActionTargetId journeyActionTemplateId journeyBlockingActionMapId journeyBlockingReason journeyBlockingScheduleGroupId journeyCustomerId journeyCustomerIdType journeyDeviceCategory journeyDeviceType journeyFrequencyCapReason journeyOutcomeId journeySegmentId journeySegmentScope journeySessionSegmentId journeySessionType lessThanCondition lessThanOrEqualCondition notContainsAllCondition notContainsAnyCondition notEqualCondition startsWithCondition touchpointActionMapId]
 	Dimension string `json:"dimension,omitempty"`
 
 	// Optional operator, default is matches
@@ -68,7 +68,7 @@ var journeyAggregateQueryPredicateTypeDimensionPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["journeyActionId","journeyActionMapId","journeyActionMapVersion","journeyActionMediaType","journeyActionTemplateId","journeyCustomerId","journeyCustomerIdType","journeyDeviceCategory","journeyDeviceType","journeyOutcomeId","journeySegmentId","journeySegmentScope","journeySessionSegmentId","journeySessionType","touchpointActionMapId"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["containsAllCondition","containsAnyCondition","endsWithCondition","equalCondition","greaterThanCondition","greaterThanOrEqualCondition","journeyActionId","journeyActionMapId","journeyActionMapVersion","journeyActionMediaType","journeyActionTargetId","journeyActionTemplateId","journeyBlockingActionMapId","journeyBlockingReason","journeyBlockingScheduleGroupId","journeyCustomerId","journeyCustomerIdType","journeyDeviceCategory","journeyDeviceType","journeyFrequencyCapReason","journeyOutcomeId","journeySegmentId","journeySegmentScope","journeySessionSegmentId","journeySessionType","lessThanCondition","lessThanOrEqualCondition","notContainsAllCondition","notContainsAnyCondition","notEqualCondition","startsWithCondition","touchpointActionMapId"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -77,6 +77,24 @@ func init() {
 }
 
 const (
+
+	// JourneyAggregateQueryPredicateDimensionContainsAllCondition captures enum value "containsAllCondition"
+	JourneyAggregateQueryPredicateDimensionContainsAllCondition string = "containsAllCondition"
+
+	// JourneyAggregateQueryPredicateDimensionContainsAnyCondition captures enum value "containsAnyCondition"
+	JourneyAggregateQueryPredicateDimensionContainsAnyCondition string = "containsAnyCondition"
+
+	// JourneyAggregateQueryPredicateDimensionEndsWithCondition captures enum value "endsWithCondition"
+	JourneyAggregateQueryPredicateDimensionEndsWithCondition string = "endsWithCondition"
+
+	// JourneyAggregateQueryPredicateDimensionEqualCondition captures enum value "equalCondition"
+	JourneyAggregateQueryPredicateDimensionEqualCondition string = "equalCondition"
+
+	// JourneyAggregateQueryPredicateDimensionGreaterThanCondition captures enum value "greaterThanCondition"
+	JourneyAggregateQueryPredicateDimensionGreaterThanCondition string = "greaterThanCondition"
+
+	// JourneyAggregateQueryPredicateDimensionGreaterThanOrEqualCondition captures enum value "greaterThanOrEqualCondition"
+	JourneyAggregateQueryPredicateDimensionGreaterThanOrEqualCondition string = "greaterThanOrEqualCondition"
 
 	// JourneyAggregateQueryPredicateDimensionJourneyActionID captures enum value "journeyActionId"
 	JourneyAggregateQueryPredicateDimensionJourneyActionID string = "journeyActionId"
@@ -90,8 +108,20 @@ const (
 	// JourneyAggregateQueryPredicateDimensionJourneyActionMediaType captures enum value "journeyActionMediaType"
 	JourneyAggregateQueryPredicateDimensionJourneyActionMediaType string = "journeyActionMediaType"
 
+	// JourneyAggregateQueryPredicateDimensionJourneyActionTargetID captures enum value "journeyActionTargetId"
+	JourneyAggregateQueryPredicateDimensionJourneyActionTargetID string = "journeyActionTargetId"
+
 	// JourneyAggregateQueryPredicateDimensionJourneyActionTemplateID captures enum value "journeyActionTemplateId"
 	JourneyAggregateQueryPredicateDimensionJourneyActionTemplateID string = "journeyActionTemplateId"
+
+	// JourneyAggregateQueryPredicateDimensionJourneyBlockingActionMapID captures enum value "journeyBlockingActionMapId"
+	JourneyAggregateQueryPredicateDimensionJourneyBlockingActionMapID string = "journeyBlockingActionMapId"
+
+	// JourneyAggregateQueryPredicateDimensionJourneyBlockingReason captures enum value "journeyBlockingReason"
+	JourneyAggregateQueryPredicateDimensionJourneyBlockingReason string = "journeyBlockingReason"
+
+	// JourneyAggregateQueryPredicateDimensionJourneyBlockingScheduleGroupID captures enum value "journeyBlockingScheduleGroupId"
+	JourneyAggregateQueryPredicateDimensionJourneyBlockingScheduleGroupID string = "journeyBlockingScheduleGroupId"
 
 	// JourneyAggregateQueryPredicateDimensionJourneyCustomerID captures enum value "journeyCustomerId"
 	JourneyAggregateQueryPredicateDimensionJourneyCustomerID string = "journeyCustomerId"
@@ -104,6 +134,9 @@ const (
 
 	// JourneyAggregateQueryPredicateDimensionJourneyDeviceType captures enum value "journeyDeviceType"
 	JourneyAggregateQueryPredicateDimensionJourneyDeviceType string = "journeyDeviceType"
+
+	// JourneyAggregateQueryPredicateDimensionJourneyFrequencyCapReason captures enum value "journeyFrequencyCapReason"
+	JourneyAggregateQueryPredicateDimensionJourneyFrequencyCapReason string = "journeyFrequencyCapReason"
 
 	// JourneyAggregateQueryPredicateDimensionJourneyOutcomeID captures enum value "journeyOutcomeId"
 	JourneyAggregateQueryPredicateDimensionJourneyOutcomeID string = "journeyOutcomeId"
@@ -119,6 +152,24 @@ const (
 
 	// JourneyAggregateQueryPredicateDimensionJourneySessionType captures enum value "journeySessionType"
 	JourneyAggregateQueryPredicateDimensionJourneySessionType string = "journeySessionType"
+
+	// JourneyAggregateQueryPredicateDimensionLessThanCondition captures enum value "lessThanCondition"
+	JourneyAggregateQueryPredicateDimensionLessThanCondition string = "lessThanCondition"
+
+	// JourneyAggregateQueryPredicateDimensionLessThanOrEqualCondition captures enum value "lessThanOrEqualCondition"
+	JourneyAggregateQueryPredicateDimensionLessThanOrEqualCondition string = "lessThanOrEqualCondition"
+
+	// JourneyAggregateQueryPredicateDimensionNotContainsAllCondition captures enum value "notContainsAllCondition"
+	JourneyAggregateQueryPredicateDimensionNotContainsAllCondition string = "notContainsAllCondition"
+
+	// JourneyAggregateQueryPredicateDimensionNotContainsAnyCondition captures enum value "notContainsAnyCondition"
+	JourneyAggregateQueryPredicateDimensionNotContainsAnyCondition string = "notContainsAnyCondition"
+
+	// JourneyAggregateQueryPredicateDimensionNotEqualCondition captures enum value "notEqualCondition"
+	JourneyAggregateQueryPredicateDimensionNotEqualCondition string = "notEqualCondition"
+
+	// JourneyAggregateQueryPredicateDimensionStartsWithCondition captures enum value "startsWithCondition"
+	JourneyAggregateQueryPredicateDimensionStartsWithCondition string = "startsWithCondition"
 
 	// JourneyAggregateQueryPredicateDimensionTouchpointActionMapID captures enum value "touchpointActionMapId"
 	JourneyAggregateQueryPredicateDimensionTouchpointActionMapID string = "touchpointActionMapId"

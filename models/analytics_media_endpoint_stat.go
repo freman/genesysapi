@@ -6,8 +6,10 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // AnalyticsMediaEndpointStat analytics media endpoint stat
@@ -15,7 +17,7 @@ import (
 // swagger:model AnalyticsMediaEndpointStat
 type AnalyticsMediaEndpointStat struct {
 
-	// The MIME types of the audio encodings used by the audio streams belonging to this endpoint
+	// The MIME type(s) of the audio encodings used by the audio streams belonging to this endpoint
 	Codecs []string `json:"codecs"`
 
 	// The total number of packets received too late or too early, jitter queue overrun or underrun, for all audio streams belonging to this endpoint
@@ -23,6 +25,10 @@ type AnalyticsMediaEndpointStat struct {
 
 	// The total number of packets received with the same sequence number as another one recently received (window of 64 packets), for all audio streams belonging to this endpoint
 	DuplicatePackets int64 `json:"duplicatePackets,omitempty"`
+
+	// Specifies when an event occurred. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+	// Format: date-time
+	EventTime strfmt.DateTime `json:"eventTime,omitempty"`
 
 	// The total number of malformed or not RTP packets, unknown payload type, or discarded probation packets for all audio streams belonging to this endpoint
 	InvalidPackets int64 `json:"invalidPackets,omitempty"`
@@ -48,6 +54,28 @@ type AnalyticsMediaEndpointStat struct {
 
 // Validate validates this analytics media endpoint stat
 func (m *AnalyticsMediaEndpointStat) Validate(formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.validateEventTime(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *AnalyticsMediaEndpointStat) validateEventTime(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.EventTime) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("eventTime", "body", "date-time", m.EventTime.String(), formats); err != nil {
+		return err
+	}
+
 	return nil
 }
 

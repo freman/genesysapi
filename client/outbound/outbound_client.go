@@ -373,7 +373,7 @@ type API interface {
 	*/
 	PostOutboundDnclistExport(ctx context.Context, params *PostOutboundDnclistExportParams) (*PostOutboundDnclistExportOK, error)
 	/*
-	   PostOutboundDnclistPhonenumbers adds phone numbers to a dialer d n c list
+	   PostOutboundDnclistPhonenumbers adds phone numbers to a d n c list
 	   Only Internal DNC lists may be appended to
 	*/
 	PostOutboundDnclistPhonenumbers(ctx context.Context, params *PostOutboundDnclistPhonenumbersParams) error
@@ -2661,7 +2661,7 @@ func (a *Client) PostOutboundDnclistExport(ctx context.Context, params *PostOutb
 }
 
 /*
-PostOutboundDnclistPhonenumbers adds phone numbers to a dialer d n c list
+PostOutboundDnclistPhonenumbers adds phone numbers to a d n c list
 
 Only Internal DNC lists may be appended to
 */

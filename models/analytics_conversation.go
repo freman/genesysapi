@@ -20,22 +20,25 @@ import (
 // swagger:model AnalyticsConversation
 type AnalyticsConversation struct {
 
-	// Date/time the conversation ended. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+	// The end time of a conversation. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	ConversationEnd strfmt.DateTime `json:"conversationEnd,omitempty"`
 
 	// Unique identifier for the conversation
 	ConversationID string `json:"conversationId,omitempty"`
 
-	// Date/time the conversation started. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+	// The start time of a conversation. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	ConversationStart strfmt.DateTime `json:"conversationStart,omitempty"`
 
-	// Identifiers of divisions associated with this conversation
+	// Identifier(s) of division(s) associated with a conversation
 	DivisionIds []string `json:"divisionIds"`
 
-	// Evaluations tied to this conversation
+	// Evaluations associated with this conversation
 	Evaluations []*AnalyticsEvaluation `json:"evaluations"`
+
+	// External tag for the conversation
+	ExternalTag string `json:"externalTag,omitempty"`
 
 	// The lowest estimated average MOS among all the audio streams belonging to this conversation
 	MediaStatsMinConversationMos float64 `json:"mediaStatsMinConversationMos,omitempty"`
@@ -50,10 +53,10 @@ type AnalyticsConversation struct {
 	// Participants in the conversation
 	Participants []*AnalyticsParticipant `json:"participants"`
 
-	// Resolutions tied to this conversation
+	// Resolutions associated with this conversation
 	Resolutions []*AnalyticsResolution `json:"resolutions"`
 
-	// Surveys tied to this conversation
+	// Surveys associated with this conversation
 	Surveys []*AnalyticsSurvey `json:"surveys"`
 }
 

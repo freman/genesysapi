@@ -23,10 +23,10 @@ type AnalyticsParticipant struct {
 	// List of attributes associated to this participant
 	Attributes map[string]string `json:"attributes,omitempty"`
 
-	// External Contact Identifier
+	// External contact identifier
 	ExternalContactID string `json:"externalContactId,omitempty"`
 
-	// External Organization Identifier
+	// External organization identifier
 	ExternalOrganizationID string `json:"externalOrganizationId,omitempty"`
 
 	// Reason for which participant flagged conversation
@@ -40,16 +40,16 @@ type AnalyticsParticipant struct {
 	ParticipantName string `json:"participantName,omitempty"`
 
 	// The participant's purpose
-	// Enum: [manual dialer inbound acd ivr voicemail outbound agent user station group customer external fax workflow campaign api]
+	// Enum: [acd agent api campaign customer dialer external fax group inbound ivr manual outbound station user voicemail workflow]
 	Purpose string `json:"purpose,omitempty"`
 
 	// List of sessions associated to this participant
 	Sessions []*AnalyticsSession `json:"sessions"`
 
-	// The team id the user is a member of
+	// The team ID the user is a member of
 	TeamID string `json:"teamId,omitempty"`
 
-	// If a user, then this will be the unique identifier for the user
+	// Unique identifier for the user
 	UserID string `json:"userId,omitempty"`
 }
 
@@ -119,7 +119,7 @@ var analyticsParticipantTypePurposePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["manual","dialer","inbound","acd","ivr","voicemail","outbound","agent","user","station","group","customer","external","fax","workflow","campaign","api"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["acd","agent","api","campaign","customer","dialer","external","fax","group","inbound","ivr","manual","outbound","station","user","voicemail","workflow"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -129,41 +129,23 @@ func init() {
 
 const (
 
-	// AnalyticsParticipantPurposeManual captures enum value "manual"
-	AnalyticsParticipantPurposeManual string = "manual"
-
-	// AnalyticsParticipantPurposeDialer captures enum value "dialer"
-	AnalyticsParticipantPurposeDialer string = "dialer"
-
-	// AnalyticsParticipantPurposeInbound captures enum value "inbound"
-	AnalyticsParticipantPurposeInbound string = "inbound"
-
 	// AnalyticsParticipantPurposeAcd captures enum value "acd"
 	AnalyticsParticipantPurposeAcd string = "acd"
-
-	// AnalyticsParticipantPurposeIvr captures enum value "ivr"
-	AnalyticsParticipantPurposeIvr string = "ivr"
-
-	// AnalyticsParticipantPurposeVoicemail captures enum value "voicemail"
-	AnalyticsParticipantPurposeVoicemail string = "voicemail"
-
-	// AnalyticsParticipantPurposeOutbound captures enum value "outbound"
-	AnalyticsParticipantPurposeOutbound string = "outbound"
 
 	// AnalyticsParticipantPurposeAgent captures enum value "agent"
 	AnalyticsParticipantPurposeAgent string = "agent"
 
-	// AnalyticsParticipantPurposeUser captures enum value "user"
-	AnalyticsParticipantPurposeUser string = "user"
+	// AnalyticsParticipantPurposeAPI captures enum value "api"
+	AnalyticsParticipantPurposeAPI string = "api"
 
-	// AnalyticsParticipantPurposeStation captures enum value "station"
-	AnalyticsParticipantPurposeStation string = "station"
-
-	// AnalyticsParticipantPurposeGroup captures enum value "group"
-	AnalyticsParticipantPurposeGroup string = "group"
+	// AnalyticsParticipantPurposeCampaign captures enum value "campaign"
+	AnalyticsParticipantPurposeCampaign string = "campaign"
 
 	// AnalyticsParticipantPurposeCustomer captures enum value "customer"
 	AnalyticsParticipantPurposeCustomer string = "customer"
+
+	// AnalyticsParticipantPurposeDialer captures enum value "dialer"
+	AnalyticsParticipantPurposeDialer string = "dialer"
 
 	// AnalyticsParticipantPurposeExternal captures enum value "external"
 	AnalyticsParticipantPurposeExternal string = "external"
@@ -171,14 +153,32 @@ const (
 	// AnalyticsParticipantPurposeFax captures enum value "fax"
 	AnalyticsParticipantPurposeFax string = "fax"
 
+	// AnalyticsParticipantPurposeGroup captures enum value "group"
+	AnalyticsParticipantPurposeGroup string = "group"
+
+	// AnalyticsParticipantPurposeInbound captures enum value "inbound"
+	AnalyticsParticipantPurposeInbound string = "inbound"
+
+	// AnalyticsParticipantPurposeIvr captures enum value "ivr"
+	AnalyticsParticipantPurposeIvr string = "ivr"
+
+	// AnalyticsParticipantPurposeManual captures enum value "manual"
+	AnalyticsParticipantPurposeManual string = "manual"
+
+	// AnalyticsParticipantPurposeOutbound captures enum value "outbound"
+	AnalyticsParticipantPurposeOutbound string = "outbound"
+
+	// AnalyticsParticipantPurposeStation captures enum value "station"
+	AnalyticsParticipantPurposeStation string = "station"
+
+	// AnalyticsParticipantPurposeUser captures enum value "user"
+	AnalyticsParticipantPurposeUser string = "user"
+
+	// AnalyticsParticipantPurposeVoicemail captures enum value "voicemail"
+	AnalyticsParticipantPurposeVoicemail string = "voicemail"
+
 	// AnalyticsParticipantPurposeWorkflow captures enum value "workflow"
 	AnalyticsParticipantPurposeWorkflow string = "workflow"
-
-	// AnalyticsParticipantPurposeCampaign captures enum value "campaign"
-	AnalyticsParticipantPurposeCampaign string = "campaign"
-
-	// AnalyticsParticipantPurposeAPI captures enum value "api"
-	AnalyticsParticipantPurposeAPI string = "api"
 )
 
 // prop value enum

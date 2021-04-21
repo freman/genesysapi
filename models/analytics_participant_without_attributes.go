@@ -20,10 +20,10 @@ import (
 // swagger:model AnalyticsParticipantWithoutAttributes
 type AnalyticsParticipantWithoutAttributes struct {
 
-	// External Contact Identifier
+	// External contact identifier
 	ExternalContactID string `json:"externalContactId,omitempty"`
 
-	// External Organization Identifier
+	// External organization identifier
 	ExternalOrganizationID string `json:"externalOrganizationId,omitempty"`
 
 	// Reason for which participant flagged conversation
@@ -37,16 +37,16 @@ type AnalyticsParticipantWithoutAttributes struct {
 	ParticipantName string `json:"participantName,omitempty"`
 
 	// The participant's purpose
-	// Enum: [manual dialer inbound acd ivr voicemail outbound agent user station group customer external fax workflow campaign api]
+	// Enum: [acd agent api campaign customer dialer external fax group inbound ivr manual outbound station user voicemail workflow]
 	Purpose string `json:"purpose,omitempty"`
 
 	// List of sessions associated to this participant
 	Sessions []*AnalyticsSession `json:"sessions"`
 
-	// The team id the user is a member of
+	// The team ID the user is a member of
 	TeamID string `json:"teamId,omitempty"`
 
-	// If a user, then this will be the unique identifier for the user
+	// Unique identifier for the user
 	UserID string `json:"userId,omitempty"`
 }
 
@@ -116,7 +116,7 @@ var analyticsParticipantWithoutAttributesTypePurposePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["manual","dialer","inbound","acd","ivr","voicemail","outbound","agent","user","station","group","customer","external","fax","workflow","campaign","api"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["acd","agent","api","campaign","customer","dialer","external","fax","group","inbound","ivr","manual","outbound","station","user","voicemail","workflow"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -126,41 +126,23 @@ func init() {
 
 const (
 
-	// AnalyticsParticipantWithoutAttributesPurposeManual captures enum value "manual"
-	AnalyticsParticipantWithoutAttributesPurposeManual string = "manual"
-
-	// AnalyticsParticipantWithoutAttributesPurposeDialer captures enum value "dialer"
-	AnalyticsParticipantWithoutAttributesPurposeDialer string = "dialer"
-
-	// AnalyticsParticipantWithoutAttributesPurposeInbound captures enum value "inbound"
-	AnalyticsParticipantWithoutAttributesPurposeInbound string = "inbound"
-
 	// AnalyticsParticipantWithoutAttributesPurposeAcd captures enum value "acd"
 	AnalyticsParticipantWithoutAttributesPurposeAcd string = "acd"
-
-	// AnalyticsParticipantWithoutAttributesPurposeIvr captures enum value "ivr"
-	AnalyticsParticipantWithoutAttributesPurposeIvr string = "ivr"
-
-	// AnalyticsParticipantWithoutAttributesPurposeVoicemail captures enum value "voicemail"
-	AnalyticsParticipantWithoutAttributesPurposeVoicemail string = "voicemail"
-
-	// AnalyticsParticipantWithoutAttributesPurposeOutbound captures enum value "outbound"
-	AnalyticsParticipantWithoutAttributesPurposeOutbound string = "outbound"
 
 	// AnalyticsParticipantWithoutAttributesPurposeAgent captures enum value "agent"
 	AnalyticsParticipantWithoutAttributesPurposeAgent string = "agent"
 
-	// AnalyticsParticipantWithoutAttributesPurposeUser captures enum value "user"
-	AnalyticsParticipantWithoutAttributesPurposeUser string = "user"
+	// AnalyticsParticipantWithoutAttributesPurposeAPI captures enum value "api"
+	AnalyticsParticipantWithoutAttributesPurposeAPI string = "api"
 
-	// AnalyticsParticipantWithoutAttributesPurposeStation captures enum value "station"
-	AnalyticsParticipantWithoutAttributesPurposeStation string = "station"
-
-	// AnalyticsParticipantWithoutAttributesPurposeGroup captures enum value "group"
-	AnalyticsParticipantWithoutAttributesPurposeGroup string = "group"
+	// AnalyticsParticipantWithoutAttributesPurposeCampaign captures enum value "campaign"
+	AnalyticsParticipantWithoutAttributesPurposeCampaign string = "campaign"
 
 	// AnalyticsParticipantWithoutAttributesPurposeCustomer captures enum value "customer"
 	AnalyticsParticipantWithoutAttributesPurposeCustomer string = "customer"
+
+	// AnalyticsParticipantWithoutAttributesPurposeDialer captures enum value "dialer"
+	AnalyticsParticipantWithoutAttributesPurposeDialer string = "dialer"
 
 	// AnalyticsParticipantWithoutAttributesPurposeExternal captures enum value "external"
 	AnalyticsParticipantWithoutAttributesPurposeExternal string = "external"
@@ -168,14 +150,32 @@ const (
 	// AnalyticsParticipantWithoutAttributesPurposeFax captures enum value "fax"
 	AnalyticsParticipantWithoutAttributesPurposeFax string = "fax"
 
+	// AnalyticsParticipantWithoutAttributesPurposeGroup captures enum value "group"
+	AnalyticsParticipantWithoutAttributesPurposeGroup string = "group"
+
+	// AnalyticsParticipantWithoutAttributesPurposeInbound captures enum value "inbound"
+	AnalyticsParticipantWithoutAttributesPurposeInbound string = "inbound"
+
+	// AnalyticsParticipantWithoutAttributesPurposeIvr captures enum value "ivr"
+	AnalyticsParticipantWithoutAttributesPurposeIvr string = "ivr"
+
+	// AnalyticsParticipantWithoutAttributesPurposeManual captures enum value "manual"
+	AnalyticsParticipantWithoutAttributesPurposeManual string = "manual"
+
+	// AnalyticsParticipantWithoutAttributesPurposeOutbound captures enum value "outbound"
+	AnalyticsParticipantWithoutAttributesPurposeOutbound string = "outbound"
+
+	// AnalyticsParticipantWithoutAttributesPurposeStation captures enum value "station"
+	AnalyticsParticipantWithoutAttributesPurposeStation string = "station"
+
+	// AnalyticsParticipantWithoutAttributesPurposeUser captures enum value "user"
+	AnalyticsParticipantWithoutAttributesPurposeUser string = "user"
+
+	// AnalyticsParticipantWithoutAttributesPurposeVoicemail captures enum value "voicemail"
+	AnalyticsParticipantWithoutAttributesPurposeVoicemail string = "voicemail"
+
 	// AnalyticsParticipantWithoutAttributesPurposeWorkflow captures enum value "workflow"
 	AnalyticsParticipantWithoutAttributesPurposeWorkflow string = "workflow"
-
-	// AnalyticsParticipantWithoutAttributesPurposeCampaign captures enum value "campaign"
-	AnalyticsParticipantWithoutAttributesPurposeCampaign string = "campaign"
-
-	// AnalyticsParticipantWithoutAttributesPurposeAPI captures enum value "api"
-	AnalyticsParticipantWithoutAttributesPurposeAPI string = "api"
 )
 
 // prop value enum

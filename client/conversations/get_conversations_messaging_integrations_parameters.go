@@ -81,6 +81,11 @@ for the get conversations messaging integrations operation typically these are w
 */
 type GetConversationsMessagingIntegrationsParams struct {
 
+	/*Expand
+	  Expand instructions for the return value.
+
+	*/
+	Expand *string
 	/*PageNumber
 	  Page number
 
@@ -91,6 +96,11 @@ type GetConversationsMessagingIntegrationsParams struct {
 
 	*/
 	PageSize *int32
+	/*SupportedContentID
+	  Filter integrations returned based on the supported content ID
+
+	*/
+	SupportedContentID *string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -130,6 +140,17 @@ func (o *GetConversationsMessagingIntegrationsParams) SetHTTPClient(client *http
 	o.HTTPClient = client
 }
 
+// WithExpand adds the expand to the get conversations messaging integrations params
+func (o *GetConversationsMessagingIntegrationsParams) WithExpand(expand *string) *GetConversationsMessagingIntegrationsParams {
+	o.SetExpand(expand)
+	return o
+}
+
+// SetExpand adds the expand to the get conversations messaging integrations params
+func (o *GetConversationsMessagingIntegrationsParams) SetExpand(expand *string) {
+	o.Expand = expand
+}
+
 // WithPageNumber adds the pageNumber to the get conversations messaging integrations params
 func (o *GetConversationsMessagingIntegrationsParams) WithPageNumber(pageNumber *int32) *GetConversationsMessagingIntegrationsParams {
 	o.SetPageNumber(pageNumber)
@@ -152,6 +173,17 @@ func (o *GetConversationsMessagingIntegrationsParams) SetPageSize(pageSize *int3
 	o.PageSize = pageSize
 }
 
+// WithSupportedContentID adds the supportedContentID to the get conversations messaging integrations params
+func (o *GetConversationsMessagingIntegrationsParams) WithSupportedContentID(supportedContentID *string) *GetConversationsMessagingIntegrationsParams {
+	o.SetSupportedContentID(supportedContentID)
+	return o
+}
+
+// SetSupportedContentID adds the supportedContentId to the get conversations messaging integrations params
+func (o *GetConversationsMessagingIntegrationsParams) SetSupportedContentID(supportedContentID *string) {
+	o.SupportedContentID = supportedContentID
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *GetConversationsMessagingIntegrationsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -159,6 +191,22 @@ func (o *GetConversationsMessagingIntegrationsParams) WriteToRequest(r runtime.C
 		return err
 	}
 	var res []error
+
+	if o.Expand != nil {
+
+		// query param expand
+		var qrExpand string
+		if o.Expand != nil {
+			qrExpand = *o.Expand
+		}
+		qExpand := qrExpand
+		if qExpand != "" {
+			if err := r.SetQueryParam("expand", qExpand); err != nil {
+				return err
+			}
+		}
+
+	}
 
 	if o.PageNumber != nil {
 
@@ -186,6 +234,22 @@ func (o *GetConversationsMessagingIntegrationsParams) WriteToRequest(r runtime.C
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	if o.SupportedContentID != nil {
+
+		// query param supportedContent.id
+		var qrSupportedContentID string
+		if o.SupportedContentID != nil {
+			qrSupportedContentID = *o.SupportedContentID
+		}
+		qSupportedContentID := qrSupportedContentID
+		if qSupportedContentID != "" {
+			if err := r.SetQueryParam("supportedContent.id", qSupportedContentID); err != nil {
 				return err
 			}
 		}

@@ -17,39 +17,39 @@ import (
 // swagger:model AnalyticsSurvey
 type AnalyticsSurvey struct {
 
-	// Specifies when a survey occurred. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+	// Specifies when an event occurred. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	EventTime strfmt.DateTime `json:"eventTime,omitempty"`
 
 	// o survey total score
 	OSurveyTotalScore int64 `json:"oSurveyTotalScore,omitempty"`
 
-	// Unique identifier for the queue the conversation was on
+	// The ID of the associated queue
 	QueueID string `json:"queueId,omitempty"`
 
-	// Completion date/time of the survey. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+	// Completion datetime of the survey in ISO 8601 format
 	// Format: date-time
 	SurveyCompletedDate strfmt.DateTime `json:"surveyCompletedDate,omitempty"`
 
 	// Unique identifier for the survey form, regardless of version
 	SurveyFormContextID string `json:"surveyFormContextId,omitempty"`
 
-	// Unique identifier for the survey form
+	// ID of the survey form used
 	SurveyFormID string `json:"surveyFormId,omitempty"`
 
-	// Name of the survey form
+	// Name of the survey form used
 	SurveyFormName string `json:"surveyFormName,omitempty"`
 
-	// Unique identifier for the survey
+	// ID of the survey
 	SurveyID string `json:"surveyId,omitempty"`
 
-	// Promoter score of the survey
+	// Score of the survey used with NPS
 	SurveyPromoterScore int32 `json:"surveyPromoterScore,omitempty"`
 
-	// Survey status
+	// The status of the survey
 	SurveyStatus string `json:"surveyStatus,omitempty"`
 
-	// A unique identifier of the PureCloud user
+	// ID of the agent the survey was performed against
 	UserID string `json:"userId,omitempty"`
 }
 

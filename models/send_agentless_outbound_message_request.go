@@ -19,19 +19,21 @@ import (
 // swagger:model SendAgentlessOutboundMessageRequest
 type SendAgentlessOutboundMessageRequest struct {
 
-	// The messaging address of the sender of the message. For an SMS messenger type, this must be a currently provisioned sms phone number.
+	// The messaging address of the sender of the message. For an SMS messenger type, this must be a currently provisioned SMS phone number. For a WhatsApp messenger type use the provisioned WhatsApp integration’s ID
 	// Required: true
 	FromAddress *string `json:"fromAddress"`
 
-	// The text of the message to send
-	// Required: true
-	TextBody *string `json:"textBody"`
+	// The messaging template to use in the case of WhatsApp messenger type. This field is required when using WhatsApp messenger type
+	MessagingTemplate *MessagingTemplateRequest `json:"messagingTemplate,omitempty"`
+
+	// The text of the message to send. This field is required in the case of SMS messenger type
+	TextBody string `json:"textBody,omitempty"`
 
 	// The messaging address of the recipient of the message. For an SMS messenger type, the phone number address must be in E.164 format. E.g. +13175555555 or +34234234234.
 	// Required: true
 	ToAddress *string `json:"toAddress"`
 
-	// The recipient messaging address messenger type. Currently SMS is the only supported type.
+	// The recipient messaging address messenger type. Currently SMS and WhatsApp is the only supported type.
 	// Required: true
 	// Enum: [sms facebook twitter line whatsapp webmessaging open]
 	ToAddressMessengerType *string `json:"toAddressMessengerType"`
@@ -45,7 +47,7 @@ func (m *SendAgentlessOutboundMessageRequest) Validate(formats strfmt.Registry) 
 		res = append(res, err)
 	}
 
-	if err := m.validateTextBody(formats); err != nil {
+	if err := m.validateMessagingTemplate(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -72,10 +74,19 @@ func (m *SendAgentlessOutboundMessageRequest) validateFromAddress(formats strfmt
 	return nil
 }
 
-func (m *SendAgentlessOutboundMessageRequest) validateTextBody(formats strfmt.Registry) error {
+func (m *SendAgentlessOutboundMessageRequest) validateMessagingTemplate(formats strfmt.Registry) error {
 
-	if err := validate.Required("textBody", "body", m.TextBody); err != nil {
-		return err
+	if swag.IsZero(m.MessagingTemplate) { // not required
+		return nil
+	}
+
+	if m.MessagingTemplate != nil {
+		if err := m.MessagingTemplate.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("messagingTemplate")
+			}
+			return err
+		}
 	}
 
 	return nil

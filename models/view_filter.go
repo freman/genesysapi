@@ -59,15 +59,20 @@ type ViewFilter struct {
 	// A grouping of conversation level filters
 	ConversationProperties *ConversationProperties `json:"conversationProperties,omitempty"`
 
+	// The customer sentiment score used to filter the view
+	CustomerSentimentScore *NumericRange `json:"customerSentimentScore,omitempty"`
+
+	// The customer sentiment trend used to filter the view
+	CustomerSentimentTrend *NumericRange `json:"customerSentimentTrend,omitempty"`
+
 	// Indicates filtering for development activities
 	DevelopmentActivityOverdue bool `json:"developmentActivityOverdue"`
 
-	// Represents due or completed to filter agent development view
-	// Enum: [Due Completed]
-	DevelopmentKeyType string `json:"developmentKeyType,omitempty"`
-
 	// The list of development moduleIds used to filter agent development view
 	DevelopmentModuleIds []string `json:"developmentModuleIds"`
+
+	// Filter for development name
+	DevelopmentName string `json:"developmentName,omitempty"`
 
 	// The list of development roles used to filter agent development view
 	DevelopmentRoleList []string `json:"developmentRoleList"`
@@ -143,6 +148,9 @@ type ViewFilter struct {
 
 	// A list of outcome values of the flow
 	FlowOutcomeValues []string `json:"flowOutcomeValues"`
+
+	// The list of transfer targets used to filter flow data
+	FlowTransferTargets []string `json:"flowTransferTargets"`
 
 	// A list of types of the flow
 	FlowTypes []string `json:"flowTypes"`
@@ -339,7 +347,11 @@ func (m *ViewFilter) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateDevelopmentKeyType(formats); err != nil {
+	if err := m.validateCustomerSentimentScore(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCustomerSentimentTrend(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -562,44 +574,37 @@ func (m *ViewFilter) validateConversationProperties(formats strfmt.Registry) err
 	return nil
 }
 
-var viewFilterTypeDevelopmentKeyTypePropEnum []interface{}
+func (m *ViewFilter) validateCustomerSentimentScore(formats strfmt.Registry) error {
 
-func init() {
-	var res []string
-	if err := json.Unmarshal([]byte(`["Due","Completed"]`), &res); err != nil {
-		panic(err)
-	}
-	for _, v := range res {
-		viewFilterTypeDevelopmentKeyTypePropEnum = append(viewFilterTypeDevelopmentKeyTypePropEnum, v)
-	}
-}
-
-const (
-
-	// ViewFilterDevelopmentKeyTypeDue captures enum value "Due"
-	ViewFilterDevelopmentKeyTypeDue string = "Due"
-
-	// ViewFilterDevelopmentKeyTypeCompleted captures enum value "Completed"
-	ViewFilterDevelopmentKeyTypeCompleted string = "Completed"
-)
-
-// prop value enum
-func (m *ViewFilter) validateDevelopmentKeyTypeEnum(path, location string, value string) error {
-	if err := validate.EnumCase(path, location, value, viewFilterTypeDevelopmentKeyTypePropEnum, true); err != nil {
-		return err
-	}
-	return nil
-}
-
-func (m *ViewFilter) validateDevelopmentKeyType(formats strfmt.Registry) error {
-
-	if swag.IsZero(m.DevelopmentKeyType) { // not required
+	if swag.IsZero(m.CustomerSentimentScore) { // not required
 		return nil
 	}
 
-	// value enum
-	if err := m.validateDevelopmentKeyTypeEnum("developmentKeyType", "body", m.DevelopmentKeyType); err != nil {
-		return err
+	if m.CustomerSentimentScore != nil {
+		if err := m.CustomerSentimentScore.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("customerSentimentScore")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ViewFilter) validateCustomerSentimentTrend(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.CustomerSentimentTrend) { // not required
+		return nil
+	}
+
+	if m.CustomerSentimentTrend != nil {
+		if err := m.CustomerSentimentTrend.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("customerSentimentTrend")
+			}
+			return err
+		}
 	}
 
 	return nil
@@ -892,7 +897,7 @@ var viewFilterFlowEntryTypesItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["dnis","direct","flow","agent","outbound"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["agent","direct","dnis","flow","outbound"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -1090,7 +1095,7 @@ var viewFilterMediaTypesItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["voice","chat","email","callback","cobrowse","video","screenshare","message"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["callback","chat","cobrowse","email","message","screenshare","video","voice"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -1281,7 +1286,7 @@ var viewFilterRequestedRoutingTypesItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Predictive","Preferred","Manual","Last","Bullseye","Standard"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Bullseye","Last","Manual","Predictive","Preferred","Standard"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -1465,7 +1470,7 @@ var viewFilterUsedRoutingTypesItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Predictive","Preferred","Manual","Last","Bullseye","Standard"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Bullseye","Last","Manual","Predictive","Preferred","Standard"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {

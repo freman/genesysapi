@@ -48,10 +48,6 @@ type API interface {
 	*/
 	DeleteWorkforcemanagementBusinessunitWeekShorttermforecast(ctx context.Context, params *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastParams) (*DeleteWorkforcemanagementBusinessunitWeekShorttermforecastNoContent, error)
 	/*
-	   DeleteWorkforcemanagementManagementunit deletes management unit
-	*/
-	DeleteWorkforcemanagementManagementunit(ctx context.Context, params *DeleteWorkforcemanagementManagementunitParams) (*DeleteWorkforcemanagementManagementunitNoContent, error)
-	/*
 	   DeleteWorkforcemanagementManagementunitWorkplan deletes a work plan
 	*/
 	DeleteWorkforcemanagementManagementunitWorkplan(ctx context.Context, params *DeleteWorkforcemanagementManagementunitWorkplanParams) (*DeleteWorkforcemanagementManagementunitWorkplanNoContent, error)
@@ -168,10 +164,13 @@ type API interface {
 	*/
 	GetWorkforcemanagementBusinessunitsDivisionviews(ctx context.Context, params *GetWorkforcemanagementBusinessunitsDivisionviewsParams) (*GetWorkforcemanagementBusinessunitsDivisionviewsOK, error)
 	/*
-	   GetWorkforcemanagementManagementunit gets management unit
-	   settings.shortTermForecasting is deprecated and now lives on the business unit
+	   GetWorkforcemanagementHistoricaldataDeletejob retrieves delete job status for historical data imports of the organization
 	*/
-	GetWorkforcemanagementManagementunit(ctx context.Context, params *GetWorkforcemanagementManagementunitParams) (*GetWorkforcemanagementManagementunitOK, error)
+	GetWorkforcemanagementHistoricaldataDeletejob(ctx context.Context, params *GetWorkforcemanagementHistoricaldataDeletejobParams) (*GetWorkforcemanagementHistoricaldataDeletejobOK, error)
+	/*
+	   GetWorkforcemanagementHistoricaldataImportstatus retrieves status of the historical data imports of the organization
+	*/
+	GetWorkforcemanagementHistoricaldataImportstatus(ctx context.Context, params *GetWorkforcemanagementHistoricaldataImportstatusParams) (*GetWorkforcemanagementHistoricaldataImportstatusOK, error)
 	/*
 	   GetWorkforcemanagementManagementunitActivitycodes gets activity codes
 	*/
@@ -285,10 +284,6 @@ type API interface {
 	*/
 	PatchWorkforcemanagementBusinessunitServicegoaltemplate(ctx context.Context, params *PatchWorkforcemanagementBusinessunitServicegoaltemplateParams) (*PatchWorkforcemanagementBusinessunitServicegoaltemplateOK, error)
 	/*
-	   PatchWorkforcemanagementManagementunit updates the requested management unit
-	*/
-	PatchWorkforcemanagementManagementunit(ctx context.Context, params *PatchWorkforcemanagementManagementunitParams) (*PatchWorkforcemanagementManagementunitOK, error)
-	/*
 	   PatchWorkforcemanagementManagementunitUserTimeoffrequest updates a time off request
 	*/
 	PatchWorkforcemanagementManagementunitUserTimeoffrequest(ctx context.Context, params *PatchWorkforcemanagementManagementunitUserTimeoffrequestParams) (*PatchWorkforcemanagementManagementunitUserTimeoffrequestOK, error)
@@ -369,6 +364,14 @@ type API interface {
 	   It may take a minute or two for a new business unit to be available for api operations
 	*/
 	PostWorkforcemanagementBusinessunits(ctx context.Context, params *PostWorkforcemanagementBusinessunitsParams) (*PostWorkforcemanagementBusinessunitsOK, *PostWorkforcemanagementBusinessunitsCreated, error)
+	/*
+	   PostWorkforcemanagementHistoricaldataDeletejob deletes the entries of the historical data imports in the organization
+	*/
+	PostWorkforcemanagementHistoricaldataDeletejob(ctx context.Context, params *PostWorkforcemanagementHistoricaldataDeletejobParams) (*PostWorkforcemanagementHistoricaldataDeletejobAccepted, error)
+	/*
+	   PostWorkforcemanagementHistoricaldataValidate triggers validation process for historical import
+	*/
+	PostWorkforcemanagementHistoricaldataValidate(ctx context.Context, params *PostWorkforcemanagementHistoricaldataValidateParams) (*PostWorkforcemanagementHistoricaldataValidateAccepted, error)
 	/*
 	   PostWorkforcemanagementManagementunitAgentschedulesSearch queries published schedules for given given time range for set of users
 	*/
@@ -652,31 +655,6 @@ func (a *Client) DeleteWorkforcemanagementBusinessunitWeekShorttermforecast(ctx 
 		return nil, err
 	}
 	return result.(*DeleteWorkforcemanagementBusinessunitWeekShorttermforecastNoContent), nil
-
-}
-
-/*
-DeleteWorkforcemanagementManagementunit deletes management unit
-*/
-func (a *Client) DeleteWorkforcemanagementManagementunit(ctx context.Context, params *DeleteWorkforcemanagementManagementunitParams) (*DeleteWorkforcemanagementManagementunitNoContent, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "deleteWorkforcemanagementManagementunit",
-		Method:             "DELETE",
-		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &DeleteWorkforcemanagementManagementunitReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*DeleteWorkforcemanagementManagementunitNoContent), nil
 
 }
 
@@ -1389,21 +1367,19 @@ func (a *Client) GetWorkforcemanagementBusinessunitsDivisionviews(ctx context.Co
 }
 
 /*
-GetWorkforcemanagementManagementunit gets management unit
-
-settings.shortTermForecasting is deprecated and now lives on the business unit
+GetWorkforcemanagementHistoricaldataDeletejob retrieves delete job status for historical data imports of the organization
 */
-func (a *Client) GetWorkforcemanagementManagementunit(ctx context.Context, params *GetWorkforcemanagementManagementunitParams) (*GetWorkforcemanagementManagementunitOK, error) {
+func (a *Client) GetWorkforcemanagementHistoricaldataDeletejob(ctx context.Context, params *GetWorkforcemanagementHistoricaldataDeletejobParams) (*GetWorkforcemanagementHistoricaldataDeletejobOK, error) {
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "getWorkforcemanagementManagementunit",
+		ID:                 "getWorkforcemanagementHistoricaldataDeletejob",
 		Method:             "GET",
-		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}",
+		PathPattern:        "/api/v2/workforcemanagement/historicaldata/deletejob",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &GetWorkforcemanagementManagementunitReader{formats: a.formats},
+		Reader:             &GetWorkforcemanagementHistoricaldataDeletejobReader{formats: a.formats},
 		AuthInfo:           a.authInfo,
 		Context:            ctx,
 		Client:             params.HTTPClient,
@@ -1411,7 +1387,32 @@ func (a *Client) GetWorkforcemanagementManagementunit(ctx context.Context, param
 	if err != nil {
 		return nil, err
 	}
-	return result.(*GetWorkforcemanagementManagementunitOK), nil
+	return result.(*GetWorkforcemanagementHistoricaldataDeletejobOK), nil
+
+}
+
+/*
+GetWorkforcemanagementHistoricaldataImportstatus retrieves status of the historical data imports of the organization
+*/
+func (a *Client) GetWorkforcemanagementHistoricaldataImportstatus(ctx context.Context, params *GetWorkforcemanagementHistoricaldataImportstatusParams) (*GetWorkforcemanagementHistoricaldataImportstatusOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getWorkforcemanagementHistoricaldataImportstatus",
+		Method:             "GET",
+		PathPattern:        "/api/v2/workforcemanagement/historicaldata/importstatus",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetWorkforcemanagementHistoricaldataImportstatusReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetWorkforcemanagementHistoricaldataImportstatusOK), nil
 
 }
 
@@ -2116,31 +2117,6 @@ func (a *Client) PatchWorkforcemanagementBusinessunitServicegoaltemplate(ctx con
 }
 
 /*
-PatchWorkforcemanagementManagementunit updates the requested management unit
-*/
-func (a *Client) PatchWorkforcemanagementManagementunit(ctx context.Context, params *PatchWorkforcemanagementManagementunitParams) (*PatchWorkforcemanagementManagementunitOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "patchWorkforcemanagementManagementunit",
-		Method:             "PATCH",
-		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PatchWorkforcemanagementManagementunitReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*PatchWorkforcemanagementManagementunitOK), nil
-
-}
-
-/*
 PatchWorkforcemanagementManagementunitUserTimeoffrequest updates a time off request
 */
 func (a *Client) PatchWorkforcemanagementManagementunitUserTimeoffrequest(ctx context.Context, params *PatchWorkforcemanagementManagementunitUserTimeoffrequestParams) (*PatchWorkforcemanagementManagementunitUserTimeoffrequestOK, error) {
@@ -2661,6 +2637,56 @@ func (a *Client) PostWorkforcemanagementBusinessunits(ctx context.Context, param
 		return nil, value, nil
 	}
 	return nil, nil, nil
+
+}
+
+/*
+PostWorkforcemanagementHistoricaldataDeletejob deletes the entries of the historical data imports in the organization
+*/
+func (a *Client) PostWorkforcemanagementHistoricaldataDeletejob(ctx context.Context, params *PostWorkforcemanagementHistoricaldataDeletejobParams) (*PostWorkforcemanagementHistoricaldataDeletejobAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postWorkforcemanagementHistoricaldataDeletejob",
+		Method:             "POST",
+		PathPattern:        "/api/v2/workforcemanagement/historicaldata/deletejob",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostWorkforcemanagementHistoricaldataDeletejobReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostWorkforcemanagementHistoricaldataDeletejobAccepted), nil
+
+}
+
+/*
+PostWorkforcemanagementHistoricaldataValidate triggers validation process for historical import
+*/
+func (a *Client) PostWorkforcemanagementHistoricaldataValidate(ctx context.Context, params *PostWorkforcemanagementHistoricaldataValidateParams) (*PostWorkforcemanagementHistoricaldataValidateAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postWorkforcemanagementHistoricaldataValidate",
+		Method:             "POST",
+		PathPattern:        "/api/v2/workforcemanagement/historicaldata/validate",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostWorkforcemanagementHistoricaldataValidateReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostWorkforcemanagementHistoricaldataValidateAccepted), nil
 
 }
 

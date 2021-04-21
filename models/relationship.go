@@ -31,9 +31,6 @@ type Relationship struct {
 	// Read Only: true
 	ID string `json:"id,omitempty"`
 
-	// name
-	Name string `json:"name,omitempty"`
-
 	// The relationship or role of the user to this external organization.Examples: Account Manager, Sales Engineer, Implementation Consultant
 	// Required: true
 	Relationship *string `json:"relationship"`
@@ -43,7 +40,7 @@ type Relationship struct {
 	// Format: uri
 	SelfURI strfmt.URI `json:"selfUri,omitempty"`
 
-	// The user associated with the external organization
+	// The user associated with the external organization. When creating or updating a relationship, only User.id is required. User object is fully populated when expanding a note.
 	// Required: true
 	User *User `json:"user"`
 }

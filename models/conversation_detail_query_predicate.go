@@ -20,7 +20,7 @@ import (
 type ConversationDetailQueryPredicate struct {
 
 	// Left hand side for dimension predicates
-	// Enum: [conversationEnd conversationId conversationStart divisionId mediaStatsMinConversationMos originatingDirection]
+	// Enum: [conversationEnd conversationId conversationStart divisionId externalTag mediaStatsMinConversationMos originatingDirection]
 	Dimension string `json:"dimension,omitempty"`
 
 	// Left hand side for metric predicates
@@ -76,7 +76,7 @@ var conversationDetailQueryPredicateTypeDimensionPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["conversationEnd","conversationId","conversationStart","divisionId","mediaStatsMinConversationMos","originatingDirection"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["conversationEnd","conversationId","conversationStart","divisionId","externalTag","mediaStatsMinConversationMos","originatingDirection"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -97,6 +97,9 @@ const (
 
 	// ConversationDetailQueryPredicateDimensionDivisionID captures enum value "divisionId"
 	ConversationDetailQueryPredicateDimensionDivisionID string = "divisionId"
+
+	// ConversationDetailQueryPredicateDimensionExternalTag captures enum value "externalTag"
+	ConversationDetailQueryPredicateDimensionExternalTag string = "externalTag"
 
 	// ConversationDetailQueryPredicateDimensionMediaStatsMinConversationMos captures enum value "mediaStatsMinConversationMos"
 	ConversationDetailQueryPredicateDimensionMediaStatsMinConversationMos string = "mediaStatsMinConversationMos"

@@ -33,7 +33,7 @@ type SurveyQuestionScore struct {
 	// question Id
 	QuestionID string `json:"questionId,omitempty"`
 
-	// score
+	// Unweighted score of the question
 	Score int32 `json:"score,omitempty"`
 }
 

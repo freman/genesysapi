@@ -20,23 +20,29 @@ import (
 // swagger:model AnalyticsSession
 type AnalyticsSession struct {
 
+	// ID(s) of Skill(s) that are active on the conversation
+	ActiveSkillIds []string `json:"activeSkillIds"`
+
 	// Marker for an agent that skipped after call work
 	AcwSkipped bool `json:"acwSkipped"`
 
-	// address from
+	// The address that initiated an action
 	AddressFrom string `json:"addressFrom,omitempty"`
 
-	// address other
+	// The email address for the participant on the other side of the email conversation
 	AddressOther string `json:"addressOther,omitempty"`
 
-	// address self
+	// The email address for the participant on this side of the email conversation
 	AddressSelf string `json:"addressSelf,omitempty"`
 
-	// address to
+	// The address receiving an action
 	AddressTo string `json:"addressTo,omitempty"`
 
 	// Unique identifier of the active virtual agent assistant
 	AgentAssistantID string `json:"agentAssistantId,omitempty"`
+
+	// Bullseye ring of the targeted agent
+	AgentBullseyeRing int32 `json:"agentBullseyeRing,omitempty"`
 
 	// Automatic Number Identification (caller's number)
 	Ani string `json:"ani,omitempty"`
@@ -44,7 +50,10 @@ type AnalyticsSession struct {
 	// ID of the user that manually assigned a conversation
 	AssignerID string `json:"assignerId,omitempty"`
 
-	// List of numbers to callback
+	// Flag that indicates that the identity of the customer has been asserted as verified by the provider.
+	Authenticated bool `json:"authenticated"`
+
+	// Callback phone number(s)
 	CallbackNumbers []string `json:"callbackNumbers"`
 
 	// Scheduled callback date/time. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
@@ -54,20 +63,20 @@ type AnalyticsSession struct {
 	// The name of the user requesting a call back
 	CallbackUserName string `json:"callbackUserName,omitempty"`
 
-	// Describe side of the cobrowse (sharer or viewer)
+	// Describes side of the cobrowse (sharer or viewer)
 	CobrowseRole string `json:"cobrowseRole,omitempty"`
 
-	// A unique identifier for a PureCloud Cobrowse room.
+	// A unique identifier for a PureCloud cobrowse room
 	CobrowseRoomID string `json:"cobrowseRoomId,omitempty"`
 
-	// Direction
+	// The direction of the communication
 	// Enum: [inbound outbound]
 	Direction string `json:"direction,omitempty"`
 
-	// (Dialer) Unique identifier of the contact list that this contact belongs to
+	// (Dialer) Analyzer (for example speech.person)
 	DispositionAnalyzer string `json:"dispositionAnalyzer,omitempty"`
 
-	// (Dialer) Result of the analysis
+	// (Dialer) Result of the analysis (for example disposition.classification.callable.machine)
 	DispositionName string `json:"dispositionName,omitempty"`
 
 	// Dialed number identification service (number dialed by the calling party)
@@ -79,58 +88,54 @@ type AnalyticsSession struct {
 	// IVR flow execution associated with this session
 	Flow *AnalyticsFlow `json:"flow,omitempty"`
 
-	// Type of flow in that occurred, e.g. acd, ivr, etc.
+	// Type of flow in that occurred when entering ACD.
 	FlowInType string `json:"flowInType,omitempty"`
 
-	// Type of flow out that occurred, e.g. voicemail, callback, or acd
+	// Type of flow out that occurred when emitting tFlowOut.
 	FlowOutType string `json:"flowOutType,omitempty"`
 
-	// Journey action ID
+	// Identifier of the journey action.
 	JourneyActionID string `json:"journeyActionId,omitempty"`
 
-	// Journey action map ID
+	// Identifier of the journey action map that triggered the action.
 	JourneyActionMapID string `json:"journeyActionMapId,omitempty"`
 
-	// Journey action map version
-	JourneyActionMapVersion string `json:"journeyActionMapVersion,omitempty"`
+	// Version of the journey action map that triggered the action.
+	JourneyActionMapVersion int32 `json:"journeyActionMapVersion,omitempty"`
 
-	// ID of the journey customer
+	// Primary identifier of the journey customer in the source where the activities originate from.
 	JourneyCustomerID string `json:"journeyCustomerId,omitempty"`
 
-	// Type of the journey customer ID
+	// Type of primary identifier of the journey customer (e.g. cookie).
 	JourneyCustomerIDType string `json:"journeyCustomerIdType,omitempty"`
 
-	// ID of the journey customer session
+	// Unique identifier of the journey session.
 	JourneyCustomerSessionID string `json:"journeyCustomerSessionId,omitempty"`
 
-	// Type of the journey customer session ID
+	// Type or category of journey sessions (e.g. web, ticket, delivery, atm).
 	JourneyCustomerSessionIDType string `json:"journeyCustomerSessionIdType,omitempty"`
 
-	// media bridge Id
+	// Media bridge ID for the conference session consistent across all participants
 	MediaBridgeID string `json:"mediaBridgeId,omitempty"`
 
 	// Count of any media (images, files, etc) included in this session
 	MediaCount int32 `json:"mediaCount,omitempty"`
 
-	// Media endpoint stats associated with this session
+	// MediaEndpointStats associated with this session
 	MediaEndpointStats []*AnalyticsMediaEndpointStat `json:"mediaEndpointStats"`
 
 	// The session media type
-	// Enum: [voice chat email callback cobrowse video screenshare message]
+	// Enum: [callback chat cobrowse email message screenshare video voice]
 	MediaType string `json:"mediaType,omitempty"`
 
-	// Message type for messaging services such as sms
-	// Enum: [sms facebook twitter line]
+	// Message type for messaging services. E.g.: sms, facebook, twitter, line
 	MessageType string `json:"messageType,omitempty"`
 
 	// List of metrics for this session
 	Metrics []*AnalyticsSessionMetric `json:"metrics"`
 
-	// monitored participant Id
+	// The participantId being monitored (if someone (e.g. an agent) is being monitored, this would be the ID of the participant that was monitored that would correspond to other participantIds present in the conversation)
 	MonitoredParticipantID string `json:"monitoredParticipantId,omitempty"`
-
-	// The sessionID being monitored
-	MonitoredSessionID string `json:"monitoredSessionId,omitempty"`
 
 	// (Dialer) Unique identifier of the outbound campaign
 	OutboundCampaignID string `json:"outboundCampaignId,omitempty"`
@@ -141,7 +146,7 @@ type AnalyticsSession struct {
 	// (Dialer) Unique identifier of the contact list that this contact belongs to
 	OutboundContactListID string `json:"outboundContactListId,omitempty"`
 
-	// A unique identifier for a peer
+	// This identifies pairs of related sessions on a conversation. E.g. an external session’s peerId will be the session that the call originally connected to, e.g. if an IVR was dialed, the IVR session, which will also have the external session’s ID as its peer. After that point, any transfers of that session to other internal components (acd, agent, etc.) will all spawn new sessions whose peerIds point back to that original external session.
 	PeerID string `json:"peerId,omitempty"`
 
 	// Proposed agents
@@ -150,7 +155,7 @@ type AnalyticsSession struct {
 	// The original voice protocol call ID, e.g. a SIP call ID
 	ProtocolCallID string `json:"protocolCallId,omitempty"`
 
-	// The source provider for the communication
+	// The source provider for the communication.
 	Provider string `json:"provider,omitempty"`
 
 	// Flag determining if an audio recording was started or not
@@ -159,19 +164,25 @@ type AnalyticsSession struct {
 	// Name, phone number, or email address of the remote party.
 	Remote string `json:"remote,omitempty"`
 
-	// remote name displayable
+	// Unique identifier for the remote party
 	RemoteNameDisplayable string `json:"remoteNameDisplayable,omitempty"`
 
-	// All routing types for requested/attempted routing methods.
+	// ID(s) of Skill(s) that have been removed by bullseye routing
+	RemovedSkillIds []string `json:"removedSkillIds"`
+
+	// Routing type(s) for requested/attempted routing methods.
 	RequestedRoutings []string `json:"requestedRoutings"`
 
 	// Unique identifier for the room
 	RoomID string `json:"roomId,omitempty"`
 
+	// Routing ring for bullseye or preferred agent routing
+	RoutingRing int32 `json:"routingRing,omitempty"`
+
 	// Direct ScreenShare address
 	ScreenShareAddressSelf string `json:"screenShareAddressSelf,omitempty"`
 
-	// A unique identifier for a PureCloud ScreenShare room.
+	// A unique identifier for a PureCloud ScreenShare room
 	ScreenShareRoomID string `json:"screenShareRoomId,omitempty"`
 
 	// A unique identifier for a script
@@ -180,7 +191,7 @@ type AnalyticsSession struct {
 	// List of segments for this session
 	Segments []*AnalyticsConversationSegment `json:"segments"`
 
-	// Selected agent id
+	// Selected agent ID
 	SelectedAgentID string `json:"selectedAgentId,omitempty"`
 
 	// Selected agent GPR rank
@@ -198,17 +209,17 @@ type AnalyticsSession struct {
 	// (Dialer) Whether the agent can skip the dialer contact
 	SkipEnabled bool `json:"skipEnabled"`
 
-	// The number of seconds before PureCloud begins the call for a call back. 0 disables automatic calling
+	// The number of seconds before PureCloud begins the call for a call back (0 disables automatic calling)
 	TimeoutSeconds int32 `json:"timeoutSeconds,omitempty"`
 
 	// Complete routing method
-	// Enum: [Predictive Preferred Manual Last Bullseye Standard]
+	// Enum: [Bullseye Last Manual Predictive Preferred Standard]
 	UsedRouting string `json:"usedRouting,omitempty"`
 
 	// Direct Video address
 	VideoAddressSelf string `json:"videoAddressSelf,omitempty"`
 
-	// A unique identifier for a PureCloud video room.
+	// A unique identifier for a PureCloud video room
 	VideoRoomID string `json:"videoRoomId,omitempty"`
 }
 
@@ -233,10 +244,6 @@ func (m *AnalyticsSession) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateMediaType(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateMessageType(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -369,7 +376,7 @@ var analyticsSessionTypeMediaTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["voice","chat","email","callback","cobrowse","video","screenshare","message"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["callback","chat","cobrowse","email","message","screenshare","video","voice"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -379,29 +386,29 @@ func init() {
 
 const (
 
-	// AnalyticsSessionMediaTypeVoice captures enum value "voice"
-	AnalyticsSessionMediaTypeVoice string = "voice"
+	// AnalyticsSessionMediaTypeCallback captures enum value "callback"
+	AnalyticsSessionMediaTypeCallback string = "callback"
 
 	// AnalyticsSessionMediaTypeChat captures enum value "chat"
 	AnalyticsSessionMediaTypeChat string = "chat"
 
-	// AnalyticsSessionMediaTypeEmail captures enum value "email"
-	AnalyticsSessionMediaTypeEmail string = "email"
-
-	// AnalyticsSessionMediaTypeCallback captures enum value "callback"
-	AnalyticsSessionMediaTypeCallback string = "callback"
-
 	// AnalyticsSessionMediaTypeCobrowse captures enum value "cobrowse"
 	AnalyticsSessionMediaTypeCobrowse string = "cobrowse"
 
-	// AnalyticsSessionMediaTypeVideo captures enum value "video"
-	AnalyticsSessionMediaTypeVideo string = "video"
+	// AnalyticsSessionMediaTypeEmail captures enum value "email"
+	AnalyticsSessionMediaTypeEmail string = "email"
+
+	// AnalyticsSessionMediaTypeMessage captures enum value "message"
+	AnalyticsSessionMediaTypeMessage string = "message"
 
 	// AnalyticsSessionMediaTypeScreenshare captures enum value "screenshare"
 	AnalyticsSessionMediaTypeScreenshare string = "screenshare"
 
-	// AnalyticsSessionMediaTypeMessage captures enum value "message"
-	AnalyticsSessionMediaTypeMessage string = "message"
+	// AnalyticsSessionMediaTypeVideo captures enum value "video"
+	AnalyticsSessionMediaTypeVideo string = "video"
+
+	// AnalyticsSessionMediaTypeVoice captures enum value "voice"
+	AnalyticsSessionMediaTypeVoice string = "voice"
 )
 
 // prop value enum
@@ -420,55 +427,6 @@ func (m *AnalyticsSession) validateMediaType(formats strfmt.Registry) error {
 
 	// value enum
 	if err := m.validateMediaTypeEnum("mediaType", "body", m.MediaType); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-var analyticsSessionTypeMessageTypePropEnum []interface{}
-
-func init() {
-	var res []string
-	if err := json.Unmarshal([]byte(`["sms","facebook","twitter","line"]`), &res); err != nil {
-		panic(err)
-	}
-	for _, v := range res {
-		analyticsSessionTypeMessageTypePropEnum = append(analyticsSessionTypeMessageTypePropEnum, v)
-	}
-}
-
-const (
-
-	// AnalyticsSessionMessageTypeSms captures enum value "sms"
-	AnalyticsSessionMessageTypeSms string = "sms"
-
-	// AnalyticsSessionMessageTypeFacebook captures enum value "facebook"
-	AnalyticsSessionMessageTypeFacebook string = "facebook"
-
-	// AnalyticsSessionMessageTypeTwitter captures enum value "twitter"
-	AnalyticsSessionMessageTypeTwitter string = "twitter"
-
-	// AnalyticsSessionMessageTypeLine captures enum value "line"
-	AnalyticsSessionMessageTypeLine string = "line"
-)
-
-// prop value enum
-func (m *AnalyticsSession) validateMessageTypeEnum(path, location string, value string) error {
-	if err := validate.EnumCase(path, location, value, analyticsSessionTypeMessageTypePropEnum, true); err != nil {
-		return err
-	}
-	return nil
-}
-
-func (m *AnalyticsSession) validateMessageType(formats strfmt.Registry) error {
-
-	if swag.IsZero(m.MessageType) { // not required
-		return nil
-	}
-
-	// value enum
-	if err := m.validateMessageTypeEnum("messageType", "body", m.MessageType); err != nil {
 		return err
 	}
 
@@ -529,7 +487,7 @@ var analyticsSessionRequestedRoutingsItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Predictive","Preferred","Manual","Last","Bullseye","Standard"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Bullseye","Last","Manual","Predictive","Preferred","Standard"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -591,7 +549,7 @@ var analyticsSessionTypeUsedRoutingPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Predictive","Preferred","Manual","Last","Bullseye","Standard"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Bullseye","Last","Manual","Predictive","Preferred","Standard"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -601,20 +559,20 @@ func init() {
 
 const (
 
+	// AnalyticsSessionUsedRoutingBullseye captures enum value "Bullseye"
+	AnalyticsSessionUsedRoutingBullseye string = "Bullseye"
+
+	// AnalyticsSessionUsedRoutingLast captures enum value "Last"
+	AnalyticsSessionUsedRoutingLast string = "Last"
+
+	// AnalyticsSessionUsedRoutingManual captures enum value "Manual"
+	AnalyticsSessionUsedRoutingManual string = "Manual"
+
 	// AnalyticsSessionUsedRoutingPredictive captures enum value "Predictive"
 	AnalyticsSessionUsedRoutingPredictive string = "Predictive"
 
 	// AnalyticsSessionUsedRoutingPreferred captures enum value "Preferred"
 	AnalyticsSessionUsedRoutingPreferred string = "Preferred"
-
-	// AnalyticsSessionUsedRoutingManual captures enum value "Manual"
-	AnalyticsSessionUsedRoutingManual string = "Manual"
-
-	// AnalyticsSessionUsedRoutingLast captures enum value "Last"
-	AnalyticsSessionUsedRoutingLast string = "Last"
-
-	// AnalyticsSessionUsedRoutingBullseye captures enum value "Bullseye"
-	AnalyticsSessionUsedRoutingBullseye string = "Bullseye"
 
 	// AnalyticsSessionUsedRoutingStandard captures enum value "Standard"
 	AnalyticsSessionUsedRoutingStandard string = "Standard"

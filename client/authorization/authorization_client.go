@@ -161,6 +161,11 @@ type API interface {
 	*/
 	PostAuthorizationSubjectBulkremove(ctx context.Context, params *PostAuthorizationSubjectBulkremoveParams) (*PostAuthorizationSubjectBulkremoveNoContent, error)
 	/*
+	   PostAuthorizationSubjectBulkreplace replaces subject s roles and divisions with the exact list supplied in the request
+	   This operation will not remove grants that are inherited from group membership. It will only set the grants directly applied to the subject.
+	*/
+	PostAuthorizationSubjectBulkreplace(ctx context.Context, params *PostAuthorizationSubjectBulkreplaceParams) (*PostAuthorizationSubjectBulkreplaceNoContent, error)
+	/*
 	   PostAuthorizationSubjectDivisionRole makes a grant of a role in a division
 	*/
 	PostAuthorizationSubjectDivisionRole(ctx context.Context, params *PostAuthorizationSubjectDivisionRoleParams) error
@@ -1015,6 +1020,33 @@ func (a *Client) PostAuthorizationSubjectBulkremove(ctx context.Context, params 
 		return nil, err
 	}
 	return result.(*PostAuthorizationSubjectBulkremoveNoContent), nil
+
+}
+
+/*
+PostAuthorizationSubjectBulkreplace replaces subject s roles and divisions with the exact list supplied in the request
+
+This operation will not remove grants that are inherited from group membership. It will only set the grants directly applied to the subject.
+*/
+func (a *Client) PostAuthorizationSubjectBulkreplace(ctx context.Context, params *PostAuthorizationSubjectBulkreplaceParams) (*PostAuthorizationSubjectBulkreplaceNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postAuthorizationSubjectBulkreplace",
+		Method:             "POST",
+		PathPattern:        "/api/v2/authorization/subjects/{subjectId}/bulkreplace",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostAuthorizationSubjectBulkreplaceReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostAuthorizationSubjectBulkreplaceNoContent), nil
 
 }
 
