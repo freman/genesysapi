@@ -53,6 +53,12 @@ func (o *GetAuthorizationDivisionspermittedMeReader) ReadResponse(response runti
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetAuthorizationDivisionspermittedMeRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetAuthorizationDivisionspermittedMeRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -258,6 +264,39 @@ func (o *GetAuthorizationDivisionspermittedMeNotFound) readResponse(response run
 	return nil
 }
 
+// NewGetAuthorizationDivisionspermittedMeRequestTimeout creates a GetAuthorizationDivisionspermittedMeRequestTimeout with default headers values
+func NewGetAuthorizationDivisionspermittedMeRequestTimeout() *GetAuthorizationDivisionspermittedMeRequestTimeout {
+	return &GetAuthorizationDivisionspermittedMeRequestTimeout{}
+}
+
+/*GetAuthorizationDivisionspermittedMeRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetAuthorizationDivisionspermittedMeRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetAuthorizationDivisionspermittedMeRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/authorization/divisionspermitted/me][%d] getAuthorizationDivisionspermittedMeRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetAuthorizationDivisionspermittedMeRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetAuthorizationDivisionspermittedMeRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetAuthorizationDivisionspermittedMeRequestEntityTooLarge creates a GetAuthorizationDivisionspermittedMeRequestEntityTooLarge with default headers values
 func NewGetAuthorizationDivisionspermittedMeRequestEntityTooLarge() *GetAuthorizationDivisionspermittedMeRequestEntityTooLarge {
 	return &GetAuthorizationDivisionspermittedMeRequestEntityTooLarge{}
@@ -331,7 +370,7 @@ func NewGetAuthorizationDivisionspermittedMeTooManyRequests() *GetAuthorizationD
 
 /*GetAuthorizationDivisionspermittedMeTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetAuthorizationDivisionspermittedMeTooManyRequests struct {
 	Payload *models.ErrorBody

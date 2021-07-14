@@ -53,6 +53,12 @@ func (o *GetScimUsersReader) ReadResponse(response runtime.ClientResponse, consu
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetScimUsersRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetScimUsersRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetScimUsersNotFound) readResponse(response runtime.ClientResponse, con
 	return nil
 }
 
+// NewGetScimUsersRequestTimeout creates a GetScimUsersRequestTimeout with default headers values
+func NewGetScimUsersRequestTimeout() *GetScimUsersRequestTimeout {
+	return &GetScimUsersRequestTimeout{}
+}
+
+/*GetScimUsersRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetScimUsersRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetScimUsersRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/users][%d] getScimUsersRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetScimUsersRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetScimUsersRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetScimUsersRequestEntityTooLarge creates a GetScimUsersRequestEntityTooLarge with default headers values
 func NewGetScimUsersRequestEntityTooLarge() *GetScimUsersRequestEntityTooLarge {
 	return &GetScimUsersRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetScimUsersTooManyRequests() *GetScimUsersTooManyRequests {
 
 /*GetScimUsersTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetScimUsersTooManyRequests struct {
 	Payload *models.ErrorBody

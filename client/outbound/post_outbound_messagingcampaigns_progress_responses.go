@@ -53,6 +53,12 @@ func (o *PostOutboundMessagingcampaignsProgressReader) ReadResponse(response run
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostOutboundMessagingcampaignsProgressRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostOutboundMessagingcampaignsProgressRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -258,6 +264,39 @@ func (o *PostOutboundMessagingcampaignsProgressNotFound) readResponse(response r
 	return nil
 }
 
+// NewPostOutboundMessagingcampaignsProgressRequestTimeout creates a PostOutboundMessagingcampaignsProgressRequestTimeout with default headers values
+func NewPostOutboundMessagingcampaignsProgressRequestTimeout() *PostOutboundMessagingcampaignsProgressRequestTimeout {
+	return &PostOutboundMessagingcampaignsProgressRequestTimeout{}
+}
+
+/*PostOutboundMessagingcampaignsProgressRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostOutboundMessagingcampaignsProgressRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostOutboundMessagingcampaignsProgressRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/messagingcampaigns/progress][%d] postOutboundMessagingcampaignsProgressRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostOutboundMessagingcampaignsProgressRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostOutboundMessagingcampaignsProgressRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostOutboundMessagingcampaignsProgressRequestEntityTooLarge creates a PostOutboundMessagingcampaignsProgressRequestEntityTooLarge with default headers values
 func NewPostOutboundMessagingcampaignsProgressRequestEntityTooLarge() *PostOutboundMessagingcampaignsProgressRequestEntityTooLarge {
 	return &PostOutboundMessagingcampaignsProgressRequestEntityTooLarge{}
@@ -331,7 +370,7 @@ func NewPostOutboundMessagingcampaignsProgressTooManyRequests() *PostOutboundMes
 
 /*PostOutboundMessagingcampaignsProgressTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostOutboundMessagingcampaignsProgressTooManyRequests struct {
 	Payload *models.ErrorBody

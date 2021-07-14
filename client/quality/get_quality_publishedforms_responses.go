@@ -53,6 +53,12 @@ func (o *GetQualityPublishedformsReader) ReadResponse(response runtime.ClientRes
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetQualityPublishedformsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetQualityPublishedformsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetQualityPublishedformsNotFound) readResponse(response runtime.ClientR
 	return nil
 }
 
+// NewGetQualityPublishedformsRequestTimeout creates a GetQualityPublishedformsRequestTimeout with default headers values
+func NewGetQualityPublishedformsRequestTimeout() *GetQualityPublishedformsRequestTimeout {
+	return &GetQualityPublishedformsRequestTimeout{}
+}
+
+/*GetQualityPublishedformsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetQualityPublishedformsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetQualityPublishedformsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/publishedforms][%d] getQualityPublishedformsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetQualityPublishedformsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetQualityPublishedformsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetQualityPublishedformsRequestEntityTooLarge creates a GetQualityPublishedformsRequestEntityTooLarge with default headers values
 func NewGetQualityPublishedformsRequestEntityTooLarge() *GetQualityPublishedformsRequestEntityTooLarge {
 	return &GetQualityPublishedformsRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetQualityPublishedformsTooManyRequests() *GetQualityPublishedformsTooMa
 
 /*GetQualityPublishedformsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetQualityPublishedformsTooManyRequests struct {
 	Payload *models.ErrorBody

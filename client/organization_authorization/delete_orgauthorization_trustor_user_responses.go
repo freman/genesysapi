@@ -53,6 +53,12 @@ func (o *DeleteOrgauthorizationTrustorUserReader) ReadResponse(response runtime.
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewDeleteOrgauthorizationTrustorUserRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewDeleteOrgauthorizationTrustorUserRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -248,6 +254,39 @@ func (o *DeleteOrgauthorizationTrustorUserNotFound) readResponse(response runtim
 	return nil
 }
 
+// NewDeleteOrgauthorizationTrustorUserRequestTimeout creates a DeleteOrgauthorizationTrustorUserRequestTimeout with default headers values
+func NewDeleteOrgauthorizationTrustorUserRequestTimeout() *DeleteOrgauthorizationTrustorUserRequestTimeout {
+	return &DeleteOrgauthorizationTrustorUserRequestTimeout{}
+}
+
+/*DeleteOrgauthorizationTrustorUserRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type DeleteOrgauthorizationTrustorUserRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *DeleteOrgauthorizationTrustorUserRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/orgauthorization/trustors/{trustorOrgId}/users/{trusteeUserId}][%d] deleteOrgauthorizationTrustorUserRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteOrgauthorizationTrustorUserRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *DeleteOrgauthorizationTrustorUserRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewDeleteOrgauthorizationTrustorUserRequestEntityTooLarge creates a DeleteOrgauthorizationTrustorUserRequestEntityTooLarge with default headers values
 func NewDeleteOrgauthorizationTrustorUserRequestEntityTooLarge() *DeleteOrgauthorizationTrustorUserRequestEntityTooLarge {
 	return &DeleteOrgauthorizationTrustorUserRequestEntityTooLarge{}
@@ -321,7 +360,7 @@ func NewDeleteOrgauthorizationTrustorUserTooManyRequests() *DeleteOrgauthorizati
 
 /*DeleteOrgauthorizationTrustorUserTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type DeleteOrgauthorizationTrustorUserTooManyRequests struct {
 	Payload *models.ErrorBody

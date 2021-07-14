@@ -53,6 +53,12 @@ func (o *PostSpeechandtextanalyticsProgramsReader) ReadResponse(response runtime
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostSpeechandtextanalyticsProgramsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 409:
 		result := NewPostSpeechandtextanalyticsProgramsConflict()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -266,6 +272,39 @@ func (o *PostSpeechandtextanalyticsProgramsNotFound) readResponse(response runti
 	return nil
 }
 
+// NewPostSpeechandtextanalyticsProgramsRequestTimeout creates a PostSpeechandtextanalyticsProgramsRequestTimeout with default headers values
+func NewPostSpeechandtextanalyticsProgramsRequestTimeout() *PostSpeechandtextanalyticsProgramsRequestTimeout {
+	return &PostSpeechandtextanalyticsProgramsRequestTimeout{}
+}
+
+/*PostSpeechandtextanalyticsProgramsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostSpeechandtextanalyticsProgramsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostSpeechandtextanalyticsProgramsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/programs][%d] postSpeechandtextanalyticsProgramsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostSpeechandtextanalyticsProgramsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostSpeechandtextanalyticsProgramsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostSpeechandtextanalyticsProgramsConflict creates a PostSpeechandtextanalyticsProgramsConflict with default headers values
 func NewPostSpeechandtextanalyticsProgramsConflict() *PostSpeechandtextanalyticsProgramsConflict {
 	return &PostSpeechandtextanalyticsProgramsConflict{}
@@ -372,7 +411,7 @@ func NewPostSpeechandtextanalyticsProgramsTooManyRequests() *PostSpeechandtextan
 
 /*PostSpeechandtextanalyticsProgramsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostSpeechandtextanalyticsProgramsTooManyRequests struct {
 	Payload *models.ErrorBody

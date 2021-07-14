@@ -53,6 +53,12 @@ func (o *GetIntegrationsActionDraftTemplateReader) ReadResponse(response runtime
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetIntegrationsActionDraftTemplateRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetIntegrationsActionDraftTemplateRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -258,6 +264,39 @@ func (o *GetIntegrationsActionDraftTemplateNotFound) readResponse(response runti
 	return nil
 }
 
+// NewGetIntegrationsActionDraftTemplateRequestTimeout creates a GetIntegrationsActionDraftTemplateRequestTimeout with default headers values
+func NewGetIntegrationsActionDraftTemplateRequestTimeout() *GetIntegrationsActionDraftTemplateRequestTimeout {
+	return &GetIntegrationsActionDraftTemplateRequestTimeout{}
+}
+
+/*GetIntegrationsActionDraftTemplateRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetIntegrationsActionDraftTemplateRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetIntegrationsActionDraftTemplateRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/actions/{actionId}/draft/templates/{fileName}][%d] getIntegrationsActionDraftTemplateRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetIntegrationsActionDraftTemplateRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetIntegrationsActionDraftTemplateRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetIntegrationsActionDraftTemplateRequestEntityTooLarge creates a GetIntegrationsActionDraftTemplateRequestEntityTooLarge with default headers values
 func NewGetIntegrationsActionDraftTemplateRequestEntityTooLarge() *GetIntegrationsActionDraftTemplateRequestEntityTooLarge {
 	return &GetIntegrationsActionDraftTemplateRequestEntityTooLarge{}
@@ -331,7 +370,7 @@ func NewGetIntegrationsActionDraftTemplateTooManyRequests() *GetIntegrationsActi
 
 /*GetIntegrationsActionDraftTemplateTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetIntegrationsActionDraftTemplateTooManyRequests struct {
 	Payload *models.ErrorBody

@@ -53,6 +53,12 @@ func (o *PutOutboundSchedulesCampaignReader) ReadResponse(response runtime.Clien
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPutOutboundSchedulesCampaignRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPutOutboundSchedulesCampaignRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PutOutboundSchedulesCampaignNotFound) readResponse(response runtime.Cli
 	return nil
 }
 
+// NewPutOutboundSchedulesCampaignRequestTimeout creates a PutOutboundSchedulesCampaignRequestTimeout with default headers values
+func NewPutOutboundSchedulesCampaignRequestTimeout() *PutOutboundSchedulesCampaignRequestTimeout {
+	return &PutOutboundSchedulesCampaignRequestTimeout{}
+}
+
+/*PutOutboundSchedulesCampaignRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PutOutboundSchedulesCampaignRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PutOutboundSchedulesCampaignRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/schedules/campaigns/{campaignId}][%d] putOutboundSchedulesCampaignRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutOutboundSchedulesCampaignRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PutOutboundSchedulesCampaignRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPutOutboundSchedulesCampaignRequestEntityTooLarge creates a PutOutboundSchedulesCampaignRequestEntityTooLarge with default headers values
 func NewPutOutboundSchedulesCampaignRequestEntityTooLarge() *PutOutboundSchedulesCampaignRequestEntityTooLarge {
 	return &PutOutboundSchedulesCampaignRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPutOutboundSchedulesCampaignTooManyRequests() *PutOutboundSchedulesCampa
 
 /*PutOutboundSchedulesCampaignTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PutOutboundSchedulesCampaignTooManyRequests struct {
 	Payload *models.ErrorBody

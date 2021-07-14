@@ -44,6 +44,9 @@ type AnalyticsSession struct {
 	// Bullseye ring of the targeted agent
 	AgentBullseyeRing int32 `json:"agentBullseyeRing,omitempty"`
 
+	// Flag indicating an agent-owned callback
+	AgentOwned bool `json:"agentOwned"`
+
 	// Automatic Number Identification (caller's number)
 	Ani string `json:"ani,omitempty"`
 

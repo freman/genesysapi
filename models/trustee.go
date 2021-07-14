@@ -26,6 +26,10 @@ type Trustee struct {
 	// Format: date-time
 	DateCreated strfmt.DateTime `json:"dateCreated,omitempty"`
 
+	// The expiration date of the trust. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+	// Format: date-time
+	DateExpired strfmt.DateTime `json:"dateExpired,omitempty"`
+
 	// If disabled no trustee user will have access, even if they were previously added.
 	// Required: true
 	Enabled *bool `json:"enabled"`
@@ -56,6 +60,10 @@ func (m *Trustee) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateDateCreated(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDateExpired(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -102,6 +110,19 @@ func (m *Trustee) validateDateCreated(formats strfmt.Registry) error {
 	}
 
 	if err := validate.FormatOf("dateCreated", "body", "date-time", m.DateCreated.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Trustee) validateDateExpired(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.DateExpired) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("dateExpired", "body", "date-time", m.DateExpired.String(), formats); err != nil {
 		return err
 	}
 

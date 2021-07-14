@@ -53,6 +53,12 @@ func (o *GetOrganizationsIpaddressauthenticationReader) ReadResponse(response ru
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetOrganizationsIpaddressauthenticationRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetOrganizationsIpaddressauthenticationRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetOrganizationsIpaddressauthenticationNotFound) readResponse(response 
 	return nil
 }
 
+// NewGetOrganizationsIpaddressauthenticationRequestTimeout creates a GetOrganizationsIpaddressauthenticationRequestTimeout with default headers values
+func NewGetOrganizationsIpaddressauthenticationRequestTimeout() *GetOrganizationsIpaddressauthenticationRequestTimeout {
+	return &GetOrganizationsIpaddressauthenticationRequestTimeout{}
+}
+
+/*GetOrganizationsIpaddressauthenticationRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetOrganizationsIpaddressauthenticationRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetOrganizationsIpaddressauthenticationRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/ipaddressauthentication][%d] getOrganizationsIpaddressauthenticationRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetOrganizationsIpaddressauthenticationRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetOrganizationsIpaddressauthenticationRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetOrganizationsIpaddressauthenticationRequestEntityTooLarge creates a GetOrganizationsIpaddressauthenticationRequestEntityTooLarge with default headers values
 func NewGetOrganizationsIpaddressauthenticationRequestEntityTooLarge() *GetOrganizationsIpaddressauthenticationRequestEntityTooLarge {
 	return &GetOrganizationsIpaddressauthenticationRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetOrganizationsIpaddressauthenticationTooManyRequests() *GetOrganizatio
 
 /*GetOrganizationsIpaddressauthenticationTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetOrganizationsIpaddressauthenticationTooManyRequests struct {
 	Payload *models.ErrorBody

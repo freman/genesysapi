@@ -53,6 +53,12 @@ func (o *GetAlertingInteractionstatsAlertsReader) ReadResponse(response runtime.
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetAlertingInteractionstatsAlertsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetAlertingInteractionstatsAlertsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetAlertingInteractionstatsAlertsNotFound) readResponse(response runtim
 	return nil
 }
 
+// NewGetAlertingInteractionstatsAlertsRequestTimeout creates a GetAlertingInteractionstatsAlertsRequestTimeout with default headers values
+func NewGetAlertingInteractionstatsAlertsRequestTimeout() *GetAlertingInteractionstatsAlertsRequestTimeout {
+	return &GetAlertingInteractionstatsAlertsRequestTimeout{}
+}
+
+/*GetAlertingInteractionstatsAlertsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetAlertingInteractionstatsAlertsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetAlertingInteractionstatsAlertsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/alerting/interactionstats/alerts][%d] getAlertingInteractionstatsAlertsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetAlertingInteractionstatsAlertsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetAlertingInteractionstatsAlertsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetAlertingInteractionstatsAlertsRequestEntityTooLarge creates a GetAlertingInteractionstatsAlertsRequestEntityTooLarge with default headers values
 func NewGetAlertingInteractionstatsAlertsRequestEntityTooLarge() *GetAlertingInteractionstatsAlertsRequestEntityTooLarge {
 	return &GetAlertingInteractionstatsAlertsRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetAlertingInteractionstatsAlertsTooManyRequests() *GetAlertingInteracti
 
 /*GetAlertingInteractionstatsAlertsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetAlertingInteractionstatsAlertsTooManyRequests struct {
 	Payload *models.ErrorBody

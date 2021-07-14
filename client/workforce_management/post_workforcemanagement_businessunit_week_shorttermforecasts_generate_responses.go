@@ -65,6 +65,12 @@ func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateReader
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -344,6 +350,39 @@ func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateNotFou
 	return nil
 }
 
+// NewPostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateRequestTimeout creates a PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateRequestTimeout with default headers values
+func NewPostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateRequestTimeout() *PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateRequestTimeout {
+	return &PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateRequestTimeout{}
+}
+
+/*PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/generate][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateRequestEntityTooLarge creates a PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateRequestEntityTooLarge with default headers values
 func NewPostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateRequestEntityTooLarge() *PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateRequestEntityTooLarge {
 	return &PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateRequestEntityTooLarge{}
@@ -417,7 +456,7 @@ func NewPostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateTooMany
 
 /*PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateTooManyRequests struct {
 	Payload *models.ErrorBody

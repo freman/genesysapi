@@ -59,6 +59,12 @@ func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryReader) ReadResponse(respon
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewDeleteKnowledgeKnowledgebaseLanguageCategoryRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewDeleteKnowledgeKnowledgebaseLanguageCategoryRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -287,6 +293,39 @@ func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryNotFound) readResponse(resp
 	return nil
 }
 
+// NewDeleteKnowledgeKnowledgebaseLanguageCategoryRequestTimeout creates a DeleteKnowledgeKnowledgebaseLanguageCategoryRequestTimeout with default headers values
+func NewDeleteKnowledgeKnowledgebaseLanguageCategoryRequestTimeout() *DeleteKnowledgeKnowledgebaseLanguageCategoryRequestTimeout {
+	return &DeleteKnowledgeKnowledgebaseLanguageCategoryRequestTimeout{}
+}
+
+/*DeleteKnowledgeKnowledgebaseLanguageCategoryRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type DeleteKnowledgeKnowledgebaseLanguageCategoryRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories/{categoryId}][%d] deleteKnowledgeKnowledgebaseLanguageCategoryRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewDeleteKnowledgeKnowledgebaseLanguageCategoryRequestEntityTooLarge creates a DeleteKnowledgeKnowledgebaseLanguageCategoryRequestEntityTooLarge with default headers values
 func NewDeleteKnowledgeKnowledgebaseLanguageCategoryRequestEntityTooLarge() *DeleteKnowledgeKnowledgebaseLanguageCategoryRequestEntityTooLarge {
 	return &DeleteKnowledgeKnowledgebaseLanguageCategoryRequestEntityTooLarge{}
@@ -360,7 +399,7 @@ func NewDeleteKnowledgeKnowledgebaseLanguageCategoryTooManyRequests() *DeleteKno
 
 /*DeleteKnowledgeKnowledgebaseLanguageCategoryTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type DeleteKnowledgeKnowledgebaseLanguageCategoryTooManyRequests struct {
 	Payload *models.ErrorBody

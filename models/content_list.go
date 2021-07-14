@@ -15,31 +15,31 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// ContentList List content object
+// ContentList List content object.
 //
 // swagger:model ContentList
 type ContentList struct {
 
-	// User actions available on the content. All actions are optional and all actions are executed simultaneously.
+	// The list actions.
 	Actions *ContentActions `json:"actions,omitempty"`
 
-	// An array of component objects
+	// An array of component objects.
 	Components []*ListItemComponent `json:"components"`
 
-	// Text to show in the description row. This is immediately below the title
+	// Text to show in the description.
 	Description string `json:"description,omitempty"`
 
-	// An ID assigned to this rich message content. Each instance inside the content array has a unique ID.
+	// A unique ID assigned to this rich message content.
 	ID string `json:"id,omitempty"`
 
-	// The type of list this instance represents
+	// The type of list this instance represents.
 	// Enum: [Selection Vertical]
 	ListType string `json:"listType,omitempty"`
 
-	// Label for Submit button
+	// Label for Submit button.
 	SubmitLabel string `json:"submitLabel,omitempty"`
 
-	// Text to show in the title row
+	// Text to show in the title.
 	Title string `json:"title,omitempty"`
 }
 

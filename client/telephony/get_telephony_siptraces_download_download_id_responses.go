@@ -59,6 +59,12 @@ func (o *GetTelephonySiptracesDownloadDownloadIDReader) ReadResponse(response ru
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetTelephonySiptracesDownloadDownloadIDRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetTelephonySiptracesDownloadDownloadIDRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -299,6 +305,39 @@ func (o *GetTelephonySiptracesDownloadDownloadIDNotFound) readResponse(response 
 	return nil
 }
 
+// NewGetTelephonySiptracesDownloadDownloadIDRequestTimeout creates a GetTelephonySiptracesDownloadDownloadIDRequestTimeout with default headers values
+func NewGetTelephonySiptracesDownloadDownloadIDRequestTimeout() *GetTelephonySiptracesDownloadDownloadIDRequestTimeout {
+	return &GetTelephonySiptracesDownloadDownloadIDRequestTimeout{}
+}
+
+/*GetTelephonySiptracesDownloadDownloadIDRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetTelephonySiptracesDownloadDownloadIDRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetTelephonySiptracesDownloadDownloadIDRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/siptraces/download/{downloadId}][%d] getTelephonySiptracesDownloadDownloadIdRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetTelephonySiptracesDownloadDownloadIDRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetTelephonySiptracesDownloadDownloadIDRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetTelephonySiptracesDownloadDownloadIDRequestEntityTooLarge creates a GetTelephonySiptracesDownloadDownloadIDRequestEntityTooLarge with default headers values
 func NewGetTelephonySiptracesDownloadDownloadIDRequestEntityTooLarge() *GetTelephonySiptracesDownloadDownloadIDRequestEntityTooLarge {
 	return &GetTelephonySiptracesDownloadDownloadIDRequestEntityTooLarge{}
@@ -372,7 +411,7 @@ func NewGetTelephonySiptracesDownloadDownloadIDTooManyRequests() *GetTelephonySi
 
 /*GetTelephonySiptracesDownloadDownloadIDTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetTelephonySiptracesDownloadDownloadIDTooManyRequests struct {
 	Payload *models.ErrorBody

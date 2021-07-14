@@ -53,6 +53,12 @@ func (o *PatchWebchatGuestConversationMediarequestReader) ReadResponse(response 
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPatchWebchatGuestConversationMediarequestRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPatchWebchatGuestConversationMediarequestRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PatchWebchatGuestConversationMediarequestNotFound) readResponse(respons
 	return nil
 }
 
+// NewPatchWebchatGuestConversationMediarequestRequestTimeout creates a PatchWebchatGuestConversationMediarequestRequestTimeout with default headers values
+func NewPatchWebchatGuestConversationMediarequestRequestTimeout() *PatchWebchatGuestConversationMediarequestRequestTimeout {
+	return &PatchWebchatGuestConversationMediarequestRequestTimeout{}
+}
+
+/*PatchWebchatGuestConversationMediarequestRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PatchWebchatGuestConversationMediarequestRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PatchWebchatGuestConversationMediarequestRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/webchat/guest/conversations/{conversationId}/mediarequests/{mediaRequestId}][%d] patchWebchatGuestConversationMediarequestRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchWebchatGuestConversationMediarequestRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PatchWebchatGuestConversationMediarequestRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPatchWebchatGuestConversationMediarequestRequestEntityTooLarge creates a PatchWebchatGuestConversationMediarequestRequestEntityTooLarge with default headers values
 func NewPatchWebchatGuestConversationMediarequestRequestEntityTooLarge() *PatchWebchatGuestConversationMediarequestRequestEntityTooLarge {
 	return &PatchWebchatGuestConversationMediarequestRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPatchWebchatGuestConversationMediarequestTooManyRequests() *PatchWebchat
 
 /*PatchWebchatGuestConversationMediarequestTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PatchWebchatGuestConversationMediarequestTooManyRequests struct {
 	Payload *models.ErrorBody

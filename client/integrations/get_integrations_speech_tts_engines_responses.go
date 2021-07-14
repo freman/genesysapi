@@ -53,6 +53,12 @@ func (o *GetIntegrationsSpeechTtsEnginesReader) ReadResponse(response runtime.Cl
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetIntegrationsSpeechTtsEnginesRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetIntegrationsSpeechTtsEnginesRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetIntegrationsSpeechTtsEnginesNotFound) readResponse(response runtime.
 	return nil
 }
 
+// NewGetIntegrationsSpeechTtsEnginesRequestTimeout creates a GetIntegrationsSpeechTtsEnginesRequestTimeout with default headers values
+func NewGetIntegrationsSpeechTtsEnginesRequestTimeout() *GetIntegrationsSpeechTtsEnginesRequestTimeout {
+	return &GetIntegrationsSpeechTtsEnginesRequestTimeout{}
+}
+
+/*GetIntegrationsSpeechTtsEnginesRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetIntegrationsSpeechTtsEnginesRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetIntegrationsSpeechTtsEnginesRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/speech/tts/engines][%d] getIntegrationsSpeechTtsEnginesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetIntegrationsSpeechTtsEnginesRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetIntegrationsSpeechTtsEnginesRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetIntegrationsSpeechTtsEnginesRequestEntityTooLarge creates a GetIntegrationsSpeechTtsEnginesRequestEntityTooLarge with default headers values
 func NewGetIntegrationsSpeechTtsEnginesRequestEntityTooLarge() *GetIntegrationsSpeechTtsEnginesRequestEntityTooLarge {
 	return &GetIntegrationsSpeechTtsEnginesRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetIntegrationsSpeechTtsEnginesTooManyRequests() *GetIntegrationsSpeechT
 
 /*GetIntegrationsSpeechTtsEnginesTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetIntegrationsSpeechTtsEnginesTooManyRequests struct {
 	Payload *models.ErrorBody

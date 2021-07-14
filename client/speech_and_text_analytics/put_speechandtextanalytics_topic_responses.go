@@ -53,6 +53,12 @@ func (o *PutSpeechandtextanalyticsTopicReader) ReadResponse(response runtime.Cli
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPutSpeechandtextanalyticsTopicRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 409:
 		result := NewPutSpeechandtextanalyticsTopicConflict()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -266,6 +272,39 @@ func (o *PutSpeechandtextanalyticsTopicNotFound) readResponse(response runtime.C
 	return nil
 }
 
+// NewPutSpeechandtextanalyticsTopicRequestTimeout creates a PutSpeechandtextanalyticsTopicRequestTimeout with default headers values
+func NewPutSpeechandtextanalyticsTopicRequestTimeout() *PutSpeechandtextanalyticsTopicRequestTimeout {
+	return &PutSpeechandtextanalyticsTopicRequestTimeout{}
+}
+
+/*PutSpeechandtextanalyticsTopicRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PutSpeechandtextanalyticsTopicRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PutSpeechandtextanalyticsTopicRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/speechandtextanalytics/topics/{topicId}][%d] putSpeechandtextanalyticsTopicRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutSpeechandtextanalyticsTopicRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PutSpeechandtextanalyticsTopicRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPutSpeechandtextanalyticsTopicConflict creates a PutSpeechandtextanalyticsTopicConflict with default headers values
 func NewPutSpeechandtextanalyticsTopicConflict() *PutSpeechandtextanalyticsTopicConflict {
 	return &PutSpeechandtextanalyticsTopicConflict{}
@@ -372,7 +411,7 @@ func NewPutSpeechandtextanalyticsTopicTooManyRequests() *PutSpeechandtextanalyti
 
 /*PutSpeechandtextanalyticsTopicTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PutSpeechandtextanalyticsTopicTooManyRequests struct {
 	Payload *models.ErrorBody

@@ -53,6 +53,12 @@ func (o *GetLanguageReader) ReadResponse(response runtime.ClientResponse, consum
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetLanguageRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetLanguageRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetLanguageNotFound) readResponse(response runtime.ClientResponse, cons
 	return nil
 }
 
+// NewGetLanguageRequestTimeout creates a GetLanguageRequestTimeout with default headers values
+func NewGetLanguageRequestTimeout() *GetLanguageRequestTimeout {
+	return &GetLanguageRequestTimeout{}
+}
+
+/*GetLanguageRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetLanguageRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetLanguageRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languages/{languageId}][%d] getLanguageRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetLanguageRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetLanguageRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetLanguageRequestEntityTooLarge creates a GetLanguageRequestEntityTooLarge with default headers values
 func NewGetLanguageRequestEntityTooLarge() *GetLanguageRequestEntityTooLarge {
 	return &GetLanguageRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetLanguageTooManyRequests() *GetLanguageTooManyRequests {
 
 /*GetLanguageTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetLanguageTooManyRequests struct {
 	Payload *models.ErrorBody

@@ -53,6 +53,12 @@ func (o *PutOrganizationsMeReader) ReadResponse(response runtime.ClientResponse,
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPutOrganizationsMeRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 409:
 		result := NewPutOrganizationsMeConflict()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -266,6 +272,39 @@ func (o *PutOrganizationsMeNotFound) readResponse(response runtime.ClientRespons
 	return nil
 }
 
+// NewPutOrganizationsMeRequestTimeout creates a PutOrganizationsMeRequestTimeout with default headers values
+func NewPutOrganizationsMeRequestTimeout() *PutOrganizationsMeRequestTimeout {
+	return &PutOrganizationsMeRequestTimeout{}
+}
+
+/*PutOrganizationsMeRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PutOrganizationsMeRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PutOrganizationsMeRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/organizations/me][%d] putOrganizationsMeRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutOrganizationsMeRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PutOrganizationsMeRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPutOrganizationsMeConflict creates a PutOrganizationsMeConflict with default headers values
 func NewPutOrganizationsMeConflict() *PutOrganizationsMeConflict {
 	return &PutOrganizationsMeConflict{}
@@ -360,7 +399,7 @@ func NewPutOrganizationsMeTooManyRequests() *PutOrganizationsMeTooManyRequests {
 
 /*PutOrganizationsMeTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PutOrganizationsMeTooManyRequests struct {
 	Payload *models.ErrorBody

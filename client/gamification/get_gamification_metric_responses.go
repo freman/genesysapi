@@ -53,6 +53,12 @@ func (o *GetGamificationMetricReader) ReadResponse(response runtime.ClientRespon
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetGamificationMetricRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetGamificationMetricRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetGamificationMetricNotFound) readResponse(response runtime.ClientResp
 	return nil
 }
 
+// NewGetGamificationMetricRequestTimeout creates a GetGamificationMetricRequestTimeout with default headers values
+func NewGetGamificationMetricRequestTimeout() *GetGamificationMetricRequestTimeout {
+	return &GetGamificationMetricRequestTimeout{}
+}
+
+/*GetGamificationMetricRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetGamificationMetricRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetGamificationMetricRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/metrics/{metricId}][%d] getGamificationMetricRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetGamificationMetricRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetGamificationMetricRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetGamificationMetricRequestEntityTooLarge creates a GetGamificationMetricRequestEntityTooLarge with default headers values
 func NewGetGamificationMetricRequestEntityTooLarge() *GetGamificationMetricRequestEntityTooLarge {
 	return &GetGamificationMetricRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetGamificationMetricTooManyRequests() *GetGamificationMetricTooManyRequ
 
 /*GetGamificationMetricTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetGamificationMetricTooManyRequests struct {
 	Payload *models.ErrorBody

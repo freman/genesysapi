@@ -39,6 +39,12 @@ type CallbackBasic struct {
 	// The name of the user requesting a callback.
 	CallbackUserName string `json:"callbackUserName,omitempty"`
 
+	// The phone number displayed to recipients of the phone call. The value should conform to the E164 format.
+	CallerID string `json:"callerId,omitempty"`
+
+	// The name displayed to recipients of the phone call.
+	CallerIDName string `json:"callerIdName,omitempty"`
+
 	// The timestamp when this communication was connected in the cloud clock. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	ConnectedTime strfmt.DateTime `json:"connectedTime,omitempty"`

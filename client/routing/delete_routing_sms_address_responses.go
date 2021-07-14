@@ -53,6 +53,12 @@ func (o *DeleteRoutingSmsAddressReader) ReadResponse(response runtime.ClientResp
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewDeleteRoutingSmsAddressRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewDeleteRoutingSmsAddressRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -248,6 +254,39 @@ func (o *DeleteRoutingSmsAddressNotFound) readResponse(response runtime.ClientRe
 	return nil
 }
 
+// NewDeleteRoutingSmsAddressRequestTimeout creates a DeleteRoutingSmsAddressRequestTimeout with default headers values
+func NewDeleteRoutingSmsAddressRequestTimeout() *DeleteRoutingSmsAddressRequestTimeout {
+	return &DeleteRoutingSmsAddressRequestTimeout{}
+}
+
+/*DeleteRoutingSmsAddressRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type DeleteRoutingSmsAddressRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *DeleteRoutingSmsAddressRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/sms/addresses/{addressId}][%d] deleteRoutingSmsAddressRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteRoutingSmsAddressRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *DeleteRoutingSmsAddressRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewDeleteRoutingSmsAddressRequestEntityTooLarge creates a DeleteRoutingSmsAddressRequestEntityTooLarge with default headers values
 func NewDeleteRoutingSmsAddressRequestEntityTooLarge() *DeleteRoutingSmsAddressRequestEntityTooLarge {
 	return &DeleteRoutingSmsAddressRequestEntityTooLarge{}
@@ -321,7 +360,7 @@ func NewDeleteRoutingSmsAddressTooManyRequests() *DeleteRoutingSmsAddressTooMany
 
 /*DeleteRoutingSmsAddressTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type DeleteRoutingSmsAddressTooManyRequests struct {
 	Payload *models.ErrorBody

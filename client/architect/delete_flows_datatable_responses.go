@@ -53,6 +53,12 @@ func (o *DeleteFlowsDatatableReader) ReadResponse(response runtime.ClientRespons
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewDeleteFlowsDatatableRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 409:
 		result := NewDeleteFlowsDatatableConflict()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -254,6 +260,39 @@ func (o *DeleteFlowsDatatableNotFound) readResponse(response runtime.ClientRespo
 	return nil
 }
 
+// NewDeleteFlowsDatatableRequestTimeout creates a DeleteFlowsDatatableRequestTimeout with default headers values
+func NewDeleteFlowsDatatableRequestTimeout() *DeleteFlowsDatatableRequestTimeout {
+	return &DeleteFlowsDatatableRequestTimeout{}
+}
+
+/*DeleteFlowsDatatableRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type DeleteFlowsDatatableRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *DeleteFlowsDatatableRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/flows/datatables/{datatableId}][%d] deleteFlowsDatatableRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteFlowsDatatableRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *DeleteFlowsDatatableRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewDeleteFlowsDatatableConflict creates a DeleteFlowsDatatableConflict with default headers values
 func NewDeleteFlowsDatatableConflict() *DeleteFlowsDatatableConflict {
 	return &DeleteFlowsDatatableConflict{}
@@ -360,7 +399,7 @@ func NewDeleteFlowsDatatableTooManyRequests() *DeleteFlowsDatatableTooManyReques
 
 /*DeleteFlowsDatatableTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type DeleteFlowsDatatableTooManyRequests struct {
 	Payload *models.ErrorBody

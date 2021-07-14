@@ -53,6 +53,12 @@ func (o *DeleteOutboundCallabletimesetReader) ReadResponse(response runtime.Clie
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewDeleteOutboundCallabletimesetRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewDeleteOutboundCallabletimesetRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -248,6 +254,39 @@ func (o *DeleteOutboundCallabletimesetNotFound) readResponse(response runtime.Cl
 	return nil
 }
 
+// NewDeleteOutboundCallabletimesetRequestTimeout creates a DeleteOutboundCallabletimesetRequestTimeout with default headers values
+func NewDeleteOutboundCallabletimesetRequestTimeout() *DeleteOutboundCallabletimesetRequestTimeout {
+	return &DeleteOutboundCallabletimesetRequestTimeout{}
+}
+
+/*DeleteOutboundCallabletimesetRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type DeleteOutboundCallabletimesetRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *DeleteOutboundCallabletimesetRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/callabletimesets/{callableTimeSetId}][%d] deleteOutboundCallabletimesetRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteOutboundCallabletimesetRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *DeleteOutboundCallabletimesetRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewDeleteOutboundCallabletimesetRequestEntityTooLarge creates a DeleteOutboundCallabletimesetRequestEntityTooLarge with default headers values
 func NewDeleteOutboundCallabletimesetRequestEntityTooLarge() *DeleteOutboundCallabletimesetRequestEntityTooLarge {
 	return &DeleteOutboundCallabletimesetRequestEntityTooLarge{}
@@ -321,7 +360,7 @@ func NewDeleteOutboundCallabletimesetTooManyRequests() *DeleteOutboundCallableti
 
 /*DeleteOutboundCallabletimesetTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type DeleteOutboundCallabletimesetTooManyRequests struct {
 	Payload *models.ErrorBody

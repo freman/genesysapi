@@ -65,10 +65,14 @@ type Queue struct {
 	// Read Only: true
 	ID string `json:"id,omitempty"`
 
+	// The number of joined members in the queue.
+	// Read Only: true
+	JoinedMemberCount int32 `json:"joinedMemberCount,omitempty"`
+
 	// The media settings for the queue. Valid key values: CALL, CALLBACK, CHAT, EMAIL, MESSAGE, SOCIAL_EXPRESSION, VIDEO_COMM
 	MediaSettings map[string]MediaSetting `json:"mediaSettings,omitempty"`
 
-	// The number of users in the queue.
+	// The total number of members (joined or unjoined) in the queue.
 	// Read Only: true
 	MemberCount int32 `json:"memberCount,omitempty"`
 

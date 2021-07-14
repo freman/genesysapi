@@ -12,25 +12,25 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// ContentNotificationTemplate Template notification object
+// ContentNotificationTemplate Template notification object.
 //
 // swagger:model ContentNotificationTemplate
 type ContentNotificationTemplate struct {
 
-	// Template body object
+	// The template body.
 	// Required: true
 	Body *NotificationTemplateBody `json:"body"`
 
-	// Template footer object
+	// The template footer.
 	Footer *NotificationTemplateFooter `json:"footer,omitempty"`
 
-	// Template header object
+	// The template header.
 	Header *NotificationTemplateHeader `json:"header,omitempty"`
 
-	// The messaging channel template id. For WhatsApp, 'namespace@name'
+	// The messaging provider template ID. For WhatsApp, 'namespace@name'.
 	ID string `json:"id,omitempty"`
 
-	// Template language
+	// Template language.
 	Language string `json:"language,omitempty"`
 }
 

@@ -371,6 +371,10 @@ type API interface {
 	*/
 	GetTelephonyProvidersEdgesTrunkswithrecording(ctx context.Context, params *GetTelephonyProvidersEdgesTrunkswithrecordingParams) (*GetTelephonyProvidersEdgesTrunkswithrecordingOK, error)
 	/*
+	   PatchTelephonyProvidersEdgesAutoscalinggroupCapacity scales the a s g to match the desired capacity
+	*/
+	PatchTelephonyProvidersEdgesAutoscalinggroupCapacity(ctx context.Context, params *PatchTelephonyProvidersEdgesAutoscalinggroupCapacityParams) (*PatchTelephonyProvidersEdgesAutoscalinggroupCapacityOK, error)
+	/*
 	   PostTelephonyProvidersEdgeDiagnosticNslookup nslookups request command to collect networking related information from an edge for a target IP or host
 	*/
 	PostTelephonyProvidersEdgeDiagnosticNslookup(ctx context.Context, params *PostTelephonyProvidersEdgeDiagnosticNslookupParams) (*PostTelephonyProvidersEdgeDiagnosticNslookupAccepted, error)
@@ -2734,6 +2738,31 @@ func (a *Client) GetTelephonyProvidersEdgesTrunkswithrecording(ctx context.Conte
 		return nil, err
 	}
 	return result.(*GetTelephonyProvidersEdgesTrunkswithrecordingOK), nil
+
+}
+
+/*
+PatchTelephonyProvidersEdgesAutoscalinggroupCapacity scales the a s g to match the desired capacity
+*/
+func (a *Client) PatchTelephonyProvidersEdgesAutoscalinggroupCapacity(ctx context.Context, params *PatchTelephonyProvidersEdgesAutoscalinggroupCapacityParams) (*PatchTelephonyProvidersEdgesAutoscalinggroupCapacityOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "patchTelephonyProvidersEdgesAutoscalinggroupCapacity",
+		Method:             "PATCH",
+		PathPattern:        "/api/v2/telephony/providers/edges/autoscalinggroups/{asgId}/capacity",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchTelephonyProvidersEdgesAutoscalinggroupCapacityReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PatchTelephonyProvidersEdgesAutoscalinggroupCapacityOK), nil
 
 }
 

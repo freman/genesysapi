@@ -53,6 +53,12 @@ func (o *GetRoutingWrapupcodesReader) ReadResponse(response runtime.ClientRespon
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetRoutingWrapupcodesRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetRoutingWrapupcodesRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetRoutingWrapupcodesNotFound) readResponse(response runtime.ClientResp
 	return nil
 }
 
+// NewGetRoutingWrapupcodesRequestTimeout creates a GetRoutingWrapupcodesRequestTimeout with default headers values
+func NewGetRoutingWrapupcodesRequestTimeout() *GetRoutingWrapupcodesRequestTimeout {
+	return &GetRoutingWrapupcodesRequestTimeout{}
+}
+
+/*GetRoutingWrapupcodesRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetRoutingWrapupcodesRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetRoutingWrapupcodesRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/wrapupcodes][%d] getRoutingWrapupcodesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetRoutingWrapupcodesRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetRoutingWrapupcodesRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetRoutingWrapupcodesRequestEntityTooLarge creates a GetRoutingWrapupcodesRequestEntityTooLarge with default headers values
 func NewGetRoutingWrapupcodesRequestEntityTooLarge() *GetRoutingWrapupcodesRequestEntityTooLarge {
 	return &GetRoutingWrapupcodesRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetRoutingWrapupcodesTooManyRequests() *GetRoutingWrapupcodesTooManyRequ
 
 /*GetRoutingWrapupcodesTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetRoutingWrapupcodesTooManyRequests struct {
 	Payload *models.ErrorBody

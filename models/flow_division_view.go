@@ -47,7 +47,7 @@ type FlowDivisionView struct {
 	SelfURI strfmt.URI `json:"selfUri,omitempty"`
 
 	// type
-	// Enum: [BOT COMMONMODULE INBOUNDCALL INBOUNDCHAT INBOUNDEMAIL INBOUNDSHORTMESSAGE INQUEUECALL OUTBOUNDCALL SECURECALL SPEECH SURVEYINVITE WORKFLOW]
+	// Enum: [BOT COMMONMODULE INBOUNDCALL INBOUNDCHAT INBOUNDEMAIL INBOUNDSHORTMESSAGE INQUEUECALL INQUEUEEMAIL INQUEUESHORTMESSAGE OUTBOUNDCALL SECURECALL SPEECH SURVEYINVITE WORKFLOW WORKITEM]
 	Type string `json:"type,omitempty"`
 }
 
@@ -209,7 +209,7 @@ var flowDivisionViewTypeTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["BOT","COMMONMODULE","INBOUNDCALL","INBOUNDCHAT","INBOUNDEMAIL","INBOUNDSHORTMESSAGE","INQUEUECALL","OUTBOUNDCALL","SECURECALL","SPEECH","SURVEYINVITE","WORKFLOW"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["BOT","COMMONMODULE","INBOUNDCALL","INBOUNDCHAT","INBOUNDEMAIL","INBOUNDSHORTMESSAGE","INQUEUECALL","INQUEUEEMAIL","INQUEUESHORTMESSAGE","OUTBOUNDCALL","SECURECALL","SPEECH","SURVEYINVITE","WORKFLOW","WORKITEM"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -240,6 +240,12 @@ const (
 	// FlowDivisionViewTypeINQUEUECALL captures enum value "INQUEUECALL"
 	FlowDivisionViewTypeINQUEUECALL string = "INQUEUECALL"
 
+	// FlowDivisionViewTypeINQUEUEEMAIL captures enum value "INQUEUEEMAIL"
+	FlowDivisionViewTypeINQUEUEEMAIL string = "INQUEUEEMAIL"
+
+	// FlowDivisionViewTypeINQUEUESHORTMESSAGE captures enum value "INQUEUESHORTMESSAGE"
+	FlowDivisionViewTypeINQUEUESHORTMESSAGE string = "INQUEUESHORTMESSAGE"
+
 	// FlowDivisionViewTypeOUTBOUNDCALL captures enum value "OUTBOUNDCALL"
 	FlowDivisionViewTypeOUTBOUNDCALL string = "OUTBOUNDCALL"
 
@@ -254,6 +260,9 @@ const (
 
 	// FlowDivisionViewTypeWORKFLOW captures enum value "WORKFLOW"
 	FlowDivisionViewTypeWORKFLOW string = "WORKFLOW"
+
+	// FlowDivisionViewTypeWORKITEM captures enum value "WORKITEM"
+	FlowDivisionViewTypeWORKITEM string = "WORKITEM"
 )
 
 // prop value enum

@@ -47,6 +47,12 @@ func (o *PostOutboundConversationDncReader) ReadResponse(response runtime.Client
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostOutboundConversationDncRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostOutboundConversationDncRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -227,6 +233,39 @@ func (o *PostOutboundConversationDncNotFound) readResponse(response runtime.Clie
 	return nil
 }
 
+// NewPostOutboundConversationDncRequestTimeout creates a PostOutboundConversationDncRequestTimeout with default headers values
+func NewPostOutboundConversationDncRequestTimeout() *PostOutboundConversationDncRequestTimeout {
+	return &PostOutboundConversationDncRequestTimeout{}
+}
+
+/*PostOutboundConversationDncRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostOutboundConversationDncRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostOutboundConversationDncRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/conversations/{conversationId}/dnc][%d] postOutboundConversationDncRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostOutboundConversationDncRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostOutboundConversationDncRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostOutboundConversationDncRequestEntityTooLarge creates a PostOutboundConversationDncRequestEntityTooLarge with default headers values
 func NewPostOutboundConversationDncRequestEntityTooLarge() *PostOutboundConversationDncRequestEntityTooLarge {
 	return &PostOutboundConversationDncRequestEntityTooLarge{}
@@ -300,7 +339,7 @@ func NewPostOutboundConversationDncTooManyRequests() *PostOutboundConversationDn
 
 /*PostOutboundConversationDncTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostOutboundConversationDncTooManyRequests struct {
 	Payload *models.ErrorBody

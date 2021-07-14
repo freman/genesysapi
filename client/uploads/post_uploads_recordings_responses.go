@@ -53,6 +53,12 @@ func (o *PostUploadsRecordingsReader) ReadResponse(response runtime.ClientRespon
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostUploadsRecordingsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostUploadsRecordingsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PostUploadsRecordingsNotFound) readResponse(response runtime.ClientResp
 	return nil
 }
 
+// NewPostUploadsRecordingsRequestTimeout creates a PostUploadsRecordingsRequestTimeout with default headers values
+func NewPostUploadsRecordingsRequestTimeout() *PostUploadsRecordingsRequestTimeout {
+	return &PostUploadsRecordingsRequestTimeout{}
+}
+
+/*PostUploadsRecordingsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostUploadsRecordingsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostUploadsRecordingsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/uploads/recordings][%d] postUploadsRecordingsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostUploadsRecordingsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostUploadsRecordingsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostUploadsRecordingsRequestEntityTooLarge creates a PostUploadsRecordingsRequestEntityTooLarge with default headers values
 func NewPostUploadsRecordingsRequestEntityTooLarge() *PostUploadsRecordingsRequestEntityTooLarge {
 	return &PostUploadsRecordingsRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPostUploadsRecordingsTooManyRequests() *PostUploadsRecordingsTooManyRequ
 
 /*PostUploadsRecordingsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostUploadsRecordingsTooManyRequests struct {
 	Payload *models.ErrorBody

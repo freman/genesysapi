@@ -53,6 +53,12 @@ func (o *GetLicenseUsersReader) ReadResponse(response runtime.ClientResponse, co
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetLicenseUsersRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetLicenseUsersRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetLicenseUsersNotFound) readResponse(response runtime.ClientResponse, 
 	return nil
 }
 
+// NewGetLicenseUsersRequestTimeout creates a GetLicenseUsersRequestTimeout with default headers values
+func NewGetLicenseUsersRequestTimeout() *GetLicenseUsersRequestTimeout {
+	return &GetLicenseUsersRequestTimeout{}
+}
+
+/*GetLicenseUsersRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetLicenseUsersRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetLicenseUsersRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/license/users][%d] getLicenseUsersRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetLicenseUsersRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetLicenseUsersRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetLicenseUsersRequestEntityTooLarge creates a GetLicenseUsersRequestEntityTooLarge with default headers values
 func NewGetLicenseUsersRequestEntityTooLarge() *GetLicenseUsersRequestEntityTooLarge {
 	return &GetLicenseUsersRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetLicenseUsersTooManyRequests() *GetLicenseUsersTooManyRequests {
 
 /*GetLicenseUsersTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetLicenseUsersTooManyRequests struct {
 	Payload *models.ErrorBody

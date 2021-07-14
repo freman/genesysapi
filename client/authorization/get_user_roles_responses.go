@@ -53,6 +53,12 @@ func (o *GetUserRolesReader) ReadResponse(response runtime.ClientResponse, consu
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetUserRolesRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetUserRolesRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetUserRolesNotFound) readResponse(response runtime.ClientResponse, con
 	return nil
 }
 
+// NewGetUserRolesRequestTimeout creates a GetUserRolesRequestTimeout with default headers values
+func NewGetUserRolesRequestTimeout() *GetUserRolesRequestTimeout {
+	return &GetUserRolesRequestTimeout{}
+}
+
+/*GetUserRolesRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetUserRolesRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetUserRolesRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/roles][%d] getUserRolesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetUserRolesRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetUserRolesRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetUserRolesRequestEntityTooLarge creates a GetUserRolesRequestEntityTooLarge with default headers values
 func NewGetUserRolesRequestEntityTooLarge() *GetUserRolesRequestEntityTooLarge {
 	return &GetUserRolesRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetUserRolesTooManyRequests() *GetUserRolesTooManyRequests {
 
 /*GetUserRolesTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetUserRolesTooManyRequests struct {
 	Payload *models.ErrorBody

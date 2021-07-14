@@ -53,6 +53,12 @@ func (o *PatchWorkforcemanagementManagementunitWorkplanrotationReader) ReadRespo
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPatchWorkforcemanagementManagementunitWorkplanrotationRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 409:
 		result := NewPatchWorkforcemanagementManagementunitWorkplanrotationConflict()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -266,6 +272,39 @@ func (o *PatchWorkforcemanagementManagementunitWorkplanrotationNotFound) readRes
 	return nil
 }
 
+// NewPatchWorkforcemanagementManagementunitWorkplanrotationRequestTimeout creates a PatchWorkforcemanagementManagementunitWorkplanrotationRequestTimeout with default headers values
+func NewPatchWorkforcemanagementManagementunitWorkplanrotationRequestTimeout() *PatchWorkforcemanagementManagementunitWorkplanrotationRequestTimeout {
+	return &PatchWorkforcemanagementManagementunitWorkplanrotationRequestTimeout{}
+}
+
+/*PatchWorkforcemanagementManagementunitWorkplanrotationRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PatchWorkforcemanagementManagementunitWorkplanrotationRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PatchWorkforcemanagementManagementunitWorkplanrotationRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/managementunits/{managementUnitId}/workplanrotations/{workPlanRotationId}][%d] patchWorkforcemanagementManagementunitWorkplanrotationRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchWorkforcemanagementManagementunitWorkplanrotationRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PatchWorkforcemanagementManagementunitWorkplanrotationRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPatchWorkforcemanagementManagementunitWorkplanrotationConflict creates a PatchWorkforcemanagementManagementunitWorkplanrotationConflict with default headers values
 func NewPatchWorkforcemanagementManagementunitWorkplanrotationConflict() *PatchWorkforcemanagementManagementunitWorkplanrotationConflict {
 	return &PatchWorkforcemanagementManagementunitWorkplanrotationConflict{}
@@ -372,7 +411,7 @@ func NewPatchWorkforcemanagementManagementunitWorkplanrotationTooManyRequests() 
 
 /*PatchWorkforcemanagementManagementunitWorkplanrotationTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PatchWorkforcemanagementManagementunitWorkplanrotationTooManyRequests struct {
 	Payload *models.ErrorBody

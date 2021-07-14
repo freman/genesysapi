@@ -53,6 +53,12 @@ func (o *PutUserRoutingstatusReader) ReadResponse(response runtime.ClientRespons
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPutUserRoutingstatusRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPutUserRoutingstatusRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PutUserRoutingstatusNotFound) readResponse(response runtime.ClientRespo
 	return nil
 }
 
+// NewPutUserRoutingstatusRequestTimeout creates a PutUserRoutingstatusRequestTimeout with default headers values
+func NewPutUserRoutingstatusRequestTimeout() *PutUserRoutingstatusRequestTimeout {
+	return &PutUserRoutingstatusRequestTimeout{}
+}
+
+/*PutUserRoutingstatusRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PutUserRoutingstatusRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PutUserRoutingstatusRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/routingstatus][%d] putUserRoutingstatusRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutUserRoutingstatusRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PutUserRoutingstatusRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPutUserRoutingstatusRequestEntityTooLarge creates a PutUserRoutingstatusRequestEntityTooLarge with default headers values
 func NewPutUserRoutingstatusRequestEntityTooLarge() *PutUserRoutingstatusRequestEntityTooLarge {
 	return &PutUserRoutingstatusRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPutUserRoutingstatusTooManyRequests() *PutUserRoutingstatusTooManyReques
 
 /*PutUserRoutingstatusTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PutUserRoutingstatusTooManyRequests struct {
 	Payload *models.ErrorBody

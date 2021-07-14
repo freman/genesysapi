@@ -53,6 +53,12 @@ func (o *DeleteJourneyActionmapReader) ReadResponse(response runtime.ClientRespo
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewDeleteJourneyActionmapRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewDeleteJourneyActionmapRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -248,6 +254,39 @@ func (o *DeleteJourneyActionmapNotFound) readResponse(response runtime.ClientRes
 	return nil
 }
 
+// NewDeleteJourneyActionmapRequestTimeout creates a DeleteJourneyActionmapRequestTimeout with default headers values
+func NewDeleteJourneyActionmapRequestTimeout() *DeleteJourneyActionmapRequestTimeout {
+	return &DeleteJourneyActionmapRequestTimeout{}
+}
+
+/*DeleteJourneyActionmapRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type DeleteJourneyActionmapRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *DeleteJourneyActionmapRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/journey/actionmaps/{actionMapId}][%d] deleteJourneyActionmapRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteJourneyActionmapRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *DeleteJourneyActionmapRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewDeleteJourneyActionmapRequestEntityTooLarge creates a DeleteJourneyActionmapRequestEntityTooLarge with default headers values
 func NewDeleteJourneyActionmapRequestEntityTooLarge() *DeleteJourneyActionmapRequestEntityTooLarge {
 	return &DeleteJourneyActionmapRequestEntityTooLarge{}
@@ -321,7 +360,7 @@ func NewDeleteJourneyActionmapTooManyRequests() *DeleteJourneyActionmapTooManyRe
 
 /*DeleteJourneyActionmapTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type DeleteJourneyActionmapTooManyRequests struct {
 	Payload *models.ErrorBody

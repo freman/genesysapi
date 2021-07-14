@@ -19,6 +19,9 @@ import (
 // swagger:model VoicemailGroupPolicy
 type VoicemailGroupPolicy struct {
 
+	// Removes any PII from group emails. This is overridden by the analogous organization configuration value. This is always true if HIPAA is enabled or unknown for an organization.
+	DisableEmailPii bool `json:"disableEmailPii"`
+
 	// Whether voicemail is enabled for the group
 	Enabled bool `json:"enabled"`
 

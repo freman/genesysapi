@@ -15,44 +15,44 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// MessageContent Message content element
+// MessageContent Message content element.
 //
 // swagger:model MessageContent
 type MessageContent struct {
 
-	// Attachment object
+	// Attachment content.
 	Attachment *ContentAttachment `json:"attachment,omitempty"`
 
-	// Button response object
+	// Button response content.
 	ButtonResponse *ContentButtonResponse `json:"buttonResponse,omitempty"`
 
 	// Type of this content element. If contentType = "Attachment" only one item is allowed.
 	// Required: true
-	// Enum: [Attachment Location QuickReply ButtonResponse Notification GenericTemplate ListTemplate Postback Reactions Mention]
+	// Enum: [Attachment Location QuickReply Notification GenericTemplate ListTemplate Postback Reactions Mention ButtonResponse]
 	ContentType *string `json:"contentType"`
 
-	// Generic content object
+	// Generic content.
 	Generic *ContentGeneric `json:"generic,omitempty"`
 
-	// List content object
+	// List content.
 	List *ContentList `json:"list,omitempty"`
 
-	// Location object
+	// Location content.
 	Location *ContentLocation `json:"location,omitempty"`
 
-	// This is used to identify who the message is sent to, as well as who it was sent from. This information is channel specific - depends on capabilities to describe party by the platform
+	// Mention content.
 	Mention *MessagingRecipient `json:"mention,omitempty"`
 
-	// The postback object result of a user clicking in a button
+	// Structured message postback (Deprecated).
 	Postback *ContentPostback `json:"postback,omitempty"`
 
-	// Quick reply object
+	// Quick reply content.
 	QuickReply *ContentQuickReply `json:"quickReply,omitempty"`
 
-	// A list of reactions
+	// A set of reactions to a message.
 	Reactions []*ContentReaction `json:"reactions"`
 
-	// Template notification object
+	// Template notification content.
 	Template *ContentNotificationTemplate `json:"template,omitempty"`
 }
 
@@ -150,7 +150,7 @@ var messageContentTypeContentTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Attachment","Location","QuickReply","ButtonResponse","Notification","GenericTemplate","ListTemplate","Postback","Reactions","Mention"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Attachment","Location","QuickReply","Notification","GenericTemplate","ListTemplate","Postback","Reactions","Mention","ButtonResponse"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -169,9 +169,6 @@ const (
 	// MessageContentContentTypeQuickReply captures enum value "QuickReply"
 	MessageContentContentTypeQuickReply string = "QuickReply"
 
-	// MessageContentContentTypeButtonResponse captures enum value "ButtonResponse"
-	MessageContentContentTypeButtonResponse string = "ButtonResponse"
-
 	// MessageContentContentTypeNotification captures enum value "Notification"
 	MessageContentContentTypeNotification string = "Notification"
 
@@ -189,6 +186,9 @@ const (
 
 	// MessageContentContentTypeMention captures enum value "Mention"
 	MessageContentContentTypeMention string = "Mention"
+
+	// MessageContentContentTypeButtonResponse captures enum value "ButtonResponse"
+	MessageContentContentTypeButtonResponse string = "ButtonResponse"
 )
 
 // prop value enum

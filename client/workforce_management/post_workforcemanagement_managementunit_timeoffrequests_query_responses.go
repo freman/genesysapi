@@ -53,6 +53,12 @@ func (o *PostWorkforcemanagementManagementunitTimeoffrequestsQueryReader) ReadRe
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostWorkforcemanagementManagementunitTimeoffrequestsQueryRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostWorkforcemanagementManagementunitTimeoffrequestsQueryRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PostWorkforcemanagementManagementunitTimeoffrequestsQueryNotFound) read
 	return nil
 }
 
+// NewPostWorkforcemanagementManagementunitTimeoffrequestsQueryRequestTimeout creates a PostWorkforcemanagementManagementunitTimeoffrequestsQueryRequestTimeout with default headers values
+func NewPostWorkforcemanagementManagementunitTimeoffrequestsQueryRequestTimeout() *PostWorkforcemanagementManagementunitTimeoffrequestsQueryRequestTimeout {
+	return &PostWorkforcemanagementManagementunitTimeoffrequestsQueryRequestTimeout{}
+}
+
+/*PostWorkforcemanagementManagementunitTimeoffrequestsQueryRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostWorkforcemanagementManagementunitTimeoffrequestsQueryRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsQueryRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffrequests/query][%d] postWorkforcemanagementManagementunitTimeoffrequestsQueryRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsQueryRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsQueryRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostWorkforcemanagementManagementunitTimeoffrequestsQueryRequestEntityTooLarge creates a PostWorkforcemanagementManagementunitTimeoffrequestsQueryRequestEntityTooLarge with default headers values
 func NewPostWorkforcemanagementManagementunitTimeoffrequestsQueryRequestEntityTooLarge() *PostWorkforcemanagementManagementunitTimeoffrequestsQueryRequestEntityTooLarge {
 	return &PostWorkforcemanagementManagementunitTimeoffrequestsQueryRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPostWorkforcemanagementManagementunitTimeoffrequestsQueryTooManyRequests
 
 /*PostWorkforcemanagementManagementunitTimeoffrequestsQueryTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostWorkforcemanagementManagementunitTimeoffrequestsQueryTooManyRequests struct {
 	Payload *models.ErrorBody

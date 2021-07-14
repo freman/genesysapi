@@ -37,7 +37,7 @@ type AnalyticsParticipantWithoutAttributes struct {
 	ParticipantName string `json:"participantName,omitempty"`
 
 	// The participant's purpose
-	// Enum: [acd agent api campaign customer dialer external fax group inbound ivr manual outbound station user voicemail workflow]
+	// Enum: [acd agent api botflow campaign customer dialer external fax group inbound ivr manual outbound station user voicemail workflow]
 	Purpose string `json:"purpose,omitempty"`
 
 	// List of sessions associated to this participant
@@ -116,7 +116,7 @@ var analyticsParticipantWithoutAttributesTypePurposePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["acd","agent","api","campaign","customer","dialer","external","fax","group","inbound","ivr","manual","outbound","station","user","voicemail","workflow"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["acd","agent","api","botflow","campaign","customer","dialer","external","fax","group","inbound","ivr","manual","outbound","station","user","voicemail","workflow"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -134,6 +134,9 @@ const (
 
 	// AnalyticsParticipantWithoutAttributesPurposeAPI captures enum value "api"
 	AnalyticsParticipantWithoutAttributesPurposeAPI string = "api"
+
+	// AnalyticsParticipantWithoutAttributesPurposeBotflow captures enum value "botflow"
+	AnalyticsParticipantWithoutAttributesPurposeBotflow string = "botflow"
 
 	// AnalyticsParticipantWithoutAttributesPurposeCampaign captures enum value "campaign"
 	AnalyticsParticipantWithoutAttributesPurposeCampaign string = "campaign"

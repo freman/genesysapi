@@ -53,6 +53,12 @@ func (o *GetGreetingMediaReader) ReadResponse(response runtime.ClientResponse, c
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetGreetingMediaRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetGreetingMediaRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetGreetingMediaNotFound) readResponse(response runtime.ClientResponse,
 	return nil
 }
 
+// NewGetGreetingMediaRequestTimeout creates a GetGreetingMediaRequestTimeout with default headers values
+func NewGetGreetingMediaRequestTimeout() *GetGreetingMediaRequestTimeout {
+	return &GetGreetingMediaRequestTimeout{}
+}
+
+/*GetGreetingMediaRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetGreetingMediaRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetGreetingMediaRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/greetings/{greetingId}/media][%d] getGreetingMediaRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetGreetingMediaRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetGreetingMediaRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetGreetingMediaRequestEntityTooLarge creates a GetGreetingMediaRequestEntityTooLarge with default headers values
 func NewGetGreetingMediaRequestEntityTooLarge() *GetGreetingMediaRequestEntityTooLarge {
 	return &GetGreetingMediaRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetGreetingMediaTooManyRequests() *GetGreetingMediaTooManyRequests {
 
 /*GetGreetingMediaTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetGreetingMediaTooManyRequests struct {
 	Payload *models.ErrorBody

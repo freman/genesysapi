@@ -53,6 +53,12 @@ func (o *PutRecordingCrossplatformMediaretentionpolicyReader) ReadResponse(respo
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPutRecordingCrossplatformMediaretentionpolicyRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPutRecordingCrossplatformMediaretentionpolicyRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PutRecordingCrossplatformMediaretentionpolicyNotFound) readResponse(res
 	return nil
 }
 
+// NewPutRecordingCrossplatformMediaretentionpolicyRequestTimeout creates a PutRecordingCrossplatformMediaretentionpolicyRequestTimeout with default headers values
+func NewPutRecordingCrossplatformMediaretentionpolicyRequestTimeout() *PutRecordingCrossplatformMediaretentionpolicyRequestTimeout {
+	return &PutRecordingCrossplatformMediaretentionpolicyRequestTimeout{}
+}
+
+/*PutRecordingCrossplatformMediaretentionpolicyRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PutRecordingCrossplatformMediaretentionpolicyRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PutRecordingCrossplatformMediaretentionpolicyRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/crossplatform/mediaretentionpolicies/{policyId}][%d] putRecordingCrossplatformMediaretentionpolicyRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutRecordingCrossplatformMediaretentionpolicyRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PutRecordingCrossplatformMediaretentionpolicyRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPutRecordingCrossplatformMediaretentionpolicyRequestEntityTooLarge creates a PutRecordingCrossplatformMediaretentionpolicyRequestEntityTooLarge with default headers values
 func NewPutRecordingCrossplatformMediaretentionpolicyRequestEntityTooLarge() *PutRecordingCrossplatformMediaretentionpolicyRequestEntityTooLarge {
 	return &PutRecordingCrossplatformMediaretentionpolicyRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPutRecordingCrossplatformMediaretentionpolicyTooManyRequests() *PutRecor
 
 /*PutRecordingCrossplatformMediaretentionpolicyTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PutRecordingCrossplatformMediaretentionpolicyTooManyRequests struct {
 	Payload *models.ErrorBody

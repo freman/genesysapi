@@ -53,6 +53,12 @@ func (o *PutScimUserReader) ReadResponse(response runtime.ClientResponse, consum
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPutScimUserRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 409:
 		result := NewPutScimUserConflict()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -266,6 +272,39 @@ func (o *PutScimUserNotFound) readResponse(response runtime.ClientResponse, cons
 	return nil
 }
 
+// NewPutScimUserRequestTimeout creates a PutScimUserRequestTimeout with default headers values
+func NewPutScimUserRequestTimeout() *PutScimUserRequestTimeout {
+	return &PutScimUserRequestTimeout{}
+}
+
+/*PutScimUserRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PutScimUserRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PutScimUserRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/scim/users/{userId}][%d] putScimUserRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutScimUserRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PutScimUserRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPutScimUserConflict creates a PutScimUserConflict with default headers values
 func NewPutScimUserConflict() *PutScimUserConflict {
 	return &PutScimUserConflict{}
@@ -372,7 +411,7 @@ func NewPutScimUserTooManyRequests() *PutScimUserTooManyRequests {
 
 /*PutScimUserTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PutScimUserTooManyRequests struct {
 	Payload *models.ErrorBody

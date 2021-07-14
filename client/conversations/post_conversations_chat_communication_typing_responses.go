@@ -53,6 +53,12 @@ func (o *PostConversationsChatCommunicationTypingReader) ReadResponse(response r
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostConversationsChatCommunicationTypingRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostConversationsChatCommunicationTypingRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PostConversationsChatCommunicationTypingNotFound) readResponse(response
 	return nil
 }
 
+// NewPostConversationsChatCommunicationTypingRequestTimeout creates a PostConversationsChatCommunicationTypingRequestTimeout with default headers values
+func NewPostConversationsChatCommunicationTypingRequestTimeout() *PostConversationsChatCommunicationTypingRequestTimeout {
+	return &PostConversationsChatCommunicationTypingRequestTimeout{}
+}
+
+/*PostConversationsChatCommunicationTypingRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostConversationsChatCommunicationTypingRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostConversationsChatCommunicationTypingRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/chats/{conversationId}/communications/{communicationId}/typing][%d] postConversationsChatCommunicationTypingRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostConversationsChatCommunicationTypingRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostConversationsChatCommunicationTypingRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostConversationsChatCommunicationTypingRequestEntityTooLarge creates a PostConversationsChatCommunicationTypingRequestEntityTooLarge with default headers values
 func NewPostConversationsChatCommunicationTypingRequestEntityTooLarge() *PostConversationsChatCommunicationTypingRequestEntityTooLarge {
 	return &PostConversationsChatCommunicationTypingRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPostConversationsChatCommunicationTypingTooManyRequests() *PostConversat
 
 /*PostConversationsChatCommunicationTypingTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostConversationsChatCommunicationTypingTooManyRequests struct {
 	Payload *models.ErrorBody

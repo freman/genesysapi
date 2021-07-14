@@ -53,6 +53,12 @@ func (o *GetProfilesUsersReader) ReadResponse(response runtime.ClientResponse, c
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetProfilesUsersRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetProfilesUsersRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetProfilesUsersNotFound) readResponse(response runtime.ClientResponse,
 	return nil
 }
 
+// NewGetProfilesUsersRequestTimeout creates a GetProfilesUsersRequestTimeout with default headers values
+func NewGetProfilesUsersRequestTimeout() *GetProfilesUsersRequestTimeout {
+	return &GetProfilesUsersRequestTimeout{}
+}
+
+/*GetProfilesUsersRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetProfilesUsersRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetProfilesUsersRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/profiles/users][%d] getProfilesUsersRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetProfilesUsersRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetProfilesUsersRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetProfilesUsersRequestEntityTooLarge creates a GetProfilesUsersRequestEntityTooLarge with default headers values
 func NewGetProfilesUsersRequestEntityTooLarge() *GetProfilesUsersRequestEntityTooLarge {
 	return &GetProfilesUsersRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetProfilesUsersTooManyRequests() *GetProfilesUsersTooManyRequests {
 
 /*GetProfilesUsersTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetProfilesUsersTooManyRequests struct {
 	Payload *models.ErrorBody

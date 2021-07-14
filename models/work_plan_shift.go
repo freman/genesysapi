@@ -85,6 +85,9 @@ type WorkPlanShift struct {
 
 	// Increment in offset minutes that would contribute to different possible start times for the shift. Used if flexibleStartTime == true
 	StartIncrementMinutes int32 `json:"startIncrementMinutes,omitempty"`
+
+	// ID of shift in the context of work plan validation
+	ValidationID string `json:"validationId,omitempty"`
 }
 
 // Validate validates this work plan shift

@@ -82,7 +82,7 @@ for the get journey actionmaps operation typically these are written to a http.R
 type GetJourneyActionmapsParams struct {
 
 	/*ActionMapIds
-	  IDs of action maps to return. Use of this parameter is not compatible with pagination, filtering or sorting. A maximum of 100 action maps are allowed per request.
+	  IDs of action maps to return. Use of this parameter is not compatible with pagination, filtering, sorting or querying. A maximum of 100 action maps are allowed per request.
 
 	*/
 	ActionMapIds []string
@@ -106,6 +106,16 @@ type GetJourneyActionmapsParams struct {
 
 	*/
 	PageSize *int32
+	/*QueryFields
+	  Action Map field(s) to query on. Requires 'queryValue' to also be set.
+
+	*/
+	QueryFields []string
+	/*QueryValue
+	  Value to query on. Requires 'queryFields' to also be set.
+
+	*/
+	QueryValue *string
 	/*SortBy
 	  Field(s) to sort by. Prefix with '-' for descending (e.g. sortBy=displayName,-createdDate).
 
@@ -205,6 +215,28 @@ func (o *GetJourneyActionmapsParams) SetPageSize(pageSize *int32) {
 	o.PageSize = pageSize
 }
 
+// WithQueryFields adds the queryFields to the get journey actionmaps params
+func (o *GetJourneyActionmapsParams) WithQueryFields(queryFields []string) *GetJourneyActionmapsParams {
+	o.SetQueryFields(queryFields)
+	return o
+}
+
+// SetQueryFields adds the queryFields to the get journey actionmaps params
+func (o *GetJourneyActionmapsParams) SetQueryFields(queryFields []string) {
+	o.QueryFields = queryFields
+}
+
+// WithQueryValue adds the queryValue to the get journey actionmaps params
+func (o *GetJourneyActionmapsParams) WithQueryValue(queryValue *string) *GetJourneyActionmapsParams {
+	o.SetQueryValue(queryValue)
+	return o
+}
+
+// SetQueryValue adds the queryValue to the get journey actionmaps params
+func (o *GetJourneyActionmapsParams) SetQueryValue(queryValue *string) {
+	o.QueryValue = queryValue
+}
+
 // WithSortBy adds the sortBy to the get journey actionmaps params
 func (o *GetJourneyActionmapsParams) WithSortBy(sortBy *string) *GetJourneyActionmapsParams {
 	o.SetSortBy(sortBy)
@@ -290,6 +322,30 @@ func (o *GetJourneyActionmapsParams) WriteToRequest(r runtime.ClientRequest, reg
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	valuesQueryFields := o.QueryFields
+
+	joinedQueryFields := swag.JoinByFormat(valuesQueryFields, "multi")
+	// query array param queryFields
+	if err := r.SetQueryParam("queryFields", joinedQueryFields...); err != nil {
+		return err
+	}
+
+	if o.QueryValue != nil {
+
+		// query param queryValue
+		var qrQueryValue string
+		if o.QueryValue != nil {
+			qrQueryValue = *o.QueryValue
+		}
+		qQueryValue := qrQueryValue
+		if qQueryValue != "" {
+			if err := r.SetQueryParam("queryValue", qQueryValue); err != nil {
 				return err
 			}
 		}

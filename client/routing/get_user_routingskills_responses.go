@@ -53,6 +53,12 @@ func (o *GetUserRoutingskillsReader) ReadResponse(response runtime.ClientRespons
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetUserRoutingskillsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetUserRoutingskillsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetUserRoutingskillsNotFound) readResponse(response runtime.ClientRespo
 	return nil
 }
 
+// NewGetUserRoutingskillsRequestTimeout creates a GetUserRoutingskillsRequestTimeout with default headers values
+func NewGetUserRoutingskillsRequestTimeout() *GetUserRoutingskillsRequestTimeout {
+	return &GetUserRoutingskillsRequestTimeout{}
+}
+
+/*GetUserRoutingskillsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetUserRoutingskillsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetUserRoutingskillsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/routingskills][%d] getUserRoutingskillsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetUserRoutingskillsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetUserRoutingskillsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetUserRoutingskillsRequestEntityTooLarge creates a GetUserRoutingskillsRequestEntityTooLarge with default headers values
 func NewGetUserRoutingskillsRequestEntityTooLarge() *GetUserRoutingskillsRequestEntityTooLarge {
 	return &GetUserRoutingskillsRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetUserRoutingskillsTooManyRequests() *GetUserRoutingskillsTooManyReques
 
 /*GetUserRoutingskillsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetUserRoutingskillsTooManyRequests struct {
 	Payload *models.ErrorBody

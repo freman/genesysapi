@@ -59,6 +59,12 @@ func (o *PostFlowsActionsCheckoutReader) ReadResponse(response runtime.ClientRes
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostFlowsActionsCheckoutRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 409:
 		result := NewPostFlowsActionsCheckoutConflict()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -311,6 +317,39 @@ func (o *PostFlowsActionsCheckoutMethodNotAllowed) readResponse(response runtime
 	return nil
 }
 
+// NewPostFlowsActionsCheckoutRequestTimeout creates a PostFlowsActionsCheckoutRequestTimeout with default headers values
+func NewPostFlowsActionsCheckoutRequestTimeout() *PostFlowsActionsCheckoutRequestTimeout {
+	return &PostFlowsActionsCheckoutRequestTimeout{}
+}
+
+/*PostFlowsActionsCheckoutRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostFlowsActionsCheckoutRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostFlowsActionsCheckoutRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/checkout][%d] postFlowsActionsCheckoutRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostFlowsActionsCheckoutRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostFlowsActionsCheckoutRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostFlowsActionsCheckoutConflict creates a PostFlowsActionsCheckoutConflict with default headers values
 func NewPostFlowsActionsCheckoutConflict() *PostFlowsActionsCheckoutConflict {
 	return &PostFlowsActionsCheckoutConflict{}
@@ -450,7 +489,7 @@ func NewPostFlowsActionsCheckoutTooManyRequests() *PostFlowsActionsCheckoutTooMa
 
 /*PostFlowsActionsCheckoutTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostFlowsActionsCheckoutTooManyRequests struct {
 	Payload *models.ErrorBody

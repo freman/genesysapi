@@ -53,6 +53,12 @@ func (o *PostIntegrationsActionTestReader) ReadResponse(response runtime.ClientR
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostIntegrationsActionTestRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostIntegrationsActionTestRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PostIntegrationsActionTestNotFound) readResponse(response runtime.Clien
 	return nil
 }
 
+// NewPostIntegrationsActionTestRequestTimeout creates a PostIntegrationsActionTestRequestTimeout with default headers values
+func NewPostIntegrationsActionTestRequestTimeout() *PostIntegrationsActionTestRequestTimeout {
+	return &PostIntegrationsActionTestRequestTimeout{}
+}
+
+/*PostIntegrationsActionTestRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostIntegrationsActionTestRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostIntegrationsActionTestRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/integrations/actions/{actionId}/test][%d] postIntegrationsActionTestRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostIntegrationsActionTestRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostIntegrationsActionTestRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostIntegrationsActionTestRequestEntityTooLarge creates a PostIntegrationsActionTestRequestEntityTooLarge with default headers values
 func NewPostIntegrationsActionTestRequestEntityTooLarge() *PostIntegrationsActionTestRequestEntityTooLarge {
 	return &PostIntegrationsActionTestRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPostIntegrationsActionTestTooManyRequests() *PostIntegrationsActionTestT
 
 /*PostIntegrationsActionTestTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostIntegrationsActionTestTooManyRequests struct {
 	Payload *models.ErrorBody

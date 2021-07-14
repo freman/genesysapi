@@ -29,6 +29,9 @@ type PatchAction struct {
 	// Required: true
 	// Enum: [webchat webMessagingOffer contentOffer integrationAction architectFlow]
 	MediaType *string `json:"mediaType"`
+
+	// Admin-configurable fields of a web messaging offer action.
+	WebMessagingOfferFields *WebMessagingOfferFields `json:"webMessagingOfferFields,omitempty"`
 }
 
 // Validate validates this patch action
@@ -44,6 +47,10 @@ func (m *PatchAction) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateMediaType(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateWebMessagingOfferFields(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -136,6 +143,24 @@ func (m *PatchAction) validateMediaType(formats strfmt.Registry) error {
 	// value enum
 	if err := m.validateMediaTypeEnum("mediaType", "body", *m.MediaType); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *PatchAction) validateWebMessagingOfferFields(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.WebMessagingOfferFields) { // not required
+		return nil
+	}
+
+	if m.WebMessagingOfferFields != nil {
+		if err := m.WebMessagingOfferFields.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("webMessagingOfferFields")
+			}
+			return err
+		}
 	}
 
 	return nil

@@ -53,6 +53,12 @@ func (o *GetConversationsCobrowsesessionReader) ReadResponse(response runtime.Cl
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetConversationsCobrowsesessionRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetConversationsCobrowsesessionRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetConversationsCobrowsesessionNotFound) readResponse(response runtime.
 	return nil
 }
 
+// NewGetConversationsCobrowsesessionRequestTimeout creates a GetConversationsCobrowsesessionRequestTimeout with default headers values
+func NewGetConversationsCobrowsesessionRequestTimeout() *GetConversationsCobrowsesessionRequestTimeout {
+	return &GetConversationsCobrowsesessionRequestTimeout{}
+}
+
+/*GetConversationsCobrowsesessionRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetConversationsCobrowsesessionRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetConversationsCobrowsesessionRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/cobrowsesessions/{conversationId}][%d] getConversationsCobrowsesessionRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetConversationsCobrowsesessionRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetConversationsCobrowsesessionRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetConversationsCobrowsesessionRequestEntityTooLarge creates a GetConversationsCobrowsesessionRequestEntityTooLarge with default headers values
 func NewGetConversationsCobrowsesessionRequestEntityTooLarge() *GetConversationsCobrowsesessionRequestEntityTooLarge {
 	return &GetConversationsCobrowsesessionRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetConversationsCobrowsesessionTooManyRequests() *GetConversationsCobrow
 
 /*GetConversationsCobrowsesessionTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetConversationsCobrowsesessionTooManyRequests struct {
 	Payload *models.ErrorBody

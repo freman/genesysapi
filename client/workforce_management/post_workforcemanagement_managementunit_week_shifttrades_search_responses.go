@@ -53,6 +53,12 @@ func (o *PostWorkforcemanagementManagementunitWeekShifttradesSearchReader) ReadR
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostWorkforcemanagementManagementunitWeekShifttradesSearchRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostWorkforcemanagementManagementunitWeekShifttradesSearchRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PostWorkforcemanagementManagementunitWeekShifttradesSearchNotFound) rea
 	return nil
 }
 
+// NewPostWorkforcemanagementManagementunitWeekShifttradesSearchRequestTimeout creates a PostWorkforcemanagementManagementunitWeekShifttradesSearchRequestTimeout with default headers values
+func NewPostWorkforcemanagementManagementunitWeekShifttradesSearchRequestTimeout() *PostWorkforcemanagementManagementunitWeekShifttradesSearchRequestTimeout {
+	return &PostWorkforcemanagementManagementunitWeekShifttradesSearchRequestTimeout{}
+}
+
+/*PostWorkforcemanagementManagementunitWeekShifttradesSearchRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostWorkforcemanagementManagementunitWeekShifttradesSearchRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostWorkforcemanagementManagementunitWeekShifttradesSearchRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/weeks/{weekDateId}/shifttrades/search][%d] postWorkforcemanagementManagementunitWeekShifttradesSearchRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostWorkforcemanagementManagementunitWeekShifttradesSearchRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostWorkforcemanagementManagementunitWeekShifttradesSearchRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostWorkforcemanagementManagementunitWeekShifttradesSearchRequestEntityTooLarge creates a PostWorkforcemanagementManagementunitWeekShifttradesSearchRequestEntityTooLarge with default headers values
 func NewPostWorkforcemanagementManagementunitWeekShifttradesSearchRequestEntityTooLarge() *PostWorkforcemanagementManagementunitWeekShifttradesSearchRequestEntityTooLarge {
 	return &PostWorkforcemanagementManagementunitWeekShifttradesSearchRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPostWorkforcemanagementManagementunitWeekShifttradesSearchTooManyRequest
 
 /*PostWorkforcemanagementManagementunitWeekShifttradesSearchTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostWorkforcemanagementManagementunitWeekShifttradesSearchTooManyRequests struct {
 	Payload *models.ErrorBody

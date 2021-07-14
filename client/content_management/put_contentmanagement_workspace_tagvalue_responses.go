@@ -59,6 +59,12 @@ func (o *PutContentmanagementWorkspaceTagvalueReader) ReadResponse(response runt
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPutContentmanagementWorkspaceTagvalueRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPutContentmanagementWorkspaceTagvalueRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -287,6 +293,39 @@ func (o *PutContentmanagementWorkspaceTagvalueNotFound) readResponse(response ru
 	return nil
 }
 
+// NewPutContentmanagementWorkspaceTagvalueRequestTimeout creates a PutContentmanagementWorkspaceTagvalueRequestTimeout with default headers values
+func NewPutContentmanagementWorkspaceTagvalueRequestTimeout() *PutContentmanagementWorkspaceTagvalueRequestTimeout {
+	return &PutContentmanagementWorkspaceTagvalueRequestTimeout{}
+}
+
+/*PutContentmanagementWorkspaceTagvalueRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PutContentmanagementWorkspaceTagvalueRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PutContentmanagementWorkspaceTagvalueRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/contentmanagement/workspaces/{workspaceId}/tagvalues/{tagId}][%d] putContentmanagementWorkspaceTagvalueRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutContentmanagementWorkspaceTagvalueRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PutContentmanagementWorkspaceTagvalueRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPutContentmanagementWorkspaceTagvalueRequestEntityTooLarge creates a PutContentmanagementWorkspaceTagvalueRequestEntityTooLarge with default headers values
 func NewPutContentmanagementWorkspaceTagvalueRequestEntityTooLarge() *PutContentmanagementWorkspaceTagvalueRequestEntityTooLarge {
 	return &PutContentmanagementWorkspaceTagvalueRequestEntityTooLarge{}
@@ -360,7 +399,7 @@ func NewPutContentmanagementWorkspaceTagvalueTooManyRequests() *PutContentmanage
 
 /*PutContentmanagementWorkspaceTagvalueTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PutContentmanagementWorkspaceTagvalueTooManyRequests struct {
 	Payload *models.ErrorBody

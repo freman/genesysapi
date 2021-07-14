@@ -131,6 +131,10 @@ type API interface {
 	*/
 	PostAuthorizationDivisionObject(ctx context.Context, params *PostAuthorizationDivisionObjectParams) (*PostAuthorizationDivisionObjectNoContent, error)
 	/*
+	   PostAuthorizationDivisionRestore recreates a previously deleted division
+	*/
+	PostAuthorizationDivisionRestore(ctx context.Context, params *PostAuthorizationDivisionRestoreParams) (*PostAuthorizationDivisionRestoreOK, error)
+	/*
 	   PostAuthorizationDivisions creates a division
 	*/
 	PostAuthorizationDivisions(ctx context.Context, params *PostAuthorizationDivisionsParams) (*PostAuthorizationDivisionsOK, error)
@@ -841,6 +845,31 @@ func (a *Client) PostAuthorizationDivisionObject(ctx context.Context, params *Po
 		return nil, err
 	}
 	return result.(*PostAuthorizationDivisionObjectNoContent), nil
+
+}
+
+/*
+PostAuthorizationDivisionRestore recreates a previously deleted division
+*/
+func (a *Client) PostAuthorizationDivisionRestore(ctx context.Context, params *PostAuthorizationDivisionRestoreParams) (*PostAuthorizationDivisionRestoreOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postAuthorizationDivisionRestore",
+		Method:             "POST",
+		PathPattern:        "/api/v2/authorization/divisions/{divisionId}/restore",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostAuthorizationDivisionRestoreReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostAuthorizationDivisionRestoreOK), nil
 
 }
 

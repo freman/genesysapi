@@ -24,7 +24,7 @@ type ManagementUnitSettingsResponse struct {
 	// Required: true
 	Metadata *WfmVersionedEntityMetadata `json:"metadata"`
 
-	// Scheduling settings for this management unit
+	// Scheduling settings for this management unit. These settings are only available if you have the permission wfm:managementUnit:view
 	Scheduling *SchedulingSettingsResponse `json:"scheduling,omitempty"`
 
 	// Shift trade settings for this management unit

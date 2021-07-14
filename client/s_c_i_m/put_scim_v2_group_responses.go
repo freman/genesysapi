@@ -53,6 +53,12 @@ func (o *PutScimV2GroupReader) ReadResponse(response runtime.ClientResponse, con
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPutScimV2GroupRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 409:
 		result := NewPutScimV2GroupConflict()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -266,6 +272,39 @@ func (o *PutScimV2GroupNotFound) readResponse(response runtime.ClientResponse, c
 	return nil
 }
 
+// NewPutScimV2GroupRequestTimeout creates a PutScimV2GroupRequestTimeout with default headers values
+func NewPutScimV2GroupRequestTimeout() *PutScimV2GroupRequestTimeout {
+	return &PutScimV2GroupRequestTimeout{}
+}
+
+/*PutScimV2GroupRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PutScimV2GroupRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PutScimV2GroupRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/scim/v2/groups/{groupId}][%d] putScimV2GroupRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutScimV2GroupRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PutScimV2GroupRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPutScimV2GroupConflict creates a PutScimV2GroupConflict with default headers values
 func NewPutScimV2GroupConflict() *PutScimV2GroupConflict {
 	return &PutScimV2GroupConflict{}
@@ -372,7 +411,7 @@ func NewPutScimV2GroupTooManyRequests() *PutScimV2GroupTooManyRequests {
 
 /*PutScimV2GroupTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PutScimV2GroupTooManyRequests struct {
 	Payload *models.ErrorBody

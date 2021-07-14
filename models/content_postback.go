@@ -12,19 +12,19 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// ContentPostback The postback object result of a user clicking in a button
+// ContentPostback Postback response object representing the click of a rich media button (Deprecated).
 //
 // swagger:model ContentPostback
 type ContentPostback struct {
 
-	// An ID assigned to the postback reply. Each object inside the content array has a unique ID.
+	// An ID assigned to the button response.
 	ID string `json:"id,omitempty"`
 
-	// Content of the textback payload after clicking a quick reply
+	// The response payload associated with the clicked button.
 	// Required: true
 	Payload *string `json:"payload"`
 
-	// The text inside the button clicked (in the structured message template)
+	// The response text from the button click.
 	Text string `json:"text,omitempty"`
 }
 

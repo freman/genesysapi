@@ -14,6 +14,7 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+	"github.com/go-openapi/swag"
 )
 
 // NewGetKnowledgeKnowledgebasesParams creates a new GetKnowledgeKnowledgebasesParams object
@@ -70,13 +71,18 @@ type GetKnowledgeKnowledgebasesParams struct {
 
 	*/
 	Before *string
+	/*CoreLanguage
+	  Filter by core language.
+
+	*/
+	CoreLanguage *string
 	/*Limit
 	  Number of entities to return. Maximum of 200. Deprecated in favour of pageSize.
 
 	*/
 	Limit *string
 	/*Name
-	  Name of the KnowledgeBase to filter.
+	  Filter by Name.
 
 	*/
 	Name *string
@@ -85,6 +91,11 @@ type GetKnowledgeKnowledgebasesParams struct {
 
 	*/
 	PageSize *string
+	/*Published
+	  Filter by published status.
+
+	*/
+	Published *bool
 
 	timeout    time.Duration
 	Context    context.Context
@@ -146,6 +157,17 @@ func (o *GetKnowledgeKnowledgebasesParams) SetBefore(before *string) {
 	o.Before = before
 }
 
+// WithCoreLanguage adds the coreLanguage to the get knowledge knowledgebases params
+func (o *GetKnowledgeKnowledgebasesParams) WithCoreLanguage(coreLanguage *string) *GetKnowledgeKnowledgebasesParams {
+	o.SetCoreLanguage(coreLanguage)
+	return o
+}
+
+// SetCoreLanguage adds the coreLanguage to the get knowledge knowledgebases params
+func (o *GetKnowledgeKnowledgebasesParams) SetCoreLanguage(coreLanguage *string) {
+	o.CoreLanguage = coreLanguage
+}
+
 // WithLimit adds the limit to the get knowledge knowledgebases params
 func (o *GetKnowledgeKnowledgebasesParams) WithLimit(limit *string) *GetKnowledgeKnowledgebasesParams {
 	o.SetLimit(limit)
@@ -177,6 +199,17 @@ func (o *GetKnowledgeKnowledgebasesParams) WithPageSize(pageSize *string) *GetKn
 // SetPageSize adds the pageSize to the get knowledge knowledgebases params
 func (o *GetKnowledgeKnowledgebasesParams) SetPageSize(pageSize *string) {
 	o.PageSize = pageSize
+}
+
+// WithPublished adds the published to the get knowledge knowledgebases params
+func (o *GetKnowledgeKnowledgebasesParams) WithPublished(published *bool) *GetKnowledgeKnowledgebasesParams {
+	o.SetPublished(published)
+	return o
+}
+
+// SetPublished adds the published to the get knowledge knowledgebases params
+func (o *GetKnowledgeKnowledgebasesParams) SetPublished(published *bool) {
+	o.Published = published
 }
 
 // WriteToRequest writes these params to a swagger request
@@ -213,6 +246,22 @@ func (o *GetKnowledgeKnowledgebasesParams) WriteToRequest(r runtime.ClientReques
 		qBefore := qrBefore
 		if qBefore != "" {
 			if err := r.SetQueryParam("before", qBefore); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	if o.CoreLanguage != nil {
+
+		// query param coreLanguage
+		var qrCoreLanguage string
+		if o.CoreLanguage != nil {
+			qrCoreLanguage = *o.CoreLanguage
+		}
+		qCoreLanguage := qrCoreLanguage
+		if qCoreLanguage != "" {
+			if err := r.SetQueryParam("coreLanguage", qCoreLanguage); err != nil {
 				return err
 			}
 		}
@@ -261,6 +310,22 @@ func (o *GetKnowledgeKnowledgebasesParams) WriteToRequest(r runtime.ClientReques
 		qPageSize := qrPageSize
 		if qPageSize != "" {
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	if o.Published != nil {
+
+		// query param published
+		var qrPublished bool
+		if o.Published != nil {
+			qrPublished = *o.Published
+		}
+		qPublished := swag.FormatBool(qrPublished)
+		if qPublished != "" {
+			if err := r.SetQueryParam("published", qPublished); err != nil {
 				return err
 			}
 		}

@@ -53,6 +53,12 @@ func (o *PostResponsemanagementResponsesReader) ReadResponse(response runtime.Cl
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostResponsemanagementResponsesRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 412:
 		result := NewPostResponsemanagementResponsesPreconditionFailed()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -266,6 +272,39 @@ func (o *PostResponsemanagementResponsesNotFound) readResponse(response runtime.
 	return nil
 }
 
+// NewPostResponsemanagementResponsesRequestTimeout creates a PostResponsemanagementResponsesRequestTimeout with default headers values
+func NewPostResponsemanagementResponsesRequestTimeout() *PostResponsemanagementResponsesRequestTimeout {
+	return &PostResponsemanagementResponsesRequestTimeout{}
+}
+
+/*PostResponsemanagementResponsesRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostResponsemanagementResponsesRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostResponsemanagementResponsesRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/responsemanagement/responses][%d] postResponsemanagementResponsesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostResponsemanagementResponsesRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostResponsemanagementResponsesRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostResponsemanagementResponsesPreconditionFailed creates a PostResponsemanagementResponsesPreconditionFailed with default headers values
 func NewPostResponsemanagementResponsesPreconditionFailed() *PostResponsemanagementResponsesPreconditionFailed {
 	return &PostResponsemanagementResponsesPreconditionFailed{}
@@ -372,7 +411,7 @@ func NewPostResponsemanagementResponsesTooManyRequests() *PostResponsemanagement
 
 /*PostResponsemanagementResponsesTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostResponsemanagementResponsesTooManyRequests struct {
 	Payload *models.ErrorBody

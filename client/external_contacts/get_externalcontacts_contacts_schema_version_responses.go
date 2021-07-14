@@ -53,6 +53,12 @@ func (o *GetExternalcontactsContactsSchemaVersionReader) ReadResponse(response r
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetExternalcontactsContactsSchemaVersionRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetExternalcontactsContactsSchemaVersionRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -266,6 +272,39 @@ func (o *GetExternalcontactsContactsSchemaVersionNotFound) readResponse(response
 	return nil
 }
 
+// NewGetExternalcontactsContactsSchemaVersionRequestTimeout creates a GetExternalcontactsContactsSchemaVersionRequestTimeout with default headers values
+func NewGetExternalcontactsContactsSchemaVersionRequestTimeout() *GetExternalcontactsContactsSchemaVersionRequestTimeout {
+	return &GetExternalcontactsContactsSchemaVersionRequestTimeout{}
+}
+
+/*GetExternalcontactsContactsSchemaVersionRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetExternalcontactsContactsSchemaVersionRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetExternalcontactsContactsSchemaVersionRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/externalcontacts/contacts/schemas/{schemaId}/versions/{versionId}][%d] getExternalcontactsContactsSchemaVersionRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetExternalcontactsContactsSchemaVersionRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetExternalcontactsContactsSchemaVersionRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetExternalcontactsContactsSchemaVersionRequestEntityTooLarge creates a GetExternalcontactsContactsSchemaVersionRequestEntityTooLarge with default headers values
 func NewGetExternalcontactsContactsSchemaVersionRequestEntityTooLarge() *GetExternalcontactsContactsSchemaVersionRequestEntityTooLarge {
 	return &GetExternalcontactsContactsSchemaVersionRequestEntityTooLarge{}
@@ -372,7 +411,7 @@ func NewGetExternalcontactsContactsSchemaVersionTooManyRequests() *GetExternalco
 
 /*GetExternalcontactsContactsSchemaVersionTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetExternalcontactsContactsSchemaVersionTooManyRequests struct {
 	Payload *models.ErrorBody

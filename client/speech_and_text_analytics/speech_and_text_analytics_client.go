@@ -42,6 +42,10 @@ type API interface {
 	*/
 	GetSpeechandtextanalyticsProgram(ctx context.Context, params *GetSpeechandtextanalyticsProgramParams) (*GetSpeechandtextanalyticsProgramOK, error)
 	/*
+	   GetSpeechandtextanalyticsProgramMappings gets speech and text analytics program mappings to queues and flows by id
+	*/
+	GetSpeechandtextanalyticsProgramMappings(ctx context.Context, params *GetSpeechandtextanalyticsProgramMappingsParams) (*GetSpeechandtextanalyticsProgramMappingsOK, error)
+	/*
 	   GetSpeechandtextanalyticsPrograms gets the list of speech and text analytics programs
 	*/
 	GetSpeechandtextanalyticsPrograms(ctx context.Context, params *GetSpeechandtextanalyticsProgramsParams) (*GetSpeechandtextanalyticsProgramsOK, error)
@@ -49,6 +53,10 @@ type API interface {
 	   GetSpeechandtextanalyticsProgramsGeneralJob gets a speech and text analytics general program job by id
 	*/
 	GetSpeechandtextanalyticsProgramsGeneralJob(ctx context.Context, params *GetSpeechandtextanalyticsProgramsGeneralJobParams) (*GetSpeechandtextanalyticsProgramsGeneralJobOK, error)
+	/*
+	   GetSpeechandtextanalyticsProgramsMappings gets the list of speech and text analytics programs mappings to queues and flows
+	*/
+	GetSpeechandtextanalyticsProgramsMappings(ctx context.Context, params *GetSpeechandtextanalyticsProgramsMappingsParams) (*GetSpeechandtextanalyticsProgramsMappingsOK, error)
 	/*
 	   GetSpeechandtextanalyticsProgramsPublishjob gets a speech and text analytics publish programs job by id
 	*/
@@ -105,6 +113,14 @@ type API interface {
 	   PutSpeechandtextanalyticsProgram updates existing speech and text analytics program
 	*/
 	PutSpeechandtextanalyticsProgram(ctx context.Context, params *PutSpeechandtextanalyticsProgramParams) (*PutSpeechandtextanalyticsProgramOK, error)
+	/*
+	   PutSpeechandtextanalyticsProgramMappings sets speech and text analytics program mappings to queues and flows
+	*/
+	PutSpeechandtextanalyticsProgramMappings(ctx context.Context, params *PutSpeechandtextanalyticsProgramMappingsParams) (*PutSpeechandtextanalyticsProgramMappingsOK, error)
+	/*
+	   PutSpeechandtextanalyticsSettings updates speech and text analytics settings
+	*/
+	PutSpeechandtextanalyticsSettings(ctx context.Context, params *PutSpeechandtextanalyticsSettingsParams) (*PutSpeechandtextanalyticsSettingsOK, error)
 	/*
 	   PutSpeechandtextanalyticsTopic updates existing speech and text analytics topic
 	*/
@@ -280,6 +296,31 @@ func (a *Client) GetSpeechandtextanalyticsProgram(ctx context.Context, params *G
 }
 
 /*
+GetSpeechandtextanalyticsProgramMappings gets speech and text analytics program mappings to queues and flows by id
+*/
+func (a *Client) GetSpeechandtextanalyticsProgramMappings(ctx context.Context, params *GetSpeechandtextanalyticsProgramMappingsParams) (*GetSpeechandtextanalyticsProgramMappingsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getSpeechandtextanalyticsProgramMappings",
+		Method:             "GET",
+		PathPattern:        "/api/v2/speechandtextanalytics/programs/{programId}/mappings",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetSpeechandtextanalyticsProgramMappingsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetSpeechandtextanalyticsProgramMappingsOK), nil
+
+}
+
+/*
 GetSpeechandtextanalyticsPrograms gets the list of speech and text analytics programs
 */
 func (a *Client) GetSpeechandtextanalyticsPrograms(ctx context.Context, params *GetSpeechandtextanalyticsProgramsParams) (*GetSpeechandtextanalyticsProgramsOK, error) {
@@ -326,6 +367,31 @@ func (a *Client) GetSpeechandtextanalyticsProgramsGeneralJob(ctx context.Context
 		return nil, err
 	}
 	return result.(*GetSpeechandtextanalyticsProgramsGeneralJobOK), nil
+
+}
+
+/*
+GetSpeechandtextanalyticsProgramsMappings gets the list of speech and text analytics programs mappings to queues and flows
+*/
+func (a *Client) GetSpeechandtextanalyticsProgramsMappings(ctx context.Context, params *GetSpeechandtextanalyticsProgramsMappingsParams) (*GetSpeechandtextanalyticsProgramsMappingsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getSpeechandtextanalyticsProgramsMappings",
+		Method:             "GET",
+		PathPattern:        "/api/v2/speechandtextanalytics/programs/mappings",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetSpeechandtextanalyticsProgramsMappingsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetSpeechandtextanalyticsProgramsMappingsOK), nil
 
 }
 
@@ -676,6 +742,56 @@ func (a *Client) PutSpeechandtextanalyticsProgram(ctx context.Context, params *P
 		return nil, err
 	}
 	return result.(*PutSpeechandtextanalyticsProgramOK), nil
+
+}
+
+/*
+PutSpeechandtextanalyticsProgramMappings sets speech and text analytics program mappings to queues and flows
+*/
+func (a *Client) PutSpeechandtextanalyticsProgramMappings(ctx context.Context, params *PutSpeechandtextanalyticsProgramMappingsParams) (*PutSpeechandtextanalyticsProgramMappingsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "putSpeechandtextanalyticsProgramMappings",
+		Method:             "PUT",
+		PathPattern:        "/api/v2/speechandtextanalytics/programs/{programId}/mappings",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PutSpeechandtextanalyticsProgramMappingsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutSpeechandtextanalyticsProgramMappingsOK), nil
+
+}
+
+/*
+PutSpeechandtextanalyticsSettings updates speech and text analytics settings
+*/
+func (a *Client) PutSpeechandtextanalyticsSettings(ctx context.Context, params *PutSpeechandtextanalyticsSettingsParams) (*PutSpeechandtextanalyticsSettingsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "putSpeechandtextanalyticsSettings",
+		Method:             "PUT",
+		PathPattern:        "/api/v2/speechandtextanalytics/settings",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PutSpeechandtextanalyticsSettingsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutSpeechandtextanalyticsSettingsOK), nil
 
 }
 

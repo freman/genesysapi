@@ -53,6 +53,12 @@ func (o *PostDocumentationGknSearchReader) ReadResponse(response runtime.ClientR
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostDocumentationGknSearchRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostDocumentationGknSearchRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PostDocumentationGknSearchNotFound) readResponse(response runtime.Clien
 	return nil
 }
 
+// NewPostDocumentationGknSearchRequestTimeout creates a PostDocumentationGknSearchRequestTimeout with default headers values
+func NewPostDocumentationGknSearchRequestTimeout() *PostDocumentationGknSearchRequestTimeout {
+	return &PostDocumentationGknSearchRequestTimeout{}
+}
+
+/*PostDocumentationGknSearchRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostDocumentationGknSearchRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostDocumentationGknSearchRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/documentation/gkn/search][%d] postDocumentationGknSearchRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostDocumentationGknSearchRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostDocumentationGknSearchRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostDocumentationGknSearchRequestEntityTooLarge creates a PostDocumentationGknSearchRequestEntityTooLarge with default headers values
 func NewPostDocumentationGknSearchRequestEntityTooLarge() *PostDocumentationGknSearchRequestEntityTooLarge {
 	return &PostDocumentationGknSearchRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPostDocumentationGknSearchTooManyRequests() *PostDocumentationGknSearchT
 
 /*PostDocumentationGknSearchTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostDocumentationGknSearchTooManyRequests struct {
 	Payload *models.ErrorBody

@@ -20,6 +20,9 @@ import (
 // swagger:model KnowledgeDocumentBulkRequest
 type KnowledgeDocumentBulkRequest struct {
 
+	// Article details
+	Article *DocumentArticle `json:"article,omitempty"`
+
 	// Document categories
 	Categories []*DocumentCategoryInput `json:"categories"`
 
@@ -34,13 +37,17 @@ type KnowledgeDocumentBulkRequest struct {
 
 	// Document type according to assigned template
 	// Required: true
-	// Enum: [Faq]
+	// Enum: [Faq Article]
 	Type *string `json:"type"`
 }
 
 // Validate validates this knowledge document bulk request
 func (m *KnowledgeDocumentBulkRequest) Validate(formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.validateArticle(formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.validateCategories(formats); err != nil {
 		res = append(res, err)
@@ -57,6 +64,24 @@ func (m *KnowledgeDocumentBulkRequest) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *KnowledgeDocumentBulkRequest) validateArticle(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Article) { // not required
+		return nil
+	}
+
+	if m.Article != nil {
+		if err := m.Article.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("article")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -107,7 +132,7 @@ var knowledgeDocumentBulkRequestTypeTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Faq"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Faq","Article"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -119,6 +144,9 @@ const (
 
 	// KnowledgeDocumentBulkRequestTypeFaq captures enum value "Faq"
 	KnowledgeDocumentBulkRequestTypeFaq string = "Faq"
+
+	// KnowledgeDocumentBulkRequestTypeArticle captures enum value "Article"
+	KnowledgeDocumentBulkRequestTypeArticle string = "Article"
 )
 
 // prop value enum

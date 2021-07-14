@@ -53,6 +53,12 @@ func (o *GetOutboundEventReader) ReadResponse(response runtime.ClientResponse, c
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetOutboundEventRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetOutboundEventRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetOutboundEventNotFound) readResponse(response runtime.ClientResponse,
 	return nil
 }
 
+// NewGetOutboundEventRequestTimeout creates a GetOutboundEventRequestTimeout with default headers values
+func NewGetOutboundEventRequestTimeout() *GetOutboundEventRequestTimeout {
+	return &GetOutboundEventRequestTimeout{}
+}
+
+/*GetOutboundEventRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetOutboundEventRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetOutboundEventRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/events/{eventId}][%d] getOutboundEventRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetOutboundEventRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetOutboundEventRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetOutboundEventRequestEntityTooLarge creates a GetOutboundEventRequestEntityTooLarge with default headers values
 func NewGetOutboundEventRequestEntityTooLarge() *GetOutboundEventRequestEntityTooLarge {
 	return &GetOutboundEventRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetOutboundEventTooManyRequests() *GetOutboundEventTooManyRequests {
 
 /*GetOutboundEventTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetOutboundEventTooManyRequests struct {
 	Payload *models.ErrorBody

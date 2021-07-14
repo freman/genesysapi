@@ -53,6 +53,12 @@ func (o *PostUsersReader) ReadResponse(response runtime.ClientResponse, consumer
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostUsersRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 409:
 		result := NewPostUsersConflict()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -266,6 +272,39 @@ func (o *PostUsersNotFound) readResponse(response runtime.ClientResponse, consum
 	return nil
 }
 
+// NewPostUsersRequestTimeout creates a PostUsersRequestTimeout with default headers values
+func NewPostUsersRequestTimeout() *PostUsersRequestTimeout {
+	return &PostUsersRequestTimeout{}
+}
+
+/*PostUsersRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostUsersRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostUsersRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users][%d] postUsersRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostUsersRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostUsersRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostUsersConflict creates a PostUsersConflict with default headers values
 func NewPostUsersConflict() *PostUsersConflict {
 	return &PostUsersConflict{}
@@ -372,7 +411,7 @@ func NewPostUsersTooManyRequests() *PostUsersTooManyRequests {
 
 /*PostUsersTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostUsersTooManyRequests struct {
 	Payload *models.ErrorBody

@@ -20,6 +20,9 @@ import (
 // swagger:model BuShortTermForecast
 type BuShortTermForecast struct {
 
+	// Whether this forecast can be used for scheduling
+	CanUseForScheduling bool `json:"canUseForScheduling"`
+
 	// The method by which this forecast was created
 	// Enum: [Import ImportedHistoricalWeightedAverage HistoricalWeightedAverage Advanced]
 	CreationMethod string `json:"creationMethod,omitempty"`

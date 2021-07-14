@@ -53,6 +53,12 @@ func (o *PutArchitectPromptResourceReader) ReadResponse(response runtime.ClientR
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPutArchitectPromptResourceRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 409:
 		result := NewPutArchitectPromptResourceConflict()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -266,6 +272,39 @@ func (o *PutArchitectPromptResourceNotFound) readResponse(response runtime.Clien
 	return nil
 }
 
+// NewPutArchitectPromptResourceRequestTimeout creates a PutArchitectPromptResourceRequestTimeout with default headers values
+func NewPutArchitectPromptResourceRequestTimeout() *PutArchitectPromptResourceRequestTimeout {
+	return &PutArchitectPromptResourceRequestTimeout{}
+}
+
+/*PutArchitectPromptResourceRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PutArchitectPromptResourceRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PutArchitectPromptResourceRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/architect/prompts/{promptId}/resources/{languageCode}][%d] putArchitectPromptResourceRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutArchitectPromptResourceRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PutArchitectPromptResourceRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPutArchitectPromptResourceConflict creates a PutArchitectPromptResourceConflict with default headers values
 func NewPutArchitectPromptResourceConflict() *PutArchitectPromptResourceConflict {
 	return &PutArchitectPromptResourceConflict{}
@@ -372,7 +411,7 @@ func NewPutArchitectPromptResourceTooManyRequests() *PutArchitectPromptResourceT
 
 /*PutArchitectPromptResourceTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PutArchitectPromptResourceTooManyRequests struct {
 	Payload *models.ErrorBody

@@ -59,6 +59,12 @@ func (o *PostLanguageunderstandingDomainFeedbackReader) ReadResponse(response ru
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostLanguageunderstandingDomainFeedbackRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostLanguageunderstandingDomainFeedbackRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -299,6 +305,39 @@ func (o *PostLanguageunderstandingDomainFeedbackNotFound) readResponse(response 
 	return nil
 }
 
+// NewPostLanguageunderstandingDomainFeedbackRequestTimeout creates a PostLanguageunderstandingDomainFeedbackRequestTimeout with default headers values
+func NewPostLanguageunderstandingDomainFeedbackRequestTimeout() *PostLanguageunderstandingDomainFeedbackRequestTimeout {
+	return &PostLanguageunderstandingDomainFeedbackRequestTimeout{}
+}
+
+/*PostLanguageunderstandingDomainFeedbackRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostLanguageunderstandingDomainFeedbackRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostLanguageunderstandingDomainFeedbackRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/languageunderstanding/domains/{domainId}/feedback][%d] postLanguageunderstandingDomainFeedbackRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostLanguageunderstandingDomainFeedbackRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostLanguageunderstandingDomainFeedbackRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostLanguageunderstandingDomainFeedbackRequestEntityTooLarge creates a PostLanguageunderstandingDomainFeedbackRequestEntityTooLarge with default headers values
 func NewPostLanguageunderstandingDomainFeedbackRequestEntityTooLarge() *PostLanguageunderstandingDomainFeedbackRequestEntityTooLarge {
 	return &PostLanguageunderstandingDomainFeedbackRequestEntityTooLarge{}
@@ -372,7 +411,7 @@ func NewPostLanguageunderstandingDomainFeedbackTooManyRequests() *PostLanguageun
 
 /*PostLanguageunderstandingDomainFeedbackTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostLanguageunderstandingDomainFeedbackTooManyRequests struct {
 	Payload *models.ErrorBody

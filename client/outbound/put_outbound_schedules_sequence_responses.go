@@ -53,6 +53,12 @@ func (o *PutOutboundSchedulesSequenceReader) ReadResponse(response runtime.Clien
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPutOutboundSchedulesSequenceRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 409:
 		result := NewPutOutboundSchedulesSequenceConflict()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -266,6 +272,39 @@ func (o *PutOutboundSchedulesSequenceNotFound) readResponse(response runtime.Cli
 	return nil
 }
 
+// NewPutOutboundSchedulesSequenceRequestTimeout creates a PutOutboundSchedulesSequenceRequestTimeout with default headers values
+func NewPutOutboundSchedulesSequenceRequestTimeout() *PutOutboundSchedulesSequenceRequestTimeout {
+	return &PutOutboundSchedulesSequenceRequestTimeout{}
+}
+
+/*PutOutboundSchedulesSequenceRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PutOutboundSchedulesSequenceRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PutOutboundSchedulesSequenceRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/schedules/sequences/{sequenceId}][%d] putOutboundSchedulesSequenceRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutOutboundSchedulesSequenceRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PutOutboundSchedulesSequenceRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPutOutboundSchedulesSequenceConflict creates a PutOutboundSchedulesSequenceConflict with default headers values
 func NewPutOutboundSchedulesSequenceConflict() *PutOutboundSchedulesSequenceConflict {
 	return &PutOutboundSchedulesSequenceConflict{}
@@ -372,7 +411,7 @@ func NewPutOutboundSchedulesSequenceTooManyRequests() *PutOutboundSchedulesSeque
 
 /*PutOutboundSchedulesSequenceTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PutOutboundSchedulesSequenceTooManyRequests struct {
 	Payload *models.ErrorBody

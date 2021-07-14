@@ -47,6 +47,12 @@ func (o *DeleteOauthClientReader) ReadResponse(response runtime.ClientResponse, 
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewDeleteOauthClientRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewDeleteOauthClientRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -227,6 +233,39 @@ func (o *DeleteOauthClientNotFound) readResponse(response runtime.ClientResponse
 	return nil
 }
 
+// NewDeleteOauthClientRequestTimeout creates a DeleteOauthClientRequestTimeout with default headers values
+func NewDeleteOauthClientRequestTimeout() *DeleteOauthClientRequestTimeout {
+	return &DeleteOauthClientRequestTimeout{}
+}
+
+/*DeleteOauthClientRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type DeleteOauthClientRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *DeleteOauthClientRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/oauth/clients/{clientId}][%d] deleteOauthClientRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteOauthClientRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *DeleteOauthClientRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewDeleteOauthClientRequestEntityTooLarge creates a DeleteOauthClientRequestEntityTooLarge with default headers values
 func NewDeleteOauthClientRequestEntityTooLarge() *DeleteOauthClientRequestEntityTooLarge {
 	return &DeleteOauthClientRequestEntityTooLarge{}
@@ -300,7 +339,7 @@ func NewDeleteOauthClientTooManyRequests() *DeleteOauthClientTooManyRequests {
 
 /*DeleteOauthClientTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type DeleteOauthClientTooManyRequests struct {
 	Payload *models.ErrorBody

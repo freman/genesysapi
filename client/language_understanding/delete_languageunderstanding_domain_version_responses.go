@@ -53,6 +53,12 @@ func (o *DeleteLanguageunderstandingDomainVersionReader) ReadResponse(response r
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewDeleteLanguageunderstandingDomainVersionRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewDeleteLanguageunderstandingDomainVersionRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -248,6 +254,39 @@ func (o *DeleteLanguageunderstandingDomainVersionNotFound) readResponse(response
 	return nil
 }
 
+// NewDeleteLanguageunderstandingDomainVersionRequestTimeout creates a DeleteLanguageunderstandingDomainVersionRequestTimeout with default headers values
+func NewDeleteLanguageunderstandingDomainVersionRequestTimeout() *DeleteLanguageunderstandingDomainVersionRequestTimeout {
+	return &DeleteLanguageunderstandingDomainVersionRequestTimeout{}
+}
+
+/*DeleteLanguageunderstandingDomainVersionRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type DeleteLanguageunderstandingDomainVersionRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *DeleteLanguageunderstandingDomainVersionRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] deleteLanguageunderstandingDomainVersionRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteLanguageunderstandingDomainVersionRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *DeleteLanguageunderstandingDomainVersionRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewDeleteLanguageunderstandingDomainVersionRequestEntityTooLarge creates a DeleteLanguageunderstandingDomainVersionRequestEntityTooLarge with default headers values
 func NewDeleteLanguageunderstandingDomainVersionRequestEntityTooLarge() *DeleteLanguageunderstandingDomainVersionRequestEntityTooLarge {
 	return &DeleteLanguageunderstandingDomainVersionRequestEntityTooLarge{}
@@ -321,7 +360,7 @@ func NewDeleteLanguageunderstandingDomainVersionTooManyRequests() *DeleteLanguag
 
 /*DeleteLanguageunderstandingDomainVersionTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type DeleteLanguageunderstandingDomainVersionTooManyRequests struct {
 	Payload *models.ErrorBody

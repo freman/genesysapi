@@ -47,6 +47,12 @@ func (o *DeleteAuthorizationSubjectDivisionRoleReader) ReadResponse(response run
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewDeleteAuthorizationSubjectDivisionRoleRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewDeleteAuthorizationSubjectDivisionRoleRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -227,6 +233,39 @@ func (o *DeleteAuthorizationSubjectDivisionRoleNotFound) readResponse(response r
 	return nil
 }
 
+// NewDeleteAuthorizationSubjectDivisionRoleRequestTimeout creates a DeleteAuthorizationSubjectDivisionRoleRequestTimeout with default headers values
+func NewDeleteAuthorizationSubjectDivisionRoleRequestTimeout() *DeleteAuthorizationSubjectDivisionRoleRequestTimeout {
+	return &DeleteAuthorizationSubjectDivisionRoleRequestTimeout{}
+}
+
+/*DeleteAuthorizationSubjectDivisionRoleRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type DeleteAuthorizationSubjectDivisionRoleRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *DeleteAuthorizationSubjectDivisionRoleRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/authorization/subjects/{subjectId}/divisions/{divisionId}/roles/{roleId}][%d] deleteAuthorizationSubjectDivisionRoleRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteAuthorizationSubjectDivisionRoleRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *DeleteAuthorizationSubjectDivisionRoleRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewDeleteAuthorizationSubjectDivisionRoleRequestEntityTooLarge creates a DeleteAuthorizationSubjectDivisionRoleRequestEntityTooLarge with default headers values
 func NewDeleteAuthorizationSubjectDivisionRoleRequestEntityTooLarge() *DeleteAuthorizationSubjectDivisionRoleRequestEntityTooLarge {
 	return &DeleteAuthorizationSubjectDivisionRoleRequestEntityTooLarge{}
@@ -300,7 +339,7 @@ func NewDeleteAuthorizationSubjectDivisionRoleTooManyRequests() *DeleteAuthoriza
 
 /*DeleteAuthorizationSubjectDivisionRoleTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type DeleteAuthorizationSubjectDivisionRoleTooManyRequests struct {
 	Payload *models.ErrorBody

@@ -13,30 +13,30 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// ContentGeneric Generic content object
+// ContentGeneric Generic content object.
 //
 // swagger:model ContentGeneric
 type ContentGeneric struct {
 
-	// User actions available on the content. All actions are optional and all actions are executed simultaneously.
+	// Actions to be taken.
 	Actions *ContentActions `json:"actions,omitempty"`
 
-	// An array of component objects
+	// An array of component objects.
 	Components []*ButtonComponent `json:"components"`
 
-	// Text to show in the description row. This is immediately below the title
+	// Text to show in the description.
 	Description string `json:"description,omitempty"`
 
-	// An ID assigned to this rich message content. Each instance inside the content array has a unique ID.
+	// A unique ID assigned to this rich message content.
 	ID string `json:"id,omitempty"`
 
-	// Path or URI to an image file
+	// URL of an image.
 	Image string `json:"image,omitempty"`
 
-	// Text to show in the title row
+	// Text to show in the title.
 	Title string `json:"title,omitempty"`
 
-	// Path or URI to a video file
+	// URL of a video.
 	Video string `json:"video,omitempty"`
 }
 

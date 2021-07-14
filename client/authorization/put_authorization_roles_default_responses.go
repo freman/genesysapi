@@ -53,6 +53,12 @@ func (o *PutAuthorizationRolesDefaultReader) ReadResponse(response runtime.Clien
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPutAuthorizationRolesDefaultRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPutAuthorizationRolesDefaultRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PutAuthorizationRolesDefaultNotFound) readResponse(response runtime.Cli
 	return nil
 }
 
+// NewPutAuthorizationRolesDefaultRequestTimeout creates a PutAuthorizationRolesDefaultRequestTimeout with default headers values
+func NewPutAuthorizationRolesDefaultRequestTimeout() *PutAuthorizationRolesDefaultRequestTimeout {
+	return &PutAuthorizationRolesDefaultRequestTimeout{}
+}
+
+/*PutAuthorizationRolesDefaultRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PutAuthorizationRolesDefaultRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PutAuthorizationRolesDefaultRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/authorization/roles/default][%d] putAuthorizationRolesDefaultRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutAuthorizationRolesDefaultRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PutAuthorizationRolesDefaultRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPutAuthorizationRolesDefaultRequestEntityTooLarge creates a PutAuthorizationRolesDefaultRequestEntityTooLarge with default headers values
 func NewPutAuthorizationRolesDefaultRequestEntityTooLarge() *PutAuthorizationRolesDefaultRequestEntityTooLarge {
 	return &PutAuthorizationRolesDefaultRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPutAuthorizationRolesDefaultTooManyRequests() *PutAuthorizationRolesDefa
 
 /*PutAuthorizationRolesDefaultTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PutAuthorizationRolesDefaultTooManyRequests struct {
 	Payload *models.ErrorBody

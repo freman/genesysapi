@@ -53,6 +53,12 @@ func (o *GetWorkforcemanagementHistoricaldataDeletejobReader) ReadResponse(respo
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetWorkforcemanagementHistoricaldataDeletejobRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetWorkforcemanagementHistoricaldataDeletejobRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetWorkforcemanagementHistoricaldataDeletejobNotFound) readResponse(res
 	return nil
 }
 
+// NewGetWorkforcemanagementHistoricaldataDeletejobRequestTimeout creates a GetWorkforcemanagementHistoricaldataDeletejobRequestTimeout with default headers values
+func NewGetWorkforcemanagementHistoricaldataDeletejobRequestTimeout() *GetWorkforcemanagementHistoricaldataDeletejobRequestTimeout {
+	return &GetWorkforcemanagementHistoricaldataDeletejobRequestTimeout{}
+}
+
+/*GetWorkforcemanagementHistoricaldataDeletejobRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetWorkforcemanagementHistoricaldataDeletejobRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetWorkforcemanagementHistoricaldataDeletejobRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/historicaldata/deletejob][%d] getWorkforcemanagementHistoricaldataDeletejobRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetWorkforcemanagementHistoricaldataDeletejobRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetWorkforcemanagementHistoricaldataDeletejobRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetWorkforcemanagementHistoricaldataDeletejobRequestEntityTooLarge creates a GetWorkforcemanagementHistoricaldataDeletejobRequestEntityTooLarge with default headers values
 func NewGetWorkforcemanagementHistoricaldataDeletejobRequestEntityTooLarge() *GetWorkforcemanagementHistoricaldataDeletejobRequestEntityTooLarge {
 	return &GetWorkforcemanagementHistoricaldataDeletejobRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetWorkforcemanagementHistoricaldataDeletejobTooManyRequests() *GetWorkf
 
 /*GetWorkforcemanagementHistoricaldataDeletejobTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetWorkforcemanagementHistoricaldataDeletejobTooManyRequests struct {
 	Payload *models.ErrorBody

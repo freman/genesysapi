@@ -53,6 +53,12 @@ func (o *GetRoutingSmsPhonenumberReader) ReadResponse(response runtime.ClientRes
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetRoutingSmsPhonenumberRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetRoutingSmsPhonenumberRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetRoutingSmsPhonenumberNotFound) readResponse(response runtime.ClientR
 	return nil
 }
 
+// NewGetRoutingSmsPhonenumberRequestTimeout creates a GetRoutingSmsPhonenumberRequestTimeout with default headers values
+func NewGetRoutingSmsPhonenumberRequestTimeout() *GetRoutingSmsPhonenumberRequestTimeout {
+	return &GetRoutingSmsPhonenumberRequestTimeout{}
+}
+
+/*GetRoutingSmsPhonenumberRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetRoutingSmsPhonenumberRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetRoutingSmsPhonenumberRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/sms/phonenumbers/{addressId}][%d] getRoutingSmsPhonenumberRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetRoutingSmsPhonenumberRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetRoutingSmsPhonenumberRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetRoutingSmsPhonenumberRequestEntityTooLarge creates a GetRoutingSmsPhonenumberRequestEntityTooLarge with default headers values
 func NewGetRoutingSmsPhonenumberRequestEntityTooLarge() *GetRoutingSmsPhonenumberRequestEntityTooLarge {
 	return &GetRoutingSmsPhonenumberRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetRoutingSmsPhonenumberTooManyRequests() *GetRoutingSmsPhonenumberTooMa
 
 /*GetRoutingSmsPhonenumberTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetRoutingSmsPhonenumberTooManyRequests struct {
 	Payload *models.ErrorBody

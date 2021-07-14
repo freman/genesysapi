@@ -53,6 +53,12 @@ func (o *GetTelephonyProvidersEdgesCertificateauthorityReader) ReadResponse(resp
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetTelephonyProvidersEdgesCertificateauthorityRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetTelephonyProvidersEdgesCertificateauthorityRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetTelephonyProvidersEdgesCertificateauthorityNotFound) readResponse(re
 	return nil
 }
 
+// NewGetTelephonyProvidersEdgesCertificateauthorityRequestTimeout creates a GetTelephonyProvidersEdgesCertificateauthorityRequestTimeout with default headers values
+func NewGetTelephonyProvidersEdgesCertificateauthorityRequestTimeout() *GetTelephonyProvidersEdgesCertificateauthorityRequestTimeout {
+	return &GetTelephonyProvidersEdgesCertificateauthorityRequestTimeout{}
+}
+
+/*GetTelephonyProvidersEdgesCertificateauthorityRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetTelephonyProvidersEdgesCertificateauthorityRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetTelephonyProvidersEdgesCertificateauthorityRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/certificateauthorities/{certificateId}][%d] getTelephonyProvidersEdgesCertificateauthorityRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetTelephonyProvidersEdgesCertificateauthorityRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetTelephonyProvidersEdgesCertificateauthorityRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetTelephonyProvidersEdgesCertificateauthorityRequestEntityTooLarge creates a GetTelephonyProvidersEdgesCertificateauthorityRequestEntityTooLarge with default headers values
 func NewGetTelephonyProvidersEdgesCertificateauthorityRequestEntityTooLarge() *GetTelephonyProvidersEdgesCertificateauthorityRequestEntityTooLarge {
 	return &GetTelephonyProvidersEdgesCertificateauthorityRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetTelephonyProvidersEdgesCertificateauthorityTooManyRequests() *GetTele
 
 /*GetTelephonyProvidersEdgesCertificateauthorityTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetTelephonyProvidersEdgesCertificateauthorityTooManyRequests struct {
 	Payload *models.ErrorBody

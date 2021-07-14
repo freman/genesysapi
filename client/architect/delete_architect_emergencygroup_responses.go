@@ -53,6 +53,12 @@ func (o *DeleteArchitectEmergencygroupReader) ReadResponse(response runtime.Clie
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewDeleteArchitectEmergencygroupRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewDeleteArchitectEmergencygroupRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -248,6 +254,39 @@ func (o *DeleteArchitectEmergencygroupNotFound) readResponse(response runtime.Cl
 	return nil
 }
 
+// NewDeleteArchitectEmergencygroupRequestTimeout creates a DeleteArchitectEmergencygroupRequestTimeout with default headers values
+func NewDeleteArchitectEmergencygroupRequestTimeout() *DeleteArchitectEmergencygroupRequestTimeout {
+	return &DeleteArchitectEmergencygroupRequestTimeout{}
+}
+
+/*DeleteArchitectEmergencygroupRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type DeleteArchitectEmergencygroupRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *DeleteArchitectEmergencygroupRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] deleteArchitectEmergencygroupRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteArchitectEmergencygroupRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *DeleteArchitectEmergencygroupRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewDeleteArchitectEmergencygroupRequestEntityTooLarge creates a DeleteArchitectEmergencygroupRequestEntityTooLarge with default headers values
 func NewDeleteArchitectEmergencygroupRequestEntityTooLarge() *DeleteArchitectEmergencygroupRequestEntityTooLarge {
 	return &DeleteArchitectEmergencygroupRequestEntityTooLarge{}
@@ -321,7 +360,7 @@ func NewDeleteArchitectEmergencygroupTooManyRequests() *DeleteArchitectEmergency
 
 /*DeleteArchitectEmergencygroupTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type DeleteArchitectEmergencygroupTooManyRequests struct {
 	Payload *models.ErrorBody

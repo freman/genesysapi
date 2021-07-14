@@ -53,6 +53,12 @@ func (o *DeleteUserRoutingskillReader) ReadResponse(response runtime.ClientRespo
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewDeleteUserRoutingskillRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 409:
 		result := NewDeleteUserRoutingskillConflict()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -254,6 +260,39 @@ func (o *DeleteUserRoutingskillNotFound) readResponse(response runtime.ClientRes
 	return nil
 }
 
+// NewDeleteUserRoutingskillRequestTimeout creates a DeleteUserRoutingskillRequestTimeout with default headers values
+func NewDeleteUserRoutingskillRequestTimeout() *DeleteUserRoutingskillRequestTimeout {
+	return &DeleteUserRoutingskillRequestTimeout{}
+}
+
+/*DeleteUserRoutingskillRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type DeleteUserRoutingskillRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *DeleteUserRoutingskillRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/users/{userId}/routingskills/{skillId}][%d] deleteUserRoutingskillRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteUserRoutingskillRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *DeleteUserRoutingskillRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewDeleteUserRoutingskillConflict creates a DeleteUserRoutingskillConflict with default headers values
 func NewDeleteUserRoutingskillConflict() *DeleteUserRoutingskillConflict {
 	return &DeleteUserRoutingskillConflict{}
@@ -360,7 +399,7 @@ func NewDeleteUserRoutingskillTooManyRequests() *DeleteUserRoutingskillTooManyRe
 
 /*DeleteUserRoutingskillTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type DeleteUserRoutingskillTooManyRequests struct {
 	Payload *models.ErrorBody

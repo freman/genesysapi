@@ -53,6 +53,12 @@ func (o *DeleteTokensMeReader) ReadResponse(response runtime.ClientResponse, con
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewDeleteTokensMeRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewDeleteTokensMeRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -248,6 +254,39 @@ func (o *DeleteTokensMeNotFound) readResponse(response runtime.ClientResponse, c
 	return nil
 }
 
+// NewDeleteTokensMeRequestTimeout creates a DeleteTokensMeRequestTimeout with default headers values
+func NewDeleteTokensMeRequestTimeout() *DeleteTokensMeRequestTimeout {
+	return &DeleteTokensMeRequestTimeout{}
+}
+
+/*DeleteTokensMeRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type DeleteTokensMeRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *DeleteTokensMeRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/tokens/me][%d] deleteTokensMeRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteTokensMeRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *DeleteTokensMeRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewDeleteTokensMeRequestEntityTooLarge creates a DeleteTokensMeRequestEntityTooLarge with default headers values
 func NewDeleteTokensMeRequestEntityTooLarge() *DeleteTokensMeRequestEntityTooLarge {
 	return &DeleteTokensMeRequestEntityTooLarge{}
@@ -321,7 +360,7 @@ func NewDeleteTokensMeTooManyRequests() *DeleteTokensMeTooManyRequests {
 
 /*DeleteTokensMeTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type DeleteTokensMeTooManyRequests struct {
 	Payload *models.ErrorBody

@@ -59,6 +59,12 @@ func (o *PostFlowsActionsCheckinReader) ReadResponse(response runtime.ClientResp
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostFlowsActionsCheckinRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostFlowsActionsCheckinRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -299,6 +305,39 @@ func (o *PostFlowsActionsCheckinMethodNotAllowed) readResponse(response runtime.
 	return nil
 }
 
+// NewPostFlowsActionsCheckinRequestTimeout creates a PostFlowsActionsCheckinRequestTimeout with default headers values
+func NewPostFlowsActionsCheckinRequestTimeout() *PostFlowsActionsCheckinRequestTimeout {
+	return &PostFlowsActionsCheckinRequestTimeout{}
+}
+
+/*PostFlowsActionsCheckinRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostFlowsActionsCheckinRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostFlowsActionsCheckinRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/checkin][%d] postFlowsActionsCheckinRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostFlowsActionsCheckinRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostFlowsActionsCheckinRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostFlowsActionsCheckinRequestEntityTooLarge creates a PostFlowsActionsCheckinRequestEntityTooLarge with default headers values
 func NewPostFlowsActionsCheckinRequestEntityTooLarge() *PostFlowsActionsCheckinRequestEntityTooLarge {
 	return &PostFlowsActionsCheckinRequestEntityTooLarge{}
@@ -372,7 +411,7 @@ func NewPostFlowsActionsCheckinTooManyRequests() *PostFlowsActionsCheckinTooMany
 
 /*PostFlowsActionsCheckinTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostFlowsActionsCheckinTooManyRequests struct {
 	Payload *models.ErrorBody

@@ -64,6 +64,11 @@ type PostFlowsParams struct {
 
 	/*Body*/
 	Body *models.Flow
+	/*Language
+	  Language
+
+	*/
+	Language *string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -114,6 +119,17 @@ func (o *PostFlowsParams) SetBody(body *models.Flow) {
 	o.Body = body
 }
 
+// WithLanguage adds the language to the post flows params
+func (o *PostFlowsParams) WithLanguage(language *string) *PostFlowsParams {
+	o.SetLanguage(language)
+	return o
+}
+
+// SetLanguage adds the language to the post flows params
+func (o *PostFlowsParams) SetLanguage(language *string) {
+	o.Language = language
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *PostFlowsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -126,6 +142,22 @@ func (o *PostFlowsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Reg
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
 		}
+	}
+
+	if o.Language != nil {
+
+		// query param language
+		var qrLanguage string
+		if o.Language != nil {
+			qrLanguage = *o.Language
+		}
+		qLanguage := qrLanguage
+		if qLanguage != "" {
+			if err := r.SetQueryParam("language", qLanguage); err != nil {
+				return err
+			}
+		}
+
 	}
 
 	if len(res) > 0 {

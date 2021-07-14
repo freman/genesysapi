@@ -53,6 +53,12 @@ func (o *GetAnalyticsReportingExportsReader) ReadResponse(response runtime.Clien
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetAnalyticsReportingExportsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetAnalyticsReportingExportsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetAnalyticsReportingExportsNotFound) readResponse(response runtime.Cli
 	return nil
 }
 
+// NewGetAnalyticsReportingExportsRequestTimeout creates a GetAnalyticsReportingExportsRequestTimeout with default headers values
+func NewGetAnalyticsReportingExportsRequestTimeout() *GetAnalyticsReportingExportsRequestTimeout {
+	return &GetAnalyticsReportingExportsRequestTimeout{}
+}
+
+/*GetAnalyticsReportingExportsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetAnalyticsReportingExportsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetAnalyticsReportingExportsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/reporting/exports][%d] getAnalyticsReportingExportsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetAnalyticsReportingExportsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetAnalyticsReportingExportsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetAnalyticsReportingExportsRequestEntityTooLarge creates a GetAnalyticsReportingExportsRequestEntityTooLarge with default headers values
 func NewGetAnalyticsReportingExportsRequestEntityTooLarge() *GetAnalyticsReportingExportsRequestEntityTooLarge {
 	return &GetAnalyticsReportingExportsRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetAnalyticsReportingExportsTooManyRequests() *GetAnalyticsReportingExpo
 
 /*GetAnalyticsReportingExportsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetAnalyticsReportingExportsTooManyRequests struct {
 	Payload *models.ErrorBody

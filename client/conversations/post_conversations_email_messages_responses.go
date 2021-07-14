@@ -53,6 +53,12 @@ func (o *PostConversationsEmailMessagesReader) ReadResponse(response runtime.Cli
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostConversationsEmailMessagesRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 409:
 		result := NewPostConversationsEmailMessagesConflict()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -266,6 +272,39 @@ func (o *PostConversationsEmailMessagesNotFound) readResponse(response runtime.C
 	return nil
 }
 
+// NewPostConversationsEmailMessagesRequestTimeout creates a PostConversationsEmailMessagesRequestTimeout with default headers values
+func NewPostConversationsEmailMessagesRequestTimeout() *PostConversationsEmailMessagesRequestTimeout {
+	return &PostConversationsEmailMessagesRequestTimeout{}
+}
+
+/*PostConversationsEmailMessagesRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostConversationsEmailMessagesRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostConversationsEmailMessagesRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/emails/{conversationId}/messages][%d] postConversationsEmailMessagesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostConversationsEmailMessagesRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostConversationsEmailMessagesRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostConversationsEmailMessagesConflict creates a PostConversationsEmailMessagesConflict with default headers values
 func NewPostConversationsEmailMessagesConflict() *PostConversationsEmailMessagesConflict {
 	return &PostConversationsEmailMessagesConflict{}
@@ -372,7 +411,7 @@ func NewPostConversationsEmailMessagesTooManyRequests() *PostConversationsEmailM
 
 /*PostConversationsEmailMessagesTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostConversationsEmailMessagesTooManyRequests struct {
 	Payload *models.ErrorBody

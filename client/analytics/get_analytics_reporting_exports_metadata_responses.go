@@ -53,6 +53,12 @@ func (o *GetAnalyticsReportingExportsMetadataReader) ReadResponse(response runti
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetAnalyticsReportingExportsMetadataRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetAnalyticsReportingExportsMetadataRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetAnalyticsReportingExportsMetadataNotFound) readResponse(response run
 	return nil
 }
 
+// NewGetAnalyticsReportingExportsMetadataRequestTimeout creates a GetAnalyticsReportingExportsMetadataRequestTimeout with default headers values
+func NewGetAnalyticsReportingExportsMetadataRequestTimeout() *GetAnalyticsReportingExportsMetadataRequestTimeout {
+	return &GetAnalyticsReportingExportsMetadataRequestTimeout{}
+}
+
+/*GetAnalyticsReportingExportsMetadataRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetAnalyticsReportingExportsMetadataRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetAnalyticsReportingExportsMetadataRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/reporting/exports/metadata][%d] getAnalyticsReportingExportsMetadataRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetAnalyticsReportingExportsMetadataRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetAnalyticsReportingExportsMetadataRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetAnalyticsReportingExportsMetadataRequestEntityTooLarge creates a GetAnalyticsReportingExportsMetadataRequestEntityTooLarge with default headers values
 func NewGetAnalyticsReportingExportsMetadataRequestEntityTooLarge() *GetAnalyticsReportingExportsMetadataRequestEntityTooLarge {
 	return &GetAnalyticsReportingExportsMetadataRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetAnalyticsReportingExportsMetadataTooManyRequests() *GetAnalyticsRepor
 
 /*GetAnalyticsReportingExportsMetadataTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetAnalyticsReportingExportsMetadataTooManyRequests struct {
 	Payload *models.ErrorBody

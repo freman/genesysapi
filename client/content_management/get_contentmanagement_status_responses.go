@@ -53,6 +53,12 @@ func (o *GetContentmanagementStatusReader) ReadResponse(response runtime.ClientR
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetContentmanagementStatusRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetContentmanagementStatusRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetContentmanagementStatusNotFound) readResponse(response runtime.Clien
 	return nil
 }
 
+// NewGetContentmanagementStatusRequestTimeout creates a GetContentmanagementStatusRequestTimeout with default headers values
+func NewGetContentmanagementStatusRequestTimeout() *GetContentmanagementStatusRequestTimeout {
+	return &GetContentmanagementStatusRequestTimeout{}
+}
+
+/*GetContentmanagementStatusRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetContentmanagementStatusRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetContentmanagementStatusRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/status][%d] getContentmanagementStatusRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetContentmanagementStatusRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetContentmanagementStatusRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetContentmanagementStatusRequestEntityTooLarge creates a GetContentmanagementStatusRequestEntityTooLarge with default headers values
 func NewGetContentmanagementStatusRequestEntityTooLarge() *GetContentmanagementStatusRequestEntityTooLarge {
 	return &GetContentmanagementStatusRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetContentmanagementStatusTooManyRequests() *GetContentmanagementStatusT
 
 /*GetContentmanagementStatusTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetContentmanagementStatusTooManyRequests struct {
 	Payload *models.ErrorBody

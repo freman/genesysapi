@@ -90,7 +90,7 @@ type Flow struct {
 	System bool `json:"system"`
 
 	// type
-	// Enum: [BOT COMMONMODULE INBOUNDCALL INBOUNDCHAT INBOUNDEMAIL INBOUNDSHORTMESSAGE INQUEUECALL OUTBOUNDCALL SECURECALL SPEECH SURVEYINVITE WORKFLOW]
+	// Enum: [BOT COMMONMODULE INBOUNDCALL INBOUNDCHAT INBOUNDEMAIL INBOUNDSHORTMESSAGE INQUEUECALL INQUEUEEMAIL INQUEUESHORTMESSAGE OUTBOUNDCALL SECURECALL SPEECH SURVEYINVITE WORKFLOW WORKITEM]
 	Type string `json:"type,omitempty"`
 }
 
@@ -186,7 +186,7 @@ var flowCompatibleFlowTypesItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["BOT","COMMONMODULE","INBOUNDCALL","INBOUNDCHAT","INBOUNDEMAIL","INBOUNDSHORTMESSAGE","INQUEUECALL","OUTBOUNDCALL","SECURECALL","SPEECH","SURVEYINVITE","WORKFLOW"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["BOT","COMMONMODULE","INBOUNDCALL","INBOUNDCHAT","INBOUNDEMAIL","INBOUNDSHORTMESSAGE","INQUEUECALL","INQUEUEEMAIL","INQUEUESHORTMESSAGE","OUTBOUNDCALL","SECURECALL","SPEECH","SURVEYINVITE","WORKFLOW","WORKITEM"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -432,7 +432,7 @@ var flowTypeTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["BOT","COMMONMODULE","INBOUNDCALL","INBOUNDCHAT","INBOUNDEMAIL","INBOUNDSHORTMESSAGE","INQUEUECALL","OUTBOUNDCALL","SECURECALL","SPEECH","SURVEYINVITE","WORKFLOW"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["BOT","COMMONMODULE","INBOUNDCALL","INBOUNDCHAT","INBOUNDEMAIL","INBOUNDSHORTMESSAGE","INQUEUECALL","INQUEUEEMAIL","INQUEUESHORTMESSAGE","OUTBOUNDCALL","SECURECALL","SPEECH","SURVEYINVITE","WORKFLOW","WORKITEM"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -463,6 +463,12 @@ const (
 	// FlowTypeINQUEUECALL captures enum value "INQUEUECALL"
 	FlowTypeINQUEUECALL string = "INQUEUECALL"
 
+	// FlowTypeINQUEUEEMAIL captures enum value "INQUEUEEMAIL"
+	FlowTypeINQUEUEEMAIL string = "INQUEUEEMAIL"
+
+	// FlowTypeINQUEUESHORTMESSAGE captures enum value "INQUEUESHORTMESSAGE"
+	FlowTypeINQUEUESHORTMESSAGE string = "INQUEUESHORTMESSAGE"
+
 	// FlowTypeOUTBOUNDCALL captures enum value "OUTBOUNDCALL"
 	FlowTypeOUTBOUNDCALL string = "OUTBOUNDCALL"
 
@@ -477,6 +483,9 @@ const (
 
 	// FlowTypeWORKFLOW captures enum value "WORKFLOW"
 	FlowTypeWORKFLOW string = "WORKFLOW"
+
+	// FlowTypeWORKITEM captures enum value "WORKITEM"
+	FlowTypeWORKITEM string = "WORKITEM"
 )
 
 // prop value enum

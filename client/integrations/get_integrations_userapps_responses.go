@@ -53,6 +53,12 @@ func (o *GetIntegrationsUserappsReader) ReadResponse(response runtime.ClientResp
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetIntegrationsUserappsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetIntegrationsUserappsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetIntegrationsUserappsNotFound) readResponse(response runtime.ClientRe
 	return nil
 }
 
+// NewGetIntegrationsUserappsRequestTimeout creates a GetIntegrationsUserappsRequestTimeout with default headers values
+func NewGetIntegrationsUserappsRequestTimeout() *GetIntegrationsUserappsRequestTimeout {
+	return &GetIntegrationsUserappsRequestTimeout{}
+}
+
+/*GetIntegrationsUserappsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetIntegrationsUserappsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetIntegrationsUserappsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/userapps][%d] getIntegrationsUserappsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetIntegrationsUserappsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetIntegrationsUserappsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetIntegrationsUserappsRequestEntityTooLarge creates a GetIntegrationsUserappsRequestEntityTooLarge with default headers values
 func NewGetIntegrationsUserappsRequestEntityTooLarge() *GetIntegrationsUserappsRequestEntityTooLarge {
 	return &GetIntegrationsUserappsRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetIntegrationsUserappsTooManyRequests() *GetIntegrationsUserappsTooMany
 
 /*GetIntegrationsUserappsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetIntegrationsUserappsTooManyRequests struct {
 	Payload *models.ErrorBody

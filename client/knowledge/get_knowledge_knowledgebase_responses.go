@@ -53,6 +53,12 @@ func (o *GetKnowledgeKnowledgebaseReader) ReadResponse(response runtime.ClientRe
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetKnowledgeKnowledgebaseRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetKnowledgeKnowledgebaseRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetKnowledgeKnowledgebaseNotFound) readResponse(response runtime.Client
 	return nil
 }
 
+// NewGetKnowledgeKnowledgebaseRequestTimeout creates a GetKnowledgeKnowledgebaseRequestTimeout with default headers values
+func NewGetKnowledgeKnowledgebaseRequestTimeout() *GetKnowledgeKnowledgebaseRequestTimeout {
+	return &GetKnowledgeKnowledgebaseRequestTimeout{}
+}
+
+/*GetKnowledgeKnowledgebaseRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetKnowledgeKnowledgebaseRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetKnowledgeKnowledgebaseRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}][%d] getKnowledgeKnowledgebaseRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetKnowledgeKnowledgebaseRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetKnowledgeKnowledgebaseRequestEntityTooLarge creates a GetKnowledgeKnowledgebaseRequestEntityTooLarge with default headers values
 func NewGetKnowledgeKnowledgebaseRequestEntityTooLarge() *GetKnowledgeKnowledgebaseRequestEntityTooLarge {
 	return &GetKnowledgeKnowledgebaseRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetKnowledgeKnowledgebaseTooManyRequests() *GetKnowledgeKnowledgebaseToo
 
 /*GetKnowledgeKnowledgebaseTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetKnowledgeKnowledgebaseTooManyRequests struct {
 	Payload *models.ErrorBody

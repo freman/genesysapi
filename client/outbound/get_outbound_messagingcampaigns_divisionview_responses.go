@@ -53,6 +53,12 @@ func (o *GetOutboundMessagingcampaignsDivisionviewReader) ReadResponse(response 
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetOutboundMessagingcampaignsDivisionviewRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetOutboundMessagingcampaignsDivisionviewRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetOutboundMessagingcampaignsDivisionviewNotFound) readResponse(respons
 	return nil
 }
 
+// NewGetOutboundMessagingcampaignsDivisionviewRequestTimeout creates a GetOutboundMessagingcampaignsDivisionviewRequestTimeout with default headers values
+func NewGetOutboundMessagingcampaignsDivisionviewRequestTimeout() *GetOutboundMessagingcampaignsDivisionviewRequestTimeout {
+	return &GetOutboundMessagingcampaignsDivisionviewRequestTimeout{}
+}
+
+/*GetOutboundMessagingcampaignsDivisionviewRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetOutboundMessagingcampaignsDivisionviewRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetOutboundMessagingcampaignsDivisionviewRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/messagingcampaigns/divisionviews/{messagingCampaignId}][%d] getOutboundMessagingcampaignsDivisionviewRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetOutboundMessagingcampaignsDivisionviewRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetOutboundMessagingcampaignsDivisionviewRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetOutboundMessagingcampaignsDivisionviewRequestEntityTooLarge creates a GetOutboundMessagingcampaignsDivisionviewRequestEntityTooLarge with default headers values
 func NewGetOutboundMessagingcampaignsDivisionviewRequestEntityTooLarge() *GetOutboundMessagingcampaignsDivisionviewRequestEntityTooLarge {
 	return &GetOutboundMessagingcampaignsDivisionviewRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetOutboundMessagingcampaignsDivisionviewTooManyRequests() *GetOutboundM
 
 /*GetOutboundMessagingcampaignsDivisionviewTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetOutboundMessagingcampaignsDivisionviewTooManyRequests struct {
 	Payload *models.ErrorBody

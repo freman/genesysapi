@@ -59,6 +59,12 @@ func (o *GetFlowsDatatableExportJobReader) ReadResponse(response runtime.ClientR
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetFlowsDatatableExportJobRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetFlowsDatatableExportJobRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -299,6 +305,39 @@ func (o *GetFlowsDatatableExportJobNotFound) readResponse(response runtime.Clien
 	return nil
 }
 
+// NewGetFlowsDatatableExportJobRequestTimeout creates a GetFlowsDatatableExportJobRequestTimeout with default headers values
+func NewGetFlowsDatatableExportJobRequestTimeout() *GetFlowsDatatableExportJobRequestTimeout {
+	return &GetFlowsDatatableExportJobRequestTimeout{}
+}
+
+/*GetFlowsDatatableExportJobRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetFlowsDatatableExportJobRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetFlowsDatatableExportJobRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/datatables/{datatableId}/export/jobs/{exportJobId}][%d] getFlowsDatatableExportJobRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetFlowsDatatableExportJobRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetFlowsDatatableExportJobRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetFlowsDatatableExportJobRequestEntityTooLarge creates a GetFlowsDatatableExportJobRequestEntityTooLarge with default headers values
 func NewGetFlowsDatatableExportJobRequestEntityTooLarge() *GetFlowsDatatableExportJobRequestEntityTooLarge {
 	return &GetFlowsDatatableExportJobRequestEntityTooLarge{}
@@ -372,7 +411,7 @@ func NewGetFlowsDatatableExportJobTooManyRequests() *GetFlowsDatatableExportJobT
 
 /*GetFlowsDatatableExportJobTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetFlowsDatatableExportJobTooManyRequests struct {
 	Payload *models.ErrorBody

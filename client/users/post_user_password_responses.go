@@ -53,6 +53,12 @@ func (o *PostUserPasswordReader) ReadResponse(response runtime.ClientResponse, c
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostUserPasswordRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostUserPasswordRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -248,6 +254,39 @@ func (o *PostUserPasswordNotFound) readResponse(response runtime.ClientResponse,
 	return nil
 }
 
+// NewPostUserPasswordRequestTimeout creates a PostUserPasswordRequestTimeout with default headers values
+func NewPostUserPasswordRequestTimeout() *PostUserPasswordRequestTimeout {
+	return &PostUserPasswordRequestTimeout{}
+}
+
+/*PostUserPasswordRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostUserPasswordRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostUserPasswordRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users/{userId}/password][%d] postUserPasswordRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostUserPasswordRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostUserPasswordRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostUserPasswordRequestEntityTooLarge creates a PostUserPasswordRequestEntityTooLarge with default headers values
 func NewPostUserPasswordRequestEntityTooLarge() *PostUserPasswordRequestEntityTooLarge {
 	return &PostUserPasswordRequestEntityTooLarge{}
@@ -321,7 +360,7 @@ func NewPostUserPasswordTooManyRequests() *PostUserPasswordTooManyRequests {
 
 /*PostUserPasswordTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostUserPasswordTooManyRequests struct {
 	Payload *models.ErrorBody

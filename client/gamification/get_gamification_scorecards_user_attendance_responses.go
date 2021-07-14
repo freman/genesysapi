@@ -53,6 +53,12 @@ func (o *GetGamificationScorecardsUserAttendanceReader) ReadResponse(response ru
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetGamificationScorecardsUserAttendanceRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetGamificationScorecardsUserAttendanceRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetGamificationScorecardsUserAttendanceNotFound) readResponse(response 
 	return nil
 }
 
+// NewGetGamificationScorecardsUserAttendanceRequestTimeout creates a GetGamificationScorecardsUserAttendanceRequestTimeout with default headers values
+func NewGetGamificationScorecardsUserAttendanceRequestTimeout() *GetGamificationScorecardsUserAttendanceRequestTimeout {
+	return &GetGamificationScorecardsUserAttendanceRequestTimeout{}
+}
+
+/*GetGamificationScorecardsUserAttendanceRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetGamificationScorecardsUserAttendanceRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetGamificationScorecardsUserAttendanceRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/users/{userId}/attendance][%d] getGamificationScorecardsUserAttendanceRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetGamificationScorecardsUserAttendanceRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetGamificationScorecardsUserAttendanceRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetGamificationScorecardsUserAttendanceRequestEntityTooLarge creates a GetGamificationScorecardsUserAttendanceRequestEntityTooLarge with default headers values
 func NewGetGamificationScorecardsUserAttendanceRequestEntityTooLarge() *GetGamificationScorecardsUserAttendanceRequestEntityTooLarge {
 	return &GetGamificationScorecardsUserAttendanceRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetGamificationScorecardsUserAttendanceTooManyRequests() *GetGamificatio
 
 /*GetGamificationScorecardsUserAttendanceTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetGamificationScorecardsUserAttendanceTooManyRequests struct {
 	Payload *models.ErrorBody

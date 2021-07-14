@@ -53,6 +53,12 @@ func (o *PatchUserReader) ReadResponse(response runtime.ClientResponse, consumer
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPatchUserRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 409:
 		result := NewPatchUserConflict()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -266,6 +272,39 @@ func (o *PatchUserNotFound) readResponse(response runtime.ClientResponse, consum
 	return nil
 }
 
+// NewPatchUserRequestTimeout creates a PatchUserRequestTimeout with default headers values
+func NewPatchUserRequestTimeout() *PatchUserRequestTimeout {
+	return &PatchUserRequestTimeout{}
+}
+
+/*PatchUserRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PatchUserRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PatchUserRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}][%d] patchUserRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchUserRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PatchUserRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPatchUserConflict creates a PatchUserConflict with default headers values
 func NewPatchUserConflict() *PatchUserConflict {
 	return &PatchUserConflict{}
@@ -360,7 +399,7 @@ func NewPatchUserTooManyRequests() *PatchUserTooManyRequests {
 
 /*PatchUserTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PatchUserTooManyRequests struct {
 	Payload *models.ErrorBody

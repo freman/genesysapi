@@ -53,6 +53,12 @@ func (o *PatchSpeechandtextanalyticsSettingsReader) ReadResponse(response runtim
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPatchSpeechandtextanalyticsSettingsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPatchSpeechandtextanalyticsSettingsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PatchSpeechandtextanalyticsSettingsNotFound) readResponse(response runt
 	return nil
 }
 
+// NewPatchSpeechandtextanalyticsSettingsRequestTimeout creates a PatchSpeechandtextanalyticsSettingsRequestTimeout with default headers values
+func NewPatchSpeechandtextanalyticsSettingsRequestTimeout() *PatchSpeechandtextanalyticsSettingsRequestTimeout {
+	return &PatchSpeechandtextanalyticsSettingsRequestTimeout{}
+}
+
+/*PatchSpeechandtextanalyticsSettingsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PatchSpeechandtextanalyticsSettingsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PatchSpeechandtextanalyticsSettingsRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/speechandtextanalytics/settings][%d] patchSpeechandtextanalyticsSettingsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchSpeechandtextanalyticsSettingsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PatchSpeechandtextanalyticsSettingsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPatchSpeechandtextanalyticsSettingsRequestEntityTooLarge creates a PatchSpeechandtextanalyticsSettingsRequestEntityTooLarge with default headers values
 func NewPatchSpeechandtextanalyticsSettingsRequestEntityTooLarge() *PatchSpeechandtextanalyticsSettingsRequestEntityTooLarge {
 	return &PatchSpeechandtextanalyticsSettingsRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPatchSpeechandtextanalyticsSettingsTooManyRequests() *PatchSpeechandtext
 
 /*PatchSpeechandtextanalyticsSettingsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PatchSpeechandtextanalyticsSettingsTooManyRequests struct {
 	Payload *models.ErrorBody

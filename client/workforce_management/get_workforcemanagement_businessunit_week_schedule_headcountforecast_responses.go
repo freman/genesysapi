@@ -53,6 +53,12 @@ func (o *GetWorkforcemanagementBusinessunitWeekScheduleHeadcountforecastReader) 
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetWorkforcemanagementBusinessunitWeekScheduleHeadcountforecastRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetWorkforcemanagementBusinessunitWeekScheduleHeadcountforecastRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetWorkforcemanagementBusinessunitWeekScheduleHeadcountforecastNotFound
 	return nil
 }
 
+// NewGetWorkforcemanagementBusinessunitWeekScheduleHeadcountforecastRequestTimeout creates a GetWorkforcemanagementBusinessunitWeekScheduleHeadcountforecastRequestTimeout with default headers values
+func NewGetWorkforcemanagementBusinessunitWeekScheduleHeadcountforecastRequestTimeout() *GetWorkforcemanagementBusinessunitWeekScheduleHeadcountforecastRequestTimeout {
+	return &GetWorkforcemanagementBusinessunitWeekScheduleHeadcountforecastRequestTimeout{}
+}
+
+/*GetWorkforcemanagementBusinessunitWeekScheduleHeadcountforecastRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetWorkforcemanagementBusinessunitWeekScheduleHeadcountforecastRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHeadcountforecastRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules/{scheduleId}/headcountforecast][%d] getWorkforcemanagementBusinessunitWeekScheduleHeadcountforecastRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHeadcountforecastRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHeadcountforecastRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetWorkforcemanagementBusinessunitWeekScheduleHeadcountforecastRequestEntityTooLarge creates a GetWorkforcemanagementBusinessunitWeekScheduleHeadcountforecastRequestEntityTooLarge with default headers values
 func NewGetWorkforcemanagementBusinessunitWeekScheduleHeadcountforecastRequestEntityTooLarge() *GetWorkforcemanagementBusinessunitWeekScheduleHeadcountforecastRequestEntityTooLarge {
 	return &GetWorkforcemanagementBusinessunitWeekScheduleHeadcountforecastRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetWorkforcemanagementBusinessunitWeekScheduleHeadcountforecastTooManyRe
 
 /*GetWorkforcemanagementBusinessunitWeekScheduleHeadcountforecastTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetWorkforcemanagementBusinessunitWeekScheduleHeadcountforecastTooManyRequests struct {
 	Payload *models.ErrorBody

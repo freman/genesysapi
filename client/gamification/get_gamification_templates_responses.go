@@ -53,6 +53,12 @@ func (o *GetGamificationTemplatesReader) ReadResponse(response runtime.ClientRes
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetGamificationTemplatesRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetGamificationTemplatesRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetGamificationTemplatesNotFound) readResponse(response runtime.ClientR
 	return nil
 }
 
+// NewGetGamificationTemplatesRequestTimeout creates a GetGamificationTemplatesRequestTimeout with default headers values
+func NewGetGamificationTemplatesRequestTimeout() *GetGamificationTemplatesRequestTimeout {
+	return &GetGamificationTemplatesRequestTimeout{}
+}
+
+/*GetGamificationTemplatesRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetGamificationTemplatesRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetGamificationTemplatesRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/templates][%d] getGamificationTemplatesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetGamificationTemplatesRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetGamificationTemplatesRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetGamificationTemplatesRequestEntityTooLarge creates a GetGamificationTemplatesRequestEntityTooLarge with default headers values
 func NewGetGamificationTemplatesRequestEntityTooLarge() *GetGamificationTemplatesRequestEntityTooLarge {
 	return &GetGamificationTemplatesRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetGamificationTemplatesTooManyRequests() *GetGamificationTemplatesTooMa
 
 /*GetGamificationTemplatesTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetGamificationTemplatesTooManyRequests struct {
 	Payload *models.ErrorBody

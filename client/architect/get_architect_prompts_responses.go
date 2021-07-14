@@ -53,6 +53,12 @@ func (o *GetArchitectPromptsReader) ReadResponse(response runtime.ClientResponse
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetArchitectPromptsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetArchitectPromptsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetArchitectPromptsNotFound) readResponse(response runtime.ClientRespon
 	return nil
 }
 
+// NewGetArchitectPromptsRequestTimeout creates a GetArchitectPromptsRequestTimeout with default headers values
+func NewGetArchitectPromptsRequestTimeout() *GetArchitectPromptsRequestTimeout {
+	return &GetArchitectPromptsRequestTimeout{}
+}
+
+/*GetArchitectPromptsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetArchitectPromptsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetArchitectPromptsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/prompts][%d] getArchitectPromptsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetArchitectPromptsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetArchitectPromptsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetArchitectPromptsRequestEntityTooLarge creates a GetArchitectPromptsRequestEntityTooLarge with default headers values
 func NewGetArchitectPromptsRequestEntityTooLarge() *GetArchitectPromptsRequestEntityTooLarge {
 	return &GetArchitectPromptsRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetArchitectPromptsTooManyRequests() *GetArchitectPromptsTooManyRequests
 
 /*GetArchitectPromptsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetArchitectPromptsTooManyRequests struct {
 	Payload *models.ErrorBody

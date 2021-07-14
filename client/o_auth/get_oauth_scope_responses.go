@@ -53,6 +53,12 @@ func (o *GetOauthScopeReader) ReadResponse(response runtime.ClientResponse, cons
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetOauthScopeRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetOauthScopeRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetOauthScopeNotFound) readResponse(response runtime.ClientResponse, co
 	return nil
 }
 
+// NewGetOauthScopeRequestTimeout creates a GetOauthScopeRequestTimeout with default headers values
+func NewGetOauthScopeRequestTimeout() *GetOauthScopeRequestTimeout {
+	return &GetOauthScopeRequestTimeout{}
+}
+
+/*GetOauthScopeRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetOauthScopeRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetOauthScopeRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/oauth/scopes/{scopeId}][%d] getOauthScopeRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetOauthScopeRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetOauthScopeRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetOauthScopeRequestEntityTooLarge creates a GetOauthScopeRequestEntityTooLarge with default headers values
 func NewGetOauthScopeRequestEntityTooLarge() *GetOauthScopeRequestEntityTooLarge {
 	return &GetOauthScopeRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetOauthScopeTooManyRequests() *GetOauthScopeTooManyRequests {
 
 /*GetOauthScopeTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetOauthScopeTooManyRequests struct {
 	Payload *models.ErrorBody

@@ -53,6 +53,12 @@ func (o *GetUsersDevelopmentActivityReader) ReadResponse(response runtime.Client
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetUsersDevelopmentActivityRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetUsersDevelopmentActivityRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetUsersDevelopmentActivityNotFound) readResponse(response runtime.Clie
 	return nil
 }
 
+// NewGetUsersDevelopmentActivityRequestTimeout creates a GetUsersDevelopmentActivityRequestTimeout with default headers values
+func NewGetUsersDevelopmentActivityRequestTimeout() *GetUsersDevelopmentActivityRequestTimeout {
+	return &GetUsersDevelopmentActivityRequestTimeout{}
+}
+
+/*GetUsersDevelopmentActivityRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetUsersDevelopmentActivityRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetUsersDevelopmentActivityRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/development/activities/{activityId}][%d] getUsersDevelopmentActivityRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetUsersDevelopmentActivityRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetUsersDevelopmentActivityRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetUsersDevelopmentActivityRequestEntityTooLarge creates a GetUsersDevelopmentActivityRequestEntityTooLarge with default headers values
 func NewGetUsersDevelopmentActivityRequestEntityTooLarge() *GetUsersDevelopmentActivityRequestEntityTooLarge {
 	return &GetUsersDevelopmentActivityRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetUsersDevelopmentActivityTooManyRequests() *GetUsersDevelopmentActivit
 
 /*GetUsersDevelopmentActivityTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetUsersDevelopmentActivityTooManyRequests struct {
 	Payload *models.ErrorBody

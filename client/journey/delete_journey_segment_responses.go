@@ -53,6 +53,12 @@ func (o *DeleteJourneySegmentReader) ReadResponse(response runtime.ClientRespons
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewDeleteJourneySegmentRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewDeleteJourneySegmentRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -248,6 +254,39 @@ func (o *DeleteJourneySegmentNotFound) readResponse(response runtime.ClientRespo
 	return nil
 }
 
+// NewDeleteJourneySegmentRequestTimeout creates a DeleteJourneySegmentRequestTimeout with default headers values
+func NewDeleteJourneySegmentRequestTimeout() *DeleteJourneySegmentRequestTimeout {
+	return &DeleteJourneySegmentRequestTimeout{}
+}
+
+/*DeleteJourneySegmentRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type DeleteJourneySegmentRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *DeleteJourneySegmentRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/journey/segments/{segmentId}][%d] deleteJourneySegmentRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteJourneySegmentRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *DeleteJourneySegmentRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewDeleteJourneySegmentRequestEntityTooLarge creates a DeleteJourneySegmentRequestEntityTooLarge with default headers values
 func NewDeleteJourneySegmentRequestEntityTooLarge() *DeleteJourneySegmentRequestEntityTooLarge {
 	return &DeleteJourneySegmentRequestEntityTooLarge{}
@@ -321,7 +360,7 @@ func NewDeleteJourneySegmentTooManyRequests() *DeleteJourneySegmentTooManyReques
 
 /*DeleteJourneySegmentTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type DeleteJourneySegmentTooManyRequests struct {
 	Payload *models.ErrorBody

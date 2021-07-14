@@ -47,6 +47,12 @@ func (o *DeleteArchitectPromptReader) ReadResponse(response runtime.ClientRespon
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewDeleteArchitectPromptRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 409:
 		result := NewDeleteArchitectPromptConflict()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -239,6 +245,39 @@ func (o *DeleteArchitectPromptNotFound) readResponse(response runtime.ClientResp
 	return nil
 }
 
+// NewDeleteArchitectPromptRequestTimeout creates a DeleteArchitectPromptRequestTimeout with default headers values
+func NewDeleteArchitectPromptRequestTimeout() *DeleteArchitectPromptRequestTimeout {
+	return &DeleteArchitectPromptRequestTimeout{}
+}
+
+/*DeleteArchitectPromptRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type DeleteArchitectPromptRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *DeleteArchitectPromptRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/prompts/{promptId}][%d] deleteArchitectPromptRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteArchitectPromptRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *DeleteArchitectPromptRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewDeleteArchitectPromptConflict creates a DeleteArchitectPromptConflict with default headers values
 func NewDeleteArchitectPromptConflict() *DeleteArchitectPromptConflict {
 	return &DeleteArchitectPromptConflict{}
@@ -378,7 +417,7 @@ func NewDeleteArchitectPromptTooManyRequests() *DeleteArchitectPromptTooManyRequ
 
 /*DeleteArchitectPromptTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type DeleteArchitectPromptTooManyRequests struct {
 	Payload *models.ErrorBody

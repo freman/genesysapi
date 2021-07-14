@@ -53,6 +53,12 @@ func (o *PostConversationsChatParticipantReplaceReader) ReadResponse(response ru
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostConversationsChatParticipantReplaceRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostConversationsChatParticipantReplaceRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -248,6 +254,39 @@ func (o *PostConversationsChatParticipantReplaceNotFound) readResponse(response 
 	return nil
 }
 
+// NewPostConversationsChatParticipantReplaceRequestTimeout creates a PostConversationsChatParticipantReplaceRequestTimeout with default headers values
+func NewPostConversationsChatParticipantReplaceRequestTimeout() *PostConversationsChatParticipantReplaceRequestTimeout {
+	return &PostConversationsChatParticipantReplaceRequestTimeout{}
+}
+
+/*PostConversationsChatParticipantReplaceRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostConversationsChatParticipantReplaceRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostConversationsChatParticipantReplaceRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/chats/{conversationId}/participants/{participantId}/replace][%d] postConversationsChatParticipantReplaceRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostConversationsChatParticipantReplaceRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostConversationsChatParticipantReplaceRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostConversationsChatParticipantReplaceRequestEntityTooLarge creates a PostConversationsChatParticipantReplaceRequestEntityTooLarge with default headers values
 func NewPostConversationsChatParticipantReplaceRequestEntityTooLarge() *PostConversationsChatParticipantReplaceRequestEntityTooLarge {
 	return &PostConversationsChatParticipantReplaceRequestEntityTooLarge{}
@@ -321,7 +360,7 @@ func NewPostConversationsChatParticipantReplaceTooManyRequests() *PostConversati
 
 /*PostConversationsChatParticipantReplaceTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostConversationsChatParticipantReplaceTooManyRequests struct {
 	Payload *models.ErrorBody

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -23,9 +24,16 @@ type Note struct {
 	// Format: date-time
 	CreateDate strfmt.DateTime `json:"createDate,omitempty"`
 
-	// The author of this note
+	// When creating or updating a note, only User.id is required. User object is fully populated when expanding a note.
 	// Required: true
 	CreatedBy *User `json:"createdBy"`
+
+	// The id of the contact or organization to which this note refers. This only needs to be set for input when using the Bulk APIs.
+	EntityID string `json:"entityId,omitempty"`
+
+	// This is only need to be set when using Bulk API. Using any other value than contact or organization will result in null being used.
+	// Enum: [contact organization]
+	EntityType string `json:"entityType,omitempty"`
 
 	// Links to the sources of data (e.g. one source might be a CRM) that contributed data to this record.  Read-only, and only populated when requested via expand param.
 	// Read Only: true
@@ -38,9 +46,6 @@ type Note struct {
 	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	ModifyDate strfmt.DateTime `json:"modifyDate,omitempty"`
-
-	// name
-	Name string `json:"name,omitempty"`
 
 	// note text
 	NoteText string `json:"noteText,omitempty"`
@@ -60,6 +65,10 @@ func (m *Note) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateCreatedBy(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateEntityType(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -107,6 +116,49 @@ func (m *Note) validateCreatedBy(formats strfmt.Registry) error {
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+var noteTypeEntityTypePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["contact","organization"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		noteTypeEntityTypePropEnum = append(noteTypeEntityTypePropEnum, v)
+	}
+}
+
+const (
+
+	// NoteEntityTypeContact captures enum value "contact"
+	NoteEntityTypeContact string = "contact"
+
+	// NoteEntityTypeOrganization captures enum value "organization"
+	NoteEntityTypeOrganization string = "organization"
+)
+
+// prop value enum
+func (m *Note) validateEntityTypeEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, noteTypeEntityTypePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *Note) validateEntityType(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.EntityType) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateEntityTypeEnum("entityType", "body", m.EntityType); err != nil {
+		return err
 	}
 
 	return nil

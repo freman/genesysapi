@@ -14,22 +14,23 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// ContentButtonResponse Button response object
+// ContentButtonResponse Button response object representing the click of a structured message button, such as a quick reply.
 //
 // swagger:model ContentButtonResponse
 type ContentButtonResponse struct {
 
-	// An ID assigned to the button response. Each object inside the content array has a unique ID.
+	// An ID assigned to the button response (Deprecated).
 	ID string `json:"id,omitempty"`
 
-	// Content of the textback payload after clicking a button
-	Payload string `json:"payload,omitempty"`
+	// The response payload associated with the clicked button.
+	// Required: true
+	Payload *string `json:"payload"`
 
-	// Text to show inside the Button reply. This is also used as the response text after clicking on the Button.
+	// The response text from the button click.
 	// Required: true
 	Text *string `json:"text"`
 
-	// Button response type that captures Button and QuickReply type responses
+	// Describes the button that resulted in the Button Response.
 	// Enum: [Button QuickReply]
 	Type string `json:"type,omitempty"`
 }
@@ -37,6 +38,10 @@ type ContentButtonResponse struct {
 // Validate validates this content button response
 func (m *ContentButtonResponse) Validate(formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.validatePayload(formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.validateText(formats); err != nil {
 		res = append(res, err)
@@ -49,6 +54,15 @@ func (m *ContentButtonResponse) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *ContentButtonResponse) validatePayload(formats strfmt.Registry) error {
+
+	if err := validate.Required("payload", "body", m.Payload); err != nil {
+		return err
+	}
+
 	return nil
 }
 

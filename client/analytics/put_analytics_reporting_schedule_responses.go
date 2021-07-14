@@ -53,6 +53,12 @@ func (o *PutAnalyticsReportingScheduleReader) ReadResponse(response runtime.Clie
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPutAnalyticsReportingScheduleRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPutAnalyticsReportingScheduleRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PutAnalyticsReportingScheduleNotFound) readResponse(response runtime.Cl
 	return nil
 }
 
+// NewPutAnalyticsReportingScheduleRequestTimeout creates a PutAnalyticsReportingScheduleRequestTimeout with default headers values
+func NewPutAnalyticsReportingScheduleRequestTimeout() *PutAnalyticsReportingScheduleRequestTimeout {
+	return &PutAnalyticsReportingScheduleRequestTimeout{}
+}
+
+/*PutAnalyticsReportingScheduleRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PutAnalyticsReportingScheduleRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PutAnalyticsReportingScheduleRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/analytics/reporting/schedules/{scheduleId}][%d] putAnalyticsReportingScheduleRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutAnalyticsReportingScheduleRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PutAnalyticsReportingScheduleRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPutAnalyticsReportingScheduleRequestEntityTooLarge creates a PutAnalyticsReportingScheduleRequestEntityTooLarge with default headers values
 func NewPutAnalyticsReportingScheduleRequestEntityTooLarge() *PutAnalyticsReportingScheduleRequestEntityTooLarge {
 	return &PutAnalyticsReportingScheduleRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPutAnalyticsReportingScheduleTooManyRequests() *PutAnalyticsReportingSch
 
 /*PutAnalyticsReportingScheduleTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PutAnalyticsReportingScheduleTooManyRequests struct {
 	Payload *models.ErrorBody

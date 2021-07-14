@@ -53,6 +53,12 @@ func (o *GetSpeechandtextanalyticsTopicsGeneralReader) ReadResponse(response run
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetSpeechandtextanalyticsTopicsGeneralRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetSpeechandtextanalyticsTopicsGeneralRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetSpeechandtextanalyticsTopicsGeneralNotFound) readResponse(response r
 	return nil
 }
 
+// NewGetSpeechandtextanalyticsTopicsGeneralRequestTimeout creates a GetSpeechandtextanalyticsTopicsGeneralRequestTimeout with default headers values
+func NewGetSpeechandtextanalyticsTopicsGeneralRequestTimeout() *GetSpeechandtextanalyticsTopicsGeneralRequestTimeout {
+	return &GetSpeechandtextanalyticsTopicsGeneralRequestTimeout{}
+}
+
+/*GetSpeechandtextanalyticsTopicsGeneralRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetSpeechandtextanalyticsTopicsGeneralRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetSpeechandtextanalyticsTopicsGeneralRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/topics/general][%d] getSpeechandtextanalyticsTopicsGeneralRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetSpeechandtextanalyticsTopicsGeneralRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetSpeechandtextanalyticsTopicsGeneralRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetSpeechandtextanalyticsTopicsGeneralRequestEntityTooLarge creates a GetSpeechandtextanalyticsTopicsGeneralRequestEntityTooLarge with default headers values
 func NewGetSpeechandtextanalyticsTopicsGeneralRequestEntityTooLarge() *GetSpeechandtextanalyticsTopicsGeneralRequestEntityTooLarge {
 	return &GetSpeechandtextanalyticsTopicsGeneralRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetSpeechandtextanalyticsTopicsGeneralTooManyRequests() *GetSpeechandtex
 
 /*GetSpeechandtextanalyticsTopicsGeneralTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetSpeechandtextanalyticsTopicsGeneralTooManyRequests struct {
 	Payload *models.ErrorBody

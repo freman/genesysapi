@@ -53,6 +53,12 @@ func (o *PutOrgauthorizationTrusteeUserRolesReader) ReadResponse(response runtim
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPutOrgauthorizationTrusteeUserRolesRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPutOrgauthorizationTrusteeUserRolesRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PutOrgauthorizationTrusteeUserRolesNotFound) readResponse(response runt
 	return nil
 }
 
+// NewPutOrgauthorizationTrusteeUserRolesRequestTimeout creates a PutOrgauthorizationTrusteeUserRolesRequestTimeout with default headers values
+func NewPutOrgauthorizationTrusteeUserRolesRequestTimeout() *PutOrgauthorizationTrusteeUserRolesRequestTimeout {
+	return &PutOrgauthorizationTrusteeUserRolesRequestTimeout{}
+}
+
+/*PutOrgauthorizationTrusteeUserRolesRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PutOrgauthorizationTrusteeUserRolesRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PutOrgauthorizationTrusteeUserRolesRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/orgauthorization/trustees/{trusteeOrgId}/users/{trusteeUserId}/roles][%d] putOrgauthorizationTrusteeUserRolesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutOrgauthorizationTrusteeUserRolesRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PutOrgauthorizationTrusteeUserRolesRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPutOrgauthorizationTrusteeUserRolesRequestEntityTooLarge creates a PutOrgauthorizationTrusteeUserRolesRequestEntityTooLarge with default headers values
 func NewPutOrgauthorizationTrusteeUserRolesRequestEntityTooLarge() *PutOrgauthorizationTrusteeUserRolesRequestEntityTooLarge {
 	return &PutOrgauthorizationTrusteeUserRolesRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPutOrgauthorizationTrusteeUserRolesTooManyRequests() *PutOrgauthorizatio
 
 /*PutOrgauthorizationTrusteeUserRolesTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PutOrgauthorizationTrusteeUserRolesTooManyRequests struct {
 	Payload *models.ErrorBody

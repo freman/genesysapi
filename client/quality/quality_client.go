@@ -38,15 +38,6 @@ type API interface {
 	*/
 	DeleteQualityFormsSurvey(ctx context.Context, params *DeleteQualityFormsSurveyParams) (*DeleteQualityFormsSurveyNoContent, error)
 	/*
-	   DeleteQualityKeywordset deletes a keyword set by id
-	*/
-	DeleteQualityKeywordset(ctx context.Context, params *DeleteQualityKeywordsetParams) error
-	/*
-	   DeleteQualityKeywordsets deletes keyword sets
-	   Bulk delete of keyword sets; this will only delete the keyword sets that match the ids specified in the query param.
-	*/
-	DeleteQualityKeywordsets(ctx context.Context, params *DeleteQualityKeywordsetsParams) (*DeleteQualityKeywordsetsOK, error)
-	/*
 	   GetQualityAgentsActivity gets a list of agent activities
 	   Including the number of evaluations and average evaluation score
 	*/
@@ -61,7 +52,7 @@ type API interface {
 	GetQualityCalibrations(ctx context.Context, params *GetQualityCalibrationsParams) (*GetQualityCalibrationsOK, error)
 	/*
 	   GetQualityConversationAudits gets audits for conversation or recording
-	   Different permissions are required for viewing different resource audit entries.  The quality:evaluation:viewAudit permission is required to view evaluation audits, the recording:recording:viewAudit permission is required to view recording audits, and so on.
+	   Different permissions are required for viewing different resource audit entries.  The quality:evaluation:viewAudit permission is required to view evaluation audits, the recording:recording:viewAudit permission is required to view recording audits, and so on.This endpoint is deprecated. Use following async endpoints, To query for audits POST /api/v2/quality/conversations/audits/queryTo get status of audit query GET /api/v2/quality/conversations/audits/query/{transactionId}To get results of audit query GET /api/v2/quality/conversations/audits/query/{transactionId}/results
 	*/
 	GetQualityConversationAudits(ctx context.Context, params *GetQualityConversationAuditsParams) (*GetQualityConversationAuditsOK, error)
 	/*
@@ -72,6 +63,14 @@ type API interface {
 	   GetQualityConversationSurveys gets the surveys for a conversation
 	*/
 	GetQualityConversationSurveys(ctx context.Context, params *GetQualityConversationSurveysParams) (*GetQualityConversationSurveysOK, error)
+	/*
+	   GetQualityConversationsAuditsQueryTransactionID gets status of audit query execution
+	*/
+	GetQualityConversationsAuditsQueryTransactionID(ctx context.Context, params *GetQualityConversationsAuditsQueryTransactionIDParams) (*GetQualityConversationsAuditsQueryTransactionIDOK, *GetQualityConversationsAuditsQueryTransactionIDAccepted, error)
+	/*
+	   GetQualityConversationsAuditsQueryTransactionIDResults gets results of audit query
+	*/
+	GetQualityConversationsAuditsQueryTransactionIDResults(ctx context.Context, params *GetQualityConversationsAuditsQueryTransactionIDResultsParams) (*GetQualityConversationsAuditsQueryTransactionIDResultsOK, error)
 	/*
 	   GetQualityEvaluationsQuery queries evaluations and returns a paged list
 	   Query params must include one of conversationId, evaluatorUserId, or agentUserId
@@ -126,14 +125,6 @@ type API interface {
 	*/
 	GetQualityFormsSurveysBulkContexts(ctx context.Context, params *GetQualityFormsSurveysBulkContextsParams) (*GetQualityFormsSurveysBulkContextsOK, error)
 	/*
-	   GetQualityKeywordset gets a keyword set by id
-	*/
-	GetQualityKeywordset(ctx context.Context, params *GetQualityKeywordsetParams) (*GetQualityKeywordsetOK, error)
-	/*
-	   GetQualityKeywordsets gets the list of keyword sets
-	*/
-	GetQualityKeywordsets(ctx context.Context, params *GetQualityKeywordsetsParams) (*GetQualityKeywordsetsOK, error)
-	/*
 	   GetQualityPublishedform gets the published evaluation forms
 	*/
 	GetQualityPublishedform(ctx context.Context, params *GetQualityPublishedformParams) (*GetQualityPublishedformOK, error)
@@ -186,6 +177,10 @@ type API interface {
 	*/
 	PostQualityConversationEvaluations(ctx context.Context, params *PostQualityConversationEvaluationsParams) (*PostQualityConversationEvaluationsOK, error)
 	/*
+	   PostQualityConversationsAuditsQuery creates audit query execution
+	*/
+	PostQualityConversationsAuditsQuery(ctx context.Context, params *PostQualityConversationsAuditsQueryParams) (*PostQualityConversationsAuditsQueryOK, *PostQualityConversationsAuditsQueryAccepted, error)
+	/*
 	   PostQualityEvaluationsScoring scores evaluation
 	*/
 	PostQualityEvaluationsScoring(ctx context.Context, params *PostQualityEvaluationsScoringParams) (*PostQualityEvaluationsScoringOK, error)
@@ -202,10 +197,6 @@ type API interface {
 	*/
 	PostQualityFormsSurveys(ctx context.Context, params *PostQualityFormsSurveysParams) (*PostQualityFormsSurveysOK, error)
 	/*
-	   PostQualityKeywordsets creates a keyword set
-	*/
-	PostQualityKeywordsets(ctx context.Context, params *PostQualityKeywordsetsParams) (*PostQualityKeywordsetsOK, error)
-	/*
 	   PostQualityPublishedforms publishes an evaluation form
 	*/
 	PostQualityPublishedforms(ctx context.Context, params *PostQualityPublishedformsParams) (*PostQualityPublishedformsOK, error)
@@ -217,10 +208,6 @@ type API interface {
 	   PostQualityPublishedformsSurveys publishes a survey form
 	*/
 	PostQualityPublishedformsSurveys(ctx context.Context, params *PostQualityPublishedformsSurveysParams) (*PostQualityPublishedformsSurveysOK, error)
-	/*
-	   PostQualitySpotability retrieves the spotability statistic
-	*/
-	PostQualitySpotability(ctx context.Context, params *PostQualitySpotabilityParams) (*PostQualitySpotabilityOK, error)
 	/*
 	   PostQualitySurveysScoring scores survey
 	*/
@@ -246,10 +233,6 @@ type API interface {
 	   PutQualityFormsSurvey updates a survey form
 	*/
 	PutQualityFormsSurvey(ctx context.Context, params *PutQualityFormsSurveyParams) (*PutQualityFormsSurveyOK, error)
-	/*
-	   PutQualityKeywordset updates a keyword set to the specified keyword set via p u t
-	*/
-	PutQualityKeywordset(ctx context.Context, params *PutQualityKeywordsetParams) (*PutQualityKeywordsetOK, error)
 	/*
 	   PutQualitySurveysScorable updates a survey as an end customer for the purposes of scoring it
 	*/
@@ -400,58 +383,6 @@ func (a *Client) DeleteQualityFormsSurvey(ctx context.Context, params *DeleteQua
 }
 
 /*
-DeleteQualityKeywordset deletes a keyword set by id
-*/
-func (a *Client) DeleteQualityKeywordset(ctx context.Context, params *DeleteQualityKeywordsetParams) error {
-
-	_, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "deleteQualityKeywordset",
-		Method:             "DELETE",
-		PathPattern:        "/api/v2/quality/keywordsets/{keywordSetId}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &DeleteQualityKeywordsetReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return err
-	}
-	return nil
-
-}
-
-/*
-DeleteQualityKeywordsets deletes keyword sets
-
-Bulk delete of keyword sets; this will only delete the keyword sets that match the ids specified in the query param.
-*/
-func (a *Client) DeleteQualityKeywordsets(ctx context.Context, params *DeleteQualityKeywordsetsParams) (*DeleteQualityKeywordsetsOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "deleteQualityKeywordsets",
-		Method:             "DELETE",
-		PathPattern:        "/api/v2/quality/keywordsets",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &DeleteQualityKeywordsetsReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*DeleteQualityKeywordsetsOK), nil
-
-}
-
-/*
 GetQualityAgentsActivity gets a list of agent activities
 
 Including the number of evaluations and average evaluation score
@@ -531,7 +462,7 @@ func (a *Client) GetQualityCalibrations(ctx context.Context, params *GetQualityC
 /*
 GetQualityConversationAudits gets audits for conversation or recording
 
-Different permissions are required for viewing different resource audit entries.  The quality:evaluation:viewAudit permission is required to view evaluation audits, the recording:recording:viewAudit permission is required to view recording audits, and so on.
+Different permissions are required for viewing different resource audit entries.  The quality:evaluation:viewAudit permission is required to view evaluation audits, the recording:recording:viewAudit permission is required to view recording audits, and so on.This endpoint is deprecated. Use following async endpoints, To query for audits POST /api/v2/quality/conversations/audits/queryTo get status of audit query GET /api/v2/quality/conversations/audits/query/{transactionId}To get results of audit query GET /api/v2/quality/conversations/audits/query/{transactionId}/results
 */
 func (a *Client) GetQualityConversationAudits(ctx context.Context, params *GetQualityConversationAuditsParams) (*GetQualityConversationAuditsOK, error) {
 
@@ -602,6 +533,62 @@ func (a *Client) GetQualityConversationSurveys(ctx context.Context, params *GetQ
 		return nil, err
 	}
 	return result.(*GetQualityConversationSurveysOK), nil
+
+}
+
+/*
+GetQualityConversationsAuditsQueryTransactionID gets status of audit query execution
+*/
+func (a *Client) GetQualityConversationsAuditsQueryTransactionID(ctx context.Context, params *GetQualityConversationsAuditsQueryTransactionIDParams) (*GetQualityConversationsAuditsQueryTransactionIDOK, *GetQualityConversationsAuditsQueryTransactionIDAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getQualityConversationsAuditsQueryTransactionId",
+		Method:             "GET",
+		PathPattern:        "/api/v2/quality/conversations/audits/query/{transactionId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetQualityConversationsAuditsQueryTransactionIDReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *GetQualityConversationsAuditsQueryTransactionIDOK:
+		return value, nil, nil
+	case *GetQualityConversationsAuditsQueryTransactionIDAccepted:
+		return nil, value, nil
+	}
+	return nil, nil, nil
+
+}
+
+/*
+GetQualityConversationsAuditsQueryTransactionIDResults gets results of audit query
+*/
+func (a *Client) GetQualityConversationsAuditsQueryTransactionIDResults(ctx context.Context, params *GetQualityConversationsAuditsQueryTransactionIDResultsParams) (*GetQualityConversationsAuditsQueryTransactionIDResultsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getQualityConversationsAuditsQueryTransactionIdResults",
+		Method:             "GET",
+		PathPattern:        "/api/v2/quality/conversations/audits/query/{transactionId}/results",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetQualityConversationsAuditsQueryTransactionIDResultsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetQualityConversationsAuditsQueryTransactionIDResultsOK), nil
 
 }
 
@@ -933,56 +920,6 @@ func (a *Client) GetQualityFormsSurveysBulkContexts(ctx context.Context, params 
 }
 
 /*
-GetQualityKeywordset gets a keyword set by id
-*/
-func (a *Client) GetQualityKeywordset(ctx context.Context, params *GetQualityKeywordsetParams) (*GetQualityKeywordsetOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "getQualityKeywordset",
-		Method:             "GET",
-		PathPattern:        "/api/v2/quality/keywordsets/{keywordSetId}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetQualityKeywordsetReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*GetQualityKeywordsetOK), nil
-
-}
-
-/*
-GetQualityKeywordsets gets the list of keyword sets
-*/
-func (a *Client) GetQualityKeywordsets(ctx context.Context, params *GetQualityKeywordsetsParams) (*GetQualityKeywordsetsOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "getQualityKeywordsets",
-		Method:             "GET",
-		PathPattern:        "/api/v2/quality/keywordsets",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetQualityKeywordsetsReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*GetQualityKeywordsetsOK), nil
-
-}
-
-/*
 GetQualityPublishedform gets the published evaluation forms
 */
 func (a *Client) GetQualityPublishedform(ctx context.Context, params *GetQualityPublishedformParams) (*GetQualityPublishedformOK, error) {
@@ -1307,6 +1244,37 @@ func (a *Client) PostQualityConversationEvaluations(ctx context.Context, params 
 }
 
 /*
+PostQualityConversationsAuditsQuery creates audit query execution
+*/
+func (a *Client) PostQualityConversationsAuditsQuery(ctx context.Context, params *PostQualityConversationsAuditsQueryParams) (*PostQualityConversationsAuditsQueryOK, *PostQualityConversationsAuditsQueryAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postQualityConversationsAuditsQuery",
+		Method:             "POST",
+		PathPattern:        "/api/v2/quality/conversations/audits/query",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostQualityConversationsAuditsQueryReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PostQualityConversationsAuditsQueryOK:
+		return value, nil, nil
+	case *PostQualityConversationsAuditsQueryAccepted:
+		return nil, value, nil
+	}
+	return nil, nil, nil
+
+}
+
+/*
 PostQualityEvaluationsScoring scores evaluation
 */
 func (a *Client) PostQualityEvaluationsScoring(ctx context.Context, params *PostQualityEvaluationsScoringParams) (*PostQualityEvaluationsScoringOK, error) {
@@ -1407,31 +1375,6 @@ func (a *Client) PostQualityFormsSurveys(ctx context.Context, params *PostQualit
 }
 
 /*
-PostQualityKeywordsets creates a keyword set
-*/
-func (a *Client) PostQualityKeywordsets(ctx context.Context, params *PostQualityKeywordsetsParams) (*PostQualityKeywordsetsOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "postQualityKeywordsets",
-		Method:             "POST",
-		PathPattern:        "/api/v2/quality/keywordsets",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PostQualityKeywordsetsReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*PostQualityKeywordsetsOK), nil
-
-}
-
-/*
 PostQualityPublishedforms publishes an evaluation form
 */
 func (a *Client) PostQualityPublishedforms(ctx context.Context, params *PostQualityPublishedformsParams) (*PostQualityPublishedformsOK, error) {
@@ -1503,31 +1446,6 @@ func (a *Client) PostQualityPublishedformsSurveys(ctx context.Context, params *P
 		return nil, err
 	}
 	return result.(*PostQualityPublishedformsSurveysOK), nil
-
-}
-
-/*
-PostQualitySpotability retrieves the spotability statistic
-*/
-func (a *Client) PostQualitySpotability(ctx context.Context, params *PostQualitySpotabilityParams) (*PostQualitySpotabilityOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "postQualitySpotability",
-		Method:             "POST",
-		PathPattern:        "/api/v2/quality/spotability",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PostQualitySpotabilityReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*PostQualitySpotabilityOK), nil
 
 }
 
@@ -1680,31 +1598,6 @@ func (a *Client) PutQualityFormsSurvey(ctx context.Context, params *PutQualityFo
 		return nil, err
 	}
 	return result.(*PutQualityFormsSurveyOK), nil
-
-}
-
-/*
-PutQualityKeywordset updates a keyword set to the specified keyword set via p u t
-*/
-func (a *Client) PutQualityKeywordset(ctx context.Context, params *PutQualityKeywordsetParams) (*PutQualityKeywordsetOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "putQualityKeywordset",
-		Method:             "PUT",
-		PathPattern:        "/api/v2/quality/keywordsets/{keywordSetId}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PutQualityKeywordsetReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*PutQualityKeywordsetOK), nil
 
 }
 

@@ -53,6 +53,12 @@ func (o *PutUserGreetingsDefaultsReader) ReadResponse(response runtime.ClientRes
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPutUserGreetingsDefaultsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPutUserGreetingsDefaultsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PutUserGreetingsDefaultsNotFound) readResponse(response runtime.ClientR
 	return nil
 }
 
+// NewPutUserGreetingsDefaultsRequestTimeout creates a PutUserGreetingsDefaultsRequestTimeout with default headers values
+func NewPutUserGreetingsDefaultsRequestTimeout() *PutUserGreetingsDefaultsRequestTimeout {
+	return &PutUserGreetingsDefaultsRequestTimeout{}
+}
+
+/*PutUserGreetingsDefaultsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PutUserGreetingsDefaultsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PutUserGreetingsDefaultsRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/greetings/defaults][%d] putUserGreetingsDefaultsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutUserGreetingsDefaultsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PutUserGreetingsDefaultsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPutUserGreetingsDefaultsRequestEntityTooLarge creates a PutUserGreetingsDefaultsRequestEntityTooLarge with default headers values
 func NewPutUserGreetingsDefaultsRequestEntityTooLarge() *PutUserGreetingsDefaultsRequestEntityTooLarge {
 	return &PutUserGreetingsDefaultsRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPutUserGreetingsDefaultsTooManyRequests() *PutUserGreetingsDefaultsTooMa
 
 /*PutUserGreetingsDefaultsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PutUserGreetingsDefaultsTooManyRequests struct {
 	Payload *models.ErrorBody

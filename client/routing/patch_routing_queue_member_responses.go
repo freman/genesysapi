@@ -53,6 +53,12 @@ func (o *PatchRoutingQueueMemberReader) ReadResponse(response runtime.ClientResp
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPatchRoutingQueueMemberRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPatchRoutingQueueMemberRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -248,6 +254,39 @@ func (o *PatchRoutingQueueMemberNotFound) readResponse(response runtime.ClientRe
 	return nil
 }
 
+// NewPatchRoutingQueueMemberRequestTimeout creates a PatchRoutingQueueMemberRequestTimeout with default headers values
+func NewPatchRoutingQueueMemberRequestTimeout() *PatchRoutingQueueMemberRequestTimeout {
+	return &PatchRoutingQueueMemberRequestTimeout{}
+}
+
+/*PatchRoutingQueueMemberRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PatchRoutingQueueMemberRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PatchRoutingQueueMemberRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/queues/{queueId}/members/{memberId}][%d] patchRoutingQueueMemberRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchRoutingQueueMemberRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PatchRoutingQueueMemberRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPatchRoutingQueueMemberRequestEntityTooLarge creates a PatchRoutingQueueMemberRequestEntityTooLarge with default headers values
 func NewPatchRoutingQueueMemberRequestEntityTooLarge() *PatchRoutingQueueMemberRequestEntityTooLarge {
 	return &PatchRoutingQueueMemberRequestEntityTooLarge{}
@@ -321,7 +360,7 @@ func NewPatchRoutingQueueMemberTooManyRequests() *PatchRoutingQueueMemberTooMany
 
 /*PatchRoutingQueueMemberTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PatchRoutingQueueMemberTooManyRequests struct {
 	Payload *models.ErrorBody

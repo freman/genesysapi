@@ -53,6 +53,12 @@ func (o *PostAnalyticsSurveysAggregatesQueryReader) ReadResponse(response runtim
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostAnalyticsSurveysAggregatesQueryRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostAnalyticsSurveysAggregatesQueryRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PostAnalyticsSurveysAggregatesQueryNotFound) readResponse(response runt
 	return nil
 }
 
+// NewPostAnalyticsSurveysAggregatesQueryRequestTimeout creates a PostAnalyticsSurveysAggregatesQueryRequestTimeout with default headers values
+func NewPostAnalyticsSurveysAggregatesQueryRequestTimeout() *PostAnalyticsSurveysAggregatesQueryRequestTimeout {
+	return &PostAnalyticsSurveysAggregatesQueryRequestTimeout{}
+}
+
+/*PostAnalyticsSurveysAggregatesQueryRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostAnalyticsSurveysAggregatesQueryRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostAnalyticsSurveysAggregatesQueryRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/surveys/aggregates/query][%d] postAnalyticsSurveysAggregatesQueryRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostAnalyticsSurveysAggregatesQueryRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostAnalyticsSurveysAggregatesQueryRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostAnalyticsSurveysAggregatesQueryRequestEntityTooLarge creates a PostAnalyticsSurveysAggregatesQueryRequestEntityTooLarge with default headers values
 func NewPostAnalyticsSurveysAggregatesQueryRequestEntityTooLarge() *PostAnalyticsSurveysAggregatesQueryRequestEntityTooLarge {
 	return &PostAnalyticsSurveysAggregatesQueryRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPostAnalyticsSurveysAggregatesQueryTooManyRequests() *PostAnalyticsSurve
 
 /*PostAnalyticsSurveysAggregatesQueryTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostAnalyticsSurveysAggregatesQueryTooManyRequests struct {
 	Payload *models.ErrorBody

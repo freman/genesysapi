@@ -33,7 +33,7 @@ type BotAggregationView struct {
 
 	// Target metric name
 	// Required: true
-	// Enum: [nBotSessions oBotIntent oBotSessionTurn oBotSlot tBotSession]
+	// Enum: [nBotSessions oBotIntent oBotSessionTurn oBotSlot tBotDisconnect tBotExit tBotRecognitionFailure tBotSession]
 	Target *string `json:"target"`
 }
 
@@ -134,7 +134,7 @@ var botAggregationViewTypeTargetPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["nBotSessions","oBotIntent","oBotSessionTurn","oBotSlot","tBotSession"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["nBotSessions","oBotIntent","oBotSessionTurn","oBotSlot","tBotDisconnect","tBotExit","tBotRecognitionFailure","tBotSession"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -155,6 +155,15 @@ const (
 
 	// BotAggregationViewTargetOBotSlot captures enum value "oBotSlot"
 	BotAggregationViewTargetOBotSlot string = "oBotSlot"
+
+	// BotAggregationViewTargetTBotDisconnect captures enum value "tBotDisconnect"
+	BotAggregationViewTargetTBotDisconnect string = "tBotDisconnect"
+
+	// BotAggregationViewTargetTBotExit captures enum value "tBotExit"
+	BotAggregationViewTargetTBotExit string = "tBotExit"
+
+	// BotAggregationViewTargetTBotRecognitionFailure captures enum value "tBotRecognitionFailure"
+	BotAggregationViewTargetTBotRecognitionFailure string = "tBotRecognitionFailure"
 
 	// BotAggregationViewTargetTBotSession captures enum value "tBotSession"
 	BotAggregationViewTargetTBotSession string = "tBotSession"

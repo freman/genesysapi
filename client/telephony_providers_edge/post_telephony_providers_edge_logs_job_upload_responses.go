@@ -53,6 +53,12 @@ func (o *PostTelephonyProvidersEdgeLogsJobUploadReader) ReadResponse(response ru
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostTelephonyProvidersEdgeLogsJobUploadRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostTelephonyProvidersEdgeLogsJobUploadRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -248,6 +254,39 @@ func (o *PostTelephonyProvidersEdgeLogsJobUploadNotFound) readResponse(response 
 	return nil
 }
 
+// NewPostTelephonyProvidersEdgeLogsJobUploadRequestTimeout creates a PostTelephonyProvidersEdgeLogsJobUploadRequestTimeout with default headers values
+func NewPostTelephonyProvidersEdgeLogsJobUploadRequestTimeout() *PostTelephonyProvidersEdgeLogsJobUploadRequestTimeout {
+	return &PostTelephonyProvidersEdgeLogsJobUploadRequestTimeout{}
+}
+
+/*PostTelephonyProvidersEdgeLogsJobUploadRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostTelephonyProvidersEdgeLogsJobUploadRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostTelephonyProvidersEdgeLogsJobUploadRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/logs/jobs/{jobId}/upload][%d] postTelephonyProvidersEdgeLogsJobUploadRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeLogsJobUploadRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostTelephonyProvidersEdgeLogsJobUploadRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostTelephonyProvidersEdgeLogsJobUploadRequestEntityTooLarge creates a PostTelephonyProvidersEdgeLogsJobUploadRequestEntityTooLarge with default headers values
 func NewPostTelephonyProvidersEdgeLogsJobUploadRequestEntityTooLarge() *PostTelephonyProvidersEdgeLogsJobUploadRequestEntityTooLarge {
 	return &PostTelephonyProvidersEdgeLogsJobUploadRequestEntityTooLarge{}
@@ -321,7 +360,7 @@ func NewPostTelephonyProvidersEdgeLogsJobUploadTooManyRequests() *PostTelephonyP
 
 /*PostTelephonyProvidersEdgeLogsJobUploadTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostTelephonyProvidersEdgeLogsJobUploadTooManyRequests struct {
 	Payload *models.ErrorBody

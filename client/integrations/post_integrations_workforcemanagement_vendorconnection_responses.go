@@ -53,6 +53,12 @@ func (o *PostIntegrationsWorkforcemanagementVendorconnectionReader) ReadResponse
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostIntegrationsWorkforcemanagementVendorconnectionRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostIntegrationsWorkforcemanagementVendorconnectionRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PostIntegrationsWorkforcemanagementVendorconnectionNotFound) readRespon
 	return nil
 }
 
+// NewPostIntegrationsWorkforcemanagementVendorconnectionRequestTimeout creates a PostIntegrationsWorkforcemanagementVendorconnectionRequestTimeout with default headers values
+func NewPostIntegrationsWorkforcemanagementVendorconnectionRequestTimeout() *PostIntegrationsWorkforcemanagementVendorconnectionRequestTimeout {
+	return &PostIntegrationsWorkforcemanagementVendorconnectionRequestTimeout{}
+}
+
+/*PostIntegrationsWorkforcemanagementVendorconnectionRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostIntegrationsWorkforcemanagementVendorconnectionRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostIntegrationsWorkforcemanagementVendorconnectionRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/integrations/workforcemanagement/vendorconnection][%d] postIntegrationsWorkforcemanagementVendorconnectionRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostIntegrationsWorkforcemanagementVendorconnectionRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostIntegrationsWorkforcemanagementVendorconnectionRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostIntegrationsWorkforcemanagementVendorconnectionRequestEntityTooLarge creates a PostIntegrationsWorkforcemanagementVendorconnectionRequestEntityTooLarge with default headers values
 func NewPostIntegrationsWorkforcemanagementVendorconnectionRequestEntityTooLarge() *PostIntegrationsWorkforcemanagementVendorconnectionRequestEntityTooLarge {
 	return &PostIntegrationsWorkforcemanagementVendorconnectionRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPostIntegrationsWorkforcemanagementVendorconnectionTooManyRequests() *Po
 
 /*PostIntegrationsWorkforcemanagementVendorconnectionTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostIntegrationsWorkforcemanagementVendorconnectionTooManyRequests struct {
 	Payload *models.ErrorBody

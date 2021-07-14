@@ -53,6 +53,12 @@ func (o *GetTelephonySiptracesReader) ReadResponse(response runtime.ClientRespon
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetTelephonySiptracesRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetTelephonySiptracesRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetTelephonySiptracesNotFound) readResponse(response runtime.ClientResp
 	return nil
 }
 
+// NewGetTelephonySiptracesRequestTimeout creates a GetTelephonySiptracesRequestTimeout with default headers values
+func NewGetTelephonySiptracesRequestTimeout() *GetTelephonySiptracesRequestTimeout {
+	return &GetTelephonySiptracesRequestTimeout{}
+}
+
+/*GetTelephonySiptracesRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetTelephonySiptracesRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetTelephonySiptracesRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/siptraces][%d] getTelephonySiptracesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetTelephonySiptracesRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetTelephonySiptracesRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetTelephonySiptracesRequestEntityTooLarge creates a GetTelephonySiptracesRequestEntityTooLarge with default headers values
 func NewGetTelephonySiptracesRequestEntityTooLarge() *GetTelephonySiptracesRequestEntityTooLarge {
 	return &GetTelephonySiptracesRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetTelephonySiptracesTooManyRequests() *GetTelephonySiptracesTooManyRequ
 
 /*GetTelephonySiptracesTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetTelephonySiptracesTooManyRequests struct {
 	Payload *models.ErrorBody

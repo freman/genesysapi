@@ -53,6 +53,12 @@ func (o *DeleteSpeechandtextanalyticsTopicReader) ReadResponse(response runtime.
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewDeleteSpeechandtextanalyticsTopicRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewDeleteSpeechandtextanalyticsTopicRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -248,6 +254,39 @@ func (o *DeleteSpeechandtextanalyticsTopicNotFound) readResponse(response runtim
 	return nil
 }
 
+// NewDeleteSpeechandtextanalyticsTopicRequestTimeout creates a DeleteSpeechandtextanalyticsTopicRequestTimeout with default headers values
+func NewDeleteSpeechandtextanalyticsTopicRequestTimeout() *DeleteSpeechandtextanalyticsTopicRequestTimeout {
+	return &DeleteSpeechandtextanalyticsTopicRequestTimeout{}
+}
+
+/*DeleteSpeechandtextanalyticsTopicRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type DeleteSpeechandtextanalyticsTopicRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *DeleteSpeechandtextanalyticsTopicRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/topics/{topicId}][%d] deleteSpeechandtextanalyticsTopicRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteSpeechandtextanalyticsTopicRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *DeleteSpeechandtextanalyticsTopicRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewDeleteSpeechandtextanalyticsTopicRequestEntityTooLarge creates a DeleteSpeechandtextanalyticsTopicRequestEntityTooLarge with default headers values
 func NewDeleteSpeechandtextanalyticsTopicRequestEntityTooLarge() *DeleteSpeechandtextanalyticsTopicRequestEntityTooLarge {
 	return &DeleteSpeechandtextanalyticsTopicRequestEntityTooLarge{}
@@ -321,7 +360,7 @@ func NewDeleteSpeechandtextanalyticsTopicTooManyRequests() *DeleteSpeechandtexta
 
 /*DeleteSpeechandtextanalyticsTopicTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type DeleteSpeechandtextanalyticsTopicTooManyRequests struct {
 	Payload *models.ErrorBody

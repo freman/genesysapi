@@ -47,6 +47,9 @@ type NluDomainVersion struct {
 	// Read Only: true
 	Domain *NluDomain `json:"domain,omitempty"`
 
+	// The entities defined for this NLU domain version.This field is mutually exclusive with entityTypeBindings
+	Entities []*NamedEntityDefinition `json:"entities"`
+
 	// The entity types defined for this NLU domain version.
 	EntityTypes []*NamedEntityTypeDefinition `json:"entityTypes"`
 
@@ -102,6 +105,10 @@ func (m *NluDomainVersion) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateDomain(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateEntities(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -200,6 +207,31 @@ func (m *NluDomainVersion) validateDomain(formats strfmt.Registry) error {
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *NluDomainVersion) validateEntities(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Entities) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Entities); i++ {
+		if swag.IsZero(m.Entities[i]) { // not required
+			continue
+		}
+
+		if m.Entities[i] != nil {
+			if err := m.Entities[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("entities" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

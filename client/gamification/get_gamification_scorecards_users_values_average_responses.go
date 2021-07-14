@@ -53,6 +53,12 @@ func (o *GetGamificationScorecardsUsersValuesAverageReader) ReadResponse(respons
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetGamificationScorecardsUsersValuesAverageRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetGamificationScorecardsUsersValuesAverageRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetGamificationScorecardsUsersValuesAverageNotFound) readResponse(respo
 	return nil
 }
 
+// NewGetGamificationScorecardsUsersValuesAverageRequestTimeout creates a GetGamificationScorecardsUsersValuesAverageRequestTimeout with default headers values
+func NewGetGamificationScorecardsUsersValuesAverageRequestTimeout() *GetGamificationScorecardsUsersValuesAverageRequestTimeout {
+	return &GetGamificationScorecardsUsersValuesAverageRequestTimeout{}
+}
+
+/*GetGamificationScorecardsUsersValuesAverageRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetGamificationScorecardsUsersValuesAverageRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetGamificationScorecardsUsersValuesAverageRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/users/values/average][%d] getGamificationScorecardsUsersValuesAverageRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetGamificationScorecardsUsersValuesAverageRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetGamificationScorecardsUsersValuesAverageRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetGamificationScorecardsUsersValuesAverageRequestEntityTooLarge creates a GetGamificationScorecardsUsersValuesAverageRequestEntityTooLarge with default headers values
 func NewGetGamificationScorecardsUsersValuesAverageRequestEntityTooLarge() *GetGamificationScorecardsUsersValuesAverageRequestEntityTooLarge {
 	return &GetGamificationScorecardsUsersValuesAverageRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetGamificationScorecardsUsersValuesAverageTooManyRequests() *GetGamific
 
 /*GetGamificationScorecardsUsersValuesAverageTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetGamificationScorecardsUsersValuesAverageTooManyRequests struct {
 	Payload *models.ErrorBody

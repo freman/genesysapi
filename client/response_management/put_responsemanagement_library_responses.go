@@ -53,6 +53,12 @@ func (o *PutResponsemanagementLibraryReader) ReadResponse(response runtime.Clien
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPutResponsemanagementLibraryRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 409:
 		result := NewPutResponsemanagementLibraryConflict()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -266,6 +272,39 @@ func (o *PutResponsemanagementLibraryNotFound) readResponse(response runtime.Cli
 	return nil
 }
 
+// NewPutResponsemanagementLibraryRequestTimeout creates a PutResponsemanagementLibraryRequestTimeout with default headers values
+func NewPutResponsemanagementLibraryRequestTimeout() *PutResponsemanagementLibraryRequestTimeout {
+	return &PutResponsemanagementLibraryRequestTimeout{}
+}
+
+/*PutResponsemanagementLibraryRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PutResponsemanagementLibraryRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PutResponsemanagementLibraryRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/responsemanagement/libraries/{libraryId}][%d] putResponsemanagementLibraryRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutResponsemanagementLibraryRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PutResponsemanagementLibraryRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPutResponsemanagementLibraryConflict creates a PutResponsemanagementLibraryConflict with default headers values
 func NewPutResponsemanagementLibraryConflict() *PutResponsemanagementLibraryConflict {
 	return &PutResponsemanagementLibraryConflict{}
@@ -360,7 +399,7 @@ func NewPutResponsemanagementLibraryTooManyRequests() *PutResponsemanagementLibr
 
 /*PutResponsemanagementLibraryTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PutResponsemanagementLibraryTooManyRequests struct {
 	Payload *models.ErrorBody

@@ -53,6 +53,12 @@ func (o *GetConversationsMessageParticipantWrapupReader) ReadResponse(response r
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetConversationsMessageParticipantWrapupRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetConversationsMessageParticipantWrapupRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetConversationsMessageParticipantWrapupNotFound) readResponse(response
 	return nil
 }
 
+// NewGetConversationsMessageParticipantWrapupRequestTimeout creates a GetConversationsMessageParticipantWrapupRequestTimeout with default headers values
+func NewGetConversationsMessageParticipantWrapupRequestTimeout() *GetConversationsMessageParticipantWrapupRequestTimeout {
+	return &GetConversationsMessageParticipantWrapupRequestTimeout{}
+}
+
+/*GetConversationsMessageParticipantWrapupRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetConversationsMessageParticipantWrapupRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetConversationsMessageParticipantWrapupRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messages/{conversationId}/participants/{participantId}/wrapup][%d] getConversationsMessageParticipantWrapupRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetConversationsMessageParticipantWrapupRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetConversationsMessageParticipantWrapupRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetConversationsMessageParticipantWrapupRequestEntityTooLarge creates a GetConversationsMessageParticipantWrapupRequestEntityTooLarge with default headers values
 func NewGetConversationsMessageParticipantWrapupRequestEntityTooLarge() *GetConversationsMessageParticipantWrapupRequestEntityTooLarge {
 	return &GetConversationsMessageParticipantWrapupRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetConversationsMessageParticipantWrapupTooManyRequests() *GetConversati
 
 /*GetConversationsMessageParticipantWrapupTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetConversationsMessageParticipantWrapupTooManyRequests struct {
 	Payload *models.ErrorBody

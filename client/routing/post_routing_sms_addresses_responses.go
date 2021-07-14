@@ -53,6 +53,12 @@ func (o *PostRoutingSmsAddressesReader) ReadResponse(response runtime.ClientResp
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostRoutingSmsAddressesRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostRoutingSmsAddressesRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PostRoutingSmsAddressesNotFound) readResponse(response runtime.ClientRe
 	return nil
 }
 
+// NewPostRoutingSmsAddressesRequestTimeout creates a PostRoutingSmsAddressesRequestTimeout with default headers values
+func NewPostRoutingSmsAddressesRequestTimeout() *PostRoutingSmsAddressesRequestTimeout {
+	return &PostRoutingSmsAddressesRequestTimeout{}
+}
+
+/*PostRoutingSmsAddressesRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostRoutingSmsAddressesRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostRoutingSmsAddressesRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/sms/addresses][%d] postRoutingSmsAddressesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostRoutingSmsAddressesRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostRoutingSmsAddressesRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostRoutingSmsAddressesRequestEntityTooLarge creates a PostRoutingSmsAddressesRequestEntityTooLarge with default headers values
 func NewPostRoutingSmsAddressesRequestEntityTooLarge() *PostRoutingSmsAddressesRequestEntityTooLarge {
 	return &PostRoutingSmsAddressesRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPostRoutingSmsAddressesTooManyRequests() *PostRoutingSmsAddressesTooMany
 
 /*PostRoutingSmsAddressesTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostRoutingSmsAddressesTooManyRequests struct {
 	Payload *models.ErrorBody

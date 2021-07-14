@@ -53,6 +53,12 @@ func (o *PostArchitectPromptResourcesReader) ReadResponse(response runtime.Clien
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostArchitectPromptResourcesRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 409:
 		result := NewPostArchitectPromptResourcesConflict()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -266,6 +272,39 @@ func (o *PostArchitectPromptResourcesNotFound) readResponse(response runtime.Cli
 	return nil
 }
 
+// NewPostArchitectPromptResourcesRequestTimeout creates a PostArchitectPromptResourcesRequestTimeout with default headers values
+func NewPostArchitectPromptResourcesRequestTimeout() *PostArchitectPromptResourcesRequestTimeout {
+	return &PostArchitectPromptResourcesRequestTimeout{}
+}
+
+/*PostArchitectPromptResourcesRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostArchitectPromptResourcesRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostArchitectPromptResourcesRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/architect/prompts/{promptId}/resources][%d] postArchitectPromptResourcesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostArchitectPromptResourcesRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostArchitectPromptResourcesRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostArchitectPromptResourcesConflict creates a PostArchitectPromptResourcesConflict with default headers values
 func NewPostArchitectPromptResourcesConflict() *PostArchitectPromptResourcesConflict {
 	return &PostArchitectPromptResourcesConflict{}
@@ -372,7 +411,7 @@ func NewPostArchitectPromptResourcesTooManyRequests() *PostArchitectPromptResour
 
 /*PostArchitectPromptResourcesTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostArchitectPromptResourcesTooManyRequests struct {
 	Payload *models.ErrorBody

@@ -53,6 +53,12 @@ func (o *PostNotificationsChannelSubscriptionsReader) ReadResponse(response runt
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostNotificationsChannelSubscriptionsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostNotificationsChannelSubscriptionsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PostNotificationsChannelSubscriptionsNotFound) readResponse(response ru
 	return nil
 }
 
+// NewPostNotificationsChannelSubscriptionsRequestTimeout creates a PostNotificationsChannelSubscriptionsRequestTimeout with default headers values
+func NewPostNotificationsChannelSubscriptionsRequestTimeout() *PostNotificationsChannelSubscriptionsRequestTimeout {
+	return &PostNotificationsChannelSubscriptionsRequestTimeout{}
+}
+
+/*PostNotificationsChannelSubscriptionsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostNotificationsChannelSubscriptionsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostNotificationsChannelSubscriptionsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/notifications/channels/{channelId}/subscriptions][%d] postNotificationsChannelSubscriptionsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostNotificationsChannelSubscriptionsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostNotificationsChannelSubscriptionsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostNotificationsChannelSubscriptionsRequestEntityTooLarge creates a PostNotificationsChannelSubscriptionsRequestEntityTooLarge with default headers values
 func NewPostNotificationsChannelSubscriptionsRequestEntityTooLarge() *PostNotificationsChannelSubscriptionsRequestEntityTooLarge {
 	return &PostNotificationsChannelSubscriptionsRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPostNotificationsChannelSubscriptionsTooManyRequests() *PostNotification
 
 /*PostNotificationsChannelSubscriptionsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostNotificationsChannelSubscriptionsTooManyRequests struct {
 	Payload *models.ErrorBody

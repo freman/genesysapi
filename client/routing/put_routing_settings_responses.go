@@ -53,6 +53,12 @@ func (o *PutRoutingSettingsReader) ReadResponse(response runtime.ClientResponse,
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPutRoutingSettingsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPutRoutingSettingsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PutRoutingSettingsNotFound) readResponse(response runtime.ClientRespons
 	return nil
 }
 
+// NewPutRoutingSettingsRequestTimeout creates a PutRoutingSettingsRequestTimeout with default headers values
+func NewPutRoutingSettingsRequestTimeout() *PutRoutingSettingsRequestTimeout {
+	return &PutRoutingSettingsRequestTimeout{}
+}
+
+/*PutRoutingSettingsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PutRoutingSettingsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PutRoutingSettingsRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/routing/settings][%d] putRoutingSettingsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutRoutingSettingsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PutRoutingSettingsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPutRoutingSettingsRequestEntityTooLarge creates a PutRoutingSettingsRequestEntityTooLarge with default headers values
 func NewPutRoutingSettingsRequestEntityTooLarge() *PutRoutingSettingsRequestEntityTooLarge {
 	return &PutRoutingSettingsRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPutRoutingSettingsTooManyRequests() *PutRoutingSettingsTooManyRequests {
 
 /*PutRoutingSettingsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PutRoutingSettingsTooManyRequests struct {
 	Payload *models.ErrorBody

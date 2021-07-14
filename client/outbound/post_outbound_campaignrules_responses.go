@@ -53,6 +53,12 @@ func (o *PostOutboundCampaignrulesReader) ReadResponse(response runtime.ClientRe
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostOutboundCampaignrulesRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostOutboundCampaignrulesRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PostOutboundCampaignrulesNotFound) readResponse(response runtime.Client
 	return nil
 }
 
+// NewPostOutboundCampaignrulesRequestTimeout creates a PostOutboundCampaignrulesRequestTimeout with default headers values
+func NewPostOutboundCampaignrulesRequestTimeout() *PostOutboundCampaignrulesRequestTimeout {
+	return &PostOutboundCampaignrulesRequestTimeout{}
+}
+
+/*PostOutboundCampaignrulesRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostOutboundCampaignrulesRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostOutboundCampaignrulesRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/campaignrules][%d] postOutboundCampaignrulesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostOutboundCampaignrulesRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostOutboundCampaignrulesRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostOutboundCampaignrulesRequestEntityTooLarge creates a PostOutboundCampaignrulesRequestEntityTooLarge with default headers values
 func NewPostOutboundCampaignrulesRequestEntityTooLarge() *PostOutboundCampaignrulesRequestEntityTooLarge {
 	return &PostOutboundCampaignrulesRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPostOutboundCampaignrulesTooManyRequests() *PostOutboundCampaignrulesToo
 
 /*PostOutboundCampaignrulesTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostOutboundCampaignrulesTooManyRequests struct {
 	Payload *models.ErrorBody

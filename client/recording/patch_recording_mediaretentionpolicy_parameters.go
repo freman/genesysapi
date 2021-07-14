@@ -66,7 +66,7 @@ type PatchRecordingMediaretentionpolicyParams struct {
 	  Policy
 
 	*/
-	Body *models.Policy
+	Body *models.PolicyUpdate
 	/*PolicyID
 	  Policy ID
 
@@ -112,13 +112,13 @@ func (o *PatchRecordingMediaretentionpolicyParams) SetHTTPClient(client *http.Cl
 }
 
 // WithBody adds the body to the patch recording mediaretentionpolicy params
-func (o *PatchRecordingMediaretentionpolicyParams) WithBody(body *models.Policy) *PatchRecordingMediaretentionpolicyParams {
+func (o *PatchRecordingMediaretentionpolicyParams) WithBody(body *models.PolicyUpdate) *PatchRecordingMediaretentionpolicyParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the patch recording mediaretentionpolicy params
-func (o *PatchRecordingMediaretentionpolicyParams) SetBody(body *models.Policy) {
+func (o *PatchRecordingMediaretentionpolicyParams) SetBody(body *models.PolicyUpdate) {
 	o.Body = body
 }
 

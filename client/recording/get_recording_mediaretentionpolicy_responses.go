@@ -53,6 +53,12 @@ func (o *GetRecordingMediaretentionpolicyReader) ReadResponse(response runtime.C
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetRecordingMediaretentionpolicyRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetRecordingMediaretentionpolicyRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetRecordingMediaretentionpolicyNotFound) readResponse(response runtime
 	return nil
 }
 
+// NewGetRecordingMediaretentionpolicyRequestTimeout creates a GetRecordingMediaretentionpolicyRequestTimeout with default headers values
+func NewGetRecordingMediaretentionpolicyRequestTimeout() *GetRecordingMediaretentionpolicyRequestTimeout {
+	return &GetRecordingMediaretentionpolicyRequestTimeout{}
+}
+
+/*GetRecordingMediaretentionpolicyRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetRecordingMediaretentionpolicyRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetRecordingMediaretentionpolicyRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/mediaretentionpolicies/{policyId}][%d] getRecordingMediaretentionpolicyRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetRecordingMediaretentionpolicyRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetRecordingMediaretentionpolicyRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetRecordingMediaretentionpolicyRequestEntityTooLarge creates a GetRecordingMediaretentionpolicyRequestEntityTooLarge with default headers values
 func NewGetRecordingMediaretentionpolicyRequestEntityTooLarge() *GetRecordingMediaretentionpolicyRequestEntityTooLarge {
 	return &GetRecordingMediaretentionpolicyRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetRecordingMediaretentionpolicyTooManyRequests() *GetRecordingMediarete
 
 /*GetRecordingMediaretentionpolicyTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetRecordingMediaretentionpolicyTooManyRequests struct {
 	Payload *models.ErrorBody

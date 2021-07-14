@@ -53,6 +53,12 @@ func (o *PatchUserQueuesReader) ReadResponse(response runtime.ClientResponse, co
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPatchUserQueuesRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPatchUserQueuesRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PatchUserQueuesNotFound) readResponse(response runtime.ClientResponse, 
 	return nil
 }
 
+// NewPatchUserQueuesRequestTimeout creates a PatchUserQueuesRequestTimeout with default headers values
+func NewPatchUserQueuesRequestTimeout() *PatchUserQueuesRequestTimeout {
+	return &PatchUserQueuesRequestTimeout{}
+}
+
+/*PatchUserQueuesRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PatchUserQueuesRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PatchUserQueuesRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/queues][%d] patchUserQueuesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchUserQueuesRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PatchUserQueuesRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPatchUserQueuesRequestEntityTooLarge creates a PatchUserQueuesRequestEntityTooLarge with default headers values
 func NewPatchUserQueuesRequestEntityTooLarge() *PatchUserQueuesRequestEntityTooLarge {
 	return &PatchUserQueuesRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPatchUserQueuesTooManyRequests() *PatchUserQueuesTooManyRequests {
 
 /*PatchUserQueuesTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PatchUserQueuesTooManyRequests struct {
 	Payload *models.ErrorBody

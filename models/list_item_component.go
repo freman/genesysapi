@@ -14,30 +14,30 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// ListItemComponent An entry in List template
+// ListItemComponent An entry in a List template.
 //
 // swagger:model ListItemComponent
 type ListItemComponent struct {
 
-	// User actions available on the content. All actions are optional and all actions are executed simultaneously.
+	// The list item actions.
 	Actions *ContentActions `json:"actions,omitempty"`
 
-	// Text to show in the description row
+	// Text to show in the list item description.
 	Description string `json:"description,omitempty"`
 
-	// An ID assigned to this component
+	// An ID assigned to this list item.
 	ID string `json:"id,omitempty"`
 
-	// Path or URI to an image file
+	// URL of an image.
 	Image string `json:"image,omitempty"`
 
-	// An ID of the rich message instance
+	// An ID of the rich message instance.
 	Rmid string `json:"rmid,omitempty"`
 
-	// The main headline of the list item
+	// The main headline of the list item.
 	Title string `json:"title,omitempty"`
 
-	// The type of component to render
+	// The type of list item to render.
 	// Enum: [ListItem ListItemBig]
 	Type string `json:"type,omitempty"`
 }

@@ -53,6 +53,12 @@ func (o *DeleteRoutingEmailDomainRouteReader) ReadResponse(response runtime.Clie
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewDeleteRoutingEmailDomainRouteRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 409:
 		result := NewDeleteRoutingEmailDomainRouteConflict()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -254,6 +260,39 @@ func (o *DeleteRoutingEmailDomainRouteNotFound) readResponse(response runtime.Cl
 	return nil
 }
 
+// NewDeleteRoutingEmailDomainRouteRequestTimeout creates a DeleteRoutingEmailDomainRouteRequestTimeout with default headers values
+func NewDeleteRoutingEmailDomainRouteRequestTimeout() *DeleteRoutingEmailDomainRouteRequestTimeout {
+	return &DeleteRoutingEmailDomainRouteRequestTimeout{}
+}
+
+/*DeleteRoutingEmailDomainRouteRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type DeleteRoutingEmailDomainRouteRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *DeleteRoutingEmailDomainRouteRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/email/domains/{domainName}/routes/{routeId}][%d] deleteRoutingEmailDomainRouteRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteRoutingEmailDomainRouteRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *DeleteRoutingEmailDomainRouteRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewDeleteRoutingEmailDomainRouteConflict creates a DeleteRoutingEmailDomainRouteConflict with default headers values
 func NewDeleteRoutingEmailDomainRouteConflict() *DeleteRoutingEmailDomainRouteConflict {
 	return &DeleteRoutingEmailDomainRouteConflict{}
@@ -360,7 +399,7 @@ func NewDeleteRoutingEmailDomainRouteTooManyRequests() *DeleteRoutingEmailDomain
 
 /*DeleteRoutingEmailDomainRouteTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type DeleteRoutingEmailDomainRouteTooManyRequests struct {
 	Payload *models.ErrorBody

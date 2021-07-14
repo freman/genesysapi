@@ -23,9 +23,8 @@ type Site struct {
 	// addresses
 	Addresses []*Contact `json:"addresses"`
 
-	// The core site
-	// Read Only: true
-	CoreSite *bool `json:"coreSite"`
+	// Is this site a core site
+	CoreSite bool `json:"coreSite"`
 
 	// The ID of the user that created the resource.
 	CreatedBy string `json:"createdBy,omitempty"`
@@ -98,6 +97,9 @@ type Site struct {
 	// Format: uri
 	SelfURI strfmt.URI `json:"selfUri,omitempty"`
 
+	// The site connections
+	SiteConnections []*SiteConnection `json:"siteConnections"`
+
 	// Indicates if the resource is active, inactive, or deleted.
 	// Read Only: true
 	// Enum: [active inactive deleted]
@@ -164,6 +166,10 @@ func (m *Site) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateSelfURI(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSiteConnections(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -467,6 +473,31 @@ func (m *Site) validateSelfURI(formats strfmt.Registry) error {
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *Site) validateSiteConnections(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.SiteConnections) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.SiteConnections); i++ {
+		if swag.IsZero(m.SiteConnections[i]) { // not required
+			continue
+		}
+
+		if m.SiteConnections[i] != nil {
+			if err := m.SiteConnections[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("siteConnections" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

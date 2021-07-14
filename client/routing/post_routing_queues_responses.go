@@ -53,6 +53,12 @@ func (o *PostRoutingQueuesReader) ReadResponse(response runtime.ClientResponse, 
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostRoutingQueuesRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostRoutingQueuesRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PostRoutingQueuesNotFound) readResponse(response runtime.ClientResponse
 	return nil
 }
 
+// NewPostRoutingQueuesRequestTimeout creates a PostRoutingQueuesRequestTimeout with default headers values
+func NewPostRoutingQueuesRequestTimeout() *PostRoutingQueuesRequestTimeout {
+	return &PostRoutingQueuesRequestTimeout{}
+}
+
+/*PostRoutingQueuesRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostRoutingQueuesRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostRoutingQueuesRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/queues][%d] postRoutingQueuesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostRoutingQueuesRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostRoutingQueuesRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostRoutingQueuesRequestEntityTooLarge creates a PostRoutingQueuesRequestEntityTooLarge with default headers values
 func NewPostRoutingQueuesRequestEntityTooLarge() *PostRoutingQueuesRequestEntityTooLarge {
 	return &PostRoutingQueuesRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPostRoutingQueuesTooManyRequests() *PostRoutingQueuesTooManyRequests {
 
 /*PostRoutingQueuesTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostRoutingQueuesTooManyRequests struct {
 	Payload *models.ErrorBody

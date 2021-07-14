@@ -17,6 +17,9 @@ import (
 // swagger:model GenerateBuForecastRequest
 type GenerateBuForecastRequest struct {
 
+	// Whether this forecast can be used for scheduling
+	CanUseForScheduling bool `json:"canUseForScheduling"`
+
 	// The description for the forecast
 	// Required: true
 	Description *string `json:"description"`

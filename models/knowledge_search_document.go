@@ -20,6 +20,9 @@ import (
 // swagger:model KnowledgeSearchDocument
 type KnowledgeSearchDocument struct {
 
+	// Article
+	Article *DocumentArticle `json:"article,omitempty"`
+
 	// Document categories
 	Categories []*KnowledgeCategory `json:"categories"`
 
@@ -66,13 +69,17 @@ type KnowledgeSearchDocument struct {
 
 	// Document type
 	// Required: true
-	// Enum: [Faq]
+	// Enum: [Faq Article]
 	Type *string `json:"type"`
 }
 
 // Validate validates this knowledge search document
 func (m *KnowledgeSearchDocument) Validate(formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.validateArticle(formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.validateCategories(formats); err != nil {
 		res = append(res, err)
@@ -109,6 +116,24 @@ func (m *KnowledgeSearchDocument) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *KnowledgeSearchDocument) validateArticle(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Article) { // not required
+		return nil
+	}
+
+	if m.Article != nil {
+		if err := m.Article.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("article")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -259,7 +284,7 @@ var knowledgeSearchDocumentTypeTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Faq"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Faq","Article"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -271,6 +296,9 @@ const (
 
 	// KnowledgeSearchDocumentTypeFaq captures enum value "Faq"
 	KnowledgeSearchDocumentTypeFaq string = "Faq"
+
+	// KnowledgeSearchDocumentTypeArticle captures enum value "Article"
+	KnowledgeSearchDocumentTypeArticle string = "Article"
 )
 
 // prop value enum

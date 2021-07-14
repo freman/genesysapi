@@ -19,6 +19,10 @@ import (
 // swagger:model KnowledgeBase
 type KnowledgeBase struct {
 
+	// The count representing the number of documents of type Article in the KnowledgeBase
+	// Read Only: true
+	ArticleCount int32 `json:"articleCount,omitempty"`
+
 	// Core language for knowledge base in which initial content must be created first
 	// Required: true
 	// Enum: [en-US de-DE]
@@ -42,7 +46,7 @@ type KnowledgeBase struct {
 	// Knowledge base description
 	Description string `json:"description,omitempty"`
 
-	// The count representing the number of documents of type FAQ per KnowledgeBase
+	// The count representing the number of documents of type FAQ in the KnowledgeBase
 	// Read Only: true
 	FaqCount int32 `json:"faqCount,omitempty"`
 
@@ -52,6 +56,10 @@ type KnowledgeBase struct {
 
 	// name
 	Name string `json:"name,omitempty"`
+
+	// Flag that indicates the knowledge base is published
+	// Read Only: true
+	Published *bool `json:"published"`
 
 	// The URI for this object
 	// Read Only: true

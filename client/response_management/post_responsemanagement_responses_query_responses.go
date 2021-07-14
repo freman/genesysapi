@@ -53,6 +53,12 @@ func (o *PostResponsemanagementResponsesQueryReader) ReadResponse(response runti
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostResponsemanagementResponsesQueryRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostResponsemanagementResponsesQueryRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PostResponsemanagementResponsesQueryNotFound) readResponse(response run
 	return nil
 }
 
+// NewPostResponsemanagementResponsesQueryRequestTimeout creates a PostResponsemanagementResponsesQueryRequestTimeout with default headers values
+func NewPostResponsemanagementResponsesQueryRequestTimeout() *PostResponsemanagementResponsesQueryRequestTimeout {
+	return &PostResponsemanagementResponsesQueryRequestTimeout{}
+}
+
+/*PostResponsemanagementResponsesQueryRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostResponsemanagementResponsesQueryRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostResponsemanagementResponsesQueryRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/responsemanagement/responses/query][%d] postResponsemanagementResponsesQueryRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostResponsemanagementResponsesQueryRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostResponsemanagementResponsesQueryRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostResponsemanagementResponsesQueryRequestEntityTooLarge creates a PostResponsemanagementResponsesQueryRequestEntityTooLarge with default headers values
 func NewPostResponsemanagementResponsesQueryRequestEntityTooLarge() *PostResponsemanagementResponsesQueryRequestEntityTooLarge {
 	return &PostResponsemanagementResponsesQueryRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPostResponsemanagementResponsesQueryTooManyRequests() *PostResponsemanag
 
 /*PostResponsemanagementResponsesQueryTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostResponsemanagementResponsesQueryTooManyRequests struct {
 	Payload *models.ErrorBody

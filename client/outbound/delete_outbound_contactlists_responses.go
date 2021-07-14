@@ -53,6 +53,12 @@ func (o *DeleteOutboundContactlistsReader) ReadResponse(response runtime.ClientR
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewDeleteOutboundContactlistsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 409:
 		result := NewDeleteOutboundContactlistsConflict()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -254,6 +260,39 @@ func (o *DeleteOutboundContactlistsNotFound) readResponse(response runtime.Clien
 	return nil
 }
 
+// NewDeleteOutboundContactlistsRequestTimeout creates a DeleteOutboundContactlistsRequestTimeout with default headers values
+func NewDeleteOutboundContactlistsRequestTimeout() *DeleteOutboundContactlistsRequestTimeout {
+	return &DeleteOutboundContactlistsRequestTimeout{}
+}
+
+/*DeleteOutboundContactlistsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type DeleteOutboundContactlistsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *DeleteOutboundContactlistsRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/contactlists][%d] deleteOutboundContactlistsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteOutboundContactlistsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *DeleteOutboundContactlistsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewDeleteOutboundContactlistsConflict creates a DeleteOutboundContactlistsConflict with default headers values
 func NewDeleteOutboundContactlistsConflict() *DeleteOutboundContactlistsConflict {
 	return &DeleteOutboundContactlistsConflict{}
@@ -360,7 +399,7 @@ func NewDeleteOutboundContactlistsTooManyRequests() *DeleteOutboundContactlistsT
 
 /*DeleteOutboundContactlistsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type DeleteOutboundContactlistsTooManyRequests struct {
 	Payload *models.ErrorBody

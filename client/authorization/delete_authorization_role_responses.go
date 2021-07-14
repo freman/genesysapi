@@ -47,6 +47,12 @@ func (o *DeleteAuthorizationRoleReader) ReadResponse(response runtime.ClientResp
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewDeleteAuthorizationRoleRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewDeleteAuthorizationRoleRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -227,6 +233,39 @@ func (o *DeleteAuthorizationRoleNotFound) readResponse(response runtime.ClientRe
 	return nil
 }
 
+// NewDeleteAuthorizationRoleRequestTimeout creates a DeleteAuthorizationRoleRequestTimeout with default headers values
+func NewDeleteAuthorizationRoleRequestTimeout() *DeleteAuthorizationRoleRequestTimeout {
+	return &DeleteAuthorizationRoleRequestTimeout{}
+}
+
+/*DeleteAuthorizationRoleRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type DeleteAuthorizationRoleRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *DeleteAuthorizationRoleRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/authorization/roles/{roleId}][%d] deleteAuthorizationRoleRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteAuthorizationRoleRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *DeleteAuthorizationRoleRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewDeleteAuthorizationRoleRequestEntityTooLarge creates a DeleteAuthorizationRoleRequestEntityTooLarge with default headers values
 func NewDeleteAuthorizationRoleRequestEntityTooLarge() *DeleteAuthorizationRoleRequestEntityTooLarge {
 	return &DeleteAuthorizationRoleRequestEntityTooLarge{}
@@ -300,7 +339,7 @@ func NewDeleteAuthorizationRoleTooManyRequests() *DeleteAuthorizationRoleTooMany
 
 /*DeleteAuthorizationRoleTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type DeleteAuthorizationRoleTooManyRequests struct {
 	Payload *models.ErrorBody

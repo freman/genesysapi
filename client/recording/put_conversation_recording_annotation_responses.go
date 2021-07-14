@@ -53,6 +53,12 @@ func (o *PutConversationRecordingAnnotationReader) ReadResponse(response runtime
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPutConversationRecordingAnnotationRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPutConversationRecordingAnnotationRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PutConversationRecordingAnnotationNotFound) readResponse(response runti
 	return nil
 }
 
+// NewPutConversationRecordingAnnotationRequestTimeout creates a PutConversationRecordingAnnotationRequestTimeout with default headers values
+func NewPutConversationRecordingAnnotationRequestTimeout() *PutConversationRecordingAnnotationRequestTimeout {
+	return &PutConversationRecordingAnnotationRequestTimeout{}
+}
+
+/*PutConversationRecordingAnnotationRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PutConversationRecordingAnnotationRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PutConversationRecordingAnnotationRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] putConversationRecordingAnnotationRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutConversationRecordingAnnotationRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PutConversationRecordingAnnotationRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPutConversationRecordingAnnotationRequestEntityTooLarge creates a PutConversationRecordingAnnotationRequestEntityTooLarge with default headers values
 func NewPutConversationRecordingAnnotationRequestEntityTooLarge() *PutConversationRecordingAnnotationRequestEntityTooLarge {
 	return &PutConversationRecordingAnnotationRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPutConversationRecordingAnnotationTooManyRequests() *PutConversationReco
 
 /*PutConversationRecordingAnnotationTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PutConversationRecordingAnnotationTooManyRequests struct {
 	Payload *models.ErrorBody

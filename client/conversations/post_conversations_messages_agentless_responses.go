@@ -59,6 +59,12 @@ func (o *PostConversationsMessagesAgentlessReader) ReadResponse(response runtime
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostConversationsMessagesAgentlessRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostConversationsMessagesAgentlessRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -287,6 +293,39 @@ func (o *PostConversationsMessagesAgentlessNotFound) readResponse(response runti
 	return nil
 }
 
+// NewPostConversationsMessagesAgentlessRequestTimeout creates a PostConversationsMessagesAgentlessRequestTimeout with default headers values
+func NewPostConversationsMessagesAgentlessRequestTimeout() *PostConversationsMessagesAgentlessRequestTimeout {
+	return &PostConversationsMessagesAgentlessRequestTimeout{}
+}
+
+/*PostConversationsMessagesAgentlessRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostConversationsMessagesAgentlessRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostConversationsMessagesAgentlessRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messages/agentless][%d] postConversationsMessagesAgentlessRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostConversationsMessagesAgentlessRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostConversationsMessagesAgentlessRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostConversationsMessagesAgentlessRequestEntityTooLarge creates a PostConversationsMessagesAgentlessRequestEntityTooLarge with default headers values
 func NewPostConversationsMessagesAgentlessRequestEntityTooLarge() *PostConversationsMessagesAgentlessRequestEntityTooLarge {
 	return &PostConversationsMessagesAgentlessRequestEntityTooLarge{}
@@ -360,7 +399,7 @@ func NewPostConversationsMessagesAgentlessTooManyRequests() *PostConversationsMe
 
 /*PostConversationsMessagesAgentlessTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostConversationsMessagesAgentlessTooManyRequests struct {
 	Payload *models.ErrorBody

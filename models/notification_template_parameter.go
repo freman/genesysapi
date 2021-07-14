@@ -12,15 +12,15 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// NotificationTemplateParameter Parameters for placeholders in template
+// NotificationTemplateParameter Template parameters for placeholders in template.
 //
 // swagger:model NotificationTemplateParameter
 type NotificationTemplateParameter struct {
 
-	// Parameter name
+	// Parameter name.
 	Name string `json:"name,omitempty"`
 
-	// Parameter text value
+	// Parameter text value.
 	// Required: true
 	Text *string `json:"text"`
 }

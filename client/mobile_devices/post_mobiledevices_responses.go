@@ -53,6 +53,12 @@ func (o *PostMobiledevicesReader) ReadResponse(response runtime.ClientResponse, 
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostMobiledevicesRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostMobiledevicesRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PostMobiledevicesNotFound) readResponse(response runtime.ClientResponse
 	return nil
 }
 
+// NewPostMobiledevicesRequestTimeout creates a PostMobiledevicesRequestTimeout with default headers values
+func NewPostMobiledevicesRequestTimeout() *PostMobiledevicesRequestTimeout {
+	return &PostMobiledevicesRequestTimeout{}
+}
+
+/*PostMobiledevicesRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostMobiledevicesRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostMobiledevicesRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/mobiledevices][%d] postMobiledevicesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostMobiledevicesRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostMobiledevicesRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostMobiledevicesRequestEntityTooLarge creates a PostMobiledevicesRequestEntityTooLarge with default headers values
 func NewPostMobiledevicesRequestEntityTooLarge() *PostMobiledevicesRequestEntityTooLarge {
 	return &PostMobiledevicesRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPostMobiledevicesTooManyRequests() *PostMobiledevicesTooManyRequests {
 
 /*PostMobiledevicesTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostMobiledevicesTooManyRequests struct {
 	Payload *models.ErrorBody

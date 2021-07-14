@@ -10,24 +10,24 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// ContentLocation Location object
+// ContentLocation Location object.
 //
 // swagger:model ContentLocation
 type ContentLocation struct {
 
-	// Location postal address
+	// Location postal address.
 	Address string `json:"address,omitempty"`
 
-	// Latitude of the location
+	// Latitude of the location.
 	Latitude float64 `json:"latitude,omitempty"`
 
-	// Longitude of the location
+	// Longitude of the location.
 	Longitude float64 `json:"longitude,omitempty"`
 
-	// Location name
+	// Location name.
 	Text string `json:"text,omitempty"`
 
-	// Location map url
+	// URL of the Location.
 	URL string `json:"url,omitempty"`
 }
 

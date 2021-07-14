@@ -53,6 +53,12 @@ func (o *PutOutboundCampaignReader) ReadResponse(response runtime.ClientResponse
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPutOutboundCampaignRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 409:
 		result := NewPutOutboundCampaignConflict()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -266,6 +272,39 @@ func (o *PutOutboundCampaignNotFound) readResponse(response runtime.ClientRespon
 	return nil
 }
 
+// NewPutOutboundCampaignRequestTimeout creates a PutOutboundCampaignRequestTimeout with default headers values
+func NewPutOutboundCampaignRequestTimeout() *PutOutboundCampaignRequestTimeout {
+	return &PutOutboundCampaignRequestTimeout{}
+}
+
+/*PutOutboundCampaignRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PutOutboundCampaignRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PutOutboundCampaignRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/campaigns/{campaignId}][%d] putOutboundCampaignRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutOutboundCampaignRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PutOutboundCampaignRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPutOutboundCampaignConflict creates a PutOutboundCampaignConflict with default headers values
 func NewPutOutboundCampaignConflict() *PutOutboundCampaignConflict {
 	return &PutOutboundCampaignConflict{}
@@ -372,7 +411,7 @@ func NewPutOutboundCampaignTooManyRequests() *PutOutboundCampaignTooManyRequests
 
 /*PutOutboundCampaignTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PutOutboundCampaignTooManyRequests struct {
 	Payload *models.ErrorBody

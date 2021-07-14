@@ -59,6 +59,12 @@ func (o *PostGdprRequestsReader) ReadResponse(response runtime.ClientResponse, c
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostGdprRequestsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostGdprRequestsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -299,6 +305,39 @@ func (o *PostGdprRequestsNotFound) readResponse(response runtime.ClientResponse,
 	return nil
 }
 
+// NewPostGdprRequestsRequestTimeout creates a PostGdprRequestsRequestTimeout with default headers values
+func NewPostGdprRequestsRequestTimeout() *PostGdprRequestsRequestTimeout {
+	return &PostGdprRequestsRequestTimeout{}
+}
+
+/*PostGdprRequestsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostGdprRequestsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostGdprRequestsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/gdpr/requests][%d] postGdprRequestsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostGdprRequestsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostGdprRequestsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostGdprRequestsRequestEntityTooLarge creates a PostGdprRequestsRequestEntityTooLarge with default headers values
 func NewPostGdprRequestsRequestEntityTooLarge() *PostGdprRequestsRequestEntityTooLarge {
 	return &PostGdprRequestsRequestEntityTooLarge{}
@@ -372,7 +411,7 @@ func NewPostGdprRequestsTooManyRequests() *PostGdprRequestsTooManyRequests {
 
 /*PostGdprRequestsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostGdprRequestsTooManyRequests struct {
 	Payload *models.ErrorBody

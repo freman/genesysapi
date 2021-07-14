@@ -66,7 +66,7 @@ type PatchRecordingCrossplatformMediaretentionpolicyParams struct {
 	  Policy
 
 	*/
-	Body *models.CrossPlatformPolicy
+	Body *models.CrossPlatformPolicyUpdate
 	/*PolicyID
 	  Policy ID
 
@@ -112,13 +112,13 @@ func (o *PatchRecordingCrossplatformMediaretentionpolicyParams) SetHTTPClient(cl
 }
 
 // WithBody adds the body to the patch recording crossplatform mediaretentionpolicy params
-func (o *PatchRecordingCrossplatformMediaretentionpolicyParams) WithBody(body *models.CrossPlatformPolicy) *PatchRecordingCrossplatformMediaretentionpolicyParams {
+func (o *PatchRecordingCrossplatformMediaretentionpolicyParams) WithBody(body *models.CrossPlatformPolicyUpdate) *PatchRecordingCrossplatformMediaretentionpolicyParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the patch recording crossplatform mediaretentionpolicy params
-func (o *PatchRecordingCrossplatformMediaretentionpolicyParams) SetBody(body *models.CrossPlatformPolicy) {
+func (o *PatchRecordingCrossplatformMediaretentionpolicyParams) SetBody(body *models.CrossPlatformPolicyUpdate) {
 	o.Body = body
 }
 

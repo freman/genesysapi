@@ -53,6 +53,12 @@ func (o *PostContentmanagementDocumentContentReader) ReadResponse(response runti
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostContentmanagementDocumentContentRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 409:
 		result := NewPostContentmanagementDocumentContentConflict()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -272,6 +278,39 @@ func (o *PostContentmanagementDocumentContentNotFound) readResponse(response run
 	return nil
 }
 
+// NewPostContentmanagementDocumentContentRequestTimeout creates a PostContentmanagementDocumentContentRequestTimeout with default headers values
+func NewPostContentmanagementDocumentContentRequestTimeout() *PostContentmanagementDocumentContentRequestTimeout {
+	return &PostContentmanagementDocumentContentRequestTimeout{}
+}
+
+/*PostContentmanagementDocumentContentRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostContentmanagementDocumentContentRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostContentmanagementDocumentContentRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/documents/{documentId}/content][%d] postContentmanagementDocumentContentRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostContentmanagementDocumentContentRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostContentmanagementDocumentContentRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostContentmanagementDocumentContentConflict creates a PostContentmanagementDocumentContentConflict with default headers values
 func NewPostContentmanagementDocumentContentConflict() *PostContentmanagementDocumentContentConflict {
 	return &PostContentmanagementDocumentContentConflict{}
@@ -387,7 +426,7 @@ func NewPostContentmanagementDocumentContentTooManyRequests() *PostContentmanage
 
 /*PostContentmanagementDocumentContentTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostContentmanagementDocumentContentTooManyRequests struct {
 	Payload *models.ErrorBody

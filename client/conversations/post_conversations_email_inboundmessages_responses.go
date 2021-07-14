@@ -53,6 +53,12 @@ func (o *PostConversationsEmailInboundmessagesReader) ReadResponse(response runt
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostConversationsEmailInboundmessagesRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostConversationsEmailInboundmessagesRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PostConversationsEmailInboundmessagesNotFound) readResponse(response ru
 	return nil
 }
 
+// NewPostConversationsEmailInboundmessagesRequestTimeout creates a PostConversationsEmailInboundmessagesRequestTimeout with default headers values
+func NewPostConversationsEmailInboundmessagesRequestTimeout() *PostConversationsEmailInboundmessagesRequestTimeout {
+	return &PostConversationsEmailInboundmessagesRequestTimeout{}
+}
+
+/*PostConversationsEmailInboundmessagesRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostConversationsEmailInboundmessagesRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostConversationsEmailInboundmessagesRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/emails/{conversationId}/inboundmessages][%d] postConversationsEmailInboundmessagesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostConversationsEmailInboundmessagesRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostConversationsEmailInboundmessagesRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostConversationsEmailInboundmessagesRequestEntityTooLarge creates a PostConversationsEmailInboundmessagesRequestEntityTooLarge with default headers values
 func NewPostConversationsEmailInboundmessagesRequestEntityTooLarge() *PostConversationsEmailInboundmessagesRequestEntityTooLarge {
 	return &PostConversationsEmailInboundmessagesRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPostConversationsEmailInboundmessagesTooManyRequests() *PostConversation
 
 /*PostConversationsEmailInboundmessagesTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostConversationsEmailInboundmessagesTooManyRequests struct {
 	Payload *models.ErrorBody

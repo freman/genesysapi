@@ -53,6 +53,12 @@ func (o *PutFlowsDatatableReader) ReadResponse(response runtime.ClientResponse, 
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPutFlowsDatatableRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 409:
 		result := NewPutFlowsDatatableConflict()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -266,6 +272,39 @@ func (o *PutFlowsDatatableNotFound) readResponse(response runtime.ClientResponse
 	return nil
 }
 
+// NewPutFlowsDatatableRequestTimeout creates a PutFlowsDatatableRequestTimeout with default headers values
+func NewPutFlowsDatatableRequestTimeout() *PutFlowsDatatableRequestTimeout {
+	return &PutFlowsDatatableRequestTimeout{}
+}
+
+/*PutFlowsDatatableRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PutFlowsDatatableRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PutFlowsDatatableRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/flows/datatables/{datatableId}][%d] putFlowsDatatableRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutFlowsDatatableRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PutFlowsDatatableRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPutFlowsDatatableConflict creates a PutFlowsDatatableConflict with default headers values
 func NewPutFlowsDatatableConflict() *PutFlowsDatatableConflict {
 	return &PutFlowsDatatableConflict{}
@@ -372,7 +411,7 @@ func NewPutFlowsDatatableTooManyRequests() *PutFlowsDatatableTooManyRequests {
 
 /*PutFlowsDatatableTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PutFlowsDatatableTooManyRequests struct {
 	Payload *models.ErrorBody

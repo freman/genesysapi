@@ -53,6 +53,12 @@ func (o *PutQualityConversationEvaluationReader) ReadResponse(response runtime.C
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPutQualityConversationEvaluationRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPutQualityConversationEvaluationRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PutQualityConversationEvaluationNotFound) readResponse(response runtime
 	return nil
 }
 
+// NewPutQualityConversationEvaluationRequestTimeout creates a PutQualityConversationEvaluationRequestTimeout with default headers values
+func NewPutQualityConversationEvaluationRequestTimeout() *PutQualityConversationEvaluationRequestTimeout {
+	return &PutQualityConversationEvaluationRequestTimeout{}
+}
+
+/*PutQualityConversationEvaluationRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PutQualityConversationEvaluationRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PutQualityConversationEvaluationRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/quality/conversations/{conversationId}/evaluations/{evaluationId}][%d] putQualityConversationEvaluationRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutQualityConversationEvaluationRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PutQualityConversationEvaluationRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPutQualityConversationEvaluationRequestEntityTooLarge creates a PutQualityConversationEvaluationRequestEntityTooLarge with default headers values
 func NewPutQualityConversationEvaluationRequestEntityTooLarge() *PutQualityConversationEvaluationRequestEntityTooLarge {
 	return &PutQualityConversationEvaluationRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPutQualityConversationEvaluationTooManyRequests() *PutQualityConversatio
 
 /*PutQualityConversationEvaluationTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PutQualityConversationEvaluationTooManyRequests struct {
 	Payload *models.ErrorBody

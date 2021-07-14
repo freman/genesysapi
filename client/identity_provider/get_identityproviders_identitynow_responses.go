@@ -53,6 +53,12 @@ func (o *GetIdentityprovidersIdentitynowReader) ReadResponse(response runtime.Cl
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetIdentityprovidersIdentitynowRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetIdentityprovidersIdentitynowRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetIdentityprovidersIdentitynowNotFound) readResponse(response runtime.
 	return nil
 }
 
+// NewGetIdentityprovidersIdentitynowRequestTimeout creates a GetIdentityprovidersIdentitynowRequestTimeout with default headers values
+func NewGetIdentityprovidersIdentitynowRequestTimeout() *GetIdentityprovidersIdentitynowRequestTimeout {
+	return &GetIdentityprovidersIdentitynowRequestTimeout{}
+}
+
+/*GetIdentityprovidersIdentitynowRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetIdentityprovidersIdentitynowRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetIdentityprovidersIdentitynowRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/identitynow][%d] getIdentityprovidersIdentitynowRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetIdentityprovidersIdentitynowRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetIdentityprovidersIdentitynowRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetIdentityprovidersIdentitynowRequestEntityTooLarge creates a GetIdentityprovidersIdentitynowRequestEntityTooLarge with default headers values
 func NewGetIdentityprovidersIdentitynowRequestEntityTooLarge() *GetIdentityprovidersIdentitynowRequestEntityTooLarge {
 	return &GetIdentityprovidersIdentitynowRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetIdentityprovidersIdentitynowTooManyRequests() *GetIdentityprovidersId
 
 /*GetIdentityprovidersIdentitynowTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetIdentityprovidersIdentitynowTooManyRequests struct {
 	Payload *models.ErrorBody

@@ -53,6 +53,12 @@ func (o *PutUserRoutingskillReader) ReadResponse(response runtime.ClientResponse
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPutUserRoutingskillRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 409:
 		result := NewPutUserRoutingskillConflict()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -266,6 +272,39 @@ func (o *PutUserRoutingskillNotFound) readResponse(response runtime.ClientRespon
 	return nil
 }
 
+// NewPutUserRoutingskillRequestTimeout creates a PutUserRoutingskillRequestTimeout with default headers values
+func NewPutUserRoutingskillRequestTimeout() *PutUserRoutingskillRequestTimeout {
+	return &PutUserRoutingskillRequestTimeout{}
+}
+
+/*PutUserRoutingskillRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PutUserRoutingskillRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PutUserRoutingskillRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/routingskills/{skillId}][%d] putUserRoutingskillRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutUserRoutingskillRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PutUserRoutingskillRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPutUserRoutingskillConflict creates a PutUserRoutingskillConflict with default headers values
 func NewPutUserRoutingskillConflict() *PutUserRoutingskillConflict {
 	return &PutUserRoutingskillConflict{}
@@ -360,7 +399,7 @@ func NewPutUserRoutingskillTooManyRequests() *PutUserRoutingskillTooManyRequests
 
 /*PutUserRoutingskillTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PutUserRoutingskillTooManyRequests struct {
 	Payload *models.ErrorBody

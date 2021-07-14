@@ -53,6 +53,12 @@ func (o *PostTelephonyProvidersEdgesSiteOutboundroutesReader) ReadResponse(respo
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostTelephonyProvidersEdgesSiteOutboundroutesRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostTelephonyProvidersEdgesSiteOutboundroutesRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PostTelephonyProvidersEdgesSiteOutboundroutesNotFound) readResponse(res
 	return nil
 }
 
+// NewPostTelephonyProvidersEdgesSiteOutboundroutesRequestTimeout creates a PostTelephonyProvidersEdgesSiteOutboundroutesRequestTimeout with default headers values
+func NewPostTelephonyProvidersEdgesSiteOutboundroutesRequestTimeout() *PostTelephonyProvidersEdgesSiteOutboundroutesRequestTimeout {
+	return &PostTelephonyProvidersEdgesSiteOutboundroutesRequestTimeout{}
+}
+
+/*PostTelephonyProvidersEdgesSiteOutboundroutesRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostTelephonyProvidersEdgesSiteOutboundroutesRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostTelephonyProvidersEdgesSiteOutboundroutesRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/sites/{siteId}/outboundroutes][%d] postTelephonyProvidersEdgesSiteOutboundroutesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgesSiteOutboundroutesRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostTelephonyProvidersEdgesSiteOutboundroutesRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostTelephonyProvidersEdgesSiteOutboundroutesRequestEntityTooLarge creates a PostTelephonyProvidersEdgesSiteOutboundroutesRequestEntityTooLarge with default headers values
 func NewPostTelephonyProvidersEdgesSiteOutboundroutesRequestEntityTooLarge() *PostTelephonyProvidersEdgesSiteOutboundroutesRequestEntityTooLarge {
 	return &PostTelephonyProvidersEdgesSiteOutboundroutesRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPostTelephonyProvidersEdgesSiteOutboundroutesTooManyRequests() *PostTele
 
 /*PostTelephonyProvidersEdgesSiteOutboundroutesTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostTelephonyProvidersEdgesSiteOutboundroutesTooManyRequests struct {
 	Payload *models.ErrorBody

@@ -53,6 +53,12 @@ func (o *PostAnalyticsTranscriptsAggregatesQueryReader) ReadResponse(response ru
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostAnalyticsTranscriptsAggregatesQueryRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostAnalyticsTranscriptsAggregatesQueryRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PostAnalyticsTranscriptsAggregatesQueryNotFound) readResponse(response 
 	return nil
 }
 
+// NewPostAnalyticsTranscriptsAggregatesQueryRequestTimeout creates a PostAnalyticsTranscriptsAggregatesQueryRequestTimeout with default headers values
+func NewPostAnalyticsTranscriptsAggregatesQueryRequestTimeout() *PostAnalyticsTranscriptsAggregatesQueryRequestTimeout {
+	return &PostAnalyticsTranscriptsAggregatesQueryRequestTimeout{}
+}
+
+/*PostAnalyticsTranscriptsAggregatesQueryRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostAnalyticsTranscriptsAggregatesQueryRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostAnalyticsTranscriptsAggregatesQueryRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/transcripts/aggregates/query][%d] postAnalyticsTranscriptsAggregatesQueryRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostAnalyticsTranscriptsAggregatesQueryRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostAnalyticsTranscriptsAggregatesQueryRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostAnalyticsTranscriptsAggregatesQueryRequestEntityTooLarge creates a PostAnalyticsTranscriptsAggregatesQueryRequestEntityTooLarge with default headers values
 func NewPostAnalyticsTranscriptsAggregatesQueryRequestEntityTooLarge() *PostAnalyticsTranscriptsAggregatesQueryRequestEntityTooLarge {
 	return &PostAnalyticsTranscriptsAggregatesQueryRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPostAnalyticsTranscriptsAggregatesQueryTooManyRequests() *PostAnalyticsT
 
 /*PostAnalyticsTranscriptsAggregatesQueryTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostAnalyticsTranscriptsAggregatesQueryTooManyRequests struct {
 	Payload *models.ErrorBody

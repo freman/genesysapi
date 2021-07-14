@@ -47,6 +47,12 @@ func (o *DeleteResponsemanagementLibraryReader) ReadResponse(response runtime.Cl
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewDeleteResponsemanagementLibraryRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewDeleteResponsemanagementLibraryRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -227,6 +233,39 @@ func (o *DeleteResponsemanagementLibraryNotFound) readResponse(response runtime.
 	return nil
 }
 
+// NewDeleteResponsemanagementLibraryRequestTimeout creates a DeleteResponsemanagementLibraryRequestTimeout with default headers values
+func NewDeleteResponsemanagementLibraryRequestTimeout() *DeleteResponsemanagementLibraryRequestTimeout {
+	return &DeleteResponsemanagementLibraryRequestTimeout{}
+}
+
+/*DeleteResponsemanagementLibraryRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type DeleteResponsemanagementLibraryRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *DeleteResponsemanagementLibraryRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/responsemanagement/libraries/{libraryId}][%d] deleteResponsemanagementLibraryRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteResponsemanagementLibraryRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *DeleteResponsemanagementLibraryRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewDeleteResponsemanagementLibraryRequestEntityTooLarge creates a DeleteResponsemanagementLibraryRequestEntityTooLarge with default headers values
 func NewDeleteResponsemanagementLibraryRequestEntityTooLarge() *DeleteResponsemanagementLibraryRequestEntityTooLarge {
 	return &DeleteResponsemanagementLibraryRequestEntityTooLarge{}
@@ -300,7 +339,7 @@ func NewDeleteResponsemanagementLibraryTooManyRequests() *DeleteResponsemanageme
 
 /*DeleteResponsemanagementLibraryTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type DeleteResponsemanagementLibraryTooManyRequests struct {
 	Payload *models.ErrorBody

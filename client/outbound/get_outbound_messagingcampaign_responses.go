@@ -53,6 +53,12 @@ func (o *GetOutboundMessagingcampaignReader) ReadResponse(response runtime.Clien
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetOutboundMessagingcampaignRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetOutboundMessagingcampaignRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetOutboundMessagingcampaignNotFound) readResponse(response runtime.Cli
 	return nil
 }
 
+// NewGetOutboundMessagingcampaignRequestTimeout creates a GetOutboundMessagingcampaignRequestTimeout with default headers values
+func NewGetOutboundMessagingcampaignRequestTimeout() *GetOutboundMessagingcampaignRequestTimeout {
+	return &GetOutboundMessagingcampaignRequestTimeout{}
+}
+
+/*GetOutboundMessagingcampaignRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetOutboundMessagingcampaignRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetOutboundMessagingcampaignRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/messagingcampaigns/{messagingCampaignId}][%d] getOutboundMessagingcampaignRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetOutboundMessagingcampaignRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetOutboundMessagingcampaignRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetOutboundMessagingcampaignRequestEntityTooLarge creates a GetOutboundMessagingcampaignRequestEntityTooLarge with default headers values
 func NewGetOutboundMessagingcampaignRequestEntityTooLarge() *GetOutboundMessagingcampaignRequestEntityTooLarge {
 	return &GetOutboundMessagingcampaignRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetOutboundMessagingcampaignTooManyRequests() *GetOutboundMessagingcampa
 
 /*GetOutboundMessagingcampaignTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetOutboundMessagingcampaignTooManyRequests struct {
 	Payload *models.ErrorBody

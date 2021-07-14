@@ -53,6 +53,12 @@ func (o *GetOutboundDnclistReader) ReadResponse(response runtime.ClientResponse,
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetOutboundDnclistRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetOutboundDnclistRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetOutboundDnclistNotFound) readResponse(response runtime.ClientRespons
 	return nil
 }
 
+// NewGetOutboundDnclistRequestTimeout creates a GetOutboundDnclistRequestTimeout with default headers values
+func NewGetOutboundDnclistRequestTimeout() *GetOutboundDnclistRequestTimeout {
+	return &GetOutboundDnclistRequestTimeout{}
+}
+
+/*GetOutboundDnclistRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetOutboundDnclistRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetOutboundDnclistRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/dnclists/{dncListId}][%d] getOutboundDnclistRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetOutboundDnclistRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetOutboundDnclistRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetOutboundDnclistRequestEntityTooLarge creates a GetOutboundDnclistRequestEntityTooLarge with default headers values
 func NewGetOutboundDnclistRequestEntityTooLarge() *GetOutboundDnclistRequestEntityTooLarge {
 	return &GetOutboundDnclistRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetOutboundDnclistTooManyRequests() *GetOutboundDnclistTooManyRequests {
 
 /*GetOutboundDnclistTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetOutboundDnclistTooManyRequests struct {
 	Payload *models.ErrorBody

@@ -53,6 +53,12 @@ func (o *PatchUserRoutinglanguageReader) ReadResponse(response runtime.ClientRes
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPatchUserRoutinglanguageRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 409:
 		result := NewPatchUserRoutinglanguageConflict()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -266,6 +272,39 @@ func (o *PatchUserRoutinglanguageNotFound) readResponse(response runtime.ClientR
 	return nil
 }
 
+// NewPatchUserRoutinglanguageRequestTimeout creates a PatchUserRoutinglanguageRequestTimeout with default headers values
+func NewPatchUserRoutinglanguageRequestTimeout() *PatchUserRoutinglanguageRequestTimeout {
+	return &PatchUserRoutinglanguageRequestTimeout{}
+}
+
+/*PatchUserRoutinglanguageRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PatchUserRoutinglanguageRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PatchUserRoutinglanguageRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/routinglanguages/{languageId}][%d] patchUserRoutinglanguageRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchUserRoutinglanguageRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PatchUserRoutinglanguageRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPatchUserRoutinglanguageConflict creates a PatchUserRoutinglanguageConflict with default headers values
 func NewPatchUserRoutinglanguageConflict() *PatchUserRoutinglanguageConflict {
 	return &PatchUserRoutinglanguageConflict{}
@@ -360,7 +399,7 @@ func NewPatchUserRoutinglanguageTooManyRequests() *PatchUserRoutinglanguageTooMa
 
 /*PatchUserRoutinglanguageTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PatchUserRoutinglanguageTooManyRequests struct {
 	Payload *models.ErrorBody

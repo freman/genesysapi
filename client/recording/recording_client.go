@@ -187,6 +187,14 @@ type API interface {
 	*/
 	PostRecordingsDeletionprotection(ctx context.Context, params *PostRecordingsDeletionprotectionParams) (*PostRecordingsDeletionprotectionOK, error)
 	/*
+	   PostRecordingsScreensessionsAcknowledge acknowledges a screen recording
+	*/
+	PostRecordingsScreensessionsAcknowledge(ctx context.Context, params *PostRecordingsScreensessionsAcknowledgeParams) (*PostRecordingsScreensessionsAcknowledgeNoContent, error)
+	/*
+	   PostRecordingsScreensessionsMetadata provides meta data a screen recording
+	*/
+	PostRecordingsScreensessionsMetadata(ctx context.Context, params *PostRecordingsScreensessionsMetadataParams) (*PostRecordingsScreensessionsMetadataNoContent, error)
+	/*
 	   PutConversationRecording updates the retention records on a recording
 	   Currently supports updating and removing both archive and delete dates for eligible recordings. A request to change the archival date of an archived recording will result in a restoration of the recording until the new date set. The recording:recording:view permission is required for the recording, as well as either the recording:recording:editRetention or recording:screenRecording:editRetention permissions depending on the type of recording.
 	*/
@@ -1293,6 +1301,56 @@ func (a *Client) PostRecordingsDeletionprotection(ctx context.Context, params *P
 		return nil, err
 	}
 	return result.(*PostRecordingsDeletionprotectionOK), nil
+
+}
+
+/*
+PostRecordingsScreensessionsAcknowledge acknowledges a screen recording
+*/
+func (a *Client) PostRecordingsScreensessionsAcknowledge(ctx context.Context, params *PostRecordingsScreensessionsAcknowledgeParams) (*PostRecordingsScreensessionsAcknowledgeNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postRecordingsScreensessionsAcknowledge",
+		Method:             "POST",
+		PathPattern:        "/api/v2/recordings/screensessions/acknowledge",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostRecordingsScreensessionsAcknowledgeReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostRecordingsScreensessionsAcknowledgeNoContent), nil
+
+}
+
+/*
+PostRecordingsScreensessionsMetadata provides meta data a screen recording
+*/
+func (a *Client) PostRecordingsScreensessionsMetadata(ctx context.Context, params *PostRecordingsScreensessionsMetadataParams) (*PostRecordingsScreensessionsMetadataNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postRecordingsScreensessionsMetadata",
+		Method:             "POST",
+		PathPattern:        "/api/v2/recordings/screensessions/metadata",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostRecordingsScreensessionsMetadataReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostRecordingsScreensessionsMetadataNoContent), nil
 
 }
 

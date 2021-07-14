@@ -53,6 +53,12 @@ func (o *GetRoutingQueuesMeReader) ReadResponse(response runtime.ClientResponse,
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetRoutingQueuesMeRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetRoutingQueuesMeRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetRoutingQueuesMeNotFound) readResponse(response runtime.ClientRespons
 	return nil
 }
 
+// NewGetRoutingQueuesMeRequestTimeout creates a GetRoutingQueuesMeRequestTimeout with default headers values
+func NewGetRoutingQueuesMeRequestTimeout() *GetRoutingQueuesMeRequestTimeout {
+	return &GetRoutingQueuesMeRequestTimeout{}
+}
+
+/*GetRoutingQueuesMeRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetRoutingQueuesMeRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetRoutingQueuesMeRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/queues/me][%d] getRoutingQueuesMeRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetRoutingQueuesMeRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetRoutingQueuesMeRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetRoutingQueuesMeRequestEntityTooLarge creates a GetRoutingQueuesMeRequestEntityTooLarge with default headers values
 func NewGetRoutingQueuesMeRequestEntityTooLarge() *GetRoutingQueuesMeRequestEntityTooLarge {
 	return &GetRoutingQueuesMeRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetRoutingQueuesMeTooManyRequests() *GetRoutingQueuesMeTooManyRequests {
 
 /*GetRoutingQueuesMeTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetRoutingQueuesMeTooManyRequests struct {
 	Payload *models.ErrorBody

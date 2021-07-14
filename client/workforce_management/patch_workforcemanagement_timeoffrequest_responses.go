@@ -53,6 +53,12 @@ func (o *PatchWorkforcemanagementTimeoffrequestReader) ReadResponse(response run
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPatchWorkforcemanagementTimeoffrequestRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPatchWorkforcemanagementTimeoffrequestRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PatchWorkforcemanagementTimeoffrequestNotFound) readResponse(response r
 	return nil
 }
 
+// NewPatchWorkforcemanagementTimeoffrequestRequestTimeout creates a PatchWorkforcemanagementTimeoffrequestRequestTimeout with default headers values
+func NewPatchWorkforcemanagementTimeoffrequestRequestTimeout() *PatchWorkforcemanagementTimeoffrequestRequestTimeout {
+	return &PatchWorkforcemanagementTimeoffrequestRequestTimeout{}
+}
+
+/*PatchWorkforcemanagementTimeoffrequestRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PatchWorkforcemanagementTimeoffrequestRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PatchWorkforcemanagementTimeoffrequestRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/timeoffrequests/{timeOffRequestId}][%d] patchWorkforcemanagementTimeoffrequestRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchWorkforcemanagementTimeoffrequestRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PatchWorkforcemanagementTimeoffrequestRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPatchWorkforcemanagementTimeoffrequestRequestEntityTooLarge creates a PatchWorkforcemanagementTimeoffrequestRequestEntityTooLarge with default headers values
 func NewPatchWorkforcemanagementTimeoffrequestRequestEntityTooLarge() *PatchWorkforcemanagementTimeoffrequestRequestEntityTooLarge {
 	return &PatchWorkforcemanagementTimeoffrequestRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPatchWorkforcemanagementTimeoffrequestTooManyRequests() *PatchWorkforcem
 
 /*PatchWorkforcemanagementTimeoffrequestTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PatchWorkforcemanagementTimeoffrequestTooManyRequests struct {
 	Payload *models.ErrorBody

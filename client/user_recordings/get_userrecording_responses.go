@@ -53,6 +53,12 @@ func (o *GetUserrecordingReader) ReadResponse(response runtime.ClientResponse, c
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetUserrecordingRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetUserrecordingRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetUserrecordingNotFound) readResponse(response runtime.ClientResponse,
 	return nil
 }
 
+// NewGetUserrecordingRequestTimeout creates a GetUserrecordingRequestTimeout with default headers values
+func NewGetUserrecordingRequestTimeout() *GetUserrecordingRequestTimeout {
+	return &GetUserrecordingRequestTimeout{}
+}
+
+/*GetUserrecordingRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetUserrecordingRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetUserrecordingRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/userrecordings/{recordingId}][%d] getUserrecordingRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetUserrecordingRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetUserrecordingRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetUserrecordingRequestEntityTooLarge creates a GetUserrecordingRequestEntityTooLarge with default headers values
 func NewGetUserrecordingRequestEntityTooLarge() *GetUserrecordingRequestEntityTooLarge {
 	return &GetUserrecordingRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetUserrecordingTooManyRequests() *GetUserrecordingTooManyRequests {
 
 /*GetUserrecordingTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetUserrecordingTooManyRequests struct {
 	Payload *models.ErrorBody

@@ -53,6 +53,12 @@ func (o *GetUserTrustorsReader) ReadResponse(response runtime.ClientResponse, co
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetUserTrustorsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetUserTrustorsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetUserTrustorsNotFound) readResponse(response runtime.ClientResponse, 
 	return nil
 }
 
+// NewGetUserTrustorsRequestTimeout creates a GetUserTrustorsRequestTimeout with default headers values
+func NewGetUserTrustorsRequestTimeout() *GetUserTrustorsRequestTimeout {
+	return &GetUserTrustorsRequestTimeout{}
+}
+
+/*GetUserTrustorsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetUserTrustorsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetUserTrustorsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/trustors][%d] getUserTrustorsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetUserTrustorsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetUserTrustorsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetUserTrustorsRequestEntityTooLarge creates a GetUserTrustorsRequestEntityTooLarge with default headers values
 func NewGetUserTrustorsRequestEntityTooLarge() *GetUserTrustorsRequestEntityTooLarge {
 	return &GetUserTrustorsRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetUserTrustorsTooManyRequests() *GetUserTrustorsTooManyRequests {
 
 /*GetUserTrustorsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetUserTrustorsTooManyRequests struct {
 	Payload *models.ErrorBody

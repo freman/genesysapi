@@ -114,6 +114,10 @@ type API interface {
 	*/
 	GetOutboundCampaign(ctx context.Context, params *GetOutboundCampaignParams) (*GetOutboundCampaignOK, error)
 	/*
+	   GetOutboundCampaignAgentownedmappingpreviewResults gets a preview of how agents will be mapped to this campaign s contact list
+	*/
+	GetOutboundCampaignAgentownedmappingpreviewResults(ctx context.Context, params *GetOutboundCampaignAgentownedmappingpreviewResultsParams) (*GetOutboundCampaignAgentownedmappingpreviewResultsOK, *GetOutboundCampaignAgentownedmappingpreviewResultsAccepted, error)
+	/*
 	   GetOutboundCampaignDiagnostics gets campaign diagnostics
 	*/
 	GetOutboundCampaignDiagnostics(ctx context.Context, params *GetOutboundCampaignDiagnosticsParams) (*GetOutboundCampaignDiagnosticsOK, error)
@@ -317,6 +321,10 @@ type API interface {
 	   PostOutboundCallanalysisresponsesets creates a dialer call analysis response set
 	*/
 	PostOutboundCallanalysisresponsesets(ctx context.Context, params *PostOutboundCallanalysisresponsesetsParams) (*PostOutboundCallanalysisresponsesetsOK, error)
+	/*
+	   PostOutboundCampaignAgentownedmappingpreview initiates request for a preview of how agents will be mapped to this campaign s contact list
+	*/
+	PostOutboundCampaignAgentownedmappingpreview(ctx context.Context, params *PostOutboundCampaignAgentownedmappingpreviewParams) (*PostOutboundCampaignAgentownedmappingpreviewOK, *PostOutboundCampaignAgentownedmappingpreviewAccepted, error)
 	/*
 	   PostOutboundCampaignCallbackSchedule schedules a callback for a dialer campaign deprecated
 	   This endpoint is deprecated and may have unexpected results. Please use "/conversations/{conversationId}/participants/{participantId}/callbacks instead."
@@ -1085,6 +1093,37 @@ func (a *Client) GetOutboundCampaign(ctx context.Context, params *GetOutboundCam
 		return nil, err
 	}
 	return result.(*GetOutboundCampaignOK), nil
+
+}
+
+/*
+GetOutboundCampaignAgentownedmappingpreviewResults gets a preview of how agents will be mapped to this campaign s contact list
+*/
+func (a *Client) GetOutboundCampaignAgentownedmappingpreviewResults(ctx context.Context, params *GetOutboundCampaignAgentownedmappingpreviewResultsParams) (*GetOutboundCampaignAgentownedmappingpreviewResultsOK, *GetOutboundCampaignAgentownedmappingpreviewResultsAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getOutboundCampaignAgentownedmappingpreviewResults",
+		Method:             "GET",
+		PathPattern:        "/api/v2/outbound/campaigns/{campaignId}/agentownedmappingpreview/results",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetOutboundCampaignAgentownedmappingpreviewResultsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *GetOutboundCampaignAgentownedmappingpreviewResultsOK:
+		return value, nil, nil
+	case *GetOutboundCampaignAgentownedmappingpreviewResultsAccepted:
+		return nil, value, nil
+	}
+	return nil, nil, nil
 
 }
 
@@ -2326,6 +2365,37 @@ func (a *Client) PostOutboundCallanalysisresponsesets(ctx context.Context, param
 		return nil, err
 	}
 	return result.(*PostOutboundCallanalysisresponsesetsOK), nil
+
+}
+
+/*
+PostOutboundCampaignAgentownedmappingpreview initiates request for a preview of how agents will be mapped to this campaign s contact list
+*/
+func (a *Client) PostOutboundCampaignAgentownedmappingpreview(ctx context.Context, params *PostOutboundCampaignAgentownedmappingpreviewParams) (*PostOutboundCampaignAgentownedmappingpreviewOK, *PostOutboundCampaignAgentownedmappingpreviewAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postOutboundCampaignAgentownedmappingpreview",
+		Method:             "POST",
+		PathPattern:        "/api/v2/outbound/campaigns/{campaignId}/agentownedmappingpreview",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostOutboundCampaignAgentownedmappingpreviewReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PostOutboundCampaignAgentownedmappingpreviewOK:
+		return value, nil, nil
+	case *PostOutboundCampaignAgentownedmappingpreviewAccepted:
+		return nil, value, nil
+	}
+	return nil, nil, nil
 
 }
 

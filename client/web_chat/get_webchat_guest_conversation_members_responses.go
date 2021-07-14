@@ -53,6 +53,12 @@ func (o *GetWebchatGuestConversationMembersReader) ReadResponse(response runtime
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetWebchatGuestConversationMembersRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetWebchatGuestConversationMembersRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetWebchatGuestConversationMembersNotFound) readResponse(response runti
 	return nil
 }
 
+// NewGetWebchatGuestConversationMembersRequestTimeout creates a GetWebchatGuestConversationMembersRequestTimeout with default headers values
+func NewGetWebchatGuestConversationMembersRequestTimeout() *GetWebchatGuestConversationMembersRequestTimeout {
+	return &GetWebchatGuestConversationMembersRequestTimeout{}
+}
+
+/*GetWebchatGuestConversationMembersRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetWebchatGuestConversationMembersRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetWebchatGuestConversationMembersRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webchat/guest/conversations/{conversationId}/members][%d] getWebchatGuestConversationMembersRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetWebchatGuestConversationMembersRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetWebchatGuestConversationMembersRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetWebchatGuestConversationMembersRequestEntityTooLarge creates a GetWebchatGuestConversationMembersRequestEntityTooLarge with default headers values
 func NewGetWebchatGuestConversationMembersRequestEntityTooLarge() *GetWebchatGuestConversationMembersRequestEntityTooLarge {
 	return &GetWebchatGuestConversationMembersRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetWebchatGuestConversationMembersTooManyRequests() *GetWebchatGuestConv
 
 /*GetWebchatGuestConversationMembersTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetWebchatGuestConversationMembersTooManyRequests struct {
 	Payload *models.ErrorBody

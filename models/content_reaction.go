@@ -14,16 +14,16 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// ContentReaction User reaction to public message
+// ContentReaction User reaction to public message.
 //
 // swagger:model ContentReaction
 type ContentReaction struct {
 
-	// Number of users that reacted this way to this public message
+	// Number of users that reacted this way to the message.
 	Count int32 `json:"count,omitempty"`
 
-	// Type of reaction
-	// Enum: [None Like Love Wow Haha Sad Angry Thankful Pride Care]
+	// Type of reaction.
+	// Enum: [Like Love Wow Haha Sad Angry Thankful Pride Care]
 	ReactionType string `json:"reactionType,omitempty"`
 }
 
@@ -45,7 +45,7 @@ var contentReactionTypeReactionTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["None","Like","Love","Wow","Haha","Sad","Angry","Thankful","Pride","Care"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Like","Love","Wow","Haha","Sad","Angry","Thankful","Pride","Care"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -54,9 +54,6 @@ func init() {
 }
 
 const (
-
-	// ContentReactionReactionTypeNone captures enum value "None"
-	ContentReactionReactionTypeNone string = "None"
 
 	// ContentReactionReactionTypeLike captures enum value "Like"
 	ContentReactionReactionTypeLike string = "Like"

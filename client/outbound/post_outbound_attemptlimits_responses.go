@@ -53,6 +53,12 @@ func (o *PostOutboundAttemptlimitsReader) ReadResponse(response runtime.ClientRe
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostOutboundAttemptlimitsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostOutboundAttemptlimitsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PostOutboundAttemptlimitsNotFound) readResponse(response runtime.Client
 	return nil
 }
 
+// NewPostOutboundAttemptlimitsRequestTimeout creates a PostOutboundAttemptlimitsRequestTimeout with default headers values
+func NewPostOutboundAttemptlimitsRequestTimeout() *PostOutboundAttemptlimitsRequestTimeout {
+	return &PostOutboundAttemptlimitsRequestTimeout{}
+}
+
+/*PostOutboundAttemptlimitsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostOutboundAttemptlimitsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostOutboundAttemptlimitsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/attemptlimits][%d] postOutboundAttemptlimitsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostOutboundAttemptlimitsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostOutboundAttemptlimitsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostOutboundAttemptlimitsRequestEntityTooLarge creates a PostOutboundAttemptlimitsRequestEntityTooLarge with default headers values
 func NewPostOutboundAttemptlimitsRequestEntityTooLarge() *PostOutboundAttemptlimitsRequestEntityTooLarge {
 	return &PostOutboundAttemptlimitsRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPostOutboundAttemptlimitsTooManyRequests() *PostOutboundAttemptlimitsToo
 
 /*PostOutboundAttemptlimitsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostOutboundAttemptlimitsTooManyRequests struct {
 	Payload *models.ErrorBody

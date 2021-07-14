@@ -20,7 +20,7 @@ import (
 type KnowledgeSearchRequest struct {
 
 	// Document type to be used while searching
-	// Enum: [Faq]
+	// Enum: [Faq Article]
 	DocumentType string `json:"documentType,omitempty"`
 
 	// query search for specific languageCode
@@ -67,7 +67,7 @@ var knowledgeSearchRequestTypeDocumentTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Faq"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Faq","Article"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -79,6 +79,9 @@ const (
 
 	// KnowledgeSearchRequestDocumentTypeFaq captures enum value "Faq"
 	KnowledgeSearchRequestDocumentTypeFaq string = "Faq"
+
+	// KnowledgeSearchRequestDocumentTypeArticle captures enum value "Article"
+	KnowledgeSearchRequestDocumentTypeArticle string = "Article"
 )
 
 // prop value enum

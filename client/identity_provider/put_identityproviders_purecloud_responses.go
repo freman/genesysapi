@@ -53,6 +53,12 @@ func (o *PutIdentityprovidersPurecloudReader) ReadResponse(response runtime.Clie
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPutIdentityprovidersPurecloudRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPutIdentityprovidersPurecloudRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PutIdentityprovidersPurecloudNotFound) readResponse(response runtime.Cl
 	return nil
 }
 
+// NewPutIdentityprovidersPurecloudRequestTimeout creates a PutIdentityprovidersPurecloudRequestTimeout with default headers values
+func NewPutIdentityprovidersPurecloudRequestTimeout() *PutIdentityprovidersPurecloudRequestTimeout {
+	return &PutIdentityprovidersPurecloudRequestTimeout{}
+}
+
+/*PutIdentityprovidersPurecloudRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PutIdentityprovidersPurecloudRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PutIdentityprovidersPurecloudRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/purecloud][%d] putIdentityprovidersPurecloudRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutIdentityprovidersPurecloudRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PutIdentityprovidersPurecloudRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPutIdentityprovidersPurecloudRequestEntityTooLarge creates a PutIdentityprovidersPurecloudRequestEntityTooLarge with default headers values
 func NewPutIdentityprovidersPurecloudRequestEntityTooLarge() *PutIdentityprovidersPurecloudRequestEntityTooLarge {
 	return &PutIdentityprovidersPurecloudRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPutIdentityprovidersPurecloudTooManyRequests() *PutIdentityprovidersPure
 
 /*PutIdentityprovidersPurecloudTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PutIdentityprovidersPurecloudTooManyRequests struct {
 	Payload *models.ErrorBody

@@ -53,6 +53,12 @@ func (o *GetRecordingRecordingkeysRotationscheduleReader) ReadResponse(response 
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetRecordingRecordingkeysRotationscheduleRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetRecordingRecordingkeysRotationscheduleRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetRecordingRecordingkeysRotationscheduleNotFound) readResponse(respons
 	return nil
 }
 
+// NewGetRecordingRecordingkeysRotationscheduleRequestTimeout creates a GetRecordingRecordingkeysRotationscheduleRequestTimeout with default headers values
+func NewGetRecordingRecordingkeysRotationscheduleRequestTimeout() *GetRecordingRecordingkeysRotationscheduleRequestTimeout {
+	return &GetRecordingRecordingkeysRotationscheduleRequestTimeout{}
+}
+
+/*GetRecordingRecordingkeysRotationscheduleRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetRecordingRecordingkeysRotationscheduleRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetRecordingRecordingkeysRotationscheduleRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/recordingkeys/rotationschedule][%d] getRecordingRecordingkeysRotationscheduleRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetRecordingRecordingkeysRotationscheduleRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetRecordingRecordingkeysRotationscheduleRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetRecordingRecordingkeysRotationscheduleRequestEntityTooLarge creates a GetRecordingRecordingkeysRotationscheduleRequestEntityTooLarge with default headers values
 func NewGetRecordingRecordingkeysRotationscheduleRequestEntityTooLarge() *GetRecordingRecordingkeysRotationscheduleRequestEntityTooLarge {
 	return &GetRecordingRecordingkeysRotationscheduleRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetRecordingRecordingkeysRotationscheduleTooManyRequests() *GetRecording
 
 /*GetRecordingRecordingkeysRotationscheduleTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetRecordingRecordingkeysRotationscheduleTooManyRequests struct {
 	Payload *models.ErrorBody

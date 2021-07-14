@@ -14,32 +14,32 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// ContentAttachment Attachment object
+// ContentAttachment Attachment object.
 //
 // swagger:model ContentAttachment
 type ContentAttachment struct {
 
-	// Suggested file name for media file
+	// Suggested file name for attachment.
 	Filename string `json:"filename,omitempty"`
 
-	// Vendor specific ID for media. For example, a LINE sticker ID
+	// Provider specific ID for attachment. For example, a LINE sticker ID.
 	ID string `json:"id,omitempty"`
 
-	// The type of media this instance represents
+	// The type of attachment this instance represents.
 	// Required: true
-	// Enum: [Image Video Audio File]
+	// Enum: [Image Video Audio File Link]
 	MediaType *string `json:"mediaType"`
 
-	// Content mime type from https://www.iana.org/assignments/media-types/media-types.xhtml
+	// Attachment mime type (https://www.iana.org/assignments/media-types/media-types.xhtml).
 	Mime string `json:"mime,omitempty"`
 
-	// Secure hash of the media content
+	// Secure hash of the attachment content.
 	Sha256 string `json:"sha256,omitempty"`
 
-	// Text message associated with media element: e.g. caption in case of image.
+	// Text associated with attachment such as an image caption.
 	Text string `json:"text,omitempty"`
 
-	// Content element url
+	// URL of the attachment.
 	URL string `json:"url,omitempty"`
 }
 
@@ -61,7 +61,7 @@ var contentAttachmentTypeMediaTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Image","Video","Audio","File"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Image","Video","Audio","File","Link"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -82,6 +82,9 @@ const (
 
 	// ContentAttachmentMediaTypeFile captures enum value "File"
 	ContentAttachmentMediaTypeFile string = "File"
+
+	// ContentAttachmentMediaTypeLink captures enum value "Link"
+	ContentAttachmentMediaTypeLink string = "Link"
 )
 
 // prop value enum

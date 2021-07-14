@@ -53,6 +53,12 @@ func (o *GetQualityFormVersionsReader) ReadResponse(response runtime.ClientRespo
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetQualityFormVersionsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetQualityFormVersionsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetQualityFormVersionsNotFound) readResponse(response runtime.ClientRes
 	return nil
 }
 
+// NewGetQualityFormVersionsRequestTimeout creates a GetQualityFormVersionsRequestTimeout with default headers values
+func NewGetQualityFormVersionsRequestTimeout() *GetQualityFormVersionsRequestTimeout {
+	return &GetQualityFormVersionsRequestTimeout{}
+}
+
+/*GetQualityFormVersionsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetQualityFormVersionsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetQualityFormVersionsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/forms/{formId}/versions][%d] getQualityFormVersionsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetQualityFormVersionsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetQualityFormVersionsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetQualityFormVersionsRequestEntityTooLarge creates a GetQualityFormVersionsRequestEntityTooLarge with default headers values
 func NewGetQualityFormVersionsRequestEntityTooLarge() *GetQualityFormVersionsRequestEntityTooLarge {
 	return &GetQualityFormVersionsRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetQualityFormVersionsTooManyRequests() *GetQualityFormVersionsTooManyRe
 
 /*GetQualityFormVersionsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetQualityFormVersionsTooManyRequests struct {
 	Payload *models.ErrorBody

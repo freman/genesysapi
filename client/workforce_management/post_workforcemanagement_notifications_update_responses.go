@@ -53,6 +53,12 @@ func (o *PostWorkforcemanagementNotificationsUpdateReader) ReadResponse(response
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostWorkforcemanagementNotificationsUpdateRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostWorkforcemanagementNotificationsUpdateRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PostWorkforcemanagementNotificationsUpdateNotFound) readResponse(respon
 	return nil
 }
 
+// NewPostWorkforcemanagementNotificationsUpdateRequestTimeout creates a PostWorkforcemanagementNotificationsUpdateRequestTimeout with default headers values
+func NewPostWorkforcemanagementNotificationsUpdateRequestTimeout() *PostWorkforcemanagementNotificationsUpdateRequestTimeout {
+	return &PostWorkforcemanagementNotificationsUpdateRequestTimeout{}
+}
+
+/*PostWorkforcemanagementNotificationsUpdateRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostWorkforcemanagementNotificationsUpdateRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostWorkforcemanagementNotificationsUpdateRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/notifications/update][%d] postWorkforcemanagementNotificationsUpdateRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostWorkforcemanagementNotificationsUpdateRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostWorkforcemanagementNotificationsUpdateRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostWorkforcemanagementNotificationsUpdateRequestEntityTooLarge creates a PostWorkforcemanagementNotificationsUpdateRequestEntityTooLarge with default headers values
 func NewPostWorkforcemanagementNotificationsUpdateRequestEntityTooLarge() *PostWorkforcemanagementNotificationsUpdateRequestEntityTooLarge {
 	return &PostWorkforcemanagementNotificationsUpdateRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPostWorkforcemanagementNotificationsUpdateTooManyRequests() *PostWorkfor
 
 /*PostWorkforcemanagementNotificationsUpdateTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostWorkforcemanagementNotificationsUpdateTooManyRequests struct {
 	Payload *models.ErrorBody

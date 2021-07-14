@@ -53,6 +53,12 @@ func (o *GetLicenseDefinitionReader) ReadResponse(response runtime.ClientRespons
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetLicenseDefinitionRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetLicenseDefinitionRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetLicenseDefinitionNotFound) readResponse(response runtime.ClientRespo
 	return nil
 }
 
+// NewGetLicenseDefinitionRequestTimeout creates a GetLicenseDefinitionRequestTimeout with default headers values
+func NewGetLicenseDefinitionRequestTimeout() *GetLicenseDefinitionRequestTimeout {
+	return &GetLicenseDefinitionRequestTimeout{}
+}
+
+/*GetLicenseDefinitionRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetLicenseDefinitionRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetLicenseDefinitionRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/license/definitions/{licenseId}][%d] getLicenseDefinitionRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetLicenseDefinitionRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetLicenseDefinitionRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetLicenseDefinitionRequestEntityTooLarge creates a GetLicenseDefinitionRequestEntityTooLarge with default headers values
 func NewGetLicenseDefinitionRequestEntityTooLarge() *GetLicenseDefinitionRequestEntityTooLarge {
 	return &GetLicenseDefinitionRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetLicenseDefinitionTooManyRequests() *GetLicenseDefinitionTooManyReques
 
 /*GetLicenseDefinitionTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetLicenseDefinitionTooManyRequests struct {
 	Payload *models.ErrorBody

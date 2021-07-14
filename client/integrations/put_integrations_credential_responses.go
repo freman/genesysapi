@@ -53,6 +53,12 @@ func (o *PutIntegrationsCredentialReader) ReadResponse(response runtime.ClientRe
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPutIntegrationsCredentialRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPutIntegrationsCredentialRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PutIntegrationsCredentialNotFound) readResponse(response runtime.Client
 	return nil
 }
 
+// NewPutIntegrationsCredentialRequestTimeout creates a PutIntegrationsCredentialRequestTimeout with default headers values
+func NewPutIntegrationsCredentialRequestTimeout() *PutIntegrationsCredentialRequestTimeout {
+	return &PutIntegrationsCredentialRequestTimeout{}
+}
+
+/*PutIntegrationsCredentialRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PutIntegrationsCredentialRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PutIntegrationsCredentialRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/integrations/credentials/{credentialId}][%d] putIntegrationsCredentialRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutIntegrationsCredentialRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PutIntegrationsCredentialRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPutIntegrationsCredentialRequestEntityTooLarge creates a PutIntegrationsCredentialRequestEntityTooLarge with default headers values
 func NewPutIntegrationsCredentialRequestEntityTooLarge() *PutIntegrationsCredentialRequestEntityTooLarge {
 	return &PutIntegrationsCredentialRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPutIntegrationsCredentialTooManyRequests() *PutIntegrationsCredentialToo
 
 /*PutIntegrationsCredentialTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PutIntegrationsCredentialTooManyRequests struct {
 	Payload *models.ErrorBody

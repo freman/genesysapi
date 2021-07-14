@@ -53,6 +53,12 @@ func (o *GetOrphanrecordingsReader) ReadResponse(response runtime.ClientResponse
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetOrphanrecordingsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetOrphanrecordingsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetOrphanrecordingsNotFound) readResponse(response runtime.ClientRespon
 	return nil
 }
 
+// NewGetOrphanrecordingsRequestTimeout creates a GetOrphanrecordingsRequestTimeout with default headers values
+func NewGetOrphanrecordingsRequestTimeout() *GetOrphanrecordingsRequestTimeout {
+	return &GetOrphanrecordingsRequestTimeout{}
+}
+
+/*GetOrphanrecordingsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetOrphanrecordingsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetOrphanrecordingsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/orphanrecordings][%d] getOrphanrecordingsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetOrphanrecordingsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetOrphanrecordingsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetOrphanrecordingsRequestEntityTooLarge creates a GetOrphanrecordingsRequestEntityTooLarge with default headers values
 func NewGetOrphanrecordingsRequestEntityTooLarge() *GetOrphanrecordingsRequestEntityTooLarge {
 	return &GetOrphanrecordingsRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetOrphanrecordingsTooManyRequests() *GetOrphanrecordingsTooManyRequests
 
 /*GetOrphanrecordingsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetOrphanrecordingsTooManyRequests struct {
 	Payload *models.ErrorBody

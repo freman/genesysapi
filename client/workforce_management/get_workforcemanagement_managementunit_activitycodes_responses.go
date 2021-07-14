@@ -53,6 +53,12 @@ func (o *GetWorkforcemanagementManagementunitActivitycodesReader) ReadResponse(r
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetWorkforcemanagementManagementunitActivitycodesRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetWorkforcemanagementManagementunitActivitycodesRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetWorkforcemanagementManagementunitActivitycodesNotFound) readResponse
 	return nil
 }
 
+// NewGetWorkforcemanagementManagementunitActivitycodesRequestTimeout creates a GetWorkforcemanagementManagementunitActivitycodesRequestTimeout with default headers values
+func NewGetWorkforcemanagementManagementunitActivitycodesRequestTimeout() *GetWorkforcemanagementManagementunitActivitycodesRequestTimeout {
+	return &GetWorkforcemanagementManagementunitActivitycodesRequestTimeout{}
+}
+
+/*GetWorkforcemanagementManagementunitActivitycodesRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetWorkforcemanagementManagementunitActivitycodesRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetWorkforcemanagementManagementunitActivitycodesRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{managementUnitId}/activitycodes][%d] getWorkforcemanagementManagementunitActivitycodesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetWorkforcemanagementManagementunitActivitycodesRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetWorkforcemanagementManagementunitActivitycodesRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetWorkforcemanagementManagementunitActivitycodesRequestEntityTooLarge creates a GetWorkforcemanagementManagementunitActivitycodesRequestEntityTooLarge with default headers values
 func NewGetWorkforcemanagementManagementunitActivitycodesRequestEntityTooLarge() *GetWorkforcemanagementManagementunitActivitycodesRequestEntityTooLarge {
 	return &GetWorkforcemanagementManagementunitActivitycodesRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetWorkforcemanagementManagementunitActivitycodesTooManyRequests() *GetW
 
 /*GetWorkforcemanagementManagementunitActivitycodesTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetWorkforcemanagementManagementunitActivitycodesTooManyRequests struct {
 	Payload *models.ErrorBody

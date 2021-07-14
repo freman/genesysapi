@@ -53,6 +53,12 @@ func (o *PostArchitectPromptHistoryReader) ReadResponse(response runtime.ClientR
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostArchitectPromptHistoryRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostArchitectPromptHistoryRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PostArchitectPromptHistoryNotFound) readResponse(response runtime.Clien
 	return nil
 }
 
+// NewPostArchitectPromptHistoryRequestTimeout creates a PostArchitectPromptHistoryRequestTimeout with default headers values
+func NewPostArchitectPromptHistoryRequestTimeout() *PostArchitectPromptHistoryRequestTimeout {
+	return &PostArchitectPromptHistoryRequestTimeout{}
+}
+
+/*PostArchitectPromptHistoryRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostArchitectPromptHistoryRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostArchitectPromptHistoryRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/architect/prompts/{promptId}/history][%d] postArchitectPromptHistoryRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostArchitectPromptHistoryRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostArchitectPromptHistoryRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostArchitectPromptHistoryRequestEntityTooLarge creates a PostArchitectPromptHistoryRequestEntityTooLarge with default headers values
 func NewPostArchitectPromptHistoryRequestEntityTooLarge() *PostArchitectPromptHistoryRequestEntityTooLarge {
 	return &PostArchitectPromptHistoryRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPostArchitectPromptHistoryTooManyRequests() *PostArchitectPromptHistoryT
 
 /*PostArchitectPromptHistoryTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostArchitectPromptHistoryTooManyRequests struct {
 	Payload *models.ErrorBody

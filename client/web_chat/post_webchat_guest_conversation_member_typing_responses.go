@@ -53,6 +53,12 @@ func (o *PostWebchatGuestConversationMemberTypingReader) ReadResponse(response r
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostWebchatGuestConversationMemberTypingRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostWebchatGuestConversationMemberTypingRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PostWebchatGuestConversationMemberTypingNotFound) readResponse(response
 	return nil
 }
 
+// NewPostWebchatGuestConversationMemberTypingRequestTimeout creates a PostWebchatGuestConversationMemberTypingRequestTimeout with default headers values
+func NewPostWebchatGuestConversationMemberTypingRequestTimeout() *PostWebchatGuestConversationMemberTypingRequestTimeout {
+	return &PostWebchatGuestConversationMemberTypingRequestTimeout{}
+}
+
+/*PostWebchatGuestConversationMemberTypingRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostWebchatGuestConversationMemberTypingRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostWebchatGuestConversationMemberTypingRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/webchat/guest/conversations/{conversationId}/members/{memberId}/typing][%d] postWebchatGuestConversationMemberTypingRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostWebchatGuestConversationMemberTypingRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostWebchatGuestConversationMemberTypingRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostWebchatGuestConversationMemberTypingRequestEntityTooLarge creates a PostWebchatGuestConversationMemberTypingRequestEntityTooLarge with default headers values
 func NewPostWebchatGuestConversationMemberTypingRequestEntityTooLarge() *PostWebchatGuestConversationMemberTypingRequestEntityTooLarge {
 	return &PostWebchatGuestConversationMemberTypingRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPostWebchatGuestConversationMemberTypingTooManyRequests() *PostWebchatGu
 
 /*PostWebchatGuestConversationMemberTypingTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostWebchatGuestConversationMemberTypingTooManyRequests struct {
 	Payload *models.ErrorBody

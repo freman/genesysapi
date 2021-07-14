@@ -53,6 +53,12 @@ func (o *GetOutboundCallabletimesetsReader) ReadResponse(response runtime.Client
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetOutboundCallabletimesetsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetOutboundCallabletimesetsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetOutboundCallabletimesetsNotFound) readResponse(response runtime.Clie
 	return nil
 }
 
+// NewGetOutboundCallabletimesetsRequestTimeout creates a GetOutboundCallabletimesetsRequestTimeout with default headers values
+func NewGetOutboundCallabletimesetsRequestTimeout() *GetOutboundCallabletimesetsRequestTimeout {
+	return &GetOutboundCallabletimesetsRequestTimeout{}
+}
+
+/*GetOutboundCallabletimesetsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetOutboundCallabletimesetsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetOutboundCallabletimesetsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/callabletimesets][%d] getOutboundCallabletimesetsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetOutboundCallabletimesetsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetOutboundCallabletimesetsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetOutboundCallabletimesetsRequestEntityTooLarge creates a GetOutboundCallabletimesetsRequestEntityTooLarge with default headers values
 func NewGetOutboundCallabletimesetsRequestEntityTooLarge() *GetOutboundCallabletimesetsRequestEntityTooLarge {
 	return &GetOutboundCallabletimesetsRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetOutboundCallabletimesetsTooManyRequests() *GetOutboundCallabletimeset
 
 /*GetOutboundCallabletimesetsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetOutboundCallabletimesetsTooManyRequests struct {
 	Payload *models.ErrorBody

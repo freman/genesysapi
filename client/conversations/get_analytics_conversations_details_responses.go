@@ -53,6 +53,12 @@ func (o *GetAnalyticsConversationsDetailsReader) ReadResponse(response runtime.C
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetAnalyticsConversationsDetailsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetAnalyticsConversationsDetailsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetAnalyticsConversationsDetailsNotFound) readResponse(response runtime
 	return nil
 }
 
+// NewGetAnalyticsConversationsDetailsRequestTimeout creates a GetAnalyticsConversationsDetailsRequestTimeout with default headers values
+func NewGetAnalyticsConversationsDetailsRequestTimeout() *GetAnalyticsConversationsDetailsRequestTimeout {
+	return &GetAnalyticsConversationsDetailsRequestTimeout{}
+}
+
+/*GetAnalyticsConversationsDetailsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetAnalyticsConversationsDetailsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetAnalyticsConversationsDetailsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/conversations/details][%d] getAnalyticsConversationsDetailsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetAnalyticsConversationsDetailsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetAnalyticsConversationsDetailsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetAnalyticsConversationsDetailsRequestEntityTooLarge creates a GetAnalyticsConversationsDetailsRequestEntityTooLarge with default headers values
 func NewGetAnalyticsConversationsDetailsRequestEntityTooLarge() *GetAnalyticsConversationsDetailsRequestEntityTooLarge {
 	return &GetAnalyticsConversationsDetailsRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetAnalyticsConversationsDetailsTooManyRequests() *GetAnalyticsConversat
 
 /*GetAnalyticsConversationsDetailsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetAnalyticsConversationsDetailsTooManyRequests struct {
 	Payload *models.ErrorBody

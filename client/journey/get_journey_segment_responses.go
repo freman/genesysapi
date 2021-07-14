@@ -53,6 +53,12 @@ func (o *GetJourneySegmentReader) ReadResponse(response runtime.ClientResponse, 
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetJourneySegmentRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetJourneySegmentRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetJourneySegmentNotFound) readResponse(response runtime.ClientResponse
 	return nil
 }
 
+// NewGetJourneySegmentRequestTimeout creates a GetJourneySegmentRequestTimeout with default headers values
+func NewGetJourneySegmentRequestTimeout() *GetJourneySegmentRequestTimeout {
+	return &GetJourneySegmentRequestTimeout{}
+}
+
+/*GetJourneySegmentRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetJourneySegmentRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetJourneySegmentRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/journey/segments/{segmentId}][%d] getJourneySegmentRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetJourneySegmentRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetJourneySegmentRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetJourneySegmentRequestEntityTooLarge creates a GetJourneySegmentRequestEntityTooLarge with default headers values
 func NewGetJourneySegmentRequestEntityTooLarge() *GetJourneySegmentRequestEntityTooLarge {
 	return &GetJourneySegmentRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetJourneySegmentTooManyRequests() *GetJourneySegmentTooManyRequests {
 
 /*GetJourneySegmentTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetJourneySegmentTooManyRequests struct {
 	Payload *models.ErrorBody

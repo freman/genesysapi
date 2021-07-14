@@ -53,6 +53,12 @@ func (o *PostLocationsSearchReader) ReadResponse(response runtime.ClientResponse
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostLocationsSearchRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostLocationsSearchRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PostLocationsSearchNotFound) readResponse(response runtime.ClientRespon
 	return nil
 }
 
+// NewPostLocationsSearchRequestTimeout creates a PostLocationsSearchRequestTimeout with default headers values
+func NewPostLocationsSearchRequestTimeout() *PostLocationsSearchRequestTimeout {
+	return &PostLocationsSearchRequestTimeout{}
+}
+
+/*PostLocationsSearchRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostLocationsSearchRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostLocationsSearchRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/locations/search][%d] postLocationsSearchRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostLocationsSearchRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostLocationsSearchRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostLocationsSearchRequestEntityTooLarge creates a PostLocationsSearchRequestEntityTooLarge with default headers values
 func NewPostLocationsSearchRequestEntityTooLarge() *PostLocationsSearchRequestEntityTooLarge {
 	return &PostLocationsSearchRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPostLocationsSearchTooManyRequests() *PostLocationsSearchTooManyRequests
 
 /*PostLocationsSearchTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostLocationsSearchTooManyRequests struct {
 	Payload *models.ErrorBody

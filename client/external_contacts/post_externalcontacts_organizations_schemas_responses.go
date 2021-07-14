@@ -53,6 +53,12 @@ func (o *PostExternalcontactsOrganizationsSchemasReader) ReadResponse(response r
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostExternalcontactsOrganizationsSchemasRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 409:
 		result := NewPostExternalcontactsOrganizationsSchemasConflict()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -272,6 +278,39 @@ func (o *PostExternalcontactsOrganizationsSchemasNotFound) readResponse(response
 	return nil
 }
 
+// NewPostExternalcontactsOrganizationsSchemasRequestTimeout creates a PostExternalcontactsOrganizationsSchemasRequestTimeout with default headers values
+func NewPostExternalcontactsOrganizationsSchemasRequestTimeout() *PostExternalcontactsOrganizationsSchemasRequestTimeout {
+	return &PostExternalcontactsOrganizationsSchemasRequestTimeout{}
+}
+
+/*PostExternalcontactsOrganizationsSchemasRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostExternalcontactsOrganizationsSchemasRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostExternalcontactsOrganizationsSchemasRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/externalcontacts/organizations/schemas][%d] postExternalcontactsOrganizationsSchemasRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostExternalcontactsOrganizationsSchemasRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostExternalcontactsOrganizationsSchemasRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostExternalcontactsOrganizationsSchemasConflict creates a PostExternalcontactsOrganizationsSchemasConflict with default headers values
 func NewPostExternalcontactsOrganizationsSchemasConflict() *PostExternalcontactsOrganizationsSchemasConflict {
 	return &PostExternalcontactsOrganizationsSchemasConflict{}
@@ -411,7 +450,7 @@ func NewPostExternalcontactsOrganizationsSchemasTooManyRequests() *PostExternalc
 
 /*PostExternalcontactsOrganizationsSchemasTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostExternalcontactsOrganizationsSchemasTooManyRequests struct {
 	Payload *models.ErrorBody

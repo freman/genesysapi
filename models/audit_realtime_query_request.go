@@ -35,7 +35,7 @@ type AuditRealtimeQueryRequest struct {
 
 	// Name of the service to query audits for.
 	// Required: true
-	// Enum: [Architect ContactCenter ContentManagement Integrations PeoplePermissions Presence Quality LanguageUnderstanding TopicsDefinitions PredictiveEngagement WorkforceManagement Triggers ResponseManagement Groups Telephony Outbound SpeechAndTextAnalytics Routing]
+	// Enum: [AnalyticsReporting Architect Coaching ContactCenter ContentManagement Datatables Gamification Groups Integrations LanguageUnderstanding Limits Outbound PeoplePermissions EmployeePerformance PredictiveEngagement Presence Quality ResponseManagement Routing SpeechAndTextAnalytics Telephony TopicsDefinitions Triggers WebDeployments Webhooks WorkforceManagement Messaging Supportability]
 	ServiceName *string `json:"serviceName"`
 
 	// Sort parameter for the query.
@@ -106,7 +106,7 @@ var auditRealtimeQueryRequestTypeServiceNamePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Architect","ContactCenter","ContentManagement","Integrations","PeoplePermissions","Presence","Quality","LanguageUnderstanding","TopicsDefinitions","PredictiveEngagement","WorkforceManagement","Triggers","ResponseManagement","Groups","Telephony","Outbound","SpeechAndTextAnalytics","Routing"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["AnalyticsReporting","Architect","Coaching","ContactCenter","ContentManagement","Datatables","Gamification","Groups","Integrations","LanguageUnderstanding","Limits","Outbound","PeoplePermissions","EmployeePerformance","PredictiveEngagement","Presence","Quality","ResponseManagement","Routing","SpeechAndTextAnalytics","Telephony","TopicsDefinitions","Triggers","WebDeployments","Webhooks","WorkforceManagement","Messaging","Supportability"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -116,8 +116,14 @@ func init() {
 
 const (
 
+	// AuditRealtimeQueryRequestServiceNameAnalyticsReporting captures enum value "AnalyticsReporting"
+	AuditRealtimeQueryRequestServiceNameAnalyticsReporting string = "AnalyticsReporting"
+
 	// AuditRealtimeQueryRequestServiceNameArchitect captures enum value "Architect"
 	AuditRealtimeQueryRequestServiceNameArchitect string = "Architect"
+
+	// AuditRealtimeQueryRequestServiceNameCoaching captures enum value "Coaching"
+	AuditRealtimeQueryRequestServiceNameCoaching string = "Coaching"
 
 	// AuditRealtimeQueryRequestServiceNameContactCenter captures enum value "ContactCenter"
 	AuditRealtimeQueryRequestServiceNameContactCenter string = "ContactCenter"
@@ -125,11 +131,35 @@ const (
 	// AuditRealtimeQueryRequestServiceNameContentManagement captures enum value "ContentManagement"
 	AuditRealtimeQueryRequestServiceNameContentManagement string = "ContentManagement"
 
+	// AuditRealtimeQueryRequestServiceNameDatatables captures enum value "Datatables"
+	AuditRealtimeQueryRequestServiceNameDatatables string = "Datatables"
+
+	// AuditRealtimeQueryRequestServiceNameGamification captures enum value "Gamification"
+	AuditRealtimeQueryRequestServiceNameGamification string = "Gamification"
+
+	// AuditRealtimeQueryRequestServiceNameGroups captures enum value "Groups"
+	AuditRealtimeQueryRequestServiceNameGroups string = "Groups"
+
 	// AuditRealtimeQueryRequestServiceNameIntegrations captures enum value "Integrations"
 	AuditRealtimeQueryRequestServiceNameIntegrations string = "Integrations"
 
+	// AuditRealtimeQueryRequestServiceNameLanguageUnderstanding captures enum value "LanguageUnderstanding"
+	AuditRealtimeQueryRequestServiceNameLanguageUnderstanding string = "LanguageUnderstanding"
+
+	// AuditRealtimeQueryRequestServiceNameLimits captures enum value "Limits"
+	AuditRealtimeQueryRequestServiceNameLimits string = "Limits"
+
+	// AuditRealtimeQueryRequestServiceNameOutbound captures enum value "Outbound"
+	AuditRealtimeQueryRequestServiceNameOutbound string = "Outbound"
+
 	// AuditRealtimeQueryRequestServiceNamePeoplePermissions captures enum value "PeoplePermissions"
 	AuditRealtimeQueryRequestServiceNamePeoplePermissions string = "PeoplePermissions"
+
+	// AuditRealtimeQueryRequestServiceNameEmployeePerformance captures enum value "EmployeePerformance"
+	AuditRealtimeQueryRequestServiceNameEmployeePerformance string = "EmployeePerformance"
+
+	// AuditRealtimeQueryRequestServiceNamePredictiveEngagement captures enum value "PredictiveEngagement"
+	AuditRealtimeQueryRequestServiceNamePredictiveEngagement string = "PredictiveEngagement"
 
 	// AuditRealtimeQueryRequestServiceNamePresence captures enum value "Presence"
 	AuditRealtimeQueryRequestServiceNamePresence string = "Presence"
@@ -137,38 +167,38 @@ const (
 	// AuditRealtimeQueryRequestServiceNameQuality captures enum value "Quality"
 	AuditRealtimeQueryRequestServiceNameQuality string = "Quality"
 
-	// AuditRealtimeQueryRequestServiceNameLanguageUnderstanding captures enum value "LanguageUnderstanding"
-	AuditRealtimeQueryRequestServiceNameLanguageUnderstanding string = "LanguageUnderstanding"
-
-	// AuditRealtimeQueryRequestServiceNameTopicsDefinitions captures enum value "TopicsDefinitions"
-	AuditRealtimeQueryRequestServiceNameTopicsDefinitions string = "TopicsDefinitions"
-
-	// AuditRealtimeQueryRequestServiceNamePredictiveEngagement captures enum value "PredictiveEngagement"
-	AuditRealtimeQueryRequestServiceNamePredictiveEngagement string = "PredictiveEngagement"
-
-	// AuditRealtimeQueryRequestServiceNameWorkforceManagement captures enum value "WorkforceManagement"
-	AuditRealtimeQueryRequestServiceNameWorkforceManagement string = "WorkforceManagement"
-
-	// AuditRealtimeQueryRequestServiceNameTriggers captures enum value "Triggers"
-	AuditRealtimeQueryRequestServiceNameTriggers string = "Triggers"
-
 	// AuditRealtimeQueryRequestServiceNameResponseManagement captures enum value "ResponseManagement"
 	AuditRealtimeQueryRequestServiceNameResponseManagement string = "ResponseManagement"
 
-	// AuditRealtimeQueryRequestServiceNameGroups captures enum value "Groups"
-	AuditRealtimeQueryRequestServiceNameGroups string = "Groups"
-
-	// AuditRealtimeQueryRequestServiceNameTelephony captures enum value "Telephony"
-	AuditRealtimeQueryRequestServiceNameTelephony string = "Telephony"
-
-	// AuditRealtimeQueryRequestServiceNameOutbound captures enum value "Outbound"
-	AuditRealtimeQueryRequestServiceNameOutbound string = "Outbound"
+	// AuditRealtimeQueryRequestServiceNameRouting captures enum value "Routing"
+	AuditRealtimeQueryRequestServiceNameRouting string = "Routing"
 
 	// AuditRealtimeQueryRequestServiceNameSpeechAndTextAnalytics captures enum value "SpeechAndTextAnalytics"
 	AuditRealtimeQueryRequestServiceNameSpeechAndTextAnalytics string = "SpeechAndTextAnalytics"
 
-	// AuditRealtimeQueryRequestServiceNameRouting captures enum value "Routing"
-	AuditRealtimeQueryRequestServiceNameRouting string = "Routing"
+	// AuditRealtimeQueryRequestServiceNameTelephony captures enum value "Telephony"
+	AuditRealtimeQueryRequestServiceNameTelephony string = "Telephony"
+
+	// AuditRealtimeQueryRequestServiceNameTopicsDefinitions captures enum value "TopicsDefinitions"
+	AuditRealtimeQueryRequestServiceNameTopicsDefinitions string = "TopicsDefinitions"
+
+	// AuditRealtimeQueryRequestServiceNameTriggers captures enum value "Triggers"
+	AuditRealtimeQueryRequestServiceNameTriggers string = "Triggers"
+
+	// AuditRealtimeQueryRequestServiceNameWebDeployments captures enum value "WebDeployments"
+	AuditRealtimeQueryRequestServiceNameWebDeployments string = "WebDeployments"
+
+	// AuditRealtimeQueryRequestServiceNameWebhooks captures enum value "Webhooks"
+	AuditRealtimeQueryRequestServiceNameWebhooks string = "Webhooks"
+
+	// AuditRealtimeQueryRequestServiceNameWorkforceManagement captures enum value "WorkforceManagement"
+	AuditRealtimeQueryRequestServiceNameWorkforceManagement string = "WorkforceManagement"
+
+	// AuditRealtimeQueryRequestServiceNameMessaging captures enum value "Messaging"
+	AuditRealtimeQueryRequestServiceNameMessaging string = "Messaging"
+
+	// AuditRealtimeQueryRequestServiceNameSupportability captures enum value "Supportability"
+	AuditRealtimeQueryRequestServiceNameSupportability string = "Supportability"
 )
 
 // prop value enum

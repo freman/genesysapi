@@ -53,6 +53,12 @@ func (o *GetFlowVersionsReader) ReadResponse(response runtime.ClientResponse, co
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetFlowVersionsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 410:
 		result := NewGetFlowVersionsGone()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -266,6 +272,39 @@ func (o *GetFlowVersionsNotFound) readResponse(response runtime.ClientResponse, 
 	return nil
 }
 
+// NewGetFlowVersionsRequestTimeout creates a GetFlowVersionsRequestTimeout with default headers values
+func NewGetFlowVersionsRequestTimeout() *GetFlowVersionsRequestTimeout {
+	return &GetFlowVersionsRequestTimeout{}
+}
+
+/*GetFlowVersionsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetFlowVersionsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetFlowVersionsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/{flowId}/versions][%d] getFlowVersionsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetFlowVersionsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetFlowVersionsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetFlowVersionsGone creates a GetFlowVersionsGone with default headers values
 func NewGetFlowVersionsGone() *GetFlowVersionsGone {
 	return &GetFlowVersionsGone{}
@@ -372,7 +411,7 @@ func NewGetFlowVersionsTooManyRequests() *GetFlowVersionsTooManyRequests {
 
 /*GetFlowVersionsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetFlowVersionsTooManyRequests struct {
 	Payload *models.ErrorBody

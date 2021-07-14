@@ -53,6 +53,12 @@ func (o *DeleteIntegrationReader) ReadResponse(response runtime.ClientResponse, 
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewDeleteIntegrationRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewDeleteIntegrationRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *DeleteIntegrationNotFound) readResponse(response runtime.ClientResponse
 	return nil
 }
 
+// NewDeleteIntegrationRequestTimeout creates a DeleteIntegrationRequestTimeout with default headers values
+func NewDeleteIntegrationRequestTimeout() *DeleteIntegrationRequestTimeout {
+	return &DeleteIntegrationRequestTimeout{}
+}
+
+/*DeleteIntegrationRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type DeleteIntegrationRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *DeleteIntegrationRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/integrations/{integrationId}][%d] deleteIntegrationRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteIntegrationRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *DeleteIntegrationRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewDeleteIntegrationRequestEntityTooLarge creates a DeleteIntegrationRequestEntityTooLarge with default headers values
 func NewDeleteIntegrationRequestEntityTooLarge() *DeleteIntegrationRequestEntityTooLarge {
 	return &DeleteIntegrationRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewDeleteIntegrationTooManyRequests() *DeleteIntegrationTooManyRequests {
 
 /*DeleteIntegrationTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type DeleteIntegrationTooManyRequests struct {
 	Payload *models.ErrorBody

@@ -53,6 +53,12 @@ func (o *GetTelephonyProvidersEdgesDidReader) ReadResponse(response runtime.Clie
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetTelephonyProvidersEdgesDidRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetTelephonyProvidersEdgesDidRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetTelephonyProvidersEdgesDidNotFound) readResponse(response runtime.Cl
 	return nil
 }
 
+// NewGetTelephonyProvidersEdgesDidRequestTimeout creates a GetTelephonyProvidersEdgesDidRequestTimeout with default headers values
+func NewGetTelephonyProvidersEdgesDidRequestTimeout() *GetTelephonyProvidersEdgesDidRequestTimeout {
+	return &GetTelephonyProvidersEdgesDidRequestTimeout{}
+}
+
+/*GetTelephonyProvidersEdgesDidRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetTelephonyProvidersEdgesDidRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetTelephonyProvidersEdgesDidRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/dids/{didId}][%d] getTelephonyProvidersEdgesDidRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetTelephonyProvidersEdgesDidRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetTelephonyProvidersEdgesDidRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetTelephonyProvidersEdgesDidRequestEntityTooLarge creates a GetTelephonyProvidersEdgesDidRequestEntityTooLarge with default headers values
 func NewGetTelephonyProvidersEdgesDidRequestEntityTooLarge() *GetTelephonyProvidersEdgesDidRequestEntityTooLarge {
 	return &GetTelephonyProvidersEdgesDidRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetTelephonyProvidersEdgesDidTooManyRequests() *GetTelephonyProvidersEdg
 
 /*GetTelephonyProvidersEdgesDidTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetTelephonyProvidersEdgesDidTooManyRequests struct {
 	Payload *models.ErrorBody

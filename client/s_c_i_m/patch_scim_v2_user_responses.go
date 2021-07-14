@@ -53,6 +53,12 @@ func (o *PatchScimV2UserReader) ReadResponse(response runtime.ClientResponse, co
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPatchScimV2UserRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 409:
 		result := NewPatchScimV2UserConflict()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -266,6 +272,39 @@ func (o *PatchScimV2UserNotFound) readResponse(response runtime.ClientResponse, 
 	return nil
 }
 
+// NewPatchScimV2UserRequestTimeout creates a PatchScimV2UserRequestTimeout with default headers values
+func NewPatchScimV2UserRequestTimeout() *PatchScimV2UserRequestTimeout {
+	return &PatchScimV2UserRequestTimeout{}
+}
+
+/*PatchScimV2UserRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PatchScimV2UserRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PatchScimV2UserRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/scim/v2/users/{userId}][%d] patchScimV2UserRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchScimV2UserRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PatchScimV2UserRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPatchScimV2UserConflict creates a PatchScimV2UserConflict with default headers values
 func NewPatchScimV2UserConflict() *PatchScimV2UserConflict {
 	return &PatchScimV2UserConflict{}
@@ -372,7 +411,7 @@ func NewPatchScimV2UserTooManyRequests() *PatchScimV2UserTooManyRequests {
 
 /*PatchScimV2UserTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PatchScimV2UserTooManyRequests struct {
 	Payload *models.ErrorBody

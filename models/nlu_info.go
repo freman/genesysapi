@@ -18,21 +18,55 @@ import (
 // swagger:model NluInfo
 type NluInfo struct {
 
+	// domain
+	// Read Only: true
+	Domain *AddressableEntityRef `json:"domain,omitempty"`
+
 	// intents
 	Intents []*Intent `json:"intents"`
+
+	// version
+	// Read Only: true
+	Version *NluDomainVersion `json:"version,omitempty"`
 }
 
 // Validate validates this nlu info
 func (m *NluInfo) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateDomain(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateIntents(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateVersion(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *NluInfo) validateDomain(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Domain) { // not required
+		return nil
+	}
+
+	if m.Domain != nil {
+		if err := m.Domain.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("domain")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -56,6 +90,24 @@ func (m *NluInfo) validateIntents(formats strfmt.Registry) error {
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *NluInfo) validateVersion(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Version) { // not required
+		return nil
+	}
+
+	if m.Version != nil {
+		if err := m.Version.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("version")
+			}
+			return err
+		}
 	}
 
 	return nil

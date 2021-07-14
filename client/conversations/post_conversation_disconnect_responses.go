@@ -53,6 +53,12 @@ func (o *PostConversationDisconnectReader) ReadResponse(response runtime.ClientR
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostConversationDisconnectRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostConversationDisconnectRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -258,6 +264,39 @@ func (o *PostConversationDisconnectNotFound) readResponse(response runtime.Clien
 	return nil
 }
 
+// NewPostConversationDisconnectRequestTimeout creates a PostConversationDisconnectRequestTimeout with default headers values
+func NewPostConversationDisconnectRequestTimeout() *PostConversationDisconnectRequestTimeout {
+	return &PostConversationDisconnectRequestTimeout{}
+}
+
+/*PostConversationDisconnectRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostConversationDisconnectRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostConversationDisconnectRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/disconnect][%d] postConversationDisconnectRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostConversationDisconnectRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostConversationDisconnectRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostConversationDisconnectRequestEntityTooLarge creates a PostConversationDisconnectRequestEntityTooLarge with default headers values
 func NewPostConversationDisconnectRequestEntityTooLarge() *PostConversationDisconnectRequestEntityTooLarge {
 	return &PostConversationDisconnectRequestEntityTooLarge{}
@@ -331,7 +370,7 @@ func NewPostConversationDisconnectTooManyRequests() *PostConversationDisconnectT
 
 /*PostConversationDisconnectTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostConversationDisconnectTooManyRequests struct {
 	Payload *models.ErrorBody

@@ -53,6 +53,12 @@ func (o *GetAnalyticsUsersDetailsJobsAvailabilityReader) ReadResponse(response r
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetAnalyticsUsersDetailsJobsAvailabilityRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetAnalyticsUsersDetailsJobsAvailabilityRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetAnalyticsUsersDetailsJobsAvailabilityNotFound) readResponse(response
 	return nil
 }
 
+// NewGetAnalyticsUsersDetailsJobsAvailabilityRequestTimeout creates a GetAnalyticsUsersDetailsJobsAvailabilityRequestTimeout with default headers values
+func NewGetAnalyticsUsersDetailsJobsAvailabilityRequestTimeout() *GetAnalyticsUsersDetailsJobsAvailabilityRequestTimeout {
+	return &GetAnalyticsUsersDetailsJobsAvailabilityRequestTimeout{}
+}
+
+/*GetAnalyticsUsersDetailsJobsAvailabilityRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetAnalyticsUsersDetailsJobsAvailabilityRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetAnalyticsUsersDetailsJobsAvailabilityRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/users/details/jobs/availability][%d] getAnalyticsUsersDetailsJobsAvailabilityRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetAnalyticsUsersDetailsJobsAvailabilityRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetAnalyticsUsersDetailsJobsAvailabilityRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetAnalyticsUsersDetailsJobsAvailabilityRequestEntityTooLarge creates a GetAnalyticsUsersDetailsJobsAvailabilityRequestEntityTooLarge with default headers values
 func NewGetAnalyticsUsersDetailsJobsAvailabilityRequestEntityTooLarge() *GetAnalyticsUsersDetailsJobsAvailabilityRequestEntityTooLarge {
 	return &GetAnalyticsUsersDetailsJobsAvailabilityRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetAnalyticsUsersDetailsJobsAvailabilityTooManyRequests() *GetAnalyticsU
 
 /*GetAnalyticsUsersDetailsJobsAvailabilityTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetAnalyticsUsersDetailsJobsAvailabilityTooManyRequests struct {
 	Payload *models.ErrorBody

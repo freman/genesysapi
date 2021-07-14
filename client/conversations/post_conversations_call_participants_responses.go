@@ -53,6 +53,12 @@ func (o *PostConversationsCallParticipantsReader) ReadResponse(response runtime.
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostConversationsCallParticipantsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostConversationsCallParticipantsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PostConversationsCallParticipantsNotFound) readResponse(response runtim
 	return nil
 }
 
+// NewPostConversationsCallParticipantsRequestTimeout creates a PostConversationsCallParticipantsRequestTimeout with default headers values
+func NewPostConversationsCallParticipantsRequestTimeout() *PostConversationsCallParticipantsRequestTimeout {
+	return &PostConversationsCallParticipantsRequestTimeout{}
+}
+
+/*PostConversationsCallParticipantsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostConversationsCallParticipantsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostConversationsCallParticipantsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/calls/{conversationId}/participants][%d] postConversationsCallParticipantsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostConversationsCallParticipantsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostConversationsCallParticipantsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostConversationsCallParticipantsRequestEntityTooLarge creates a PostConversationsCallParticipantsRequestEntityTooLarge with default headers values
 func NewPostConversationsCallParticipantsRequestEntityTooLarge() *PostConversationsCallParticipantsRequestEntityTooLarge {
 	return &PostConversationsCallParticipantsRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPostConversationsCallParticipantsTooManyRequests() *PostConversationsCal
 
 /*PostConversationsCallParticipantsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostConversationsCallParticipantsTooManyRequests struct {
 	Payload *models.ErrorBody

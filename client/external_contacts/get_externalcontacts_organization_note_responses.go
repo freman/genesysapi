@@ -53,6 +53,12 @@ func (o *GetExternalcontactsOrganizationNoteReader) ReadResponse(response runtim
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetExternalcontactsOrganizationNoteRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetExternalcontactsOrganizationNoteRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetExternalcontactsOrganizationNoteNotFound) readResponse(response runt
 	return nil
 }
 
+// NewGetExternalcontactsOrganizationNoteRequestTimeout creates a GetExternalcontactsOrganizationNoteRequestTimeout with default headers values
+func NewGetExternalcontactsOrganizationNoteRequestTimeout() *GetExternalcontactsOrganizationNoteRequestTimeout {
+	return &GetExternalcontactsOrganizationNoteRequestTimeout{}
+}
+
+/*GetExternalcontactsOrganizationNoteRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetExternalcontactsOrganizationNoteRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetExternalcontactsOrganizationNoteRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes/{noteId}][%d] getExternalcontactsOrganizationNoteRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetExternalcontactsOrganizationNoteRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetExternalcontactsOrganizationNoteRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetExternalcontactsOrganizationNoteRequestEntityTooLarge creates a GetExternalcontactsOrganizationNoteRequestEntityTooLarge with default headers values
 func NewGetExternalcontactsOrganizationNoteRequestEntityTooLarge() *GetExternalcontactsOrganizationNoteRequestEntityTooLarge {
 	return &GetExternalcontactsOrganizationNoteRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetExternalcontactsOrganizationNoteTooManyRequests() *GetExternalcontact
 
 /*GetExternalcontactsOrganizationNoteTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetExternalcontactsOrganizationNoteTooManyRequests struct {
 	Payload *models.ErrorBody

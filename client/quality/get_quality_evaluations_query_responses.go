@@ -53,6 +53,12 @@ func (o *GetQualityEvaluationsQueryReader) ReadResponse(response runtime.ClientR
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetQualityEvaluationsQueryRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetQualityEvaluationsQueryRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetQualityEvaluationsQueryNotFound) readResponse(response runtime.Clien
 	return nil
 }
 
+// NewGetQualityEvaluationsQueryRequestTimeout creates a GetQualityEvaluationsQueryRequestTimeout with default headers values
+func NewGetQualityEvaluationsQueryRequestTimeout() *GetQualityEvaluationsQueryRequestTimeout {
+	return &GetQualityEvaluationsQueryRequestTimeout{}
+}
+
+/*GetQualityEvaluationsQueryRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetQualityEvaluationsQueryRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetQualityEvaluationsQueryRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/evaluations/query][%d] getQualityEvaluationsQueryRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetQualityEvaluationsQueryRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetQualityEvaluationsQueryRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetQualityEvaluationsQueryRequestEntityTooLarge creates a GetQualityEvaluationsQueryRequestEntityTooLarge with default headers values
 func NewGetQualityEvaluationsQueryRequestEntityTooLarge() *GetQualityEvaluationsQueryRequestEntityTooLarge {
 	return &GetQualityEvaluationsQueryRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetQualityEvaluationsQueryTooManyRequests() *GetQualityEvaluationsQueryT
 
 /*GetQualityEvaluationsQueryTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetQualityEvaluationsQueryTooManyRequests struct {
 	Payload *models.ErrorBody

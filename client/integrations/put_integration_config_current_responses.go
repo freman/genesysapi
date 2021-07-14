@@ -53,6 +53,12 @@ func (o *PutIntegrationConfigCurrentReader) ReadResponse(response runtime.Client
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPutIntegrationConfigCurrentRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 409:
 		result := NewPutIntegrationConfigCurrentConflict()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -266,6 +272,39 @@ func (o *PutIntegrationConfigCurrentNotFound) readResponse(response runtime.Clie
 	return nil
 }
 
+// NewPutIntegrationConfigCurrentRequestTimeout creates a PutIntegrationConfigCurrentRequestTimeout with default headers values
+func NewPutIntegrationConfigCurrentRequestTimeout() *PutIntegrationConfigCurrentRequestTimeout {
+	return &PutIntegrationConfigCurrentRequestTimeout{}
+}
+
+/*PutIntegrationConfigCurrentRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PutIntegrationConfigCurrentRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PutIntegrationConfigCurrentRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/integrations/{integrationId}/config/current][%d] putIntegrationConfigCurrentRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutIntegrationConfigCurrentRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PutIntegrationConfigCurrentRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPutIntegrationConfigCurrentConflict creates a PutIntegrationConfigCurrentConflict with default headers values
 func NewPutIntegrationConfigCurrentConflict() *PutIntegrationConfigCurrentConflict {
 	return &PutIntegrationConfigCurrentConflict{}
@@ -372,7 +411,7 @@ func NewPutIntegrationConfigCurrentTooManyRequests() *PutIntegrationConfigCurren
 
 /*PutIntegrationConfigCurrentTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PutIntegrationConfigCurrentTooManyRequests struct {
 	Payload *models.ErrorBody

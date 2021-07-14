@@ -53,6 +53,12 @@ func (o *PutPresencedefinitionReader) ReadResponse(response runtime.ClientRespon
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPutPresencedefinitionRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPutPresencedefinitionRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PutPresencedefinitionNotFound) readResponse(response runtime.ClientResp
 	return nil
 }
 
+// NewPutPresencedefinitionRequestTimeout creates a PutPresencedefinitionRequestTimeout with default headers values
+func NewPutPresencedefinitionRequestTimeout() *PutPresencedefinitionRequestTimeout {
+	return &PutPresencedefinitionRequestTimeout{}
+}
+
+/*PutPresencedefinitionRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PutPresencedefinitionRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PutPresencedefinitionRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/presencedefinitions/{presenceId}][%d] putPresencedefinitionRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutPresencedefinitionRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PutPresencedefinitionRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPutPresencedefinitionRequestEntityTooLarge creates a PutPresencedefinitionRequestEntityTooLarge with default headers values
 func NewPutPresencedefinitionRequestEntityTooLarge() *PutPresencedefinitionRequestEntityTooLarge {
 	return &PutPresencedefinitionRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPutPresencedefinitionTooManyRequests() *PutPresencedefinitionTooManyRequ
 
 /*PutPresencedefinitionTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PutPresencedefinitionTooManyRequests struct {
 	Payload *models.ErrorBody

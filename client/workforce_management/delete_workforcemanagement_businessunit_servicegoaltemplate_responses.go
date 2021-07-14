@@ -53,6 +53,12 @@ func (o *DeleteWorkforcemanagementBusinessunitServicegoaltemplateReader) ReadRes
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewDeleteWorkforcemanagementBusinessunitServicegoaltemplateRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewDeleteWorkforcemanagementBusinessunitServicegoaltemplateRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -248,6 +254,39 @@ func (o *DeleteWorkforcemanagementBusinessunitServicegoaltemplateNotFound) readR
 	return nil
 }
 
+// NewDeleteWorkforcemanagementBusinessunitServicegoaltemplateRequestTimeout creates a DeleteWorkforcemanagementBusinessunitServicegoaltemplateRequestTimeout with default headers values
+func NewDeleteWorkforcemanagementBusinessunitServicegoaltemplateRequestTimeout() *DeleteWorkforcemanagementBusinessunitServicegoaltemplateRequestTimeout {
+	return &DeleteWorkforcemanagementBusinessunitServicegoaltemplateRequestTimeout{}
+}
+
+/*DeleteWorkforcemanagementBusinessunitServicegoaltemplateRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type DeleteWorkforcemanagementBusinessunitServicegoaltemplateRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *DeleteWorkforcemanagementBusinessunitServicegoaltemplateRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates/{serviceGoalTemplateId}][%d] deleteWorkforcemanagementBusinessunitServicegoaltemplateRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteWorkforcemanagementBusinessunitServicegoaltemplateRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *DeleteWorkforcemanagementBusinessunitServicegoaltemplateRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewDeleteWorkforcemanagementBusinessunitServicegoaltemplateRequestEntityTooLarge creates a DeleteWorkforcemanagementBusinessunitServicegoaltemplateRequestEntityTooLarge with default headers values
 func NewDeleteWorkforcemanagementBusinessunitServicegoaltemplateRequestEntityTooLarge() *DeleteWorkforcemanagementBusinessunitServicegoaltemplateRequestEntityTooLarge {
 	return &DeleteWorkforcemanagementBusinessunitServicegoaltemplateRequestEntityTooLarge{}
@@ -321,7 +360,7 @@ func NewDeleteWorkforcemanagementBusinessunitServicegoaltemplateTooManyRequests(
 
 /*DeleteWorkforcemanagementBusinessunitServicegoaltemplateTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type DeleteWorkforcemanagementBusinessunitServicegoaltemplateTooManyRequests struct {
 	Payload *models.ErrorBody

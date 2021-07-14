@@ -53,6 +53,12 @@ func (o *PostTextbotsBotsExecuteReader) ReadResponse(response runtime.ClientResp
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostTextbotsBotsExecuteRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostTextbotsBotsExecuteRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PostTextbotsBotsExecuteNotFound) readResponse(response runtime.ClientRe
 	return nil
 }
 
+// NewPostTextbotsBotsExecuteRequestTimeout creates a PostTextbotsBotsExecuteRequestTimeout with default headers values
+func NewPostTextbotsBotsExecuteRequestTimeout() *PostTextbotsBotsExecuteRequestTimeout {
+	return &PostTextbotsBotsExecuteRequestTimeout{}
+}
+
+/*PostTextbotsBotsExecuteRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostTextbotsBotsExecuteRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostTextbotsBotsExecuteRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/textbots/bots/execute][%d] postTextbotsBotsExecuteRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostTextbotsBotsExecuteRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostTextbotsBotsExecuteRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostTextbotsBotsExecuteRequestEntityTooLarge creates a PostTextbotsBotsExecuteRequestEntityTooLarge with default headers values
 func NewPostTextbotsBotsExecuteRequestEntityTooLarge() *PostTextbotsBotsExecuteRequestEntityTooLarge {
 	return &PostTextbotsBotsExecuteRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPostTextbotsBotsExecuteTooManyRequests() *PostTextbotsBotsExecuteTooMany
 
 /*PostTextbotsBotsExecuteTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostTextbotsBotsExecuteTooManyRequests struct {
 	Payload *models.ErrorBody

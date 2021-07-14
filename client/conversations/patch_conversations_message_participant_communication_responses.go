@@ -53,6 +53,12 @@ func (o *PatchConversationsMessageParticipantCommunicationReader) ReadResponse(r
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPatchConversationsMessageParticipantCommunicationRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPatchConversationsMessageParticipantCommunicationRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -258,6 +264,39 @@ func (o *PatchConversationsMessageParticipantCommunicationNotFound) readResponse
 	return nil
 }
 
+// NewPatchConversationsMessageParticipantCommunicationRequestTimeout creates a PatchConversationsMessageParticipantCommunicationRequestTimeout with default headers values
+func NewPatchConversationsMessageParticipantCommunicationRequestTimeout() *PatchConversationsMessageParticipantCommunicationRequestTimeout {
+	return &PatchConversationsMessageParticipantCommunicationRequestTimeout{}
+}
+
+/*PatchConversationsMessageParticipantCommunicationRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PatchConversationsMessageParticipantCommunicationRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PatchConversationsMessageParticipantCommunicationRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/messages/{conversationId}/participants/{participantId}/communications/{communicationId}][%d] patchConversationsMessageParticipantCommunicationRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchConversationsMessageParticipantCommunicationRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PatchConversationsMessageParticipantCommunicationRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPatchConversationsMessageParticipantCommunicationRequestEntityTooLarge creates a PatchConversationsMessageParticipantCommunicationRequestEntityTooLarge with default headers values
 func NewPatchConversationsMessageParticipantCommunicationRequestEntityTooLarge() *PatchConversationsMessageParticipantCommunicationRequestEntityTooLarge {
 	return &PatchConversationsMessageParticipantCommunicationRequestEntityTooLarge{}
@@ -331,7 +370,7 @@ func NewPatchConversationsMessageParticipantCommunicationTooManyRequests() *Patc
 
 /*PatchConversationsMessageParticipantCommunicationTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PatchConversationsMessageParticipantCommunicationTooManyRequests struct {
 	Payload *models.ErrorBody

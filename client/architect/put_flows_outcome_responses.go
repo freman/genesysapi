@@ -59,6 +59,12 @@ func (o *PutFlowsOutcomeReader) ReadResponse(response runtime.ClientResponse, co
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPutFlowsOutcomeRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 409:
 		result := NewPutFlowsOutcomeConflict()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -305,6 +311,39 @@ func (o *PutFlowsOutcomeMethodNotAllowed) readResponse(response runtime.ClientRe
 	return nil
 }
 
+// NewPutFlowsOutcomeRequestTimeout creates a PutFlowsOutcomeRequestTimeout with default headers values
+func NewPutFlowsOutcomeRequestTimeout() *PutFlowsOutcomeRequestTimeout {
+	return &PutFlowsOutcomeRequestTimeout{}
+}
+
+/*PutFlowsOutcomeRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PutFlowsOutcomeRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PutFlowsOutcomeRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/flows/outcomes/{flowOutcomeId}][%d] putFlowsOutcomeRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutFlowsOutcomeRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PutFlowsOutcomeRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPutFlowsOutcomeConflict creates a PutFlowsOutcomeConflict with default headers values
 func NewPutFlowsOutcomeConflict() *PutFlowsOutcomeConflict {
 	return &PutFlowsOutcomeConflict{}
@@ -411,7 +450,7 @@ func NewPutFlowsOutcomeTooManyRequests() *PutFlowsOutcomeTooManyRequests {
 
 /*PutFlowsOutcomeTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PutFlowsOutcomeTooManyRequests struct {
 	Payload *models.ErrorBody

@@ -47,6 +47,12 @@ func (o *PostTelephonyProvidersEdgesPhoneRebootReader) ReadResponse(response run
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostTelephonyProvidersEdgesPhoneRebootRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostTelephonyProvidersEdgesPhoneRebootRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -227,6 +233,39 @@ func (o *PostTelephonyProvidersEdgesPhoneRebootNotFound) readResponse(response r
 	return nil
 }
 
+// NewPostTelephonyProvidersEdgesPhoneRebootRequestTimeout creates a PostTelephonyProvidersEdgesPhoneRebootRequestTimeout with default headers values
+func NewPostTelephonyProvidersEdgesPhoneRebootRequestTimeout() *PostTelephonyProvidersEdgesPhoneRebootRequestTimeout {
+	return &PostTelephonyProvidersEdgesPhoneRebootRequestTimeout{}
+}
+
+/*PostTelephonyProvidersEdgesPhoneRebootRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostTelephonyProvidersEdgesPhoneRebootRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostTelephonyProvidersEdgesPhoneRebootRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/phones/{phoneId}/reboot][%d] postTelephonyProvidersEdgesPhoneRebootRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgesPhoneRebootRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostTelephonyProvidersEdgesPhoneRebootRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostTelephonyProvidersEdgesPhoneRebootRequestEntityTooLarge creates a PostTelephonyProvidersEdgesPhoneRebootRequestEntityTooLarge with default headers values
 func NewPostTelephonyProvidersEdgesPhoneRebootRequestEntityTooLarge() *PostTelephonyProvidersEdgesPhoneRebootRequestEntityTooLarge {
 	return &PostTelephonyProvidersEdgesPhoneRebootRequestEntityTooLarge{}
@@ -300,7 +339,7 @@ func NewPostTelephonyProvidersEdgesPhoneRebootTooManyRequests() *PostTelephonyPr
 
 /*PostTelephonyProvidersEdgesPhoneRebootTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostTelephonyProvidersEdgesPhoneRebootTooManyRequests struct {
 	Payload *models.ErrorBody

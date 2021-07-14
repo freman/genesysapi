@@ -53,6 +53,12 @@ func (o *PostOutboundCampaignCallbackScheduleReader) ReadResponse(response runti
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostOutboundCampaignCallbackScheduleRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostOutboundCampaignCallbackScheduleRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PostOutboundCampaignCallbackScheduleNotFound) readResponse(response run
 	return nil
 }
 
+// NewPostOutboundCampaignCallbackScheduleRequestTimeout creates a PostOutboundCampaignCallbackScheduleRequestTimeout with default headers values
+func NewPostOutboundCampaignCallbackScheduleRequestTimeout() *PostOutboundCampaignCallbackScheduleRequestTimeout {
+	return &PostOutboundCampaignCallbackScheduleRequestTimeout{}
+}
+
+/*PostOutboundCampaignCallbackScheduleRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostOutboundCampaignCallbackScheduleRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostOutboundCampaignCallbackScheduleRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/campaigns/{campaignId}/callback/schedule][%d] postOutboundCampaignCallbackScheduleRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostOutboundCampaignCallbackScheduleRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostOutboundCampaignCallbackScheduleRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostOutboundCampaignCallbackScheduleRequestEntityTooLarge creates a PostOutboundCampaignCallbackScheduleRequestEntityTooLarge with default headers values
 func NewPostOutboundCampaignCallbackScheduleRequestEntityTooLarge() *PostOutboundCampaignCallbackScheduleRequestEntityTooLarge {
 	return &PostOutboundCampaignCallbackScheduleRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPostOutboundCampaignCallbackScheduleTooManyRequests() *PostOutboundCampa
 
 /*PostOutboundCampaignCallbackScheduleTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostOutboundCampaignCallbackScheduleTooManyRequests struct {
 	Payload *models.ErrorBody

@@ -53,6 +53,12 @@ func (o *GetVoicemailUserpolicyReader) ReadResponse(response runtime.ClientRespo
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetVoicemailUserpolicyRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetVoicemailUserpolicyRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetVoicemailUserpolicyNotFound) readResponse(response runtime.ClientRes
 	return nil
 }
 
+// NewGetVoicemailUserpolicyRequestTimeout creates a GetVoicemailUserpolicyRequestTimeout with default headers values
+func NewGetVoicemailUserpolicyRequestTimeout() *GetVoicemailUserpolicyRequestTimeout {
+	return &GetVoicemailUserpolicyRequestTimeout{}
+}
+
+/*GetVoicemailUserpolicyRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetVoicemailUserpolicyRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetVoicemailUserpolicyRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/voicemail/userpolicies/{userId}][%d] getVoicemailUserpolicyRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetVoicemailUserpolicyRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetVoicemailUserpolicyRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetVoicemailUserpolicyRequestEntityTooLarge creates a GetVoicemailUserpolicyRequestEntityTooLarge with default headers values
 func NewGetVoicemailUserpolicyRequestEntityTooLarge() *GetVoicemailUserpolicyRequestEntityTooLarge {
 	return &GetVoicemailUserpolicyRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetVoicemailUserpolicyTooManyRequests() *GetVoicemailUserpolicyTooManyRe
 
 /*GetVoicemailUserpolicyTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetVoicemailUserpolicyTooManyRequests struct {
 	Payload *models.ErrorBody

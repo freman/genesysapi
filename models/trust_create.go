@@ -19,6 +19,10 @@ import (
 // swagger:model TrustCreate
 type TrustCreate struct {
 
+	// The expiration date of the trust. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+	// Format: date-time
+	DateExpired strfmt.DateTime `json:"dateExpired,omitempty"`
+
 	// If disabled no trustee user will have access, even if they were previously added.
 	// Required: true
 	Enabled *bool `json:"enabled"`
@@ -37,6 +41,10 @@ type TrustCreate struct {
 func (m *TrustCreate) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateDateExpired(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateEnabled(formats); err != nil {
 		res = append(res, err)
 	}
@@ -52,6 +60,19 @@ func (m *TrustCreate) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *TrustCreate) validateDateExpired(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.DateExpired) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("dateExpired", "body", "date-time", m.DateExpired.String(), formats); err != nil {
+		return err
+	}
+
 	return nil
 }
 

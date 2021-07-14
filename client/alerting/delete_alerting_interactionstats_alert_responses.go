@@ -53,6 +53,12 @@ func (o *DeleteAlertingInteractionstatsAlertReader) ReadResponse(response runtim
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewDeleteAlertingInteractionstatsAlertRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewDeleteAlertingInteractionstatsAlertRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -248,6 +254,39 @@ func (o *DeleteAlertingInteractionstatsAlertNotFound) readResponse(response runt
 	return nil
 }
 
+// NewDeleteAlertingInteractionstatsAlertRequestTimeout creates a DeleteAlertingInteractionstatsAlertRequestTimeout with default headers values
+func NewDeleteAlertingInteractionstatsAlertRequestTimeout() *DeleteAlertingInteractionstatsAlertRequestTimeout {
+	return &DeleteAlertingInteractionstatsAlertRequestTimeout{}
+}
+
+/*DeleteAlertingInteractionstatsAlertRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type DeleteAlertingInteractionstatsAlertRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *DeleteAlertingInteractionstatsAlertRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/alerting/interactionstats/alerts/{alertId}][%d] deleteAlertingInteractionstatsAlertRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteAlertingInteractionstatsAlertRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *DeleteAlertingInteractionstatsAlertRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewDeleteAlertingInteractionstatsAlertRequestEntityTooLarge creates a DeleteAlertingInteractionstatsAlertRequestEntityTooLarge with default headers values
 func NewDeleteAlertingInteractionstatsAlertRequestEntityTooLarge() *DeleteAlertingInteractionstatsAlertRequestEntityTooLarge {
 	return &DeleteAlertingInteractionstatsAlertRequestEntityTooLarge{}
@@ -321,7 +360,7 @@ func NewDeleteAlertingInteractionstatsAlertTooManyRequests() *DeleteAlertingInte
 
 /*DeleteAlertingInteractionstatsAlertTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type DeleteAlertingInteractionstatsAlertTooManyRequests struct {
 	Payload *models.ErrorBody

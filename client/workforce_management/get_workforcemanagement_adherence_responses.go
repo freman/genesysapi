@@ -53,6 +53,12 @@ func (o *GetWorkforcemanagementAdherenceReader) ReadResponse(response runtime.Cl
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetWorkforcemanagementAdherenceRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetWorkforcemanagementAdherenceRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -258,6 +264,39 @@ func (o *GetWorkforcemanagementAdherenceNotFound) readResponse(response runtime.
 	return nil
 }
 
+// NewGetWorkforcemanagementAdherenceRequestTimeout creates a GetWorkforcemanagementAdherenceRequestTimeout with default headers values
+func NewGetWorkforcemanagementAdherenceRequestTimeout() *GetWorkforcemanagementAdherenceRequestTimeout {
+	return &GetWorkforcemanagementAdherenceRequestTimeout{}
+}
+
+/*GetWorkforcemanagementAdherenceRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetWorkforcemanagementAdherenceRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetWorkforcemanagementAdherenceRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/adherence][%d] getWorkforcemanagementAdherenceRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetWorkforcemanagementAdherenceRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetWorkforcemanagementAdherenceRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetWorkforcemanagementAdherenceRequestEntityTooLarge creates a GetWorkforcemanagementAdherenceRequestEntityTooLarge with default headers values
 func NewGetWorkforcemanagementAdherenceRequestEntityTooLarge() *GetWorkforcemanagementAdherenceRequestEntityTooLarge {
 	return &GetWorkforcemanagementAdherenceRequestEntityTooLarge{}
@@ -331,7 +370,7 @@ func NewGetWorkforcemanagementAdherenceTooManyRequests() *GetWorkforcemanagement
 
 /*GetWorkforcemanagementAdherenceTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetWorkforcemanagementAdherenceTooManyRequests struct {
 	Payload *models.ErrorBody

@@ -53,6 +53,12 @@ func (o *DeleteConversationsMessagingIntegrationsLineIntegrationIDReader) ReadRe
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewDeleteConversationsMessagingIntegrationsLineIntegrationIDRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewDeleteConversationsMessagingIntegrationsLineIntegrationIDRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -248,6 +254,39 @@ func (o *DeleteConversationsMessagingIntegrationsLineIntegrationIDNotFound) read
 	return nil
 }
 
+// NewDeleteConversationsMessagingIntegrationsLineIntegrationIDRequestTimeout creates a DeleteConversationsMessagingIntegrationsLineIntegrationIDRequestTimeout with default headers values
+func NewDeleteConversationsMessagingIntegrationsLineIntegrationIDRequestTimeout() *DeleteConversationsMessagingIntegrationsLineIntegrationIDRequestTimeout {
+	return &DeleteConversationsMessagingIntegrationsLineIntegrationIDRequestTimeout{}
+}
+
+/*DeleteConversationsMessagingIntegrationsLineIntegrationIDRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type DeleteConversationsMessagingIntegrationsLineIntegrationIDRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *DeleteConversationsMessagingIntegrationsLineIntegrationIDRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/line/{integrationId}][%d] deleteConversationsMessagingIntegrationsLineIntegrationIdRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteConversationsMessagingIntegrationsLineIntegrationIDRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *DeleteConversationsMessagingIntegrationsLineIntegrationIDRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewDeleteConversationsMessagingIntegrationsLineIntegrationIDRequestEntityTooLarge creates a DeleteConversationsMessagingIntegrationsLineIntegrationIDRequestEntityTooLarge with default headers values
 func NewDeleteConversationsMessagingIntegrationsLineIntegrationIDRequestEntityTooLarge() *DeleteConversationsMessagingIntegrationsLineIntegrationIDRequestEntityTooLarge {
 	return &DeleteConversationsMessagingIntegrationsLineIntegrationIDRequestEntityTooLarge{}
@@ -321,7 +360,7 @@ func NewDeleteConversationsMessagingIntegrationsLineIntegrationIDTooManyRequests
 
 /*DeleteConversationsMessagingIntegrationsLineIntegrationIDTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type DeleteConversationsMessagingIntegrationsLineIntegrationIDTooManyRequests struct {
 	Payload *models.ErrorBody

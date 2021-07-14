@@ -53,6 +53,12 @@ func (o *GetUserCallforwardingReader) ReadResponse(response runtime.ClientRespon
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetUserCallforwardingRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetUserCallforwardingRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -266,6 +272,39 @@ func (o *GetUserCallforwardingNotFound) readResponse(response runtime.ClientResp
 	return nil
 }
 
+// NewGetUserCallforwardingRequestTimeout creates a GetUserCallforwardingRequestTimeout with default headers values
+func NewGetUserCallforwardingRequestTimeout() *GetUserCallforwardingRequestTimeout {
+	return &GetUserCallforwardingRequestTimeout{}
+}
+
+/*GetUserCallforwardingRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetUserCallforwardingRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetUserCallforwardingRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/callforwarding][%d] getUserCallforwardingRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetUserCallforwardingRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetUserCallforwardingRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetUserCallforwardingRequestEntityTooLarge creates a GetUserCallforwardingRequestEntityTooLarge with default headers values
 func NewGetUserCallforwardingRequestEntityTooLarge() *GetUserCallforwardingRequestEntityTooLarge {
 	return &GetUserCallforwardingRequestEntityTooLarge{}
@@ -372,7 +411,7 @@ func NewGetUserCallforwardingTooManyRequests() *GetUserCallforwardingTooManyRequ
 
 /*GetUserCallforwardingTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetUserCallforwardingTooManyRequests struct {
 	Payload *models.ErrorBody

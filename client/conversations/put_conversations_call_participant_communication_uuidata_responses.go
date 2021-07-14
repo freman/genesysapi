@@ -59,6 +59,12 @@ func (o *PutConversationsCallParticipantCommunicationUuidataReader) ReadResponse
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPutConversationsCallParticipantCommunicationUuidataRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPutConversationsCallParticipantCommunicationUuidataRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -285,6 +291,39 @@ func (o *PutConversationsCallParticipantCommunicationUuidataNotFound) readRespon
 	return nil
 }
 
+// NewPutConversationsCallParticipantCommunicationUuidataRequestTimeout creates a PutConversationsCallParticipantCommunicationUuidataRequestTimeout with default headers values
+func NewPutConversationsCallParticipantCommunicationUuidataRequestTimeout() *PutConversationsCallParticipantCommunicationUuidataRequestTimeout {
+	return &PutConversationsCallParticipantCommunicationUuidataRequestTimeout{}
+}
+
+/*PutConversationsCallParticipantCommunicationUuidataRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PutConversationsCallParticipantCommunicationUuidataRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PutConversationsCallParticipantCommunicationUuidataRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/calls/{conversationId}/participants/{participantId}/communications/{communicationId}/uuidata][%d] putConversationsCallParticipantCommunicationUuidataRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutConversationsCallParticipantCommunicationUuidataRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PutConversationsCallParticipantCommunicationUuidataRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPutConversationsCallParticipantCommunicationUuidataRequestEntityTooLarge creates a PutConversationsCallParticipantCommunicationUuidataRequestEntityTooLarge with default headers values
 func NewPutConversationsCallParticipantCommunicationUuidataRequestEntityTooLarge() *PutConversationsCallParticipantCommunicationUuidataRequestEntityTooLarge {
 	return &PutConversationsCallParticipantCommunicationUuidataRequestEntityTooLarge{}
@@ -358,7 +397,7 @@ func NewPutConversationsCallParticipantCommunicationUuidataTooManyRequests() *Pu
 
 /*PutConversationsCallParticipantCommunicationUuidataTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PutConversationsCallParticipantCommunicationUuidataTooManyRequests struct {
 	Payload *models.ErrorBody

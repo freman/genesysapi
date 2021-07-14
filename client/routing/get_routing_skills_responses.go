@@ -53,6 +53,12 @@ func (o *GetRoutingSkillsReader) ReadResponse(response runtime.ClientResponse, c
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetRoutingSkillsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetRoutingSkillsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetRoutingSkillsNotFound) readResponse(response runtime.ClientResponse,
 	return nil
 }
 
+// NewGetRoutingSkillsRequestTimeout creates a GetRoutingSkillsRequestTimeout with default headers values
+func NewGetRoutingSkillsRequestTimeout() *GetRoutingSkillsRequestTimeout {
+	return &GetRoutingSkillsRequestTimeout{}
+}
+
+/*GetRoutingSkillsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetRoutingSkillsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetRoutingSkillsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/skills][%d] getRoutingSkillsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetRoutingSkillsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetRoutingSkillsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetRoutingSkillsRequestEntityTooLarge creates a GetRoutingSkillsRequestEntityTooLarge with default headers values
 func NewGetRoutingSkillsRequestEntityTooLarge() *GetRoutingSkillsRequestEntityTooLarge {
 	return &GetRoutingSkillsRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetRoutingSkillsTooManyRequests() *GetRoutingSkillsTooManyRequests {
 
 /*GetRoutingSkillsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetRoutingSkillsTooManyRequests struct {
 	Payload *models.ErrorBody

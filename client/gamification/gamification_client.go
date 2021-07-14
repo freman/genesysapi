@@ -18,11 +18,11 @@ import (
 // API is the interface of the gamification client
 type API interface {
 	/*
-	   GetGamificationLeaderboard leaderboards of the requesting user s division
+	   GetGamificationLeaderboard leaderboards of the requesting user s division or performance profile
 	*/
 	GetGamificationLeaderboard(ctx context.Context, params *GetGamificationLeaderboardParams) (*GetGamificationLeaderboardOK, error)
 	/*
-	   GetGamificationLeaderboardAll leaderboards by division
+	   GetGamificationLeaderboardAll leaderboards by filter type
 	*/
 	GetGamificationLeaderboardAll(ctx context.Context, params *GetGamificationLeaderboardAllParams) (*GetGamificationLeaderboardAllOK, error)
 	/*
@@ -175,7 +175,7 @@ type Client struct {
 }
 
 /*
-GetGamificationLeaderboard leaderboards of the requesting user s division
+GetGamificationLeaderboard leaderboards of the requesting user s division or performance profile
 */
 func (a *Client) GetGamificationLeaderboard(ctx context.Context, params *GetGamificationLeaderboardParams) (*GetGamificationLeaderboardOK, error) {
 
@@ -200,7 +200,7 @@ func (a *Client) GetGamificationLeaderboard(ctx context.Context, params *GetGami
 }
 
 /*
-GetGamificationLeaderboardAll leaderboards by division
+GetGamificationLeaderboardAll leaderboards by filter type
 */
 func (a *Client) GetGamificationLeaderboardAll(ctx context.Context, params *GetGamificationLeaderboardAllParams) (*GetGamificationLeaderboardAllOK, error) {
 

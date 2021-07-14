@@ -40,7 +40,7 @@ type AnalyticsFlow struct {
 	FlowName string `json:"flowName,omitempty"`
 
 	// The type of this flow
-	// Enum: [BOT COMMONMODULE INBOUNDCALL INBOUNDCHAT INBOUNDEMAIL INBOUNDSHORTMESSAGE INQUEUECALL OUTBOUNDCALL SECURECALL SPEECH SURVEYINVITE WORKFLOW]
+	// Enum: [BOT COMMONMODULE INBOUNDCALL INBOUNDCHAT INBOUNDEMAIL INBOUNDSHORTMESSAGE INQUEUECALL INQUEUEEMAIL INQUEUESHORTMESSAGE OUTBOUNDCALL SECURECALL SPEECH SURVEYINVITE WORKFLOW WORKITEM]
 	FlowType string `json:"flowType,omitempty"`
 
 	// The version of this flow
@@ -146,7 +146,7 @@ var analyticsFlowTypeFlowTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["BOT","COMMONMODULE","INBOUNDCALL","INBOUNDCHAT","INBOUNDEMAIL","INBOUNDSHORTMESSAGE","INQUEUECALL","OUTBOUNDCALL","SECURECALL","SPEECH","SURVEYINVITE","WORKFLOW"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["BOT","COMMONMODULE","INBOUNDCALL","INBOUNDCHAT","INBOUNDEMAIL","INBOUNDSHORTMESSAGE","INQUEUECALL","INQUEUEEMAIL","INQUEUESHORTMESSAGE","OUTBOUNDCALL","SECURECALL","SPEECH","SURVEYINVITE","WORKFLOW","WORKITEM"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -177,6 +177,12 @@ const (
 	// AnalyticsFlowFlowTypeINQUEUECALL captures enum value "INQUEUECALL"
 	AnalyticsFlowFlowTypeINQUEUECALL string = "INQUEUECALL"
 
+	// AnalyticsFlowFlowTypeINQUEUEEMAIL captures enum value "INQUEUEEMAIL"
+	AnalyticsFlowFlowTypeINQUEUEEMAIL string = "INQUEUEEMAIL"
+
+	// AnalyticsFlowFlowTypeINQUEUESHORTMESSAGE captures enum value "INQUEUESHORTMESSAGE"
+	AnalyticsFlowFlowTypeINQUEUESHORTMESSAGE string = "INQUEUESHORTMESSAGE"
+
 	// AnalyticsFlowFlowTypeOUTBOUNDCALL captures enum value "OUTBOUNDCALL"
 	AnalyticsFlowFlowTypeOUTBOUNDCALL string = "OUTBOUNDCALL"
 
@@ -191,6 +197,9 @@ const (
 
 	// AnalyticsFlowFlowTypeWORKFLOW captures enum value "WORKFLOW"
 	AnalyticsFlowFlowTypeWORKFLOW string = "WORKFLOW"
+
+	// AnalyticsFlowFlowTypeWORKITEM captures enum value "WORKITEM"
+	AnalyticsFlowFlowTypeWORKITEM string = "WORKITEM"
 )
 
 // prop value enum

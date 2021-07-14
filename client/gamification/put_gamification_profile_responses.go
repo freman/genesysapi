@@ -53,6 +53,12 @@ func (o *PutGamificationProfileReader) ReadResponse(response runtime.ClientRespo
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPutGamificationProfileRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPutGamificationProfileRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PutGamificationProfileNotFound) readResponse(response runtime.ClientRes
 	return nil
 }
 
+// NewPutGamificationProfileRequestTimeout creates a PutGamificationProfileRequestTimeout with default headers values
+func NewPutGamificationProfileRequestTimeout() *PutGamificationProfileRequestTimeout {
+	return &PutGamificationProfileRequestTimeout{}
+}
+
+/*PutGamificationProfileRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PutGamificationProfileRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PutGamificationProfileRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/gamification/profiles/{performanceProfileId}][%d] putGamificationProfileRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutGamificationProfileRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PutGamificationProfileRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPutGamificationProfileRequestEntityTooLarge creates a PutGamificationProfileRequestEntityTooLarge with default headers values
 func NewPutGamificationProfileRequestEntityTooLarge() *PutGamificationProfileRequestEntityTooLarge {
 	return &PutGamificationProfileRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPutGamificationProfileTooManyRequests() *PutGamificationProfileTooManyRe
 
 /*PutGamificationProfileTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PutGamificationProfileTooManyRequests struct {
 	Payload *models.ErrorBody

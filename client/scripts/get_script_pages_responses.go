@@ -53,6 +53,12 @@ func (o *GetScriptPagesReader) ReadResponse(response runtime.ClientResponse, con
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetScriptPagesRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetScriptPagesRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -258,6 +264,39 @@ func (o *GetScriptPagesNotFound) readResponse(response runtime.ClientResponse, c
 	return nil
 }
 
+// NewGetScriptPagesRequestTimeout creates a GetScriptPagesRequestTimeout with default headers values
+func NewGetScriptPagesRequestTimeout() *GetScriptPagesRequestTimeout {
+	return &GetScriptPagesRequestTimeout{}
+}
+
+/*GetScriptPagesRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetScriptPagesRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetScriptPagesRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scripts/{scriptId}/pages][%d] getScriptPagesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetScriptPagesRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetScriptPagesRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetScriptPagesRequestEntityTooLarge creates a GetScriptPagesRequestEntityTooLarge with default headers values
 func NewGetScriptPagesRequestEntityTooLarge() *GetScriptPagesRequestEntityTooLarge {
 	return &GetScriptPagesRequestEntityTooLarge{}
@@ -331,7 +370,7 @@ func NewGetScriptPagesTooManyRequests() *GetScriptPagesTooManyRequests {
 
 /*GetScriptPagesTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetScriptPagesTooManyRequests struct {
 	Payload *models.ErrorBody

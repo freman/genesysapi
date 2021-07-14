@@ -53,6 +53,12 @@ func (o *GetAnalyticsReportingScheduleHistoryRunIDReader) ReadResponse(response 
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetAnalyticsReportingScheduleHistoryRunIDRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetAnalyticsReportingScheduleHistoryRunIDRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetAnalyticsReportingScheduleHistoryRunIDNotFound) readResponse(respons
 	return nil
 }
 
+// NewGetAnalyticsReportingScheduleHistoryRunIDRequestTimeout creates a GetAnalyticsReportingScheduleHistoryRunIDRequestTimeout with default headers values
+func NewGetAnalyticsReportingScheduleHistoryRunIDRequestTimeout() *GetAnalyticsReportingScheduleHistoryRunIDRequestTimeout {
+	return &GetAnalyticsReportingScheduleHistoryRunIDRequestTimeout{}
+}
+
+/*GetAnalyticsReportingScheduleHistoryRunIDRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetAnalyticsReportingScheduleHistoryRunIDRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetAnalyticsReportingScheduleHistoryRunIDRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/reporting/schedules/{scheduleId}/history/{runId}][%d] getAnalyticsReportingScheduleHistoryRunIdRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetAnalyticsReportingScheduleHistoryRunIDRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetAnalyticsReportingScheduleHistoryRunIDRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetAnalyticsReportingScheduleHistoryRunIDRequestEntityTooLarge creates a GetAnalyticsReportingScheduleHistoryRunIDRequestEntityTooLarge with default headers values
 func NewGetAnalyticsReportingScheduleHistoryRunIDRequestEntityTooLarge() *GetAnalyticsReportingScheduleHistoryRunIDRequestEntityTooLarge {
 	return &GetAnalyticsReportingScheduleHistoryRunIDRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetAnalyticsReportingScheduleHistoryRunIDTooManyRequests() *GetAnalytics
 
 /*GetAnalyticsReportingScheduleHistoryRunIDTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetAnalyticsReportingScheduleHistoryRunIDTooManyRequests struct {
 	Payload *models.ErrorBody

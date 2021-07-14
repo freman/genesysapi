@@ -53,6 +53,12 @@ func (o *GetExternalcontactsRelationshipReader) ReadResponse(response runtime.Cl
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetExternalcontactsRelationshipRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetExternalcontactsRelationshipRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetExternalcontactsRelationshipNotFound) readResponse(response runtime.
 	return nil
 }
 
+// NewGetExternalcontactsRelationshipRequestTimeout creates a GetExternalcontactsRelationshipRequestTimeout with default headers values
+func NewGetExternalcontactsRelationshipRequestTimeout() *GetExternalcontactsRelationshipRequestTimeout {
+	return &GetExternalcontactsRelationshipRequestTimeout{}
+}
+
+/*GetExternalcontactsRelationshipRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetExternalcontactsRelationshipRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetExternalcontactsRelationshipRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/externalcontacts/relationships/{relationshipId}][%d] getExternalcontactsRelationshipRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetExternalcontactsRelationshipRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetExternalcontactsRelationshipRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetExternalcontactsRelationshipRequestEntityTooLarge creates a GetExternalcontactsRelationshipRequestEntityTooLarge with default headers values
 func NewGetExternalcontactsRelationshipRequestEntityTooLarge() *GetExternalcontactsRelationshipRequestEntityTooLarge {
 	return &GetExternalcontactsRelationshipRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetExternalcontactsRelationshipTooManyRequests() *GetExternalcontactsRel
 
 /*GetExternalcontactsRelationshipTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetExternalcontactsRelationshipTooManyRequests struct {
 	Payload *models.ErrorBody

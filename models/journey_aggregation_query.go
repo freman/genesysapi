@@ -147,7 +147,7 @@ var journeyAggregationQueryGroupByItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["containsAllCondition","containsAnyCondition","endsWithCondition","equalCondition","greaterThanCondition","greaterThanOrEqualCondition","journeyActionId","journeyActionMapId","journeyActionMapVersion","journeyActionMediaType","journeyActionTargetId","journeyActionTemplateId","journeyBlockingActionMapId","journeyBlockingReason","journeyBlockingScheduleGroupId","journeyCustomerId","journeyCustomerIdType","journeyDeviceCategory","journeyDeviceType","journeyFrequencyCapReason","journeyOutcomeId","journeySegmentId","journeySegmentScope","journeySessionSegmentId","journeySessionType","lessThanCondition","lessThanOrEqualCondition","notContainsAllCondition","notContainsAnyCondition","notEqualCondition","startsWithCondition","touchpointActionMapId"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["containsAllCondition","containsAnyCondition","endsWithCondition","equalCondition","journeyActionId","journeyActionMapId","journeyActionMapVersion","journeyActionMediaType","journeyActionTargetId","journeyActionTemplateId","journeyBlockingActionMapId","journeyBlockingEmergencyScheduleGroupId","journeyBlockingReason","journeyBlockingScheduleGroupId","journeyCustomerId","journeyCustomerIdType","journeyDeviceCategory","journeyDeviceType","journeyFrequencyCapReason","journeyOutcomeId","journeySegmentId","journeySegmentScope","journeySessionSegmentId","journeySessionType","notContainsAllCondition","notContainsAnyCondition","notEqualCondition","startsWithCondition","touchpointActionMapId"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -193,7 +193,7 @@ var journeyAggregationQueryMetricsItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["nDistinctJourneyActions","nJourneyActionsBlocked","nJourneyOutcomesAchieved","nJourneyOutcomesAttributed","nJourneySegmentsAssigned","nJourneySessions","nWebActionsAbandoned","nWebActionsAccepted","nWebActionsEngaged","nWebActionsErrored","nWebActionsIgnored","nWebActionsOffered","nWebActionsQualified","nWebActionsQualifiedOutsideSchedule","nWebActionsRejected","nWebActionsStarted","nWebActionsTimedout","nWebActionsFrequencyCapReached","nWebActionsOfferedOutsideSchedule"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["nDistinctJourneyActions","nDistinctJourneySessions","nJourneyActionsBlocked","nJourneyOutcomesAchieved","nJourneyOutcomesAttributed","nJourneySegmentsAssigned","nJourneySessions","nWebActionsAbandoned","nWebActionsAccepted","nWebActionsEngaged","nWebActionsErrored","nWebActionsIgnored","nWebActionsOffered","nWebActionsQualified","nWebActionsQualifiedOutsideSchedule","nWebActionsRejected","nWebActionsStarted","nWebActionsTimedout","nWebActionsFrequencyCapReached","nWebActionsOfferedOutsideSchedule"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {

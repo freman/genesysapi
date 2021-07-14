@@ -53,6 +53,12 @@ func (o *GetOrgauthorizationTrustorUsersReader) ReadResponse(response runtime.Cl
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetOrgauthorizationTrustorUsersRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetOrgauthorizationTrustorUsersRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetOrgauthorizationTrustorUsersNotFound) readResponse(response runtime.
 	return nil
 }
 
+// NewGetOrgauthorizationTrustorUsersRequestTimeout creates a GetOrgauthorizationTrustorUsersRequestTimeout with default headers values
+func NewGetOrgauthorizationTrustorUsersRequestTimeout() *GetOrgauthorizationTrustorUsersRequestTimeout {
+	return &GetOrgauthorizationTrustorUsersRequestTimeout{}
+}
+
+/*GetOrgauthorizationTrustorUsersRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetOrgauthorizationTrustorUsersRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetOrgauthorizationTrustorUsersRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/orgauthorization/trustors/{trustorOrgId}/users][%d] getOrgauthorizationTrustorUsersRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetOrgauthorizationTrustorUsersRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetOrgauthorizationTrustorUsersRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetOrgauthorizationTrustorUsersRequestEntityTooLarge creates a GetOrgauthorizationTrustorUsersRequestEntityTooLarge with default headers values
 func NewGetOrgauthorizationTrustorUsersRequestEntityTooLarge() *GetOrgauthorizationTrustorUsersRequestEntityTooLarge {
 	return &GetOrgauthorizationTrustorUsersRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetOrgauthorizationTrustorUsersTooManyRequests() *GetOrgauthorizationTru
 
 /*GetOrgauthorizationTrustorUsersTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetOrgauthorizationTrustorUsersTooManyRequests struct {
 	Payload *models.ErrorBody

@@ -53,6 +53,12 @@ func (o *DeleteQualityConversationEvaluationReader) ReadResponse(response runtim
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewDeleteQualityConversationEvaluationRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewDeleteQualityConversationEvaluationRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *DeleteQualityConversationEvaluationNotFound) readResponse(response runt
 	return nil
 }
 
+// NewDeleteQualityConversationEvaluationRequestTimeout creates a DeleteQualityConversationEvaluationRequestTimeout with default headers values
+func NewDeleteQualityConversationEvaluationRequestTimeout() *DeleteQualityConversationEvaluationRequestTimeout {
+	return &DeleteQualityConversationEvaluationRequestTimeout{}
+}
+
+/*DeleteQualityConversationEvaluationRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type DeleteQualityConversationEvaluationRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *DeleteQualityConversationEvaluationRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/quality/conversations/{conversationId}/evaluations/{evaluationId}][%d] deleteQualityConversationEvaluationRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteQualityConversationEvaluationRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *DeleteQualityConversationEvaluationRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewDeleteQualityConversationEvaluationRequestEntityTooLarge creates a DeleteQualityConversationEvaluationRequestEntityTooLarge with default headers values
 func NewDeleteQualityConversationEvaluationRequestEntityTooLarge() *DeleteQualityConversationEvaluationRequestEntityTooLarge {
 	return &DeleteQualityConversationEvaluationRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewDeleteQualityConversationEvaluationTooManyRequests() *DeleteQualityConve
 
 /*DeleteQualityConversationEvaluationTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type DeleteQualityConversationEvaluationTooManyRequests struct {
 	Payload *models.ErrorBody

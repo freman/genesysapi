@@ -53,6 +53,12 @@ func (o *GetAuthorizationRoleComparedefaultRightRoleIDReader) ReadResponse(respo
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetAuthorizationRoleComparedefaultRightRoleIDRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetAuthorizationRoleComparedefaultRightRoleIDRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetAuthorizationRoleComparedefaultRightRoleIDNotFound) readResponse(res
 	return nil
 }
 
+// NewGetAuthorizationRoleComparedefaultRightRoleIDRequestTimeout creates a GetAuthorizationRoleComparedefaultRightRoleIDRequestTimeout with default headers values
+func NewGetAuthorizationRoleComparedefaultRightRoleIDRequestTimeout() *GetAuthorizationRoleComparedefaultRightRoleIDRequestTimeout {
+	return &GetAuthorizationRoleComparedefaultRightRoleIDRequestTimeout{}
+}
+
+/*GetAuthorizationRoleComparedefaultRightRoleIDRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetAuthorizationRoleComparedefaultRightRoleIDRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetAuthorizationRoleComparedefaultRightRoleIDRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/authorization/roles/{leftRoleId}/comparedefault/{rightRoleId}][%d] getAuthorizationRoleComparedefaultRightRoleIdRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetAuthorizationRoleComparedefaultRightRoleIDRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetAuthorizationRoleComparedefaultRightRoleIDRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetAuthorizationRoleComparedefaultRightRoleIDRequestEntityTooLarge creates a GetAuthorizationRoleComparedefaultRightRoleIDRequestEntityTooLarge with default headers values
 func NewGetAuthorizationRoleComparedefaultRightRoleIDRequestEntityTooLarge() *GetAuthorizationRoleComparedefaultRightRoleIDRequestEntityTooLarge {
 	return &GetAuthorizationRoleComparedefaultRightRoleIDRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetAuthorizationRoleComparedefaultRightRoleIDTooManyRequests() *GetAutho
 
 /*GetAuthorizationRoleComparedefaultRightRoleIDTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetAuthorizationRoleComparedefaultRightRoleIDTooManyRequests struct {
 	Payload *models.ErrorBody

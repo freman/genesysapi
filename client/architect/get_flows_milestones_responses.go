@@ -59,6 +59,12 @@ func (o *GetFlowsMilestonesReader) ReadResponse(response runtime.ClientResponse,
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetFlowsMilestonesRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetFlowsMilestonesRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -299,6 +305,39 @@ func (o *GetFlowsMilestonesMethodNotAllowed) readResponse(response runtime.Clien
 	return nil
 }
 
+// NewGetFlowsMilestonesRequestTimeout creates a GetFlowsMilestonesRequestTimeout with default headers values
+func NewGetFlowsMilestonesRequestTimeout() *GetFlowsMilestonesRequestTimeout {
+	return &GetFlowsMilestonesRequestTimeout{}
+}
+
+/*GetFlowsMilestonesRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetFlowsMilestonesRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetFlowsMilestonesRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/milestones][%d] getFlowsMilestonesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetFlowsMilestonesRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetFlowsMilestonesRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetFlowsMilestonesRequestEntityTooLarge creates a GetFlowsMilestonesRequestEntityTooLarge with default headers values
 func NewGetFlowsMilestonesRequestEntityTooLarge() *GetFlowsMilestonesRequestEntityTooLarge {
 	return &GetFlowsMilestonesRequestEntityTooLarge{}
@@ -372,7 +411,7 @@ func NewGetFlowsMilestonesTooManyRequests() *GetFlowsMilestonesTooManyRequests {
 
 /*GetFlowsMilestonesTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetFlowsMilestonesTooManyRequests struct {
 	Payload *models.ErrorBody

@@ -53,6 +53,12 @@ func (o *PutAlertingInteractionstatsRuleReader) ReadResponse(response runtime.Cl
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPutAlertingInteractionstatsRuleRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPutAlertingInteractionstatsRuleRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PutAlertingInteractionstatsRuleNotFound) readResponse(response runtime.
 	return nil
 }
 
+// NewPutAlertingInteractionstatsRuleRequestTimeout creates a PutAlertingInteractionstatsRuleRequestTimeout with default headers values
+func NewPutAlertingInteractionstatsRuleRequestTimeout() *PutAlertingInteractionstatsRuleRequestTimeout {
+	return &PutAlertingInteractionstatsRuleRequestTimeout{}
+}
+
+/*PutAlertingInteractionstatsRuleRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PutAlertingInteractionstatsRuleRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PutAlertingInteractionstatsRuleRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/alerting/interactionstats/rules/{ruleId}][%d] putAlertingInteractionstatsRuleRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutAlertingInteractionstatsRuleRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PutAlertingInteractionstatsRuleRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPutAlertingInteractionstatsRuleRequestEntityTooLarge creates a PutAlertingInteractionstatsRuleRequestEntityTooLarge with default headers values
 func NewPutAlertingInteractionstatsRuleRequestEntityTooLarge() *PutAlertingInteractionstatsRuleRequestEntityTooLarge {
 	return &PutAlertingInteractionstatsRuleRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPutAlertingInteractionstatsRuleTooManyRequests() *PutAlertingInteraction
 
 /*PutAlertingInteractionstatsRuleTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PutAlertingInteractionstatsRuleTooManyRequests struct {
 	Payload *models.ErrorBody

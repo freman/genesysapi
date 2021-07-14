@@ -53,6 +53,12 @@ func (o *GetConversationsEmailMessageReader) ReadResponse(response runtime.Clien
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetConversationsEmailMessageRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetConversationsEmailMessageRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetConversationsEmailMessageNotFound) readResponse(response runtime.Cli
 	return nil
 }
 
+// NewGetConversationsEmailMessageRequestTimeout creates a GetConversationsEmailMessageRequestTimeout with default headers values
+func NewGetConversationsEmailMessageRequestTimeout() *GetConversationsEmailMessageRequestTimeout {
+	return &GetConversationsEmailMessageRequestTimeout{}
+}
+
+/*GetConversationsEmailMessageRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetConversationsEmailMessageRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetConversationsEmailMessageRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/emails/{conversationId}/messages/{messageId}][%d] getConversationsEmailMessageRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetConversationsEmailMessageRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetConversationsEmailMessageRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetConversationsEmailMessageRequestEntityTooLarge creates a GetConversationsEmailMessageRequestEntityTooLarge with default headers values
 func NewGetConversationsEmailMessageRequestEntityTooLarge() *GetConversationsEmailMessageRequestEntityTooLarge {
 	return &GetConversationsEmailMessageRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetConversationsEmailMessageTooManyRequests() *GetConversationsEmailMess
 
 /*GetConversationsEmailMessageTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetConversationsEmailMessageTooManyRequests struct {
 	Payload *models.ErrorBody

@@ -53,6 +53,12 @@ func (o *GetCoachingAppointmentAnnotationReader) ReadResponse(response runtime.C
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetCoachingAppointmentAnnotationRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetCoachingAppointmentAnnotationRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetCoachingAppointmentAnnotationNotFound) readResponse(response runtime
 	return nil
 }
 
+// NewGetCoachingAppointmentAnnotationRequestTimeout creates a GetCoachingAppointmentAnnotationRequestTimeout with default headers values
+func NewGetCoachingAppointmentAnnotationRequestTimeout() *GetCoachingAppointmentAnnotationRequestTimeout {
+	return &GetCoachingAppointmentAnnotationRequestTimeout{}
+}
+
+/*GetCoachingAppointmentAnnotationRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetCoachingAppointmentAnnotationRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetCoachingAppointmentAnnotationRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/coaching/appointments/{appointmentId}/annotations/{annotationId}][%d] getCoachingAppointmentAnnotationRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetCoachingAppointmentAnnotationRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetCoachingAppointmentAnnotationRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetCoachingAppointmentAnnotationRequestEntityTooLarge creates a GetCoachingAppointmentAnnotationRequestEntityTooLarge with default headers values
 func NewGetCoachingAppointmentAnnotationRequestEntityTooLarge() *GetCoachingAppointmentAnnotationRequestEntityTooLarge {
 	return &GetCoachingAppointmentAnnotationRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetCoachingAppointmentAnnotationTooManyRequests() *GetCoachingAppointmen
 
 /*GetCoachingAppointmentAnnotationTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetCoachingAppointmentAnnotationTooManyRequests struct {
 	Payload *models.ErrorBody

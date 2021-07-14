@@ -53,6 +53,12 @@ func (o *PutTelephonyProvidersEdgesDidpoolReader) ReadResponse(response runtime.
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPutTelephonyProvidersEdgesDidpoolRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 409:
 		result := NewPutTelephonyProvidersEdgesDidpoolConflict()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -266,6 +272,39 @@ func (o *PutTelephonyProvidersEdgesDidpoolNotFound) readResponse(response runtim
 	return nil
 }
 
+// NewPutTelephonyProvidersEdgesDidpoolRequestTimeout creates a PutTelephonyProvidersEdgesDidpoolRequestTimeout with default headers values
+func NewPutTelephonyProvidersEdgesDidpoolRequestTimeout() *PutTelephonyProvidersEdgesDidpoolRequestTimeout {
+	return &PutTelephonyProvidersEdgesDidpoolRequestTimeout{}
+}
+
+/*PutTelephonyProvidersEdgesDidpoolRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PutTelephonyProvidersEdgesDidpoolRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PutTelephonyProvidersEdgesDidpoolRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/telephony/providers/edges/didpools/{didPoolId}][%d] putTelephonyProvidersEdgesDidpoolRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutTelephonyProvidersEdgesDidpoolRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PutTelephonyProvidersEdgesDidpoolRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPutTelephonyProvidersEdgesDidpoolConflict creates a PutTelephonyProvidersEdgesDidpoolConflict with default headers values
 func NewPutTelephonyProvidersEdgesDidpoolConflict() *PutTelephonyProvidersEdgesDidpoolConflict {
 	return &PutTelephonyProvidersEdgesDidpoolConflict{}
@@ -372,7 +411,7 @@ func NewPutTelephonyProvidersEdgesDidpoolTooManyRequests() *PutTelephonyProvider
 
 /*PutTelephonyProvidersEdgesDidpoolTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PutTelephonyProvidersEdgesDidpoolTooManyRequests struct {
 	Payload *models.ErrorBody

@@ -53,6 +53,12 @@ func (o *GetAuthorizationRoleSubjectgrantsReader) ReadResponse(response runtime.
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetAuthorizationRoleSubjectgrantsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetAuthorizationRoleSubjectgrantsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetAuthorizationRoleSubjectgrantsNotFound) readResponse(response runtim
 	return nil
 }
 
+// NewGetAuthorizationRoleSubjectgrantsRequestTimeout creates a GetAuthorizationRoleSubjectgrantsRequestTimeout with default headers values
+func NewGetAuthorizationRoleSubjectgrantsRequestTimeout() *GetAuthorizationRoleSubjectgrantsRequestTimeout {
+	return &GetAuthorizationRoleSubjectgrantsRequestTimeout{}
+}
+
+/*GetAuthorizationRoleSubjectgrantsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetAuthorizationRoleSubjectgrantsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetAuthorizationRoleSubjectgrantsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/authorization/roles/{roleId}/subjectgrants][%d] getAuthorizationRoleSubjectgrantsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetAuthorizationRoleSubjectgrantsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetAuthorizationRoleSubjectgrantsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetAuthorizationRoleSubjectgrantsRequestEntityTooLarge creates a GetAuthorizationRoleSubjectgrantsRequestEntityTooLarge with default headers values
 func NewGetAuthorizationRoleSubjectgrantsRequestEntityTooLarge() *GetAuthorizationRoleSubjectgrantsRequestEntityTooLarge {
 	return &GetAuthorizationRoleSubjectgrantsRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetAuthorizationRoleSubjectgrantsTooManyRequests() *GetAuthorizationRole
 
 /*GetAuthorizationRoleSubjectgrantsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetAuthorizationRoleSubjectgrantsTooManyRequests struct {
 	Payload *models.ErrorBody

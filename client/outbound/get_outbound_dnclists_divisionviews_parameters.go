@@ -113,6 +113,11 @@ for the get outbound dnclists divisionviews operation typically these are writte
 */
 type GetOutboundDnclistsDivisionviewsParams struct {
 
+	/*DncSourceType
+	  DncSourceType
+
+	*/
+	DncSourceType *string
 	/*FilterType
 	  Filter type
 
@@ -195,6 +200,17 @@ func (o *GetOutboundDnclistsDivisionviewsParams) WithHTTPClient(client *http.Cli
 // SetHTTPClient adds the HTTPClient to the get outbound dnclists divisionviews params
 func (o *GetOutboundDnclistsDivisionviewsParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
+}
+
+// WithDncSourceType adds the dncSourceType to the get outbound dnclists divisionviews params
+func (o *GetOutboundDnclistsDivisionviewsParams) WithDncSourceType(dncSourceType *string) *GetOutboundDnclistsDivisionviewsParams {
+	o.SetDncSourceType(dncSourceType)
+	return o
+}
+
+// SetDncSourceType adds the dncSourceType to the get outbound dnclists divisionviews params
+func (o *GetOutboundDnclistsDivisionviewsParams) SetDncSourceType(dncSourceType *string) {
+	o.DncSourceType = dncSourceType
 }
 
 // WithFilterType adds the filterType to the get outbound dnclists divisionviews params
@@ -303,6 +319,22 @@ func (o *GetOutboundDnclistsDivisionviewsParams) WriteToRequest(r runtime.Client
 		return err
 	}
 	var res []error
+
+	if o.DncSourceType != nil {
+
+		// query param dncSourceType
+		var qrDncSourceType string
+		if o.DncSourceType != nil {
+			qrDncSourceType = *o.DncSourceType
+		}
+		qDncSourceType := qrDncSourceType
+		if qDncSourceType != "" {
+			if err := r.SetQueryParam("dncSourceType", qDncSourceType); err != nil {
+				return err
+			}
+		}
+
+	}
 
 	if o.FilterType != nil {
 

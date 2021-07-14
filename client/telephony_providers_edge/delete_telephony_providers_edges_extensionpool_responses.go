@@ -53,6 +53,12 @@ func (o *DeleteTelephonyProvidersEdgesExtensionpoolReader) ReadResponse(response
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewDeleteTelephonyProvidersEdgesExtensionpoolRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 409:
 		result := NewDeleteTelephonyProvidersEdgesExtensionpoolConflict()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -254,6 +260,39 @@ func (o *DeleteTelephonyProvidersEdgesExtensionpoolNotFound) readResponse(respon
 	return nil
 }
 
+// NewDeleteTelephonyProvidersEdgesExtensionpoolRequestTimeout creates a DeleteTelephonyProvidersEdgesExtensionpoolRequestTimeout with default headers values
+func NewDeleteTelephonyProvidersEdgesExtensionpoolRequestTimeout() *DeleteTelephonyProvidersEdgesExtensionpoolRequestTimeout {
+	return &DeleteTelephonyProvidersEdgesExtensionpoolRequestTimeout{}
+}
+
+/*DeleteTelephonyProvidersEdgesExtensionpoolRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type DeleteTelephonyProvidersEdgesExtensionpoolRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *DeleteTelephonyProvidersEdgesExtensionpoolRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/telephony/providers/edges/extensionpools/{extensionPoolId}][%d] deleteTelephonyProvidersEdgesExtensionpoolRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteTelephonyProvidersEdgesExtensionpoolRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *DeleteTelephonyProvidersEdgesExtensionpoolRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewDeleteTelephonyProvidersEdgesExtensionpoolConflict creates a DeleteTelephonyProvidersEdgesExtensionpoolConflict with default headers values
 func NewDeleteTelephonyProvidersEdgesExtensionpoolConflict() *DeleteTelephonyProvidersEdgesExtensionpoolConflict {
 	return &DeleteTelephonyProvidersEdgesExtensionpoolConflict{}
@@ -360,7 +399,7 @@ func NewDeleteTelephonyProvidersEdgesExtensionpoolTooManyRequests() *DeleteTelep
 
 /*DeleteTelephonyProvidersEdgesExtensionpoolTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type DeleteTelephonyProvidersEdgesExtensionpoolTooManyRequests struct {
 	Payload *models.ErrorBody

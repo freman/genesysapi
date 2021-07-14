@@ -53,6 +53,12 @@ func (o *GetWebchatSettingsReader) ReadResponse(response runtime.ClientResponse,
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetWebchatSettingsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetWebchatSettingsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetWebchatSettingsNotFound) readResponse(response runtime.ClientRespons
 	return nil
 }
 
+// NewGetWebchatSettingsRequestTimeout creates a GetWebchatSettingsRequestTimeout with default headers values
+func NewGetWebchatSettingsRequestTimeout() *GetWebchatSettingsRequestTimeout {
+	return &GetWebchatSettingsRequestTimeout{}
+}
+
+/*GetWebchatSettingsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetWebchatSettingsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetWebchatSettingsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webchat/settings][%d] getWebchatSettingsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetWebchatSettingsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetWebchatSettingsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetWebchatSettingsRequestEntityTooLarge creates a GetWebchatSettingsRequestEntityTooLarge with default headers values
 func NewGetWebchatSettingsRequestEntityTooLarge() *GetWebchatSettingsRequestEntityTooLarge {
 	return &GetWebchatSettingsRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetWebchatSettingsTooManyRequests() *GetWebchatSettingsTooManyRequests {
 
 /*GetWebchatSettingsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetWebchatSettingsTooManyRequests struct {
 	Payload *models.ErrorBody

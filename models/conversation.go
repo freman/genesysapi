@@ -33,6 +33,9 @@ type Conversation struct {
 	// Format: date-time
 	EndTime strfmt.DateTime `json:"endTime,omitempty"`
 
+	// The external tag associated with the conversation.
+	ExternalTag string `json:"externalTag,omitempty"`
+
 	// The globally unique identifier for the object.
 	// Read Only: true
 	ID string `json:"id,omitempty"`

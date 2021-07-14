@@ -53,6 +53,12 @@ func (o *PostUsersSearchReader) ReadResponse(response runtime.ClientResponse, co
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostUsersSearchRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostUsersSearchRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PostUsersSearchNotFound) readResponse(response runtime.ClientResponse, 
 	return nil
 }
 
+// NewPostUsersSearchRequestTimeout creates a PostUsersSearchRequestTimeout with default headers values
+func NewPostUsersSearchRequestTimeout() *PostUsersSearchRequestTimeout {
+	return &PostUsersSearchRequestTimeout{}
+}
+
+/*PostUsersSearchRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostUsersSearchRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostUsersSearchRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users/search][%d] postUsersSearchRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostUsersSearchRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostUsersSearchRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostUsersSearchRequestEntityTooLarge creates a PostUsersSearchRequestEntityTooLarge with default headers values
 func NewPostUsersSearchRequestEntityTooLarge() *PostUsersSearchRequestEntityTooLarge {
 	return &PostUsersSearchRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPostUsersSearchTooManyRequests() *PostUsersSearchTooManyRequests {
 
 /*PostUsersSearchTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostUsersSearchTooManyRequests struct {
 	Payload *models.ErrorBody

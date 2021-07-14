@@ -53,6 +53,12 @@ func (o *PostDocumentationSearchReader) ReadResponse(response runtime.ClientResp
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostDocumentationSearchRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostDocumentationSearchRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PostDocumentationSearchNotFound) readResponse(response runtime.ClientRe
 	return nil
 }
 
+// NewPostDocumentationSearchRequestTimeout creates a PostDocumentationSearchRequestTimeout with default headers values
+func NewPostDocumentationSearchRequestTimeout() *PostDocumentationSearchRequestTimeout {
+	return &PostDocumentationSearchRequestTimeout{}
+}
+
+/*PostDocumentationSearchRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostDocumentationSearchRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostDocumentationSearchRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/documentation/search][%d] postDocumentationSearchRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostDocumentationSearchRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostDocumentationSearchRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostDocumentationSearchRequestEntityTooLarge creates a PostDocumentationSearchRequestEntityTooLarge with default headers values
 func NewPostDocumentationSearchRequestEntityTooLarge() *PostDocumentationSearchRequestEntityTooLarge {
 	return &PostDocumentationSearchRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPostDocumentationSearchTooManyRequests() *PostDocumentationSearchTooMany
 
 /*PostDocumentationSearchTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostDocumentationSearchTooManyRequests struct {
 	Payload *models.ErrorBody

@@ -53,6 +53,12 @@ func (o *GetArchitectSystempromptResourcesReader) ReadResponse(response runtime.
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetArchitectSystempromptResourcesRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetArchitectSystempromptResourcesRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetArchitectSystempromptResourcesNotFound) readResponse(response runtim
 	return nil
 }
 
+// NewGetArchitectSystempromptResourcesRequestTimeout creates a GetArchitectSystempromptResourcesRequestTimeout with default headers values
+func NewGetArchitectSystempromptResourcesRequestTimeout() *GetArchitectSystempromptResourcesRequestTimeout {
+	return &GetArchitectSystempromptResourcesRequestTimeout{}
+}
+
+/*GetArchitectSystempromptResourcesRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetArchitectSystempromptResourcesRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetArchitectSystempromptResourcesRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/systemprompts/{promptId}/resources][%d] getArchitectSystempromptResourcesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetArchitectSystempromptResourcesRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetArchitectSystempromptResourcesRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetArchitectSystempromptResourcesRequestEntityTooLarge creates a GetArchitectSystempromptResourcesRequestEntityTooLarge with default headers values
 func NewGetArchitectSystempromptResourcesRequestEntityTooLarge() *GetArchitectSystempromptResourcesRequestEntityTooLarge {
 	return &GetArchitectSystempromptResourcesRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetArchitectSystempromptResourcesTooManyRequests() *GetArchitectSystempr
 
 /*GetArchitectSystempromptResourcesTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetArchitectSystempromptResourcesTooManyRequests struct {
 	Payload *models.ErrorBody

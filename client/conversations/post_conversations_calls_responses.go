@@ -53,6 +53,12 @@ func (o *PostConversationsCallsReader) ReadResponse(response runtime.ClientRespo
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostConversationsCallsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 409:
 		result := NewPostConversationsCallsConflict()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -266,6 +272,39 @@ func (o *PostConversationsCallsNotFound) readResponse(response runtime.ClientRes
 	return nil
 }
 
+// NewPostConversationsCallsRequestTimeout creates a PostConversationsCallsRequestTimeout with default headers values
+func NewPostConversationsCallsRequestTimeout() *PostConversationsCallsRequestTimeout {
+	return &PostConversationsCallsRequestTimeout{}
+}
+
+/*PostConversationsCallsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostConversationsCallsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostConversationsCallsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/calls][%d] postConversationsCallsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostConversationsCallsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostConversationsCallsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostConversationsCallsConflict creates a PostConversationsCallsConflict with default headers values
 func NewPostConversationsCallsConflict() *PostConversationsCallsConflict {
 	return &PostConversationsCallsConflict{}
@@ -372,7 +411,7 @@ func NewPostConversationsCallsTooManyRequests() *PostConversationsCallsTooManyRe
 
 /*PostConversationsCallsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostConversationsCallsTooManyRequests struct {
 	Payload *models.ErrorBody

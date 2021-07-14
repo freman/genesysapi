@@ -53,6 +53,12 @@ func (o *PutOutboundCallabletimesetReader) ReadResponse(response runtime.ClientR
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPutOutboundCallabletimesetRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 409:
 		result := NewPutOutboundCallabletimesetConflict()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -266,6 +272,39 @@ func (o *PutOutboundCallabletimesetNotFound) readResponse(response runtime.Clien
 	return nil
 }
 
+// NewPutOutboundCallabletimesetRequestTimeout creates a PutOutboundCallabletimesetRequestTimeout with default headers values
+func NewPutOutboundCallabletimesetRequestTimeout() *PutOutboundCallabletimesetRequestTimeout {
+	return &PutOutboundCallabletimesetRequestTimeout{}
+}
+
+/*PutOutboundCallabletimesetRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PutOutboundCallabletimesetRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PutOutboundCallabletimesetRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/callabletimesets/{callableTimeSetId}][%d] putOutboundCallabletimesetRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutOutboundCallabletimesetRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PutOutboundCallabletimesetRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPutOutboundCallabletimesetConflict creates a PutOutboundCallabletimesetConflict with default headers values
 func NewPutOutboundCallabletimesetConflict() *PutOutboundCallabletimesetConflict {
 	return &PutOutboundCallabletimesetConflict{}
@@ -372,7 +411,7 @@ func NewPutOutboundCallabletimesetTooManyRequests() *PutOutboundCallabletimesetT
 
 /*PutOutboundCallabletimesetTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PutOutboundCallabletimesetTooManyRequests struct {
 	Payload *models.ErrorBody

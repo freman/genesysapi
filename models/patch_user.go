@@ -6,7 +6,6 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
@@ -19,70 +18,12 @@ type PatchUser struct {
 	// The value that denotes if acdAutoAnswer is set on the user
 	AcdAutoAnswer bool `json:"acdAutoAnswer"`
 
-	// biography
-	Biography *Biography `json:"biography,omitempty"`
-
-	// certifications
-	Certifications []string `json:"certifications"`
-
-	// employer info
-	EmployerInfo *EmployerInfo `json:"employerInfo,omitempty"`
-
 	// The globally unique identifier for the object.
 	ID string `json:"id,omitempty"`
 }
 
 // Validate validates this patch user
 func (m *PatchUser) Validate(formats strfmt.Registry) error {
-	var res []error
-
-	if err := m.validateBiography(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateEmployerInfo(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
-	return nil
-}
-
-func (m *PatchUser) validateBiography(formats strfmt.Registry) error {
-
-	if swag.IsZero(m.Biography) { // not required
-		return nil
-	}
-
-	if m.Biography != nil {
-		if err := m.Biography.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("biography")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *PatchUser) validateEmployerInfo(formats strfmt.Registry) error {
-
-	if swag.IsZero(m.EmployerInfo) { // not required
-		return nil
-	}
-
-	if m.EmployerInfo != nil {
-		if err := m.EmployerInfo.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("employerInfo")
-			}
-			return err
-		}
-	}
-
 	return nil
 }
 

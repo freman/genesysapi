@@ -53,6 +53,12 @@ func (o *GetConversationsCallsReader) ReadResponse(response runtime.ClientRespon
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetConversationsCallsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetConversationsCallsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetConversationsCallsNotFound) readResponse(response runtime.ClientResp
 	return nil
 }
 
+// NewGetConversationsCallsRequestTimeout creates a GetConversationsCallsRequestTimeout with default headers values
+func NewGetConversationsCallsRequestTimeout() *GetConversationsCallsRequestTimeout {
+	return &GetConversationsCallsRequestTimeout{}
+}
+
+/*GetConversationsCallsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetConversationsCallsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetConversationsCallsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/calls][%d] getConversationsCallsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetConversationsCallsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetConversationsCallsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetConversationsCallsRequestEntityTooLarge creates a GetConversationsCallsRequestEntityTooLarge with default headers values
 func NewGetConversationsCallsRequestEntityTooLarge() *GetConversationsCallsRequestEntityTooLarge {
 	return &GetConversationsCallsRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetConversationsCallsTooManyRequests() *GetConversationsCallsTooManyRequ
 
 /*GetConversationsCallsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetConversationsCallsTooManyRequests struct {
 	Payload *models.ErrorBody

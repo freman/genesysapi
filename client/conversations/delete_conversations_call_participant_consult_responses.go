@@ -53,6 +53,12 @@ func (o *DeleteConversationsCallParticipantConsultReader) ReadResponse(response 
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewDeleteConversationsCallParticipantConsultRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewDeleteConversationsCallParticipantConsultRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -248,6 +254,39 @@ func (o *DeleteConversationsCallParticipantConsultNotFound) readResponse(respons
 	return nil
 }
 
+// NewDeleteConversationsCallParticipantConsultRequestTimeout creates a DeleteConversationsCallParticipantConsultRequestTimeout with default headers values
+func NewDeleteConversationsCallParticipantConsultRequestTimeout() *DeleteConversationsCallParticipantConsultRequestTimeout {
+	return &DeleteConversationsCallParticipantConsultRequestTimeout{}
+}
+
+/*DeleteConversationsCallParticipantConsultRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type DeleteConversationsCallParticipantConsultRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *DeleteConversationsCallParticipantConsultRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/calls/{conversationId}/participants/{participantId}/consult][%d] deleteConversationsCallParticipantConsultRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteConversationsCallParticipantConsultRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *DeleteConversationsCallParticipantConsultRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewDeleteConversationsCallParticipantConsultRequestEntityTooLarge creates a DeleteConversationsCallParticipantConsultRequestEntityTooLarge with default headers values
 func NewDeleteConversationsCallParticipantConsultRequestEntityTooLarge() *DeleteConversationsCallParticipantConsultRequestEntityTooLarge {
 	return &DeleteConversationsCallParticipantConsultRequestEntityTooLarge{}
@@ -321,7 +360,7 @@ func NewDeleteConversationsCallParticipantConsultTooManyRequests() *DeleteConver
 
 /*DeleteConversationsCallParticipantConsultTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type DeleteConversationsCallParticipantConsultTooManyRequests struct {
 	Payload *models.ErrorBody

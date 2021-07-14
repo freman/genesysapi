@@ -53,6 +53,12 @@ func (o *GetRoutingMessageRecipientReader) ReadResponse(response runtime.ClientR
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetRoutingMessageRecipientRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetRoutingMessageRecipientRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetRoutingMessageRecipientNotFound) readResponse(response runtime.Clien
 	return nil
 }
 
+// NewGetRoutingMessageRecipientRequestTimeout creates a GetRoutingMessageRecipientRequestTimeout with default headers values
+func NewGetRoutingMessageRecipientRequestTimeout() *GetRoutingMessageRecipientRequestTimeout {
+	return &GetRoutingMessageRecipientRequestTimeout{}
+}
+
+/*GetRoutingMessageRecipientRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetRoutingMessageRecipientRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetRoutingMessageRecipientRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/message/recipients/{recipientId}][%d] getRoutingMessageRecipientRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetRoutingMessageRecipientRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetRoutingMessageRecipientRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetRoutingMessageRecipientRequestEntityTooLarge creates a GetRoutingMessageRecipientRequestEntityTooLarge with default headers values
 func NewGetRoutingMessageRecipientRequestEntityTooLarge() *GetRoutingMessageRecipientRequestEntityTooLarge {
 	return &GetRoutingMessageRecipientRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetRoutingMessageRecipientTooManyRequests() *GetRoutingMessageRecipientT
 
 /*GetRoutingMessageRecipientTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetRoutingMessageRecipientTooManyRequests struct {
 	Payload *models.ErrorBody

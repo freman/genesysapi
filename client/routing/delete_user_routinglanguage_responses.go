@@ -53,6 +53,12 @@ func (o *DeleteUserRoutinglanguageReader) ReadResponse(response runtime.ClientRe
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewDeleteUserRoutinglanguageRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewDeleteUserRoutinglanguageRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -248,6 +254,39 @@ func (o *DeleteUserRoutinglanguageNotFound) readResponse(response runtime.Client
 	return nil
 }
 
+// NewDeleteUserRoutinglanguageRequestTimeout creates a DeleteUserRoutinglanguageRequestTimeout with default headers values
+func NewDeleteUserRoutinglanguageRequestTimeout() *DeleteUserRoutinglanguageRequestTimeout {
+	return &DeleteUserRoutinglanguageRequestTimeout{}
+}
+
+/*DeleteUserRoutinglanguageRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type DeleteUserRoutinglanguageRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *DeleteUserRoutinglanguageRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/users/{userId}/routinglanguages/{languageId}][%d] deleteUserRoutinglanguageRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteUserRoutinglanguageRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *DeleteUserRoutinglanguageRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewDeleteUserRoutinglanguageRequestEntityTooLarge creates a DeleteUserRoutinglanguageRequestEntityTooLarge with default headers values
 func NewDeleteUserRoutinglanguageRequestEntityTooLarge() *DeleteUserRoutinglanguageRequestEntityTooLarge {
 	return &DeleteUserRoutinglanguageRequestEntityTooLarge{}
@@ -321,7 +360,7 @@ func NewDeleteUserRoutinglanguageTooManyRequests() *DeleteUserRoutinglanguageToo
 
 /*DeleteUserRoutinglanguageTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type DeleteUserRoutinglanguageTooManyRequests struct {
 	Payload *models.ErrorBody

@@ -53,6 +53,12 @@ func (o *PatchVoicemailGroupPolicyReader) ReadResponse(response runtime.ClientRe
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPatchVoicemailGroupPolicyRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPatchVoicemailGroupPolicyRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PatchVoicemailGroupPolicyNotFound) readResponse(response runtime.Client
 	return nil
 }
 
+// NewPatchVoicemailGroupPolicyRequestTimeout creates a PatchVoicemailGroupPolicyRequestTimeout with default headers values
+func NewPatchVoicemailGroupPolicyRequestTimeout() *PatchVoicemailGroupPolicyRequestTimeout {
+	return &PatchVoicemailGroupPolicyRequestTimeout{}
+}
+
+/*PatchVoicemailGroupPolicyRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PatchVoicemailGroupPolicyRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PatchVoicemailGroupPolicyRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/voicemail/groups/{groupId}/policy][%d] patchVoicemailGroupPolicyRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchVoicemailGroupPolicyRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PatchVoicemailGroupPolicyRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPatchVoicemailGroupPolicyRequestEntityTooLarge creates a PatchVoicemailGroupPolicyRequestEntityTooLarge with default headers values
 func NewPatchVoicemailGroupPolicyRequestEntityTooLarge() *PatchVoicemailGroupPolicyRequestEntityTooLarge {
 	return &PatchVoicemailGroupPolicyRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPatchVoicemailGroupPolicyTooManyRequests() *PatchVoicemailGroupPolicyToo
 
 /*PatchVoicemailGroupPolicyTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PatchVoicemailGroupPolicyTooManyRequests struct {
 	Payload *models.ErrorBody

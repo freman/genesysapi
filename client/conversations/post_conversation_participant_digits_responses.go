@@ -53,6 +53,12 @@ func (o *PostConversationParticipantDigitsReader) ReadResponse(response runtime.
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostConversationParticipantDigitsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostConversationParticipantDigitsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -248,6 +254,39 @@ func (o *PostConversationParticipantDigitsNotFound) readResponse(response runtim
 	return nil
 }
 
+// NewPostConversationParticipantDigitsRequestTimeout creates a PostConversationParticipantDigitsRequestTimeout with default headers values
+func NewPostConversationParticipantDigitsRequestTimeout() *PostConversationParticipantDigitsRequestTimeout {
+	return &PostConversationParticipantDigitsRequestTimeout{}
+}
+
+/*PostConversationParticipantDigitsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostConversationParticipantDigitsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostConversationParticipantDigitsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/digits][%d] postConversationParticipantDigitsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostConversationParticipantDigitsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostConversationParticipantDigitsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostConversationParticipantDigitsRequestEntityTooLarge creates a PostConversationParticipantDigitsRequestEntityTooLarge with default headers values
 func NewPostConversationParticipantDigitsRequestEntityTooLarge() *PostConversationParticipantDigitsRequestEntityTooLarge {
 	return &PostConversationParticipantDigitsRequestEntityTooLarge{}
@@ -321,7 +360,7 @@ func NewPostConversationParticipantDigitsTooManyRequests() *PostConversationPart
 
 /*PostConversationParticipantDigitsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostConversationParticipantDigitsTooManyRequests struct {
 	Payload *models.ErrorBody

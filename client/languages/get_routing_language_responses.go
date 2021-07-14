@@ -53,6 +53,12 @@ func (o *GetRoutingLanguageReader) ReadResponse(response runtime.ClientResponse,
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetRoutingLanguageRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetRoutingLanguageRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetRoutingLanguageNotFound) readResponse(response runtime.ClientRespons
 	return nil
 }
 
+// NewGetRoutingLanguageRequestTimeout creates a GetRoutingLanguageRequestTimeout with default headers values
+func NewGetRoutingLanguageRequestTimeout() *GetRoutingLanguageRequestTimeout {
+	return &GetRoutingLanguageRequestTimeout{}
+}
+
+/*GetRoutingLanguageRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetRoutingLanguageRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetRoutingLanguageRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/languages/{languageId}][%d] getRoutingLanguageRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetRoutingLanguageRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetRoutingLanguageRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetRoutingLanguageRequestEntityTooLarge creates a GetRoutingLanguageRequestEntityTooLarge with default headers values
 func NewGetRoutingLanguageRequestEntityTooLarge() *GetRoutingLanguageRequestEntityTooLarge {
 	return &GetRoutingLanguageRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetRoutingLanguageTooManyRequests() *GetRoutingLanguageTooManyRequests {
 
 /*GetRoutingLanguageTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetRoutingLanguageTooManyRequests struct {
 	Payload *models.ErrorBody

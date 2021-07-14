@@ -53,6 +53,12 @@ func (o *GetRecordingLocalkeysSettingReader) ReadResponse(response runtime.Clien
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetRecordingLocalkeysSettingRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetRecordingLocalkeysSettingRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetRecordingLocalkeysSettingNotFound) readResponse(response runtime.Cli
 	return nil
 }
 
+// NewGetRecordingLocalkeysSettingRequestTimeout creates a GetRecordingLocalkeysSettingRequestTimeout with default headers values
+func NewGetRecordingLocalkeysSettingRequestTimeout() *GetRecordingLocalkeysSettingRequestTimeout {
+	return &GetRecordingLocalkeysSettingRequestTimeout{}
+}
+
+/*GetRecordingLocalkeysSettingRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetRecordingLocalkeysSettingRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetRecordingLocalkeysSettingRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/localkeys/settings/{settingsId}][%d] getRecordingLocalkeysSettingRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetRecordingLocalkeysSettingRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetRecordingLocalkeysSettingRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetRecordingLocalkeysSettingRequestEntityTooLarge creates a GetRecordingLocalkeysSettingRequestEntityTooLarge with default headers values
 func NewGetRecordingLocalkeysSettingRequestEntityTooLarge() *GetRecordingLocalkeysSettingRequestEntityTooLarge {
 	return &GetRecordingLocalkeysSettingRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetRecordingLocalkeysSettingTooManyRequests() *GetRecordingLocalkeysSett
 
 /*GetRecordingLocalkeysSettingTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetRecordingLocalkeysSettingTooManyRequests struct {
 	Payload *models.ErrorBody

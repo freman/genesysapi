@@ -53,6 +53,12 @@ func (o *GetScimGroupsReader) ReadResponse(response runtime.ClientResponse, cons
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetScimGroupsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetScimGroupsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetScimGroupsNotFound) readResponse(response runtime.ClientResponse, co
 	return nil
 }
 
+// NewGetScimGroupsRequestTimeout creates a GetScimGroupsRequestTimeout with default headers values
+func NewGetScimGroupsRequestTimeout() *GetScimGroupsRequestTimeout {
+	return &GetScimGroupsRequestTimeout{}
+}
+
+/*GetScimGroupsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetScimGroupsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetScimGroupsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/groups][%d] getScimGroupsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetScimGroupsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetScimGroupsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetScimGroupsRequestEntityTooLarge creates a GetScimGroupsRequestEntityTooLarge with default headers values
 func NewGetScimGroupsRequestEntityTooLarge() *GetScimGroupsRequestEntityTooLarge {
 	return &GetScimGroupsRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetScimGroupsTooManyRequests() *GetScimGroupsTooManyRequests {
 
 /*GetScimGroupsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetScimGroupsTooManyRequests struct {
 	Payload *models.ErrorBody

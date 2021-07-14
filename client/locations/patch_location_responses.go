@@ -53,6 +53,12 @@ func (o *PatchLocationReader) ReadResponse(response runtime.ClientResponse, cons
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPatchLocationRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 409:
 		result := NewPatchLocationConflict()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -266,6 +272,39 @@ func (o *PatchLocationNotFound) readResponse(response runtime.ClientResponse, co
 	return nil
 }
 
+// NewPatchLocationRequestTimeout creates a PatchLocationRequestTimeout with default headers values
+func NewPatchLocationRequestTimeout() *PatchLocationRequestTimeout {
+	return &PatchLocationRequestTimeout{}
+}
+
+/*PatchLocationRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PatchLocationRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PatchLocationRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/locations/{locationId}][%d] patchLocationRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchLocationRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PatchLocationRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPatchLocationConflict creates a PatchLocationConflict with default headers values
 func NewPatchLocationConflict() *PatchLocationConflict {
 	return &PatchLocationConflict{}
@@ -372,7 +411,7 @@ func NewPatchLocationTooManyRequests() *PatchLocationTooManyRequests {
 
 /*PatchLocationTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PatchLocationTooManyRequests struct {
 	Payload *models.ErrorBody

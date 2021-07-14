@@ -29,7 +29,7 @@ type AuditQueryRequest struct {
 
 	// Name of the service to query audits for.
 	// Required: true
-	// Enum: [Architect ContactCenter ContentManagement Integrations PeoplePermissions Presence Quality LanguageUnderstanding TopicsDefinitions PredictiveEngagement WorkforceManagement Triggers ResponseManagement Groups Telephony Outbound SpeechAndTextAnalytics Routing]
+	// Enum: [AnalyticsReporting Architect Coaching ContactCenter ContentManagement Datatables Gamification Groups Integrations LanguageUnderstanding Limits Outbound PeoplePermissions EmployeePerformance PredictiveEngagement Presence Quality ResponseManagement Routing SpeechAndTextAnalytics Telephony TopicsDefinitions Triggers WebDeployments Webhooks WorkforceManagement Messaging Supportability]
 	ServiceName *string `json:"serviceName"`
 
 	// Sort parameter for the query.
@@ -100,7 +100,7 @@ var auditQueryRequestTypeServiceNamePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Architect","ContactCenter","ContentManagement","Integrations","PeoplePermissions","Presence","Quality","LanguageUnderstanding","TopicsDefinitions","PredictiveEngagement","WorkforceManagement","Triggers","ResponseManagement","Groups","Telephony","Outbound","SpeechAndTextAnalytics","Routing"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["AnalyticsReporting","Architect","Coaching","ContactCenter","ContentManagement","Datatables","Gamification","Groups","Integrations","LanguageUnderstanding","Limits","Outbound","PeoplePermissions","EmployeePerformance","PredictiveEngagement","Presence","Quality","ResponseManagement","Routing","SpeechAndTextAnalytics","Telephony","TopicsDefinitions","Triggers","WebDeployments","Webhooks","WorkforceManagement","Messaging","Supportability"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -110,8 +110,14 @@ func init() {
 
 const (
 
+	// AuditQueryRequestServiceNameAnalyticsReporting captures enum value "AnalyticsReporting"
+	AuditQueryRequestServiceNameAnalyticsReporting string = "AnalyticsReporting"
+
 	// AuditQueryRequestServiceNameArchitect captures enum value "Architect"
 	AuditQueryRequestServiceNameArchitect string = "Architect"
+
+	// AuditQueryRequestServiceNameCoaching captures enum value "Coaching"
+	AuditQueryRequestServiceNameCoaching string = "Coaching"
 
 	// AuditQueryRequestServiceNameContactCenter captures enum value "ContactCenter"
 	AuditQueryRequestServiceNameContactCenter string = "ContactCenter"
@@ -119,11 +125,35 @@ const (
 	// AuditQueryRequestServiceNameContentManagement captures enum value "ContentManagement"
 	AuditQueryRequestServiceNameContentManagement string = "ContentManagement"
 
+	// AuditQueryRequestServiceNameDatatables captures enum value "Datatables"
+	AuditQueryRequestServiceNameDatatables string = "Datatables"
+
+	// AuditQueryRequestServiceNameGamification captures enum value "Gamification"
+	AuditQueryRequestServiceNameGamification string = "Gamification"
+
+	// AuditQueryRequestServiceNameGroups captures enum value "Groups"
+	AuditQueryRequestServiceNameGroups string = "Groups"
+
 	// AuditQueryRequestServiceNameIntegrations captures enum value "Integrations"
 	AuditQueryRequestServiceNameIntegrations string = "Integrations"
 
+	// AuditQueryRequestServiceNameLanguageUnderstanding captures enum value "LanguageUnderstanding"
+	AuditQueryRequestServiceNameLanguageUnderstanding string = "LanguageUnderstanding"
+
+	// AuditQueryRequestServiceNameLimits captures enum value "Limits"
+	AuditQueryRequestServiceNameLimits string = "Limits"
+
+	// AuditQueryRequestServiceNameOutbound captures enum value "Outbound"
+	AuditQueryRequestServiceNameOutbound string = "Outbound"
+
 	// AuditQueryRequestServiceNamePeoplePermissions captures enum value "PeoplePermissions"
 	AuditQueryRequestServiceNamePeoplePermissions string = "PeoplePermissions"
+
+	// AuditQueryRequestServiceNameEmployeePerformance captures enum value "EmployeePerformance"
+	AuditQueryRequestServiceNameEmployeePerformance string = "EmployeePerformance"
+
+	// AuditQueryRequestServiceNamePredictiveEngagement captures enum value "PredictiveEngagement"
+	AuditQueryRequestServiceNamePredictiveEngagement string = "PredictiveEngagement"
 
 	// AuditQueryRequestServiceNamePresence captures enum value "Presence"
 	AuditQueryRequestServiceNamePresence string = "Presence"
@@ -131,38 +161,38 @@ const (
 	// AuditQueryRequestServiceNameQuality captures enum value "Quality"
 	AuditQueryRequestServiceNameQuality string = "Quality"
 
-	// AuditQueryRequestServiceNameLanguageUnderstanding captures enum value "LanguageUnderstanding"
-	AuditQueryRequestServiceNameLanguageUnderstanding string = "LanguageUnderstanding"
-
-	// AuditQueryRequestServiceNameTopicsDefinitions captures enum value "TopicsDefinitions"
-	AuditQueryRequestServiceNameTopicsDefinitions string = "TopicsDefinitions"
-
-	// AuditQueryRequestServiceNamePredictiveEngagement captures enum value "PredictiveEngagement"
-	AuditQueryRequestServiceNamePredictiveEngagement string = "PredictiveEngagement"
-
-	// AuditQueryRequestServiceNameWorkforceManagement captures enum value "WorkforceManagement"
-	AuditQueryRequestServiceNameWorkforceManagement string = "WorkforceManagement"
-
-	// AuditQueryRequestServiceNameTriggers captures enum value "Triggers"
-	AuditQueryRequestServiceNameTriggers string = "Triggers"
-
 	// AuditQueryRequestServiceNameResponseManagement captures enum value "ResponseManagement"
 	AuditQueryRequestServiceNameResponseManagement string = "ResponseManagement"
 
-	// AuditQueryRequestServiceNameGroups captures enum value "Groups"
-	AuditQueryRequestServiceNameGroups string = "Groups"
-
-	// AuditQueryRequestServiceNameTelephony captures enum value "Telephony"
-	AuditQueryRequestServiceNameTelephony string = "Telephony"
-
-	// AuditQueryRequestServiceNameOutbound captures enum value "Outbound"
-	AuditQueryRequestServiceNameOutbound string = "Outbound"
+	// AuditQueryRequestServiceNameRouting captures enum value "Routing"
+	AuditQueryRequestServiceNameRouting string = "Routing"
 
 	// AuditQueryRequestServiceNameSpeechAndTextAnalytics captures enum value "SpeechAndTextAnalytics"
 	AuditQueryRequestServiceNameSpeechAndTextAnalytics string = "SpeechAndTextAnalytics"
 
-	// AuditQueryRequestServiceNameRouting captures enum value "Routing"
-	AuditQueryRequestServiceNameRouting string = "Routing"
+	// AuditQueryRequestServiceNameTelephony captures enum value "Telephony"
+	AuditQueryRequestServiceNameTelephony string = "Telephony"
+
+	// AuditQueryRequestServiceNameTopicsDefinitions captures enum value "TopicsDefinitions"
+	AuditQueryRequestServiceNameTopicsDefinitions string = "TopicsDefinitions"
+
+	// AuditQueryRequestServiceNameTriggers captures enum value "Triggers"
+	AuditQueryRequestServiceNameTriggers string = "Triggers"
+
+	// AuditQueryRequestServiceNameWebDeployments captures enum value "WebDeployments"
+	AuditQueryRequestServiceNameWebDeployments string = "WebDeployments"
+
+	// AuditQueryRequestServiceNameWebhooks captures enum value "Webhooks"
+	AuditQueryRequestServiceNameWebhooks string = "Webhooks"
+
+	// AuditQueryRequestServiceNameWorkforceManagement captures enum value "WorkforceManagement"
+	AuditQueryRequestServiceNameWorkforceManagement string = "WorkforceManagement"
+
+	// AuditQueryRequestServiceNameMessaging captures enum value "Messaging"
+	AuditQueryRequestServiceNameMessaging string = "Messaging"
+
+	// AuditQueryRequestServiceNameSupportability captures enum value "Supportability"
+	AuditQueryRequestServiceNameSupportability string = "Supportability"
 )
 
 // prop value enum

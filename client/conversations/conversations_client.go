@@ -46,6 +46,11 @@ type API interface {
 	*/
 	DeleteConversationsMessagingIntegrationsLineIntegrationID(ctx context.Context, params *DeleteConversationsMessagingIntegrationsLineIntegrationIDParams) (*DeleteConversationsMessagingIntegrationsLineIntegrationIDNoContent, error)
 	/*
+	   DeleteConversationsMessagingIntegrationsOpenIntegrationID deletes an open messaging integration
+	   See https://developer.genesys.cloud/api/digital/openmessaging/ for more information.
+	*/
+	DeleteConversationsMessagingIntegrationsOpenIntegrationID(ctx context.Context, params *DeleteConversationsMessagingIntegrationsOpenIntegrationIDParams) (*DeleteConversationsMessagingIntegrationsOpenIntegrationIDNoContent, error)
+	/*
 	   DeleteConversationsMessagingIntegrationsTwitterIntegrationID deletes a twitter messaging integration
 	*/
 	DeleteConversationsMessagingIntegrationsTwitterIntegrationID(ctx context.Context, params *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDParams) (*DeleteConversationsMessagingIntegrationsTwitterIntegrationIDNoContent, error)
@@ -257,6 +262,16 @@ type API interface {
 	*/
 	GetConversationsMessagingIntegrationsLineIntegrationID(ctx context.Context, params *GetConversationsMessagingIntegrationsLineIntegrationIDParams) (*GetConversationsMessagingIntegrationsLineIntegrationIDOK, error)
 	/*
+	   GetConversationsMessagingIntegrationsOpen gets a list of open messaging integrations
+	   See https://developer.genesys.cloud/api/digital/openmessaging/ for more information.
+	*/
+	GetConversationsMessagingIntegrationsOpen(ctx context.Context, params *GetConversationsMessagingIntegrationsOpenParams) (*GetConversationsMessagingIntegrationsOpenOK, error)
+	/*
+	   GetConversationsMessagingIntegrationsOpenIntegrationID gets an open messaging integration
+	   See https://developer.genesys.cloud/api/digital/openmessaging/ for more information.
+	*/
+	GetConversationsMessagingIntegrationsOpenIntegrationID(ctx context.Context, params *GetConversationsMessagingIntegrationsOpenIntegrationIDParams) (*GetConversationsMessagingIntegrationsOpenIntegrationIDOK, error)
+	/*
 	   GetConversationsMessagingIntegrationsTwitter gets a list of twitter integrations
 	*/
 	GetConversationsMessagingIntegrationsTwitter(ctx context.Context, params *GetConversationsMessagingIntegrationsTwitterParams) (*GetConversationsMessagingIntegrationsTwitterOK, error)
@@ -276,6 +291,11 @@ type API interface {
 	   GetConversationsMessagingSticker gets a list of messaging stickers
 	*/
 	GetConversationsMessagingSticker(ctx context.Context, params *GetConversationsMessagingStickerParams) (*GetConversationsMessagingStickerOK, error)
+	/*
+	   GetConversationsMessagingThreadingtimeline gets conversation threading window timeline for each messaging type
+	   Conversation messaging threading timeline is a setting defined for each messenger type in your organization. This setting will dictate whether a new message is added to the most recent existing conversation, or creates a new Conversation. If the existing Conversation is still in a connected state the threading timeline setting will never play a role. After the conversation is disconnected, if an inbound message is received or an outbound message is sent after the setting for threading timeline expires, a new conversation is created.
+	*/
+	GetConversationsMessagingThreadingtimeline(ctx context.Context, params *GetConversationsMessagingThreadingtimelineParams) (*GetConversationsMessagingThreadingtimelineOK, error)
 	/*
 	   PatchConversationParticipant updates a participant
 	   Update conversation participant.
@@ -389,6 +409,11 @@ type API interface {
 	   PatchConversationsMessagingIntegrationsFacebookIntegrationID updates facebook messaging integration
 	*/
 	PatchConversationsMessagingIntegrationsFacebookIntegrationID(ctx context.Context, params *PatchConversationsMessagingIntegrationsFacebookIntegrationIDParams) (*PatchConversationsMessagingIntegrationsFacebookIntegrationIDOK, error)
+	/*
+	   PatchConversationsMessagingIntegrationsOpenIntegrationID updates an open messaging integration
+	   See https://developer.genesys.cloud/api/digital/openmessaging/ for more information.
+	*/
+	PatchConversationsMessagingIntegrationsOpenIntegrationID(ctx context.Context, params *PatchConversationsMessagingIntegrationsOpenIntegrationIDParams) (*PatchConversationsMessagingIntegrationsOpenIntegrationIDOK, error)
 	/*
 	   PatchConversationsMessagingIntegrationsTwitterIntegrationID updates twitter messaging integration
 	*/
@@ -549,6 +574,11 @@ type API interface {
 	*/
 	PostConversationsMessagesAgentless(ctx context.Context, params *PostConversationsMessagesAgentlessParams) (*PostConversationsMessagesAgentlessOK, *PostConversationsMessagesAgentlessAccepted, error)
 	/*
+	   PostConversationsMessagesInboundOpen sends an inbound open message
+	   Send an inbound message to an Open Messaging integration. In order to call this endpoint you will need OAuth token generated using OAuth client credentials authorized with at least messaging scope. This will either generate a new Conversation, or be a part of an existing conversation. See https://developer.genesys.cloud/api/digital/openmessaging/ for example usage.
+	*/
+	PostConversationsMessagesInboundOpen(ctx context.Context, params *PostConversationsMessagesInboundOpenParams) (*PostConversationsMessagesInboundOpenOK, *PostConversationsMessagesInboundOpenAccepted, error)
+	/*
 	   PostConversationsMessagingIntegrationsFacebook creates a facebook integration
 	*/
 	PostConversationsMessagingIntegrationsFacebook(ctx context.Context, params *PostConversationsMessagingIntegrationsFacebookParams) (*PostConversationsMessagingIntegrationsFacebookOK, *PostConversationsMessagingIntegrationsFacebookAccepted, error)
@@ -556,6 +586,11 @@ type API interface {
 	   PostConversationsMessagingIntegrationsLine creates a l i n e messenger integration
 	*/
 	PostConversationsMessagingIntegrationsLine(ctx context.Context, params *PostConversationsMessagingIntegrationsLineParams) (*PostConversationsMessagingIntegrationsLineOK, *PostConversationsMessagingIntegrationsLineAccepted, error)
+	/*
+	   PostConversationsMessagingIntegrationsOpen creates an open messaging integration
+	   See https://developer.genesys.cloud/api/digital/openmessaging/ for more information.
+	*/
+	PostConversationsMessagingIntegrationsOpen(ctx context.Context, params *PostConversationsMessagingIntegrationsOpenParams) (*PostConversationsMessagingIntegrationsOpenOK, *PostConversationsMessagingIntegrationsOpenAccepted, error)
 	/*
 	   PostConversationsMessagingIntegrationsTwitter creates a twitter integration
 	*/
@@ -581,6 +616,11 @@ type API interface {
 	   PutConversationsMessagingIntegrationsLineIntegrationID updates a l i n e messenger integration
 	*/
 	PutConversationsMessagingIntegrationsLineIntegrationID(ctx context.Context, params *PutConversationsMessagingIntegrationsLineIntegrationIDParams) (*PutConversationsMessagingIntegrationsLineIntegrationIDOK, error)
+	/*
+	   PutConversationsMessagingThreadingtimeline updates conversation threading window timeline for each messaging type
+	   PUT Conversation messaging threading timeline is intended to set the conversation threading settings for ALL messengerTypes. If you omit a messengerType in the request body then the setting for that messengerType will use the platform default value. The PUT replaces the existing setting(s) that were previously set for each messengerType.
+	*/
+	PutConversationsMessagingThreadingtimeline(ctx context.Context, params *PutConversationsMessagingThreadingtimelineParams) (*PutConversationsMessagingThreadingtimelineOK, error)
 }
 
 // New creates a new conversations API client.
@@ -773,6 +813,33 @@ func (a *Client) DeleteConversationsMessagingIntegrationsLineIntegrationID(ctx c
 		return nil, err
 	}
 	return result.(*DeleteConversationsMessagingIntegrationsLineIntegrationIDNoContent), nil
+
+}
+
+/*
+DeleteConversationsMessagingIntegrationsOpenIntegrationID deletes an open messaging integration
+
+See https://developer.genesys.cloud/api/digital/openmessaging/ for more information.
+*/
+func (a *Client) DeleteConversationsMessagingIntegrationsOpenIntegrationID(ctx context.Context, params *DeleteConversationsMessagingIntegrationsOpenIntegrationIDParams) (*DeleteConversationsMessagingIntegrationsOpenIntegrationIDNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteConversationsMessagingIntegrationsOpenIntegrationId",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/conversations/messaging/integrations/open/{integrationId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteConversationsMessagingIntegrationsOpenIntegrationIDReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteConversationsMessagingIntegrationsOpenIntegrationIDNoContent), nil
 
 }
 
@@ -2095,6 +2162,60 @@ func (a *Client) GetConversationsMessagingIntegrationsLineIntegrationID(ctx cont
 }
 
 /*
+GetConversationsMessagingIntegrationsOpen gets a list of open messaging integrations
+
+See https://developer.genesys.cloud/api/digital/openmessaging/ for more information.
+*/
+func (a *Client) GetConversationsMessagingIntegrationsOpen(ctx context.Context, params *GetConversationsMessagingIntegrationsOpenParams) (*GetConversationsMessagingIntegrationsOpenOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getConversationsMessagingIntegrationsOpen",
+		Method:             "GET",
+		PathPattern:        "/api/v2/conversations/messaging/integrations/open",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetConversationsMessagingIntegrationsOpenReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetConversationsMessagingIntegrationsOpenOK), nil
+
+}
+
+/*
+GetConversationsMessagingIntegrationsOpenIntegrationID gets an open messaging integration
+
+See https://developer.genesys.cloud/api/digital/openmessaging/ for more information.
+*/
+func (a *Client) GetConversationsMessagingIntegrationsOpenIntegrationID(ctx context.Context, params *GetConversationsMessagingIntegrationsOpenIntegrationIDParams) (*GetConversationsMessagingIntegrationsOpenIntegrationIDOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getConversationsMessagingIntegrationsOpenIntegrationId",
+		Method:             "GET",
+		PathPattern:        "/api/v2/conversations/messaging/integrations/open/{integrationId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetConversationsMessagingIntegrationsOpenIntegrationIDReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetConversationsMessagingIntegrationsOpenIntegrationIDOK), nil
+
+}
+
+/*
 GetConversationsMessagingIntegrationsTwitter gets a list of twitter integrations
 */
 func (a *Client) GetConversationsMessagingIntegrationsTwitter(ctx context.Context, params *GetConversationsMessagingIntegrationsTwitterParams) (*GetConversationsMessagingIntegrationsTwitterOK, error) {
@@ -2216,6 +2337,33 @@ func (a *Client) GetConversationsMessagingSticker(ctx context.Context, params *G
 		return nil, err
 	}
 	return result.(*GetConversationsMessagingStickerOK), nil
+
+}
+
+/*
+GetConversationsMessagingThreadingtimeline gets conversation threading window timeline for each messaging type
+
+Conversation messaging threading timeline is a setting defined for each messenger type in your organization. This setting will dictate whether a new message is added to the most recent existing conversation, or creates a new Conversation. If the existing Conversation is still in a connected state the threading timeline setting will never play a role. After the conversation is disconnected, if an inbound message is received or an outbound message is sent after the setting for threading timeline expires, a new conversation is created.
+*/
+func (a *Client) GetConversationsMessagingThreadingtimeline(ctx context.Context, params *GetConversationsMessagingThreadingtimelineParams) (*GetConversationsMessagingThreadingtimelineOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getConversationsMessagingThreadingtimeline",
+		Method:             "GET",
+		PathPattern:        "/api/v2/conversations/messaging/threadingtimeline",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetConversationsMessagingThreadingtimelineReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetConversationsMessagingThreadingtimelineOK), nil
 
 }
 
@@ -2924,6 +3072,33 @@ func (a *Client) PatchConversationsMessagingIntegrationsFacebookIntegrationID(ct
 		return nil, err
 	}
 	return result.(*PatchConversationsMessagingIntegrationsFacebookIntegrationIDOK), nil
+
+}
+
+/*
+PatchConversationsMessagingIntegrationsOpenIntegrationID updates an open messaging integration
+
+See https://developer.genesys.cloud/api/digital/openmessaging/ for more information.
+*/
+func (a *Client) PatchConversationsMessagingIntegrationsOpenIntegrationID(ctx context.Context, params *PatchConversationsMessagingIntegrationsOpenIntegrationIDParams) (*PatchConversationsMessagingIntegrationsOpenIntegrationIDOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "patchConversationsMessagingIntegrationsOpenIntegrationId",
+		Method:             "PATCH",
+		PathPattern:        "/api/v2/conversations/messaging/integrations/open/{integrationId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchConversationsMessagingIntegrationsOpenIntegrationIDReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PatchConversationsMessagingIntegrationsOpenIntegrationIDOK), nil
 
 }
 
@@ -3916,6 +4091,39 @@ func (a *Client) PostConversationsMessagesAgentless(ctx context.Context, params 
 }
 
 /*
+PostConversationsMessagesInboundOpen sends an inbound open message
+
+Send an inbound message to an Open Messaging integration. In order to call this endpoint you will need OAuth token generated using OAuth client credentials authorized with at least messaging scope. This will either generate a new Conversation, or be a part of an existing conversation. See https://developer.genesys.cloud/api/digital/openmessaging/ for example usage.
+*/
+func (a *Client) PostConversationsMessagesInboundOpen(ctx context.Context, params *PostConversationsMessagesInboundOpenParams) (*PostConversationsMessagesInboundOpenOK, *PostConversationsMessagesInboundOpenAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postConversationsMessagesInboundOpen",
+		Method:             "POST",
+		PathPattern:        "/api/v2/conversations/messages/inbound/open",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostConversationsMessagesInboundOpenReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PostConversationsMessagesInboundOpenOK:
+		return value, nil, nil
+	case *PostConversationsMessagesInboundOpenAccepted:
+		return nil, value, nil
+	}
+	return nil, nil, nil
+
+}
+
+/*
 PostConversationsMessagingIntegrationsFacebook creates a facebook integration
 */
 func (a *Client) PostConversationsMessagingIntegrationsFacebook(ctx context.Context, params *PostConversationsMessagingIntegrationsFacebookParams) (*PostConversationsMessagingIntegrationsFacebookOK, *PostConversationsMessagingIntegrationsFacebookAccepted, error) {
@@ -3971,6 +4179,39 @@ func (a *Client) PostConversationsMessagingIntegrationsLine(ctx context.Context,
 	case *PostConversationsMessagingIntegrationsLineOK:
 		return value, nil, nil
 	case *PostConversationsMessagingIntegrationsLineAccepted:
+		return nil, value, nil
+	}
+	return nil, nil, nil
+
+}
+
+/*
+PostConversationsMessagingIntegrationsOpen creates an open messaging integration
+
+See https://developer.genesys.cloud/api/digital/openmessaging/ for more information.
+*/
+func (a *Client) PostConversationsMessagingIntegrationsOpen(ctx context.Context, params *PostConversationsMessagingIntegrationsOpenParams) (*PostConversationsMessagingIntegrationsOpenOK, *PostConversationsMessagingIntegrationsOpenAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postConversationsMessagingIntegrationsOpen",
+		Method:             "POST",
+		PathPattern:        "/api/v2/conversations/messaging/integrations/open",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostConversationsMessagingIntegrationsOpenReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PostConversationsMessagingIntegrationsOpenOK:
+		return value, nil, nil
+	case *PostConversationsMessagingIntegrationsOpenAccepted:
 		return nil, value, nil
 	}
 	return nil, nil, nil
@@ -4138,5 +4379,32 @@ func (a *Client) PutConversationsMessagingIntegrationsLineIntegrationID(ctx cont
 		return nil, err
 	}
 	return result.(*PutConversationsMessagingIntegrationsLineIntegrationIDOK), nil
+
+}
+
+/*
+PutConversationsMessagingThreadingtimeline updates conversation threading window timeline for each messaging type
+
+PUT Conversation messaging threading timeline is intended to set the conversation threading settings for ALL messengerTypes. If you omit a messengerType in the request body then the setting for that messengerType will use the platform default value. The PUT replaces the existing setting(s) that were previously set for each messengerType.
+*/
+func (a *Client) PutConversationsMessagingThreadingtimeline(ctx context.Context, params *PutConversationsMessagingThreadingtimelineParams) (*PutConversationsMessagingThreadingtimelineOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "putConversationsMessagingThreadingtimeline",
+		Method:             "PUT",
+		PathPattern:        "/api/v2/conversations/messaging/threadingtimeline",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PutConversationsMessagingThreadingtimelineReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutConversationsMessagingThreadingtimelineOK), nil
 
 }

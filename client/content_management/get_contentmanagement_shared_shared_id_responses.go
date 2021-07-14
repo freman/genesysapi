@@ -65,6 +65,12 @@ func (o *GetContentmanagementSharedSharedIDReader) ReadResponse(response runtime
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetContentmanagementSharedSharedIDRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetContentmanagementSharedSharedIDRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -314,6 +320,39 @@ func (o *GetContentmanagementSharedSharedIDNotFound) readResponse(response runti
 	return nil
 }
 
+// NewGetContentmanagementSharedSharedIDRequestTimeout creates a GetContentmanagementSharedSharedIDRequestTimeout with default headers values
+func NewGetContentmanagementSharedSharedIDRequestTimeout() *GetContentmanagementSharedSharedIDRequestTimeout {
+	return &GetContentmanagementSharedSharedIDRequestTimeout{}
+}
+
+/*GetContentmanagementSharedSharedIDRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetContentmanagementSharedSharedIDRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetContentmanagementSharedSharedIDRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/shared/{sharedId}][%d] getContentmanagementSharedSharedIdRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetContentmanagementSharedSharedIDRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetContentmanagementSharedSharedIDRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetContentmanagementSharedSharedIDRequestEntityTooLarge creates a GetContentmanagementSharedSharedIDRequestEntityTooLarge with default headers values
 func NewGetContentmanagementSharedSharedIDRequestEntityTooLarge() *GetContentmanagementSharedSharedIDRequestEntityTooLarge {
 	return &GetContentmanagementSharedSharedIDRequestEntityTooLarge{}
@@ -387,7 +426,7 @@ func NewGetContentmanagementSharedSharedIDTooManyRequests() *GetContentmanagemen
 
 /*GetContentmanagementSharedSharedIDTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetContentmanagementSharedSharedIDTooManyRequests struct {
 	Payload *models.ErrorBody

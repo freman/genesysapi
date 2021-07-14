@@ -53,6 +53,12 @@ func (o *PostExternalcontactsContactsReader) ReadResponse(response runtime.Clien
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostExternalcontactsContactsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostExternalcontactsContactsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -266,6 +272,39 @@ func (o *PostExternalcontactsContactsNotFound) readResponse(response runtime.Cli
 	return nil
 }
 
+// NewPostExternalcontactsContactsRequestTimeout creates a PostExternalcontactsContactsRequestTimeout with default headers values
+func NewPostExternalcontactsContactsRequestTimeout() *PostExternalcontactsContactsRequestTimeout {
+	return &PostExternalcontactsContactsRequestTimeout{}
+}
+
+/*PostExternalcontactsContactsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostExternalcontactsContactsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostExternalcontactsContactsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/externalcontacts/contacts][%d] postExternalcontactsContactsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostExternalcontactsContactsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostExternalcontactsContactsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostExternalcontactsContactsRequestEntityTooLarge creates a PostExternalcontactsContactsRequestEntityTooLarge with default headers values
 func NewPostExternalcontactsContactsRequestEntityTooLarge() *PostExternalcontactsContactsRequestEntityTooLarge {
 	return &PostExternalcontactsContactsRequestEntityTooLarge{}
@@ -372,7 +411,7 @@ func NewPostExternalcontactsContactsTooManyRequests() *PostExternalcontactsConta
 
 /*PostExternalcontactsContactsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostExternalcontactsContactsTooManyRequests struct {
 	Payload *models.ErrorBody

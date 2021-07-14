@@ -28,6 +28,12 @@ type CreateCallbackCommand struct {
 	// The name of the party to be called back.
 	CallbackUserName string `json:"callbackUserName,omitempty"`
 
+	// The phone number displayed to recipients when a phone call is placed as part of the callback. Must conform to the E.164 format. May be overridden by other settings in the system such as external trunk settings. Telco support for "callerId" varies.
+	CallerID string `json:"callerId,omitempty"`
+
+	// The name displayed to recipients when a phone call is placed as part of the callback. May be overridden by other settings in the system such as external trunk settings. Telco support for "callerIdName" varies.
+	CallerIDName string `json:"callerIdName,omitempty"`
+
 	// The country code to be associated with the callback numbers.
 	CountryCode string `json:"countryCode,omitempty"`
 

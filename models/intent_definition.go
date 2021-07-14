@@ -19,8 +19,11 @@ import (
 // swagger:model IntentDefinition
 type IntentDefinition struct {
 
-	// The bindings for the named entity types used in this intent.
-	// Required: true
+	// The references for the named entity used in this intent.This field is mutually exclusive with entityTypeBindings
+	// Read Only: true
+	EntityNameReferences []string `json:"entityNameReferences"`
+
+	// The bindings for the named entity types used in this intent.This field is mutually exclusive with entityNameReferences and entities
 	EntityTypeBindings []*NamedEntityTypeBinding `json:"entityTypeBindings"`
 
 	// The name of the intent.
@@ -56,8 +59,8 @@ func (m *IntentDefinition) Validate(formats strfmt.Registry) error {
 
 func (m *IntentDefinition) validateEntityTypeBindings(formats strfmt.Registry) error {
 
-	if err := validate.Required("entityTypeBindings", "body", m.EntityTypeBindings); err != nil {
-		return err
+	if swag.IsZero(m.EntityTypeBindings) { // not required
+		return nil
 	}
 
 	for i := 0; i < len(m.EntityTypeBindings); i++ {

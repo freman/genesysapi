@@ -53,6 +53,12 @@ func (o *PutIdentityprovidersGsuiteReader) ReadResponse(response runtime.ClientR
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPutIdentityprovidersGsuiteRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPutIdentityprovidersGsuiteRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PutIdentityprovidersGsuiteNotFound) readResponse(response runtime.Clien
 	return nil
 }
 
+// NewPutIdentityprovidersGsuiteRequestTimeout creates a PutIdentityprovidersGsuiteRequestTimeout with default headers values
+func NewPutIdentityprovidersGsuiteRequestTimeout() *PutIdentityprovidersGsuiteRequestTimeout {
+	return &PutIdentityprovidersGsuiteRequestTimeout{}
+}
+
+/*PutIdentityprovidersGsuiteRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PutIdentityprovidersGsuiteRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PutIdentityprovidersGsuiteRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/gsuite][%d] putIdentityprovidersGsuiteRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutIdentityprovidersGsuiteRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PutIdentityprovidersGsuiteRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPutIdentityprovidersGsuiteRequestEntityTooLarge creates a PutIdentityprovidersGsuiteRequestEntityTooLarge with default headers values
 func NewPutIdentityprovidersGsuiteRequestEntityTooLarge() *PutIdentityprovidersGsuiteRequestEntityTooLarge {
 	return &PutIdentityprovidersGsuiteRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPutIdentityprovidersGsuiteTooManyRequests() *PutIdentityprovidersGsuiteT
 
 /*PutIdentityprovidersGsuiteTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PutIdentityprovidersGsuiteTooManyRequests struct {
 	Payload *models.ErrorBody

@@ -53,6 +53,12 @@ func (o *PostWorkforcemanagementBusinessunitWeekScheduleAgentschedulesQueryReade
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostWorkforcemanagementBusinessunitWeekScheduleAgentschedulesQueryRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostWorkforcemanagementBusinessunitWeekScheduleAgentschedulesQueryRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PostWorkforcemanagementBusinessunitWeekScheduleAgentschedulesQueryNotFo
 	return nil
 }
 
+// NewPostWorkforcemanagementBusinessunitWeekScheduleAgentschedulesQueryRequestTimeout creates a PostWorkforcemanagementBusinessunitWeekScheduleAgentschedulesQueryRequestTimeout with default headers values
+func NewPostWorkforcemanagementBusinessunitWeekScheduleAgentschedulesQueryRequestTimeout() *PostWorkforcemanagementBusinessunitWeekScheduleAgentschedulesQueryRequestTimeout {
+	return &PostWorkforcemanagementBusinessunitWeekScheduleAgentschedulesQueryRequestTimeout{}
+}
+
+/*PostWorkforcemanagementBusinessunitWeekScheduleAgentschedulesQueryRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostWorkforcemanagementBusinessunitWeekScheduleAgentschedulesQueryRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekScheduleAgentschedulesQueryRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules/{scheduleId}/agentschedules/query][%d] postWorkforcemanagementBusinessunitWeekScheduleAgentschedulesQueryRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekScheduleAgentschedulesQueryRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekScheduleAgentschedulesQueryRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostWorkforcemanagementBusinessunitWeekScheduleAgentschedulesQueryRequestEntityTooLarge creates a PostWorkforcemanagementBusinessunitWeekScheduleAgentschedulesQueryRequestEntityTooLarge with default headers values
 func NewPostWorkforcemanagementBusinessunitWeekScheduleAgentschedulesQueryRequestEntityTooLarge() *PostWorkforcemanagementBusinessunitWeekScheduleAgentschedulesQueryRequestEntityTooLarge {
 	return &PostWorkforcemanagementBusinessunitWeekScheduleAgentschedulesQueryRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPostWorkforcemanagementBusinessunitWeekScheduleAgentschedulesQueryTooMan
 
 /*PostWorkforcemanagementBusinessunitWeekScheduleAgentschedulesQueryTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostWorkforcemanagementBusinessunitWeekScheduleAgentschedulesQueryTooManyRequests struct {
 	Payload *models.ErrorBody

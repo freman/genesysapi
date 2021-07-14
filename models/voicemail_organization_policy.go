@@ -20,6 +20,9 @@ type VoicemailOrganizationPolicy struct {
 	// The organization's default number of seconds to ring a user's phone before a call is transfered to voicemail
 	AlertTimeoutSeconds int32 `json:"alertTimeoutSeconds,omitempty"`
 
+	// Removes any PII from emails. This overrides any analogous group configuration value. This is always true if HIPAA is enabled or unknown for an organization.
+	DisableEmailPii bool `json:"disableEmailPii"`
+
 	// Whether voicemail is enable for this organization
 	// Read Only: true
 	Enabled *bool `json:"enabled"`

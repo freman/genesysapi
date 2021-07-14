@@ -53,6 +53,12 @@ func (o *GetTelephonyProvidersEdgeSetuppackageReader) ReadResponse(response runt
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetTelephonyProvidersEdgeSetuppackageRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetTelephonyProvidersEdgeSetuppackageRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetTelephonyProvidersEdgeSetuppackageNotFound) readResponse(response ru
 	return nil
 }
 
+// NewGetTelephonyProvidersEdgeSetuppackageRequestTimeout creates a GetTelephonyProvidersEdgeSetuppackageRequestTimeout with default headers values
+func NewGetTelephonyProvidersEdgeSetuppackageRequestTimeout() *GetTelephonyProvidersEdgeSetuppackageRequestTimeout {
+	return &GetTelephonyProvidersEdgeSetuppackageRequestTimeout{}
+}
+
+/*GetTelephonyProvidersEdgeSetuppackageRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetTelephonyProvidersEdgeSetuppackageRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetTelephonyProvidersEdgeSetuppackageRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/{edgeId}/setuppackage][%d] getTelephonyProvidersEdgeSetuppackageRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetTelephonyProvidersEdgeSetuppackageRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetTelephonyProvidersEdgeSetuppackageRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetTelephonyProvidersEdgeSetuppackageRequestEntityTooLarge creates a GetTelephonyProvidersEdgeSetuppackageRequestEntityTooLarge with default headers values
 func NewGetTelephonyProvidersEdgeSetuppackageRequestEntityTooLarge() *GetTelephonyProvidersEdgeSetuppackageRequestEntityTooLarge {
 	return &GetTelephonyProvidersEdgeSetuppackageRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetTelephonyProvidersEdgeSetuppackageTooManyRequests() *GetTelephonyProv
 
 /*GetTelephonyProvidersEdgeSetuppackageTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetTelephonyProvidersEdgeSetuppackageTooManyRequests struct {
 	Payload *models.ErrorBody

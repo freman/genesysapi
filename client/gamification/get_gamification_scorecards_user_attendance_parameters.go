@@ -61,12 +61,12 @@ for the get gamification scorecards user attendance operation typically these ar
 type GetGamificationScorecardsUserAttendanceParams struct {
 
 	/*EndWorkday
-	  End workday of querying workdays range. Workday is represented as an ISO-8601 string. For example: yyyy-MM-dd
+	  End workday of querying workdays range. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
 
 	*/
 	EndWorkday strfmt.Date
 	/*StartWorkday
-	  Start workday of querying workdays range. Workday is represented as an ISO-8601 string. For example: yyyy-MM-dd
+	  Start workday of querying workdays range. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
 
 	*/
 	StartWorkday strfmt.Date

@@ -40,6 +40,10 @@ type Leaderboard struct {
 	// The metric id if the leaderboard is about a specific metric
 	// Read Only: true
 	Metric *Metric `json:"metric,omitempty"`
+
+	// The requesting user's rank
+	// Read Only: true
+	UserRank *LeaderboardItem `json:"userRank,omitempty"`
 }
 
 // Validate validates this leaderboard
@@ -63,6 +67,10 @@ func (m *Leaderboard) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateMetric(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateUserRank(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -151,6 +159,24 @@ func (m *Leaderboard) validateMetric(formats strfmt.Registry) error {
 		if err := m.Metric.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("metric")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Leaderboard) validateUserRank(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.UserRank) { // not required
+		return nil
+	}
+
+	if m.UserRank != nil {
+		if err := m.UserRank.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("userRank")
 			}
 			return err
 		}

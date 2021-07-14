@@ -53,6 +53,12 @@ func (o *DeleteStationAssociateduserReader) ReadResponse(response runtime.Client
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewDeleteStationAssociateduserRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewDeleteStationAssociateduserRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -248,6 +254,39 @@ func (o *DeleteStationAssociateduserNotFound) readResponse(response runtime.Clie
 	return nil
 }
 
+// NewDeleteStationAssociateduserRequestTimeout creates a DeleteStationAssociateduserRequestTimeout with default headers values
+func NewDeleteStationAssociateduserRequestTimeout() *DeleteStationAssociateduserRequestTimeout {
+	return &DeleteStationAssociateduserRequestTimeout{}
+}
+
+/*DeleteStationAssociateduserRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type DeleteStationAssociateduserRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *DeleteStationAssociateduserRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/stations/{stationId}/associateduser][%d] deleteStationAssociateduserRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteStationAssociateduserRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *DeleteStationAssociateduserRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewDeleteStationAssociateduserRequestEntityTooLarge creates a DeleteStationAssociateduserRequestEntityTooLarge with default headers values
 func NewDeleteStationAssociateduserRequestEntityTooLarge() *DeleteStationAssociateduserRequestEntityTooLarge {
 	return &DeleteStationAssociateduserRequestEntityTooLarge{}
@@ -321,7 +360,7 @@ func NewDeleteStationAssociateduserTooManyRequests() *DeleteStationAssociateduse
 
 /*DeleteStationAssociateduserTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type DeleteStationAssociateduserTooManyRequests struct {
 	Payload *models.ErrorBody

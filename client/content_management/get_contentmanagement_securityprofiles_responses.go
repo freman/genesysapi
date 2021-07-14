@@ -53,6 +53,12 @@ func (o *GetContentmanagementSecurityprofilesReader) ReadResponse(response runti
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetContentmanagementSecurityprofilesRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetContentmanagementSecurityprofilesRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetContentmanagementSecurityprofilesNotFound) readResponse(response run
 	return nil
 }
 
+// NewGetContentmanagementSecurityprofilesRequestTimeout creates a GetContentmanagementSecurityprofilesRequestTimeout with default headers values
+func NewGetContentmanagementSecurityprofilesRequestTimeout() *GetContentmanagementSecurityprofilesRequestTimeout {
+	return &GetContentmanagementSecurityprofilesRequestTimeout{}
+}
+
+/*GetContentmanagementSecurityprofilesRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetContentmanagementSecurityprofilesRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetContentmanagementSecurityprofilesRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/securityprofiles][%d] getContentmanagementSecurityprofilesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetContentmanagementSecurityprofilesRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetContentmanagementSecurityprofilesRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetContentmanagementSecurityprofilesRequestEntityTooLarge creates a GetContentmanagementSecurityprofilesRequestEntityTooLarge with default headers values
 func NewGetContentmanagementSecurityprofilesRequestEntityTooLarge() *GetContentmanagementSecurityprofilesRequestEntityTooLarge {
 	return &GetContentmanagementSecurityprofilesRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetContentmanagementSecurityprofilesTooManyRequests() *GetContentmanagem
 
 /*GetContentmanagementSecurityprofilesTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetContentmanagementSecurityprofilesTooManyRequests struct {
 	Payload *models.ErrorBody

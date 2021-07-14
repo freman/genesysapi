@@ -109,6 +109,10 @@ type WorkPlan struct {
 	// Shifts in this work plan
 	Shifts []*WorkPlanShift `json:"shifts"`
 
+	// Whether the work plan is valid or not
+	// Read Only: true
+	Valid *bool `json:"valid"`
+
 	// Exact weekly paid time in minutes for this work plan. Used if flexibleWeeklyPaidTime == false
 	WeeklyExactPaidMinutes int32 `json:"weeklyExactPaidMinutes,omitempty"`
 

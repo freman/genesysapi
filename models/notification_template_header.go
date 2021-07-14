@@ -15,21 +15,21 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// NotificationTemplateHeader Template header object
+// NotificationTemplateHeader Template header object.
 //
 // swagger:model NotificationTemplateHeader
 type NotificationTemplateHeader struct {
 
-	// Attachment object
+	// Media template header image.
 	Media *ContentAttachment `json:"media,omitempty"`
 
-	// Template parameters for placeholders in template
+	// Template parameters for placeholders in template.
 	Parameters []*NotificationTemplateParameter `json:"parameters"`
 
-	// Header text. For WhatsApp, ignored
+	// Header text. For WhatsApp, ignored.
 	Text string `json:"text,omitempty"`
 
-	// Template header type
+	// Template header type.
 	// Required: true
 	// Enum: [Text Media]
 	Type *string `json:"type"`

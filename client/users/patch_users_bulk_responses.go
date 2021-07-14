@@ -53,6 +53,12 @@ func (o *PatchUsersBulkReader) ReadResponse(response runtime.ClientResponse, con
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPatchUsersBulkRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPatchUsersBulkRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PatchUsersBulkNotFound) readResponse(response runtime.ClientResponse, c
 	return nil
 }
 
+// NewPatchUsersBulkRequestTimeout creates a PatchUsersBulkRequestTimeout with default headers values
+func NewPatchUsersBulkRequestTimeout() *PatchUsersBulkRequestTimeout {
+	return &PatchUsersBulkRequestTimeout{}
+}
+
+/*PatchUsersBulkRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PatchUsersBulkRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PatchUsersBulkRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/bulk][%d] patchUsersBulkRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchUsersBulkRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PatchUsersBulkRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPatchUsersBulkRequestEntityTooLarge creates a PatchUsersBulkRequestEntityTooLarge with default headers values
 func NewPatchUsersBulkRequestEntityTooLarge() *PatchUsersBulkRequestEntityTooLarge {
 	return &PatchUsersBulkRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPatchUsersBulkTooManyRequests() *PatchUsersBulkTooManyRequests {
 
 /*PatchUsersBulkTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PatchUsersBulkTooManyRequests struct {
 	Payload *models.ErrorBody

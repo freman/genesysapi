@@ -53,6 +53,12 @@ func (o *GetScimV2ResourcetypesReader) ReadResponse(response runtime.ClientRespo
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetScimV2ResourcetypesRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetScimV2ResourcetypesRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetScimV2ResourcetypesNotFound) readResponse(response runtime.ClientRes
 	return nil
 }
 
+// NewGetScimV2ResourcetypesRequestTimeout creates a GetScimV2ResourcetypesRequestTimeout with default headers values
+func NewGetScimV2ResourcetypesRequestTimeout() *GetScimV2ResourcetypesRequestTimeout {
+	return &GetScimV2ResourcetypesRequestTimeout{}
+}
+
+/*GetScimV2ResourcetypesRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetScimV2ResourcetypesRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetScimV2ResourcetypesRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/v2/resourcetypes][%d] getScimV2ResourcetypesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetScimV2ResourcetypesRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetScimV2ResourcetypesRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetScimV2ResourcetypesRequestEntityTooLarge creates a GetScimV2ResourcetypesRequestEntityTooLarge with default headers values
 func NewGetScimV2ResourcetypesRequestEntityTooLarge() *GetScimV2ResourcetypesRequestEntityTooLarge {
 	return &GetScimV2ResourcetypesRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetScimV2ResourcetypesTooManyRequests() *GetScimV2ResourcetypesTooManyRe
 
 /*GetScimV2ResourcetypesTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetScimV2ResourcetypesTooManyRequests struct {
 	Payload *models.ErrorBody

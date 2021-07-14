@@ -53,6 +53,12 @@ func (o *GetAuthorizationRolesReader) ReadResponse(response runtime.ClientRespon
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetAuthorizationRolesRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetAuthorizationRolesRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetAuthorizationRolesNotFound) readResponse(response runtime.ClientResp
 	return nil
 }
 
+// NewGetAuthorizationRolesRequestTimeout creates a GetAuthorizationRolesRequestTimeout with default headers values
+func NewGetAuthorizationRolesRequestTimeout() *GetAuthorizationRolesRequestTimeout {
+	return &GetAuthorizationRolesRequestTimeout{}
+}
+
+/*GetAuthorizationRolesRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetAuthorizationRolesRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetAuthorizationRolesRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/authorization/roles][%d] getAuthorizationRolesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetAuthorizationRolesRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetAuthorizationRolesRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetAuthorizationRolesRequestEntityTooLarge creates a GetAuthorizationRolesRequestEntityTooLarge with default headers values
 func NewGetAuthorizationRolesRequestEntityTooLarge() *GetAuthorizationRolesRequestEntityTooLarge {
 	return &GetAuthorizationRolesRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetAuthorizationRolesTooManyRequests() *GetAuthorizationRolesTooManyRequ
 
 /*GetAuthorizationRolesTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetAuthorizationRolesTooManyRequests struct {
 	Payload *models.ErrorBody

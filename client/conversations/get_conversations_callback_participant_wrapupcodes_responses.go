@@ -53,6 +53,12 @@ func (o *GetConversationsCallbackParticipantWrapupcodesReader) ReadResponse(resp
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetConversationsCallbackParticipantWrapupcodesRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetConversationsCallbackParticipantWrapupcodesRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -258,6 +264,39 @@ func (o *GetConversationsCallbackParticipantWrapupcodesNotFound) readResponse(re
 	return nil
 }
 
+// NewGetConversationsCallbackParticipantWrapupcodesRequestTimeout creates a GetConversationsCallbackParticipantWrapupcodesRequestTimeout with default headers values
+func NewGetConversationsCallbackParticipantWrapupcodesRequestTimeout() *GetConversationsCallbackParticipantWrapupcodesRequestTimeout {
+	return &GetConversationsCallbackParticipantWrapupcodesRequestTimeout{}
+}
+
+/*GetConversationsCallbackParticipantWrapupcodesRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetConversationsCallbackParticipantWrapupcodesRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetConversationsCallbackParticipantWrapupcodesRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/callbacks/{conversationId}/participants/{participantId}/wrapupcodes][%d] getConversationsCallbackParticipantWrapupcodesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetConversationsCallbackParticipantWrapupcodesRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetConversationsCallbackParticipantWrapupcodesRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetConversationsCallbackParticipantWrapupcodesRequestEntityTooLarge creates a GetConversationsCallbackParticipantWrapupcodesRequestEntityTooLarge with default headers values
 func NewGetConversationsCallbackParticipantWrapupcodesRequestEntityTooLarge() *GetConversationsCallbackParticipantWrapupcodesRequestEntityTooLarge {
 	return &GetConversationsCallbackParticipantWrapupcodesRequestEntityTooLarge{}
@@ -331,7 +370,7 @@ func NewGetConversationsCallbackParticipantWrapupcodesTooManyRequests() *GetConv
 
 /*GetConversationsCallbackParticipantWrapupcodesTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetConversationsCallbackParticipantWrapupcodesTooManyRequests struct {
 	Payload *models.ErrorBody

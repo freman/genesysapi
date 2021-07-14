@@ -59,6 +59,12 @@ func (o *GetOauthClientUsageSummaryReader) ReadResponse(response runtime.ClientR
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetOauthClientUsageSummaryRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetOauthClientUsageSummaryRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -299,6 +305,39 @@ func (o *GetOauthClientUsageSummaryNotFound) readResponse(response runtime.Clien
 	return nil
 }
 
+// NewGetOauthClientUsageSummaryRequestTimeout creates a GetOauthClientUsageSummaryRequestTimeout with default headers values
+func NewGetOauthClientUsageSummaryRequestTimeout() *GetOauthClientUsageSummaryRequestTimeout {
+	return &GetOauthClientUsageSummaryRequestTimeout{}
+}
+
+/*GetOauthClientUsageSummaryRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetOauthClientUsageSummaryRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetOauthClientUsageSummaryRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/oauth/clients/{clientId}/usage/summary][%d] getOauthClientUsageSummaryRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetOauthClientUsageSummaryRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetOauthClientUsageSummaryRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetOauthClientUsageSummaryRequestEntityTooLarge creates a GetOauthClientUsageSummaryRequestEntityTooLarge with default headers values
 func NewGetOauthClientUsageSummaryRequestEntityTooLarge() *GetOauthClientUsageSummaryRequestEntityTooLarge {
 	return &GetOauthClientUsageSummaryRequestEntityTooLarge{}
@@ -372,7 +411,7 @@ func NewGetOauthClientUsageSummaryTooManyRequests() *GetOauthClientUsageSummaryT
 
 /*GetOauthClientUsageSummaryTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetOauthClientUsageSummaryTooManyRequests struct {
 	Payload *models.ErrorBody

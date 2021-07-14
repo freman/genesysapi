@@ -59,6 +59,12 @@ func (o *PostJourneyActionmapsReader) ReadResponse(response runtime.ClientRespon
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostJourneyActionmapsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostJourneyActionmapsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -299,6 +305,39 @@ func (o *PostJourneyActionmapsNotFound) readResponse(response runtime.ClientResp
 	return nil
 }
 
+// NewPostJourneyActionmapsRequestTimeout creates a PostJourneyActionmapsRequestTimeout with default headers values
+func NewPostJourneyActionmapsRequestTimeout() *PostJourneyActionmapsRequestTimeout {
+	return &PostJourneyActionmapsRequestTimeout{}
+}
+
+/*PostJourneyActionmapsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostJourneyActionmapsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostJourneyActionmapsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/journey/actionmaps][%d] postJourneyActionmapsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostJourneyActionmapsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostJourneyActionmapsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostJourneyActionmapsRequestEntityTooLarge creates a PostJourneyActionmapsRequestEntityTooLarge with default headers values
 func NewPostJourneyActionmapsRequestEntityTooLarge() *PostJourneyActionmapsRequestEntityTooLarge {
 	return &PostJourneyActionmapsRequestEntityTooLarge{}
@@ -372,7 +411,7 @@ func NewPostJourneyActionmapsTooManyRequests() *PostJourneyActionmapsTooManyRequ
 
 /*PostJourneyActionmapsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostJourneyActionmapsTooManyRequests struct {
 	Payload *models.ErrorBody

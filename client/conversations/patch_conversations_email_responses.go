@@ -53,6 +53,12 @@ func (o *PatchConversationsEmailReader) ReadResponse(response runtime.ClientResp
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPatchConversationsEmailRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPatchConversationsEmailRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PatchConversationsEmailNotFound) readResponse(response runtime.ClientRe
 	return nil
 }
 
+// NewPatchConversationsEmailRequestTimeout creates a PatchConversationsEmailRequestTimeout with default headers values
+func NewPatchConversationsEmailRequestTimeout() *PatchConversationsEmailRequestTimeout {
+	return &PatchConversationsEmailRequestTimeout{}
+}
+
+/*PatchConversationsEmailRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PatchConversationsEmailRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PatchConversationsEmailRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/emails/{conversationId}][%d] patchConversationsEmailRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchConversationsEmailRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PatchConversationsEmailRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPatchConversationsEmailRequestEntityTooLarge creates a PatchConversationsEmailRequestEntityTooLarge with default headers values
 func NewPatchConversationsEmailRequestEntityTooLarge() *PatchConversationsEmailRequestEntityTooLarge {
 	return &PatchConversationsEmailRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPatchConversationsEmailTooManyRequests() *PatchConversationsEmailTooMany
 
 /*PatchConversationsEmailTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PatchConversationsEmailTooManyRequests struct {
 	Payload *models.ErrorBody

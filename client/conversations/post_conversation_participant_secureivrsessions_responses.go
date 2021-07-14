@@ -53,6 +53,12 @@ func (o *PostConversationParticipantSecureivrsessionsReader) ReadResponse(respon
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostConversationParticipantSecureivrsessionsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostConversationParticipantSecureivrsessionsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PostConversationParticipantSecureivrsessionsNotFound) readResponse(resp
 	return nil
 }
 
+// NewPostConversationParticipantSecureivrsessionsRequestTimeout creates a PostConversationParticipantSecureivrsessionsRequestTimeout with default headers values
+func NewPostConversationParticipantSecureivrsessionsRequestTimeout() *PostConversationParticipantSecureivrsessionsRequestTimeout {
+	return &PostConversationParticipantSecureivrsessionsRequestTimeout{}
+}
+
+/*PostConversationParticipantSecureivrsessionsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostConversationParticipantSecureivrsessionsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostConversationParticipantSecureivrsessionsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/secureivrsessions][%d] postConversationParticipantSecureivrsessionsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostConversationParticipantSecureivrsessionsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostConversationParticipantSecureivrsessionsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostConversationParticipantSecureivrsessionsRequestEntityTooLarge creates a PostConversationParticipantSecureivrsessionsRequestEntityTooLarge with default headers values
 func NewPostConversationParticipantSecureivrsessionsRequestEntityTooLarge() *PostConversationParticipantSecureivrsessionsRequestEntityTooLarge {
 	return &PostConversationParticipantSecureivrsessionsRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPostConversationParticipantSecureivrsessionsTooManyRequests() *PostConve
 
 /*PostConversationParticipantSecureivrsessionsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostConversationParticipantSecureivrsessionsTooManyRequests struct {
 	Payload *models.ErrorBody

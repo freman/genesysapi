@@ -53,6 +53,12 @@ func (o *GetOutboundWrapupcodemappingsReader) ReadResponse(response runtime.Clie
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetOutboundWrapupcodemappingsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetOutboundWrapupcodemappingsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetOutboundWrapupcodemappingsNotFound) readResponse(response runtime.Cl
 	return nil
 }
 
+// NewGetOutboundWrapupcodemappingsRequestTimeout creates a GetOutboundWrapupcodemappingsRequestTimeout with default headers values
+func NewGetOutboundWrapupcodemappingsRequestTimeout() *GetOutboundWrapupcodemappingsRequestTimeout {
+	return &GetOutboundWrapupcodemappingsRequestTimeout{}
+}
+
+/*GetOutboundWrapupcodemappingsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetOutboundWrapupcodemappingsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetOutboundWrapupcodemappingsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/wrapupcodemappings][%d] getOutboundWrapupcodemappingsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetOutboundWrapupcodemappingsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetOutboundWrapupcodemappingsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetOutboundWrapupcodemappingsRequestEntityTooLarge creates a GetOutboundWrapupcodemappingsRequestEntityTooLarge with default headers values
 func NewGetOutboundWrapupcodemappingsRequestEntityTooLarge() *GetOutboundWrapupcodemappingsRequestEntityTooLarge {
 	return &GetOutboundWrapupcodemappingsRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetOutboundWrapupcodemappingsTooManyRequests() *GetOutboundWrapupcodemap
 
 /*GetOutboundWrapupcodemappingsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetOutboundWrapupcodemappingsTooManyRequests struct {
 	Payload *models.ErrorBody

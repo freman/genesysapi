@@ -53,6 +53,12 @@ func (o *PostAnalyticsUsersObservationsQueryReader) ReadResponse(response runtim
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostAnalyticsUsersObservationsQueryRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostAnalyticsUsersObservationsQueryRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PostAnalyticsUsersObservationsQueryNotFound) readResponse(response runt
 	return nil
 }
 
+// NewPostAnalyticsUsersObservationsQueryRequestTimeout creates a PostAnalyticsUsersObservationsQueryRequestTimeout with default headers values
+func NewPostAnalyticsUsersObservationsQueryRequestTimeout() *PostAnalyticsUsersObservationsQueryRequestTimeout {
+	return &PostAnalyticsUsersObservationsQueryRequestTimeout{}
+}
+
+/*PostAnalyticsUsersObservationsQueryRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostAnalyticsUsersObservationsQueryRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostAnalyticsUsersObservationsQueryRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/users/observations/query][%d] postAnalyticsUsersObservationsQueryRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostAnalyticsUsersObservationsQueryRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostAnalyticsUsersObservationsQueryRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostAnalyticsUsersObservationsQueryRequestEntityTooLarge creates a PostAnalyticsUsersObservationsQueryRequestEntityTooLarge with default headers values
 func NewPostAnalyticsUsersObservationsQueryRequestEntityTooLarge() *PostAnalyticsUsersObservationsQueryRequestEntityTooLarge {
 	return &PostAnalyticsUsersObservationsQueryRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPostAnalyticsUsersObservationsQueryTooManyRequests() *PostAnalyticsUsers
 
 /*PostAnalyticsUsersObservationsQueryTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostAnalyticsUsersObservationsQueryTooManyRequests struct {
 	Payload *models.ErrorBody

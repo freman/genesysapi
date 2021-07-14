@@ -53,6 +53,12 @@ func (o *GetIntegrationsActionsReader) ReadResponse(response runtime.ClientRespo
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetIntegrationsActionsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetIntegrationsActionsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetIntegrationsActionsNotFound) readResponse(response runtime.ClientRes
 	return nil
 }
 
+// NewGetIntegrationsActionsRequestTimeout creates a GetIntegrationsActionsRequestTimeout with default headers values
+func NewGetIntegrationsActionsRequestTimeout() *GetIntegrationsActionsRequestTimeout {
+	return &GetIntegrationsActionsRequestTimeout{}
+}
+
+/*GetIntegrationsActionsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetIntegrationsActionsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetIntegrationsActionsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/actions][%d] getIntegrationsActionsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetIntegrationsActionsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetIntegrationsActionsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetIntegrationsActionsRequestEntityTooLarge creates a GetIntegrationsActionsRequestEntityTooLarge with default headers values
 func NewGetIntegrationsActionsRequestEntityTooLarge() *GetIntegrationsActionsRequestEntityTooLarge {
 	return &GetIntegrationsActionsRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetIntegrationsActionsTooManyRequests() *GetIntegrationsActionsTooManyRe
 
 /*GetIntegrationsActionsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetIntegrationsActionsTooManyRequests struct {
 	Payload *models.ErrorBody

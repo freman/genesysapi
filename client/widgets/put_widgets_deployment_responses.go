@@ -53,6 +53,12 @@ func (o *PutWidgetsDeploymentReader) ReadResponse(response runtime.ClientRespons
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPutWidgetsDeploymentRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPutWidgetsDeploymentRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PutWidgetsDeploymentNotFound) readResponse(response runtime.ClientRespo
 	return nil
 }
 
+// NewPutWidgetsDeploymentRequestTimeout creates a PutWidgetsDeploymentRequestTimeout with default headers values
+func NewPutWidgetsDeploymentRequestTimeout() *PutWidgetsDeploymentRequestTimeout {
+	return &PutWidgetsDeploymentRequestTimeout{}
+}
+
+/*PutWidgetsDeploymentRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PutWidgetsDeploymentRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PutWidgetsDeploymentRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/widgets/deployments/{deploymentId}][%d] putWidgetsDeploymentRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutWidgetsDeploymentRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PutWidgetsDeploymentRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPutWidgetsDeploymentRequestEntityTooLarge creates a PutWidgetsDeploymentRequestEntityTooLarge with default headers values
 func NewPutWidgetsDeploymentRequestEntityTooLarge() *PutWidgetsDeploymentRequestEntityTooLarge {
 	return &PutWidgetsDeploymentRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPutWidgetsDeploymentTooManyRequests() *PutWidgetsDeploymentTooManyReques
 
 /*PutWidgetsDeploymentTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PutWidgetsDeploymentTooManyRequests struct {
 	Payload *models.ErrorBody

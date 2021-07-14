@@ -193,7 +193,7 @@ var botAggregationQueryMetricsItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["nBotSessions","oBotIntent","oBotSessionTurn","oBotSlot","tBotSession"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["nBotSessions","oBotIntent","oBotSessionTurn","oBotSlot","tBotDisconnect","tBotExit","tBotRecognitionFailure","tBotSession"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {

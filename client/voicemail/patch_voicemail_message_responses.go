@@ -53,6 +53,12 @@ func (o *PatchVoicemailMessageReader) ReadResponse(response runtime.ClientRespon
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPatchVoicemailMessageRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 409:
 		result := NewPatchVoicemailMessageConflict()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -266,6 +272,39 @@ func (o *PatchVoicemailMessageNotFound) readResponse(response runtime.ClientResp
 	return nil
 }
 
+// NewPatchVoicemailMessageRequestTimeout creates a PatchVoicemailMessageRequestTimeout with default headers values
+func NewPatchVoicemailMessageRequestTimeout() *PatchVoicemailMessageRequestTimeout {
+	return &PatchVoicemailMessageRequestTimeout{}
+}
+
+/*PatchVoicemailMessageRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PatchVoicemailMessageRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PatchVoicemailMessageRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/voicemail/messages/{messageId}][%d] patchVoicemailMessageRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchVoicemailMessageRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PatchVoicemailMessageRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPatchVoicemailMessageConflict creates a PatchVoicemailMessageConflict with default headers values
 func NewPatchVoicemailMessageConflict() *PatchVoicemailMessageConflict {
 	return &PatchVoicemailMessageConflict{}
@@ -372,7 +411,7 @@ func NewPatchVoicemailMessageTooManyRequests() *PatchVoicemailMessageTooManyRequ
 
 /*PatchVoicemailMessageTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PatchVoicemailMessageTooManyRequests struct {
 	Payload *models.ErrorBody

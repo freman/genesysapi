@@ -53,6 +53,12 @@ func (o *PostOrgauthorizationTrusteesAuditsReader) ReadResponse(response runtime
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostOrgauthorizationTrusteesAuditsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostOrgauthorizationTrusteesAuditsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -258,6 +264,39 @@ func (o *PostOrgauthorizationTrusteesAuditsNotFound) readResponse(response runti
 	return nil
 }
 
+// NewPostOrgauthorizationTrusteesAuditsRequestTimeout creates a PostOrgauthorizationTrusteesAuditsRequestTimeout with default headers values
+func NewPostOrgauthorizationTrusteesAuditsRequestTimeout() *PostOrgauthorizationTrusteesAuditsRequestTimeout {
+	return &PostOrgauthorizationTrusteesAuditsRequestTimeout{}
+}
+
+/*PostOrgauthorizationTrusteesAuditsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostOrgauthorizationTrusteesAuditsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostOrgauthorizationTrusteesAuditsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/orgauthorization/trustees/audits][%d] postOrgauthorizationTrusteesAuditsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostOrgauthorizationTrusteesAuditsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostOrgauthorizationTrusteesAuditsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostOrgauthorizationTrusteesAuditsRequestEntityTooLarge creates a PostOrgauthorizationTrusteesAuditsRequestEntityTooLarge with default headers values
 func NewPostOrgauthorizationTrusteesAuditsRequestEntityTooLarge() *PostOrgauthorizationTrusteesAuditsRequestEntityTooLarge {
 	return &PostOrgauthorizationTrusteesAuditsRequestEntityTooLarge{}
@@ -331,7 +370,7 @@ func NewPostOrgauthorizationTrusteesAuditsTooManyRequests() *PostOrgauthorizatio
 
 /*PostOrgauthorizationTrusteesAuditsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostOrgauthorizationTrusteesAuditsTooManyRequests struct {
 	Payload *models.ErrorBody

@@ -53,6 +53,12 @@ func (o *GetAuthorizationSubjectsMeReader) ReadResponse(response runtime.ClientR
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetAuthorizationSubjectsMeRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetAuthorizationSubjectsMeRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetAuthorizationSubjectsMeNotFound) readResponse(response runtime.Clien
 	return nil
 }
 
+// NewGetAuthorizationSubjectsMeRequestTimeout creates a GetAuthorizationSubjectsMeRequestTimeout with default headers values
+func NewGetAuthorizationSubjectsMeRequestTimeout() *GetAuthorizationSubjectsMeRequestTimeout {
+	return &GetAuthorizationSubjectsMeRequestTimeout{}
+}
+
+/*GetAuthorizationSubjectsMeRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetAuthorizationSubjectsMeRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetAuthorizationSubjectsMeRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/authorization/subjects/me][%d] getAuthorizationSubjectsMeRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetAuthorizationSubjectsMeRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetAuthorizationSubjectsMeRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetAuthorizationSubjectsMeRequestEntityTooLarge creates a GetAuthorizationSubjectsMeRequestEntityTooLarge with default headers values
 func NewGetAuthorizationSubjectsMeRequestEntityTooLarge() *GetAuthorizationSubjectsMeRequestEntityTooLarge {
 	return &GetAuthorizationSubjectsMeRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetAuthorizationSubjectsMeTooManyRequests() *GetAuthorizationSubjectsMeT
 
 /*GetAuthorizationSubjectsMeTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetAuthorizationSubjectsMeTooManyRequests struct {
 	Payload *models.ErrorBody

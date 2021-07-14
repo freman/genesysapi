@@ -53,6 +53,12 @@ func (o *PutGamificationStatusReader) ReadResponse(response runtime.ClientRespon
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPutGamificationStatusRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPutGamificationStatusRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PutGamificationStatusNotFound) readResponse(response runtime.ClientResp
 	return nil
 }
 
+// NewPutGamificationStatusRequestTimeout creates a PutGamificationStatusRequestTimeout with default headers values
+func NewPutGamificationStatusRequestTimeout() *PutGamificationStatusRequestTimeout {
+	return &PutGamificationStatusRequestTimeout{}
+}
+
+/*PutGamificationStatusRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PutGamificationStatusRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PutGamificationStatusRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/gamification/status][%d] putGamificationStatusRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutGamificationStatusRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PutGamificationStatusRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPutGamificationStatusRequestEntityTooLarge creates a PutGamificationStatusRequestEntityTooLarge with default headers values
 func NewPutGamificationStatusRequestEntityTooLarge() *PutGamificationStatusRequestEntityTooLarge {
 	return &PutGamificationStatusRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPutGamificationStatusTooManyRequests() *PutGamificationStatusTooManyRequ
 
 /*PutGamificationStatusTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PutGamificationStatusTooManyRequests struct {
 	Payload *models.ErrorBody

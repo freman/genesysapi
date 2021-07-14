@@ -22,16 +22,14 @@ type Metric struct {
 	ID string `json:"id,omitempty"`
 
 	// The id of associated metric definition
-	// Required: true
-	MetricDefinitionID *string `json:"metricDefinitionId"`
+	MetricDefinitionID string `json:"metricDefinitionId,omitempty"`
 
 	// The name of this metric
 	// Required: true
 	Name *string `json:"name"`
 
 	// Associated objective for this metric
-	// Required: true
-	Objective *Objective `json:"objective"`
+	Objective *Objective `json:"objective,omitempty"`
 
 	// Performance profile id of this metric
 	// Required: true
@@ -46,10 +44,6 @@ type Metric struct {
 // Validate validates this metric
 func (m *Metric) Validate(formats strfmt.Registry) error {
 	var res []error
-
-	if err := m.validateMetricDefinitionID(formats); err != nil {
-		res = append(res, err)
-	}
 
 	if err := m.validateName(formats); err != nil {
 		res = append(res, err)
@@ -73,15 +67,6 @@ func (m *Metric) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Metric) validateMetricDefinitionID(formats strfmt.Registry) error {
-
-	if err := validate.Required("metricDefinitionId", "body", m.MetricDefinitionID); err != nil {
-		return err
-	}
-
-	return nil
-}
-
 func (m *Metric) validateName(formats strfmt.Registry) error {
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
@@ -93,8 +78,8 @@ func (m *Metric) validateName(formats strfmt.Registry) error {
 
 func (m *Metric) validateObjective(formats strfmt.Registry) error {
 
-	if err := validate.Required("objective", "body", m.Objective); err != nil {
-		return err
+	if swag.IsZero(m.Objective) { // not required
+		return nil
 	}
 
 	if m.Objective != nil {

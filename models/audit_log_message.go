@@ -21,7 +21,7 @@ import (
 type AuditLogMessage struct {
 
 	// Action that took place.
-	// Enum: [Create View Update Delete DeleteAll Download Upload MemberAdd MemberUpdate MemberRemove Read ApplyProtection RevokeProtection UpdateRetention ReadAll Execute Publish Unpublish Activate Checkin Checkout Deactivate Debug Save Revert Transcode Enable Disable Authorize Deauthorize Authenticate ChangePassword Revoke Export Append Recycle]
+	// Enum: [Create View Update Move Delete DeleteAll Download Upload MemberAdd MemberUpdate MemberRemove Read ReadAll Execute ApplyProtection RevokeProtection UpdateRetention Abandon Archive RestoreRequest RestoreComplete Publish Unpublish Activate Checkin Checkout Deactivate Debug Save Revert Transcode Enable Disable Authorize Deauthorize Authenticate ChangePassword Revoke Export Append Recycle Open Approved Rejected Rollback ImplementingChange ChangeImplemented ImplementingRollback RollbackImplemented Write Purge Processed Replace UpdateInService UpdateOutOfService Cycle Scale IpAllowlistClear AddPairingRole Add]
 	Action string `json:"action,omitempty"`
 
 	// Client associated with this audit message.
@@ -34,7 +34,7 @@ type AuditLogMessage struct {
 	Entity *DomainEntityRef `json:"entity,omitempty"`
 
 	// Type of the entity that was impacted.
-	// Enum: [Document Queue Recording Role VoicemailPolicy VoicemailUserPolicy UserPresence WrapupCode MaxOrgRoutingUtilizationCapacity AccessToken OAuthClient OAuthClientAuthorization AuthOrganization AuthUser OrganizationAuthorizationTrust OrganizationAuthorizationUserTrust BulkActions Feedback Topic Program Segment Outcome SessionType EventType ClickstreamSettings Schedule ScheduleGroup EmergencyGroup IVR Trigger Response DependencyTrackingBuild Flow Prompt PromptResource FlowOutcome FlowMilestone Team Edge EdgeGroup Trunk TrunkBase DID DIDPool Extension ExtensionPool Phone PhoneBase Line LineBase OutboundRoute NumberPlan Site AttemptLimits CallableTimeSet Campaign CampaignRule Sequence ContactList ContactListFilter DNCList CallAnalysisResponseSet RuleSet CampaignSchedule SequenceSchedule OrganizationSettings WrapUpCodeMapping MessagingCampaign TranscriptionSettings RoutingTranscriptionSettings SpeechTextAnalyticsSettings Predictor WorkPlan SentimentFeedback Integration]
+	// Enum: [AccessToken ActionMap ActionTemplate Annotation Appointment AttemptLimits AuthOrganization AuthUser Bulk BulkActions Calibration CallableTimeSet CallAnalysisResponseSet Campaign CampaignRule CampaignSchedule ChangeRequest ClickstreamSettings Configuration ConfigurationVersion ContactList ContactListFilter ConversationAccount ConversationDefaultSupportedContent ConversationPhoneNumber ConversationRecipient ConversationThreadingWindow DashboardSettings DependencyTrackingBuild Deployment DID DIDPool DNCList Document Edge EdgeGroup EdgeLog EdgeLogZip EdgePcaps EdgePreferences EdgeTraceLevel EmergencyGroup Evaluation EvaluationForm EventType Exports Extension ExtensionPool ExternalMetricsData ExternalMetricsDefinition Feedback Flow FlowMilestone FlowOutcome Forecast HistoricalData InsightSettings Integration IVR Line LineBase MaxOrgRoutingUtilizationCapacity MediaDiagnosticsTraceFile MessagingCampaign Metric NumberPlan OAuthClient OAuthClientAuthorization OrganizationAuthorizationTrust OrganizationAuthorizationUserTrust OrganizationFeature OrganizationIntegrationsAccess OrganizationSettings OrphanedRecording OutboundRoute Outcome Pcaps Phone PhoneBase Policy Predictor Product Program Prompt PromptResource Queue Recording RecordingAnnotation RecordingSettings Response Role Row RoutingTranscriptionSettings RuleSet Schedule ScheduledExports ScheduleGroup Schema ScreenRecording Segment SentimentFeedback Sequence SequenceSchedule SessionType Site SpeechTextAnalyticsSettings Status SupportedContent SupportFile Survey SurveyForm Team Topic TranscriptionSettings Trigger Trunk TrunkBase User UserPresence VoicemailPolicy VoicemailUserPolicy Webhook WorkPlan Workspace WrapupCode WrapUpCodeMapping]
 	EntityType string `json:"entityType,omitempty"`
 
 	// Date and time of when the audit message was logged. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
@@ -54,7 +54,7 @@ type AuditLogMessage struct {
 	RemoteIP []string `json:"remoteIp"`
 
 	// Name of the service that logged this audit message.
-	// Enum: [Architect ContactCenter ContentManagement Integrations PeoplePermissions Presence Quality LanguageUnderstanding TopicsDefinitions PredictiveEngagement WorkforceManagement Triggers ResponseManagement Groups Telephony Outbound SpeechAndTextAnalytics Routing]
+	// Enum: [AnalyticsReporting Architect Coaching ContactCenter ContentManagement Datatables Gamification Groups Integrations LanguageUnderstanding Limits Outbound PeoplePermissions EmployeePerformance PredictiveEngagement Presence Quality ResponseManagement Routing SpeechAndTextAnalytics Telephony TopicsDefinitions Triggers WebDeployments Webhooks WorkforceManagement Messaging Supportability]
 	ServiceName string `json:"serviceName,omitempty"`
 
 	// User associated with this audit message.
@@ -114,7 +114,7 @@ var auditLogMessageTypeActionPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Create","View","Update","Delete","DeleteAll","Download","Upload","MemberAdd","MemberUpdate","MemberRemove","Read","ApplyProtection","RevokeProtection","UpdateRetention","ReadAll","Execute","Publish","Unpublish","Activate","Checkin","Checkout","Deactivate","Debug","Save","Revert","Transcode","Enable","Disable","Authorize","Deauthorize","Authenticate","ChangePassword","Revoke","Export","Append","Recycle"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Create","View","Update","Move","Delete","DeleteAll","Download","Upload","MemberAdd","MemberUpdate","MemberRemove","Read","ReadAll","Execute","ApplyProtection","RevokeProtection","UpdateRetention","Abandon","Archive","RestoreRequest","RestoreComplete","Publish","Unpublish","Activate","Checkin","Checkout","Deactivate","Debug","Save","Revert","Transcode","Enable","Disable","Authorize","Deauthorize","Authenticate","ChangePassword","Revoke","Export","Append","Recycle","Open","Approved","Rejected","Rollback","ImplementingChange","ChangeImplemented","ImplementingRollback","RollbackImplemented","Write","Purge","Processed","Replace","UpdateInService","UpdateOutOfService","Cycle","Scale","IpAllowlistClear","AddPairingRole","Add"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -132,6 +132,9 @@ const (
 
 	// AuditLogMessageActionUpdate captures enum value "Update"
 	AuditLogMessageActionUpdate string = "Update"
+
+	// AuditLogMessageActionMove captures enum value "Move"
+	AuditLogMessageActionMove string = "Move"
 
 	// AuditLogMessageActionDelete captures enum value "Delete"
 	AuditLogMessageActionDelete string = "Delete"
@@ -157,6 +160,12 @@ const (
 	// AuditLogMessageActionRead captures enum value "Read"
 	AuditLogMessageActionRead string = "Read"
 
+	// AuditLogMessageActionReadAll captures enum value "ReadAll"
+	AuditLogMessageActionReadAll string = "ReadAll"
+
+	// AuditLogMessageActionExecute captures enum value "Execute"
+	AuditLogMessageActionExecute string = "Execute"
+
 	// AuditLogMessageActionApplyProtection captures enum value "ApplyProtection"
 	AuditLogMessageActionApplyProtection string = "ApplyProtection"
 
@@ -166,11 +175,17 @@ const (
 	// AuditLogMessageActionUpdateRetention captures enum value "UpdateRetention"
 	AuditLogMessageActionUpdateRetention string = "UpdateRetention"
 
-	// AuditLogMessageActionReadAll captures enum value "ReadAll"
-	AuditLogMessageActionReadAll string = "ReadAll"
+	// AuditLogMessageActionAbandon captures enum value "Abandon"
+	AuditLogMessageActionAbandon string = "Abandon"
 
-	// AuditLogMessageActionExecute captures enum value "Execute"
-	AuditLogMessageActionExecute string = "Execute"
+	// AuditLogMessageActionArchive captures enum value "Archive"
+	AuditLogMessageActionArchive string = "Archive"
+
+	// AuditLogMessageActionRestoreRequest captures enum value "RestoreRequest"
+	AuditLogMessageActionRestoreRequest string = "RestoreRequest"
+
+	// AuditLogMessageActionRestoreComplete captures enum value "RestoreComplete"
+	AuditLogMessageActionRestoreComplete string = "RestoreComplete"
 
 	// AuditLogMessageActionPublish captures enum value "Publish"
 	AuditLogMessageActionPublish string = "Publish"
@@ -231,6 +246,63 @@ const (
 
 	// AuditLogMessageActionRecycle captures enum value "Recycle"
 	AuditLogMessageActionRecycle string = "Recycle"
+
+	// AuditLogMessageActionOpen captures enum value "Open"
+	AuditLogMessageActionOpen string = "Open"
+
+	// AuditLogMessageActionApproved captures enum value "Approved"
+	AuditLogMessageActionApproved string = "Approved"
+
+	// AuditLogMessageActionRejected captures enum value "Rejected"
+	AuditLogMessageActionRejected string = "Rejected"
+
+	// AuditLogMessageActionRollback captures enum value "Rollback"
+	AuditLogMessageActionRollback string = "Rollback"
+
+	// AuditLogMessageActionImplementingChange captures enum value "ImplementingChange"
+	AuditLogMessageActionImplementingChange string = "ImplementingChange"
+
+	// AuditLogMessageActionChangeImplemented captures enum value "ChangeImplemented"
+	AuditLogMessageActionChangeImplemented string = "ChangeImplemented"
+
+	// AuditLogMessageActionImplementingRollback captures enum value "ImplementingRollback"
+	AuditLogMessageActionImplementingRollback string = "ImplementingRollback"
+
+	// AuditLogMessageActionRollbackImplemented captures enum value "RollbackImplemented"
+	AuditLogMessageActionRollbackImplemented string = "RollbackImplemented"
+
+	// AuditLogMessageActionWrite captures enum value "Write"
+	AuditLogMessageActionWrite string = "Write"
+
+	// AuditLogMessageActionPurge captures enum value "Purge"
+	AuditLogMessageActionPurge string = "Purge"
+
+	// AuditLogMessageActionProcessed captures enum value "Processed"
+	AuditLogMessageActionProcessed string = "Processed"
+
+	// AuditLogMessageActionReplace captures enum value "Replace"
+	AuditLogMessageActionReplace string = "Replace"
+
+	// AuditLogMessageActionUpdateInService captures enum value "UpdateInService"
+	AuditLogMessageActionUpdateInService string = "UpdateInService"
+
+	// AuditLogMessageActionUpdateOutOfService captures enum value "UpdateOutOfService"
+	AuditLogMessageActionUpdateOutOfService string = "UpdateOutOfService"
+
+	// AuditLogMessageActionCycle captures enum value "Cycle"
+	AuditLogMessageActionCycle string = "Cycle"
+
+	// AuditLogMessageActionScale captures enum value "Scale"
+	AuditLogMessageActionScale string = "Scale"
+
+	// AuditLogMessageActionIPAllowlistClear captures enum value "IpAllowlistClear"
+	AuditLogMessageActionIPAllowlistClear string = "IpAllowlistClear"
+
+	// AuditLogMessageActionAddPairingRole captures enum value "AddPairingRole"
+	AuditLogMessageActionAddPairingRole string = "AddPairingRole"
+
+	// AuditLogMessageActionAdd captures enum value "Add"
+	AuditLogMessageActionAdd string = "Add"
 )
 
 // prop value enum
@@ -295,7 +367,7 @@ var auditLogMessageTypeEntityTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Document","Queue","Recording","Role","VoicemailPolicy","VoicemailUserPolicy","UserPresence","WrapupCode","MaxOrgRoutingUtilizationCapacity","AccessToken","OAuthClient","OAuthClientAuthorization","AuthOrganization","AuthUser","OrganizationAuthorizationTrust","OrganizationAuthorizationUserTrust","BulkActions","Feedback","Topic","Program","Segment","Outcome","SessionType","EventType","ClickstreamSettings","Schedule","ScheduleGroup","EmergencyGroup","IVR","Trigger","Response","DependencyTrackingBuild","Flow","Prompt","PromptResource","FlowOutcome","FlowMilestone","Team","Edge","EdgeGroup","Trunk","TrunkBase","DID","DIDPool","Extension","ExtensionPool","Phone","PhoneBase","Line","LineBase","OutboundRoute","NumberPlan","Site","AttemptLimits","CallableTimeSet","Campaign","CampaignRule","Sequence","ContactList","ContactListFilter","DNCList","CallAnalysisResponseSet","RuleSet","CampaignSchedule","SequenceSchedule","OrganizationSettings","WrapUpCodeMapping","MessagingCampaign","TranscriptionSettings","RoutingTranscriptionSettings","SpeechTextAnalyticsSettings","Predictor","WorkPlan","SentimentFeedback","Integration"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["AccessToken","ActionMap","ActionTemplate","Annotation","Appointment","AttemptLimits","AuthOrganization","AuthUser","Bulk","BulkActions","Calibration","CallableTimeSet","CallAnalysisResponseSet","Campaign","CampaignRule","CampaignSchedule","ChangeRequest","ClickstreamSettings","Configuration","ConfigurationVersion","ContactList","ContactListFilter","ConversationAccount","ConversationDefaultSupportedContent","ConversationPhoneNumber","ConversationRecipient","ConversationThreadingWindow","DashboardSettings","DependencyTrackingBuild","Deployment","DID","DIDPool","DNCList","Document","Edge","EdgeGroup","EdgeLog","EdgeLogZip","EdgePcaps","EdgePreferences","EdgeTraceLevel","EmergencyGroup","Evaluation","EvaluationForm","EventType","Exports","Extension","ExtensionPool","ExternalMetricsData","ExternalMetricsDefinition","Feedback","Flow","FlowMilestone","FlowOutcome","Forecast","HistoricalData","InsightSettings","Integration","IVR","Line","LineBase","MaxOrgRoutingUtilizationCapacity","MediaDiagnosticsTraceFile","MessagingCampaign","Metric","NumberPlan","OAuthClient","OAuthClientAuthorization","OrganizationAuthorizationTrust","OrganizationAuthorizationUserTrust","OrganizationFeature","OrganizationIntegrationsAccess","OrganizationSettings","OrphanedRecording","OutboundRoute","Outcome","Pcaps","Phone","PhoneBase","Policy","Predictor","Product","Program","Prompt","PromptResource","Queue","Recording","RecordingAnnotation","RecordingSettings","Response","Role","Row","RoutingTranscriptionSettings","RuleSet","Schedule","ScheduledExports","ScheduleGroup","Schema","ScreenRecording","Segment","SentimentFeedback","Sequence","SequenceSchedule","SessionType","Site","SpeechTextAnalyticsSettings","Status","SupportedContent","SupportFile","Survey","SurveyForm","Team","Topic","TranscriptionSettings","Trigger","Trunk","TrunkBase","User","UserPresence","VoicemailPolicy","VoicemailUserPolicy","Webhook","WorkPlan","Workspace","WrapupCode","WrapUpCodeMapping"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -305,41 +377,23 @@ func init() {
 
 const (
 
-	// AuditLogMessageEntityTypeDocument captures enum value "Document"
-	AuditLogMessageEntityTypeDocument string = "Document"
-
-	// AuditLogMessageEntityTypeQueue captures enum value "Queue"
-	AuditLogMessageEntityTypeQueue string = "Queue"
-
-	// AuditLogMessageEntityTypeRecording captures enum value "Recording"
-	AuditLogMessageEntityTypeRecording string = "Recording"
-
-	// AuditLogMessageEntityTypeRole captures enum value "Role"
-	AuditLogMessageEntityTypeRole string = "Role"
-
-	// AuditLogMessageEntityTypeVoicemailPolicy captures enum value "VoicemailPolicy"
-	AuditLogMessageEntityTypeVoicemailPolicy string = "VoicemailPolicy"
-
-	// AuditLogMessageEntityTypeVoicemailUserPolicy captures enum value "VoicemailUserPolicy"
-	AuditLogMessageEntityTypeVoicemailUserPolicy string = "VoicemailUserPolicy"
-
-	// AuditLogMessageEntityTypeUserPresence captures enum value "UserPresence"
-	AuditLogMessageEntityTypeUserPresence string = "UserPresence"
-
-	// AuditLogMessageEntityTypeWrapupCode captures enum value "WrapupCode"
-	AuditLogMessageEntityTypeWrapupCode string = "WrapupCode"
-
-	// AuditLogMessageEntityTypeMaxOrgRoutingUtilizationCapacity captures enum value "MaxOrgRoutingUtilizationCapacity"
-	AuditLogMessageEntityTypeMaxOrgRoutingUtilizationCapacity string = "MaxOrgRoutingUtilizationCapacity"
-
 	// AuditLogMessageEntityTypeAccessToken captures enum value "AccessToken"
 	AuditLogMessageEntityTypeAccessToken string = "AccessToken"
 
-	// AuditLogMessageEntityTypeOAuthClient captures enum value "OAuthClient"
-	AuditLogMessageEntityTypeOAuthClient string = "OAuthClient"
+	// AuditLogMessageEntityTypeActionMap captures enum value "ActionMap"
+	AuditLogMessageEntityTypeActionMap string = "ActionMap"
 
-	// AuditLogMessageEntityTypeOAuthClientAuthorization captures enum value "OAuthClientAuthorization"
-	AuditLogMessageEntityTypeOAuthClientAuthorization string = "OAuthClientAuthorization"
+	// AuditLogMessageEntityTypeActionTemplate captures enum value "ActionTemplate"
+	AuditLogMessageEntityTypeActionTemplate string = "ActionTemplate"
+
+	// AuditLogMessageEntityTypeAnnotation captures enum value "Annotation"
+	AuditLogMessageEntityTypeAnnotation string = "Annotation"
+
+	// AuditLogMessageEntityTypeAppointment captures enum value "Appointment"
+	AuditLogMessageEntityTypeAppointment string = "Appointment"
+
+	// AuditLogMessageEntityTypeAttemptLimits captures enum value "AttemptLimits"
+	AuditLogMessageEntityTypeAttemptLimits string = "AttemptLimits"
 
 	// AuditLogMessageEntityTypeAuthOrganization captures enum value "AuthOrganization"
 	AuditLogMessageEntityTypeAuthOrganization string = "AuthOrganization"
@@ -347,128 +401,20 @@ const (
 	// AuditLogMessageEntityTypeAuthUser captures enum value "AuthUser"
 	AuditLogMessageEntityTypeAuthUser string = "AuthUser"
 
-	// AuditLogMessageEntityTypeOrganizationAuthorizationTrust captures enum value "OrganizationAuthorizationTrust"
-	AuditLogMessageEntityTypeOrganizationAuthorizationTrust string = "OrganizationAuthorizationTrust"
-
-	// AuditLogMessageEntityTypeOrganizationAuthorizationUserTrust captures enum value "OrganizationAuthorizationUserTrust"
-	AuditLogMessageEntityTypeOrganizationAuthorizationUserTrust string = "OrganizationAuthorizationUserTrust"
+	// AuditLogMessageEntityTypeBulk captures enum value "Bulk"
+	AuditLogMessageEntityTypeBulk string = "Bulk"
 
 	// AuditLogMessageEntityTypeBulkActions captures enum value "BulkActions"
 	AuditLogMessageEntityTypeBulkActions string = "BulkActions"
 
-	// AuditLogMessageEntityTypeFeedback captures enum value "Feedback"
-	AuditLogMessageEntityTypeFeedback string = "Feedback"
-
-	// AuditLogMessageEntityTypeTopic captures enum value "Topic"
-	AuditLogMessageEntityTypeTopic string = "Topic"
-
-	// AuditLogMessageEntityTypeProgram captures enum value "Program"
-	AuditLogMessageEntityTypeProgram string = "Program"
-
-	// AuditLogMessageEntityTypeSegment captures enum value "Segment"
-	AuditLogMessageEntityTypeSegment string = "Segment"
-
-	// AuditLogMessageEntityTypeOutcome captures enum value "Outcome"
-	AuditLogMessageEntityTypeOutcome string = "Outcome"
-
-	// AuditLogMessageEntityTypeSessionType captures enum value "SessionType"
-	AuditLogMessageEntityTypeSessionType string = "SessionType"
-
-	// AuditLogMessageEntityTypeEventType captures enum value "EventType"
-	AuditLogMessageEntityTypeEventType string = "EventType"
-
-	// AuditLogMessageEntityTypeClickstreamSettings captures enum value "ClickstreamSettings"
-	AuditLogMessageEntityTypeClickstreamSettings string = "ClickstreamSettings"
-
-	// AuditLogMessageEntityTypeSchedule captures enum value "Schedule"
-	AuditLogMessageEntityTypeSchedule string = "Schedule"
-
-	// AuditLogMessageEntityTypeScheduleGroup captures enum value "ScheduleGroup"
-	AuditLogMessageEntityTypeScheduleGroup string = "ScheduleGroup"
-
-	// AuditLogMessageEntityTypeEmergencyGroup captures enum value "EmergencyGroup"
-	AuditLogMessageEntityTypeEmergencyGroup string = "EmergencyGroup"
-
-	// AuditLogMessageEntityTypeIVR captures enum value "IVR"
-	AuditLogMessageEntityTypeIVR string = "IVR"
-
-	// AuditLogMessageEntityTypeTrigger captures enum value "Trigger"
-	AuditLogMessageEntityTypeTrigger string = "Trigger"
-
-	// AuditLogMessageEntityTypeResponse captures enum value "Response"
-	AuditLogMessageEntityTypeResponse string = "Response"
-
-	// AuditLogMessageEntityTypeDependencyTrackingBuild captures enum value "DependencyTrackingBuild"
-	AuditLogMessageEntityTypeDependencyTrackingBuild string = "DependencyTrackingBuild"
-
-	// AuditLogMessageEntityTypeFlow captures enum value "Flow"
-	AuditLogMessageEntityTypeFlow string = "Flow"
-
-	// AuditLogMessageEntityTypePrompt captures enum value "Prompt"
-	AuditLogMessageEntityTypePrompt string = "Prompt"
-
-	// AuditLogMessageEntityTypePromptResource captures enum value "PromptResource"
-	AuditLogMessageEntityTypePromptResource string = "PromptResource"
-
-	// AuditLogMessageEntityTypeFlowOutcome captures enum value "FlowOutcome"
-	AuditLogMessageEntityTypeFlowOutcome string = "FlowOutcome"
-
-	// AuditLogMessageEntityTypeFlowMilestone captures enum value "FlowMilestone"
-	AuditLogMessageEntityTypeFlowMilestone string = "FlowMilestone"
-
-	// AuditLogMessageEntityTypeTeam captures enum value "Team"
-	AuditLogMessageEntityTypeTeam string = "Team"
-
-	// AuditLogMessageEntityTypeEdge captures enum value "Edge"
-	AuditLogMessageEntityTypeEdge string = "Edge"
-
-	// AuditLogMessageEntityTypeEdgeGroup captures enum value "EdgeGroup"
-	AuditLogMessageEntityTypeEdgeGroup string = "EdgeGroup"
-
-	// AuditLogMessageEntityTypeTrunk captures enum value "Trunk"
-	AuditLogMessageEntityTypeTrunk string = "Trunk"
-
-	// AuditLogMessageEntityTypeTrunkBase captures enum value "TrunkBase"
-	AuditLogMessageEntityTypeTrunkBase string = "TrunkBase"
-
-	// AuditLogMessageEntityTypeDID captures enum value "DID"
-	AuditLogMessageEntityTypeDID string = "DID"
-
-	// AuditLogMessageEntityTypeDIDPool captures enum value "DIDPool"
-	AuditLogMessageEntityTypeDIDPool string = "DIDPool"
-
-	// AuditLogMessageEntityTypeExtension captures enum value "Extension"
-	AuditLogMessageEntityTypeExtension string = "Extension"
-
-	// AuditLogMessageEntityTypeExtensionPool captures enum value "ExtensionPool"
-	AuditLogMessageEntityTypeExtensionPool string = "ExtensionPool"
-
-	// AuditLogMessageEntityTypePhone captures enum value "Phone"
-	AuditLogMessageEntityTypePhone string = "Phone"
-
-	// AuditLogMessageEntityTypePhoneBase captures enum value "PhoneBase"
-	AuditLogMessageEntityTypePhoneBase string = "PhoneBase"
-
-	// AuditLogMessageEntityTypeLine captures enum value "Line"
-	AuditLogMessageEntityTypeLine string = "Line"
-
-	// AuditLogMessageEntityTypeLineBase captures enum value "LineBase"
-	AuditLogMessageEntityTypeLineBase string = "LineBase"
-
-	// AuditLogMessageEntityTypeOutboundRoute captures enum value "OutboundRoute"
-	AuditLogMessageEntityTypeOutboundRoute string = "OutboundRoute"
-
-	// AuditLogMessageEntityTypeNumberPlan captures enum value "NumberPlan"
-	AuditLogMessageEntityTypeNumberPlan string = "NumberPlan"
-
-	// AuditLogMessageEntityTypeSite captures enum value "Site"
-	AuditLogMessageEntityTypeSite string = "Site"
-
-	// AuditLogMessageEntityTypeAttemptLimits captures enum value "AttemptLimits"
-	AuditLogMessageEntityTypeAttemptLimits string = "AttemptLimits"
+	// AuditLogMessageEntityTypeCalibration captures enum value "Calibration"
+	AuditLogMessageEntityTypeCalibration string = "Calibration"
 
 	// AuditLogMessageEntityTypeCallableTimeSet captures enum value "CallableTimeSet"
 	AuditLogMessageEntityTypeCallableTimeSet string = "CallableTimeSet"
+
+	// AuditLogMessageEntityTypeCallAnalysisResponseSet captures enum value "CallAnalysisResponseSet"
+	AuditLogMessageEntityTypeCallAnalysisResponseSet string = "CallAnalysisResponseSet"
 
 	// AuditLogMessageEntityTypeCampaign captures enum value "Campaign"
 	AuditLogMessageEntityTypeCampaign string = "Campaign"
@@ -476,8 +422,20 @@ const (
 	// AuditLogMessageEntityTypeCampaignRule captures enum value "CampaignRule"
 	AuditLogMessageEntityTypeCampaignRule string = "CampaignRule"
 
-	// AuditLogMessageEntityTypeSequence captures enum value "Sequence"
-	AuditLogMessageEntityTypeSequence string = "Sequence"
+	// AuditLogMessageEntityTypeCampaignSchedule captures enum value "CampaignSchedule"
+	AuditLogMessageEntityTypeCampaignSchedule string = "CampaignSchedule"
+
+	// AuditLogMessageEntityTypeChangeRequest captures enum value "ChangeRequest"
+	AuditLogMessageEntityTypeChangeRequest string = "ChangeRequest"
+
+	// AuditLogMessageEntityTypeClickstreamSettings captures enum value "ClickstreamSettings"
+	AuditLogMessageEntityTypeClickstreamSettings string = "ClickstreamSettings"
+
+	// AuditLogMessageEntityTypeConfiguration captures enum value "Configuration"
+	AuditLogMessageEntityTypeConfiguration string = "Configuration"
+
+	// AuditLogMessageEntityTypeConfigurationVersion captures enum value "ConfigurationVersion"
+	AuditLogMessageEntityTypeConfigurationVersion string = "ConfigurationVersion"
 
 	// AuditLogMessageEntityTypeContactList captures enum value "ContactList"
 	AuditLogMessageEntityTypeContactList string = "ContactList"
@@ -485,50 +443,317 @@ const (
 	// AuditLogMessageEntityTypeContactListFilter captures enum value "ContactListFilter"
 	AuditLogMessageEntityTypeContactListFilter string = "ContactListFilter"
 
+	// AuditLogMessageEntityTypeConversationAccount captures enum value "ConversationAccount"
+	AuditLogMessageEntityTypeConversationAccount string = "ConversationAccount"
+
+	// AuditLogMessageEntityTypeConversationDefaultSupportedContent captures enum value "ConversationDefaultSupportedContent"
+	AuditLogMessageEntityTypeConversationDefaultSupportedContent string = "ConversationDefaultSupportedContent"
+
+	// AuditLogMessageEntityTypeConversationPhoneNumber captures enum value "ConversationPhoneNumber"
+	AuditLogMessageEntityTypeConversationPhoneNumber string = "ConversationPhoneNumber"
+
+	// AuditLogMessageEntityTypeConversationRecipient captures enum value "ConversationRecipient"
+	AuditLogMessageEntityTypeConversationRecipient string = "ConversationRecipient"
+
+	// AuditLogMessageEntityTypeConversationThreadingWindow captures enum value "ConversationThreadingWindow"
+	AuditLogMessageEntityTypeConversationThreadingWindow string = "ConversationThreadingWindow"
+
+	// AuditLogMessageEntityTypeDashboardSettings captures enum value "DashboardSettings"
+	AuditLogMessageEntityTypeDashboardSettings string = "DashboardSettings"
+
+	// AuditLogMessageEntityTypeDependencyTrackingBuild captures enum value "DependencyTrackingBuild"
+	AuditLogMessageEntityTypeDependencyTrackingBuild string = "DependencyTrackingBuild"
+
+	// AuditLogMessageEntityTypeDeployment captures enum value "Deployment"
+	AuditLogMessageEntityTypeDeployment string = "Deployment"
+
+	// AuditLogMessageEntityTypeDID captures enum value "DID"
+	AuditLogMessageEntityTypeDID string = "DID"
+
+	// AuditLogMessageEntityTypeDIDPool captures enum value "DIDPool"
+	AuditLogMessageEntityTypeDIDPool string = "DIDPool"
+
 	// AuditLogMessageEntityTypeDNCList captures enum value "DNCList"
 	AuditLogMessageEntityTypeDNCList string = "DNCList"
 
-	// AuditLogMessageEntityTypeCallAnalysisResponseSet captures enum value "CallAnalysisResponseSet"
-	AuditLogMessageEntityTypeCallAnalysisResponseSet string = "CallAnalysisResponseSet"
+	// AuditLogMessageEntityTypeDocument captures enum value "Document"
+	AuditLogMessageEntityTypeDocument string = "Document"
 
-	// AuditLogMessageEntityTypeRuleSet captures enum value "RuleSet"
-	AuditLogMessageEntityTypeRuleSet string = "RuleSet"
+	// AuditLogMessageEntityTypeEdge captures enum value "Edge"
+	AuditLogMessageEntityTypeEdge string = "Edge"
 
-	// AuditLogMessageEntityTypeCampaignSchedule captures enum value "CampaignSchedule"
-	AuditLogMessageEntityTypeCampaignSchedule string = "CampaignSchedule"
+	// AuditLogMessageEntityTypeEdgeGroup captures enum value "EdgeGroup"
+	AuditLogMessageEntityTypeEdgeGroup string = "EdgeGroup"
 
-	// AuditLogMessageEntityTypeSequenceSchedule captures enum value "SequenceSchedule"
-	AuditLogMessageEntityTypeSequenceSchedule string = "SequenceSchedule"
+	// AuditLogMessageEntityTypeEdgeLog captures enum value "EdgeLog"
+	AuditLogMessageEntityTypeEdgeLog string = "EdgeLog"
 
-	// AuditLogMessageEntityTypeOrganizationSettings captures enum value "OrganizationSettings"
-	AuditLogMessageEntityTypeOrganizationSettings string = "OrganizationSettings"
+	// AuditLogMessageEntityTypeEdgeLogZip captures enum value "EdgeLogZip"
+	AuditLogMessageEntityTypeEdgeLogZip string = "EdgeLogZip"
 
-	// AuditLogMessageEntityTypeWrapUpCodeMapping captures enum value "WrapUpCodeMapping"
-	AuditLogMessageEntityTypeWrapUpCodeMapping string = "WrapUpCodeMapping"
+	// AuditLogMessageEntityTypeEdgePcaps captures enum value "EdgePcaps"
+	AuditLogMessageEntityTypeEdgePcaps string = "EdgePcaps"
+
+	// AuditLogMessageEntityTypeEdgePreferences captures enum value "EdgePreferences"
+	AuditLogMessageEntityTypeEdgePreferences string = "EdgePreferences"
+
+	// AuditLogMessageEntityTypeEdgeTraceLevel captures enum value "EdgeTraceLevel"
+	AuditLogMessageEntityTypeEdgeTraceLevel string = "EdgeTraceLevel"
+
+	// AuditLogMessageEntityTypeEmergencyGroup captures enum value "EmergencyGroup"
+	AuditLogMessageEntityTypeEmergencyGroup string = "EmergencyGroup"
+
+	// AuditLogMessageEntityTypeEvaluation captures enum value "Evaluation"
+	AuditLogMessageEntityTypeEvaluation string = "Evaluation"
+
+	// AuditLogMessageEntityTypeEvaluationForm captures enum value "EvaluationForm"
+	AuditLogMessageEntityTypeEvaluationForm string = "EvaluationForm"
+
+	// AuditLogMessageEntityTypeEventType captures enum value "EventType"
+	AuditLogMessageEntityTypeEventType string = "EventType"
+
+	// AuditLogMessageEntityTypeExports captures enum value "Exports"
+	AuditLogMessageEntityTypeExports string = "Exports"
+
+	// AuditLogMessageEntityTypeExtension captures enum value "Extension"
+	AuditLogMessageEntityTypeExtension string = "Extension"
+
+	// AuditLogMessageEntityTypeExtensionPool captures enum value "ExtensionPool"
+	AuditLogMessageEntityTypeExtensionPool string = "ExtensionPool"
+
+	// AuditLogMessageEntityTypeExternalMetricsData captures enum value "ExternalMetricsData"
+	AuditLogMessageEntityTypeExternalMetricsData string = "ExternalMetricsData"
+
+	// AuditLogMessageEntityTypeExternalMetricsDefinition captures enum value "ExternalMetricsDefinition"
+	AuditLogMessageEntityTypeExternalMetricsDefinition string = "ExternalMetricsDefinition"
+
+	// AuditLogMessageEntityTypeFeedback captures enum value "Feedback"
+	AuditLogMessageEntityTypeFeedback string = "Feedback"
+
+	// AuditLogMessageEntityTypeFlow captures enum value "Flow"
+	AuditLogMessageEntityTypeFlow string = "Flow"
+
+	// AuditLogMessageEntityTypeFlowMilestone captures enum value "FlowMilestone"
+	AuditLogMessageEntityTypeFlowMilestone string = "FlowMilestone"
+
+	// AuditLogMessageEntityTypeFlowOutcome captures enum value "FlowOutcome"
+	AuditLogMessageEntityTypeFlowOutcome string = "FlowOutcome"
+
+	// AuditLogMessageEntityTypeForecast captures enum value "Forecast"
+	AuditLogMessageEntityTypeForecast string = "Forecast"
+
+	// AuditLogMessageEntityTypeHistoricalData captures enum value "HistoricalData"
+	AuditLogMessageEntityTypeHistoricalData string = "HistoricalData"
+
+	// AuditLogMessageEntityTypeInsightSettings captures enum value "InsightSettings"
+	AuditLogMessageEntityTypeInsightSettings string = "InsightSettings"
+
+	// AuditLogMessageEntityTypeIntegration captures enum value "Integration"
+	AuditLogMessageEntityTypeIntegration string = "Integration"
+
+	// AuditLogMessageEntityTypeIVR captures enum value "IVR"
+	AuditLogMessageEntityTypeIVR string = "IVR"
+
+	// AuditLogMessageEntityTypeLine captures enum value "Line"
+	AuditLogMessageEntityTypeLine string = "Line"
+
+	// AuditLogMessageEntityTypeLineBase captures enum value "LineBase"
+	AuditLogMessageEntityTypeLineBase string = "LineBase"
+
+	// AuditLogMessageEntityTypeMaxOrgRoutingUtilizationCapacity captures enum value "MaxOrgRoutingUtilizationCapacity"
+	AuditLogMessageEntityTypeMaxOrgRoutingUtilizationCapacity string = "MaxOrgRoutingUtilizationCapacity"
+
+	// AuditLogMessageEntityTypeMediaDiagnosticsTraceFile captures enum value "MediaDiagnosticsTraceFile"
+	AuditLogMessageEntityTypeMediaDiagnosticsTraceFile string = "MediaDiagnosticsTraceFile"
 
 	// AuditLogMessageEntityTypeMessagingCampaign captures enum value "MessagingCampaign"
 	AuditLogMessageEntityTypeMessagingCampaign string = "MessagingCampaign"
 
-	// AuditLogMessageEntityTypeTranscriptionSettings captures enum value "TranscriptionSettings"
-	AuditLogMessageEntityTypeTranscriptionSettings string = "TranscriptionSettings"
+	// AuditLogMessageEntityTypeMetric captures enum value "Metric"
+	AuditLogMessageEntityTypeMetric string = "Metric"
 
-	// AuditLogMessageEntityTypeRoutingTranscriptionSettings captures enum value "RoutingTranscriptionSettings"
-	AuditLogMessageEntityTypeRoutingTranscriptionSettings string = "RoutingTranscriptionSettings"
+	// AuditLogMessageEntityTypeNumberPlan captures enum value "NumberPlan"
+	AuditLogMessageEntityTypeNumberPlan string = "NumberPlan"
 
-	// AuditLogMessageEntityTypeSpeechTextAnalyticsSettings captures enum value "SpeechTextAnalyticsSettings"
-	AuditLogMessageEntityTypeSpeechTextAnalyticsSettings string = "SpeechTextAnalyticsSettings"
+	// AuditLogMessageEntityTypeOAuthClient captures enum value "OAuthClient"
+	AuditLogMessageEntityTypeOAuthClient string = "OAuthClient"
+
+	// AuditLogMessageEntityTypeOAuthClientAuthorization captures enum value "OAuthClientAuthorization"
+	AuditLogMessageEntityTypeOAuthClientAuthorization string = "OAuthClientAuthorization"
+
+	// AuditLogMessageEntityTypeOrganizationAuthorizationTrust captures enum value "OrganizationAuthorizationTrust"
+	AuditLogMessageEntityTypeOrganizationAuthorizationTrust string = "OrganizationAuthorizationTrust"
+
+	// AuditLogMessageEntityTypeOrganizationAuthorizationUserTrust captures enum value "OrganizationAuthorizationUserTrust"
+	AuditLogMessageEntityTypeOrganizationAuthorizationUserTrust string = "OrganizationAuthorizationUserTrust"
+
+	// AuditLogMessageEntityTypeOrganizationFeature captures enum value "OrganizationFeature"
+	AuditLogMessageEntityTypeOrganizationFeature string = "OrganizationFeature"
+
+	// AuditLogMessageEntityTypeOrganizationIntegrationsAccess captures enum value "OrganizationIntegrationsAccess"
+	AuditLogMessageEntityTypeOrganizationIntegrationsAccess string = "OrganizationIntegrationsAccess"
+
+	// AuditLogMessageEntityTypeOrganizationSettings captures enum value "OrganizationSettings"
+	AuditLogMessageEntityTypeOrganizationSettings string = "OrganizationSettings"
+
+	// AuditLogMessageEntityTypeOrphanedRecording captures enum value "OrphanedRecording"
+	AuditLogMessageEntityTypeOrphanedRecording string = "OrphanedRecording"
+
+	// AuditLogMessageEntityTypeOutboundRoute captures enum value "OutboundRoute"
+	AuditLogMessageEntityTypeOutboundRoute string = "OutboundRoute"
+
+	// AuditLogMessageEntityTypeOutcome captures enum value "Outcome"
+	AuditLogMessageEntityTypeOutcome string = "Outcome"
+
+	// AuditLogMessageEntityTypePcaps captures enum value "Pcaps"
+	AuditLogMessageEntityTypePcaps string = "Pcaps"
+
+	// AuditLogMessageEntityTypePhone captures enum value "Phone"
+	AuditLogMessageEntityTypePhone string = "Phone"
+
+	// AuditLogMessageEntityTypePhoneBase captures enum value "PhoneBase"
+	AuditLogMessageEntityTypePhoneBase string = "PhoneBase"
+
+	// AuditLogMessageEntityTypePolicy captures enum value "Policy"
+	AuditLogMessageEntityTypePolicy string = "Policy"
 
 	// AuditLogMessageEntityTypePredictor captures enum value "Predictor"
 	AuditLogMessageEntityTypePredictor string = "Predictor"
 
-	// AuditLogMessageEntityTypeWorkPlan captures enum value "WorkPlan"
-	AuditLogMessageEntityTypeWorkPlan string = "WorkPlan"
+	// AuditLogMessageEntityTypeProduct captures enum value "Product"
+	AuditLogMessageEntityTypeProduct string = "Product"
+
+	// AuditLogMessageEntityTypeProgram captures enum value "Program"
+	AuditLogMessageEntityTypeProgram string = "Program"
+
+	// AuditLogMessageEntityTypePrompt captures enum value "Prompt"
+	AuditLogMessageEntityTypePrompt string = "Prompt"
+
+	// AuditLogMessageEntityTypePromptResource captures enum value "PromptResource"
+	AuditLogMessageEntityTypePromptResource string = "PromptResource"
+
+	// AuditLogMessageEntityTypeQueue captures enum value "Queue"
+	AuditLogMessageEntityTypeQueue string = "Queue"
+
+	// AuditLogMessageEntityTypeRecording captures enum value "Recording"
+	AuditLogMessageEntityTypeRecording string = "Recording"
+
+	// AuditLogMessageEntityTypeRecordingAnnotation captures enum value "RecordingAnnotation"
+	AuditLogMessageEntityTypeRecordingAnnotation string = "RecordingAnnotation"
+
+	// AuditLogMessageEntityTypeRecordingSettings captures enum value "RecordingSettings"
+	AuditLogMessageEntityTypeRecordingSettings string = "RecordingSettings"
+
+	// AuditLogMessageEntityTypeResponse captures enum value "Response"
+	AuditLogMessageEntityTypeResponse string = "Response"
+
+	// AuditLogMessageEntityTypeRole captures enum value "Role"
+	AuditLogMessageEntityTypeRole string = "Role"
+
+	// AuditLogMessageEntityTypeRow captures enum value "Row"
+	AuditLogMessageEntityTypeRow string = "Row"
+
+	// AuditLogMessageEntityTypeRoutingTranscriptionSettings captures enum value "RoutingTranscriptionSettings"
+	AuditLogMessageEntityTypeRoutingTranscriptionSettings string = "RoutingTranscriptionSettings"
+
+	// AuditLogMessageEntityTypeRuleSet captures enum value "RuleSet"
+	AuditLogMessageEntityTypeRuleSet string = "RuleSet"
+
+	// AuditLogMessageEntityTypeSchedule captures enum value "Schedule"
+	AuditLogMessageEntityTypeSchedule string = "Schedule"
+
+	// AuditLogMessageEntityTypeScheduledExports captures enum value "ScheduledExports"
+	AuditLogMessageEntityTypeScheduledExports string = "ScheduledExports"
+
+	// AuditLogMessageEntityTypeScheduleGroup captures enum value "ScheduleGroup"
+	AuditLogMessageEntityTypeScheduleGroup string = "ScheduleGroup"
+
+	// AuditLogMessageEntityTypeSchema captures enum value "Schema"
+	AuditLogMessageEntityTypeSchema string = "Schema"
+
+	// AuditLogMessageEntityTypeScreenRecording captures enum value "ScreenRecording"
+	AuditLogMessageEntityTypeScreenRecording string = "ScreenRecording"
+
+	// AuditLogMessageEntityTypeSegment captures enum value "Segment"
+	AuditLogMessageEntityTypeSegment string = "Segment"
 
 	// AuditLogMessageEntityTypeSentimentFeedback captures enum value "SentimentFeedback"
 	AuditLogMessageEntityTypeSentimentFeedback string = "SentimentFeedback"
 
-	// AuditLogMessageEntityTypeIntegration captures enum value "Integration"
-	AuditLogMessageEntityTypeIntegration string = "Integration"
+	// AuditLogMessageEntityTypeSequence captures enum value "Sequence"
+	AuditLogMessageEntityTypeSequence string = "Sequence"
+
+	// AuditLogMessageEntityTypeSequenceSchedule captures enum value "SequenceSchedule"
+	AuditLogMessageEntityTypeSequenceSchedule string = "SequenceSchedule"
+
+	// AuditLogMessageEntityTypeSessionType captures enum value "SessionType"
+	AuditLogMessageEntityTypeSessionType string = "SessionType"
+
+	// AuditLogMessageEntityTypeSite captures enum value "Site"
+	AuditLogMessageEntityTypeSite string = "Site"
+
+	// AuditLogMessageEntityTypeSpeechTextAnalyticsSettings captures enum value "SpeechTextAnalyticsSettings"
+	AuditLogMessageEntityTypeSpeechTextAnalyticsSettings string = "SpeechTextAnalyticsSettings"
+
+	// AuditLogMessageEntityTypeStatus captures enum value "Status"
+	AuditLogMessageEntityTypeStatus string = "Status"
+
+	// AuditLogMessageEntityTypeSupportedContent captures enum value "SupportedContent"
+	AuditLogMessageEntityTypeSupportedContent string = "SupportedContent"
+
+	// AuditLogMessageEntityTypeSupportFile captures enum value "SupportFile"
+	AuditLogMessageEntityTypeSupportFile string = "SupportFile"
+
+	// AuditLogMessageEntityTypeSurvey captures enum value "Survey"
+	AuditLogMessageEntityTypeSurvey string = "Survey"
+
+	// AuditLogMessageEntityTypeSurveyForm captures enum value "SurveyForm"
+	AuditLogMessageEntityTypeSurveyForm string = "SurveyForm"
+
+	// AuditLogMessageEntityTypeTeam captures enum value "Team"
+	AuditLogMessageEntityTypeTeam string = "Team"
+
+	// AuditLogMessageEntityTypeTopic captures enum value "Topic"
+	AuditLogMessageEntityTypeTopic string = "Topic"
+
+	// AuditLogMessageEntityTypeTranscriptionSettings captures enum value "TranscriptionSettings"
+	AuditLogMessageEntityTypeTranscriptionSettings string = "TranscriptionSettings"
+
+	// AuditLogMessageEntityTypeTrigger captures enum value "Trigger"
+	AuditLogMessageEntityTypeTrigger string = "Trigger"
+
+	// AuditLogMessageEntityTypeTrunk captures enum value "Trunk"
+	AuditLogMessageEntityTypeTrunk string = "Trunk"
+
+	// AuditLogMessageEntityTypeTrunkBase captures enum value "TrunkBase"
+	AuditLogMessageEntityTypeTrunkBase string = "TrunkBase"
+
+	// AuditLogMessageEntityTypeUser captures enum value "User"
+	AuditLogMessageEntityTypeUser string = "User"
+
+	// AuditLogMessageEntityTypeUserPresence captures enum value "UserPresence"
+	AuditLogMessageEntityTypeUserPresence string = "UserPresence"
+
+	// AuditLogMessageEntityTypeVoicemailPolicy captures enum value "VoicemailPolicy"
+	AuditLogMessageEntityTypeVoicemailPolicy string = "VoicemailPolicy"
+
+	// AuditLogMessageEntityTypeVoicemailUserPolicy captures enum value "VoicemailUserPolicy"
+	AuditLogMessageEntityTypeVoicemailUserPolicy string = "VoicemailUserPolicy"
+
+	// AuditLogMessageEntityTypeWebhook captures enum value "Webhook"
+	AuditLogMessageEntityTypeWebhook string = "Webhook"
+
+	// AuditLogMessageEntityTypeWorkPlan captures enum value "WorkPlan"
+	AuditLogMessageEntityTypeWorkPlan string = "WorkPlan"
+
+	// AuditLogMessageEntityTypeWorkspace captures enum value "Workspace"
+	AuditLogMessageEntityTypeWorkspace string = "Workspace"
+
+	// AuditLogMessageEntityTypeWrapupCode captures enum value "WrapupCode"
+	AuditLogMessageEntityTypeWrapupCode string = "WrapupCode"
+
+	// AuditLogMessageEntityTypeWrapUpCodeMapping captures enum value "WrapUpCodeMapping"
+	AuditLogMessageEntityTypeWrapUpCodeMapping string = "WrapUpCodeMapping"
 )
 
 // prop value enum
@@ -613,7 +838,7 @@ var auditLogMessageTypeServiceNamePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Architect","ContactCenter","ContentManagement","Integrations","PeoplePermissions","Presence","Quality","LanguageUnderstanding","TopicsDefinitions","PredictiveEngagement","WorkforceManagement","Triggers","ResponseManagement","Groups","Telephony","Outbound","SpeechAndTextAnalytics","Routing"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["AnalyticsReporting","Architect","Coaching","ContactCenter","ContentManagement","Datatables","Gamification","Groups","Integrations","LanguageUnderstanding","Limits","Outbound","PeoplePermissions","EmployeePerformance","PredictiveEngagement","Presence","Quality","ResponseManagement","Routing","SpeechAndTextAnalytics","Telephony","TopicsDefinitions","Triggers","WebDeployments","Webhooks","WorkforceManagement","Messaging","Supportability"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -623,8 +848,14 @@ func init() {
 
 const (
 
+	// AuditLogMessageServiceNameAnalyticsReporting captures enum value "AnalyticsReporting"
+	AuditLogMessageServiceNameAnalyticsReporting string = "AnalyticsReporting"
+
 	// AuditLogMessageServiceNameArchitect captures enum value "Architect"
 	AuditLogMessageServiceNameArchitect string = "Architect"
+
+	// AuditLogMessageServiceNameCoaching captures enum value "Coaching"
+	AuditLogMessageServiceNameCoaching string = "Coaching"
 
 	// AuditLogMessageServiceNameContactCenter captures enum value "ContactCenter"
 	AuditLogMessageServiceNameContactCenter string = "ContactCenter"
@@ -632,11 +863,35 @@ const (
 	// AuditLogMessageServiceNameContentManagement captures enum value "ContentManagement"
 	AuditLogMessageServiceNameContentManagement string = "ContentManagement"
 
+	// AuditLogMessageServiceNameDatatables captures enum value "Datatables"
+	AuditLogMessageServiceNameDatatables string = "Datatables"
+
+	// AuditLogMessageServiceNameGamification captures enum value "Gamification"
+	AuditLogMessageServiceNameGamification string = "Gamification"
+
+	// AuditLogMessageServiceNameGroups captures enum value "Groups"
+	AuditLogMessageServiceNameGroups string = "Groups"
+
 	// AuditLogMessageServiceNameIntegrations captures enum value "Integrations"
 	AuditLogMessageServiceNameIntegrations string = "Integrations"
 
+	// AuditLogMessageServiceNameLanguageUnderstanding captures enum value "LanguageUnderstanding"
+	AuditLogMessageServiceNameLanguageUnderstanding string = "LanguageUnderstanding"
+
+	// AuditLogMessageServiceNameLimits captures enum value "Limits"
+	AuditLogMessageServiceNameLimits string = "Limits"
+
+	// AuditLogMessageServiceNameOutbound captures enum value "Outbound"
+	AuditLogMessageServiceNameOutbound string = "Outbound"
+
 	// AuditLogMessageServiceNamePeoplePermissions captures enum value "PeoplePermissions"
 	AuditLogMessageServiceNamePeoplePermissions string = "PeoplePermissions"
+
+	// AuditLogMessageServiceNameEmployeePerformance captures enum value "EmployeePerformance"
+	AuditLogMessageServiceNameEmployeePerformance string = "EmployeePerformance"
+
+	// AuditLogMessageServiceNamePredictiveEngagement captures enum value "PredictiveEngagement"
+	AuditLogMessageServiceNamePredictiveEngagement string = "PredictiveEngagement"
 
 	// AuditLogMessageServiceNamePresence captures enum value "Presence"
 	AuditLogMessageServiceNamePresence string = "Presence"
@@ -644,38 +899,38 @@ const (
 	// AuditLogMessageServiceNameQuality captures enum value "Quality"
 	AuditLogMessageServiceNameQuality string = "Quality"
 
-	// AuditLogMessageServiceNameLanguageUnderstanding captures enum value "LanguageUnderstanding"
-	AuditLogMessageServiceNameLanguageUnderstanding string = "LanguageUnderstanding"
-
-	// AuditLogMessageServiceNameTopicsDefinitions captures enum value "TopicsDefinitions"
-	AuditLogMessageServiceNameTopicsDefinitions string = "TopicsDefinitions"
-
-	// AuditLogMessageServiceNamePredictiveEngagement captures enum value "PredictiveEngagement"
-	AuditLogMessageServiceNamePredictiveEngagement string = "PredictiveEngagement"
-
-	// AuditLogMessageServiceNameWorkforceManagement captures enum value "WorkforceManagement"
-	AuditLogMessageServiceNameWorkforceManagement string = "WorkforceManagement"
-
-	// AuditLogMessageServiceNameTriggers captures enum value "Triggers"
-	AuditLogMessageServiceNameTriggers string = "Triggers"
-
 	// AuditLogMessageServiceNameResponseManagement captures enum value "ResponseManagement"
 	AuditLogMessageServiceNameResponseManagement string = "ResponseManagement"
 
-	// AuditLogMessageServiceNameGroups captures enum value "Groups"
-	AuditLogMessageServiceNameGroups string = "Groups"
-
-	// AuditLogMessageServiceNameTelephony captures enum value "Telephony"
-	AuditLogMessageServiceNameTelephony string = "Telephony"
-
-	// AuditLogMessageServiceNameOutbound captures enum value "Outbound"
-	AuditLogMessageServiceNameOutbound string = "Outbound"
+	// AuditLogMessageServiceNameRouting captures enum value "Routing"
+	AuditLogMessageServiceNameRouting string = "Routing"
 
 	// AuditLogMessageServiceNameSpeechAndTextAnalytics captures enum value "SpeechAndTextAnalytics"
 	AuditLogMessageServiceNameSpeechAndTextAnalytics string = "SpeechAndTextAnalytics"
 
-	// AuditLogMessageServiceNameRouting captures enum value "Routing"
-	AuditLogMessageServiceNameRouting string = "Routing"
+	// AuditLogMessageServiceNameTelephony captures enum value "Telephony"
+	AuditLogMessageServiceNameTelephony string = "Telephony"
+
+	// AuditLogMessageServiceNameTopicsDefinitions captures enum value "TopicsDefinitions"
+	AuditLogMessageServiceNameTopicsDefinitions string = "TopicsDefinitions"
+
+	// AuditLogMessageServiceNameTriggers captures enum value "Triggers"
+	AuditLogMessageServiceNameTriggers string = "Triggers"
+
+	// AuditLogMessageServiceNameWebDeployments captures enum value "WebDeployments"
+	AuditLogMessageServiceNameWebDeployments string = "WebDeployments"
+
+	// AuditLogMessageServiceNameWebhooks captures enum value "Webhooks"
+	AuditLogMessageServiceNameWebhooks string = "Webhooks"
+
+	// AuditLogMessageServiceNameWorkforceManagement captures enum value "WorkforceManagement"
+	AuditLogMessageServiceNameWorkforceManagement string = "WorkforceManagement"
+
+	// AuditLogMessageServiceNameMessaging captures enum value "Messaging"
+	AuditLogMessageServiceNameMessaging string = "Messaging"
+
+	// AuditLogMessageServiceNameSupportability captures enum value "Supportability"
+	AuditLogMessageServiceNameSupportability string = "Supportability"
 )
 
 // prop value enum

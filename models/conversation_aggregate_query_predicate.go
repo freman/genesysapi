@@ -20,7 +20,7 @@ import (
 type ConversationAggregateQueryPredicate struct {
 
 	// Left hand side for dimension predicates
-	// Enum: [activeSkillId addressFrom addressTo agentAssistantId agentBullseyeRing agentRank agentScore ani assignerId authenticated conversationId convertedFrom convertedTo direction disconnectType divisionId dnis edgeId externalContactId externalMediaCount externalOrganizationId externalTag firstQueue flaggedReason flowInType flowOutType groupId interactionType journeyActionId journeyActionMapId journeyActionMapVersion journeyCustomerId journeyCustomerIdType journeyCustomerSessionId journeyCustomerSessionIdType mediaCount mediaType messageType originatingDirection outboundCampaignId outboundContactId outboundContactListId participantName peerId proposedAgentId provider purpose queueId remote removedSkillId reoffered requestedLanguageId requestedRouting requestedRoutingSkillId roomId routingPriority routingRing scoredAgentId selectedAgentId selectedAgentRank sessionDnis sessionId stationId teamId usedRouting userId wrapUpCode]
+	// Enum: [activeSkillId addressFrom addressTo agentAssistantId agentBullseyeRing agentOwned agentRank agentScore ani assignerId authenticated conversationId convertedFrom convertedTo direction disconnectType divisionId dnis edgeId externalContactId externalMediaCount externalOrganizationId externalTag firstQueue flaggedReason flowInType flowOutType groupId interactionType journeyActionId journeyActionMapId journeyActionMapVersion journeyCustomerId journeyCustomerIdType journeyCustomerSessionId journeyCustomerSessionIdType mediaCount mediaType messageType originatingDirection outboundCampaignId outboundContactId outboundContactListId participantName peerId proposedAgentId provider purpose queueId remote removedSkillId reoffered requestedLanguageId requestedRouting requestedRoutingSkillId roomId routingPriority routingRing scoredAgentId selectedAgentId selectedAgentRank sessionDnis sessionId stationId teamId usedRouting userId wrapUpCode]
 	Dimension string `json:"dimension,omitempty"`
 
 	// Optional operator, default is matches
@@ -68,7 +68,7 @@ var conversationAggregateQueryPredicateTypeDimensionPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["activeSkillId","addressFrom","addressTo","agentAssistantId","agentBullseyeRing","agentRank","agentScore","ani","assignerId","authenticated","conversationId","convertedFrom","convertedTo","direction","disconnectType","divisionId","dnis","edgeId","externalContactId","externalMediaCount","externalOrganizationId","externalTag","firstQueue","flaggedReason","flowInType","flowOutType","groupId","interactionType","journeyActionId","journeyActionMapId","journeyActionMapVersion","journeyCustomerId","journeyCustomerIdType","journeyCustomerSessionId","journeyCustomerSessionIdType","mediaCount","mediaType","messageType","originatingDirection","outboundCampaignId","outboundContactId","outboundContactListId","participantName","peerId","proposedAgentId","provider","purpose","queueId","remote","removedSkillId","reoffered","requestedLanguageId","requestedRouting","requestedRoutingSkillId","roomId","routingPriority","routingRing","scoredAgentId","selectedAgentId","selectedAgentRank","sessionDnis","sessionId","stationId","teamId","usedRouting","userId","wrapUpCode"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["activeSkillId","addressFrom","addressTo","agentAssistantId","agentBullseyeRing","agentOwned","agentRank","agentScore","ani","assignerId","authenticated","conversationId","convertedFrom","convertedTo","direction","disconnectType","divisionId","dnis","edgeId","externalContactId","externalMediaCount","externalOrganizationId","externalTag","firstQueue","flaggedReason","flowInType","flowOutType","groupId","interactionType","journeyActionId","journeyActionMapId","journeyActionMapVersion","journeyCustomerId","journeyCustomerIdType","journeyCustomerSessionId","journeyCustomerSessionIdType","mediaCount","mediaType","messageType","originatingDirection","outboundCampaignId","outboundContactId","outboundContactListId","participantName","peerId","proposedAgentId","provider","purpose","queueId","remote","removedSkillId","reoffered","requestedLanguageId","requestedRouting","requestedRoutingSkillId","roomId","routingPriority","routingRing","scoredAgentId","selectedAgentId","selectedAgentRank","sessionDnis","sessionId","stationId","teamId","usedRouting","userId","wrapUpCode"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -92,6 +92,9 @@ const (
 
 	// ConversationAggregateQueryPredicateDimensionAgentBullseyeRing captures enum value "agentBullseyeRing"
 	ConversationAggregateQueryPredicateDimensionAgentBullseyeRing string = "agentBullseyeRing"
+
+	// ConversationAggregateQueryPredicateDimensionAgentOwned captures enum value "agentOwned"
+	ConversationAggregateQueryPredicateDimensionAgentOwned string = "agentOwned"
 
 	// ConversationAggregateQueryPredicateDimensionAgentRank captures enum value "agentRank"
 	ConversationAggregateQueryPredicateDimensionAgentRank string = "agentRank"

@@ -33,7 +33,7 @@ type JourneyAggregationView struct {
 
 	// Target metric name
 	// Required: true
-	// Enum: [nDistinctJourneyActions nJourneyActionsBlocked nJourneyOutcomesAchieved nJourneyOutcomesAttributed nJourneySegmentsAssigned nJourneySessions nWebActionsAbandoned nWebActionsAccepted nWebActionsEngaged nWebActionsErrored nWebActionsIgnored nWebActionsOffered nWebActionsQualified nWebActionsQualifiedOutsideSchedule nWebActionsRejected nWebActionsStarted nWebActionsTimedout nWebActionsFrequencyCapReached nWebActionsOfferedOutsideSchedule]
+	// Enum: [nDistinctJourneyActions nDistinctJourneySessions nJourneyActionsBlocked nJourneyOutcomesAchieved nJourneyOutcomesAttributed nJourneySegmentsAssigned nJourneySessions nWebActionsAbandoned nWebActionsAccepted nWebActionsEngaged nWebActionsErrored nWebActionsIgnored nWebActionsOffered nWebActionsQualified nWebActionsQualifiedOutsideSchedule nWebActionsRejected nWebActionsStarted nWebActionsTimedout nWebActionsFrequencyCapReached nWebActionsOfferedOutsideSchedule]
 	Target *string `json:"target"`
 }
 
@@ -134,7 +134,7 @@ var journeyAggregationViewTypeTargetPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["nDistinctJourneyActions","nJourneyActionsBlocked","nJourneyOutcomesAchieved","nJourneyOutcomesAttributed","nJourneySegmentsAssigned","nJourneySessions","nWebActionsAbandoned","nWebActionsAccepted","nWebActionsEngaged","nWebActionsErrored","nWebActionsIgnored","nWebActionsOffered","nWebActionsQualified","nWebActionsQualifiedOutsideSchedule","nWebActionsRejected","nWebActionsStarted","nWebActionsTimedout","nWebActionsFrequencyCapReached","nWebActionsOfferedOutsideSchedule"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["nDistinctJourneyActions","nDistinctJourneySessions","nJourneyActionsBlocked","nJourneyOutcomesAchieved","nJourneyOutcomesAttributed","nJourneySegmentsAssigned","nJourneySessions","nWebActionsAbandoned","nWebActionsAccepted","nWebActionsEngaged","nWebActionsErrored","nWebActionsIgnored","nWebActionsOffered","nWebActionsQualified","nWebActionsQualifiedOutsideSchedule","nWebActionsRejected","nWebActionsStarted","nWebActionsTimedout","nWebActionsFrequencyCapReached","nWebActionsOfferedOutsideSchedule"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -146,6 +146,9 @@ const (
 
 	// JourneyAggregationViewTargetNDistinctJourneyActions captures enum value "nDistinctJourneyActions"
 	JourneyAggregationViewTargetNDistinctJourneyActions string = "nDistinctJourneyActions"
+
+	// JourneyAggregationViewTargetNDistinctJourneySessions captures enum value "nDistinctJourneySessions"
+	JourneyAggregationViewTargetNDistinctJourneySessions string = "nDistinctJourneySessions"
 
 	// JourneyAggregationViewTargetNJourneyActionsBlocked captures enum value "nJourneyActionsBlocked"
 	JourneyAggregationViewTargetNJourneyActionsBlocked string = "nJourneyActionsBlocked"

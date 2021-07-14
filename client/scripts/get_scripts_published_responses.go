@@ -53,6 +53,12 @@ func (o *GetScriptsPublishedReader) ReadResponse(response runtime.ClientResponse
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetScriptsPublishedRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetScriptsPublishedRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetScriptsPublishedNotFound) readResponse(response runtime.ClientRespon
 	return nil
 }
 
+// NewGetScriptsPublishedRequestTimeout creates a GetScriptsPublishedRequestTimeout with default headers values
+func NewGetScriptsPublishedRequestTimeout() *GetScriptsPublishedRequestTimeout {
+	return &GetScriptsPublishedRequestTimeout{}
+}
+
+/*GetScriptsPublishedRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetScriptsPublishedRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetScriptsPublishedRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scripts/published][%d] getScriptsPublishedRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetScriptsPublishedRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetScriptsPublishedRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetScriptsPublishedRequestEntityTooLarge creates a GetScriptsPublishedRequestEntityTooLarge with default headers values
 func NewGetScriptsPublishedRequestEntityTooLarge() *GetScriptsPublishedRequestEntityTooLarge {
 	return &GetScriptsPublishedRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetScriptsPublishedTooManyRequests() *GetScriptsPublishedTooManyRequests
 
 /*GetScriptsPublishedTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetScriptsPublishedTooManyRequests struct {
 	Payload *models.ErrorBody

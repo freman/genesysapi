@@ -53,6 +53,12 @@ func (o *PutOauthClientReader) ReadResponse(response runtime.ClientResponse, con
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPutOauthClientRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPutOauthClientRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PutOauthClientNotFound) readResponse(response runtime.ClientResponse, c
 	return nil
 }
 
+// NewPutOauthClientRequestTimeout creates a PutOauthClientRequestTimeout with default headers values
+func NewPutOauthClientRequestTimeout() *PutOauthClientRequestTimeout {
+	return &PutOauthClientRequestTimeout{}
+}
+
+/*PutOauthClientRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PutOauthClientRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PutOauthClientRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/oauth/clients/{clientId}][%d] putOauthClientRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutOauthClientRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PutOauthClientRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPutOauthClientRequestEntityTooLarge creates a PutOauthClientRequestEntityTooLarge with default headers values
 func NewPutOauthClientRequestEntityTooLarge() *PutOauthClientRequestEntityTooLarge {
 	return &PutOauthClientRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPutOauthClientTooManyRequests() *PutOauthClientTooManyRequests {
 
 /*PutOauthClientTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PutOauthClientTooManyRequests struct {
 	Payload *models.ErrorBody

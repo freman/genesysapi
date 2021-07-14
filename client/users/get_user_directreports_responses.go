@@ -53,6 +53,12 @@ func (o *GetUserDirectreportsReader) ReadResponse(response runtime.ClientRespons
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetUserDirectreportsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetUserDirectreportsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -258,6 +264,39 @@ func (o *GetUserDirectreportsNotFound) readResponse(response runtime.ClientRespo
 	return nil
 }
 
+// NewGetUserDirectreportsRequestTimeout creates a GetUserDirectreportsRequestTimeout with default headers values
+func NewGetUserDirectreportsRequestTimeout() *GetUserDirectreportsRequestTimeout {
+	return &GetUserDirectreportsRequestTimeout{}
+}
+
+/*GetUserDirectreportsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetUserDirectreportsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetUserDirectreportsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/directreports][%d] getUserDirectreportsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetUserDirectreportsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetUserDirectreportsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetUserDirectreportsRequestEntityTooLarge creates a GetUserDirectreportsRequestEntityTooLarge with default headers values
 func NewGetUserDirectreportsRequestEntityTooLarge() *GetUserDirectreportsRequestEntityTooLarge {
 	return &GetUserDirectreportsRequestEntityTooLarge{}
@@ -331,7 +370,7 @@ func NewGetUserDirectreportsTooManyRequests() *GetUserDirectreportsTooManyReques
 
 /*GetUserDirectreportsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetUserDirectreportsTooManyRequests struct {
 	Payload *models.ErrorBody

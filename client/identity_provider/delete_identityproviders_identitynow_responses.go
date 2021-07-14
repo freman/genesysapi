@@ -53,6 +53,12 @@ func (o *DeleteIdentityprovidersIdentitynowReader) ReadResponse(response runtime
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewDeleteIdentityprovidersIdentitynowRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewDeleteIdentityprovidersIdentitynowRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -258,6 +264,39 @@ func (o *DeleteIdentityprovidersIdentitynowNotFound) readResponse(response runti
 	return nil
 }
 
+// NewDeleteIdentityprovidersIdentitynowRequestTimeout creates a DeleteIdentityprovidersIdentitynowRequestTimeout with default headers values
+func NewDeleteIdentityprovidersIdentitynowRequestTimeout() *DeleteIdentityprovidersIdentitynowRequestTimeout {
+	return &DeleteIdentityprovidersIdentitynowRequestTimeout{}
+}
+
+/*DeleteIdentityprovidersIdentitynowRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type DeleteIdentityprovidersIdentitynowRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *DeleteIdentityprovidersIdentitynowRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/identitynow][%d] deleteIdentityprovidersIdentitynowRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersIdentitynowRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *DeleteIdentityprovidersIdentitynowRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewDeleteIdentityprovidersIdentitynowRequestEntityTooLarge creates a DeleteIdentityprovidersIdentitynowRequestEntityTooLarge with default headers values
 func NewDeleteIdentityprovidersIdentitynowRequestEntityTooLarge() *DeleteIdentityprovidersIdentitynowRequestEntityTooLarge {
 	return &DeleteIdentityprovidersIdentitynowRequestEntityTooLarge{}
@@ -331,7 +370,7 @@ func NewDeleteIdentityprovidersIdentitynowTooManyRequests() *DeleteIdentityprovi
 
 /*DeleteIdentityprovidersIdentitynowTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type DeleteIdentityprovidersIdentitynowTooManyRequests struct {
 	Payload *models.ErrorBody

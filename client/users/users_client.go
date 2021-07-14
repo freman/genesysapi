@@ -67,7 +67,7 @@ type API interface {
 	*/
 	GetUserDirectreports(ctx context.Context, params *GetUserDirectreportsParams) (*GetUserDirectreportsOK, error)
 	/*
-	   GetUserFavorites gets favorites
+	   GetUserFavorites deprecateds will be revived with new contract
 	*/
 	GetUserFavorites(ctx context.Context, params *GetUserFavoritesParams) (*GetUserFavoritesOK, error)
 	/*
@@ -525,7 +525,7 @@ func (a *Client) GetUserDirectreports(ctx context.Context, params *GetUserDirect
 }
 
 /*
-GetUserFavorites gets favorites
+GetUserFavorites deprecateds will be revived with new contract
 */
 func (a *Client) GetUserFavorites(ctx context.Context, params *GetUserFavoritesParams) (*GetUserFavoritesOK, error) {
 

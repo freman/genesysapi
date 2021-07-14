@@ -53,6 +53,12 @@ func (o *GetSystempresencesReader) ReadResponse(response runtime.ClientResponse,
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetSystempresencesRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetSystempresencesRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -258,6 +264,39 @@ func (o *GetSystempresencesNotFound) readResponse(response runtime.ClientRespons
 	return nil
 }
 
+// NewGetSystempresencesRequestTimeout creates a GetSystempresencesRequestTimeout with default headers values
+func NewGetSystempresencesRequestTimeout() *GetSystempresencesRequestTimeout {
+	return &GetSystempresencesRequestTimeout{}
+}
+
+/*GetSystempresencesRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetSystempresencesRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetSystempresencesRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/systempresences][%d] getSystempresencesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetSystempresencesRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetSystempresencesRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetSystempresencesRequestEntityTooLarge creates a GetSystempresencesRequestEntityTooLarge with default headers values
 func NewGetSystempresencesRequestEntityTooLarge() *GetSystempresencesRequestEntityTooLarge {
 	return &GetSystempresencesRequestEntityTooLarge{}
@@ -331,7 +370,7 @@ func NewGetSystempresencesTooManyRequests() *GetSystempresencesTooManyRequests {
 
 /*GetSystempresencesTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetSystempresencesTooManyRequests struct {
 	Payload *models.ErrorBody

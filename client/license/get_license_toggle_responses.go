@@ -53,6 +53,12 @@ func (o *GetLicenseToggleReader) ReadResponse(response runtime.ClientResponse, c
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetLicenseToggleRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetLicenseToggleRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetLicenseToggleNotFound) readResponse(response runtime.ClientResponse,
 	return nil
 }
 
+// NewGetLicenseToggleRequestTimeout creates a GetLicenseToggleRequestTimeout with default headers values
+func NewGetLicenseToggleRequestTimeout() *GetLicenseToggleRequestTimeout {
+	return &GetLicenseToggleRequestTimeout{}
+}
+
+/*GetLicenseToggleRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetLicenseToggleRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetLicenseToggleRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/license/toggles/{featureName}][%d] getLicenseToggleRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetLicenseToggleRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetLicenseToggleRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetLicenseToggleRequestEntityTooLarge creates a GetLicenseToggleRequestEntityTooLarge with default headers values
 func NewGetLicenseToggleRequestEntityTooLarge() *GetLicenseToggleRequestEntityTooLarge {
 	return &GetLicenseToggleRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetLicenseToggleTooManyRequests() *GetLicenseToggleTooManyRequests {
 
 /*GetLicenseToggleTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetLicenseToggleTooManyRequests struct {
 	Payload *models.ErrorBody

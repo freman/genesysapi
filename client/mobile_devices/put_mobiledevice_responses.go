@@ -53,6 +53,12 @@ func (o *PutMobiledeviceReader) ReadResponse(response runtime.ClientResponse, co
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPutMobiledeviceRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPutMobiledeviceRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PutMobiledeviceNotFound) readResponse(response runtime.ClientResponse, 
 	return nil
 }
 
+// NewPutMobiledeviceRequestTimeout creates a PutMobiledeviceRequestTimeout with default headers values
+func NewPutMobiledeviceRequestTimeout() *PutMobiledeviceRequestTimeout {
+	return &PutMobiledeviceRequestTimeout{}
+}
+
+/*PutMobiledeviceRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PutMobiledeviceRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PutMobiledeviceRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/mobiledevices/{deviceId}][%d] putMobiledeviceRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutMobiledeviceRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PutMobiledeviceRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPutMobiledeviceRequestEntityTooLarge creates a PutMobiledeviceRequestEntityTooLarge with default headers values
 func NewPutMobiledeviceRequestEntityTooLarge() *PutMobiledeviceRequestEntityTooLarge {
 	return &PutMobiledeviceRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPutMobiledeviceTooManyRequests() *PutMobiledeviceTooManyRequests {
 
 /*PutMobiledeviceTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PutMobiledeviceTooManyRequests struct {
 	Payload *models.ErrorBody

@@ -65,6 +65,11 @@ type GetGamificationMetricParams struct {
 
 	*/
 	MetricID string
+	/*PerformanceProfileID
+	  The profile id of the metrics you are trying to retrieve. The DEFAULT profile is used if nothing is given.
+
+	*/
+	PerformanceProfileID *string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -115,6 +120,17 @@ func (o *GetGamificationMetricParams) SetMetricID(metricID string) {
 	o.MetricID = metricID
 }
 
+// WithPerformanceProfileID adds the performanceProfileID to the get gamification metric params
+func (o *GetGamificationMetricParams) WithPerformanceProfileID(performanceProfileID *string) *GetGamificationMetricParams {
+	o.SetPerformanceProfileID(performanceProfileID)
+	return o
+}
+
+// SetPerformanceProfileID adds the performanceProfileId to the get gamification metric params
+func (o *GetGamificationMetricParams) SetPerformanceProfileID(performanceProfileID *string) {
+	o.PerformanceProfileID = performanceProfileID
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *GetGamificationMetricParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -126,6 +142,22 @@ func (o *GetGamificationMetricParams) WriteToRequest(r runtime.ClientRequest, re
 	// path param metricId
 	if err := r.SetPathParam("metricId", o.MetricID); err != nil {
 		return err
+	}
+
+	if o.PerformanceProfileID != nil {
+
+		// query param performance profile id
+		var qrPerformanceProfileID string
+		if o.PerformanceProfileID != nil {
+			qrPerformanceProfileID = *o.PerformanceProfileID
+		}
+		qPerformanceProfileID := qrPerformanceProfileID
+		if qPerformanceProfileID != "" {
+			if err := r.SetQueryParam("performance profile id", qPerformanceProfileID); err != nil {
+				return err
+			}
+		}
+
 	}
 
 	if len(res) > 0 {

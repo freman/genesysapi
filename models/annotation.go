@@ -23,17 +23,6 @@ type Annotation struct {
 	// Offset of annotation (milliseconds) from start of recording.
 	AbsoluteLocation int64 `json:"absoluteLocation,omitempty"`
 
-	// A modifier to the evaluation score when the phrase is spotted in the agent channel.
-	// Required: true
-	AgentScoreModifier *string `json:"agentScoreModifier"`
-
-	// Actual confidence that this is an accurate match.
-	Confidence float32 `json:"confidence,omitempty"`
-
-	// A modifier to the evaluation score when the phrase is spotted in the customer channel.
-	// Required: true
-	CustomerScoreModifier *string `json:"customerScoreModifier"`
-
 	// Text of annotation.
 	Description string `json:"description,omitempty"`
 
@@ -43,18 +32,6 @@ type Annotation struct {
 	// The globally unique identifier for the object.
 	// Read Only: true
 	ID string `json:"id,omitempty"`
-
-	// Configured sensitivity threshold that can be increased to lower false positives or decreased to reduce false negatives.
-	KeywordConfidenceThreshold string `json:"keywordConfidenceThreshold,omitempty"`
-
-	// The word or phrase which is being looked for with speech recognition.
-	KeywordName string `json:"keywordName,omitempty"`
-
-	// A unique identifier for the keyword set to which this spotted keyword belongs.
-	KeywordSetID string `json:"keywordSetId,omitempty"`
-
-	// The keyword set to which this spotted keyword belongs.
-	KeywordSetName string `json:"keywordSetName,omitempty"`
 
 	// Offset of annotation in milliseconds.
 	Location int64 `json:"location,omitempty"`
@@ -73,33 +50,16 @@ type Annotation struct {
 	// Format: uri
 	SelfURI strfmt.URI `json:"selfUri,omitempty"`
 
-	// Beginning time offset of the keyword spot match.
-	TimeBegin string `json:"timeBegin,omitempty"`
-
-	// Ending time offset of the keyword spot match.
-	TimeEnd string `json:"timeEnd,omitempty"`
-
 	// type
 	Type string `json:"type,omitempty"`
 
 	// User that created this annotation (if any).
 	User *User `json:"user,omitempty"`
-
-	// The phonetic spellings for the phrase and alternate spellings.
-	Utterance string `json:"utterance,omitempty"`
 }
 
 // Validate validates this annotation
 func (m *Annotation) Validate(formats strfmt.Registry) error {
 	var res []error
-
-	if err := m.validateAgentScoreModifier(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateCustomerScoreModifier(formats); err != nil {
-		res = append(res, err)
-	}
 
 	if err := m.validateSelfURI(formats); err != nil {
 		res = append(res, err)
@@ -112,24 +72,6 @@ func (m *Annotation) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *Annotation) validateAgentScoreModifier(formats strfmt.Registry) error {
-
-	if err := validate.Required("agentScoreModifier", "body", m.AgentScoreModifier); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Annotation) validateCustomerScoreModifier(formats strfmt.Registry) error {
-
-	if err := validate.Required("customerScoreModifier", "body", m.CustomerScoreModifier); err != nil {
-		return err
-	}
-
 	return nil
 }
 

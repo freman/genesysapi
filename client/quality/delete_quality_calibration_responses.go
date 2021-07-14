@@ -53,6 +53,12 @@ func (o *DeleteQualityCalibrationReader) ReadResponse(response runtime.ClientRes
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewDeleteQualityCalibrationRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewDeleteQualityCalibrationRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *DeleteQualityCalibrationNotFound) readResponse(response runtime.ClientR
 	return nil
 }
 
+// NewDeleteQualityCalibrationRequestTimeout creates a DeleteQualityCalibrationRequestTimeout with default headers values
+func NewDeleteQualityCalibrationRequestTimeout() *DeleteQualityCalibrationRequestTimeout {
+	return &DeleteQualityCalibrationRequestTimeout{}
+}
+
+/*DeleteQualityCalibrationRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type DeleteQualityCalibrationRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *DeleteQualityCalibrationRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/quality/calibrations/{calibrationId}][%d] deleteQualityCalibrationRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteQualityCalibrationRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *DeleteQualityCalibrationRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewDeleteQualityCalibrationRequestEntityTooLarge creates a DeleteQualityCalibrationRequestEntityTooLarge with default headers values
 func NewDeleteQualityCalibrationRequestEntityTooLarge() *DeleteQualityCalibrationRequestEntityTooLarge {
 	return &DeleteQualityCalibrationRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewDeleteQualityCalibrationTooManyRequests() *DeleteQualityCalibrationTooMa
 
 /*DeleteQualityCalibrationTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type DeleteQualityCalibrationTooManyRequests struct {
 	Payload *models.ErrorBody

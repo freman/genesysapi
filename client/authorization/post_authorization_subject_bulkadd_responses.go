@@ -53,6 +53,12 @@ func (o *PostAuthorizationSubjectBulkaddReader) ReadResponse(response runtime.Cl
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostAuthorizationSubjectBulkaddRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostAuthorizationSubjectBulkaddRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -248,6 +254,39 @@ func (o *PostAuthorizationSubjectBulkaddNotFound) readResponse(response runtime.
 	return nil
 }
 
+// NewPostAuthorizationSubjectBulkaddRequestTimeout creates a PostAuthorizationSubjectBulkaddRequestTimeout with default headers values
+func NewPostAuthorizationSubjectBulkaddRequestTimeout() *PostAuthorizationSubjectBulkaddRequestTimeout {
+	return &PostAuthorizationSubjectBulkaddRequestTimeout{}
+}
+
+/*PostAuthorizationSubjectBulkaddRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostAuthorizationSubjectBulkaddRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostAuthorizationSubjectBulkaddRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/subjects/{subjectId}/bulkadd][%d] postAuthorizationSubjectBulkaddRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostAuthorizationSubjectBulkaddRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostAuthorizationSubjectBulkaddRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostAuthorizationSubjectBulkaddRequestEntityTooLarge creates a PostAuthorizationSubjectBulkaddRequestEntityTooLarge with default headers values
 func NewPostAuthorizationSubjectBulkaddRequestEntityTooLarge() *PostAuthorizationSubjectBulkaddRequestEntityTooLarge {
 	return &PostAuthorizationSubjectBulkaddRequestEntityTooLarge{}
@@ -321,7 +360,7 @@ func NewPostAuthorizationSubjectBulkaddTooManyRequests() *PostAuthorizationSubje
 
 /*PostAuthorizationSubjectBulkaddTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostAuthorizationSubjectBulkaddTooManyRequests struct {
 	Payload *models.ErrorBody

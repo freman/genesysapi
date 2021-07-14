@@ -10,12 +10,12 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NotificationTemplateFooter Template footer object
+// NotificationTemplateFooter Template footer object.
 //
 // swagger:model NotificationTemplateFooter
 type NotificationTemplateFooter struct {
 
-	// Footer text. For WhatsApp, ignored
+	// Footer text. For WhatsApp, ignored.
 	Text string `json:"text,omitempty"`
 }
 

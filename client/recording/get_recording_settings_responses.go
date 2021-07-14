@@ -53,6 +53,12 @@ func (o *GetRecordingSettingsReader) ReadResponse(response runtime.ClientRespons
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetRecordingSettingsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetRecordingSettingsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetRecordingSettingsNotFound) readResponse(response runtime.ClientRespo
 	return nil
 }
 
+// NewGetRecordingSettingsRequestTimeout creates a GetRecordingSettingsRequestTimeout with default headers values
+func NewGetRecordingSettingsRequestTimeout() *GetRecordingSettingsRequestTimeout {
+	return &GetRecordingSettingsRequestTimeout{}
+}
+
+/*GetRecordingSettingsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetRecordingSettingsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetRecordingSettingsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/settings][%d] getRecordingSettingsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetRecordingSettingsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetRecordingSettingsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetRecordingSettingsRequestEntityTooLarge creates a GetRecordingSettingsRequestEntityTooLarge with default headers values
 func NewGetRecordingSettingsRequestEntityTooLarge() *GetRecordingSettingsRequestEntityTooLarge {
 	return &GetRecordingSettingsRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetRecordingSettingsTooManyRequests() *GetRecordingSettingsTooManyReques
 
 /*GetRecordingSettingsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetRecordingSettingsTooManyRequests struct {
 	Payload *models.ErrorBody

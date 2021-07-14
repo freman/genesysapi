@@ -53,6 +53,12 @@ func (o *PutRoutingEmailDomainRouteReader) ReadResponse(response runtime.ClientR
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPutRoutingEmailDomainRouteRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPutRoutingEmailDomainRouteRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PutRoutingEmailDomainRouteNotFound) readResponse(response runtime.Clien
 	return nil
 }
 
+// NewPutRoutingEmailDomainRouteRequestTimeout creates a PutRoutingEmailDomainRouteRequestTimeout with default headers values
+func NewPutRoutingEmailDomainRouteRequestTimeout() *PutRoutingEmailDomainRouteRequestTimeout {
+	return &PutRoutingEmailDomainRouteRequestTimeout{}
+}
+
+/*PutRoutingEmailDomainRouteRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PutRoutingEmailDomainRouteRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PutRoutingEmailDomainRouteRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/routing/email/domains/{domainName}/routes/{routeId}][%d] putRoutingEmailDomainRouteRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutRoutingEmailDomainRouteRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PutRoutingEmailDomainRouteRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPutRoutingEmailDomainRouteRequestEntityTooLarge creates a PutRoutingEmailDomainRouteRequestEntityTooLarge with default headers values
 func NewPutRoutingEmailDomainRouteRequestEntityTooLarge() *PutRoutingEmailDomainRouteRequestEntityTooLarge {
 	return &PutRoutingEmailDomainRouteRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPutRoutingEmailDomainRouteTooManyRequests() *PutRoutingEmailDomainRouteT
 
 /*PutRoutingEmailDomainRouteTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PutRoutingEmailDomainRouteTooManyRequests struct {
 	Payload *models.ErrorBody

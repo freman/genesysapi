@@ -53,6 +53,12 @@ func (o *GetOutboundContactlistsDivisionviewReader) ReadResponse(response runtim
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetOutboundContactlistsDivisionviewRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetOutboundContactlistsDivisionviewRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetOutboundContactlistsDivisionviewNotFound) readResponse(response runt
 	return nil
 }
 
+// NewGetOutboundContactlistsDivisionviewRequestTimeout creates a GetOutboundContactlistsDivisionviewRequestTimeout with default headers values
+func NewGetOutboundContactlistsDivisionviewRequestTimeout() *GetOutboundContactlistsDivisionviewRequestTimeout {
+	return &GetOutboundContactlistsDivisionviewRequestTimeout{}
+}
+
+/*GetOutboundContactlistsDivisionviewRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetOutboundContactlistsDivisionviewRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetOutboundContactlistsDivisionviewRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/contactlists/divisionviews/{contactListId}][%d] getOutboundContactlistsDivisionviewRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetOutboundContactlistsDivisionviewRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetOutboundContactlistsDivisionviewRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetOutboundContactlistsDivisionviewRequestEntityTooLarge creates a GetOutboundContactlistsDivisionviewRequestEntityTooLarge with default headers values
 func NewGetOutboundContactlistsDivisionviewRequestEntityTooLarge() *GetOutboundContactlistsDivisionviewRequestEntityTooLarge {
 	return &GetOutboundContactlistsDivisionviewRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetOutboundContactlistsDivisionviewTooManyRequests() *GetOutboundContact
 
 /*GetOutboundContactlistsDivisionviewTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetOutboundContactlistsDivisionviewTooManyRequests struct {
 	Payload *models.ErrorBody

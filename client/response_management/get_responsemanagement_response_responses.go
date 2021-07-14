@@ -53,6 +53,12 @@ func (o *GetResponsemanagementResponseReader) ReadResponse(response runtime.Clie
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetResponsemanagementResponseRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetResponsemanagementResponseRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetResponsemanagementResponseNotFound) readResponse(response runtime.Cl
 	return nil
 }
 
+// NewGetResponsemanagementResponseRequestTimeout creates a GetResponsemanagementResponseRequestTimeout with default headers values
+func NewGetResponsemanagementResponseRequestTimeout() *GetResponsemanagementResponseRequestTimeout {
+	return &GetResponsemanagementResponseRequestTimeout{}
+}
+
+/*GetResponsemanagementResponseRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetResponsemanagementResponseRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetResponsemanagementResponseRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/responsemanagement/responses/{responseId}][%d] getResponsemanagementResponseRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetResponsemanagementResponseRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetResponsemanagementResponseRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetResponsemanagementResponseRequestEntityTooLarge creates a GetResponsemanagementResponseRequestEntityTooLarge with default headers values
 func NewGetResponsemanagementResponseRequestEntityTooLarge() *GetResponsemanagementResponseRequestEntityTooLarge {
 	return &GetResponsemanagementResponseRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetResponsemanagementResponseTooManyRequests() *GetResponsemanagementRes
 
 /*GetResponsemanagementResponseTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetResponsemanagementResponseTooManyRequests struct {
 	Payload *models.ErrorBody

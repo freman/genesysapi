@@ -53,6 +53,12 @@ func (o *PostConversationsFaxesReader) ReadResponse(response runtime.ClientRespo
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostConversationsFaxesRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostConversationsFaxesRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PostConversationsFaxesNotFound) readResponse(response runtime.ClientRes
 	return nil
 }
 
+// NewPostConversationsFaxesRequestTimeout creates a PostConversationsFaxesRequestTimeout with default headers values
+func NewPostConversationsFaxesRequestTimeout() *PostConversationsFaxesRequestTimeout {
+	return &PostConversationsFaxesRequestTimeout{}
+}
+
+/*PostConversationsFaxesRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostConversationsFaxesRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostConversationsFaxesRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/faxes][%d] postConversationsFaxesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostConversationsFaxesRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostConversationsFaxesRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostConversationsFaxesRequestEntityTooLarge creates a PostConversationsFaxesRequestEntityTooLarge with default headers values
 func NewPostConversationsFaxesRequestEntityTooLarge() *PostConversationsFaxesRequestEntityTooLarge {
 	return &PostConversationsFaxesRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPostConversationsFaxesTooManyRequests() *PostConversationsFaxesTooManyRe
 
 /*PostConversationsFaxesTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostConversationsFaxesTooManyRequests struct {
 	Payload *models.ErrorBody

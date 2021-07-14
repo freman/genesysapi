@@ -53,6 +53,12 @@ func (o *PostOutboundDnclistExportReader) ReadResponse(response runtime.ClientRe
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostOutboundDnclistExportRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostOutboundDnclistExportRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PostOutboundDnclistExportNotFound) readResponse(response runtime.Client
 	return nil
 }
 
+// NewPostOutboundDnclistExportRequestTimeout creates a PostOutboundDnclistExportRequestTimeout with default headers values
+func NewPostOutboundDnclistExportRequestTimeout() *PostOutboundDnclistExportRequestTimeout {
+	return &PostOutboundDnclistExportRequestTimeout{}
+}
+
+/*PostOutboundDnclistExportRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostOutboundDnclistExportRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostOutboundDnclistExportRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/dnclists/{dncListId}/export][%d] postOutboundDnclistExportRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostOutboundDnclistExportRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostOutboundDnclistExportRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostOutboundDnclistExportRequestEntityTooLarge creates a PostOutboundDnclistExportRequestEntityTooLarge with default headers values
 func NewPostOutboundDnclistExportRequestEntityTooLarge() *PostOutboundDnclistExportRequestEntityTooLarge {
 	return &PostOutboundDnclistExportRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPostOutboundDnclistExportTooManyRequests() *PostOutboundDnclistExportToo
 
 /*PostOutboundDnclistExportTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostOutboundDnclistExportTooManyRequests struct {
 	Payload *models.ErrorBody

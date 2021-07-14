@@ -53,6 +53,12 @@ func (o *PostQualityFormsEvaluationsReader) ReadResponse(response runtime.Client
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostQualityFormsEvaluationsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostQualityFormsEvaluationsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PostQualityFormsEvaluationsNotFound) readResponse(response runtime.Clie
 	return nil
 }
 
+// NewPostQualityFormsEvaluationsRequestTimeout creates a PostQualityFormsEvaluationsRequestTimeout with default headers values
+func NewPostQualityFormsEvaluationsRequestTimeout() *PostQualityFormsEvaluationsRequestTimeout {
+	return &PostQualityFormsEvaluationsRequestTimeout{}
+}
+
+/*PostQualityFormsEvaluationsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostQualityFormsEvaluationsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostQualityFormsEvaluationsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/quality/forms/evaluations][%d] postQualityFormsEvaluationsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostQualityFormsEvaluationsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostQualityFormsEvaluationsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostQualityFormsEvaluationsRequestEntityTooLarge creates a PostQualityFormsEvaluationsRequestEntityTooLarge with default headers values
 func NewPostQualityFormsEvaluationsRequestEntityTooLarge() *PostQualityFormsEvaluationsRequestEntityTooLarge {
 	return &PostQualityFormsEvaluationsRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPostQualityFormsEvaluationsTooManyRequests() *PostQualityFormsEvaluation
 
 /*PostQualityFormsEvaluationsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostQualityFormsEvaluationsTooManyRequests struct {
 	Payload *models.ErrorBody

@@ -53,6 +53,12 @@ func (o *GetUserrecordingsSummaryReader) ReadResponse(response runtime.ClientRes
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetUserrecordingsSummaryRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetUserrecordingsSummaryRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetUserrecordingsSummaryNotFound) readResponse(response runtime.ClientR
 	return nil
 }
 
+// NewGetUserrecordingsSummaryRequestTimeout creates a GetUserrecordingsSummaryRequestTimeout with default headers values
+func NewGetUserrecordingsSummaryRequestTimeout() *GetUserrecordingsSummaryRequestTimeout {
+	return &GetUserrecordingsSummaryRequestTimeout{}
+}
+
+/*GetUserrecordingsSummaryRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetUserrecordingsSummaryRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetUserrecordingsSummaryRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/userrecordings/summary][%d] getUserrecordingsSummaryRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetUserrecordingsSummaryRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetUserrecordingsSummaryRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetUserrecordingsSummaryRequestEntityTooLarge creates a GetUserrecordingsSummaryRequestEntityTooLarge with default headers values
 func NewGetUserrecordingsSummaryRequestEntityTooLarge() *GetUserrecordingsSummaryRequestEntityTooLarge {
 	return &GetUserrecordingsSummaryRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetUserrecordingsSummaryTooManyRequests() *GetUserrecordingsSummaryTooMa
 
 /*GetUserrecordingsSummaryTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetUserrecordingsSummaryTooManyRequests struct {
 	Payload *models.ErrorBody

@@ -53,6 +53,12 @@ func (o *GetGroupIndividualsReader) ReadResponse(response runtime.ClientResponse
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetGroupIndividualsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetGroupIndividualsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetGroupIndividualsNotFound) readResponse(response runtime.ClientRespon
 	return nil
 }
 
+// NewGetGroupIndividualsRequestTimeout creates a GetGroupIndividualsRequestTimeout with default headers values
+func NewGetGroupIndividualsRequestTimeout() *GetGroupIndividualsRequestTimeout {
+	return &GetGroupIndividualsRequestTimeout{}
+}
+
+/*GetGroupIndividualsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetGroupIndividualsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetGroupIndividualsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/groups/{groupId}/individuals][%d] getGroupIndividualsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetGroupIndividualsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetGroupIndividualsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetGroupIndividualsRequestEntityTooLarge creates a GetGroupIndividualsRequestEntityTooLarge with default headers values
 func NewGetGroupIndividualsRequestEntityTooLarge() *GetGroupIndividualsRequestEntityTooLarge {
 	return &GetGroupIndividualsRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetGroupIndividualsTooManyRequests() *GetGroupIndividualsTooManyRequests
 
 /*GetGroupIndividualsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetGroupIndividualsTooManyRequests struct {
 	Payload *models.ErrorBody

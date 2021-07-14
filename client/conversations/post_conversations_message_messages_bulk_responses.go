@@ -53,6 +53,12 @@ func (o *PostConversationsMessageMessagesBulkReader) ReadResponse(response runti
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostConversationsMessageMessagesBulkRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostConversationsMessageMessagesBulkRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PostConversationsMessageMessagesBulkNotFound) readResponse(response run
 	return nil
 }
 
+// NewPostConversationsMessageMessagesBulkRequestTimeout creates a PostConversationsMessageMessagesBulkRequestTimeout with default headers values
+func NewPostConversationsMessageMessagesBulkRequestTimeout() *PostConversationsMessageMessagesBulkRequestTimeout {
+	return &PostConversationsMessageMessagesBulkRequestTimeout{}
+}
+
+/*PostConversationsMessageMessagesBulkRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostConversationsMessageMessagesBulkRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostConversationsMessageMessagesBulkRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/messages/bulk][%d] postConversationsMessageMessagesBulkRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostConversationsMessageMessagesBulkRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostConversationsMessageMessagesBulkRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostConversationsMessageMessagesBulkRequestEntityTooLarge creates a PostConversationsMessageMessagesBulkRequestEntityTooLarge with default headers values
 func NewPostConversationsMessageMessagesBulkRequestEntityTooLarge() *PostConversationsMessageMessagesBulkRequestEntityTooLarge {
 	return &PostConversationsMessageMessagesBulkRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPostConversationsMessageMessagesBulkTooManyRequests() *PostConversations
 
 /*PostConversationsMessageMessagesBulkTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostConversationsMessageMessagesBulkTooManyRequests struct {
 	Payload *models.ErrorBody

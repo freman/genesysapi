@@ -32,6 +32,9 @@ type Contact struct {
 	// Use internal extension instead of address. Mutually exclusive with the address field.
 	Extension string `json:"extension,omitempty"`
 
+	// Integration tag value if this number is associated with an external integration.
+	Integration string `json:"integration,omitempty"`
+
 	// media type
 	// Enum: [PHONE EMAIL SMS]
 	MediaType string `json:"mediaType,omitempty"`

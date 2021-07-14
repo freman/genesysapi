@@ -53,6 +53,12 @@ func (o *GetWebchatDeploymentReader) ReadResponse(response runtime.ClientRespons
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetWebchatDeploymentRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetWebchatDeploymentRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetWebchatDeploymentNotFound) readResponse(response runtime.ClientRespo
 	return nil
 }
 
+// NewGetWebchatDeploymentRequestTimeout creates a GetWebchatDeploymentRequestTimeout with default headers values
+func NewGetWebchatDeploymentRequestTimeout() *GetWebchatDeploymentRequestTimeout {
+	return &GetWebchatDeploymentRequestTimeout{}
+}
+
+/*GetWebchatDeploymentRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetWebchatDeploymentRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetWebchatDeploymentRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webchat/deployments/{deploymentId}][%d] getWebchatDeploymentRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetWebchatDeploymentRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetWebchatDeploymentRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetWebchatDeploymentRequestEntityTooLarge creates a GetWebchatDeploymentRequestEntityTooLarge with default headers values
 func NewGetWebchatDeploymentRequestEntityTooLarge() *GetWebchatDeploymentRequestEntityTooLarge {
 	return &GetWebchatDeploymentRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetWebchatDeploymentTooManyRequests() *GetWebchatDeploymentTooManyReques
 
 /*GetWebchatDeploymentTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetWebchatDeploymentTooManyRequests struct {
 	Payload *models.ErrorBody

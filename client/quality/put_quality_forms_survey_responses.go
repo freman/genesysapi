@@ -53,6 +53,12 @@ func (o *PutQualityFormsSurveyReader) ReadResponse(response runtime.ClientRespon
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPutQualityFormsSurveyRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPutQualityFormsSurveyRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PutQualityFormsSurveyNotFound) readResponse(response runtime.ClientResp
 	return nil
 }
 
+// NewPutQualityFormsSurveyRequestTimeout creates a PutQualityFormsSurveyRequestTimeout with default headers values
+func NewPutQualityFormsSurveyRequestTimeout() *PutQualityFormsSurveyRequestTimeout {
+	return &PutQualityFormsSurveyRequestTimeout{}
+}
+
+/*PutQualityFormsSurveyRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PutQualityFormsSurveyRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PutQualityFormsSurveyRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/quality/forms/surveys/{formId}][%d] putQualityFormsSurveyRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutQualityFormsSurveyRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PutQualityFormsSurveyRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPutQualityFormsSurveyRequestEntityTooLarge creates a PutQualityFormsSurveyRequestEntityTooLarge with default headers values
 func NewPutQualityFormsSurveyRequestEntityTooLarge() *PutQualityFormsSurveyRequestEntityTooLarge {
 	return &PutQualityFormsSurveyRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPutQualityFormsSurveyTooManyRequests() *PutQualityFormsSurveyTooManyRequ
 
 /*PutQualityFormsSurveyTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PutQualityFormsSurveyTooManyRequests struct {
 	Payload *models.ErrorBody

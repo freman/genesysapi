@@ -47,6 +47,12 @@ func (o *DeleteGroupReader) ReadResponse(response runtime.ClientResponse, consum
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewDeleteGroupRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewDeleteGroupRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -227,6 +233,39 @@ func (o *DeleteGroupNotFound) readResponse(response runtime.ClientResponse, cons
 	return nil
 }
 
+// NewDeleteGroupRequestTimeout creates a DeleteGroupRequestTimeout with default headers values
+func NewDeleteGroupRequestTimeout() *DeleteGroupRequestTimeout {
+	return &DeleteGroupRequestTimeout{}
+}
+
+/*DeleteGroupRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type DeleteGroupRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *DeleteGroupRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/groups/{groupId}][%d] deleteGroupRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteGroupRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *DeleteGroupRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewDeleteGroupRequestEntityTooLarge creates a DeleteGroupRequestEntityTooLarge with default headers values
 func NewDeleteGroupRequestEntityTooLarge() *DeleteGroupRequestEntityTooLarge {
 	return &DeleteGroupRequestEntityTooLarge{}
@@ -300,7 +339,7 @@ func NewDeleteGroupTooManyRequests() *DeleteGroupTooManyRequests {
 
 /*DeleteGroupTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type DeleteGroupTooManyRequests struct {
 	Payload *models.ErrorBody

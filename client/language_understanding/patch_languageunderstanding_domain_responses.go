@@ -53,6 +53,12 @@ func (o *PatchLanguageunderstandingDomainReader) ReadResponse(response runtime.C
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPatchLanguageunderstandingDomainRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPatchLanguageunderstandingDomainRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PatchLanguageunderstandingDomainNotFound) readResponse(response runtime
 	return nil
 }
 
+// NewPatchLanguageunderstandingDomainRequestTimeout creates a PatchLanguageunderstandingDomainRequestTimeout with default headers values
+func NewPatchLanguageunderstandingDomainRequestTimeout() *PatchLanguageunderstandingDomainRequestTimeout {
+	return &PatchLanguageunderstandingDomainRequestTimeout{}
+}
+
+/*PatchLanguageunderstandingDomainRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PatchLanguageunderstandingDomainRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PatchLanguageunderstandingDomainRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/languageunderstanding/domains/{domainId}][%d] patchLanguageunderstandingDomainRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchLanguageunderstandingDomainRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PatchLanguageunderstandingDomainRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPatchLanguageunderstandingDomainRequestEntityTooLarge creates a PatchLanguageunderstandingDomainRequestEntityTooLarge with default headers values
 func NewPatchLanguageunderstandingDomainRequestEntityTooLarge() *PatchLanguageunderstandingDomainRequestEntityTooLarge {
 	return &PatchLanguageunderstandingDomainRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPatchLanguageunderstandingDomainTooManyRequests() *PatchLanguageundersta
 
 /*PatchLanguageunderstandingDomainTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PatchLanguageunderstandingDomainTooManyRequests struct {
 	Payload *models.ErrorBody

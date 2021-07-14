@@ -53,6 +53,12 @@ func (o *GetExternalcontactsScanRelationshipsReader) ReadResponse(response runti
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetExternalcontactsScanRelationshipsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetExternalcontactsScanRelationshipsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -266,6 +272,39 @@ func (o *GetExternalcontactsScanRelationshipsNotFound) readResponse(response run
 	return nil
 }
 
+// NewGetExternalcontactsScanRelationshipsRequestTimeout creates a GetExternalcontactsScanRelationshipsRequestTimeout with default headers values
+func NewGetExternalcontactsScanRelationshipsRequestTimeout() *GetExternalcontactsScanRelationshipsRequestTimeout {
+	return &GetExternalcontactsScanRelationshipsRequestTimeout{}
+}
+
+/*GetExternalcontactsScanRelationshipsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetExternalcontactsScanRelationshipsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetExternalcontactsScanRelationshipsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/externalcontacts/scan/relationships][%d] getExternalcontactsScanRelationshipsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetExternalcontactsScanRelationshipsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetExternalcontactsScanRelationshipsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetExternalcontactsScanRelationshipsRequestEntityTooLarge creates a GetExternalcontactsScanRelationshipsRequestEntityTooLarge with default headers values
 func NewGetExternalcontactsScanRelationshipsRequestEntityTooLarge() *GetExternalcontactsScanRelationshipsRequestEntityTooLarge {
 	return &GetExternalcontactsScanRelationshipsRequestEntityTooLarge{}
@@ -372,7 +411,7 @@ func NewGetExternalcontactsScanRelationshipsTooManyRequests() *GetExternalcontac
 
 /*GetExternalcontactsScanRelationshipsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetExternalcontactsScanRelationshipsTooManyRequests struct {
 	Payload *models.ErrorBody

@@ -53,6 +53,12 @@ func (o *GetSearchSuggestReader) ReadResponse(response runtime.ClientResponse, c
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetSearchSuggestRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetSearchSuggestRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetSearchSuggestNotFound) readResponse(response runtime.ClientResponse,
 	return nil
 }
 
+// NewGetSearchSuggestRequestTimeout creates a GetSearchSuggestRequestTimeout with default headers values
+func NewGetSearchSuggestRequestTimeout() *GetSearchSuggestRequestTimeout {
+	return &GetSearchSuggestRequestTimeout{}
+}
+
+/*GetSearchSuggestRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetSearchSuggestRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetSearchSuggestRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/search/suggest][%d] getSearchSuggestRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetSearchSuggestRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetSearchSuggestRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetSearchSuggestRequestEntityTooLarge creates a GetSearchSuggestRequestEntityTooLarge with default headers values
 func NewGetSearchSuggestRequestEntityTooLarge() *GetSearchSuggestRequestEntityTooLarge {
 	return &GetSearchSuggestRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetSearchSuggestTooManyRequests() *GetSearchSuggestTooManyRequests {
 
 /*GetSearchSuggestTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetSearchSuggestTooManyRequests struct {
 	Payload *models.ErrorBody

@@ -53,6 +53,12 @@ func (o *GetAuthorizationDivisionsHomeReader) ReadResponse(response runtime.Clie
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetAuthorizationDivisionsHomeRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetAuthorizationDivisionsHomeRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetAuthorizationDivisionsHomeNotFound) readResponse(response runtime.Cl
 	return nil
 }
 
+// NewGetAuthorizationDivisionsHomeRequestTimeout creates a GetAuthorizationDivisionsHomeRequestTimeout with default headers values
+func NewGetAuthorizationDivisionsHomeRequestTimeout() *GetAuthorizationDivisionsHomeRequestTimeout {
+	return &GetAuthorizationDivisionsHomeRequestTimeout{}
+}
+
+/*GetAuthorizationDivisionsHomeRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetAuthorizationDivisionsHomeRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetAuthorizationDivisionsHomeRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/authorization/divisions/home][%d] getAuthorizationDivisionsHomeRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetAuthorizationDivisionsHomeRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetAuthorizationDivisionsHomeRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetAuthorizationDivisionsHomeRequestEntityTooLarge creates a GetAuthorizationDivisionsHomeRequestEntityTooLarge with default headers values
 func NewGetAuthorizationDivisionsHomeRequestEntityTooLarge() *GetAuthorizationDivisionsHomeRequestEntityTooLarge {
 	return &GetAuthorizationDivisionsHomeRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetAuthorizationDivisionsHomeTooManyRequests() *GetAuthorizationDivision
 
 /*GetAuthorizationDivisionsHomeTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetAuthorizationDivisionsHomeTooManyRequests struct {
 	Payload *models.ErrorBody

@@ -53,6 +53,12 @@ func (o *GetScimSchemaReader) ReadResponse(response runtime.ClientResponse, cons
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetScimSchemaRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetScimSchemaRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetScimSchemaNotFound) readResponse(response runtime.ClientResponse, co
 	return nil
 }
 
+// NewGetScimSchemaRequestTimeout creates a GetScimSchemaRequestTimeout with default headers values
+func NewGetScimSchemaRequestTimeout() *GetScimSchemaRequestTimeout {
+	return &GetScimSchemaRequestTimeout{}
+}
+
+/*GetScimSchemaRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetScimSchemaRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetScimSchemaRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/schemas/{schemaId}][%d] getScimSchemaRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetScimSchemaRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetScimSchemaRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetScimSchemaRequestEntityTooLarge creates a GetScimSchemaRequestEntityTooLarge with default headers values
 func NewGetScimSchemaRequestEntityTooLarge() *GetScimSchemaRequestEntityTooLarge {
 	return &GetScimSchemaRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetScimSchemaTooManyRequests() *GetScimSchemaTooManyRequests {
 
 /*GetScimSchemaTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetScimSchemaTooManyRequests struct {
 	Payload *models.ErrorBody

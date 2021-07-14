@@ -53,6 +53,12 @@ func (o *DeleteVoicemailMessagesReader) ReadResponse(response runtime.ClientResp
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewDeleteVoicemailMessagesRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewDeleteVoicemailMessagesRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -248,6 +254,39 @@ func (o *DeleteVoicemailMessagesNotFound) readResponse(response runtime.ClientRe
 	return nil
 }
 
+// NewDeleteVoicemailMessagesRequestTimeout creates a DeleteVoicemailMessagesRequestTimeout with default headers values
+func NewDeleteVoicemailMessagesRequestTimeout() *DeleteVoicemailMessagesRequestTimeout {
+	return &DeleteVoicemailMessagesRequestTimeout{}
+}
+
+/*DeleteVoicemailMessagesRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type DeleteVoicemailMessagesRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *DeleteVoicemailMessagesRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/voicemail/messages][%d] deleteVoicemailMessagesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteVoicemailMessagesRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *DeleteVoicemailMessagesRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewDeleteVoicemailMessagesRequestEntityTooLarge creates a DeleteVoicemailMessagesRequestEntityTooLarge with default headers values
 func NewDeleteVoicemailMessagesRequestEntityTooLarge() *DeleteVoicemailMessagesRequestEntityTooLarge {
 	return &DeleteVoicemailMessagesRequestEntityTooLarge{}
@@ -321,7 +360,7 @@ func NewDeleteVoicemailMessagesTooManyRequests() *DeleteVoicemailMessagesTooMany
 
 /*DeleteVoicemailMessagesTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type DeleteVoicemailMessagesTooManyRequests struct {
 	Payload *models.ErrorBody

@@ -53,6 +53,12 @@ func (o *GetTimezonesReader) ReadResponse(response runtime.ClientResponse, consu
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetTimezonesRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetTimezonesRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetTimezonesNotFound) readResponse(response runtime.ClientResponse, con
 	return nil
 }
 
+// NewGetTimezonesRequestTimeout creates a GetTimezonesRequestTimeout with default headers values
+func NewGetTimezonesRequestTimeout() *GetTimezonesRequestTimeout {
+	return &GetTimezonesRequestTimeout{}
+}
+
+/*GetTimezonesRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetTimezonesRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetTimezonesRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/timezones][%d] getTimezonesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetTimezonesRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetTimezonesRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetTimezonesRequestEntityTooLarge creates a GetTimezonesRequestEntityTooLarge with default headers values
 func NewGetTimezonesRequestEntityTooLarge() *GetTimezonesRequestEntityTooLarge {
 	return &GetTimezonesRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetTimezonesTooManyRequests() *GetTimezonesTooManyRequests {
 
 /*GetTimezonesTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetTimezonesTooManyRequests struct {
 	Payload *models.ErrorBody

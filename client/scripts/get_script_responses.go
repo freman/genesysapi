@@ -53,6 +53,12 @@ func (o *GetScriptReader) ReadResponse(response runtime.ClientResponse, consumer
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetScriptRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetScriptRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetScriptNotFound) readResponse(response runtime.ClientResponse, consum
 	return nil
 }
 
+// NewGetScriptRequestTimeout creates a GetScriptRequestTimeout with default headers values
+func NewGetScriptRequestTimeout() *GetScriptRequestTimeout {
+	return &GetScriptRequestTimeout{}
+}
+
+/*GetScriptRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetScriptRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetScriptRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scripts/{scriptId}][%d] getScriptRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetScriptRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetScriptRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetScriptRequestEntityTooLarge creates a GetScriptRequestEntityTooLarge with default headers values
 func NewGetScriptRequestEntityTooLarge() *GetScriptRequestEntityTooLarge {
 	return &GetScriptRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetScriptTooManyRequests() *GetScriptTooManyRequests {
 
 /*GetScriptTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetScriptTooManyRequests struct {
 	Payload *models.ErrorBody

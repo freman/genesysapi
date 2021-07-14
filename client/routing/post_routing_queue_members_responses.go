@@ -47,6 +47,12 @@ func (o *PostRoutingQueueMembersReader) ReadResponse(response runtime.ClientResp
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostRoutingQueueMembersRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostRoutingQueueMembersRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -227,6 +233,39 @@ func (o *PostRoutingQueueMembersNotFound) readResponse(response runtime.ClientRe
 	return nil
 }
 
+// NewPostRoutingQueueMembersRequestTimeout creates a PostRoutingQueueMembersRequestTimeout with default headers values
+func NewPostRoutingQueueMembersRequestTimeout() *PostRoutingQueueMembersRequestTimeout {
+	return &PostRoutingQueueMembersRequestTimeout{}
+}
+
+/*PostRoutingQueueMembersRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostRoutingQueueMembersRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostRoutingQueueMembersRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/queues/{queueId}/members][%d] postRoutingQueueMembersRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostRoutingQueueMembersRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostRoutingQueueMembersRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostRoutingQueueMembersRequestEntityTooLarge creates a PostRoutingQueueMembersRequestEntityTooLarge with default headers values
 func NewPostRoutingQueueMembersRequestEntityTooLarge() *PostRoutingQueueMembersRequestEntityTooLarge {
 	return &PostRoutingQueueMembersRequestEntityTooLarge{}
@@ -300,7 +339,7 @@ func NewPostRoutingQueueMembersTooManyRequests() *PostRoutingQueueMembersTooMany
 
 /*PostRoutingQueueMembersTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostRoutingQueueMembersTooManyRequests struct {
 	Payload *models.ErrorBody

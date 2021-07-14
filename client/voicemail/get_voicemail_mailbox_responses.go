@@ -53,6 +53,12 @@ func (o *GetVoicemailMailboxReader) ReadResponse(response runtime.ClientResponse
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetVoicemailMailboxRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetVoicemailMailboxRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetVoicemailMailboxNotFound) readResponse(response runtime.ClientRespon
 	return nil
 }
 
+// NewGetVoicemailMailboxRequestTimeout creates a GetVoicemailMailboxRequestTimeout with default headers values
+func NewGetVoicemailMailboxRequestTimeout() *GetVoicemailMailboxRequestTimeout {
+	return &GetVoicemailMailboxRequestTimeout{}
+}
+
+/*GetVoicemailMailboxRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetVoicemailMailboxRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetVoicemailMailboxRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/voicemail/mailbox][%d] getVoicemailMailboxRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetVoicemailMailboxRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetVoicemailMailboxRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetVoicemailMailboxRequestEntityTooLarge creates a GetVoicemailMailboxRequestEntityTooLarge with default headers values
 func NewGetVoicemailMailboxRequestEntityTooLarge() *GetVoicemailMailboxRequestEntityTooLarge {
 	return &GetVoicemailMailboxRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetVoicemailMailboxTooManyRequests() *GetVoicemailMailboxTooManyRequests
 
 /*GetVoicemailMailboxTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetVoicemailMailboxTooManyRequests struct {
 	Payload *models.ErrorBody

@@ -53,6 +53,12 @@ func (o *GetArchitectPromptHistoryHistoryIDReader) ReadResponse(response runtime
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetArchitectPromptHistoryHistoryIDRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetArchitectPromptHistoryHistoryIDRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetArchitectPromptHistoryHistoryIDNotFound) readResponse(response runti
 	return nil
 }
 
+// NewGetArchitectPromptHistoryHistoryIDRequestTimeout creates a GetArchitectPromptHistoryHistoryIDRequestTimeout with default headers values
+func NewGetArchitectPromptHistoryHistoryIDRequestTimeout() *GetArchitectPromptHistoryHistoryIDRequestTimeout {
+	return &GetArchitectPromptHistoryHistoryIDRequestTimeout{}
+}
+
+/*GetArchitectPromptHistoryHistoryIDRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetArchitectPromptHistoryHistoryIDRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetArchitectPromptHistoryHistoryIDRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/prompts/{promptId}/history/{historyId}][%d] getArchitectPromptHistoryHistoryIdRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetArchitectPromptHistoryHistoryIDRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetArchitectPromptHistoryHistoryIDRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetArchitectPromptHistoryHistoryIDRequestEntityTooLarge creates a GetArchitectPromptHistoryHistoryIDRequestEntityTooLarge with default headers values
 func NewGetArchitectPromptHistoryHistoryIDRequestEntityTooLarge() *GetArchitectPromptHistoryHistoryIDRequestEntityTooLarge {
 	return &GetArchitectPromptHistoryHistoryIDRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetArchitectPromptHistoryHistoryIDTooManyRequests() *GetArchitectPromptH
 
 /*GetArchitectPromptHistoryHistoryIDTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetArchitectPromptHistoryHistoryIDTooManyRequests struct {
 	Payload *models.ErrorBody

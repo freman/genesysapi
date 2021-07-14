@@ -53,6 +53,12 @@ func (o *GetChatSettingsReader) ReadResponse(response runtime.ClientResponse, co
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetChatSettingsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetChatSettingsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetChatSettingsNotFound) readResponse(response runtime.ClientResponse, 
 	return nil
 }
 
+// NewGetChatSettingsRequestTimeout creates a GetChatSettingsRequestTimeout with default headers values
+func NewGetChatSettingsRequestTimeout() *GetChatSettingsRequestTimeout {
+	return &GetChatSettingsRequestTimeout{}
+}
+
+/*GetChatSettingsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetChatSettingsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetChatSettingsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/chat/settings][%d] getChatSettingsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetChatSettingsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetChatSettingsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetChatSettingsRequestEntityTooLarge creates a GetChatSettingsRequestEntityTooLarge with default headers values
 func NewGetChatSettingsRequestEntityTooLarge() *GetChatSettingsRequestEntityTooLarge {
 	return &GetChatSettingsRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetChatSettingsTooManyRequests() *GetChatSettingsTooManyRequests {
 
 /*GetChatSettingsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetChatSettingsTooManyRequests struct {
 	Payload *models.ErrorBody

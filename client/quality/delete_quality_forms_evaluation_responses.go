@@ -53,6 +53,12 @@ func (o *DeleteQualityFormsEvaluationReader) ReadResponse(response runtime.Clien
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewDeleteQualityFormsEvaluationRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 409:
 		result := NewDeleteQualityFormsEvaluationConflict()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -254,6 +260,39 @@ func (o *DeleteQualityFormsEvaluationNotFound) readResponse(response runtime.Cli
 	return nil
 }
 
+// NewDeleteQualityFormsEvaluationRequestTimeout creates a DeleteQualityFormsEvaluationRequestTimeout with default headers values
+func NewDeleteQualityFormsEvaluationRequestTimeout() *DeleteQualityFormsEvaluationRequestTimeout {
+	return &DeleteQualityFormsEvaluationRequestTimeout{}
+}
+
+/*DeleteQualityFormsEvaluationRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type DeleteQualityFormsEvaluationRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *DeleteQualityFormsEvaluationRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/quality/forms/evaluations/{formId}][%d] deleteQualityFormsEvaluationRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteQualityFormsEvaluationRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *DeleteQualityFormsEvaluationRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewDeleteQualityFormsEvaluationConflict creates a DeleteQualityFormsEvaluationConflict with default headers values
 func NewDeleteQualityFormsEvaluationConflict() *DeleteQualityFormsEvaluationConflict {
 	return &DeleteQualityFormsEvaluationConflict{}
@@ -360,7 +399,7 @@ func NewDeleteQualityFormsEvaluationTooManyRequests() *DeleteQualityFormsEvaluat
 
 /*DeleteQualityFormsEvaluationTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type DeleteQualityFormsEvaluationTooManyRequests struct {
 	Payload *models.ErrorBody

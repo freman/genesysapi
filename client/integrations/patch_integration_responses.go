@@ -53,6 +53,12 @@ func (o *PatchIntegrationReader) ReadResponse(response runtime.ClientResponse, c
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPatchIntegrationRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPatchIntegrationRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PatchIntegrationNotFound) readResponse(response runtime.ClientResponse,
 	return nil
 }
 
+// NewPatchIntegrationRequestTimeout creates a PatchIntegrationRequestTimeout with default headers values
+func NewPatchIntegrationRequestTimeout() *PatchIntegrationRequestTimeout {
+	return &PatchIntegrationRequestTimeout{}
+}
+
+/*PatchIntegrationRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PatchIntegrationRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PatchIntegrationRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/integrations/{integrationId}][%d] patchIntegrationRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchIntegrationRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PatchIntegrationRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPatchIntegrationRequestEntityTooLarge creates a PatchIntegrationRequestEntityTooLarge with default headers values
 func NewPatchIntegrationRequestEntityTooLarge() *PatchIntegrationRequestEntityTooLarge {
 	return &PatchIntegrationRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPatchIntegrationTooManyRequests() *PatchIntegrationTooManyRequests {
 
 /*PatchIntegrationTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PatchIntegrationTooManyRequests struct {
 	Payload *models.ErrorBody

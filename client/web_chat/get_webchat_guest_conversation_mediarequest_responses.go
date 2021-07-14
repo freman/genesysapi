@@ -53,6 +53,12 @@ func (o *GetWebchatGuestConversationMediarequestReader) ReadResponse(response ru
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetWebchatGuestConversationMediarequestRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetWebchatGuestConversationMediarequestRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetWebchatGuestConversationMediarequestNotFound) readResponse(response 
 	return nil
 }
 
+// NewGetWebchatGuestConversationMediarequestRequestTimeout creates a GetWebchatGuestConversationMediarequestRequestTimeout with default headers values
+func NewGetWebchatGuestConversationMediarequestRequestTimeout() *GetWebchatGuestConversationMediarequestRequestTimeout {
+	return &GetWebchatGuestConversationMediarequestRequestTimeout{}
+}
+
+/*GetWebchatGuestConversationMediarequestRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetWebchatGuestConversationMediarequestRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetWebchatGuestConversationMediarequestRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webchat/guest/conversations/{conversationId}/mediarequests/{mediaRequestId}][%d] getWebchatGuestConversationMediarequestRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetWebchatGuestConversationMediarequestRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetWebchatGuestConversationMediarequestRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetWebchatGuestConversationMediarequestRequestEntityTooLarge creates a GetWebchatGuestConversationMediarequestRequestEntityTooLarge with default headers values
 func NewGetWebchatGuestConversationMediarequestRequestEntityTooLarge() *GetWebchatGuestConversationMediarequestRequestEntityTooLarge {
 	return &GetWebchatGuestConversationMediarequestRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetWebchatGuestConversationMediarequestTooManyRequests() *GetWebchatGues
 
 /*GetWebchatGuestConversationMediarequestTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetWebchatGuestConversationMediarequestTooManyRequests struct {
 	Payload *models.ErrorBody

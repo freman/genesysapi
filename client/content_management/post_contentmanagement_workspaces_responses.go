@@ -53,6 +53,12 @@ func (o *PostContentmanagementWorkspacesReader) ReadResponse(response runtime.Cl
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostContentmanagementWorkspacesRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostContentmanagementWorkspacesRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PostContentmanagementWorkspacesNotFound) readResponse(response runtime.
 	return nil
 }
 
+// NewPostContentmanagementWorkspacesRequestTimeout creates a PostContentmanagementWorkspacesRequestTimeout with default headers values
+func NewPostContentmanagementWorkspacesRequestTimeout() *PostContentmanagementWorkspacesRequestTimeout {
+	return &PostContentmanagementWorkspacesRequestTimeout{}
+}
+
+/*PostContentmanagementWorkspacesRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostContentmanagementWorkspacesRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostContentmanagementWorkspacesRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/workspaces][%d] postContentmanagementWorkspacesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostContentmanagementWorkspacesRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostContentmanagementWorkspacesRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostContentmanagementWorkspacesRequestEntityTooLarge creates a PostContentmanagementWorkspacesRequestEntityTooLarge with default headers values
 func NewPostContentmanagementWorkspacesRequestEntityTooLarge() *PostContentmanagementWorkspacesRequestEntityTooLarge {
 	return &PostContentmanagementWorkspacesRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPostContentmanagementWorkspacesTooManyRequests() *PostContentmanagementW
 
 /*PostContentmanagementWorkspacesTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostContentmanagementWorkspacesTooManyRequests struct {
 	Payload *models.ErrorBody

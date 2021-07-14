@@ -47,6 +47,12 @@ func (o *DeleteTelephonyProvidersEdgeLogicalinterfaceReader) ReadResponse(respon
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewDeleteTelephonyProvidersEdgeLogicalinterfaceRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewDeleteTelephonyProvidersEdgeLogicalinterfaceRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -227,6 +233,39 @@ func (o *DeleteTelephonyProvidersEdgeLogicalinterfaceNotFound) readResponse(resp
 	return nil
 }
 
+// NewDeleteTelephonyProvidersEdgeLogicalinterfaceRequestTimeout creates a DeleteTelephonyProvidersEdgeLogicalinterfaceRequestTimeout with default headers values
+func NewDeleteTelephonyProvidersEdgeLogicalinterfaceRequestTimeout() *DeleteTelephonyProvidersEdgeLogicalinterfaceRequestTimeout {
+	return &DeleteTelephonyProvidersEdgeLogicalinterfaceRequestTimeout{}
+}
+
+/*DeleteTelephonyProvidersEdgeLogicalinterfaceRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type DeleteTelephonyProvidersEdgeLogicalinterfaceRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *DeleteTelephonyProvidersEdgeLogicalinterfaceRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/telephony/providers/edges/{edgeId}/logicalinterfaces/{interfaceId}][%d] deleteTelephonyProvidersEdgeLogicalinterfaceRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteTelephonyProvidersEdgeLogicalinterfaceRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *DeleteTelephonyProvidersEdgeLogicalinterfaceRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewDeleteTelephonyProvidersEdgeLogicalinterfaceRequestEntityTooLarge creates a DeleteTelephonyProvidersEdgeLogicalinterfaceRequestEntityTooLarge with default headers values
 func NewDeleteTelephonyProvidersEdgeLogicalinterfaceRequestEntityTooLarge() *DeleteTelephonyProvidersEdgeLogicalinterfaceRequestEntityTooLarge {
 	return &DeleteTelephonyProvidersEdgeLogicalinterfaceRequestEntityTooLarge{}
@@ -300,7 +339,7 @@ func NewDeleteTelephonyProvidersEdgeLogicalinterfaceTooManyRequests() *DeleteTel
 
 /*DeleteTelephonyProvidersEdgeLogicalinterfaceTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type DeleteTelephonyProvidersEdgeLogicalinterfaceTooManyRequests struct {
 	Payload *models.ErrorBody

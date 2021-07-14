@@ -53,6 +53,12 @@ func (o *PostTelephonyProvidersEdgeDiagnosticPingReader) ReadResponse(response r
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostTelephonyProvidersEdgeDiagnosticPingRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostTelephonyProvidersEdgeDiagnosticPingRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PostTelephonyProvidersEdgeDiagnosticPingNotFound) readResponse(response
 	return nil
 }
 
+// NewPostTelephonyProvidersEdgeDiagnosticPingRequestTimeout creates a PostTelephonyProvidersEdgeDiagnosticPingRequestTimeout with default headers values
+func NewPostTelephonyProvidersEdgeDiagnosticPingRequestTimeout() *PostTelephonyProvidersEdgeDiagnosticPingRequestTimeout {
+	return &PostTelephonyProvidersEdgeDiagnosticPingRequestTimeout{}
+}
+
+/*PostTelephonyProvidersEdgeDiagnosticPingRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostTelephonyProvidersEdgeDiagnosticPingRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostTelephonyProvidersEdgeDiagnosticPingRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/ping][%d] postTelephonyProvidersEdgeDiagnosticPingRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeDiagnosticPingRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostTelephonyProvidersEdgeDiagnosticPingRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostTelephonyProvidersEdgeDiagnosticPingRequestEntityTooLarge creates a PostTelephonyProvidersEdgeDiagnosticPingRequestEntityTooLarge with default headers values
 func NewPostTelephonyProvidersEdgeDiagnosticPingRequestEntityTooLarge() *PostTelephonyProvidersEdgeDiagnosticPingRequestEntityTooLarge {
 	return &PostTelephonyProvidersEdgeDiagnosticPingRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPostTelephonyProvidersEdgeDiagnosticPingTooManyRequests() *PostTelephony
 
 /*PostTelephonyProvidersEdgeDiagnosticPingTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostTelephonyProvidersEdgeDiagnosticPingTooManyRequests struct {
 	Payload *models.ErrorBody

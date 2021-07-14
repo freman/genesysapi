@@ -15,19 +15,19 @@ import (
 // swagger:model ContentActions
 type ContentActions struct {
 
-	// Execute an organization's specific command
+	// Execute an organization's specific command.
 	CommandName string `json:"commandName,omitempty"`
 
-	// Additional context for the command
+	// Additional context for the command.
 	Context map[string]interface{} `json:"context,omitempty"`
 
-	// Text to be sent back in reply when a list item is selected
+	// Text to be sent back in reply when the item is selected.
 	Textback string `json:"textback,omitempty"`
 
-	// A URL for a web page to redirect the user to
+	// A URL of a web page to direct the user to.
 	URL string `json:"url,omitempty"`
 
-	// The target window or tab within the URL's web page. If empty will open a blank page or tab.
+	// The target window in which to open the URL. If empty will open a blank page or tab.
 	URLTarget string `json:"urlTarget,omitempty"`
 }
 

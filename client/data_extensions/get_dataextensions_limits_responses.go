@@ -53,6 +53,12 @@ func (o *GetDataextensionsLimitsReader) ReadResponse(response runtime.ClientResp
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetDataextensionsLimitsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetDataextensionsLimitsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetDataextensionsLimitsNotFound) readResponse(response runtime.ClientRe
 	return nil
 }
 
+// NewGetDataextensionsLimitsRequestTimeout creates a GetDataextensionsLimitsRequestTimeout with default headers values
+func NewGetDataextensionsLimitsRequestTimeout() *GetDataextensionsLimitsRequestTimeout {
+	return &GetDataextensionsLimitsRequestTimeout{}
+}
+
+/*GetDataextensionsLimitsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetDataextensionsLimitsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetDataextensionsLimitsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/dataextensions/limits][%d] getDataextensionsLimitsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetDataextensionsLimitsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetDataextensionsLimitsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetDataextensionsLimitsRequestEntityTooLarge creates a GetDataextensionsLimitsRequestEntityTooLarge with default headers values
 func NewGetDataextensionsLimitsRequestEntityTooLarge() *GetDataextensionsLimitsRequestEntityTooLarge {
 	return &GetDataextensionsLimitsRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetDataextensionsLimitsTooManyRequests() *GetDataextensionsLimitsTooMany
 
 /*GetDataextensionsLimitsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetDataextensionsLimitsTooManyRequests struct {
 	Payload *models.ErrorBody

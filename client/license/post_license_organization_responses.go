@@ -53,6 +53,12 @@ func (o *PostLicenseOrganizationReader) ReadResponse(response runtime.ClientResp
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostLicenseOrganizationRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostLicenseOrganizationRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -258,6 +264,39 @@ func (o *PostLicenseOrganizationNotFound) readResponse(response runtime.ClientRe
 	return nil
 }
 
+// NewPostLicenseOrganizationRequestTimeout creates a PostLicenseOrganizationRequestTimeout with default headers values
+func NewPostLicenseOrganizationRequestTimeout() *PostLicenseOrganizationRequestTimeout {
+	return &PostLicenseOrganizationRequestTimeout{}
+}
+
+/*PostLicenseOrganizationRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostLicenseOrganizationRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostLicenseOrganizationRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/license/organization][%d] postLicenseOrganizationRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostLicenseOrganizationRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostLicenseOrganizationRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostLicenseOrganizationRequestEntityTooLarge creates a PostLicenseOrganizationRequestEntityTooLarge with default headers values
 func NewPostLicenseOrganizationRequestEntityTooLarge() *PostLicenseOrganizationRequestEntityTooLarge {
 	return &PostLicenseOrganizationRequestEntityTooLarge{}
@@ -331,7 +370,7 @@ func NewPostLicenseOrganizationTooManyRequests() *PostLicenseOrganizationTooMany
 
 /*PostLicenseOrganizationTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostLicenseOrganizationTooManyRequests struct {
 	Payload *models.ErrorBody

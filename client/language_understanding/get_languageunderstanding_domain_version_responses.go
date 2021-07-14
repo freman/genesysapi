@@ -53,6 +53,12 @@ func (o *GetLanguageunderstandingDomainVersionReader) ReadResponse(response runt
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetLanguageunderstandingDomainVersionRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetLanguageunderstandingDomainVersionRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetLanguageunderstandingDomainVersionNotFound) readResponse(response ru
 	return nil
 }
 
+// NewGetLanguageunderstandingDomainVersionRequestTimeout creates a GetLanguageunderstandingDomainVersionRequestTimeout with default headers values
+func NewGetLanguageunderstandingDomainVersionRequestTimeout() *GetLanguageunderstandingDomainVersionRequestTimeout {
+	return &GetLanguageunderstandingDomainVersionRequestTimeout{}
+}
+
+/*GetLanguageunderstandingDomainVersionRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetLanguageunderstandingDomainVersionRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetLanguageunderstandingDomainVersionRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] getLanguageunderstandingDomainVersionRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetLanguageunderstandingDomainVersionRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetLanguageunderstandingDomainVersionRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetLanguageunderstandingDomainVersionRequestEntityTooLarge creates a GetLanguageunderstandingDomainVersionRequestEntityTooLarge with default headers values
 func NewGetLanguageunderstandingDomainVersionRequestEntityTooLarge() *GetLanguageunderstandingDomainVersionRequestEntityTooLarge {
 	return &GetLanguageunderstandingDomainVersionRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetLanguageunderstandingDomainVersionTooManyRequests() *GetLanguageunder
 
 /*GetLanguageunderstandingDomainVersionTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetLanguageunderstandingDomainVersionTooManyRequests struct {
 	Payload *models.ErrorBody

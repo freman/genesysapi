@@ -53,6 +53,12 @@ func (o *GetAnalyticsReportingReportformatsReader) ReadResponse(response runtime
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetAnalyticsReportingReportformatsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetAnalyticsReportingReportformatsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -258,6 +264,39 @@ func (o *GetAnalyticsReportingReportformatsNotFound) readResponse(response runti
 	return nil
 }
 
+// NewGetAnalyticsReportingReportformatsRequestTimeout creates a GetAnalyticsReportingReportformatsRequestTimeout with default headers values
+func NewGetAnalyticsReportingReportformatsRequestTimeout() *GetAnalyticsReportingReportformatsRequestTimeout {
+	return &GetAnalyticsReportingReportformatsRequestTimeout{}
+}
+
+/*GetAnalyticsReportingReportformatsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetAnalyticsReportingReportformatsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetAnalyticsReportingReportformatsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/reporting/reportformats][%d] getAnalyticsReportingReportformatsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetAnalyticsReportingReportformatsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetAnalyticsReportingReportformatsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetAnalyticsReportingReportformatsRequestEntityTooLarge creates a GetAnalyticsReportingReportformatsRequestEntityTooLarge with default headers values
 func NewGetAnalyticsReportingReportformatsRequestEntityTooLarge() *GetAnalyticsReportingReportformatsRequestEntityTooLarge {
 	return &GetAnalyticsReportingReportformatsRequestEntityTooLarge{}
@@ -331,7 +370,7 @@ func NewGetAnalyticsReportingReportformatsTooManyRequests() *GetAnalyticsReporti
 
 /*GetAnalyticsReportingReportformatsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetAnalyticsReportingReportformatsTooManyRequests struct {
 	Payload *models.ErrorBody

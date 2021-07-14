@@ -53,6 +53,12 @@ func (o *PostGroupsSearchReader) ReadResponse(response runtime.ClientResponse, c
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostGroupsSearchRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostGroupsSearchRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PostGroupsSearchNotFound) readResponse(response runtime.ClientResponse,
 	return nil
 }
 
+// NewPostGroupsSearchRequestTimeout creates a PostGroupsSearchRequestTimeout with default headers values
+func NewPostGroupsSearchRequestTimeout() *PostGroupsSearchRequestTimeout {
+	return &PostGroupsSearchRequestTimeout{}
+}
+
+/*PostGroupsSearchRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostGroupsSearchRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostGroupsSearchRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/groups/search][%d] postGroupsSearchRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostGroupsSearchRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostGroupsSearchRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostGroupsSearchRequestEntityTooLarge creates a PostGroupsSearchRequestEntityTooLarge with default headers values
 func NewPostGroupsSearchRequestEntityTooLarge() *PostGroupsSearchRequestEntityTooLarge {
 	return &PostGroupsSearchRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPostGroupsSearchTooManyRequests() *PostGroupsSearchTooManyRequests {
 
 /*PostGroupsSearchTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostGroupsSearchTooManyRequests struct {
 	Payload *models.ErrorBody

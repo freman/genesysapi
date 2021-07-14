@@ -18,6 +18,10 @@ import (
 // API is the interface of the routing client
 type API interface {
 	/*
+	   DeleteRoutingAssessment deletes single benefit assessment
+	*/
+	DeleteRoutingAssessment(ctx context.Context, params *DeleteRoutingAssessmentParams) (*DeleteRoutingAssessmentNoContent, error)
+	/*
 	   DeleteRoutingEmailDomain deletes a domain
 	*/
 	DeleteRoutingEmailDomain(ctx context.Context, params *DeleteRoutingEmailDomainParams) (*DeleteRoutingEmailDomainOK, error)
@@ -25,6 +29,10 @@ type API interface {
 	   DeleteRoutingEmailDomainRoute deletes a route
 	*/
 	DeleteRoutingEmailDomainRoute(ctx context.Context, params *DeleteRoutingEmailDomainRouteParams) (*DeleteRoutingEmailDomainRouteOK, error)
+	/*
+	   DeleteRoutingPredictor deletes single predictor
+	*/
+	DeleteRoutingPredictor(ctx context.Context, params *DeleteRoutingPredictorParams) (*DeleteRoutingPredictorNoContent, error)
 	/*
 	   DeleteRoutingQueue deletes a queue
 	*/
@@ -78,6 +86,22 @@ type API interface {
 	*/
 	DeleteUserRoutingskill(ctx context.Context, params *DeleteUserRoutingskillParams) (*DeleteUserRoutingskillOK, error)
 	/*
+	   GetRoutingAssessment retrieves a single benefit assessment
+	*/
+	GetRoutingAssessment(ctx context.Context, params *GetRoutingAssessmentParams) (*GetRoutingAssessmentOK, error)
+	/*
+	   GetRoutingAssessments retrieves all benefit assessments
+	*/
+	GetRoutingAssessments(ctx context.Context, params *GetRoutingAssessmentsParams) (*GetRoutingAssessmentsOK, error)
+	/*
+	   GetRoutingAssessmentsJob retrieves a single benefit assessments job
+	*/
+	GetRoutingAssessmentsJob(ctx context.Context, params *GetRoutingAssessmentsJobParams) (*GetRoutingAssessmentsJobOK, *GetRoutingAssessmentsJobAccepted, error)
+	/*
+	   GetRoutingAssessmentsJobs retrieves all benefit assessment jobs
+	*/
+	GetRoutingAssessmentsJobs(ctx context.Context, params *GetRoutingAssessmentsJobsParams) (*GetRoutingAssessmentsJobsOK, error)
+	/*
 	   GetRoutingEmailDomain gets domain
 	*/
 	GetRoutingEmailDomain(ctx context.Context, params *GetRoutingEmailDomainParams) (*GetRoutingEmailDomainOK, error)
@@ -110,9 +134,29 @@ type API interface {
 	*/
 	GetRoutingMessageRecipients(ctx context.Context, params *GetRoutingMessageRecipientsParams) (*GetRoutingMessageRecipientsOK, error)
 	/*
+	   GetRoutingPredictor retrieves a single predictor
+	*/
+	GetRoutingPredictor(ctx context.Context, params *GetRoutingPredictorParams) (*GetRoutingPredictorOK, error)
+	/*
+	   GetRoutingPredictors retrieves all predictors
+	*/
+	GetRoutingPredictors(ctx context.Context, params *GetRoutingPredictorsParams) (*GetRoutingPredictorsOK, error)
+	/*
+	   GetRoutingPredictorsKeyperformanceindicators gets a list of key performance indicators available for the predictors
+	*/
+	GetRoutingPredictorsKeyperformanceindicators(ctx context.Context, params *GetRoutingPredictorsKeyperformanceindicatorsParams) (*GetRoutingPredictorsKeyperformanceindicatorsOK, error)
+	/*
 	   GetRoutingQueue gets details about this queue
 	*/
 	GetRoutingQueue(ctx context.Context, params *GetRoutingQueueParams) (*GetRoutingQueueOK, error)
+	/*
+	   GetRoutingQueueComparisonperiod gets a comparison period
+	*/
+	GetRoutingQueueComparisonperiod(ctx context.Context, params *GetRoutingQueueComparisonperiodParams) (*GetRoutingQueueComparisonperiodOK, error)
+	/*
+	   GetRoutingQueueComparisonperiods gets list of comparison periods
+	*/
+	GetRoutingQueueComparisonperiods(ctx context.Context, params *GetRoutingQueueComparisonperiodsParams) (*GetRoutingQueueComparisonperiodsOK, error)
 	/*
 	   GetRoutingQueueEstimatedwaittime gets estimated wait time
 	*/
@@ -232,6 +276,14 @@ type API interface {
 	*/
 	PatchRoutingEmailDomainValidate(ctx context.Context, params *PatchRoutingEmailDomainValidateParams) (*PatchRoutingEmailDomainValidateOK, error)
 	/*
+	   PatchRoutingEmailOutboundDomain requests an update of the emails from reply to of an outbound domain
+	*/
+	PatchRoutingEmailOutboundDomain(ctx context.Context, params *PatchRoutingEmailOutboundDomainParams) (*PatchRoutingEmailOutboundDomainOK, error)
+	/*
+	   PatchRoutingPredictor updates single predictor
+	*/
+	PatchRoutingPredictor(ctx context.Context, params *PatchRoutingPredictorParams) (*PatchRoutingPredictorOK, error)
+	/*
 	   PatchRoutingQueueMember updates the ring number o r joined status for a queue member
 	*/
 	PatchRoutingQueueMember(ctx context.Context, params *PatchRoutingQueueMemberParams) (*PatchRoutingQueueMemberAccepted, error)
@@ -276,6 +328,14 @@ type API interface {
 	*/
 	PostAnalyticsQueuesObservationsQuery(ctx context.Context, params *PostAnalyticsQueuesObservationsQueryParams) (*PostAnalyticsQueuesObservationsQueryOK, error)
 	/*
+	   PostRoutingAssessments creates a benefit assessment
+	*/
+	PostRoutingAssessments(ctx context.Context, params *PostRoutingAssessmentsParams) (*PostRoutingAssessmentsOK, *PostRoutingAssessmentsCreated, error)
+	/*
+	   PostRoutingAssessmentsJobs creates a benefit assessment job
+	*/
+	PostRoutingAssessmentsJobs(ctx context.Context, params *PostRoutingAssessmentsJobsParams) (*PostRoutingAssessmentsJobsOK, *PostRoutingAssessmentsJobsAccepted, error)
+	/*
 	   PostRoutingEmailDomainRoutes creates a route
 	*/
 	PostRoutingEmailDomainRoutes(ctx context.Context, params *PostRoutingEmailDomainRoutesParams) (*PostRoutingEmailDomainRoutesOK, error)
@@ -292,6 +352,10 @@ type API interface {
 	   PostRoutingLanguages creates language
 	*/
 	PostRoutingLanguages(ctx context.Context, params *PostRoutingLanguagesParams) (*PostRoutingLanguagesOK, error)
+	/*
+	   PostRoutingPredictors creates a predictor
+	*/
+	PostRoutingPredictors(ctx context.Context, params *PostRoutingPredictorsParams) (*PostRoutingPredictorsOK, *PostRoutingPredictorsCreated, error)
 	/*
 	   PostRoutingQueueMembers bulks add or delete up to 100 queue members
 	*/
@@ -397,6 +461,31 @@ type Client struct {
 }
 
 /*
+DeleteRoutingAssessment deletes single benefit assessment
+*/
+func (a *Client) DeleteRoutingAssessment(ctx context.Context, params *DeleteRoutingAssessmentParams) (*DeleteRoutingAssessmentNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteRoutingAssessment",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/routing/assessments/{assessmentId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteRoutingAssessmentReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteRoutingAssessmentNoContent), nil
+
+}
+
+/*
 DeleteRoutingEmailDomain deletes a domain
 */
 func (a *Client) DeleteRoutingEmailDomain(ctx context.Context, params *DeleteRoutingEmailDomainParams) (*DeleteRoutingEmailDomainOK, error) {
@@ -443,6 +532,31 @@ func (a *Client) DeleteRoutingEmailDomainRoute(ctx context.Context, params *Dele
 		return nil, err
 	}
 	return result.(*DeleteRoutingEmailDomainRouteOK), nil
+
+}
+
+/*
+DeleteRoutingPredictor deletes single predictor
+*/
+func (a *Client) DeleteRoutingPredictor(ctx context.Context, params *DeleteRoutingPredictorParams) (*DeleteRoutingPredictorNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteRoutingPredictor",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/routing/predictors/{predictorId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteRoutingPredictorReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteRoutingPredictorNoContent), nil
 
 }
 
@@ -772,6 +886,112 @@ func (a *Client) DeleteUserRoutingskill(ctx context.Context, params *DeleteUserR
 }
 
 /*
+GetRoutingAssessment retrieves a single benefit assessment
+*/
+func (a *Client) GetRoutingAssessment(ctx context.Context, params *GetRoutingAssessmentParams) (*GetRoutingAssessmentOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getRoutingAssessment",
+		Method:             "GET",
+		PathPattern:        "/api/v2/routing/assessments/{assessmentId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetRoutingAssessmentReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetRoutingAssessmentOK), nil
+
+}
+
+/*
+GetRoutingAssessments retrieves all benefit assessments
+*/
+func (a *Client) GetRoutingAssessments(ctx context.Context, params *GetRoutingAssessmentsParams) (*GetRoutingAssessmentsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getRoutingAssessments",
+		Method:             "GET",
+		PathPattern:        "/api/v2/routing/assessments",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetRoutingAssessmentsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetRoutingAssessmentsOK), nil
+
+}
+
+/*
+GetRoutingAssessmentsJob retrieves a single benefit assessments job
+*/
+func (a *Client) GetRoutingAssessmentsJob(ctx context.Context, params *GetRoutingAssessmentsJobParams) (*GetRoutingAssessmentsJobOK, *GetRoutingAssessmentsJobAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getRoutingAssessmentsJob",
+		Method:             "GET",
+		PathPattern:        "/api/v2/routing/assessments/jobs/{jobId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetRoutingAssessmentsJobReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *GetRoutingAssessmentsJobOK:
+		return value, nil, nil
+	case *GetRoutingAssessmentsJobAccepted:
+		return nil, value, nil
+	}
+	return nil, nil, nil
+
+}
+
+/*
+GetRoutingAssessmentsJobs retrieves all benefit assessment jobs
+*/
+func (a *Client) GetRoutingAssessmentsJobs(ctx context.Context, params *GetRoutingAssessmentsJobsParams) (*GetRoutingAssessmentsJobsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getRoutingAssessmentsJobs",
+		Method:             "GET",
+		PathPattern:        "/api/v2/routing/assessments/jobs",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetRoutingAssessmentsJobsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetRoutingAssessmentsJobsOK), nil
+
+}
+
+/*
 GetRoutingEmailDomain gets domain
 */
 func (a *Client) GetRoutingEmailDomain(ctx context.Context, params *GetRoutingEmailDomainParams) (*GetRoutingEmailDomainOK, error) {
@@ -972,6 +1192,81 @@ func (a *Client) GetRoutingMessageRecipients(ctx context.Context, params *GetRou
 }
 
 /*
+GetRoutingPredictor retrieves a single predictor
+*/
+func (a *Client) GetRoutingPredictor(ctx context.Context, params *GetRoutingPredictorParams) (*GetRoutingPredictorOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getRoutingPredictor",
+		Method:             "GET",
+		PathPattern:        "/api/v2/routing/predictors/{predictorId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetRoutingPredictorReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetRoutingPredictorOK), nil
+
+}
+
+/*
+GetRoutingPredictors retrieves all predictors
+*/
+func (a *Client) GetRoutingPredictors(ctx context.Context, params *GetRoutingPredictorsParams) (*GetRoutingPredictorsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getRoutingPredictors",
+		Method:             "GET",
+		PathPattern:        "/api/v2/routing/predictors",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetRoutingPredictorsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetRoutingPredictorsOK), nil
+
+}
+
+/*
+GetRoutingPredictorsKeyperformanceindicators gets a list of key performance indicators available for the predictors
+*/
+func (a *Client) GetRoutingPredictorsKeyperformanceindicators(ctx context.Context, params *GetRoutingPredictorsKeyperformanceindicatorsParams) (*GetRoutingPredictorsKeyperformanceindicatorsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getRoutingPredictorsKeyperformanceindicators",
+		Method:             "GET",
+		PathPattern:        "/api/v2/routing/predictors/keyperformanceindicators",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetRoutingPredictorsKeyperformanceindicatorsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetRoutingPredictorsKeyperformanceindicatorsOK), nil
+
+}
+
+/*
 GetRoutingQueue gets details about this queue
 */
 func (a *Client) GetRoutingQueue(ctx context.Context, params *GetRoutingQueueParams) (*GetRoutingQueueOK, error) {
@@ -993,6 +1288,56 @@ func (a *Client) GetRoutingQueue(ctx context.Context, params *GetRoutingQueuePar
 		return nil, err
 	}
 	return result.(*GetRoutingQueueOK), nil
+
+}
+
+/*
+GetRoutingQueueComparisonperiod gets a comparison period
+*/
+func (a *Client) GetRoutingQueueComparisonperiod(ctx context.Context, params *GetRoutingQueueComparisonperiodParams) (*GetRoutingQueueComparisonperiodOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getRoutingQueueComparisonperiod",
+		Method:             "GET",
+		PathPattern:        "/api/v2/routing/queues/{queueId}/comparisonperiods/{comparisonPeriodId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetRoutingQueueComparisonperiodReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetRoutingQueueComparisonperiodOK), nil
+
+}
+
+/*
+GetRoutingQueueComparisonperiods gets list of comparison periods
+*/
+func (a *Client) GetRoutingQueueComparisonperiods(ctx context.Context, params *GetRoutingQueueComparisonperiodsParams) (*GetRoutingQueueComparisonperiodsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getRoutingQueueComparisonperiods",
+		Method:             "GET",
+		PathPattern:        "/api/v2/routing/queues/{queueId}/comparisonperiods",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetRoutingQueueComparisonperiodsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetRoutingQueueComparisonperiodsOK), nil
 
 }
 
@@ -1726,6 +2071,56 @@ func (a *Client) PatchRoutingEmailDomainValidate(ctx context.Context, params *Pa
 }
 
 /*
+PatchRoutingEmailOutboundDomain requests an update of the emails from reply to of an outbound domain
+*/
+func (a *Client) PatchRoutingEmailOutboundDomain(ctx context.Context, params *PatchRoutingEmailOutboundDomainParams) (*PatchRoutingEmailOutboundDomainOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "patchRoutingEmailOutboundDomain",
+		Method:             "PATCH",
+		PathPattern:        "/api/v2/routing/email/outbound/domains/{domainId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchRoutingEmailOutboundDomainReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PatchRoutingEmailOutboundDomainOK), nil
+
+}
+
+/*
+PatchRoutingPredictor updates single predictor
+*/
+func (a *Client) PatchRoutingPredictor(ctx context.Context, params *PatchRoutingPredictorParams) (*PatchRoutingPredictorOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "patchRoutingPredictor",
+		Method:             "PATCH",
+		PathPattern:        "/api/v2/routing/predictors/{predictorId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchRoutingPredictorReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PatchRoutingPredictorOK), nil
+
+}
+
+/*
 PatchRoutingQueueMember updates the ring number o r joined status for a queue member
 */
 func (a *Client) PatchRoutingQueueMember(ctx context.Context, params *PatchRoutingQueueMemberParams) (*PatchRoutingQueueMemberAccepted, error) {
@@ -2001,6 +2396,68 @@ func (a *Client) PostAnalyticsQueuesObservationsQuery(ctx context.Context, param
 }
 
 /*
+PostRoutingAssessments creates a benefit assessment
+*/
+func (a *Client) PostRoutingAssessments(ctx context.Context, params *PostRoutingAssessmentsParams) (*PostRoutingAssessmentsOK, *PostRoutingAssessmentsCreated, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postRoutingAssessments",
+		Method:             "POST",
+		PathPattern:        "/api/v2/routing/assessments",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostRoutingAssessmentsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PostRoutingAssessmentsOK:
+		return value, nil, nil
+	case *PostRoutingAssessmentsCreated:
+		return nil, value, nil
+	}
+	return nil, nil, nil
+
+}
+
+/*
+PostRoutingAssessmentsJobs creates a benefit assessment job
+*/
+func (a *Client) PostRoutingAssessmentsJobs(ctx context.Context, params *PostRoutingAssessmentsJobsParams) (*PostRoutingAssessmentsJobsOK, *PostRoutingAssessmentsJobsAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postRoutingAssessmentsJobs",
+		Method:             "POST",
+		PathPattern:        "/api/v2/routing/assessments/jobs",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostRoutingAssessmentsJobsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PostRoutingAssessmentsJobsOK:
+		return value, nil, nil
+	case *PostRoutingAssessmentsJobsAccepted:
+		return nil, value, nil
+	}
+	return nil, nil, nil
+
+}
+
+/*
 PostRoutingEmailDomainRoutes creates a route
 */
 func (a *Client) PostRoutingEmailDomainRoutes(ctx context.Context, params *PostRoutingEmailDomainRoutesParams) (*PostRoutingEmailDomainRoutesOK, error) {
@@ -2099,6 +2556,37 @@ func (a *Client) PostRoutingLanguages(ctx context.Context, params *PostRoutingLa
 		return nil, err
 	}
 	return result.(*PostRoutingLanguagesOK), nil
+
+}
+
+/*
+PostRoutingPredictors creates a predictor
+*/
+func (a *Client) PostRoutingPredictors(ctx context.Context, params *PostRoutingPredictorsParams) (*PostRoutingPredictorsOK, *PostRoutingPredictorsCreated, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postRoutingPredictors",
+		Method:             "POST",
+		PathPattern:        "/api/v2/routing/predictors",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostRoutingPredictorsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PostRoutingPredictorsOK:
+		return value, nil, nil
+	case *PostRoutingPredictorsCreated:
+		return nil, value, nil
+	}
+	return nil, nil, nil
 
 }
 

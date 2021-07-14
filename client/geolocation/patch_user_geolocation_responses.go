@@ -59,6 +59,12 @@ func (o *PatchUserGeolocationReader) ReadResponse(response runtime.ClientRespons
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPatchUserGeolocationRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPatchUserGeolocationRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -299,6 +305,39 @@ func (o *PatchUserGeolocationMethodNotAllowed) readResponse(response runtime.Cli
 	return nil
 }
 
+// NewPatchUserGeolocationRequestTimeout creates a PatchUserGeolocationRequestTimeout with default headers values
+func NewPatchUserGeolocationRequestTimeout() *PatchUserGeolocationRequestTimeout {
+	return &PatchUserGeolocationRequestTimeout{}
+}
+
+/*PatchUserGeolocationRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PatchUserGeolocationRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PatchUserGeolocationRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/geolocations/{clientId}][%d] patchUserGeolocationRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchUserGeolocationRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PatchUserGeolocationRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPatchUserGeolocationRequestEntityTooLarge creates a PatchUserGeolocationRequestEntityTooLarge with default headers values
 func NewPatchUserGeolocationRequestEntityTooLarge() *PatchUserGeolocationRequestEntityTooLarge {
 	return &PatchUserGeolocationRequestEntityTooLarge{}
@@ -372,7 +411,7 @@ func NewPatchUserGeolocationTooManyRequests() *PatchUserGeolocationTooManyReques
 
 /*PatchUserGeolocationTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PatchUserGeolocationTooManyRequests struct {
 	Payload *models.ErrorBody

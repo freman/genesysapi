@@ -53,6 +53,12 @@ func (o *DeleteAnalyticsConversationsDetailsJobReader) ReadResponse(response run
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewDeleteAnalyticsConversationsDetailsJobRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewDeleteAnalyticsConversationsDetailsJobRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -248,6 +254,39 @@ func (o *DeleteAnalyticsConversationsDetailsJobNotFound) readResponse(response r
 	return nil
 }
 
+// NewDeleteAnalyticsConversationsDetailsJobRequestTimeout creates a DeleteAnalyticsConversationsDetailsJobRequestTimeout with default headers values
+func NewDeleteAnalyticsConversationsDetailsJobRequestTimeout() *DeleteAnalyticsConversationsDetailsJobRequestTimeout {
+	return &DeleteAnalyticsConversationsDetailsJobRequestTimeout{}
+}
+
+/*DeleteAnalyticsConversationsDetailsJobRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type DeleteAnalyticsConversationsDetailsJobRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *DeleteAnalyticsConversationsDetailsJobRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/analytics/conversations/details/jobs/{jobId}][%d] deleteAnalyticsConversationsDetailsJobRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteAnalyticsConversationsDetailsJobRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *DeleteAnalyticsConversationsDetailsJobRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewDeleteAnalyticsConversationsDetailsJobRequestEntityTooLarge creates a DeleteAnalyticsConversationsDetailsJobRequestEntityTooLarge with default headers values
 func NewDeleteAnalyticsConversationsDetailsJobRequestEntityTooLarge() *DeleteAnalyticsConversationsDetailsJobRequestEntityTooLarge {
 	return &DeleteAnalyticsConversationsDetailsJobRequestEntityTooLarge{}
@@ -321,7 +360,7 @@ func NewDeleteAnalyticsConversationsDetailsJobTooManyRequests() *DeleteAnalytics
 
 /*DeleteAnalyticsConversationsDetailsJobTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type DeleteAnalyticsConversationsDetailsJobTooManyRequests struct {
 	Payload *models.ErrorBody

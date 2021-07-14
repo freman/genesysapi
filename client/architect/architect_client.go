@@ -334,6 +334,11 @@ type API interface {
 	*/
 	PostArchitectSystempromptResources(ctx context.Context, params *PostArchitectSystempromptResourcesParams) (*PostArchitectSystempromptResourcesOK, error)
 	/*
+	   PostFlowHistory generates flow history
+	   Asynchronous.  Notification topic: v2.flows.{flowId}
+	*/
+	PostFlowHistory(ctx context.Context, params *PostFlowHistoryParams) (*PostFlowHistoryOK, error)
+	/*
 	   PostFlowVersions creates flow version
 	*/
 	PostFlowVersions(ctx context.Context, params *PostFlowVersionsParams) (*PostFlowVersionsOK, error)
@@ -2407,6 +2412,33 @@ func (a *Client) PostArchitectSystempromptResources(ctx context.Context, params 
 		return nil, err
 	}
 	return result.(*PostArchitectSystempromptResourcesOK), nil
+
+}
+
+/*
+PostFlowHistory generates flow history
+
+Asynchronous.  Notification topic: v2.flows.{flowId}
+*/
+func (a *Client) PostFlowHistory(ctx context.Context, params *PostFlowHistoryParams) (*PostFlowHistoryOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postFlowHistory",
+		Method:             "POST",
+		PathPattern:        "/api/v2/flows/{flowId}/history",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostFlowHistoryReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostFlowHistoryOK), nil
 
 }
 

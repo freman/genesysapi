@@ -59,6 +59,12 @@ func (o *GetFlowReader) ReadResponse(response runtime.ClientResponse, consumer r
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetFlowRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 410:
 		result := NewGetFlowGone()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -305,6 +311,39 @@ func (o *GetFlowMethodNotAllowed) readResponse(response runtime.ClientResponse, 
 	return nil
 }
 
+// NewGetFlowRequestTimeout creates a GetFlowRequestTimeout with default headers values
+func NewGetFlowRequestTimeout() *GetFlowRequestTimeout {
+	return &GetFlowRequestTimeout{}
+}
+
+/*GetFlowRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetFlowRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetFlowRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/{flowId}][%d] getFlowRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetFlowRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetFlowRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetFlowGone creates a GetFlowGone with default headers values
 func NewGetFlowGone() *GetFlowGone {
 	return &GetFlowGone{}
@@ -411,7 +450,7 @@ func NewGetFlowTooManyRequests() *GetFlowTooManyRequests {
 
 /*GetFlowTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetFlowTooManyRequests struct {
 	Payload *models.ErrorBody

@@ -97,6 +97,11 @@ for the get telephony providers edges linebasesettings operation typically these
 */
 type GetTelephonyProvidersEdgesLinebasesettingsParams struct {
 
+	/*Expand
+	  Fields to expand in the response, comma-separated
+
+	*/
+	Expand []string
 	/*PageNumber
 	  Page number
 
@@ -156,6 +161,17 @@ func (o *GetTelephonyProvidersEdgesLinebasesettingsParams) SetHTTPClient(client 
 	o.HTTPClient = client
 }
 
+// WithExpand adds the expand to the get telephony providers edges linebasesettings params
+func (o *GetTelephonyProvidersEdgesLinebasesettingsParams) WithExpand(expand []string) *GetTelephonyProvidersEdgesLinebasesettingsParams {
+	o.SetExpand(expand)
+	return o
+}
+
+// SetExpand adds the expand to the get telephony providers edges linebasesettings params
+func (o *GetTelephonyProvidersEdgesLinebasesettingsParams) SetExpand(expand []string) {
+	o.Expand = expand
+}
+
 // WithPageNumber adds the pageNumber to the get telephony providers edges linebasesettings params
 func (o *GetTelephonyProvidersEdgesLinebasesettingsParams) WithPageNumber(pageNumber *int32) *GetTelephonyProvidersEdgesLinebasesettingsParams {
 	o.SetPageNumber(pageNumber)
@@ -207,6 +223,14 @@ func (o *GetTelephonyProvidersEdgesLinebasesettingsParams) WriteToRequest(r runt
 		return err
 	}
 	var res []error
+
+	valuesExpand := o.Expand
+
+	joinedExpand := swag.JoinByFormat(valuesExpand, "multi")
+	// query array param expand
+	if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
+		return err
+	}
 
 	if o.PageNumber != nil {
 

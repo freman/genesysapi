@@ -97,6 +97,11 @@ for the get architect schedules operation typically these are written to a http.
 */
 type GetArchitectSchedulesParams struct {
 
+	/*DivisionID
+	  List of divisionIds on which to filter.
+
+	*/
+	DivisionID []string
 	/*Name
 	  Name of the Schedule to filter by.
 
@@ -161,6 +166,17 @@ func (o *GetArchitectSchedulesParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithDivisionID adds the divisionID to the get architect schedules params
+func (o *GetArchitectSchedulesParams) WithDivisionID(divisionID []string) *GetArchitectSchedulesParams {
+	o.SetDivisionID(divisionID)
+	return o
+}
+
+// SetDivisionID adds the divisionId to the get architect schedules params
+func (o *GetArchitectSchedulesParams) SetDivisionID(divisionID []string) {
+	o.DivisionID = divisionID
+}
+
 // WithName adds the name to the get architect schedules params
 func (o *GetArchitectSchedulesParams) WithName(name *string) *GetArchitectSchedulesParams {
 	o.SetName(name)
@@ -223,6 +239,14 @@ func (o *GetArchitectSchedulesParams) WriteToRequest(r runtime.ClientRequest, re
 		return err
 	}
 	var res []error
+
+	valuesDivisionID := o.DivisionID
+
+	joinedDivisionID := swag.JoinByFormat(valuesDivisionID, "multi")
+	// query array param divisionId
+	if err := r.SetQueryParam("divisionId", joinedDivisionID...); err != nil {
+		return err
+	}
 
 	if o.Name != nil {
 

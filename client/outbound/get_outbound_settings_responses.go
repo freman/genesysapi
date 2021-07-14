@@ -53,6 +53,12 @@ func (o *GetOutboundSettingsReader) ReadResponse(response runtime.ClientResponse
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetOutboundSettingsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetOutboundSettingsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetOutboundSettingsNotFound) readResponse(response runtime.ClientRespon
 	return nil
 }
 
+// NewGetOutboundSettingsRequestTimeout creates a GetOutboundSettingsRequestTimeout with default headers values
+func NewGetOutboundSettingsRequestTimeout() *GetOutboundSettingsRequestTimeout {
+	return &GetOutboundSettingsRequestTimeout{}
+}
+
+/*GetOutboundSettingsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetOutboundSettingsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetOutboundSettingsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/settings][%d] getOutboundSettingsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetOutboundSettingsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetOutboundSettingsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetOutboundSettingsRequestEntityTooLarge creates a GetOutboundSettingsRequestEntityTooLarge with default headers values
 func NewGetOutboundSettingsRequestEntityTooLarge() *GetOutboundSettingsRequestEntityTooLarge {
 	return &GetOutboundSettingsRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetOutboundSettingsTooManyRequests() *GetOutboundSettingsTooManyRequests
 
 /*GetOutboundSettingsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetOutboundSettingsTooManyRequests struct {
 	Payload *models.ErrorBody

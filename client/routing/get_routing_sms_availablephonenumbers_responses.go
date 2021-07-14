@@ -53,6 +53,12 @@ func (o *GetRoutingSmsAvailablephonenumbersReader) ReadResponse(response runtime
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetRoutingSmsAvailablephonenumbersRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetRoutingSmsAvailablephonenumbersRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetRoutingSmsAvailablephonenumbersNotFound) readResponse(response runti
 	return nil
 }
 
+// NewGetRoutingSmsAvailablephonenumbersRequestTimeout creates a GetRoutingSmsAvailablephonenumbersRequestTimeout with default headers values
+func NewGetRoutingSmsAvailablephonenumbersRequestTimeout() *GetRoutingSmsAvailablephonenumbersRequestTimeout {
+	return &GetRoutingSmsAvailablephonenumbersRequestTimeout{}
+}
+
+/*GetRoutingSmsAvailablephonenumbersRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetRoutingSmsAvailablephonenumbersRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetRoutingSmsAvailablephonenumbersRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/sms/availablephonenumbers][%d] getRoutingSmsAvailablephonenumbersRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetRoutingSmsAvailablephonenumbersRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetRoutingSmsAvailablephonenumbersRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetRoutingSmsAvailablephonenumbersRequestEntityTooLarge creates a GetRoutingSmsAvailablephonenumbersRequestEntityTooLarge with default headers values
 func NewGetRoutingSmsAvailablephonenumbersRequestEntityTooLarge() *GetRoutingSmsAvailablephonenumbersRequestEntityTooLarge {
 	return &GetRoutingSmsAvailablephonenumbersRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetRoutingSmsAvailablephonenumbersTooManyRequests() *GetRoutingSmsAvaila
 
 /*GetRoutingSmsAvailablephonenumbersTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetRoutingSmsAvailablephonenumbersTooManyRequests struct {
 	Payload *models.ErrorBody

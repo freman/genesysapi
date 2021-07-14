@@ -53,6 +53,12 @@ func (o *PostWidgetsDeploymentsReader) ReadResponse(response runtime.ClientRespo
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostWidgetsDeploymentsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 409:
 		result := NewPostWidgetsDeploymentsConflict()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -266,6 +272,39 @@ func (o *PostWidgetsDeploymentsNotFound) readResponse(response runtime.ClientRes
 	return nil
 }
 
+// NewPostWidgetsDeploymentsRequestTimeout creates a PostWidgetsDeploymentsRequestTimeout with default headers values
+func NewPostWidgetsDeploymentsRequestTimeout() *PostWidgetsDeploymentsRequestTimeout {
+	return &PostWidgetsDeploymentsRequestTimeout{}
+}
+
+/*PostWidgetsDeploymentsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostWidgetsDeploymentsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostWidgetsDeploymentsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/widgets/deployments][%d] postWidgetsDeploymentsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostWidgetsDeploymentsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostWidgetsDeploymentsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostWidgetsDeploymentsConflict creates a PostWidgetsDeploymentsConflict with default headers values
 func NewPostWidgetsDeploymentsConflict() *PostWidgetsDeploymentsConflict {
 	return &PostWidgetsDeploymentsConflict{}
@@ -372,7 +411,7 @@ func NewPostWidgetsDeploymentsTooManyRequests() *PostWidgetsDeploymentsTooManyRe
 
 /*PostWidgetsDeploymentsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostWidgetsDeploymentsTooManyRequests struct {
 	Payload *models.ErrorBody

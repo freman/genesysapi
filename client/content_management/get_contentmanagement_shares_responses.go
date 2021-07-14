@@ -53,6 +53,12 @@ func (o *GetContentmanagementSharesReader) ReadResponse(response runtime.ClientR
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetContentmanagementSharesRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetContentmanagementSharesRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetContentmanagementSharesNotFound) readResponse(response runtime.Clien
 	return nil
 }
 
+// NewGetContentmanagementSharesRequestTimeout creates a GetContentmanagementSharesRequestTimeout with default headers values
+func NewGetContentmanagementSharesRequestTimeout() *GetContentmanagementSharesRequestTimeout {
+	return &GetContentmanagementSharesRequestTimeout{}
+}
+
+/*GetContentmanagementSharesRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetContentmanagementSharesRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetContentmanagementSharesRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/shares][%d] getContentmanagementSharesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetContentmanagementSharesRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetContentmanagementSharesRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetContentmanagementSharesRequestEntityTooLarge creates a GetContentmanagementSharesRequestEntityTooLarge with default headers values
 func NewGetContentmanagementSharesRequestEntityTooLarge() *GetContentmanagementSharesRequestEntityTooLarge {
 	return &GetContentmanagementSharesRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetContentmanagementSharesTooManyRequests() *GetContentmanagementSharesT
 
 /*GetContentmanagementSharesTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetContentmanagementSharesTooManyRequests struct {
 	Payload *models.ErrorBody

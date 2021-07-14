@@ -11,21 +11,21 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// ButtonComponent Structured template button object
+// ButtonComponent Structured template button object.
 //
 // swagger:model ButtonComponent
 type ButtonComponent struct {
 
-	// User actions available on the content. All actions are optional and all actions are executed simultaneously.
+	// The button actions.
 	Actions *ContentActions `json:"actions,omitempty"`
 
-	// An ID assigned to this component
+	// The ID of this component.
 	ID string `json:"id,omitempty"`
 
-	// Deprecated - Use title instead
+	// Deprecated - Use title instead.
 	Text string `json:"text,omitempty"`
 
-	// Text to show inside the button
+	// Text to show inside the button.
 	Title string `json:"title,omitempty"`
 }
 

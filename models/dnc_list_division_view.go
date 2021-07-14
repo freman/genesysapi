@@ -36,7 +36,7 @@ type DncListDivisionView struct {
 	// Format: uri
 	SelfURI strfmt.URI `json:"selfUri,omitempty"`
 
-	// The number of contacts in the ContactList.
+	// The number of contacts in the DncList.
 	// Read Only: true
 	Size int64 `json:"size,omitempty"`
 }

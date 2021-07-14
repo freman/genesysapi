@@ -71,7 +71,7 @@ type PutQualitySurveysScorableParams struct {
 	  customerSurveyUrl
 
 	*/
-	CustomerSurveyURL *string
+	CustomerSurveyURL string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -123,13 +123,13 @@ func (o *PutQualitySurveysScorableParams) SetBody(body *models.ScorableSurvey) {
 }
 
 // WithCustomerSurveyURL adds the customerSurveyURL to the put quality surveys scorable params
-func (o *PutQualitySurveysScorableParams) WithCustomerSurveyURL(customerSurveyURL *string) *PutQualitySurveysScorableParams {
+func (o *PutQualitySurveysScorableParams) WithCustomerSurveyURL(customerSurveyURL string) *PutQualitySurveysScorableParams {
 	o.SetCustomerSurveyURL(customerSurveyURL)
 	return o
 }
 
 // SetCustomerSurveyURL adds the customerSurveyUrl to the put quality surveys scorable params
-func (o *PutQualitySurveysScorableParams) SetCustomerSurveyURL(customerSurveyURL *string) {
+func (o *PutQualitySurveysScorableParams) SetCustomerSurveyURL(customerSurveyURL string) {
 	o.CustomerSurveyURL = customerSurveyURL
 }
 
@@ -147,20 +147,13 @@ func (o *PutQualitySurveysScorableParams) WriteToRequest(r runtime.ClientRequest
 		}
 	}
 
-	if o.CustomerSurveyURL != nil {
-
-		// query param customerSurveyUrl
-		var qrCustomerSurveyURL string
-		if o.CustomerSurveyURL != nil {
-			qrCustomerSurveyURL = *o.CustomerSurveyURL
+	// query param customerSurveyUrl
+	qrCustomerSurveyURL := o.CustomerSurveyURL
+	qCustomerSurveyURL := qrCustomerSurveyURL
+	if qCustomerSurveyURL != "" {
+		if err := r.SetQueryParam("customerSurveyUrl", qCustomerSurveyURL); err != nil {
+			return err
 		}
-		qCustomerSurveyURL := qrCustomerSurveyURL
-		if qCustomerSurveyURL != "" {
-			if err := r.SetQueryParam("customerSurveyUrl", qCustomerSurveyURL); err != nil {
-				return err
-			}
-		}
-
 	}
 
 	if len(res) > 0 {

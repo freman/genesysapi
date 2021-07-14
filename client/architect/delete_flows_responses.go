@@ -53,6 +53,12 @@ func (o *DeleteFlowsReader) ReadResponse(response runtime.ClientResponse, consum
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewDeleteFlowsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 409:
 		result := NewDeleteFlowsConflict()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -266,6 +272,39 @@ func (o *DeleteFlowsNotFound) readResponse(response runtime.ClientResponse, cons
 	return nil
 }
 
+// NewDeleteFlowsRequestTimeout creates a DeleteFlowsRequestTimeout with default headers values
+func NewDeleteFlowsRequestTimeout() *DeleteFlowsRequestTimeout {
+	return &DeleteFlowsRequestTimeout{}
+}
+
+/*DeleteFlowsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type DeleteFlowsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *DeleteFlowsRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/flows][%d] deleteFlowsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteFlowsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *DeleteFlowsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewDeleteFlowsConflict creates a DeleteFlowsConflict with default headers values
 func NewDeleteFlowsConflict() *DeleteFlowsConflict {
 	return &DeleteFlowsConflict{}
@@ -372,7 +411,7 @@ func NewDeleteFlowsTooManyRequests() *DeleteFlowsTooManyRequests {
 
 /*DeleteFlowsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type DeleteFlowsTooManyRequests struct {
 	Payload *models.ErrorBody

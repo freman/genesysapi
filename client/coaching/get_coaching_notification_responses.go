@@ -53,6 +53,12 @@ func (o *GetCoachingNotificationReader) ReadResponse(response runtime.ClientResp
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetCoachingNotificationRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetCoachingNotificationRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetCoachingNotificationNotFound) readResponse(response runtime.ClientRe
 	return nil
 }
 
+// NewGetCoachingNotificationRequestTimeout creates a GetCoachingNotificationRequestTimeout with default headers values
+func NewGetCoachingNotificationRequestTimeout() *GetCoachingNotificationRequestTimeout {
+	return &GetCoachingNotificationRequestTimeout{}
+}
+
+/*GetCoachingNotificationRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetCoachingNotificationRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetCoachingNotificationRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/coaching/notifications/{notificationId}][%d] getCoachingNotificationRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetCoachingNotificationRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetCoachingNotificationRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetCoachingNotificationRequestEntityTooLarge creates a GetCoachingNotificationRequestEntityTooLarge with default headers values
 func NewGetCoachingNotificationRequestEntityTooLarge() *GetCoachingNotificationRequestEntityTooLarge {
 	return &GetCoachingNotificationRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetCoachingNotificationTooManyRequests() *GetCoachingNotificationTooMany
 
 /*GetCoachingNotificationTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetCoachingNotificationTooManyRequests struct {
 	Payload *models.ErrorBody

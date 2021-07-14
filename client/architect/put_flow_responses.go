@@ -59,6 +59,12 @@ func (o *PutFlowReader) ReadResponse(response runtime.ClientResponse, consumer r
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPutFlowRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 409:
 		result := NewPutFlowConflict()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -311,6 +317,39 @@ func (o *PutFlowMethodNotAllowed) readResponse(response runtime.ClientResponse, 
 	return nil
 }
 
+// NewPutFlowRequestTimeout creates a PutFlowRequestTimeout with default headers values
+func NewPutFlowRequestTimeout() *PutFlowRequestTimeout {
+	return &PutFlowRequestTimeout{}
+}
+
+/*PutFlowRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PutFlowRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PutFlowRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/flows/{flowId}][%d] putFlowRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutFlowRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PutFlowRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPutFlowConflict creates a PutFlowConflict with default headers values
 func NewPutFlowConflict() *PutFlowConflict {
 	return &PutFlowConflict{}
@@ -450,7 +489,7 @@ func NewPutFlowTooManyRequests() *PutFlowTooManyRequests {
 
 /*PutFlowTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PutFlowTooManyRequests struct {
 	Payload *models.ErrorBody

@@ -53,6 +53,12 @@ func (o *PutTelephonyProvidersEdgesSiteOutboundrouteReader) ReadResponse(respons
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPutTelephonyProvidersEdgesSiteOutboundrouteRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 409:
 		result := NewPutTelephonyProvidersEdgesSiteOutboundrouteConflict()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -266,6 +272,39 @@ func (o *PutTelephonyProvidersEdgesSiteOutboundrouteNotFound) readResponse(respo
 	return nil
 }
 
+// NewPutTelephonyProvidersEdgesSiteOutboundrouteRequestTimeout creates a PutTelephonyProvidersEdgesSiteOutboundrouteRequestTimeout with default headers values
+func NewPutTelephonyProvidersEdgesSiteOutboundrouteRequestTimeout() *PutTelephonyProvidersEdgesSiteOutboundrouteRequestTimeout {
+	return &PutTelephonyProvidersEdgesSiteOutboundrouteRequestTimeout{}
+}
+
+/*PutTelephonyProvidersEdgesSiteOutboundrouteRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PutTelephonyProvidersEdgesSiteOutboundrouteRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PutTelephonyProvidersEdgesSiteOutboundrouteRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/telephony/providers/edges/sites/{siteId}/outboundroutes/{outboundRouteId}][%d] putTelephonyProvidersEdgesSiteOutboundrouteRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutTelephonyProvidersEdgesSiteOutboundrouteRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PutTelephonyProvidersEdgesSiteOutboundrouteRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPutTelephonyProvidersEdgesSiteOutboundrouteConflict creates a PutTelephonyProvidersEdgesSiteOutboundrouteConflict with default headers values
 func NewPutTelephonyProvidersEdgesSiteOutboundrouteConflict() *PutTelephonyProvidersEdgesSiteOutboundrouteConflict {
 	return &PutTelephonyProvidersEdgesSiteOutboundrouteConflict{}
@@ -372,7 +411,7 @@ func NewPutTelephonyProvidersEdgesSiteOutboundrouteTooManyRequests() *PutTelepho
 
 /*PutTelephonyProvidersEdgesSiteOutboundrouteTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PutTelephonyProvidersEdgesSiteOutboundrouteTooManyRequests struct {
 	Payload *models.ErrorBody

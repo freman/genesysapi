@@ -53,6 +53,12 @@ func (o *PatchJourneyActionmapReader) ReadResponse(response runtime.ClientRespon
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPatchJourneyActionmapRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPatchJourneyActionmapRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PatchJourneyActionmapNotFound) readResponse(response runtime.ClientResp
 	return nil
 }
 
+// NewPatchJourneyActionmapRequestTimeout creates a PatchJourneyActionmapRequestTimeout with default headers values
+func NewPatchJourneyActionmapRequestTimeout() *PatchJourneyActionmapRequestTimeout {
+	return &PatchJourneyActionmapRequestTimeout{}
+}
+
+/*PatchJourneyActionmapRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PatchJourneyActionmapRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PatchJourneyActionmapRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/journey/actionmaps/{actionMapId}][%d] patchJourneyActionmapRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchJourneyActionmapRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PatchJourneyActionmapRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPatchJourneyActionmapRequestEntityTooLarge creates a PatchJourneyActionmapRequestEntityTooLarge with default headers values
 func NewPatchJourneyActionmapRequestEntityTooLarge() *PatchJourneyActionmapRequestEntityTooLarge {
 	return &PatchJourneyActionmapRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPatchJourneyActionmapTooManyRequests() *PatchJourneyActionmapTooManyRequ
 
 /*PatchJourneyActionmapTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PatchJourneyActionmapTooManyRequests struct {
 	Payload *models.ErrorBody

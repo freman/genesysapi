@@ -53,6 +53,12 @@ func (o *PostOutboundContactlistContactsBulkReader) ReadResponse(response runtim
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostOutboundContactlistContactsBulkRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostOutboundContactlistContactsBulkRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -258,6 +264,39 @@ func (o *PostOutboundContactlistContactsBulkNotFound) readResponse(response runt
 	return nil
 }
 
+// NewPostOutboundContactlistContactsBulkRequestTimeout creates a PostOutboundContactlistContactsBulkRequestTimeout with default headers values
+func NewPostOutboundContactlistContactsBulkRequestTimeout() *PostOutboundContactlistContactsBulkRequestTimeout {
+	return &PostOutboundContactlistContactsBulkRequestTimeout{}
+}
+
+/*PostOutboundContactlistContactsBulkRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostOutboundContactlistContactsBulkRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostOutboundContactlistContactsBulkRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/contactlists/{contactListId}/contacts/bulk][%d] postOutboundContactlistContactsBulkRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostOutboundContactlistContactsBulkRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostOutboundContactlistContactsBulkRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostOutboundContactlistContactsBulkRequestEntityTooLarge creates a PostOutboundContactlistContactsBulkRequestEntityTooLarge with default headers values
 func NewPostOutboundContactlistContactsBulkRequestEntityTooLarge() *PostOutboundContactlistContactsBulkRequestEntityTooLarge {
 	return &PostOutboundContactlistContactsBulkRequestEntityTooLarge{}
@@ -331,7 +370,7 @@ func NewPostOutboundContactlistContactsBulkTooManyRequests() *PostOutboundContac
 
 /*PostOutboundContactlistContactsBulkTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostOutboundContactlistContactsBulkTooManyRequests struct {
 	Payload *models.ErrorBody

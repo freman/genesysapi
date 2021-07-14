@@ -96,13 +96,23 @@ type GetJourneyActiontemplatesParams struct {
 
 	*/
 	PageSize *int32
+	/*QueryFields
+	  ActionTemplate field(s) to query on. Requires 'queryValue' to also be set.
+
+	*/
+	QueryFields []string
+	/*QueryValue
+	  Value to query on. Requires 'queryFields' to also be set.
+
+	*/
+	QueryValue *string
 	/*SortBy
 	  Field(s) to sort by. Prefix with '-' for descending (e.g. sortBy=name,-createdDate).
 
 	*/
 	SortBy *string
 	/*State
-	  Action template state
+	  Action template state.
 
 	*/
 	State *string
@@ -178,6 +188,28 @@ func (o *GetJourneyActiontemplatesParams) SetPageSize(pageSize *int32) {
 	o.PageSize = pageSize
 }
 
+// WithQueryFields adds the queryFields to the get journey actiontemplates params
+func (o *GetJourneyActiontemplatesParams) WithQueryFields(queryFields []string) *GetJourneyActiontemplatesParams {
+	o.SetQueryFields(queryFields)
+	return o
+}
+
+// SetQueryFields adds the queryFields to the get journey actiontemplates params
+func (o *GetJourneyActiontemplatesParams) SetQueryFields(queryFields []string) {
+	o.QueryFields = queryFields
+}
+
+// WithQueryValue adds the queryValue to the get journey actiontemplates params
+func (o *GetJourneyActiontemplatesParams) WithQueryValue(queryValue *string) *GetJourneyActiontemplatesParams {
+	o.SetQueryValue(queryValue)
+	return o
+}
+
+// SetQueryValue adds the queryValue to the get journey actiontemplates params
+func (o *GetJourneyActiontemplatesParams) SetQueryValue(queryValue *string) {
+	o.QueryValue = queryValue
+}
+
 // WithSortBy adds the sortBy to the get journey actiontemplates params
 func (o *GetJourneyActiontemplatesParams) WithSortBy(sortBy *string) *GetJourneyActiontemplatesParams {
 	o.SetSortBy(sortBy)
@@ -250,6 +282,30 @@ func (o *GetJourneyActiontemplatesParams) WriteToRequest(r runtime.ClientRequest
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	valuesQueryFields := o.QueryFields
+
+	joinedQueryFields := swag.JoinByFormat(valuesQueryFields, "multi")
+	// query array param queryFields
+	if err := r.SetQueryParam("queryFields", joinedQueryFields...); err != nil {
+		return err
+	}
+
+	if o.QueryValue != nil {
+
+		// query param queryValue
+		var qrQueryValue string
+		if o.QueryValue != nil {
+			qrQueryValue = *o.QueryValue
+		}
+		qQueryValue := qrQueryValue
+		if qQueryValue != "" {
+			if err := r.SetQueryParam("queryValue", qQueryValue); err != nil {
 				return err
 			}
 		}

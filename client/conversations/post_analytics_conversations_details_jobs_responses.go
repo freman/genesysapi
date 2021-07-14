@@ -53,6 +53,12 @@ func (o *PostAnalyticsConversationsDetailsJobsReader) ReadResponse(response runt
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostAnalyticsConversationsDetailsJobsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostAnalyticsConversationsDetailsJobsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PostAnalyticsConversationsDetailsJobsNotFound) readResponse(response ru
 	return nil
 }
 
+// NewPostAnalyticsConversationsDetailsJobsRequestTimeout creates a PostAnalyticsConversationsDetailsJobsRequestTimeout with default headers values
+func NewPostAnalyticsConversationsDetailsJobsRequestTimeout() *PostAnalyticsConversationsDetailsJobsRequestTimeout {
+	return &PostAnalyticsConversationsDetailsJobsRequestTimeout{}
+}
+
+/*PostAnalyticsConversationsDetailsJobsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostAnalyticsConversationsDetailsJobsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostAnalyticsConversationsDetailsJobsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/conversations/details/jobs][%d] postAnalyticsConversationsDetailsJobsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostAnalyticsConversationsDetailsJobsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostAnalyticsConversationsDetailsJobsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostAnalyticsConversationsDetailsJobsRequestEntityTooLarge creates a PostAnalyticsConversationsDetailsJobsRequestEntityTooLarge with default headers values
 func NewPostAnalyticsConversationsDetailsJobsRequestEntityTooLarge() *PostAnalyticsConversationsDetailsJobsRequestEntityTooLarge {
 	return &PostAnalyticsConversationsDetailsJobsRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPostAnalyticsConversationsDetailsJobsTooManyRequests() *PostAnalyticsCon
 
 /*PostAnalyticsConversationsDetailsJobsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostAnalyticsConversationsDetailsJobsTooManyRequests struct {
 	Payload *models.ErrorBody

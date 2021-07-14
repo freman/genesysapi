@@ -116,6 +116,9 @@ type ViewFilter struct {
 	// The external org ids are used to filter the view
 	ExternalOrgIds []string `json:"externalOrgIds"`
 
+	// The list of external Tags used to filter conversation data
+	ExternalTags []string `json:"externalTags"`
+
 	// The user ids are used to fetch associated queues for the view
 	FilterQueuesByUserIds []string `json:"filterQueuesByUserIds"`
 
@@ -182,6 +185,9 @@ type ViewFilter struct {
 	// The hold durations in milliseconds used to filter the view
 	HoldDurationsMilliseconds []*NumericRange `json:"holdDurationsMilliseconds"`
 
+	// Indicates filtering for the authenticated chat
+	IsAuthenticated bool `json:"isAuthenticated"`
+
 	// Indicates filtering for blind transferred
 	IsBlindTransferred bool `json:"isBlindTransferred"`
 
@@ -196,6 +202,9 @@ type ViewFilter struct {
 
 	// Indicates filtering for ended
 	IsEnded bool `json:"isEnded"`
+
+	// Indicates filtering for not responding users
+	IsNotResponding bool `json:"isNotResponding"`
 
 	// Indicates filtering for survey
 	IsSurveyed bool `json:"isSurveyed"`
@@ -307,6 +316,9 @@ type ViewFilter struct {
 
 	// The team ids used to filter the view data
 	TeamIds []string `json:"teamIds"`
+
+	// Represents the topics detected in the transcript
+	TopicIds []string `json:"topicIds"`
 
 	// A list of transcript languages requested
 	TranscriptLanguages []string `json:"transcriptLanguages"`
@@ -971,7 +983,7 @@ var viewFilterFlowTypesItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["bot","commonmodule","inboundcall","inboundchat","inboundemail","inboundshortmessage","inqueuecall","outboundcall","securecall","surveyinvite","workflow"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["bot","commonmodule","inboundcall","inboundchat","inboundemail","inboundshortmessage","inqueuecall","inqueueshortmessage","inqueueemail","outboundcall","securecall","surveyinvite","workflow","workitem"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -1132,7 +1144,7 @@ var viewFilterMessageTypesItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["sms","twitter","line","facebook","whatsapp","webmessaging","open"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["sms","twitter","line","facebook","whatsapp","webmessaging","open","instagram"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {

@@ -53,6 +53,12 @@ func (o *DeleteIdentityprovidersPureengageReader) ReadResponse(response runtime.
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewDeleteIdentityprovidersPureengageRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewDeleteIdentityprovidersPureengageRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -258,6 +264,39 @@ func (o *DeleteIdentityprovidersPureengageNotFound) readResponse(response runtim
 	return nil
 }
 
+// NewDeleteIdentityprovidersPureengageRequestTimeout creates a DeleteIdentityprovidersPureengageRequestTimeout with default headers values
+func NewDeleteIdentityprovidersPureengageRequestTimeout() *DeleteIdentityprovidersPureengageRequestTimeout {
+	return &DeleteIdentityprovidersPureengageRequestTimeout{}
+}
+
+/*DeleteIdentityprovidersPureengageRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type DeleteIdentityprovidersPureengageRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *DeleteIdentityprovidersPureengageRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/pureengage][%d] deleteIdentityprovidersPureengageRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersPureengageRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *DeleteIdentityprovidersPureengageRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewDeleteIdentityprovidersPureengageRequestEntityTooLarge creates a DeleteIdentityprovidersPureengageRequestEntityTooLarge with default headers values
 func NewDeleteIdentityprovidersPureengageRequestEntityTooLarge() *DeleteIdentityprovidersPureengageRequestEntityTooLarge {
 	return &DeleteIdentityprovidersPureengageRequestEntityTooLarge{}
@@ -331,7 +370,7 @@ func NewDeleteIdentityprovidersPureengageTooManyRequests() *DeleteIdentityprovid
 
 /*DeleteIdentityprovidersPureengageTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type DeleteIdentityprovidersPureengageTooManyRequests struct {
 	Payload *models.ErrorBody

@@ -59,6 +59,9 @@ type WorkPlanActivity struct {
 
 	// Whether the start time of the activity is relative to the start time of the shift it belongs to
 	StartTimeIsRelativeToShiftStart bool `json:"startTimeIsRelativeToShiftStart"`
+
+	// ID of the activity in the context of work plan validation
+	ValidationID string `json:"validationId,omitempty"`
 }
 
 // Validate validates this work plan activity

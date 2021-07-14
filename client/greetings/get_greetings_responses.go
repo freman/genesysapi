@@ -53,6 +53,12 @@ func (o *GetGreetingsReader) ReadResponse(response runtime.ClientResponse, consu
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetGreetingsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetGreetingsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetGreetingsNotFound) readResponse(response runtime.ClientResponse, con
 	return nil
 }
 
+// NewGetGreetingsRequestTimeout creates a GetGreetingsRequestTimeout with default headers values
+func NewGetGreetingsRequestTimeout() *GetGreetingsRequestTimeout {
+	return &GetGreetingsRequestTimeout{}
+}
+
+/*GetGreetingsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetGreetingsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetGreetingsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/greetings][%d] getGreetingsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetGreetingsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetGreetingsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetGreetingsRequestEntityTooLarge creates a GetGreetingsRequestEntityTooLarge with default headers values
 func NewGetGreetingsRequestEntityTooLarge() *GetGreetingsRequestEntityTooLarge {
 	return &GetGreetingsRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetGreetingsTooManyRequests() *GetGreetingsTooManyRequests {
 
 /*GetGreetingsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetGreetingsTooManyRequests struct {
 	Payload *models.ErrorBody

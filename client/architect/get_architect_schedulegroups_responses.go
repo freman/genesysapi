@@ -53,6 +53,12 @@ func (o *GetArchitectSchedulegroupsReader) ReadResponse(response runtime.ClientR
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetArchitectSchedulegroupsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetArchitectSchedulegroupsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetArchitectSchedulegroupsNotFound) readResponse(response runtime.Clien
 	return nil
 }
 
+// NewGetArchitectSchedulegroupsRequestTimeout creates a GetArchitectSchedulegroupsRequestTimeout with default headers values
+func NewGetArchitectSchedulegroupsRequestTimeout() *GetArchitectSchedulegroupsRequestTimeout {
+	return &GetArchitectSchedulegroupsRequestTimeout{}
+}
+
+/*GetArchitectSchedulegroupsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetArchitectSchedulegroupsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetArchitectSchedulegroupsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/schedulegroups][%d] getArchitectSchedulegroupsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetArchitectSchedulegroupsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetArchitectSchedulegroupsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetArchitectSchedulegroupsRequestEntityTooLarge creates a GetArchitectSchedulegroupsRequestEntityTooLarge with default headers values
 func NewGetArchitectSchedulegroupsRequestEntityTooLarge() *GetArchitectSchedulegroupsRequestEntityTooLarge {
 	return &GetArchitectSchedulegroupsRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetArchitectSchedulegroupsTooManyRequests() *GetArchitectSchedulegroupsT
 
 /*GetArchitectSchedulegroupsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetArchitectSchedulegroupsTooManyRequests struct {
 	Payload *models.ErrorBody

@@ -66,7 +66,7 @@ type PutOrgauthorizationTrusteeParams struct {
 	  Client
 
 	*/
-	Body *models.Trustee
+	Body *models.TrustUpdate
 	/*TrusteeOrgID
 	  Trustee Organization Id
 
@@ -112,13 +112,13 @@ func (o *PutOrgauthorizationTrusteeParams) SetHTTPClient(client *http.Client) {
 }
 
 // WithBody adds the body to the put orgauthorization trustee params
-func (o *PutOrgauthorizationTrusteeParams) WithBody(body *models.Trustee) *PutOrgauthorizationTrusteeParams {
+func (o *PutOrgauthorizationTrusteeParams) WithBody(body *models.TrustUpdate) *PutOrgauthorizationTrusteeParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the put orgauthorization trustee params
-func (o *PutOrgauthorizationTrusteeParams) SetBody(body *models.Trustee) {
+func (o *PutOrgauthorizationTrusteeParams) SetBody(body *models.TrustUpdate) {
 	o.Body = body
 }
 

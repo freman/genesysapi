@@ -45,6 +45,7 @@ import (
 	"github.com/freman/genesysapi/client/knowledge"
 	"github.com/freman/genesysapi/client/language_understanding"
 	"github.com/freman/genesysapi/client/languages"
+	"github.com/freman/genesysapi/client/learning"
 	"github.com/freman/genesysapi/client/license"
 	"github.com/freman/genesysapi/client/locations"
 	"github.com/freman/genesysapi/client/mobile_devices"
@@ -178,6 +179,7 @@ func New(c Config) *Genesys {
 	cli.Knowledge = knowledge.New(transport, strfmt.Default, nil)
 	cli.LanguageUnderstanding = language_understanding.New(transport, strfmt.Default, nil)
 	cli.Languages = languages.New(transport, strfmt.Default, nil)
+	cli.Learning = learning.New(transport, strfmt.Default, nil)
 	cli.License = license.New(transport, strfmt.Default, nil)
 	cli.Locations = locations.New(transport, strfmt.Default, nil)
 	cli.MobileDevices = mobile_devices.New(transport, strfmt.Default, nil)
@@ -243,6 +245,7 @@ type Genesys struct {
 	Knowledge                       *knowledge.Client
 	LanguageUnderstanding           *language_understanding.Client
 	Languages                       *languages.Client
+	Learning                        *learning.Client
 	License                         *license.Client
 	Locations                       *locations.Client
 	MobileDevices                   *mobile_devices.Client

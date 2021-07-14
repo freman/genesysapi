@@ -14,16 +14,16 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// NotificationTemplateBody Template body object
+// NotificationTemplateBody Template body object.
 //
 // swagger:model NotificationTemplateBody
 type NotificationTemplateBody struct {
 
-	// Template parameters for placeholders in template
+	// Template parameters for placeholders in template.
 	// Required: true
 	Parameters []*NotificationTemplateParameter `json:"parameters"`
 
-	// Body text. For WhatsApp, ignored
+	// Body text. For WhatsApp, ignored.
 	Text string `json:"text,omitempty"`
 }
 

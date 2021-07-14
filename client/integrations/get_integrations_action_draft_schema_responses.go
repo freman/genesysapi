@@ -53,6 +53,12 @@ func (o *GetIntegrationsActionDraftSchemaReader) ReadResponse(response runtime.C
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetIntegrationsActionDraftSchemaRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetIntegrationsActionDraftSchemaRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetIntegrationsActionDraftSchemaNotFound) readResponse(response runtime
 	return nil
 }
 
+// NewGetIntegrationsActionDraftSchemaRequestTimeout creates a GetIntegrationsActionDraftSchemaRequestTimeout with default headers values
+func NewGetIntegrationsActionDraftSchemaRequestTimeout() *GetIntegrationsActionDraftSchemaRequestTimeout {
+	return &GetIntegrationsActionDraftSchemaRequestTimeout{}
+}
+
+/*GetIntegrationsActionDraftSchemaRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetIntegrationsActionDraftSchemaRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetIntegrationsActionDraftSchemaRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/actions/{actionId}/draft/schemas/{fileName}][%d] getIntegrationsActionDraftSchemaRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetIntegrationsActionDraftSchemaRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetIntegrationsActionDraftSchemaRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetIntegrationsActionDraftSchemaRequestEntityTooLarge creates a GetIntegrationsActionDraftSchemaRequestEntityTooLarge with default headers values
 func NewGetIntegrationsActionDraftSchemaRequestEntityTooLarge() *GetIntegrationsActionDraftSchemaRequestEntityTooLarge {
 	return &GetIntegrationsActionDraftSchemaRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetIntegrationsActionDraftSchemaTooManyRequests() *GetIntegrationsAction
 
 /*GetIntegrationsActionDraftSchemaTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetIntegrationsActionDraftSchemaTooManyRequests struct {
 	Payload *models.ErrorBody

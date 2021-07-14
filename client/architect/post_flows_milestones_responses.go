@@ -59,6 +59,12 @@ func (o *PostFlowsMilestonesReader) ReadResponse(response runtime.ClientResponse
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostFlowsMilestonesRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 409:
 		result := NewPostFlowsMilestonesConflict()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -305,6 +311,39 @@ func (o *PostFlowsMilestonesMethodNotAllowed) readResponse(response runtime.Clie
 	return nil
 }
 
+// NewPostFlowsMilestonesRequestTimeout creates a PostFlowsMilestonesRequestTimeout with default headers values
+func NewPostFlowsMilestonesRequestTimeout() *PostFlowsMilestonesRequestTimeout {
+	return &PostFlowsMilestonesRequestTimeout{}
+}
+
+/*PostFlowsMilestonesRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostFlowsMilestonesRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostFlowsMilestonesRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/milestones][%d] postFlowsMilestonesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostFlowsMilestonesRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostFlowsMilestonesRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostFlowsMilestonesConflict creates a PostFlowsMilestonesConflict with default headers values
 func NewPostFlowsMilestonesConflict() *PostFlowsMilestonesConflict {
 	return &PostFlowsMilestonesConflict{}
@@ -411,7 +450,7 @@ func NewPostFlowsMilestonesTooManyRequests() *PostFlowsMilestonesTooManyRequests
 
 /*PostFlowsMilestonesTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostFlowsMilestonesTooManyRequests struct {
 	Payload *models.ErrorBody

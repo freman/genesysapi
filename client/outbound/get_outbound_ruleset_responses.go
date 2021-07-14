@@ -53,6 +53,12 @@ func (o *GetOutboundRulesetReader) ReadResponse(response runtime.ClientResponse,
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetOutboundRulesetRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetOutboundRulesetRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetOutboundRulesetNotFound) readResponse(response runtime.ClientRespons
 	return nil
 }
 
+// NewGetOutboundRulesetRequestTimeout creates a GetOutboundRulesetRequestTimeout with default headers values
+func NewGetOutboundRulesetRequestTimeout() *GetOutboundRulesetRequestTimeout {
+	return &GetOutboundRulesetRequestTimeout{}
+}
+
+/*GetOutboundRulesetRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetOutboundRulesetRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetOutboundRulesetRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/rulesets/{ruleSetId}][%d] getOutboundRulesetRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetOutboundRulesetRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetOutboundRulesetRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetOutboundRulesetRequestEntityTooLarge creates a GetOutboundRulesetRequestEntityTooLarge with default headers values
 func NewGetOutboundRulesetRequestEntityTooLarge() *GetOutboundRulesetRequestEntityTooLarge {
 	return &GetOutboundRulesetRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetOutboundRulesetTooManyRequests() *GetOutboundRulesetTooManyRequests {
 
 /*GetOutboundRulesetTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetOutboundRulesetTooManyRequests struct {
 	Payload *models.ErrorBody

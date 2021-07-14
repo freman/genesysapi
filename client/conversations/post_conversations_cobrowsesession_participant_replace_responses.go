@@ -53,6 +53,12 @@ func (o *PostConversationsCobrowsesessionParticipantReplaceReader) ReadResponse(
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostConversationsCobrowsesessionParticipantReplaceRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostConversationsCobrowsesessionParticipantReplaceRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -248,6 +254,39 @@ func (o *PostConversationsCobrowsesessionParticipantReplaceNotFound) readRespons
 	return nil
 }
 
+// NewPostConversationsCobrowsesessionParticipantReplaceRequestTimeout creates a PostConversationsCobrowsesessionParticipantReplaceRequestTimeout with default headers values
+func NewPostConversationsCobrowsesessionParticipantReplaceRequestTimeout() *PostConversationsCobrowsesessionParticipantReplaceRequestTimeout {
+	return &PostConversationsCobrowsesessionParticipantReplaceRequestTimeout{}
+}
+
+/*PostConversationsCobrowsesessionParticipantReplaceRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostConversationsCobrowsesessionParticipantReplaceRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostConversationsCobrowsesessionParticipantReplaceRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}/replace][%d] postConversationsCobrowsesessionParticipantReplaceRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostConversationsCobrowsesessionParticipantReplaceRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostConversationsCobrowsesessionParticipantReplaceRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostConversationsCobrowsesessionParticipantReplaceRequestEntityTooLarge creates a PostConversationsCobrowsesessionParticipantReplaceRequestEntityTooLarge with default headers values
 func NewPostConversationsCobrowsesessionParticipantReplaceRequestEntityTooLarge() *PostConversationsCobrowsesessionParticipantReplaceRequestEntityTooLarge {
 	return &PostConversationsCobrowsesessionParticipantReplaceRequestEntityTooLarge{}
@@ -321,7 +360,7 @@ func NewPostConversationsCobrowsesessionParticipantReplaceTooManyRequests() *Pos
 
 /*PostConversationsCobrowsesessionParticipantReplaceTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostConversationsCobrowsesessionParticipantReplaceTooManyRequests struct {
 	Payload *models.ErrorBody

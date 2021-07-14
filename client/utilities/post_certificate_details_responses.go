@@ -53,6 +53,12 @@ func (o *PostCertificateDetailsReader) ReadResponse(response runtime.ClientRespo
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostCertificateDetailsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostCertificateDetailsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PostCertificateDetailsNotFound) readResponse(response runtime.ClientRes
 	return nil
 }
 
+// NewPostCertificateDetailsRequestTimeout creates a PostCertificateDetailsRequestTimeout with default headers values
+func NewPostCertificateDetailsRequestTimeout() *PostCertificateDetailsRequestTimeout {
+	return &PostCertificateDetailsRequestTimeout{}
+}
+
+/*PostCertificateDetailsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostCertificateDetailsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostCertificateDetailsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/certificate/details][%d] postCertificateDetailsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostCertificateDetailsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostCertificateDetailsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostCertificateDetailsRequestEntityTooLarge creates a PostCertificateDetailsRequestEntityTooLarge with default headers values
 func NewPostCertificateDetailsRequestEntityTooLarge() *PostCertificateDetailsRequestEntityTooLarge {
 	return &PostCertificateDetailsRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPostCertificateDetailsTooManyRequests() *PostCertificateDetailsTooManyRe
 
 /*PostCertificateDetailsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostCertificateDetailsTooManyRequests struct {
 	Payload *models.ErrorBody

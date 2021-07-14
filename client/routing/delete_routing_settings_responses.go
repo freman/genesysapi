@@ -53,6 +53,12 @@ func (o *DeleteRoutingSettingsReader) ReadResponse(response runtime.ClientRespon
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewDeleteRoutingSettingsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewDeleteRoutingSettingsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -248,6 +254,39 @@ func (o *DeleteRoutingSettingsNotFound) readResponse(response runtime.ClientResp
 	return nil
 }
 
+// NewDeleteRoutingSettingsRequestTimeout creates a DeleteRoutingSettingsRequestTimeout with default headers values
+func NewDeleteRoutingSettingsRequestTimeout() *DeleteRoutingSettingsRequestTimeout {
+	return &DeleteRoutingSettingsRequestTimeout{}
+}
+
+/*DeleteRoutingSettingsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type DeleteRoutingSettingsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *DeleteRoutingSettingsRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/settings][%d] deleteRoutingSettingsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteRoutingSettingsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *DeleteRoutingSettingsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewDeleteRoutingSettingsRequestEntityTooLarge creates a DeleteRoutingSettingsRequestEntityTooLarge with default headers values
 func NewDeleteRoutingSettingsRequestEntityTooLarge() *DeleteRoutingSettingsRequestEntityTooLarge {
 	return &DeleteRoutingSettingsRequestEntityTooLarge{}
@@ -321,7 +360,7 @@ func NewDeleteRoutingSettingsTooManyRequests() *DeleteRoutingSettingsTooManyRequ
 
 /*DeleteRoutingSettingsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type DeleteRoutingSettingsTooManyRequests struct {
 	Payload *models.ErrorBody

@@ -53,6 +53,12 @@ func (o *PutUserStationAssociatedstationStationIDReader) ReadResponse(response r
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPutUserStationAssociatedstationStationIDRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 409:
 		result := NewPutUserStationAssociatedstationStationIDConflict()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PutUserStationAssociatedstationStationIDNotFound) readResponse(response
 	return nil
 }
 
+// NewPutUserStationAssociatedstationStationIDRequestTimeout creates a PutUserStationAssociatedstationStationIDRequestTimeout with default headers values
+func NewPutUserStationAssociatedstationStationIDRequestTimeout() *PutUserStationAssociatedstationStationIDRequestTimeout {
+	return &PutUserStationAssociatedstationStationIDRequestTimeout{}
+}
+
+/*PutUserStationAssociatedstationStationIDRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PutUserStationAssociatedstationStationIDRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PutUserStationAssociatedstationStationIDRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/station/associatedstation/{stationId}][%d] putUserStationAssociatedstationStationIdRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutUserStationAssociatedstationStationIDRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PutUserStationAssociatedstationStationIDRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPutUserStationAssociatedstationStationIDConflict creates a PutUserStationAssociatedstationStationIDConflict with default headers values
 func NewPutUserStationAssociatedstationStationIDConflict() *PutUserStationAssociatedstationStationIDConflict {
 	return &PutUserStationAssociatedstationStationIDConflict{}
@@ -399,7 +438,7 @@ func NewPutUserStationAssociatedstationStationIDTooManyRequests() *PutUserStatio
 
 /*PutUserStationAssociatedstationStationIDTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PutUserStationAssociatedstationStationIDTooManyRequests struct {
 	Payload *models.ErrorBody

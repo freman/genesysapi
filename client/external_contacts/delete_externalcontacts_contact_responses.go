@@ -53,6 +53,12 @@ func (o *DeleteExternalcontactsContactReader) ReadResponse(response runtime.Clie
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewDeleteExternalcontactsContactRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewDeleteExternalcontactsContactRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -258,6 +264,39 @@ func (o *DeleteExternalcontactsContactNotFound) readResponse(response runtime.Cl
 	return nil
 }
 
+// NewDeleteExternalcontactsContactRequestTimeout creates a DeleteExternalcontactsContactRequestTimeout with default headers values
+func NewDeleteExternalcontactsContactRequestTimeout() *DeleteExternalcontactsContactRequestTimeout {
+	return &DeleteExternalcontactsContactRequestTimeout{}
+}
+
+/*DeleteExternalcontactsContactRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type DeleteExternalcontactsContactRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *DeleteExternalcontactsContactRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/externalcontacts/contacts/{contactId}][%d] deleteExternalcontactsContactRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteExternalcontactsContactRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *DeleteExternalcontactsContactRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewDeleteExternalcontactsContactRequestEntityTooLarge creates a DeleteExternalcontactsContactRequestEntityTooLarge with default headers values
 func NewDeleteExternalcontactsContactRequestEntityTooLarge() *DeleteExternalcontactsContactRequestEntityTooLarge {
 	return &DeleteExternalcontactsContactRequestEntityTooLarge{}
@@ -331,7 +370,7 @@ func NewDeleteExternalcontactsContactTooManyRequests() *DeleteExternalcontactsCo
 
 /*DeleteExternalcontactsContactTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type DeleteExternalcontactsContactTooManyRequests struct {
 	Payload *models.ErrorBody

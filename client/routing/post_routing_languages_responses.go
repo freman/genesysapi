@@ -53,6 +53,12 @@ func (o *PostRoutingLanguagesReader) ReadResponse(response runtime.ClientRespons
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostRoutingLanguagesRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostRoutingLanguagesRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PostRoutingLanguagesNotFound) readResponse(response runtime.ClientRespo
 	return nil
 }
 
+// NewPostRoutingLanguagesRequestTimeout creates a PostRoutingLanguagesRequestTimeout with default headers values
+func NewPostRoutingLanguagesRequestTimeout() *PostRoutingLanguagesRequestTimeout {
+	return &PostRoutingLanguagesRequestTimeout{}
+}
+
+/*PostRoutingLanguagesRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostRoutingLanguagesRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostRoutingLanguagesRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/languages][%d] postRoutingLanguagesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostRoutingLanguagesRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostRoutingLanguagesRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostRoutingLanguagesRequestEntityTooLarge creates a PostRoutingLanguagesRequestEntityTooLarge with default headers values
 func NewPostRoutingLanguagesRequestEntityTooLarge() *PostRoutingLanguagesRequestEntityTooLarge {
 	return &PostRoutingLanguagesRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPostRoutingLanguagesTooManyRequests() *PostRoutingLanguagesTooManyReques
 
 /*PostRoutingLanguagesTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostRoutingLanguagesTooManyRequests struct {
 	Payload *models.ErrorBody

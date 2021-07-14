@@ -53,6 +53,12 @@ func (o *DeleteRoutingEmailDomainReader) ReadResponse(response runtime.ClientRes
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewDeleteRoutingEmailDomainRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewDeleteRoutingEmailDomainRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -248,6 +254,39 @@ func (o *DeleteRoutingEmailDomainNotFound) readResponse(response runtime.ClientR
 	return nil
 }
 
+// NewDeleteRoutingEmailDomainRequestTimeout creates a DeleteRoutingEmailDomainRequestTimeout with default headers values
+func NewDeleteRoutingEmailDomainRequestTimeout() *DeleteRoutingEmailDomainRequestTimeout {
+	return &DeleteRoutingEmailDomainRequestTimeout{}
+}
+
+/*DeleteRoutingEmailDomainRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type DeleteRoutingEmailDomainRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *DeleteRoutingEmailDomainRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/email/domains/{domainId}][%d] deleteRoutingEmailDomainRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteRoutingEmailDomainRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *DeleteRoutingEmailDomainRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewDeleteRoutingEmailDomainRequestEntityTooLarge creates a DeleteRoutingEmailDomainRequestEntityTooLarge with default headers values
 func NewDeleteRoutingEmailDomainRequestEntityTooLarge() *DeleteRoutingEmailDomainRequestEntityTooLarge {
 	return &DeleteRoutingEmailDomainRequestEntityTooLarge{}
@@ -321,7 +360,7 @@ func NewDeleteRoutingEmailDomainTooManyRequests() *DeleteRoutingEmailDomainTooMa
 
 /*DeleteRoutingEmailDomainTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type DeleteRoutingEmailDomainTooManyRequests struct {
 	Payload *models.ErrorBody

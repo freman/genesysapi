@@ -53,6 +53,12 @@ func (o *PatchCoachingAppointmentStatusReader) ReadResponse(response runtime.Cli
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPatchCoachingAppointmentStatusRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 409:
 		result := NewPatchCoachingAppointmentStatusConflict()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -266,6 +272,39 @@ func (o *PatchCoachingAppointmentStatusNotFound) readResponse(response runtime.C
 	return nil
 }
 
+// NewPatchCoachingAppointmentStatusRequestTimeout creates a PatchCoachingAppointmentStatusRequestTimeout with default headers values
+func NewPatchCoachingAppointmentStatusRequestTimeout() *PatchCoachingAppointmentStatusRequestTimeout {
+	return &PatchCoachingAppointmentStatusRequestTimeout{}
+}
+
+/*PatchCoachingAppointmentStatusRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PatchCoachingAppointmentStatusRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PatchCoachingAppointmentStatusRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/coaching/appointments/{appointmentId}/status][%d] patchCoachingAppointmentStatusRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchCoachingAppointmentStatusRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PatchCoachingAppointmentStatusRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPatchCoachingAppointmentStatusConflict creates a PatchCoachingAppointmentStatusConflict with default headers values
 func NewPatchCoachingAppointmentStatusConflict() *PatchCoachingAppointmentStatusConflict {
 	return &PatchCoachingAppointmentStatusConflict{}
@@ -372,7 +411,7 @@ func NewPatchCoachingAppointmentStatusTooManyRequests() *PatchCoachingAppointmen
 
 /*PatchCoachingAppointmentStatusTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PatchCoachingAppointmentStatusTooManyRequests struct {
 	Payload *models.ErrorBody

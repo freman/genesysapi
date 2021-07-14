@@ -69,7 +69,7 @@ type GetGamificationScorecardsUserParams struct {
 	/*UserID*/
 	UserID string
 	/*Workday
-	  Target querying workday. Workday is represented as an ISO-8601 string. For example: yyyy-MM-dd
+	  Target querying workday. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
 
 	*/
 	Workday strfmt.Date

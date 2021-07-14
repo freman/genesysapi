@@ -61,7 +61,7 @@ for the get gamification scorecards points alltime operation typically these are
 type GetGamificationScorecardsPointsAlltimeParams struct {
 
 	/*EndWorkday
-	  End workday of querying workdays range. Workday is represented as an ISO-8601 string. For example: yyyy-MM-dd
+	  End workday of querying workdays range. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
 
 	*/
 	EndWorkday strfmt.Date

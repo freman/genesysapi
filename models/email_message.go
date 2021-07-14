@@ -45,6 +45,9 @@ type EmailMessage struct {
 	// name
 	Name string `json:"name,omitempty"`
 
+	// The receiver of the reply email message.
+	ReplyTo *EmailAddress `json:"replyTo,omitempty"`
+
 	// The URI for this object
 	// Read Only: true
 	// Format: uri
@@ -83,6 +86,10 @@ func (m *EmailMessage) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateFrom(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateReplyTo(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -193,6 +200,24 @@ func (m *EmailMessage) validateFrom(formats strfmt.Registry) error {
 		if err := m.From.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("from")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *EmailMessage) validateReplyTo(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.ReplyTo) { // not required
+		return nil
+	}
+
+	if m.ReplyTo != nil {
+		if err := m.ReplyTo.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("replyTo")
 			}
 			return err
 		}

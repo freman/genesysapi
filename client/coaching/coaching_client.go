@@ -102,6 +102,10 @@ type API interface {
 	   PostCoachingAppointmentsAggregatesQuery retrieves aggregated appointment data
 	*/
 	PostCoachingAppointmentsAggregatesQuery(ctx context.Context, params *PostCoachingAppointmentsAggregatesQueryParams) (*PostCoachingAppointmentsAggregatesQueryOK, error)
+	/*
+	   PostCoachingScheduleslotsQuery gets list of possible slots where a coaching appointment can be scheduled
+	*/
+	PostCoachingScheduleslotsQuery(ctx context.Context, params *PostCoachingScheduleslotsQueryParams) (*PostCoachingScheduleslotsQueryOK, error)
 }
 
 // New creates a new coaching API client.
@@ -613,5 +617,30 @@ func (a *Client) PostCoachingAppointmentsAggregatesQuery(ctx context.Context, pa
 		return nil, err
 	}
 	return result.(*PostCoachingAppointmentsAggregatesQueryOK), nil
+
+}
+
+/*
+PostCoachingScheduleslotsQuery gets list of possible slots where a coaching appointment can be scheduled
+*/
+func (a *Client) PostCoachingScheduleslotsQuery(ctx context.Context, params *PostCoachingScheduleslotsQueryParams) (*PostCoachingScheduleslotsQueryOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postCoachingScheduleslotsQuery",
+		Method:             "POST",
+		PathPattern:        "/api/v2/coaching/scheduleslots/query",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostCoachingScheduleslotsQueryReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostCoachingScheduleslotsQueryOK), nil
 
 }

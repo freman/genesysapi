@@ -53,6 +53,12 @@ func (o *GetArchitectIvrReader) ReadResponse(response runtime.ClientResponse, co
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetArchitectIvrRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetArchitectIvrRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetArchitectIvrNotFound) readResponse(response runtime.ClientResponse, 
 	return nil
 }
 
+// NewGetArchitectIvrRequestTimeout creates a GetArchitectIvrRequestTimeout with default headers values
+func NewGetArchitectIvrRequestTimeout() *GetArchitectIvrRequestTimeout {
+	return &GetArchitectIvrRequestTimeout{}
+}
+
+/*GetArchitectIvrRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetArchitectIvrRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetArchitectIvrRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/ivrs/{ivrId}][%d] getArchitectIvrRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetArchitectIvrRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetArchitectIvrRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetArchitectIvrRequestEntityTooLarge creates a GetArchitectIvrRequestEntityTooLarge with default headers values
 func NewGetArchitectIvrRequestEntityTooLarge() *GetArchitectIvrRequestEntityTooLarge {
 	return &GetArchitectIvrRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetArchitectIvrTooManyRequests() *GetArchitectIvrTooManyRequests {
 
 /*GetArchitectIvrTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetArchitectIvrTooManyRequests struct {
 	Payload *models.ErrorBody

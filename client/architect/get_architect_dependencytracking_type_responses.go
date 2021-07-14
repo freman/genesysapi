@@ -53,6 +53,12 @@ func (o *GetArchitectDependencytrackingTypeReader) ReadResponse(response runtime
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetArchitectDependencytrackingTypeRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetArchitectDependencytrackingTypeRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetArchitectDependencytrackingTypeNotFound) readResponse(response runti
 	return nil
 }
 
+// NewGetArchitectDependencytrackingTypeRequestTimeout creates a GetArchitectDependencytrackingTypeRequestTimeout with default headers values
+func NewGetArchitectDependencytrackingTypeRequestTimeout() *GetArchitectDependencytrackingTypeRequestTimeout {
+	return &GetArchitectDependencytrackingTypeRequestTimeout{}
+}
+
+/*GetArchitectDependencytrackingTypeRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetArchitectDependencytrackingTypeRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetArchitectDependencytrackingTypeRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/types/{typeId}][%d] getArchitectDependencytrackingTypeRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetArchitectDependencytrackingTypeRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetArchitectDependencytrackingTypeRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetArchitectDependencytrackingTypeRequestEntityTooLarge creates a GetArchitectDependencytrackingTypeRequestEntityTooLarge with default headers values
 func NewGetArchitectDependencytrackingTypeRequestEntityTooLarge() *GetArchitectDependencytrackingTypeRequestEntityTooLarge {
 	return &GetArchitectDependencytrackingTypeRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetArchitectDependencytrackingTypeTooManyRequests() *GetArchitectDepende
 
 /*GetArchitectDependencytrackingTypeTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetArchitectDependencytrackingTypeTooManyRequests struct {
 	Payload *models.ErrorBody

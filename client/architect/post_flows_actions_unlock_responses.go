@@ -59,6 +59,12 @@ func (o *PostFlowsActionsUnlockReader) ReadResponse(response runtime.ClientRespo
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostFlowsActionsUnlockRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostFlowsActionsUnlockRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -299,6 +305,39 @@ func (o *PostFlowsActionsUnlockMethodNotAllowed) readResponse(response runtime.C
 	return nil
 }
 
+// NewPostFlowsActionsUnlockRequestTimeout creates a PostFlowsActionsUnlockRequestTimeout with default headers values
+func NewPostFlowsActionsUnlockRequestTimeout() *PostFlowsActionsUnlockRequestTimeout {
+	return &PostFlowsActionsUnlockRequestTimeout{}
+}
+
+/*PostFlowsActionsUnlockRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostFlowsActionsUnlockRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostFlowsActionsUnlockRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/unlock][%d] postFlowsActionsUnlockRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostFlowsActionsUnlockRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostFlowsActionsUnlockRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostFlowsActionsUnlockRequestEntityTooLarge creates a PostFlowsActionsUnlockRequestEntityTooLarge with default headers values
 func NewPostFlowsActionsUnlockRequestEntityTooLarge() *PostFlowsActionsUnlockRequestEntityTooLarge {
 	return &PostFlowsActionsUnlockRequestEntityTooLarge{}
@@ -372,7 +411,7 @@ func NewPostFlowsActionsUnlockTooManyRequests() *PostFlowsActionsUnlockTooManyRe
 
 /*PostFlowsActionsUnlockTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostFlowsActionsUnlockTooManyRequests struct {
 	Payload *models.ErrorBody

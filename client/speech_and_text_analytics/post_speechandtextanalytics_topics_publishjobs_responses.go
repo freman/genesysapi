@@ -53,6 +53,12 @@ func (o *PostSpeechandtextanalyticsTopicsPublishjobsReader) ReadResponse(respons
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostSpeechandtextanalyticsTopicsPublishjobsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostSpeechandtextanalyticsTopicsPublishjobsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PostSpeechandtextanalyticsTopicsPublishjobsNotFound) readResponse(respo
 	return nil
 }
 
+// NewPostSpeechandtextanalyticsTopicsPublishjobsRequestTimeout creates a PostSpeechandtextanalyticsTopicsPublishjobsRequestTimeout with default headers values
+func NewPostSpeechandtextanalyticsTopicsPublishjobsRequestTimeout() *PostSpeechandtextanalyticsTopicsPublishjobsRequestTimeout {
+	return &PostSpeechandtextanalyticsTopicsPublishjobsRequestTimeout{}
+}
+
+/*PostSpeechandtextanalyticsTopicsPublishjobsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostSpeechandtextanalyticsTopicsPublishjobsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostSpeechandtextanalyticsTopicsPublishjobsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/topics/publishjobs][%d] postSpeechandtextanalyticsTopicsPublishjobsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostSpeechandtextanalyticsTopicsPublishjobsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostSpeechandtextanalyticsTopicsPublishjobsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostSpeechandtextanalyticsTopicsPublishjobsRequestEntityTooLarge creates a PostSpeechandtextanalyticsTopicsPublishjobsRequestEntityTooLarge with default headers values
 func NewPostSpeechandtextanalyticsTopicsPublishjobsRequestEntityTooLarge() *PostSpeechandtextanalyticsTopicsPublishjobsRequestEntityTooLarge {
 	return &PostSpeechandtextanalyticsTopicsPublishjobsRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPostSpeechandtextanalyticsTopicsPublishjobsTooManyRequests() *PostSpeech
 
 /*PostSpeechandtextanalyticsTopicsPublishjobsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostSpeechandtextanalyticsTopicsPublishjobsTooManyRequests struct {
 	Payload *models.ErrorBody

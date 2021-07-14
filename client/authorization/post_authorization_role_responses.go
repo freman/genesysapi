@@ -53,6 +53,12 @@ func (o *PostAuthorizationRoleReader) ReadResponse(response runtime.ClientRespon
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostAuthorizationRoleRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostAuthorizationRoleRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -248,6 +254,39 @@ func (o *PostAuthorizationRoleNotFound) readResponse(response runtime.ClientResp
 	return nil
 }
 
+// NewPostAuthorizationRoleRequestTimeout creates a PostAuthorizationRoleRequestTimeout with default headers values
+func NewPostAuthorizationRoleRequestTimeout() *PostAuthorizationRoleRequestTimeout {
+	return &PostAuthorizationRoleRequestTimeout{}
+}
+
+/*PostAuthorizationRoleRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostAuthorizationRoleRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostAuthorizationRoleRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/roles/{roleId}][%d] postAuthorizationRoleRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostAuthorizationRoleRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostAuthorizationRoleRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostAuthorizationRoleRequestEntityTooLarge creates a PostAuthorizationRoleRequestEntityTooLarge with default headers values
 func NewPostAuthorizationRoleRequestEntityTooLarge() *PostAuthorizationRoleRequestEntityTooLarge {
 	return &PostAuthorizationRoleRequestEntityTooLarge{}
@@ -321,7 +360,7 @@ func NewPostAuthorizationRoleTooManyRequests() *PostAuthorizationRoleTooManyRequ
 
 /*PostAuthorizationRoleTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostAuthorizationRoleTooManyRequests struct {
 	Payload *models.ErrorBody

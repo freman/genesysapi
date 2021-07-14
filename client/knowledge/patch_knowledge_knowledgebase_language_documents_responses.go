@@ -53,6 +53,12 @@ func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsReader) ReadResponse(respon
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPatchKnowledgeKnowledgebaseLanguageDocumentsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPatchKnowledgeKnowledgebaseLanguageDocumentsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsNotFound) readResponse(resp
 	return nil
 }
 
+// NewPatchKnowledgeKnowledgebaseLanguageDocumentsRequestTimeout creates a PatchKnowledgeKnowledgebaseLanguageDocumentsRequestTimeout with default headers values
+func NewPatchKnowledgeKnowledgebaseLanguageDocumentsRequestTimeout() *PatchKnowledgeKnowledgebaseLanguageDocumentsRequestTimeout {
+	return &PatchKnowledgeKnowledgebaseLanguageDocumentsRequestTimeout{}
+}
+
+/*PatchKnowledgeKnowledgebaseLanguageDocumentsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PatchKnowledgeKnowledgebaseLanguageDocumentsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents][%d] patchKnowledgeKnowledgebaseLanguageDocumentsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPatchKnowledgeKnowledgebaseLanguageDocumentsRequestEntityTooLarge creates a PatchKnowledgeKnowledgebaseLanguageDocumentsRequestEntityTooLarge with default headers values
 func NewPatchKnowledgeKnowledgebaseLanguageDocumentsRequestEntityTooLarge() *PatchKnowledgeKnowledgebaseLanguageDocumentsRequestEntityTooLarge {
 	return &PatchKnowledgeKnowledgebaseLanguageDocumentsRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPatchKnowledgeKnowledgebaseLanguageDocumentsTooManyRequests() *PatchKnow
 
 /*PatchKnowledgeKnowledgebaseLanguageDocumentsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PatchKnowledgeKnowledgebaseLanguageDocumentsTooManyRequests struct {
 	Payload *models.ErrorBody

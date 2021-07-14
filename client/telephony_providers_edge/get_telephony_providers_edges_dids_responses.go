@@ -273,7 +273,7 @@ func NewGetTelephonyProvidersEdgesDidsRequestTimeout() *GetTelephonyProvidersEdg
 
 /*GetTelephonyProvidersEdgesDidsRequestTimeout handles this case with default header values.
 
-Request Timeout
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
 type GetTelephonyProvidersEdgesDidsRequestTimeout struct {
 	Payload *models.ErrorBody
@@ -372,7 +372,7 @@ func NewGetTelephonyProvidersEdgesDidsTooManyRequests() *GetTelephonyProvidersEd
 
 /*GetTelephonyProvidersEdgesDidsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetTelephonyProvidersEdgesDidsTooManyRequests struct {
 	Payload *models.ErrorBody

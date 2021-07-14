@@ -59,6 +59,12 @@ func (o *PostFlowVersionsReader) ReadResponse(response runtime.ClientResponse, c
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostFlowVersionsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 409:
 		result := NewPostFlowVersionsConflict()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -311,6 +317,39 @@ func (o *PostFlowVersionsMethodNotAllowed) readResponse(response runtime.ClientR
 	return nil
 }
 
+// NewPostFlowVersionsRequestTimeout creates a PostFlowVersionsRequestTimeout with default headers values
+func NewPostFlowVersionsRequestTimeout() *PostFlowVersionsRequestTimeout {
+	return &PostFlowVersionsRequestTimeout{}
+}
+
+/*PostFlowVersionsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostFlowVersionsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostFlowVersionsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/versions][%d] postFlowVersionsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostFlowVersionsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostFlowVersionsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostFlowVersionsConflict creates a PostFlowVersionsConflict with default headers values
 func NewPostFlowVersionsConflict() *PostFlowVersionsConflict {
 	return &PostFlowVersionsConflict{}
@@ -450,7 +489,7 @@ func NewPostFlowVersionsTooManyRequests() *PostFlowVersionsTooManyRequests {
 
 /*PostFlowVersionsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostFlowVersionsTooManyRequests struct {
 	Payload *models.ErrorBody

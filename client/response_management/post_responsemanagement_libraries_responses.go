@@ -53,6 +53,12 @@ func (o *PostResponsemanagementLibrariesReader) ReadResponse(response runtime.Cl
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostResponsemanagementLibrariesRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostResponsemanagementLibrariesRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PostResponsemanagementLibrariesNotFound) readResponse(response runtime.
 	return nil
 }
 
+// NewPostResponsemanagementLibrariesRequestTimeout creates a PostResponsemanagementLibrariesRequestTimeout with default headers values
+func NewPostResponsemanagementLibrariesRequestTimeout() *PostResponsemanagementLibrariesRequestTimeout {
+	return &PostResponsemanagementLibrariesRequestTimeout{}
+}
+
+/*PostResponsemanagementLibrariesRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostResponsemanagementLibrariesRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostResponsemanagementLibrariesRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/responsemanagement/libraries][%d] postResponsemanagementLibrariesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostResponsemanagementLibrariesRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostResponsemanagementLibrariesRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostResponsemanagementLibrariesRequestEntityTooLarge creates a PostResponsemanagementLibrariesRequestEntityTooLarge with default headers values
 func NewPostResponsemanagementLibrariesRequestEntityTooLarge() *PostResponsemanagementLibrariesRequestEntityTooLarge {
 	return &PostResponsemanagementLibrariesRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPostResponsemanagementLibrariesTooManyRequests() *PostResponsemanagement
 
 /*PostResponsemanagementLibrariesTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostResponsemanagementLibrariesTooManyRequests struct {
 	Payload *models.ErrorBody

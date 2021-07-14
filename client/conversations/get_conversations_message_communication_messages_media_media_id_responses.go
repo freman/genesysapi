@@ -53,6 +53,12 @@ func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDReader) ReadRes
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetConversationsMessageCommunicationMessagesMediaMediaIDRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetConversationsMessageCommunicationMessagesMediaMediaIDRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDNotFound) readR
 	return nil
 }
 
+// NewGetConversationsMessageCommunicationMessagesMediaMediaIDRequestTimeout creates a GetConversationsMessageCommunicationMessagesMediaMediaIDRequestTimeout with default headers values
+func NewGetConversationsMessageCommunicationMessagesMediaMediaIDRequestTimeout() *GetConversationsMessageCommunicationMessagesMediaMediaIDRequestTimeout {
+	return &GetConversationsMessageCommunicationMessagesMediaMediaIDRequestTimeout{}
+}
+
+/*GetConversationsMessageCommunicationMessagesMediaMediaIDRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetConversationsMessageCommunicationMessagesMediaMediaIDRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media/{mediaId}][%d] getConversationsMessageCommunicationMessagesMediaMediaIdRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetConversationsMessageCommunicationMessagesMediaMediaIDRequestEntityTooLarge creates a GetConversationsMessageCommunicationMessagesMediaMediaIDRequestEntityTooLarge with default headers values
 func NewGetConversationsMessageCommunicationMessagesMediaMediaIDRequestEntityTooLarge() *GetConversationsMessageCommunicationMessagesMediaMediaIDRequestEntityTooLarge {
 	return &GetConversationsMessageCommunicationMessagesMediaMediaIDRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetConversationsMessageCommunicationMessagesMediaMediaIDTooManyRequests(
 
 /*GetConversationsMessageCommunicationMessagesMediaMediaIDTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetConversationsMessageCommunicationMessagesMediaMediaIDTooManyRequests struct {
 	Payload *models.ErrorBody

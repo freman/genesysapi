@@ -53,6 +53,12 @@ func (o *PostRecordingJobsReader) ReadResponse(response runtime.ClientResponse, 
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostRecordingJobsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostRecordingJobsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PostRecordingJobsNotFound) readResponse(response runtime.ClientResponse
 	return nil
 }
 
+// NewPostRecordingJobsRequestTimeout creates a PostRecordingJobsRequestTimeout with default headers values
+func NewPostRecordingJobsRequestTimeout() *PostRecordingJobsRequestTimeout {
+	return &PostRecordingJobsRequestTimeout{}
+}
+
+/*PostRecordingJobsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostRecordingJobsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostRecordingJobsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/recording/jobs][%d] postRecordingJobsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostRecordingJobsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostRecordingJobsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostRecordingJobsRequestEntityTooLarge creates a PostRecordingJobsRequestEntityTooLarge with default headers values
 func NewPostRecordingJobsRequestEntityTooLarge() *PostRecordingJobsRequestEntityTooLarge {
 	return &PostRecordingJobsRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPostRecordingJobsTooManyRequests() *PostRecordingJobsTooManyRequests {
 
 /*PostRecordingJobsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostRecordingJobsTooManyRequests struct {
 	Payload *models.ErrorBody

@@ -53,6 +53,12 @@ func (o *GetOutboundContactlistfilterReader) ReadResponse(response runtime.Clien
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetOutboundContactlistfilterRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetOutboundContactlistfilterRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetOutboundContactlistfilterNotFound) readResponse(response runtime.Cli
 	return nil
 }
 
+// NewGetOutboundContactlistfilterRequestTimeout creates a GetOutboundContactlistfilterRequestTimeout with default headers values
+func NewGetOutboundContactlistfilterRequestTimeout() *GetOutboundContactlistfilterRequestTimeout {
+	return &GetOutboundContactlistfilterRequestTimeout{}
+}
+
+/*GetOutboundContactlistfilterRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetOutboundContactlistfilterRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetOutboundContactlistfilterRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/contactlistfilters/{contactListFilterId}][%d] getOutboundContactlistfilterRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetOutboundContactlistfilterRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetOutboundContactlistfilterRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetOutboundContactlistfilterRequestEntityTooLarge creates a GetOutboundContactlistfilterRequestEntityTooLarge with default headers values
 func NewGetOutboundContactlistfilterRequestEntityTooLarge() *GetOutboundContactlistfilterRequestEntityTooLarge {
 	return &GetOutboundContactlistfilterRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetOutboundContactlistfilterTooManyRequests() *GetOutboundContactlistfil
 
 /*GetOutboundContactlistfilterTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetOutboundContactlistfilterTooManyRequests struct {
 	Payload *models.ErrorBody

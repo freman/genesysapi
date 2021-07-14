@@ -53,6 +53,12 @@ func (o *PutContentmanagementWorkspaceMemberReader) ReadResponse(response runtim
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPutContentmanagementWorkspaceMemberRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPutContentmanagementWorkspaceMemberRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PutContentmanagementWorkspaceMemberNotFound) readResponse(response runt
 	return nil
 }
 
+// NewPutContentmanagementWorkspaceMemberRequestTimeout creates a PutContentmanagementWorkspaceMemberRequestTimeout with default headers values
+func NewPutContentmanagementWorkspaceMemberRequestTimeout() *PutContentmanagementWorkspaceMemberRequestTimeout {
+	return &PutContentmanagementWorkspaceMemberRequestTimeout{}
+}
+
+/*PutContentmanagementWorkspaceMemberRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PutContentmanagementWorkspaceMemberRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PutContentmanagementWorkspaceMemberRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/contentmanagement/workspaces/{workspaceId}/members/{memberId}][%d] putContentmanagementWorkspaceMemberRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutContentmanagementWorkspaceMemberRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PutContentmanagementWorkspaceMemberRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPutContentmanagementWorkspaceMemberRequestEntityTooLarge creates a PutContentmanagementWorkspaceMemberRequestEntityTooLarge with default headers values
 func NewPutContentmanagementWorkspaceMemberRequestEntityTooLarge() *PutContentmanagementWorkspaceMemberRequestEntityTooLarge {
 	return &PutContentmanagementWorkspaceMemberRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPutContentmanagementWorkspaceMemberTooManyRequests() *PutContentmanageme
 
 /*PutContentmanagementWorkspaceMemberTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PutContentmanagementWorkspaceMemberTooManyRequests struct {
 	Payload *models.ErrorBody

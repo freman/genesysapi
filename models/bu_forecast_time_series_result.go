@@ -19,8 +19,12 @@ import (
 // swagger:model BuForecastTimeSeriesResult
 type BuForecastTimeSeriesResult struct {
 
+	// The forecasting type in this forecast result
+	// Enum: [LongTerm ShortTerm]
+	ForecastType string `json:"forecastType,omitempty"`
+
 	// The forecasting method that was used for this metric
-	// Enum: [AutoRegressiveIntegratedMovingAverage MovingAverage SingleExponentialSmoothing RandomWalk DecompositionUsingAdditiveSeasonality DecompositionUsingMultiplicativeSeasonality HoltWintersAdditiveSeasonality HoltWintersAdditiveSeasonalityWithDampedTrend HoltWintersMultiplicativeSeasonality HoltWintersMultiplicativeSeasonalityWithDampedTrend DampedLinearExponentialSmoothing DoubleExponentialSmoothing DoubleMovingAverage LinearExponentialSmoothing LinearWeightedMovingAverage PointEstimateUsingDampedLinearExponentialSmoothing PointEstimateUsingDoubleExponentialSmoothing PointEstimateUsingLatestWeek PointEstimateUsingLinearExponentialSmoothing PointEstimateUsingWeightedAverage CurveFit MultiLinearRegression DynamicHarmonicRegression Other]
+	// Enum: [AutoRegressiveIntegratedMovingAverage MovingAverage SingleExponentialSmoothing RandomWalk DecompositionUsingAdditiveSeasonality DecompositionUsingMultiplicativeSeasonality HoltWintersAdditiveSeasonality HoltWintersAdditiveSeasonalityWithDampedTrend HoltWintersMultiplicativeSeasonality HoltWintersMultiplicativeSeasonalityWithDampedTrend DampedLinearExponentialSmoothing DoubleExponentialSmoothing DoubleMovingAverage LinearExponentialSmoothing LinearWeightedMovingAverage PointEstimateUsingDampedLinearExponentialSmoothing PointEstimateUsingDoubleExponentialSmoothing PointEstimateUsingLatestWeek PointEstimateUsingLinearExponentialSmoothing PointEstimateUsingWeightedAverage CurveFit MultiLinearRegression DynamicHarmonicRegression Theta Other]
 	ForecastingMethod string `json:"forecastingMethod,omitempty"`
 
 	// The metric this result applies to
@@ -31,6 +35,10 @@ type BuForecastTimeSeriesResult struct {
 // Validate validates this bu forecast time series result
 func (m *BuForecastTimeSeriesResult) Validate(formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.validateForecastType(formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.validateForecastingMethod(formats); err != nil {
 		res = append(res, err)
@@ -46,11 +54,54 @@ func (m *BuForecastTimeSeriesResult) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
+var buForecastTimeSeriesResultTypeForecastTypePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["LongTerm","ShortTerm"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		buForecastTimeSeriesResultTypeForecastTypePropEnum = append(buForecastTimeSeriesResultTypeForecastTypePropEnum, v)
+	}
+}
+
+const (
+
+	// BuForecastTimeSeriesResultForecastTypeLongTerm captures enum value "LongTerm"
+	BuForecastTimeSeriesResultForecastTypeLongTerm string = "LongTerm"
+
+	// BuForecastTimeSeriesResultForecastTypeShortTerm captures enum value "ShortTerm"
+	BuForecastTimeSeriesResultForecastTypeShortTerm string = "ShortTerm"
+)
+
+// prop value enum
+func (m *BuForecastTimeSeriesResult) validateForecastTypeEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, buForecastTimeSeriesResultTypeForecastTypePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *BuForecastTimeSeriesResult) validateForecastType(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.ForecastType) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateForecastTypeEnum("forecastType", "body", m.ForecastType); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 var buForecastTimeSeriesResultTypeForecastingMethodPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["AutoRegressiveIntegratedMovingAverage","MovingAverage","SingleExponentialSmoothing","RandomWalk","DecompositionUsingAdditiveSeasonality","DecompositionUsingMultiplicativeSeasonality","HoltWintersAdditiveSeasonality","HoltWintersAdditiveSeasonalityWithDampedTrend","HoltWintersMultiplicativeSeasonality","HoltWintersMultiplicativeSeasonalityWithDampedTrend","DampedLinearExponentialSmoothing","DoubleExponentialSmoothing","DoubleMovingAverage","LinearExponentialSmoothing","LinearWeightedMovingAverage","PointEstimateUsingDampedLinearExponentialSmoothing","PointEstimateUsingDoubleExponentialSmoothing","PointEstimateUsingLatestWeek","PointEstimateUsingLinearExponentialSmoothing","PointEstimateUsingWeightedAverage","CurveFit","MultiLinearRegression","DynamicHarmonicRegression","Other"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["AutoRegressiveIntegratedMovingAverage","MovingAverage","SingleExponentialSmoothing","RandomWalk","DecompositionUsingAdditiveSeasonality","DecompositionUsingMultiplicativeSeasonality","HoltWintersAdditiveSeasonality","HoltWintersAdditiveSeasonalityWithDampedTrend","HoltWintersMultiplicativeSeasonality","HoltWintersMultiplicativeSeasonalityWithDampedTrend","DampedLinearExponentialSmoothing","DoubleExponentialSmoothing","DoubleMovingAverage","LinearExponentialSmoothing","LinearWeightedMovingAverage","PointEstimateUsingDampedLinearExponentialSmoothing","PointEstimateUsingDoubleExponentialSmoothing","PointEstimateUsingLatestWeek","PointEstimateUsingLinearExponentialSmoothing","PointEstimateUsingWeightedAverage","CurveFit","MultiLinearRegression","DynamicHarmonicRegression","Theta","Other"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -128,6 +179,9 @@ const (
 
 	// BuForecastTimeSeriesResultForecastingMethodDynamicHarmonicRegression captures enum value "DynamicHarmonicRegression"
 	BuForecastTimeSeriesResultForecastingMethodDynamicHarmonicRegression string = "DynamicHarmonicRegression"
+
+	// BuForecastTimeSeriesResultForecastingMethodTheta captures enum value "Theta"
+	BuForecastTimeSeriesResultForecastingMethodTheta string = "Theta"
 
 	// BuForecastTimeSeriesResultForecastingMethodOther captures enum value "Other"
 	BuForecastTimeSeriesResultForecastingMethodOther string = "Other"

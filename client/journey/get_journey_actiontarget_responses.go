@@ -53,6 +53,12 @@ func (o *GetJourneyActiontargetReader) ReadResponse(response runtime.ClientRespo
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetJourneyActiontargetRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetJourneyActiontargetRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetJourneyActiontargetNotFound) readResponse(response runtime.ClientRes
 	return nil
 }
 
+// NewGetJourneyActiontargetRequestTimeout creates a GetJourneyActiontargetRequestTimeout with default headers values
+func NewGetJourneyActiontargetRequestTimeout() *GetJourneyActiontargetRequestTimeout {
+	return &GetJourneyActiontargetRequestTimeout{}
+}
+
+/*GetJourneyActiontargetRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetJourneyActiontargetRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetJourneyActiontargetRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/journey/actiontargets/{actionTargetId}][%d] getJourneyActiontargetRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetJourneyActiontargetRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetJourneyActiontargetRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetJourneyActiontargetRequestEntityTooLarge creates a GetJourneyActiontargetRequestEntityTooLarge with default headers values
 func NewGetJourneyActiontargetRequestEntityTooLarge() *GetJourneyActiontargetRequestEntityTooLarge {
 	return &GetJourneyActiontargetRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetJourneyActiontargetTooManyRequests() *GetJourneyActiontargetTooManyRe
 
 /*GetJourneyActiontargetTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetJourneyActiontargetTooManyRequests struct {
 	Payload *models.ErrorBody

@@ -48,6 +48,10 @@ type API interface {
 	*/
 	DeleteWorkforcemanagementBusinessunitWeekShorttermforecast(ctx context.Context, params *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastParams) (*DeleteWorkforcemanagementBusinessunitWeekShorttermforecastNoContent, error)
 	/*
+	   DeleteWorkforcemanagementManagementunit deletes management unit
+	*/
+	DeleteWorkforcemanagementManagementunit(ctx context.Context, params *DeleteWorkforcemanagementManagementunitParams) (*DeleteWorkforcemanagementManagementunitNoContent, error)
+	/*
 	   DeleteWorkforcemanagementManagementunitWorkplan deletes a work plan
 	*/
 	DeleteWorkforcemanagementManagementunitWorkplan(ctx context.Context, params *DeleteWorkforcemanagementManagementunitWorkplanParams) (*DeleteWorkforcemanagementManagementunitWorkplanNoContent, error)
@@ -63,6 +67,14 @@ type API interface {
 	   GetWorkforcemanagementAdhocmodelingjob gets status of the modeling job
 	*/
 	GetWorkforcemanagementAdhocmodelingjob(ctx context.Context, params *GetWorkforcemanagementAdhocmodelingjobParams) (*GetWorkforcemanagementAdhocmodelingjobOK, error)
+	/*
+	   GetWorkforcemanagementAgentManagementunit gets the management unit to which the agent belongs
+	*/
+	GetWorkforcemanagementAgentManagementunit(ctx context.Context, params *GetWorkforcemanagementAgentManagementunitParams) (*GetWorkforcemanagementAgentManagementunitOK, error)
+	/*
+	   GetWorkforcemanagementAgentsMeManagementunit gets the management unit to which the currently logged in agent belongs
+	*/
+	GetWorkforcemanagementAgentsMeManagementunit(ctx context.Context, params *GetWorkforcemanagementAgentsMeManagementunitParams) (*GetWorkforcemanagementAgentsMeManagementunitOK, error)
 	/*
 	   GetWorkforcemanagementBusinessunit gets business unit
 	   Expanding "settings" will retrieve all settings.  All other expands will retrieve only the requested settings field(s).
@@ -147,6 +159,11 @@ type API interface {
 	*/
 	GetWorkforcemanagementBusinessunitWeekShorttermforecastGenerationresults(ctx context.Context, params *GetWorkforcemanagementBusinessunitWeekShorttermforecastGenerationresultsParams) (*GetWorkforcemanagementBusinessunitWeekShorttermforecastGenerationresultsOK, error)
 	/*
+	   GetWorkforcemanagementBusinessunitWeekShorttermforecastLongtermforecastdata gets the result of a long term forecast calculation
+	   Includes modifications unless you pass the doNotApplyModifications query parameter
+	*/
+	GetWorkforcemanagementBusinessunitWeekShorttermforecastLongtermforecastdata(ctx context.Context, params *GetWorkforcemanagementBusinessunitWeekShorttermforecastLongtermforecastdataParams) (*GetWorkforcemanagementBusinessunitWeekShorttermforecastLongtermforecastdataOK, error)
+	/*
 	   GetWorkforcemanagementBusinessunitWeekShorttermforecastPlanninggroups gets the forecast planning group snapshot
 	*/
 	GetWorkforcemanagementBusinessunitWeekShorttermforecastPlanninggroups(ctx context.Context, params *GetWorkforcemanagementBusinessunitWeekShorttermforecastPlanninggroupsParams) (*GetWorkforcemanagementBusinessunitWeekShorttermforecastPlanninggroupsOK, error)
@@ -171,6 +188,11 @@ type API interface {
 	   GetWorkforcemanagementHistoricaldataImportstatus retrieves status of the historical data imports of the organization
 	*/
 	GetWorkforcemanagementHistoricaldataImportstatus(ctx context.Context, params *GetWorkforcemanagementHistoricaldataImportstatusParams) (*GetWorkforcemanagementHistoricaldataImportstatusOK, error)
+	/*
+	   GetWorkforcemanagementManagementunit gets management unit
+	   settings.shortTermForecasting is deprecated and now lives on the business unit
+	*/
+	GetWorkforcemanagementManagementunit(ctx context.Context, params *GetWorkforcemanagementManagementunitParams) (*GetWorkforcemanagementManagementunitOK, error)
 	/*
 	   GetWorkforcemanagementManagementunitActivitycodes gets activity codes
 	*/
@@ -233,6 +255,7 @@ type API interface {
 	GetWorkforcemanagementManagementunitWorkplanrotations(ctx context.Context, params *GetWorkforcemanagementManagementunitWorkplanrotationsParams) (*GetWorkforcemanagementManagementunitWorkplanrotationsOK, error)
 	/*
 	   GetWorkforcemanagementManagementunitWorkplans gets work plans
+	   "expand=details" is deprecated
 	*/
 	GetWorkforcemanagementManagementunitWorkplans(ctx context.Context, params *GetWorkforcemanagementManagementunitWorkplansParams) (*GetWorkforcemanagementManagementunitWorkplansOK, error)
 	/*
@@ -283,6 +306,10 @@ type API interface {
 	   PatchWorkforcemanagementBusinessunitServicegoaltemplate updates a service goal template
 	*/
 	PatchWorkforcemanagementBusinessunitServicegoaltemplate(ctx context.Context, params *PatchWorkforcemanagementBusinessunitServicegoaltemplateParams) (*PatchWorkforcemanagementBusinessunitServicegoaltemplateOK, error)
+	/*
+	   PatchWorkforcemanagementManagementunit updates the requested management unit
+	*/
+	PatchWorkforcemanagementManagementunit(ctx context.Context, params *PatchWorkforcemanagementManagementunitParams) (*PatchWorkforcemanagementManagementunitOK, error)
 	/*
 	   PatchWorkforcemanagementManagementunitUserTimeoffrequest updates a time off request
 	*/
@@ -659,6 +686,31 @@ func (a *Client) DeleteWorkforcemanagementBusinessunitWeekShorttermforecast(ctx 
 }
 
 /*
+DeleteWorkforcemanagementManagementunit deletes management unit
+*/
+func (a *Client) DeleteWorkforcemanagementManagementunit(ctx context.Context, params *DeleteWorkforcemanagementManagementunitParams) (*DeleteWorkforcemanagementManagementunitNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteWorkforcemanagementManagementunit",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteWorkforcemanagementManagementunitReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteWorkforcemanagementManagementunitNoContent), nil
+
+}
+
+/*
 DeleteWorkforcemanagementManagementunitWorkplan deletes a work plan
 */
 func (a *Client) DeleteWorkforcemanagementManagementunitWorkplan(ctx context.Context, params *DeleteWorkforcemanagementManagementunitWorkplanParams) (*DeleteWorkforcemanagementManagementunitWorkplanNoContent, error) {
@@ -755,6 +807,56 @@ func (a *Client) GetWorkforcemanagementAdhocmodelingjob(ctx context.Context, par
 		return nil, err
 	}
 	return result.(*GetWorkforcemanagementAdhocmodelingjobOK), nil
+
+}
+
+/*
+GetWorkforcemanagementAgentManagementunit gets the management unit to which the agent belongs
+*/
+func (a *Client) GetWorkforcemanagementAgentManagementunit(ctx context.Context, params *GetWorkforcemanagementAgentManagementunitParams) (*GetWorkforcemanagementAgentManagementunitOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getWorkforcemanagementAgentManagementunit",
+		Method:             "GET",
+		PathPattern:        "/api/v2/workforcemanagement/agents/{agentId}/managementunit",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetWorkforcemanagementAgentManagementunitReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetWorkforcemanagementAgentManagementunitOK), nil
+
+}
+
+/*
+GetWorkforcemanagementAgentsMeManagementunit gets the management unit to which the currently logged in agent belongs
+*/
+func (a *Client) GetWorkforcemanagementAgentsMeManagementunit(ctx context.Context, params *GetWorkforcemanagementAgentsMeManagementunitParams) (*GetWorkforcemanagementAgentsMeManagementunitOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getWorkforcemanagementAgentsMeManagementunit",
+		Method:             "GET",
+		PathPattern:        "/api/v2/workforcemanagement/agents/me/managementunit",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetWorkforcemanagementAgentsMeManagementunitReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetWorkforcemanagementAgentsMeManagementunitOK), nil
 
 }
 
@@ -1265,6 +1367,33 @@ func (a *Client) GetWorkforcemanagementBusinessunitWeekShorttermforecastGenerati
 }
 
 /*
+GetWorkforcemanagementBusinessunitWeekShorttermforecastLongtermforecastdata gets the result of a long term forecast calculation
+
+Includes modifications unless you pass the doNotApplyModifications query parameter
+*/
+func (a *Client) GetWorkforcemanagementBusinessunitWeekShorttermforecastLongtermforecastdata(ctx context.Context, params *GetWorkforcemanagementBusinessunitWeekShorttermforecastLongtermforecastdataParams) (*GetWorkforcemanagementBusinessunitWeekShorttermforecastLongtermforecastdataOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getWorkforcemanagementBusinessunitWeekShorttermforecastLongtermforecastdata",
+		Method:             "GET",
+		PathPattern:        "/api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}/longtermforecastdata",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetWorkforcemanagementBusinessunitWeekShorttermforecastLongtermforecastdataReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetWorkforcemanagementBusinessunitWeekShorttermforecastLongtermforecastdataOK), nil
+
+}
+
+/*
 GetWorkforcemanagementBusinessunitWeekShorttermforecastPlanninggroups gets the forecast planning group snapshot
 */
 func (a *Client) GetWorkforcemanagementBusinessunitWeekShorttermforecastPlanninggroups(ctx context.Context, params *GetWorkforcemanagementBusinessunitWeekShorttermforecastPlanninggroupsParams) (*GetWorkforcemanagementBusinessunitWeekShorttermforecastPlanninggroupsOK, error) {
@@ -1413,6 +1542,33 @@ func (a *Client) GetWorkforcemanagementHistoricaldataImportstatus(ctx context.Co
 		return nil, err
 	}
 	return result.(*GetWorkforcemanagementHistoricaldataImportstatusOK), nil
+
+}
+
+/*
+GetWorkforcemanagementManagementunit gets management unit
+
+settings.shortTermForecasting is deprecated and now lives on the business unit
+*/
+func (a *Client) GetWorkforcemanagementManagementunit(ctx context.Context, params *GetWorkforcemanagementManagementunitParams) (*GetWorkforcemanagementManagementunitOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getWorkforcemanagementManagementunit",
+		Method:             "GET",
+		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetWorkforcemanagementManagementunitReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetWorkforcemanagementManagementunitOK), nil
 
 }
 
@@ -1793,6 +1949,8 @@ func (a *Client) GetWorkforcemanagementManagementunitWorkplanrotations(ctx conte
 
 /*
 GetWorkforcemanagementManagementunitWorkplans gets work plans
+
+"expand=details" is deprecated
 */
 func (a *Client) GetWorkforcemanagementManagementunitWorkplans(ctx context.Context, params *GetWorkforcemanagementManagementunitWorkplansParams) (*GetWorkforcemanagementManagementunitWorkplansOK, error) {
 
@@ -2113,6 +2271,31 @@ func (a *Client) PatchWorkforcemanagementBusinessunitServicegoaltemplate(ctx con
 		return nil, err
 	}
 	return result.(*PatchWorkforcemanagementBusinessunitServicegoaltemplateOK), nil
+
+}
+
+/*
+PatchWorkforcemanagementManagementunit updates the requested management unit
+*/
+func (a *Client) PatchWorkforcemanagementManagementunit(ctx context.Context, params *PatchWorkforcemanagementManagementunitParams) (*PatchWorkforcemanagementManagementunitOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "patchWorkforcemanagementManagementunit",
+		Method:             "PATCH",
+		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchWorkforcemanagementManagementunitReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PatchWorkforcemanagementManagementunitOK), nil
 
 }
 

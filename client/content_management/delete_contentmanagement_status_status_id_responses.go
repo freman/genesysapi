@@ -47,6 +47,12 @@ func (o *DeleteContentmanagementStatusStatusIDReader) ReadResponse(response runt
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewDeleteContentmanagementStatusStatusIDRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewDeleteContentmanagementStatusStatusIDRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -227,6 +233,39 @@ func (o *DeleteContentmanagementStatusStatusIDNotFound) readResponse(response ru
 	return nil
 }
 
+// NewDeleteContentmanagementStatusStatusIDRequestTimeout creates a DeleteContentmanagementStatusStatusIDRequestTimeout with default headers values
+func NewDeleteContentmanagementStatusStatusIDRequestTimeout() *DeleteContentmanagementStatusStatusIDRequestTimeout {
+	return &DeleteContentmanagementStatusStatusIDRequestTimeout{}
+}
+
+/*DeleteContentmanagementStatusStatusIDRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type DeleteContentmanagementStatusStatusIDRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *DeleteContentmanagementStatusStatusIDRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/status/{statusId}][%d] deleteContentmanagementStatusStatusIdRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteContentmanagementStatusStatusIDRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *DeleteContentmanagementStatusStatusIDRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewDeleteContentmanagementStatusStatusIDRequestEntityTooLarge creates a DeleteContentmanagementStatusStatusIDRequestEntityTooLarge with default headers values
 func NewDeleteContentmanagementStatusStatusIDRequestEntityTooLarge() *DeleteContentmanagementStatusStatusIDRequestEntityTooLarge {
 	return &DeleteContentmanagementStatusStatusIDRequestEntityTooLarge{}
@@ -300,7 +339,7 @@ func NewDeleteContentmanagementStatusStatusIDTooManyRequests() *DeleteContentman
 
 /*DeleteContentmanagementStatusStatusIDTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type DeleteContentmanagementStatusStatusIDTooManyRequests struct {
 	Payload *models.ErrorBody

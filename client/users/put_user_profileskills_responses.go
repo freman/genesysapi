@@ -53,6 +53,12 @@ func (o *PutUserProfileskillsReader) ReadResponse(response runtime.ClientRespons
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPutUserProfileskillsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPutUserProfileskillsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -258,6 +264,39 @@ func (o *PutUserProfileskillsNotFound) readResponse(response runtime.ClientRespo
 	return nil
 }
 
+// NewPutUserProfileskillsRequestTimeout creates a PutUserProfileskillsRequestTimeout with default headers values
+func NewPutUserProfileskillsRequestTimeout() *PutUserProfileskillsRequestTimeout {
+	return &PutUserProfileskillsRequestTimeout{}
+}
+
+/*PutUserProfileskillsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PutUserProfileskillsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PutUserProfileskillsRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/profileskills][%d] putUserProfileskillsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutUserProfileskillsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PutUserProfileskillsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPutUserProfileskillsRequestEntityTooLarge creates a PutUserProfileskillsRequestEntityTooLarge with default headers values
 func NewPutUserProfileskillsRequestEntityTooLarge() *PutUserProfileskillsRequestEntityTooLarge {
 	return &PutUserProfileskillsRequestEntityTooLarge{}
@@ -331,7 +370,7 @@ func NewPutUserProfileskillsTooManyRequests() *PutUserProfileskillsTooManyReques
 
 /*PutUserProfileskillsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PutUserProfileskillsTooManyRequests struct {
 	Payload *models.ErrorBody

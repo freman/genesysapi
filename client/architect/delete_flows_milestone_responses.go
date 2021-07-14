@@ -65,6 +65,12 @@ func (o *DeleteFlowsMilestoneReader) ReadResponse(response runtime.ClientRespons
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewDeleteFlowsMilestoneRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 409:
 		result := NewDeleteFlowsMilestoneConflict()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -330,6 +336,39 @@ func (o *DeleteFlowsMilestoneMethodNotAllowed) readResponse(response runtime.Cli
 	return nil
 }
 
+// NewDeleteFlowsMilestoneRequestTimeout creates a DeleteFlowsMilestoneRequestTimeout with default headers values
+func NewDeleteFlowsMilestoneRequestTimeout() *DeleteFlowsMilestoneRequestTimeout {
+	return &DeleteFlowsMilestoneRequestTimeout{}
+}
+
+/*DeleteFlowsMilestoneRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type DeleteFlowsMilestoneRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *DeleteFlowsMilestoneRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/flows/milestones/{milestoneId}][%d] deleteFlowsMilestoneRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteFlowsMilestoneRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *DeleteFlowsMilestoneRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewDeleteFlowsMilestoneConflict creates a DeleteFlowsMilestoneConflict with default headers values
 func NewDeleteFlowsMilestoneConflict() *DeleteFlowsMilestoneConflict {
 	return &DeleteFlowsMilestoneConflict{}
@@ -436,7 +475,7 @@ func NewDeleteFlowsMilestoneTooManyRequests() *DeleteFlowsMilestoneTooManyReques
 
 /*DeleteFlowsMilestoneTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type DeleteFlowsMilestoneTooManyRequests struct {
 	Payload *models.ErrorBody

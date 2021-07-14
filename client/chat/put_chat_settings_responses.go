@@ -53,6 +53,12 @@ func (o *PutChatSettingsReader) ReadResponse(response runtime.ClientResponse, co
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPutChatSettingsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPutChatSettingsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PutChatSettingsNotFound) readResponse(response runtime.ClientResponse, 
 	return nil
 }
 
+// NewPutChatSettingsRequestTimeout creates a PutChatSettingsRequestTimeout with default headers values
+func NewPutChatSettingsRequestTimeout() *PutChatSettingsRequestTimeout {
+	return &PutChatSettingsRequestTimeout{}
+}
+
+/*PutChatSettingsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PutChatSettingsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PutChatSettingsRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/chat/settings][%d] putChatSettingsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutChatSettingsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PutChatSettingsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPutChatSettingsRequestEntityTooLarge creates a PutChatSettingsRequestEntityTooLarge with default headers values
 func NewPutChatSettingsRequestEntityTooLarge() *PutChatSettingsRequestEntityTooLarge {
 	return &PutChatSettingsRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPutChatSettingsTooManyRequests() *PutChatSettingsTooManyRequests {
 
 /*PutChatSettingsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PutChatSettingsTooManyRequests struct {
 	Payload *models.ErrorBody

@@ -53,6 +53,12 @@ func (o *PostIntegrationsActionDraftPublishReader) ReadResponse(response runtime
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostIntegrationsActionDraftPublishRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostIntegrationsActionDraftPublishRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PostIntegrationsActionDraftPublishNotFound) readResponse(response runti
 	return nil
 }
 
+// NewPostIntegrationsActionDraftPublishRequestTimeout creates a PostIntegrationsActionDraftPublishRequestTimeout with default headers values
+func NewPostIntegrationsActionDraftPublishRequestTimeout() *PostIntegrationsActionDraftPublishRequestTimeout {
+	return &PostIntegrationsActionDraftPublishRequestTimeout{}
+}
+
+/*PostIntegrationsActionDraftPublishRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostIntegrationsActionDraftPublishRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostIntegrationsActionDraftPublishRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/integrations/actions/{actionId}/draft/publish][%d] postIntegrationsActionDraftPublishRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostIntegrationsActionDraftPublishRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostIntegrationsActionDraftPublishRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostIntegrationsActionDraftPublishRequestEntityTooLarge creates a PostIntegrationsActionDraftPublishRequestEntityTooLarge with default headers values
 func NewPostIntegrationsActionDraftPublishRequestEntityTooLarge() *PostIntegrationsActionDraftPublishRequestEntityTooLarge {
 	return &PostIntegrationsActionDraftPublishRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPostIntegrationsActionDraftPublishTooManyRequests() *PostIntegrationsAct
 
 /*PostIntegrationsActionDraftPublishTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostIntegrationsActionDraftPublishTooManyRequests struct {
 	Payload *models.ErrorBody

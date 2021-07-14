@@ -14,36 +14,36 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// MessagingRecipient This is used to identify who the message is sent to, as well as who it was sent from. This information is channel specific - depends on capabilities to describe party by the platform
+// MessagingRecipient Information about the recipient the message is sent to or received from.
 //
 // swagger:model MessagingRecipient
 type MessagingRecipient struct {
 
-	// Sender's email address
+	// E-mail address of the recipient.
 	// Read Only: true
 	Email string `json:"email,omitempty"`
 
-	// Sender's first name
+	// First name of the recipient.
 	// Read Only: true
 	FirstName string `json:"firstName,omitempty"`
 
-	// The recipient identifier specific for particular channel/integration. This is required when sending a message.
+	// The recipient ID specific to the provider.
 	// Required: true
 	ID *string `json:"id"`
 
-	// The recipient identifier type. This is used to indicate the format used by the recipient identifier.
+	// The recipient ID type. This is used to indicate the format used for the ID.
 	// Enum: [Email Phone Opaque]
 	IDType string `json:"idType,omitempty"`
 
-	// Path or URI to an image file containing an avatar
+	// URL of an image that represents the recipient.
 	// Read Only: true
 	Image string `json:"image,omitempty"`
 
-	// Sender's last name
+	// Last name of the recipient.
 	// Read Only: true
 	LastName string `json:"lastName,omitempty"`
 
-	// Nickname/user name
+	// Nickname or display name of the recipient.
 	// Read Only: true
 	Nickname string `json:"nickname,omitempty"`
 }

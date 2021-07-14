@@ -53,6 +53,12 @@ func (o *PostUserGreetingsReader) ReadResponse(response runtime.ClientResponse, 
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewPostUserGreetingsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostUserGreetingsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *PostUserGreetingsNotFound) readResponse(response runtime.ClientResponse
 	return nil
 }
 
+// NewPostUserGreetingsRequestTimeout creates a PostUserGreetingsRequestTimeout with default headers values
+func NewPostUserGreetingsRequestTimeout() *PostUserGreetingsRequestTimeout {
+	return &PostUserGreetingsRequestTimeout{}
+}
+
+/*PostUserGreetingsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type PostUserGreetingsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostUserGreetingsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users/{userId}/greetings][%d] postUserGreetingsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostUserGreetingsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostUserGreetingsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostUserGreetingsRequestEntityTooLarge creates a PostUserGreetingsRequestEntityTooLarge with default headers values
 func NewPostUserGreetingsRequestEntityTooLarge() *PostUserGreetingsRequestEntityTooLarge {
 	return &PostUserGreetingsRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewPostUserGreetingsTooManyRequests() *PostUserGreetingsTooManyRequests {
 
 /*PostUserGreetingsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type PostUserGreetingsTooManyRequests struct {
 	Payload *models.ErrorBody

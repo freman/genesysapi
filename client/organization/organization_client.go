@@ -30,6 +30,27 @@ type API interface {
 	*/
 	GetOrganizationsIpaddressauthentication(ctx context.Context, params *GetOrganizationsIpaddressauthenticationParams) (*GetOrganizationsIpaddressauthenticationOK, error)
 	/*
+	   GetOrganizationsLimitsChangerequest gets a limit change request
+	*/
+	GetOrganizationsLimitsChangerequest(ctx context.Context, params *GetOrganizationsLimitsChangerequestParams) (*GetOrganizationsLimitsChangerequestOK, error)
+	/*
+	   GetOrganizationsLimitsChangerequests gets the available limit change requests
+	   Timestamp interval defaults to the last 365 days if both query parameters are omitted. If only one parameter is omitted, the interval will default to a 180 day range in the specified direction.
+	*/
+	GetOrganizationsLimitsChangerequests(ctx context.Context, params *GetOrganizationsLimitsChangerequestsParams) (*GetOrganizationsLimitsChangerequestsOK, error)
+	/*
+	   GetOrganizationsLimitsDocs gets a link to the limit documentation
+	*/
+	GetOrganizationsLimitsDocs(ctx context.Context, params *GetOrganizationsLimitsDocsParams) (*GetOrganizationsLimitsDocsOK, error)
+	/*
+	   GetOrganizationsLimitsNamespace gets the effective limits in a namespace for an organization
+	*/
+	GetOrganizationsLimitsNamespace(ctx context.Context, params *GetOrganizationsLimitsNamespaceParams) (*GetOrganizationsLimitsNamespaceOK, error)
+	/*
+	   GetOrganizationsLimitsNamespaces gets the available limit namespaces
+	*/
+	GetOrganizationsLimitsNamespaces(ctx context.Context, params *GetOrganizationsLimitsNamespacesParams) (*GetOrganizationsLimitsNamespacesOK, error)
+	/*
 	   GetOrganizationsMe gets organization
 	*/
 	GetOrganizationsMe(ctx context.Context, params *GetOrganizationsMeParams) (*GetOrganizationsMeOK, error)
@@ -149,6 +170,133 @@ func (a *Client) GetOrganizationsIpaddressauthentication(ctx context.Context, pa
 		return nil, err
 	}
 	return result.(*GetOrganizationsIpaddressauthenticationOK), nil
+
+}
+
+/*
+GetOrganizationsLimitsChangerequest gets a limit change request
+*/
+func (a *Client) GetOrganizationsLimitsChangerequest(ctx context.Context, params *GetOrganizationsLimitsChangerequestParams) (*GetOrganizationsLimitsChangerequestOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getOrganizationsLimitsChangerequest",
+		Method:             "GET",
+		PathPattern:        "/api/v2/organizations/limits/changerequests/{requestId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetOrganizationsLimitsChangerequestReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetOrganizationsLimitsChangerequestOK), nil
+
+}
+
+/*
+GetOrganizationsLimitsChangerequests gets the available limit change requests
+
+Timestamp interval defaults to the last 365 days if both query parameters are omitted. If only one parameter is omitted, the interval will default to a 180 day range in the specified direction.
+*/
+func (a *Client) GetOrganizationsLimitsChangerequests(ctx context.Context, params *GetOrganizationsLimitsChangerequestsParams) (*GetOrganizationsLimitsChangerequestsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getOrganizationsLimitsChangerequests",
+		Method:             "GET",
+		PathPattern:        "/api/v2/organizations/limits/changerequests",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetOrganizationsLimitsChangerequestsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetOrganizationsLimitsChangerequestsOK), nil
+
+}
+
+/*
+GetOrganizationsLimitsDocs gets a link to the limit documentation
+*/
+func (a *Client) GetOrganizationsLimitsDocs(ctx context.Context, params *GetOrganizationsLimitsDocsParams) (*GetOrganizationsLimitsDocsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getOrganizationsLimitsDocs",
+		Method:             "GET",
+		PathPattern:        "/api/v2/organizations/limits/docs",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetOrganizationsLimitsDocsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetOrganizationsLimitsDocsOK), nil
+
+}
+
+/*
+GetOrganizationsLimitsNamespace gets the effective limits in a namespace for an organization
+*/
+func (a *Client) GetOrganizationsLimitsNamespace(ctx context.Context, params *GetOrganizationsLimitsNamespaceParams) (*GetOrganizationsLimitsNamespaceOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getOrganizationsLimitsNamespace",
+		Method:             "GET",
+		PathPattern:        "/api/v2/organizations/limits/namespaces/{namespaceName}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetOrganizationsLimitsNamespaceReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetOrganizationsLimitsNamespaceOK), nil
+
+}
+
+/*
+GetOrganizationsLimitsNamespaces gets the available limit namespaces
+*/
+func (a *Client) GetOrganizationsLimitsNamespaces(ctx context.Context, params *GetOrganizationsLimitsNamespacesParams) (*GetOrganizationsLimitsNamespacesOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getOrganizationsLimitsNamespaces",
+		Method:             "GET",
+		PathPattern:        "/api/v2/organizations/limits/namespaces",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetOrganizationsLimitsNamespacesReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetOrganizationsLimitsNamespacesOK), nil
 
 }
 

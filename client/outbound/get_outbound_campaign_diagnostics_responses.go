@@ -53,6 +53,12 @@ func (o *GetOutboundCampaignDiagnosticsReader) ReadResponse(response runtime.Cli
 			return nil, err
 		}
 		return nil, result
+	case 408:
+		result := NewGetOutboundCampaignDiagnosticsRequestTimeout()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetOutboundCampaignDiagnosticsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -260,6 +266,39 @@ func (o *GetOutboundCampaignDiagnosticsNotFound) readResponse(response runtime.C
 	return nil
 }
 
+// NewGetOutboundCampaignDiagnosticsRequestTimeout creates a GetOutboundCampaignDiagnosticsRequestTimeout with default headers values
+func NewGetOutboundCampaignDiagnosticsRequestTimeout() *GetOutboundCampaignDiagnosticsRequestTimeout {
+	return &GetOutboundCampaignDiagnosticsRequestTimeout{}
+}
+
+/*GetOutboundCampaignDiagnosticsRequestTimeout handles this case with default header values.
+
+The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
+*/
+type GetOutboundCampaignDiagnosticsRequestTimeout struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetOutboundCampaignDiagnosticsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/campaigns/{campaignId}/diagnostics][%d] getOutboundCampaignDiagnosticsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetOutboundCampaignDiagnosticsRequestTimeout) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetOutboundCampaignDiagnosticsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetOutboundCampaignDiagnosticsRequestEntityTooLarge creates a GetOutboundCampaignDiagnosticsRequestEntityTooLarge with default headers values
 func NewGetOutboundCampaignDiagnosticsRequestEntityTooLarge() *GetOutboundCampaignDiagnosticsRequestEntityTooLarge {
 	return &GetOutboundCampaignDiagnosticsRequestEntityTooLarge{}
@@ -333,7 +372,7 @@ func NewGetOutboundCampaignDiagnosticsTooManyRequests() *GetOutboundCampaignDiag
 
 /*GetOutboundCampaignDiagnosticsTooManyRequests handles this case with default header values.
 
-Rate limit exceeded the maximum [%s] requests within [%s] seconds
+Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
 type GetOutboundCampaignDiagnosticsTooManyRequests struct {
 	Payload *models.ErrorBody
