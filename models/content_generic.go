@@ -27,9 +27,6 @@ type ContentGeneric struct {
 	// Text to show in the description.
 	Description string `json:"description,omitempty"`
 
-	// A unique ID assigned to this rich message content.
-	ID string `json:"id,omitempty"`
-
 	// URL of an image.
 	Image string `json:"image,omitempty"`
 

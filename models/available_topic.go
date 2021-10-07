@@ -35,6 +35,9 @@ type AvailableTopic struct {
 	// public Api template Uri paths
 	PublicAPITemplateURIPaths []string `json:"publicApiTemplateUriPaths"`
 
+	// If multiple permissions are required for this topic, such as both requiresCurrentUser and requiresDivisionPermissions, then true here indicates that meeting any one condition will satisfy the requirements; false indicates all conditions must be met.
+	RequiresAnyValidator bool `json:"requiresAnyValidator"`
+
 	// True if the topic user ID is required to match the subscribing user ID
 	RequiresCurrentUser bool `json:"requiresCurrentUser"`
 

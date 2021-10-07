@@ -26,10 +26,6 @@ type API interface {
 	*/
 	GetDocumentationSearch(ctx context.Context, params *GetDocumentationSearchParams) (*GetDocumentationSearchOK, error)
 	/*
-	   GetLocationsSearch searches locations using the q64 value returned from a previous search
-	*/
-	GetLocationsSearch(ctx context.Context, params *GetLocationsSearchParams) (*GetLocationsSearchOK, error)
-	/*
 	   GetSearch searches using the q64 value returned from a previous search
 	*/
 	GetSearch(ctx context.Context, params *GetSearchParams) (*GetSearchOK, error)
@@ -37,14 +33,6 @@ type API interface {
 	   GetSearchSuggest suggests resources using the q64 value returned from a previous suggest query
 	*/
 	GetSearchSuggest(ctx context.Context, params *GetSearchSuggestParams) (*GetSearchSuggestOK, error)
-	/*
-	   GetUsersSearch searches users using the q64 value returned from a previous search
-	*/
-	GetUsersSearch(ctx context.Context, params *GetUsersSearchParams) (*GetUsersSearchOK, error)
-	/*
-	   GetVoicemailSearch searches voicemails using the q64 value returned from a previous search
-	*/
-	GetVoicemailSearch(ctx context.Context, params *GetVoicemailSearchParams) (*GetVoicemailSearchOK, error)
 	/*
 	   PostAnalyticsConversationsTranscriptsQuery searches resources
 	*/
@@ -58,14 +46,6 @@ type API interface {
 	*/
 	PostDocumentationSearch(ctx context.Context, params *PostDocumentationSearchParams) (*PostDocumentationSearchOK, error)
 	/*
-	   PostKnowledgeKnowledgebaseSearch searches documents
-	*/
-	PostKnowledgeKnowledgebaseSearch(ctx context.Context, params *PostKnowledgeKnowledgebaseSearchParams) (*PostKnowledgeKnowledgebaseSearchOK, error)
-	/*
-	   PostLocationsSearch searches locations
-	*/
-	PostLocationsSearch(ctx context.Context, params *PostLocationsSearchParams) (*PostLocationsSearchOK, error)
-	/*
 	   PostSearch searches resources
 	*/
 	PostSearch(ctx context.Context, params *PostSearchParams) (*PostSearchOK, error)
@@ -77,14 +57,6 @@ type API interface {
 	   PostSpeechandtextanalyticsTranscriptsSearch searches resources
 	*/
 	PostSpeechandtextanalyticsTranscriptsSearch(ctx context.Context, params *PostSpeechandtextanalyticsTranscriptsSearchParams) (*PostSpeechandtextanalyticsTranscriptsSearchOK, error)
-	/*
-	   PostUsersSearch searches users
-	*/
-	PostUsersSearch(ctx context.Context, params *PostUsersSearchParams) (*PostUsersSearchOK, error)
-	/*
-	   PostVoicemailSearch searches voicemails
-	*/
-	PostVoicemailSearch(ctx context.Context, params *PostVoicemailSearchParams) (*PostVoicemailSearchOK, error)
 }
 
 // New creates a new search API client.
@@ -154,31 +126,6 @@ func (a *Client) GetDocumentationSearch(ctx context.Context, params *GetDocument
 }
 
 /*
-GetLocationsSearch searches locations using the q64 value returned from a previous search
-*/
-func (a *Client) GetLocationsSearch(ctx context.Context, params *GetLocationsSearchParams) (*GetLocationsSearchOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "getLocationsSearch",
-		Method:             "GET",
-		PathPattern:        "/api/v2/locations/search",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetLocationsSearchReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*GetLocationsSearchOK), nil
-
-}
-
-/*
 GetSearch searches using the q64 value returned from a previous search
 */
 func (a *Client) GetSearch(ctx context.Context, params *GetSearchParams) (*GetSearchOK, error) {
@@ -225,56 +172,6 @@ func (a *Client) GetSearchSuggest(ctx context.Context, params *GetSearchSuggestP
 		return nil, err
 	}
 	return result.(*GetSearchSuggestOK), nil
-
-}
-
-/*
-GetUsersSearch searches users using the q64 value returned from a previous search
-*/
-func (a *Client) GetUsersSearch(ctx context.Context, params *GetUsersSearchParams) (*GetUsersSearchOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "getUsersSearch",
-		Method:             "GET",
-		PathPattern:        "/api/v2/users/search",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetUsersSearchReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*GetUsersSearchOK), nil
-
-}
-
-/*
-GetVoicemailSearch searches voicemails using the q64 value returned from a previous search
-*/
-func (a *Client) GetVoicemailSearch(ctx context.Context, params *GetVoicemailSearchParams) (*GetVoicemailSearchOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "getVoicemailSearch",
-		Method:             "GET",
-		PathPattern:        "/api/v2/voicemail/search",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetVoicemailSearchReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*GetVoicemailSearchOK), nil
 
 }
 
@@ -352,56 +249,6 @@ func (a *Client) PostDocumentationSearch(ctx context.Context, params *PostDocume
 }
 
 /*
-PostKnowledgeKnowledgebaseSearch searches documents
-*/
-func (a *Client) PostKnowledgeKnowledgebaseSearch(ctx context.Context, params *PostKnowledgeKnowledgebaseSearchParams) (*PostKnowledgeKnowledgebaseSearchOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "postKnowledgeKnowledgebaseSearch",
-		Method:             "POST",
-		PathPattern:        "/api/v2/knowledge/knowledgebases/{knowledgeBaseId}/search",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PostKnowledgeKnowledgebaseSearchReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*PostKnowledgeKnowledgebaseSearchOK), nil
-
-}
-
-/*
-PostLocationsSearch searches locations
-*/
-func (a *Client) PostLocationsSearch(ctx context.Context, params *PostLocationsSearchParams) (*PostLocationsSearchOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "postLocationsSearch",
-		Method:             "POST",
-		PathPattern:        "/api/v2/locations/search",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PostLocationsSearchReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*PostLocationsSearchOK), nil
-
-}
-
-/*
 PostSearch searches resources
 */
 func (a *Client) PostSearch(ctx context.Context, params *PostSearchParams) (*PostSearchOK, error) {
@@ -473,55 +320,5 @@ func (a *Client) PostSpeechandtextanalyticsTranscriptsSearch(ctx context.Context
 		return nil, err
 	}
 	return result.(*PostSpeechandtextanalyticsTranscriptsSearchOK), nil
-
-}
-
-/*
-PostUsersSearch searches users
-*/
-func (a *Client) PostUsersSearch(ctx context.Context, params *PostUsersSearchParams) (*PostUsersSearchOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "postUsersSearch",
-		Method:             "POST",
-		PathPattern:        "/api/v2/users/search",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PostUsersSearchReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*PostUsersSearchOK), nil
-
-}
-
-/*
-PostVoicemailSearch searches voicemails
-*/
-func (a *Client) PostVoicemailSearch(ctx context.Context, params *PostVoicemailSearchParams) (*PostVoicemailSearchOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "postVoicemailSearch",
-		Method:             "POST",
-		PathPattern:        "/api/v2/voicemail/search",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PostVoicemailSearchReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*PostVoicemailSearchOK), nil
 
 }

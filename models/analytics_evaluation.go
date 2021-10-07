@@ -51,6 +51,9 @@ type AnalyticsEvaluation struct {
 	// The ID of the associated queue
 	QueueID string `json:"queueId,omitempty"`
 
+	// Whether the evaluation has been released
+	Released bool `json:"released"`
+
 	// Whether the evaluation has been rescored at least once
 	Rescored bool `json:"rescored"`
 

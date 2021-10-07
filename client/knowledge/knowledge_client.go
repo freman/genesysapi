@@ -30,6 +30,10 @@ type API interface {
 	*/
 	DeleteKnowledgeKnowledgebaseLanguageDocument(ctx context.Context, params *DeleteKnowledgeKnowledgebaseLanguageDocumentParams) (*DeleteKnowledgeKnowledgebaseLanguageDocumentOK, *DeleteKnowledgeKnowledgebaseLanguageDocumentNoContent, error)
 	/*
+	   DeleteKnowledgeKnowledgebaseLanguageDocumentsImport deletes import operation
+	*/
+	DeleteKnowledgeKnowledgebaseLanguageDocumentsImport(ctx context.Context, params *DeleteKnowledgeKnowledgebaseLanguageDocumentsImportParams) (*DeleteKnowledgeKnowledgebaseLanguageDocumentsImportNoContent, error)
+	/*
 	   GetKnowledgeKnowledgebase gets knowledge base
 	*/
 	GetKnowledgeKnowledgebase(ctx context.Context, params *GetKnowledgeKnowledgebaseParams) (*GetKnowledgeKnowledgebaseOK, error)
@@ -49,6 +53,10 @@ type API interface {
 	   GetKnowledgeKnowledgebaseLanguageDocuments gets documents
 	*/
 	GetKnowledgeKnowledgebaseLanguageDocuments(ctx context.Context, params *GetKnowledgeKnowledgebaseLanguageDocumentsParams) (*GetKnowledgeKnowledgebaseLanguageDocumentsOK, error)
+	/*
+	   GetKnowledgeKnowledgebaseLanguageDocumentsImport gets import operation report
+	*/
+	GetKnowledgeKnowledgebaseLanguageDocumentsImport(ctx context.Context, params *GetKnowledgeKnowledgebaseLanguageDocumentsImportParams) (*GetKnowledgeKnowledgebaseLanguageDocumentsImportOK, *GetKnowledgeKnowledgebaseLanguageDocumentsImportAccepted, error)
 	/*
 	   GetKnowledgeKnowledgebaseLanguageTraining gets training detail
 	*/
@@ -78,6 +86,14 @@ type API interface {
 	*/
 	PatchKnowledgeKnowledgebaseLanguageDocuments(ctx context.Context, params *PatchKnowledgeKnowledgebaseLanguageDocumentsParams) (*PatchKnowledgeKnowledgebaseLanguageDocumentsOK, error)
 	/*
+	   PatchKnowledgeKnowledgebaseLanguageDocumentsImport starts import operation
+	*/
+	PatchKnowledgeKnowledgebaseLanguageDocumentsImport(ctx context.Context, params *PatchKnowledgeKnowledgebaseLanguageDocumentsImportParams) (*PatchKnowledgeKnowledgebaseLanguageDocumentsImportOK, *PatchKnowledgeKnowledgebaseLanguageDocumentsImportAccepted, error)
+	/*
+	   PostKnowledgeDocumentuploads creates a presigned URL for uploading a knowledge import file with a set of documents
+	*/
+	PostKnowledgeDocumentuploads(ctx context.Context, params *PostKnowledgeDocumentuploadsParams) (*PostKnowledgeDocumentuploadsOK, error)
+	/*
 	   PostKnowledgeKnowledgebaseLanguageCategories creates new category
 	*/
 	PostKnowledgeKnowledgebaseLanguageCategories(ctx context.Context, params *PostKnowledgeKnowledgebaseLanguageCategoriesParams) (*PostKnowledgeKnowledgebaseLanguageCategoriesOK, error)
@@ -86,6 +102,10 @@ type API interface {
 	*/
 	PostKnowledgeKnowledgebaseLanguageDocuments(ctx context.Context, params *PostKnowledgeKnowledgebaseLanguageDocumentsParams) (*PostKnowledgeKnowledgebaseLanguageDocumentsOK, error)
 	/*
+	   PostKnowledgeKnowledgebaseLanguageDocumentsImports creates import operation
+	*/
+	PostKnowledgeKnowledgebaseLanguageDocumentsImports(ctx context.Context, params *PostKnowledgeKnowledgebaseLanguageDocumentsImportsParams) (*PostKnowledgeKnowledgebaseLanguageDocumentsImportsAccepted, error)
+	/*
 	   PostKnowledgeKnowledgebaseLanguageTrainingPromote promotes trained documents from draft state to active
 	*/
 	PostKnowledgeKnowledgebaseLanguageTrainingPromote(ctx context.Context, params *PostKnowledgeKnowledgebaseLanguageTrainingPromoteParams) (*PostKnowledgeKnowledgebaseLanguageTrainingPromoteOK, error)
@@ -93,6 +113,10 @@ type API interface {
 	   PostKnowledgeKnowledgebaseLanguageTrainings triggers training
 	*/
 	PostKnowledgeKnowledgebaseLanguageTrainings(ctx context.Context, params *PostKnowledgeKnowledgebaseLanguageTrainingsParams) (*PostKnowledgeKnowledgebaseLanguageTrainingsOK, error)
+	/*
+	   PostKnowledgeKnowledgebaseSearch searches documents
+	*/
+	PostKnowledgeKnowledgebaseSearch(ctx context.Context, params *PostKnowledgeKnowledgebaseSearchParams) (*PostKnowledgeKnowledgebaseSearchOK, error)
 	/*
 	   PostKnowledgeKnowledgebases creates new knowledge base
 	*/
@@ -207,6 +231,31 @@ func (a *Client) DeleteKnowledgeKnowledgebaseLanguageDocument(ctx context.Contex
 		return nil, value, nil
 	}
 	return nil, nil, nil
+
+}
+
+/*
+DeleteKnowledgeKnowledgebaseLanguageDocumentsImport deletes import operation
+*/
+func (a *Client) DeleteKnowledgeKnowledgebaseLanguageDocumentsImport(ctx context.Context, params *DeleteKnowledgeKnowledgebaseLanguageDocumentsImportParams) (*DeleteKnowledgeKnowledgebaseLanguageDocumentsImportNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteKnowledgeKnowledgebaseLanguageDocumentsImport",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteKnowledgeKnowledgebaseLanguageDocumentsImportReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteKnowledgeKnowledgebaseLanguageDocumentsImportNoContent), nil
 
 }
 
@@ -332,6 +381,37 @@ func (a *Client) GetKnowledgeKnowledgebaseLanguageDocuments(ctx context.Context,
 		return nil, err
 	}
 	return result.(*GetKnowledgeKnowledgebaseLanguageDocumentsOK), nil
+
+}
+
+/*
+GetKnowledgeKnowledgebaseLanguageDocumentsImport gets import operation report
+*/
+func (a *Client) GetKnowledgeKnowledgebaseLanguageDocumentsImport(ctx context.Context, params *GetKnowledgeKnowledgebaseLanguageDocumentsImportParams) (*GetKnowledgeKnowledgebaseLanguageDocumentsImportOK, *GetKnowledgeKnowledgebaseLanguageDocumentsImportAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getKnowledgeKnowledgebaseLanguageDocumentsImport",
+		Method:             "GET",
+		PathPattern:        "/api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetKnowledgeKnowledgebaseLanguageDocumentsImportReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *GetKnowledgeKnowledgebaseLanguageDocumentsImportOK:
+		return value, nil, nil
+	case *GetKnowledgeKnowledgebaseLanguageDocumentsImportAccepted:
+		return nil, value, nil
+	}
+	return nil, nil, nil
 
 }
 
@@ -511,6 +591,62 @@ func (a *Client) PatchKnowledgeKnowledgebaseLanguageDocuments(ctx context.Contex
 }
 
 /*
+PatchKnowledgeKnowledgebaseLanguageDocumentsImport starts import operation
+*/
+func (a *Client) PatchKnowledgeKnowledgebaseLanguageDocumentsImport(ctx context.Context, params *PatchKnowledgeKnowledgebaseLanguageDocumentsImportParams) (*PatchKnowledgeKnowledgebaseLanguageDocumentsImportOK, *PatchKnowledgeKnowledgebaseLanguageDocumentsImportAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "patchKnowledgeKnowledgebaseLanguageDocumentsImport",
+		Method:             "PATCH",
+		PathPattern:        "/api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchKnowledgeKnowledgebaseLanguageDocumentsImportReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PatchKnowledgeKnowledgebaseLanguageDocumentsImportOK:
+		return value, nil, nil
+	case *PatchKnowledgeKnowledgebaseLanguageDocumentsImportAccepted:
+		return nil, value, nil
+	}
+	return nil, nil, nil
+
+}
+
+/*
+PostKnowledgeDocumentuploads creates a presigned URL for uploading a knowledge import file with a set of documents
+*/
+func (a *Client) PostKnowledgeDocumentuploads(ctx context.Context, params *PostKnowledgeDocumentuploadsParams) (*PostKnowledgeDocumentuploadsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postKnowledgeDocumentuploads",
+		Method:             "POST",
+		PathPattern:        "/api/v2/knowledge/documentuploads",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostKnowledgeDocumentuploadsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostKnowledgeDocumentuploadsOK), nil
+
+}
+
+/*
 PostKnowledgeKnowledgebaseLanguageCategories creates new category
 */
 func (a *Client) PostKnowledgeKnowledgebaseLanguageCategories(ctx context.Context, params *PostKnowledgeKnowledgebaseLanguageCategoriesParams) (*PostKnowledgeKnowledgebaseLanguageCategoriesOK, error) {
@@ -561,6 +697,31 @@ func (a *Client) PostKnowledgeKnowledgebaseLanguageDocuments(ctx context.Context
 }
 
 /*
+PostKnowledgeKnowledgebaseLanguageDocumentsImports creates import operation
+*/
+func (a *Client) PostKnowledgeKnowledgebaseLanguageDocumentsImports(ctx context.Context, params *PostKnowledgeKnowledgebaseLanguageDocumentsImportsParams) (*PostKnowledgeKnowledgebaseLanguageDocumentsImportsAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postKnowledgeKnowledgebaseLanguageDocumentsImports",
+		Method:             "POST",
+		PathPattern:        "/api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostKnowledgeKnowledgebaseLanguageDocumentsImportsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostKnowledgeKnowledgebaseLanguageDocumentsImportsAccepted), nil
+
+}
+
+/*
 PostKnowledgeKnowledgebaseLanguageTrainingPromote promotes trained documents from draft state to active
 */
 func (a *Client) PostKnowledgeKnowledgebaseLanguageTrainingPromote(ctx context.Context, params *PostKnowledgeKnowledgebaseLanguageTrainingPromoteParams) (*PostKnowledgeKnowledgebaseLanguageTrainingPromoteOK, error) {
@@ -607,6 +768,31 @@ func (a *Client) PostKnowledgeKnowledgebaseLanguageTrainings(ctx context.Context
 		return nil, err
 	}
 	return result.(*PostKnowledgeKnowledgebaseLanguageTrainingsOK), nil
+
+}
+
+/*
+PostKnowledgeKnowledgebaseSearch searches documents
+*/
+func (a *Client) PostKnowledgeKnowledgebaseSearch(ctx context.Context, params *PostKnowledgeKnowledgebaseSearchParams) (*PostKnowledgeKnowledgebaseSearchOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postKnowledgeKnowledgebaseSearch",
+		Method:             "POST",
+		PathPattern:        "/api/v2/knowledge/knowledgebases/{knowledgeBaseId}/search",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostKnowledgeKnowledgebaseSearchReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostKnowledgeKnowledgebaseSearchOK), nil
 
 }
 

@@ -28,6 +28,10 @@ type RecordingJob struct {
 	// Read Only: true
 	ErrorMessage string `json:"errorMessage,omitempty"`
 
+	// Get IDs of recordings that the bulk job failed for
+	// Read Only: true
+	FailedRecordings string `json:"failedRecordings,omitempty"`
+
 	// The globally unique identifier for the object.
 	// Read Only: true
 	ID string `json:"id,omitempty"`
@@ -54,6 +58,10 @@ type RecordingJob struct {
 	// Read Only: true
 	TotalConversations int32 `json:"totalConversations,omitempty"`
 
+	// Total number of recordings that the bulk job failed to process.
+	// Read Only: true
+	TotalFailedRecordings int32 `json:"totalFailedRecordings,omitempty"`
+
 	// Total number of recordings have been processed.
 	// Read Only: true
 	TotalProcessedRecordings int32 `json:"totalProcessedRecordings,omitempty"`
@@ -61,6 +69,10 @@ type RecordingJob struct {
 	// Total number of recordings affected.
 	// Read Only: true
 	TotalRecordings int32 `json:"totalRecordings,omitempty"`
+
+	// Total number of recordings that have been skipped.
+	// Read Only: true
+	TotalSkippedRecordings int32 `json:"totalSkippedRecordings,omitempty"`
 
 	// Details of the user created the job
 	// Read Only: true

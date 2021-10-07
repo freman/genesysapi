@@ -19,12 +19,28 @@ import (
 // swagger:model Metrics
 type Metrics struct {
 
+	// The created date of this metric
+	// Read Only: true
+	DateCreated int64 `json:"dateCreated,omitempty"`
+
+	// The unlinked workday for this metric if this metric was ever unlinked. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
+	// Read Only: true
+	// Format: date
+	DateUnlinked strfmt.Date `json:"dateUnlinked,omitempty"`
+
 	// A flag for whether this metric is enabled for a performance profile
 	Enabled bool `json:"enabled"`
+
+	// The id of associated external metric definition
+	ExternalMetricDefinitionID string `json:"externalMetricDefinitionId,omitempty"`
 
 	// The globally unique identifier for the object.
 	// Read Only: true
 	ID string `json:"id,omitempty"`
+
+	// The linked metric entity reference
+	// Read Only: true
+	LinkedMetric *AddressableEntityRef `json:"linkedMetric,omitempty"`
 
 	// Achievable maximum points for this metric
 	MaxPoints int32 `json:"maxPoints,omitempty"`
@@ -44,16 +60,28 @@ type Metrics struct {
 	// Performance profile id of this metric
 	PerformanceProfileID string `json:"performanceProfileId,omitempty"`
 
+	// Precision of linked external metric
+	// Read Only: true
+	Precision int32 `json:"precision,omitempty"`
+
 	// The URI for this object
 	// Read Only: true
 	// Format: uri
 	SelfURI strfmt.URI `json:"selfUri,omitempty"`
 
+	// The source performance profile when this metric is linked
+	// Read Only: true
+	SourcePerformanceProfile *PerformanceProfile `json:"sourcePerformanceProfile,omitempty"`
+
 	// The name of associated objective template
 	TemplateName string `json:"templateName,omitempty"`
 
+	// Unit definition of linked external metric
+	// Read Only: true
+	UnitDefinition string `json:"unitDefinition,omitempty"`
+
 	// Corresponding unit type for this metric
-	// Enum: [None Percent Seconds Number AttendanceStatus Unit]
+	// Enum: [None Percent Currency Seconds Number AttendanceStatus Unit]
 	UnitType string `json:"unitType,omitempty"`
 }
 
@@ -61,7 +89,19 @@ type Metrics struct {
 func (m *Metrics) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateDateUnlinked(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateLinkedMetric(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateSelfURI(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSourcePerformanceProfile(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -72,6 +112,37 @@ func (m *Metrics) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *Metrics) validateDateUnlinked(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.DateUnlinked) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("dateUnlinked", "body", "date", m.DateUnlinked.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Metrics) validateLinkedMetric(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.LinkedMetric) { // not required
+		return nil
+	}
+
+	if m.LinkedMetric != nil {
+		if err := m.LinkedMetric.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("linkedMetric")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -88,11 +159,29 @@ func (m *Metrics) validateSelfURI(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *Metrics) validateSourcePerformanceProfile(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.SourcePerformanceProfile) { // not required
+		return nil
+	}
+
+	if m.SourcePerformanceProfile != nil {
+		if err := m.SourcePerformanceProfile.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("sourcePerformanceProfile")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 var metricsTypeUnitTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["None","Percent","Seconds","Number","AttendanceStatus","Unit"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["None","Percent","Currency","Seconds","Number","AttendanceStatus","Unit"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -107,6 +196,9 @@ const (
 
 	// MetricsUnitTypePercent captures enum value "Percent"
 	MetricsUnitTypePercent string = "Percent"
+
+	// MetricsUnitTypeCurrency captures enum value "Currency"
+	MetricsUnitTypeCurrency string = "Currency"
 
 	// MetricsUnitTypeSeconds captures enum value "Seconds"
 	MetricsUnitTypeSeconds string = "Seconds"

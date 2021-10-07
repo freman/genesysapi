@@ -81,7 +81,7 @@ type GetKnowledgeKnowledgebaseLanguageCategoriesParams struct {
 	*/
 	LanguageCode string
 	/*Limit
-	  Number of entities to return. Maximum of 200. Deprecated in favour of pageSize.
+	  Number of entities to return. Maximum of 200. Deprecated in favour of pageSize, use CursorQueryParameters instead.
 
 	*/
 	Limit *string

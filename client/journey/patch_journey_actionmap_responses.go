@@ -59,6 +59,12 @@ func (o *PatchJourneyActionmapReader) ReadResponse(response runtime.ClientRespon
 			return nil, err
 		}
 		return nil, result
+	case 409:
+		result := NewPatchJourneyActionmapConflict()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPatchJourneyActionmapRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -288,6 +294,39 @@ func (o *PatchJourneyActionmapRequestTimeout) GetPayload() *models.ErrorBody {
 }
 
 func (o *PatchJourneyActionmapRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPatchJourneyActionmapConflict creates a PatchJourneyActionmapConflict with default headers values
+func NewPatchJourneyActionmapConflict() *PatchJourneyActionmapConflict {
+	return &PatchJourneyActionmapConflict{}
+}
+
+/*PatchJourneyActionmapConflict handles this case with default header values.
+
+Conflict
+*/
+type PatchJourneyActionmapConflict struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PatchJourneyActionmapConflict) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/journey/actionmaps/{actionMapId}][%d] patchJourneyActionmapConflict  %+v", 409, o.Payload)
+}
+
+func (o *PatchJourneyActionmapConflict) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PatchJourneyActionmapConflict) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ErrorBody)
 

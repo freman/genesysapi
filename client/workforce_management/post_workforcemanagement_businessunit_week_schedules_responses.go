@@ -29,6 +29,12 @@ func (o *PostWorkforcemanagementBusinessunitWeekSchedulesReader) ReadResponse(re
 			return nil, err
 		}
 		return result, nil
+	case 201:
+		result := NewPostWorkforcemanagementBusinessunitWeekSchedulesCreated()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return result, nil
 	case 400:
 		result := NewPostWorkforcemanagementBusinessunitWeekSchedulesBadRequest()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -123,6 +129,39 @@ func (o *PostWorkforcemanagementBusinessunitWeekSchedulesOK) GetPayload() *model
 }
 
 func (o *PostWorkforcemanagementBusinessunitWeekSchedulesOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.BuScheduleMetadata)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPostWorkforcemanagementBusinessunitWeekSchedulesCreated creates a PostWorkforcemanagementBusinessunitWeekSchedulesCreated with default headers values
+func NewPostWorkforcemanagementBusinessunitWeekSchedulesCreated() *PostWorkforcemanagementBusinessunitWeekSchedulesCreated {
+	return &PostWorkforcemanagementBusinessunitWeekSchedulesCreated{}
+}
+
+/*PostWorkforcemanagementBusinessunitWeekSchedulesCreated handles this case with default header values.
+
+The schedule was successfully created
+*/
+type PostWorkforcemanagementBusinessunitWeekSchedulesCreated struct {
+	Payload *models.BuScheduleMetadata
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesCreated) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules][%d] postWorkforcemanagementBusinessunitWeekSchedulesCreated  %+v", 201, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesCreated) GetPayload() *models.BuScheduleMetadata {
+	return o.Payload
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesCreated) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.BuScheduleMetadata)
 

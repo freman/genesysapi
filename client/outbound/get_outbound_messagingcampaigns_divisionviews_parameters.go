@@ -119,6 +119,11 @@ type GetOutboundMessagingcampaignsDivisionviewsParams struct {
 
 	*/
 	SortOrder *string
+	/*Type
+	  Campaign Type
+
+	*/
+	Type *string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -224,6 +229,17 @@ func (o *GetOutboundMessagingcampaignsDivisionviewsParams) SetSortOrder(sortOrde
 	o.SortOrder = sortOrder
 }
 
+// WithType adds the typeVar to the get outbound messagingcampaigns divisionviews params
+func (o *GetOutboundMessagingcampaignsDivisionviewsParams) WithType(typeVar *string) *GetOutboundMessagingcampaignsDivisionviewsParams {
+	o.SetType(typeVar)
+	return o
+}
+
+// SetType adds the type to the get outbound messagingcampaigns divisionviews params
+func (o *GetOutboundMessagingcampaignsDivisionviewsParams) SetType(typeVar *string) {
+	o.Type = typeVar
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *GetOutboundMessagingcampaignsDivisionviewsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -314,6 +330,22 @@ func (o *GetOutboundMessagingcampaignsDivisionviewsParams) WriteToRequest(r runt
 		qSortOrder := qrSortOrder
 		if qSortOrder != "" {
 			if err := r.SetQueryParam("sortOrder", qSortOrder); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	if o.Type != nil {
+
+		// query param type
+		var qrType string
+		if o.Type != nil {
+			qrType = *o.Type
+		}
+		qType := qrType
+		if qType != "" {
+			if err := r.SetQueryParam("type", qType); err != nil {
 				return err
 			}
 		}

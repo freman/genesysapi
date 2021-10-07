@@ -29,6 +29,18 @@ func (o *PostWorkforcemanagementBusinessunitWeekScheduleCopyReader) ReadResponse
 			return nil, err
 		}
 		return result, nil
+	case 201:
+		result := NewPostWorkforcemanagementBusinessunitWeekScheduleCopyCreated()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return result, nil
+	case 202:
+		result := NewPostWorkforcemanagementBusinessunitWeekScheduleCopyAccepted()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return result, nil
 	case 400:
 		result := NewPostWorkforcemanagementBusinessunitWeekScheduleCopyBadRequest()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -123,6 +135,72 @@ func (o *PostWorkforcemanagementBusinessunitWeekScheduleCopyOK) GetPayload() *mo
 }
 
 func (o *PostWorkforcemanagementBusinessunitWeekScheduleCopyOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.BuAsyncScheduleResponse)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPostWorkforcemanagementBusinessunitWeekScheduleCopyCreated creates a PostWorkforcemanagementBusinessunitWeekScheduleCopyCreated with default headers values
+func NewPostWorkforcemanagementBusinessunitWeekScheduleCopyCreated() *PostWorkforcemanagementBusinessunitWeekScheduleCopyCreated {
+	return &PostWorkforcemanagementBusinessunitWeekScheduleCopyCreated{}
+}
+
+/*PostWorkforcemanagementBusinessunitWeekScheduleCopyCreated handles this case with default header values.
+
+The schedule was successfully copied
+*/
+type PostWorkforcemanagementBusinessunitWeekScheduleCopyCreated struct {
+	Payload *models.BuAsyncScheduleResponse
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekScheduleCopyCreated) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules/{scheduleId}/copy][%d] postWorkforcemanagementBusinessunitWeekScheduleCopyCreated  %+v", 201, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekScheduleCopyCreated) GetPayload() *models.BuAsyncScheduleResponse {
+	return o.Payload
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekScheduleCopyCreated) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.BuAsyncScheduleResponse)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPostWorkforcemanagementBusinessunitWeekScheduleCopyAccepted creates a PostWorkforcemanagementBusinessunitWeekScheduleCopyAccepted with default headers values
+func NewPostWorkforcemanagementBusinessunitWeekScheduleCopyAccepted() *PostWorkforcemanagementBusinessunitWeekScheduleCopyAccepted {
+	return &PostWorkforcemanagementBusinessunitWeekScheduleCopyAccepted{}
+}
+
+/*PostWorkforcemanagementBusinessunitWeekScheduleCopyAccepted handles this case with default header values.
+
+The schedule copy was started and updates will be sent via notification
+*/
+type PostWorkforcemanagementBusinessunitWeekScheduleCopyAccepted struct {
+	Payload *models.BuAsyncScheduleResponse
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekScheduleCopyAccepted) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules/{scheduleId}/copy][%d] postWorkforcemanagementBusinessunitWeekScheduleCopyAccepted  %+v", 202, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekScheduleCopyAccepted) GetPayload() *models.BuAsyncScheduleResponse {
+	return o.Payload
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekScheduleCopyAccepted) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.BuAsyncScheduleResponse)
 

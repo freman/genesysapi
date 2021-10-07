@@ -86,6 +86,22 @@ type API interface {
 	*/
 	GetIntegrationsActionsDrafts(ctx context.Context, params *GetIntegrationsActionsDraftsParams) (*GetIntegrationsActionsDraftsOK, error)
 	/*
+	   GetIntegrationsBotconnectorIntegrationIDBot gets a specific bot connector bot plus versions for this integration
+	*/
+	GetIntegrationsBotconnectorIntegrationIDBot(ctx context.Context, params *GetIntegrationsBotconnectorIntegrationIDBotParams) (*GetIntegrationsBotconnectorIntegrationIDBotOK, error)
+	/*
+	   GetIntegrationsBotconnectorIntegrationIDBotVersions gets a list of bot versions for a bot
+	*/
+	GetIntegrationsBotconnectorIntegrationIDBotVersions(ctx context.Context, params *GetIntegrationsBotconnectorIntegrationIDBotVersionsParams) (*GetIntegrationsBotconnectorIntegrationIDBotVersionsOK, error)
+	/*
+	   GetIntegrationsBotconnectorIntegrationIDBots gets a list of bot connector bots for this integration
+	*/
+	GetIntegrationsBotconnectorIntegrationIDBots(ctx context.Context, params *GetIntegrationsBotconnectorIntegrationIDBotsParams) (*GetIntegrationsBotconnectorIntegrationIDBotsOK, error)
+	/*
+	   GetIntegrationsBotconnectorIntegrationIDBotsSummaries gets a summary list of bot connector bots for this integration
+	*/
+	GetIntegrationsBotconnectorIntegrationIDBotsSummaries(ctx context.Context, params *GetIntegrationsBotconnectorIntegrationIDBotsSummariesParams) (*GetIntegrationsBotconnectorIntegrationIDBotsSummariesOK, error)
+	/*
 	   GetIntegrationsClientapps lists permitted client app integrations for the logged in user
 	*/
 	GetIntegrationsClientapps(ctx context.Context, params *GetIntegrationsClientappsParams) (*GetIntegrationsClientappsOK, error)
@@ -221,6 +237,10 @@ type API interface {
 	   PutIntegrationConfigCurrent updates integration configuration
 	*/
 	PutIntegrationConfigCurrent(ctx context.Context, params *PutIntegrationConfigCurrentParams) (*PutIntegrationConfigCurrentOK, error)
+	/*
+	   PutIntegrationsBotconnectorIntegrationIDBots sets a list of bot connector bots plus versions for this integration
+	*/
+	PutIntegrationsBotconnectorIntegrationIDBots(ctx context.Context, params *PutIntegrationsBotconnectorIntegrationIDBotsParams) (*PutIntegrationsBotconnectorIntegrationIDBotsNoContent, error)
 	/*
 	   PutIntegrationsCredential updates a set of credentials
 	*/
@@ -671,6 +691,106 @@ func (a *Client) GetIntegrationsActionsDrafts(ctx context.Context, params *GetIn
 		return nil, err
 	}
 	return result.(*GetIntegrationsActionsDraftsOK), nil
+
+}
+
+/*
+GetIntegrationsBotconnectorIntegrationIDBot gets a specific bot connector bot plus versions for this integration
+*/
+func (a *Client) GetIntegrationsBotconnectorIntegrationIDBot(ctx context.Context, params *GetIntegrationsBotconnectorIntegrationIDBotParams) (*GetIntegrationsBotconnectorIntegrationIDBotOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getIntegrationsBotconnectorIntegrationIdBot",
+		Method:             "GET",
+		PathPattern:        "/api/v2/integrations/botconnector/{integrationId}/bots/{botId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetIntegrationsBotconnectorIntegrationIDBotReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetIntegrationsBotconnectorIntegrationIDBotOK), nil
+
+}
+
+/*
+GetIntegrationsBotconnectorIntegrationIDBotVersions gets a list of bot versions for a bot
+*/
+func (a *Client) GetIntegrationsBotconnectorIntegrationIDBotVersions(ctx context.Context, params *GetIntegrationsBotconnectorIntegrationIDBotVersionsParams) (*GetIntegrationsBotconnectorIntegrationIDBotVersionsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getIntegrationsBotconnectorIntegrationIdBotVersions",
+		Method:             "GET",
+		PathPattern:        "/api/v2/integrations/botconnector/{integrationId}/bots/{botId}/versions",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetIntegrationsBotconnectorIntegrationIDBotVersionsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetIntegrationsBotconnectorIntegrationIDBotVersionsOK), nil
+
+}
+
+/*
+GetIntegrationsBotconnectorIntegrationIDBots gets a list of bot connector bots for this integration
+*/
+func (a *Client) GetIntegrationsBotconnectorIntegrationIDBots(ctx context.Context, params *GetIntegrationsBotconnectorIntegrationIDBotsParams) (*GetIntegrationsBotconnectorIntegrationIDBotsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getIntegrationsBotconnectorIntegrationIdBots",
+		Method:             "GET",
+		PathPattern:        "/api/v2/integrations/botconnector/{integrationId}/bots",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetIntegrationsBotconnectorIntegrationIDBotsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetIntegrationsBotconnectorIntegrationIDBotsOK), nil
+
+}
+
+/*
+GetIntegrationsBotconnectorIntegrationIDBotsSummaries gets a summary list of bot connector bots for this integration
+*/
+func (a *Client) GetIntegrationsBotconnectorIntegrationIDBotsSummaries(ctx context.Context, params *GetIntegrationsBotconnectorIntegrationIDBotsSummariesParams) (*GetIntegrationsBotconnectorIntegrationIDBotsSummariesOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getIntegrationsBotconnectorIntegrationIdBotsSummaries",
+		Method:             "GET",
+		PathPattern:        "/api/v2/integrations/botconnector/{integrationId}/bots/summaries",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetIntegrationsBotconnectorIntegrationIDBotsSummariesReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetIntegrationsBotconnectorIntegrationIDBotsSummariesOK), nil
 
 }
 
@@ -1521,6 +1641,31 @@ func (a *Client) PutIntegrationConfigCurrent(ctx context.Context, params *PutInt
 		return nil, err
 	}
 	return result.(*PutIntegrationConfigCurrentOK), nil
+
+}
+
+/*
+PutIntegrationsBotconnectorIntegrationIDBots sets a list of bot connector bots plus versions for this integration
+*/
+func (a *Client) PutIntegrationsBotconnectorIntegrationIDBots(ctx context.Context, params *PutIntegrationsBotconnectorIntegrationIDBotsParams) (*PutIntegrationsBotconnectorIntegrationIDBotsNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "putIntegrationsBotconnectorIntegrationIdBots",
+		Method:             "PUT",
+		PathPattern:        "/api/v2/integrations/botconnector/{integrationId}/bots",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PutIntegrationsBotconnectorIntegrationIDBotsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutIntegrationsBotconnectorIntegrationIDBotsNoContent), nil
 
 }
 

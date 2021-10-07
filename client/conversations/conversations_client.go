@@ -18,10 +18,6 @@ import (
 // API is the interface of the conversations client
 type API interface {
 	/*
-	   DeleteAnalyticsConversationsDetailsJob deletes cancel an async request
-	*/
-	DeleteAnalyticsConversationsDetailsJob(ctx context.Context, params *DeleteAnalyticsConversationsDetailsJobParams) (*DeleteAnalyticsConversationsDetailsJobNoContent, error)
-	/*
 	   DeleteConversationParticipantCode deletes a code used to add a communication to this participant
 	*/
 	DeleteConversationParticipantCode(ctx context.Context, params *DeleteConversationParticipantCodeParams) error
@@ -58,26 +54,6 @@ type API interface {
 	   DeleteConversationsMessagingIntegrationsWhatsappIntegrationID deletes a whats app messaging integration
 	*/
 	DeleteConversationsMessagingIntegrationsWhatsappIntegrationID(ctx context.Context, params *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDParams) (*DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDOK, *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDAccepted, error)
-	/*
-	   GetAnalyticsConversationDetails gets a conversation by id
-	*/
-	GetAnalyticsConversationDetails(ctx context.Context, params *GetAnalyticsConversationDetailsParams) (*GetAnalyticsConversationDetailsOK, error)
-	/*
-	   GetAnalyticsConversationsDetails gets multiple conversations by id
-	*/
-	GetAnalyticsConversationsDetails(ctx context.Context, params *GetAnalyticsConversationsDetailsParams) (*GetAnalyticsConversationsDetailsOK, error)
-	/*
-	   GetAnalyticsConversationsDetailsJob gets status for async query for conversation details
-	*/
-	GetAnalyticsConversationsDetailsJob(ctx context.Context, params *GetAnalyticsConversationsDetailsJobParams) (*GetAnalyticsConversationsDetailsJobOK, *GetAnalyticsConversationsDetailsJobAccepted, error)
-	/*
-	   GetAnalyticsConversationsDetailsJobResults fetches a page of results for an async query
-	*/
-	GetAnalyticsConversationsDetailsJobResults(ctx context.Context, params *GetAnalyticsConversationsDetailsJobResultsParams) (*GetAnalyticsConversationsDetailsJobResultsOK, error)
-	/*
-	   GetAnalyticsConversationsDetailsJobsAvailability lookups the datalake availability date and time
-	*/
-	GetAnalyticsConversationsDetailsJobsAvailability(ctx context.Context, params *GetAnalyticsConversationsDetailsJobsAvailabilityParams) (*GetAnalyticsConversationsDetailsJobsAvailabilityOK, error)
 	/*
 	   GetConversation gets conversation
 	*/
@@ -222,7 +198,11 @@ type API interface {
 	*/
 	GetConversationsMessageCommunicationMessagesMediaMediaID(ctx context.Context, params *GetConversationsMessageCommunicationMessagesMediaMediaIDParams) (*GetConversationsMessageCommunicationMessagesMediaMediaIDOK, error)
 	/*
-	   GetConversationsMessageMessage gets message
+	   GetConversationsMessageDetails gets message
+	*/
+	GetConversationsMessageDetails(ctx context.Context, params *GetConversationsMessageDetailsParams) (*GetConversationsMessageDetailsOK, error)
+	/*
+	   GetConversationsMessageMessage gets conversation message
 	*/
 	GetConversationsMessageMessage(ctx context.Context, params *GetConversationsMessageMessageParams) (*GetConversationsMessageMessageOK, error)
 	/*
@@ -424,22 +404,6 @@ type API interface {
 	*/
 	PatchConversationsMessagingIntegrationsWhatsappIntegrationID(ctx context.Context, params *PatchConversationsMessagingIntegrationsWhatsappIntegrationIDParams) (*PatchConversationsMessagingIntegrationsWhatsappIntegrationIDOK, *PatchConversationsMessagingIntegrationsWhatsappIntegrationIDAccepted, error)
 	/*
-	   PostAnalyticsConversationDetailsProperties indices conversation properties
-	*/
-	PostAnalyticsConversationDetailsProperties(ctx context.Context, params *PostAnalyticsConversationDetailsPropertiesParams) (*PostAnalyticsConversationDetailsPropertiesAccepted, error)
-	/*
-	   PostAnalyticsConversationsAggregatesQuery queries for conversation aggregates
-	*/
-	PostAnalyticsConversationsAggregatesQuery(ctx context.Context, params *PostAnalyticsConversationsAggregatesQueryParams) (*PostAnalyticsConversationsAggregatesQueryOK, error)
-	/*
-	   PostAnalyticsConversationsDetailsJobs queries for conversation details asynchronously
-	*/
-	PostAnalyticsConversationsDetailsJobs(ctx context.Context, params *PostAnalyticsConversationsDetailsJobsParams) (*PostAnalyticsConversationsDetailsJobsAccepted, error)
-	/*
-	   PostAnalyticsConversationsDetailsQuery queries for conversation details
-	*/
-	PostAnalyticsConversationsDetailsQuery(ctx context.Context, params *PostAnalyticsConversationsDetailsQueryParams) (*PostAnalyticsConversationsDetailsQueryOK, error)
-	/*
 	   PostConversationAssign attempts to manually assign a specified conversation to a specified agent ignores bullseye ring p a r score skills and languages
 	*/
 	PostConversationAssign(ctx context.Context, params *PostConversationAssignParams) (*PostConversationAssignAccepted, error)
@@ -605,9 +569,13 @@ type API interface {
 	*/
 	PutConversationParticipantFlaggedreason(ctx context.Context, params *PutConversationParticipantFlaggedreasonParams) (*PutConversationParticipantFlaggedreasonNoContent, error)
 	/*
+	   PutConversationTags updates the tags on a conversation
+	*/
+	PutConversationTags(ctx context.Context, params *PutConversationTagsParams) (*PutConversationTagsAccepted, error)
+	/*
 	   PutConversationsCallParticipantCommunicationUuidata sets uui data to be sent on future commands
 	*/
-	PutConversationsCallParticipantCommunicationUuidata(ctx context.Context, params *PutConversationsCallParticipantCommunicationUuidataParams) (*PutConversationsCallParticipantCommunicationUuidataOK, *PutConversationsCallParticipantCommunicationUuidataNoContent, error)
+	PutConversationsCallParticipantCommunicationUuidata(ctx context.Context, params *PutConversationsCallParticipantCommunicationUuidataParams) (*PutConversationsCallParticipantCommunicationUuidataOK, error)
 	/*
 	   PutConversationsEmailMessagesDraft updates conversation draft reply
 	*/
@@ -639,31 +607,6 @@ type Client struct {
 	transport runtime.ClientTransport
 	formats   strfmt.Registry
 	authInfo  runtime.ClientAuthInfoWriter
-}
-
-/*
-DeleteAnalyticsConversationsDetailsJob deletes cancel an async request
-*/
-func (a *Client) DeleteAnalyticsConversationsDetailsJob(ctx context.Context, params *DeleteAnalyticsConversationsDetailsJobParams) (*DeleteAnalyticsConversationsDetailsJobNoContent, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "deleteAnalyticsConversationsDetailsJob",
-		Method:             "DELETE",
-		PathPattern:        "/api/v2/analytics/conversations/details/jobs/{jobId}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &DeleteAnalyticsConversationsDetailsJobReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*DeleteAnalyticsConversationsDetailsJobNoContent), nil
-
 }
 
 /*
@@ -896,137 +839,6 @@ func (a *Client) DeleteConversationsMessagingIntegrationsWhatsappIntegrationID(c
 		return nil, value, nil
 	}
 	return nil, nil, nil
-
-}
-
-/*
-GetAnalyticsConversationDetails gets a conversation by id
-*/
-func (a *Client) GetAnalyticsConversationDetails(ctx context.Context, params *GetAnalyticsConversationDetailsParams) (*GetAnalyticsConversationDetailsOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "getAnalyticsConversationDetails",
-		Method:             "GET",
-		PathPattern:        "/api/v2/analytics/conversations/{conversationId}/details",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetAnalyticsConversationDetailsReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*GetAnalyticsConversationDetailsOK), nil
-
-}
-
-/*
-GetAnalyticsConversationsDetails gets multiple conversations by id
-*/
-func (a *Client) GetAnalyticsConversationsDetails(ctx context.Context, params *GetAnalyticsConversationsDetailsParams) (*GetAnalyticsConversationsDetailsOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "getAnalyticsConversationsDetails",
-		Method:             "GET",
-		PathPattern:        "/api/v2/analytics/conversations/details",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetAnalyticsConversationsDetailsReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*GetAnalyticsConversationsDetailsOK), nil
-
-}
-
-/*
-GetAnalyticsConversationsDetailsJob gets status for async query for conversation details
-*/
-func (a *Client) GetAnalyticsConversationsDetailsJob(ctx context.Context, params *GetAnalyticsConversationsDetailsJobParams) (*GetAnalyticsConversationsDetailsJobOK, *GetAnalyticsConversationsDetailsJobAccepted, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "getAnalyticsConversationsDetailsJob",
-		Method:             "GET",
-		PathPattern:        "/api/v2/analytics/conversations/details/jobs/{jobId}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetAnalyticsConversationsDetailsJobReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, err
-	}
-	switch value := result.(type) {
-	case *GetAnalyticsConversationsDetailsJobOK:
-		return value, nil, nil
-	case *GetAnalyticsConversationsDetailsJobAccepted:
-		return nil, value, nil
-	}
-	return nil, nil, nil
-
-}
-
-/*
-GetAnalyticsConversationsDetailsJobResults fetches a page of results for an async query
-*/
-func (a *Client) GetAnalyticsConversationsDetailsJobResults(ctx context.Context, params *GetAnalyticsConversationsDetailsJobResultsParams) (*GetAnalyticsConversationsDetailsJobResultsOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "getAnalyticsConversationsDetailsJobResults",
-		Method:             "GET",
-		PathPattern:        "/api/v2/analytics/conversations/details/jobs/{jobId}/results",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetAnalyticsConversationsDetailsJobResultsReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*GetAnalyticsConversationsDetailsJobResultsOK), nil
-
-}
-
-/*
-GetAnalyticsConversationsDetailsJobsAvailability lookups the datalake availability date and time
-*/
-func (a *Client) GetAnalyticsConversationsDetailsJobsAvailability(ctx context.Context, params *GetAnalyticsConversationsDetailsJobsAvailabilityParams) (*GetAnalyticsConversationsDetailsJobsAvailabilityOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "getAnalyticsConversationsDetailsJobsAvailability",
-		Method:             "GET",
-		PathPattern:        "/api/v2/analytics/conversations/details/jobs/availability",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetAnalyticsConversationsDetailsJobsAvailabilityReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*GetAnalyticsConversationsDetailsJobsAvailabilityOK), nil
 
 }
 
@@ -1912,7 +1724,32 @@ func (a *Client) GetConversationsMessageCommunicationMessagesMediaMediaID(ctx co
 }
 
 /*
-GetConversationsMessageMessage gets message
+GetConversationsMessageDetails gets message
+*/
+func (a *Client) GetConversationsMessageDetails(ctx context.Context, params *GetConversationsMessageDetailsParams) (*GetConversationsMessageDetailsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getConversationsMessageDetails",
+		Method:             "GET",
+		PathPattern:        "/api/v2/conversations/messages/{messageId}/details",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetConversationsMessageDetailsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetConversationsMessageDetailsOK), nil
+
+}
+
+/*
+GetConversationsMessageMessage gets conversation message
 */
 func (a *Client) GetConversationsMessageMessage(ctx context.Context, params *GetConversationsMessageMessageParams) (*GetConversationsMessageMessageOK, error) {
 
@@ -3161,106 +2998,6 @@ func (a *Client) PatchConversationsMessagingIntegrationsWhatsappIntegrationID(ct
 }
 
 /*
-PostAnalyticsConversationDetailsProperties indices conversation properties
-*/
-func (a *Client) PostAnalyticsConversationDetailsProperties(ctx context.Context, params *PostAnalyticsConversationDetailsPropertiesParams) (*PostAnalyticsConversationDetailsPropertiesAccepted, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "postAnalyticsConversationDetailsProperties",
-		Method:             "POST",
-		PathPattern:        "/api/v2/analytics/conversations/{conversationId}/details/properties",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PostAnalyticsConversationDetailsPropertiesReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*PostAnalyticsConversationDetailsPropertiesAccepted), nil
-
-}
-
-/*
-PostAnalyticsConversationsAggregatesQuery queries for conversation aggregates
-*/
-func (a *Client) PostAnalyticsConversationsAggregatesQuery(ctx context.Context, params *PostAnalyticsConversationsAggregatesQueryParams) (*PostAnalyticsConversationsAggregatesQueryOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "postAnalyticsConversationsAggregatesQuery",
-		Method:             "POST",
-		PathPattern:        "/api/v2/analytics/conversations/aggregates/query",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PostAnalyticsConversationsAggregatesQueryReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*PostAnalyticsConversationsAggregatesQueryOK), nil
-
-}
-
-/*
-PostAnalyticsConversationsDetailsJobs queries for conversation details asynchronously
-*/
-func (a *Client) PostAnalyticsConversationsDetailsJobs(ctx context.Context, params *PostAnalyticsConversationsDetailsJobsParams) (*PostAnalyticsConversationsDetailsJobsAccepted, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "postAnalyticsConversationsDetailsJobs",
-		Method:             "POST",
-		PathPattern:        "/api/v2/analytics/conversations/details/jobs",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PostAnalyticsConversationsDetailsJobsReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*PostAnalyticsConversationsDetailsJobsAccepted), nil
-
-}
-
-/*
-PostAnalyticsConversationsDetailsQuery queries for conversation details
-*/
-func (a *Client) PostAnalyticsConversationsDetailsQuery(ctx context.Context, params *PostAnalyticsConversationsDetailsQueryParams) (*PostAnalyticsConversationsDetailsQueryOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "postAnalyticsConversationsDetailsQuery",
-		Method:             "POST",
-		PathPattern:        "/api/v2/analytics/conversations/details/query",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PostAnalyticsConversationsDetailsQueryReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*PostAnalyticsConversationsDetailsQueryOK), nil
-
-}
-
-/*
 PostConversationAssign attempts to manually assign a specified conversation to a specified agent ignores bullseye ring p a r score skills and languages
 */
 func (a *Client) PostConversationAssign(ctx context.Context, params *PostConversationAssignParams) (*PostConversationAssignAccepted, error) {
@@ -4302,9 +4039,34 @@ func (a *Client) PutConversationParticipantFlaggedreason(ctx context.Context, pa
 }
 
 /*
+PutConversationTags updates the tags on a conversation
+*/
+func (a *Client) PutConversationTags(ctx context.Context, params *PutConversationTagsParams) (*PutConversationTagsAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "putConversationTags",
+		Method:             "PUT",
+		PathPattern:        "/api/v2/conversations/{conversationId}/tags",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PutConversationTagsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutConversationTagsAccepted), nil
+
+}
+
+/*
 PutConversationsCallParticipantCommunicationUuidata sets uui data to be sent on future commands
 */
-func (a *Client) PutConversationsCallParticipantCommunicationUuidata(ctx context.Context, params *PutConversationsCallParticipantCommunicationUuidataParams) (*PutConversationsCallParticipantCommunicationUuidataOK, *PutConversationsCallParticipantCommunicationUuidataNoContent, error) {
+func (a *Client) PutConversationsCallParticipantCommunicationUuidata(ctx context.Context, params *PutConversationsCallParticipantCommunicationUuidataParams) (*PutConversationsCallParticipantCommunicationUuidataOK, error) {
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "putConversationsCallParticipantCommunicationUuidata",
@@ -4320,15 +4082,9 @@ func (a *Client) PutConversationsCallParticipantCommunicationUuidata(ctx context
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
-		return nil, nil, err
+		return nil, err
 	}
-	switch value := result.(type) {
-	case *PutConversationsCallParticipantCommunicationUuidataOK:
-		return value, nil, nil
-	case *PutConversationsCallParticipantCommunicationUuidataNoContent:
-		return nil, value, nil
-	}
-	return nil, nil, nil
+	return result.(*PutConversationsCallParticipantCommunicationUuidataOK), nil
 
 }
 

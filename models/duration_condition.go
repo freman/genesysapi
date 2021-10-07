@@ -19,6 +19,10 @@ import (
 // swagger:model DurationCondition
 type DurationCondition struct {
 
+	// duration mode
+	// Enum: [Between Over Under]
+	DurationMode string `json:"durationMode,omitempty"`
+
 	// duration operator
 	DurationOperator string `json:"durationOperator,omitempty"`
 
@@ -34,6 +38,10 @@ type DurationCondition struct {
 func (m *DurationCondition) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateDurationMode(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateDurationTarget(formats); err != nil {
 		res = append(res, err)
 	}
@@ -41,6 +49,52 @@ func (m *DurationCondition) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+var durationConditionTypeDurationModePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Between","Over","Under"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		durationConditionTypeDurationModePropEnum = append(durationConditionTypeDurationModePropEnum, v)
+	}
+}
+
+const (
+
+	// DurationConditionDurationModeBetween captures enum value "Between"
+	DurationConditionDurationModeBetween string = "Between"
+
+	// DurationConditionDurationModeOver captures enum value "Over"
+	DurationConditionDurationModeOver string = "Over"
+
+	// DurationConditionDurationModeUnder captures enum value "Under"
+	DurationConditionDurationModeUnder string = "Under"
+)
+
+// prop value enum
+func (m *DurationCondition) validateDurationModeEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, durationConditionTypeDurationModePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *DurationCondition) validateDurationMode(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.DurationMode) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateDurationModeEnum("durationMode", "body", m.DurationMode); err != nil {
+		return err
+	}
+
 	return nil
 }
 

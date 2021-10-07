@@ -34,6 +34,11 @@ type API interface {
 	*/
 	GetNotificationsChannels(ctx context.Context, params *GetNotificationsChannelsParams) (*GetNotificationsChannelsOK, error)
 	/*
+	   HeadNotificationsChannel verifies a channel still exists and is valid
+	   Returns a 200 OK if channel exists, and a 404 Not Found if it doesn't
+	*/
+	HeadNotificationsChannel(ctx context.Context, params *HeadNotificationsChannelParams) error
+	/*
 	   PostNotificationsChannelSubscriptions adds a list of subscriptions to the existing list of subscriptions
 	*/
 	PostNotificationsChannelSubscriptions(ctx context.Context, params *PostNotificationsChannelSubscriptionsParams) (*PostNotificationsChannelSubscriptionsOK, error)
@@ -163,6 +168,33 @@ func (a *Client) GetNotificationsChannels(ctx context.Context, params *GetNotifi
 		return nil, err
 	}
 	return result.(*GetNotificationsChannelsOK), nil
+
+}
+
+/*
+HeadNotificationsChannel verifies a channel still exists and is valid
+
+Returns a 200 OK if channel exists, and a 404 Not Found if it doesn't
+*/
+func (a *Client) HeadNotificationsChannel(ctx context.Context, params *HeadNotificationsChannelParams) error {
+
+	_, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "headNotificationsChannel",
+		Method:             "HEAD",
+		PathPattern:        "/api/v2/notifications/channels/{channelId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &HeadNotificationsChannelReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return err
+	}
+	return nil
 
 }
 

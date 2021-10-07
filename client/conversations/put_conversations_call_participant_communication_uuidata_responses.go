@@ -29,12 +29,6 @@ func (o *PutConversationsCallParticipantCommunicationUuidataReader) ReadResponse
 			return nil, err
 		}
 		return result, nil
-	case 204:
-		result := NewPutConversationsCallParticipantCommunicationUuidataNoContent()
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		return result, nil
 	case 400:
 		result := NewPutConversationsCallParticipantCommunicationUuidataBadRequest()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -134,27 +128,6 @@ func (o *PutConversationsCallParticipantCommunicationUuidataOK) readResponse(res
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
 		return err
 	}
-
-	return nil
-}
-
-// NewPutConversationsCallParticipantCommunicationUuidataNoContent creates a PutConversationsCallParticipantCommunicationUuidataNoContent with default headers values
-func NewPutConversationsCallParticipantCommunicationUuidataNoContent() *PutConversationsCallParticipantCommunicationUuidataNoContent {
-	return &PutConversationsCallParticipantCommunicationUuidataNoContent{}
-}
-
-/*PutConversationsCallParticipantCommunicationUuidataNoContent handles this case with default header values.
-
-UuiData Applied
-*/
-type PutConversationsCallParticipantCommunicationUuidataNoContent struct {
-}
-
-func (o *PutConversationsCallParticipantCommunicationUuidataNoContent) Error() string {
-	return fmt.Sprintf("[PUT /api/v2/conversations/calls/{conversationId}/participants/{participantId}/communications/{communicationId}/uuidata][%d] putConversationsCallParticipantCommunicationUuidataNoContent ", 204)
-}
-
-func (o *PutConversationsCallParticipantCommunicationUuidataNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	return nil
 }

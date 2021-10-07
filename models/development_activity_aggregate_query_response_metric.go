@@ -20,7 +20,7 @@ import (
 type DevelopmentActivityAggregateQueryResponseMetric struct {
 
 	// The metric this applies to
-	// Enum: [nActivities nPlannedActivities nInProgressActivities nCompleteActivities nOverdueActivities nInvalidScheduleActivities]
+	// Enum: [nActivities nPlannedActivities nInProgressActivities nCompleteActivities nOverdueActivities nInvalidScheduleActivities nPassedActivities nFailedActivities oActivityScore]
 	Metric string `json:"metric,omitempty"`
 
 	// The aggregated values for this metric
@@ -49,7 +49,7 @@ var developmentActivityAggregateQueryResponseMetricTypeMetricPropEnum []interfac
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["nActivities","nPlannedActivities","nInProgressActivities","nCompleteActivities","nOverdueActivities","nInvalidScheduleActivities"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["nActivities","nPlannedActivities","nInProgressActivities","nCompleteActivities","nOverdueActivities","nInvalidScheduleActivities","nPassedActivities","nFailedActivities","oActivityScore"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -76,6 +76,15 @@ const (
 
 	// DevelopmentActivityAggregateQueryResponseMetricMetricNInvalidScheduleActivities captures enum value "nInvalidScheduleActivities"
 	DevelopmentActivityAggregateQueryResponseMetricMetricNInvalidScheduleActivities string = "nInvalidScheduleActivities"
+
+	// DevelopmentActivityAggregateQueryResponseMetricMetricNPassedActivities captures enum value "nPassedActivities"
+	DevelopmentActivityAggregateQueryResponseMetricMetricNPassedActivities string = "nPassedActivities"
+
+	// DevelopmentActivityAggregateQueryResponseMetricMetricNFailedActivities captures enum value "nFailedActivities"
+	DevelopmentActivityAggregateQueryResponseMetricMetricNFailedActivities string = "nFailedActivities"
+
+	// DevelopmentActivityAggregateQueryResponseMetricMetricOActivityScore captures enum value "oActivityScore"
+	DevelopmentActivityAggregateQueryResponseMetricMetricOActivityScore string = "oActivityScore"
 )
 
 // prop value enum

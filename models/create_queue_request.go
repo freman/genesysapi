@@ -55,6 +55,9 @@ type CreateQueueRequest struct {
 	// The division to which this entity belongs.
 	Division *WritableDivision `json:"division,omitempty"`
 
+	// The in-queue flow to use for email conversations waiting in queue.
+	EmailInQueueFlow *DomainEntityRef `json:"emailInQueueFlow,omitempty"`
+
 	// Indicates whether manual assignment is enabled for this queue.
 	EnableManualAssignment bool `json:"enableManualAssignment"`
 
@@ -76,6 +79,9 @@ type CreateQueueRequest struct {
 	// Read Only: true
 	MemberCount int32 `json:"memberCount,omitempty"`
 
+	// The in-queue flow to use for message conversations waiting in queue.
+	MessageInQueueFlow *DomainEntityRef `json:"messageInQueueFlow,omitempty"`
+
 	// The ID of the user that last modified the queue.
 	ModifiedBy string `json:"modifiedBy,omitempty"`
 
@@ -89,7 +95,7 @@ type CreateQueueRequest struct {
 	// The messaging addresses for the queue.
 	OutboundMessagingAddresses *QueueMessagingAddresses `json:"outboundMessagingAddresses,omitempty"`
 
-	// The in-queue flow to use for conversations waiting in queue.
+	// The in-queue flow to use for call conversations waiting in queue.
 	QueueFlow *DomainEntityRef `json:"queueFlow,omitempty"`
 
 	// The routing rules for the queue, used for routing to known or preferred agents.
@@ -139,7 +145,15 @@ func (m *CreateQueueRequest) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateEmailInQueueFlow(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateMediaSettings(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateMessageInQueueFlow(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -283,6 +297,24 @@ func (m *CreateQueueRequest) validateDivision(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *CreateQueueRequest) validateEmailInQueueFlow(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.EmailInQueueFlow) { // not required
+		return nil
+	}
+
+	if m.EmailInQueueFlow != nil {
+		if err := m.EmailInQueueFlow.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("emailInQueueFlow")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *CreateQueueRequest) validateMediaSettings(formats strfmt.Registry) error {
 
 	if swag.IsZero(m.MediaSettings) { // not required
@@ -300,6 +332,24 @@ func (m *CreateQueueRequest) validateMediaSettings(formats strfmt.Registry) erro
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *CreateQueueRequest) validateMessageInQueueFlow(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.MessageInQueueFlow) { // not required
+		return nil
+	}
+
+	if m.MessageInQueueFlow != nil {
+		if err := m.MessageInQueueFlow.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("messageInQueueFlow")
+			}
+			return err
+		}
 	}
 
 	return nil

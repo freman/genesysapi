@@ -33,7 +33,7 @@ type SendAgentlessOutboundMessageRequest struct {
 	// Required: true
 	ToAddress *string `json:"toAddress"`
 
-	// The recipient messaging address messenger type. Currently SMS is the only one supported. WhatsApp will be supported in a future release.
+	// The recipient messaging address messenger type. Currently SMS and Open are the only supported types. WhatsApp will be supported in a future release
 	// Required: true
 	// Enum: [sms facebook twitter line whatsapp webmessaging open]
 	ToAddressMessengerType *string `json:"toAddressMessengerType"`

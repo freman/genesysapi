@@ -65,6 +65,12 @@ func (o *PostJourneySegmentsReader) ReadResponse(response runtime.ClientResponse
 			return nil, err
 		}
 		return nil, result
+	case 409:
+		result := NewPostJourneySegmentsConflict()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostJourneySegmentsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -327,6 +333,39 @@ func (o *PostJourneySegmentsRequestTimeout) GetPayload() *models.ErrorBody {
 }
 
 func (o *PostJourneySegmentsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPostJourneySegmentsConflict creates a PostJourneySegmentsConflict with default headers values
+func NewPostJourneySegmentsConflict() *PostJourneySegmentsConflict {
+	return &PostJourneySegmentsConflict{}
+}
+
+/*PostJourneySegmentsConflict handles this case with default header values.
+
+Conflict
+*/
+type PostJourneySegmentsConflict struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostJourneySegmentsConflict) Error() string {
+	return fmt.Sprintf("[POST /api/v2/journey/segments][%d] postJourneySegmentsConflict  %+v", 409, o.Payload)
+}
+
+func (o *PostJourneySegmentsConflict) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostJourneySegmentsConflict) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ErrorBody)
 

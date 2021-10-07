@@ -44,6 +44,12 @@ type ADFS struct {
 	// Format: uri
 	SelfURI strfmt.URI `json:"selfUri,omitempty"`
 
+	// slo binding
+	SloBinding string `json:"sloBinding,omitempty"`
+
+	// slo URI
+	SloURI string `json:"sloURI,omitempty"`
+
 	// sso target URI
 	SsoTargetURI string `json:"ssoTargetURI,omitempty"`
 }

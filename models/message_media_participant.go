@@ -29,6 +29,9 @@ type MessageMediaParticipant struct {
 	// A list of ad-hoc attributes for the participant.
 	Attributes map[string]string `json:"attributes,omitempty"`
 
+	// If true, the participant member is authenticated.
+	Authenticated bool `json:"authenticated"`
+
 	// The time when this participant went connected for this media (eg: video connected time). Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	ConnectedTime strfmt.DateTime `json:"connectedTime,omitempty"`

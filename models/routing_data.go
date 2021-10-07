@@ -32,6 +32,9 @@ type RoutingData struct {
 	// Required: true
 	QueueID *string `json:"queueId"`
 
+	// An array of flags indicating how the conversation should be routed
+	RoutingFlags []string `json:"routingFlags"`
+
 	// A list of scored agents for routing decisions
 	ScoredAgents []*ScoredAgent `json:"scoredAgents"`
 

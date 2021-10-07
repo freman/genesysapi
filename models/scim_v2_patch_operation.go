@@ -28,7 +28,7 @@ type ScimV2PatchOperation struct {
 	Path string `json:"path,omitempty"`
 
 	// The value to set in the path.
-	Value *JSONNode `json:"value,omitempty"`
+	Value JSONNode `json:"value,omitempty"`
 }
 
 // Validate validates this scim v2 patch operation
@@ -36,10 +36,6 @@ func (m *ScimV2PatchOperation) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateOp(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateValue(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -90,24 +86,6 @@ func (m *ScimV2PatchOperation) validateOp(formats strfmt.Registry) error {
 	// value enum
 	if err := m.validateOpEnum("op", "body", *m.Op); err != nil {
 		return err
-	}
-
-	return nil
-}
-
-func (m *ScimV2PatchOperation) validateValue(formats strfmt.Registry) error {
-
-	if swag.IsZero(m.Value) { // not required
-		return nil
-	}
-
-	if m.Value != nil {
-		if err := m.Value.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("value")
-			}
-			return err
-		}
 	}
 
 	return nil

@@ -17,6 +17,15 @@ type DevelopmentActivityAggregateQueryResponseStatistics struct {
 
 	// The count for this metric
 	Count int32 `json:"count,omitempty"`
+
+	// The maximum value in this metric
+	Max float64 `json:"max,omitempty"`
+
+	// The minimum value in this metric
+	Min float64 `json:"min,omitempty"`
+
+	// The total of the values for this metric
+	Sum float64 `json:"sum,omitempty"`
 }
 
 // Validate validates this development activity aggregate query response statistics

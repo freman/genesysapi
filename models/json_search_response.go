@@ -18,7 +18,7 @@ import (
 type JSONSearchResponse struct {
 
 	// aggregations
-	Aggregations *ArrayNode `json:"aggregations,omitempty"`
+	Aggregations ArrayNode `json:"aggregations,omitempty"`
 
 	// The total number of pages
 	// Required: true
@@ -34,7 +34,7 @@ type JSONSearchResponse struct {
 
 	// Search results
 	// Required: true
-	Results *ArrayNode `json:"results"`
+	Results ArrayNode `json:"results"`
 
 	// The total number of results found
 	// Required: true
@@ -48,10 +48,6 @@ type JSONSearchResponse struct {
 // Validate validates this Json search response
 func (m *JSONSearchResponse) Validate(formats strfmt.Registry) error {
 	var res []error
-
-	if err := m.validateAggregations(formats); err != nil {
-		res = append(res, err)
-	}
 
 	if err := m.validatePageCount(formats); err != nil {
 		res = append(res, err)
@@ -80,24 +76,6 @@ func (m *JSONSearchResponse) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *JSONSearchResponse) validateAggregations(formats strfmt.Registry) error {
-
-	if swag.IsZero(m.Aggregations) { // not required
-		return nil
-	}
-
-	if m.Aggregations != nil {
-		if err := m.Aggregations.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("aggregations")
-			}
-			return err
-		}
-	}
-
 	return nil
 }
 
@@ -132,15 +110,6 @@ func (m *JSONSearchResponse) validateResults(formats strfmt.Registry) error {
 
 	if err := validate.Required("results", "body", m.Results); err != nil {
 		return err
-	}
-
-	if m.Results != nil {
-		if err := m.Results.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("results")
-			}
-			return err
-		}
 	}
 
 	return nil

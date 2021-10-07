@@ -19,12 +19,6 @@ type ButtonComponent struct {
 	// The button actions.
 	Actions *ContentActions `json:"actions,omitempty"`
 
-	// The ID of this component.
-	ID string `json:"id,omitempty"`
-
-	// Deprecated - Use title instead.
-	Text string `json:"text,omitempty"`
-
 	// Text to show inside the button.
 	Title string `json:"title,omitempty"`
 }

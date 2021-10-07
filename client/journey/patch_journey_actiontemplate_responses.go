@@ -59,6 +59,12 @@ func (o *PatchJourneyActiontemplateReader) ReadResponse(response runtime.ClientR
 			return nil, err
 		}
 		return nil, result
+	case 409:
+		result := NewPatchJourneyActiontemplateConflict()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPatchJourneyActiontemplateRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -288,6 +294,39 @@ func (o *PatchJourneyActiontemplateRequestTimeout) GetPayload() *models.ErrorBod
 }
 
 func (o *PatchJourneyActiontemplateRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPatchJourneyActiontemplateConflict creates a PatchJourneyActiontemplateConflict with default headers values
+func NewPatchJourneyActiontemplateConflict() *PatchJourneyActiontemplateConflict {
+	return &PatchJourneyActiontemplateConflict{}
+}
+
+/*PatchJourneyActiontemplateConflict handles this case with default header values.
+
+Conflict
+*/
+type PatchJourneyActiontemplateConflict struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PatchJourneyActiontemplateConflict) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/journey/actiontemplates/{actionTemplateId}][%d] patchJourneyActiontemplateConflict  %+v", 409, o.Payload)
+}
+
+func (o *PatchJourneyActiontemplateConflict) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PatchJourneyActiontemplateConflict) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ErrorBody)
 

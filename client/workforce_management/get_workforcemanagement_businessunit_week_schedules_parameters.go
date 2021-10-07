@@ -77,7 +77,7 @@ type GetWorkforcemanagementBusinessunitWeekSchedulesParams struct {
 	*/
 	IncludeOnlyPublished *bool
 	/*WeekID
-	  First day of schedule week in yyyy-MM-dd format, or 'recent' to get recent schedules
+	  First day of schedule week in yyyy-MM-dd format, or 'recent' (without quotes) to get recent schedules
 
 	*/
 	WeekID string

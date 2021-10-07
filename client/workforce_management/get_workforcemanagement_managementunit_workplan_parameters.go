@@ -14,6 +14,7 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+	"github.com/go-openapi/swag"
 )
 
 // NewGetWorkforcemanagementManagementunitWorkplanParams creates a new GetWorkforcemanagementManagementunitWorkplanParams object
@@ -60,6 +61,11 @@ for the get workforcemanagement managementunit workplan operation typically thes
 */
 type GetWorkforcemanagementManagementunitWorkplanParams struct {
 
+	/*IncludeOnly
+	  limit response to the specified fields
+
+	*/
+	IncludeOnly []string
 	/*ManagementUnitID
 	  The ID of the management unit, or 'mine' for the management unit of the logged-in user.
 
@@ -109,6 +115,17 @@ func (o *GetWorkforcemanagementManagementunitWorkplanParams) SetHTTPClient(clien
 	o.HTTPClient = client
 }
 
+// WithIncludeOnly adds the includeOnly to the get workforcemanagement managementunit workplan params
+func (o *GetWorkforcemanagementManagementunitWorkplanParams) WithIncludeOnly(includeOnly []string) *GetWorkforcemanagementManagementunitWorkplanParams {
+	o.SetIncludeOnly(includeOnly)
+	return o
+}
+
+// SetIncludeOnly adds the includeOnly to the get workforcemanagement managementunit workplan params
+func (o *GetWorkforcemanagementManagementunitWorkplanParams) SetIncludeOnly(includeOnly []string) {
+	o.IncludeOnly = includeOnly
+}
+
 // WithManagementUnitID adds the managementUnitID to the get workforcemanagement managementunit workplan params
 func (o *GetWorkforcemanagementManagementunitWorkplanParams) WithManagementUnitID(managementUnitID string) *GetWorkforcemanagementManagementunitWorkplanParams {
 	o.SetManagementUnitID(managementUnitID)
@@ -138,6 +155,14 @@ func (o *GetWorkforcemanagementManagementunitWorkplanParams) WriteToRequest(r ru
 		return err
 	}
 	var res []error
+
+	valuesIncludeOnly := o.IncludeOnly
+
+	joinedIncludeOnly := swag.JoinByFormat(valuesIncludeOnly, "multi")
+	// query array param includeOnly
+	if err := r.SetQueryParam("includeOnly", joinedIncludeOnly...); err != nil {
+		return err
+	}
 
 	// path param managementUnitId
 	if err := r.SetPathParam("managementUnitId", o.ManagementUnitID); err != nil {

@@ -17,6 +17,9 @@ import (
 // swagger:model GamificationStatus
 type GamificationStatus struct {
 
+	// Automatic assignment of users to the default profile
+	AutomaticUserAssignment bool `json:"automaticUserAssignment"`
+
 	// Gamification start date. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
 	// Format: date
 	DateStart strfmt.Date `json:"dateStart,omitempty"`

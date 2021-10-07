@@ -111,20 +111,20 @@ func NewPatchRoutingConversationOK() *PatchRoutingConversationOK {
 successful operation
 */
 type PatchRoutingConversationOK struct {
-	Payload *models.RoutingConversationAttributes
+	Payload *models.RoutingConversationAttributesResponse
 }
 
 func (o *PatchRoutingConversationOK) Error() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/conversations/{conversationId}][%d] patchRoutingConversationOK  %+v", 200, o.Payload)
 }
 
-func (o *PatchRoutingConversationOK) GetPayload() *models.RoutingConversationAttributes {
+func (o *PatchRoutingConversationOK) GetPayload() *models.RoutingConversationAttributesResponse {
 	return o.Payload
 }
 
 func (o *PatchRoutingConversationOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.RoutingConversationAttributes)
+	o.Payload = new(models.RoutingConversationAttributesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

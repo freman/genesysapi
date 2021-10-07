@@ -87,7 +87,7 @@ type GetQualityAgentsActivityParams struct {
 	*/
 	AgentUserID []string
 	/*EndTime
-	  End time of agent activity. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+	  End time of agent activity based on assigned date. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 
 	*/
 	EndTime *strfmt.DateTime
@@ -137,7 +137,7 @@ type GetQualityAgentsActivityParams struct {
 	*/
 	SortBy *string
 	/*StartTime
-	  Start time of agent activity. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+	  Start time of agent activity based on assigned date. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 
 	*/
 	StartTime *strfmt.DateTime

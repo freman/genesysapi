@@ -111,23 +111,21 @@ func NewGetOrganizationsLimitsNamespacesOK() *GetOrganizationsLimitsNamespacesOK
 successful operation
 */
 type GetOrganizationsLimitsNamespacesOK struct {
-	Payload *models.LimitsEntityListing
+	Payload models.PagedNamespaceListing
 }
 
 func (o *GetOrganizationsLimitsNamespacesOK) Error() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/limits/namespaces][%d] getOrganizationsLimitsNamespacesOK  %+v", 200, o.Payload)
 }
 
-func (o *GetOrganizationsLimitsNamespacesOK) GetPayload() *models.LimitsEntityListing {
+func (o *GetOrganizationsLimitsNamespacesOK) GetPayload() models.PagedNamespaceListing {
 	return o.Payload
 }
 
 func (o *GetOrganizationsLimitsNamespacesOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.LimitsEntityListing)
-
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

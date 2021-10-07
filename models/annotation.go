@@ -23,7 +23,7 @@ type Annotation struct {
 	// Offset of annotation (milliseconds) from start of recording.
 	AbsoluteLocation int64 `json:"absoluteLocation,omitempty"`
 
-	// Text of annotation.
+	// Text of annotation. Maximum character limit is 500.
 	Description string `json:"description,omitempty"`
 
 	// Duration of annotation in milliseconds.

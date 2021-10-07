@@ -21,18 +21,20 @@ import (
 // with the default values initialized.
 func NewGetLearningModulesParams() *GetLearningModulesParams {
 	var (
-		isArchivedDefault = bool(false)
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("name")
-		sortOrderDefault  = string("ascending")
+		isArchivedDefault  = bool(false)
+		isPublishedDefault = string("Any")
+		pageNumberDefault  = int32(1)
+		pageSizeDefault    = int32(25)
+		sortByDefault      = string("name")
+		sortOrderDefault   = string("ascending")
 	)
 	return &GetLearningModulesParams{
-		IsArchived: &isArchivedDefault,
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-		SortOrder:  &sortOrderDefault,
+		IsArchived:  &isArchivedDefault,
+		IsPublished: &isPublishedDefault,
+		PageNumber:  &pageNumberDefault,
+		PageSize:    &pageSizeDefault,
+		SortBy:      &sortByDefault,
+		SortOrder:   &sortOrderDefault,
 
 		timeout: cr.DefaultTimeout,
 	}
@@ -42,18 +44,20 @@ func NewGetLearningModulesParams() *GetLearningModulesParams {
 // with the default values initialized, and the ability to set a timeout on a request
 func NewGetLearningModulesParamsWithTimeout(timeout time.Duration) *GetLearningModulesParams {
 	var (
-		isArchivedDefault = bool(false)
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("name")
-		sortOrderDefault  = string("ascending")
+		isArchivedDefault  = bool(false)
+		isPublishedDefault = string("Any")
+		pageNumberDefault  = int32(1)
+		pageSizeDefault    = int32(25)
+		sortByDefault      = string("name")
+		sortOrderDefault   = string("ascending")
 	)
 	return &GetLearningModulesParams{
-		IsArchived: &isArchivedDefault,
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-		SortOrder:  &sortOrderDefault,
+		IsArchived:  &isArchivedDefault,
+		IsPublished: &isPublishedDefault,
+		PageNumber:  &pageNumberDefault,
+		PageSize:    &pageSizeDefault,
+		SortBy:      &sortByDefault,
+		SortOrder:   &sortOrderDefault,
 
 		timeout: timeout,
 	}
@@ -63,18 +67,20 @@ func NewGetLearningModulesParamsWithTimeout(timeout time.Duration) *GetLearningM
 // with the default values initialized, and the ability to set a context for a request
 func NewGetLearningModulesParamsWithContext(ctx context.Context) *GetLearningModulesParams {
 	var (
-		isArchivedDefault = bool(false)
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("name")
-		sortOrderDefault  = string("ascending")
+		isArchivedDefault  = bool(false)
+		isPublishedDefault = string("Any")
+		pageNumberDefault  = int32(1)
+		pageSizeDefault    = int32(25)
+		sortByDefault      = string("name")
+		sortOrderDefault   = string("ascending")
 	)
 	return &GetLearningModulesParams{
-		IsArchived: &isArchivedDefault,
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-		SortOrder:  &sortOrderDefault,
+		IsArchived:  &isArchivedDefault,
+		IsPublished: &isPublishedDefault,
+		PageNumber:  &pageNumberDefault,
+		PageSize:    &pageSizeDefault,
+		SortBy:      &sortByDefault,
+		SortOrder:   &sortOrderDefault,
 
 		Context: ctx,
 	}
@@ -84,19 +90,21 @@ func NewGetLearningModulesParamsWithContext(ctx context.Context) *GetLearningMod
 // with the default values initialized, and the ability to set a custom HTTPClient for a request
 func NewGetLearningModulesParamsWithHTTPClient(client *http.Client) *GetLearningModulesParams {
 	var (
-		isArchivedDefault = bool(false)
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("name")
-		sortOrderDefault  = string("ascending")
+		isArchivedDefault  = bool(false)
+		isPublishedDefault = string("Any")
+		pageNumberDefault  = int32(1)
+		pageSizeDefault    = int32(25)
+		sortByDefault      = string("name")
+		sortOrderDefault   = string("ascending")
 	)
 	return &GetLearningModulesParams{
-		IsArchived: &isArchivedDefault,
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-		SortOrder:  &sortOrderDefault,
-		HTTPClient: client,
+		IsArchived:  &isArchivedDefault,
+		IsPublished: &isPublishedDefault,
+		PageNumber:  &pageNumberDefault,
+		PageSize:    &pageSizeDefault,
+		SortBy:      &sortByDefault,
+		SortOrder:   &sortOrderDefault,
+		HTTPClient:  client,
 	}
 }
 
@@ -115,6 +123,11 @@ type GetLearningModulesParams struct {
 
 	*/
 	IsArchived *bool
+	/*IsPublished
+	  Specifies if only the Unpublished (isPublished is "False") or Published (isPublished is "True") modules are returned. If isPublished is "Any" or omitted, both types are returned
+
+	*/
+	IsPublished *string
 	/*PageNumber
 	  Page number
 
@@ -204,6 +217,17 @@ func (o *GetLearningModulesParams) WithIsArchived(isArchived *bool) *GetLearning
 // SetIsArchived adds the isArchived to the get learning modules params
 func (o *GetLearningModulesParams) SetIsArchived(isArchived *bool) {
 	o.IsArchived = isArchived
+}
+
+// WithIsPublished adds the isPublished to the get learning modules params
+func (o *GetLearningModulesParams) WithIsPublished(isPublished *string) *GetLearningModulesParams {
+	o.SetIsPublished(isPublished)
+	return o
+}
+
+// SetIsPublished adds the isPublished to the get learning modules params
+func (o *GetLearningModulesParams) SetIsPublished(isPublished *string) {
+	o.IsPublished = isPublished
 }
 
 // WithPageNumber adds the pageNumber to the get learning modules params
@@ -298,6 +322,22 @@ func (o *GetLearningModulesParams) WriteToRequest(r runtime.ClientRequest, reg s
 		qIsArchived := swag.FormatBool(qrIsArchived)
 		if qIsArchived != "" {
 			if err := r.SetQueryParam("isArchived", qIsArchived); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	if o.IsPublished != nil {
+
+		// query param isPublished
+		var qrIsPublished string
+		if o.IsPublished != nil {
+			qrIsPublished = *o.IsPublished
+		}
+		qIsPublished := qrIsPublished
+		if qIsPublished != "" {
+			if err := r.SetQueryParam("isPublished", qIsPublished); err != nil {
 				return err
 			}
 		}

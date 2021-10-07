@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -17,23 +19,31 @@ import (
 // swagger:model MessageEvaluation
 type MessageEvaluation struct {
 
-	// contact address
+	// The address (phone or email) that was wrapped up
 	ContactAddress string `json:"contactAddress,omitempty"`
 
-	// contact column
+	// The name of the contact column that was wrapped up
 	ContactColumn string `json:"contactColumn,omitempty"`
 
-	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+	// The type of message sent
+	// Enum: [Sms Email]
+	MessageType string `json:"messageType,omitempty"`
+
+	// The time that the wrap-up was applied. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	Timestamp strfmt.DateTime `json:"timestamp,omitempty"`
 
-	// wrapup code Id
+	// The id of the wrap-up code
 	WrapupCodeID string `json:"wrapupCodeId,omitempty"`
 }
 
 // Validate validates this message evaluation
 func (m *MessageEvaluation) Validate(formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.validateMessageType(formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.validateTimestamp(formats); err != nil {
 		res = append(res, err)
@@ -42,6 +52,49 @@ func (m *MessageEvaluation) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+var messageEvaluationTypeMessageTypePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Sms","Email"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		messageEvaluationTypeMessageTypePropEnum = append(messageEvaluationTypeMessageTypePropEnum, v)
+	}
+}
+
+const (
+
+	// MessageEvaluationMessageTypeSms captures enum value "Sms"
+	MessageEvaluationMessageTypeSms string = "Sms"
+
+	// MessageEvaluationMessageTypeEmail captures enum value "Email"
+	MessageEvaluationMessageTypeEmail string = "Email"
+)
+
+// prop value enum
+func (m *MessageEvaluation) validateMessageTypeEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, messageEvaluationTypeMessageTypePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *MessageEvaluation) validateMessageType(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.MessageType) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateMessageTypeEnum("messageType", "body", m.MessageType); err != nil {
+		return err
+	}
+
 	return nil
 }
 

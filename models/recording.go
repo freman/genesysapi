@@ -81,6 +81,10 @@ type Recording struct {
 	// name
 	Name string `json:"name,omitempty"`
 
+	// The start time of the full recording, before any segment access restrictions are applied. Null when there is no playable media. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+	// Format: date-time
+	OriginalRecordingStartTime strfmt.DateTime `json:"originalRecordingStartTime,omitempty"`
+
 	// Duration of transcoded media in milliseconds
 	OutputDurationMs int32 `json:"outputDurationMs,omitempty"`
 
@@ -89,6 +93,10 @@ type Recording struct {
 
 	// path
 	Path string `json:"path,omitempty"`
+
+	// Status of a recording that cannot be returned because of an error
+	// Enum: [EMAIL_TRANSCRIPT_TOO_LARGE]
+	RecordingErrorStatus string `json:"recordingErrorStatus,omitempty"`
 
 	// Role of the file recording. It can be either customer_experience or adhoc.
 	// Enum: [CUSTOMER_EXPERIENCE ADHOC]
@@ -160,6 +168,14 @@ func (m *Recording) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateMessagingTranscript(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateOriginalRecordingStartTime(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateRecordingErrorStatus(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -431,6 +447,59 @@ func (m *Recording) validateMessagingTranscript(formats strfmt.Registry) error {
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *Recording) validateOriginalRecordingStartTime(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.OriginalRecordingStartTime) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("originalRecordingStartTime", "body", "date-time", m.OriginalRecordingStartTime.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+var recordingTypeRecordingErrorStatusPropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["EMAIL_TRANSCRIPT_TOO_LARGE"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		recordingTypeRecordingErrorStatusPropEnum = append(recordingTypeRecordingErrorStatusPropEnum, v)
+	}
+}
+
+const (
+
+	// RecordingRecordingErrorStatusEMAILTRANSCRIPTTOOLARGE captures enum value "EMAIL_TRANSCRIPT_TOO_LARGE"
+	RecordingRecordingErrorStatusEMAILTRANSCRIPTTOOLARGE string = "EMAIL_TRANSCRIPT_TOO_LARGE"
+)
+
+// prop value enum
+func (m *Recording) validateRecordingErrorStatusEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, recordingTypeRecordingErrorStatusPropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *Recording) validateRecordingErrorStatus(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.RecordingErrorStatus) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateRecordingErrorStatusEnum("recordingErrorStatus", "body", m.RecordingErrorStatus); err != nil {
+		return err
 	}
 
 	return nil

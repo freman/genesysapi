@@ -61,6 +61,10 @@ type API interface {
 	*/
 	PatchLearningAssignment(ctx context.Context, params *PatchLearningAssignmentParams) (*PatchLearningAssignmentOK, error)
 	/*
+	   PostLearningAssessmentsScoring scores learning assessment for preview
+	*/
+	PostLearningAssessmentsScoring(ctx context.Context, params *PostLearningAssessmentsScoringParams) (*PostLearningAssessmentsScoringOK, error)
+	/*
 	   PostLearningAssignments creates learning assignment
 	*/
 	PostLearningAssignments(ctx context.Context, params *PostLearningAssignmentsParams) (*PostLearningAssignmentsOK, error)
@@ -373,6 +377,31 @@ func (a *Client) PatchLearningAssignment(ctx context.Context, params *PatchLearn
 		return nil, err
 	}
 	return result.(*PatchLearningAssignmentOK), nil
+
+}
+
+/*
+PostLearningAssessmentsScoring scores learning assessment for preview
+*/
+func (a *Client) PostLearningAssessmentsScoring(ctx context.Context, params *PostLearningAssessmentsScoringParams) (*PostLearningAssessmentsScoringOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postLearningAssessmentsScoring",
+		Method:             "POST",
+		PathPattern:        "/api/v2/learning/assessments/scoring",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostLearningAssessmentsScoringReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostLearningAssessmentsScoringOK), nil
 
 }
 

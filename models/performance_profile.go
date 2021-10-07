@@ -20,7 +20,8 @@ import (
 type PerformanceProfile struct {
 
 	// The flag for active profiles
-	Active bool `json:"active"`
+	// Read Only: true
+	Active *bool `json:"active"`
 
 	// Creation date for this performance profile. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Read Only: true
@@ -41,6 +42,10 @@ type PerformanceProfile struct {
 
 	// The maximum rank size for the leaderboard. This counts the number of ranks can be retrieved in a leaderboard queries
 	MaxLeaderboardRankSize int32 `json:"maxLeaderboardRankSize,omitempty"`
+
+	// The number of members in this performance profile
+	// Read Only: true
+	MemberCount int32 `json:"memberCount,omitempty"`
 
 	// Order of the associated metrics. The list should contain valid ids for metrics
 	// Required: true

@@ -20,7 +20,7 @@ import (
 // swagger:model PostTextRequest
 type PostTextRequest struct {
 
-	// amazon lex request
+	// Provider specific settings, if any
 	AmazonLexRequest *AmazonLexRequest `json:"amazonLexRequest,omitempty"`
 
 	// Alias/Version of the bot
@@ -43,10 +43,10 @@ type PostTextRequest struct {
 	// Override timeout for the bot session. This should be greater than 10 minutes.
 	BotSessionTimeoutMinutes int32 `json:"botSessionTimeoutMinutes,omitempty"`
 
-	// genesys bot connector
+	// Provider specific settings, if any
 	GenesysBotConnector *GenesysBotConnector `json:"genesysBotConnector,omitempty"`
 
-	// google dialogflow
+	// Provider specific settings, if any
 	GoogleDialogflow *GoogleDialogflowCustomSettings `json:"googleDialogflow,omitempty"`
 
 	// the integration service id for the bot's credentials
@@ -59,6 +59,9 @@ type PostTextRequest struct {
 	// If the channels list contains a 'Messaging' item and the messaging platform is known, include it here to get accurate analytics
 	// Enum: [Phone SMS GenesysWebWidget FacebookMessenger WeChat Whatsapp AppleBusinessChat Telegram Slack Signal Line Discord TwitterDirectMessage Other Unknown]
 	MessagingPlatformType string `json:"messagingPlatformType,omitempty"`
+
+	// Provider specific settings, if any
+	NuanceMixDlg *NuanceMixDlgSettings `json:"nuanceMixDlg,omitempty"`
 
 	// Message to send to the bot
 	// Required: true
@@ -98,6 +101,10 @@ func (m *PostTextRequest) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateMessagingPlatformType(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateNuanceMixDlg(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -306,6 +313,24 @@ func (m *PostTextRequest) validateMessagingPlatformType(formats strfmt.Registry)
 	// value enum
 	if err := m.validateMessagingPlatformTypeEnum("messagingPlatformType", "body", m.MessagingPlatformType); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *PostTextRequest) validateNuanceMixDlg(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.NuanceMixDlg) { // not required
+		return nil
+	}
+
+	if m.NuanceMixDlg != nil {
+		if err := m.NuanceMixDlg.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("nuanceMixDlg")
+			}
+			return err
+		}
 	}
 
 	return nil

@@ -27,7 +27,7 @@ type CommonCampaignDivisionView struct {
 	ID string `json:"id,omitempty"`
 
 	// The media type used for this campaign.
-	// Enum: [sms voice]
+	// Enum: [email sms voice]
 	MediaType string `json:"mediaType,omitempty"`
 
 	// The name of the Campaign.
@@ -83,7 +83,7 @@ var commonCampaignDivisionViewTypeMediaTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["sms","voice"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["email","sms","voice"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -92,6 +92,9 @@ func init() {
 }
 
 const (
+
+	// CommonCampaignDivisionViewMediaTypeEmail captures enum value "email"
+	CommonCampaignDivisionViewMediaTypeEmail string = "email"
 
 	// CommonCampaignDivisionViewMediaTypeSms captures enum value "sms"
 	CommonCampaignDivisionViewMediaTypeSms string = "sms"

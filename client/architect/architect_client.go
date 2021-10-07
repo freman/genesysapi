@@ -252,6 +252,16 @@ type API interface {
 	*/
 	GetFlowsDatatables(ctx context.Context, params *GetFlowsDatatablesParams) (*GetFlowsDatatablesOK, error)
 	/*
+	   GetFlowsDatatablesDivisionview returns a specific datatable by id
+	   Given a datatableId returns the datatable object and schema associated with it.
+	*/
+	GetFlowsDatatablesDivisionview(ctx context.Context, params *GetFlowsDatatablesDivisionviewParams) (*GetFlowsDatatablesDivisionviewOK, error)
+	/*
+	   GetFlowsDatatablesDivisionviews retrieves a list of datatables for the org
+	   Returns a metadata list of the datatables associated with this org, including datatableId, name and description.
+	*/
+	GetFlowsDatatablesDivisionviews(ctx context.Context, params *GetFlowsDatatablesDivisionviewsParams) (*GetFlowsDatatablesDivisionviewsOK, error)
+	/*
 	   GetFlowsDivisionviews gets a pageable list of basic flow information objects filterable by query parameters
 	   This returns a simplified version of /flow consisting of name and type. If one or more IDs are specified, the search will fetch flows that match the given ID(s) and not use any additional supplied query parameters in the search.
 	*/
@@ -1942,6 +1952,60 @@ func (a *Client) GetFlowsDatatables(ctx context.Context, params *GetFlowsDatatab
 		return nil, err
 	}
 	return result.(*GetFlowsDatatablesOK), nil
+
+}
+
+/*
+GetFlowsDatatablesDivisionview returns a specific datatable by id
+
+Given a datatableId returns the datatable object and schema associated with it.
+*/
+func (a *Client) GetFlowsDatatablesDivisionview(ctx context.Context, params *GetFlowsDatatablesDivisionviewParams) (*GetFlowsDatatablesDivisionviewOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getFlowsDatatablesDivisionview",
+		Method:             "GET",
+		PathPattern:        "/api/v2/flows/datatables/divisionviews/{datatableId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetFlowsDatatablesDivisionviewReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetFlowsDatatablesDivisionviewOK), nil
+
+}
+
+/*
+GetFlowsDatatablesDivisionviews retrieves a list of datatables for the org
+
+Returns a metadata list of the datatables associated with this org, including datatableId, name and description.
+*/
+func (a *Client) GetFlowsDatatablesDivisionviews(ctx context.Context, params *GetFlowsDatatablesDivisionviewsParams) (*GetFlowsDatatablesDivisionviewsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getFlowsDatatablesDivisionviews",
+		Method:             "GET",
+		PathPattern:        "/api/v2/flows/datatables/divisionviews",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetFlowsDatatablesDivisionviewsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetFlowsDatatablesDivisionviewsOK), nil
 
 }
 

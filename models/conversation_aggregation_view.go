@@ -33,7 +33,7 @@ type ConversationAggregationView struct {
 
 	// Target metric name
 	// Required: true
-	// Enum: [nBlindTransferred nCobrowseSessions nConnected nConsult nConsultTransferred nError nOffered nOutbound nOutboundAbandoned nOutboundAttempted nOutboundConnected nOverSla nStateTransitionError nTransferred oExternalMediaCount oMediaCount oServiceLevel oServiceTarget tAbandon tAcd tAcw tAgentResponseTime tAlert tAnswered tCallback tCallbackComplete tContacting tDialing tFlowOut tHandle tHeld tHeldComplete tIvr tMonitoring tNotResponding tShortAbandon tTalk tTalkComplete tUserResponseTime tVoicemail tWait]
+	// Enum: [nBlindTransferred nCobrowseSessions nConnected nConsult nConsultTransferred nError nOffered nOutbound nOutboundAbandoned nOutboundAttempted nOutboundConnected nOverSla nStateTransitionError nTransferred oExternalMediaCount oMediaCount oServiceLevel oServiceTarget tAbandon tAcd tAcw tAgentResponseTime tAlert tAnswered tCallback tCallbackComplete tCoaching tCoachingComplete tContacting tDialing tFlowOut tHandle tHeld tHeldComplete tIvr tMonitoring tMonitoringComplete tNotResponding tShortAbandon tTalk tTalkComplete tUserResponseTime tVoicemail tWait]
 	Target *string `json:"target"`
 }
 
@@ -134,7 +134,7 @@ var conversationAggregationViewTypeTargetPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["nBlindTransferred","nCobrowseSessions","nConnected","nConsult","nConsultTransferred","nError","nOffered","nOutbound","nOutboundAbandoned","nOutboundAttempted","nOutboundConnected","nOverSla","nStateTransitionError","nTransferred","oExternalMediaCount","oMediaCount","oServiceLevel","oServiceTarget","tAbandon","tAcd","tAcw","tAgentResponseTime","tAlert","tAnswered","tCallback","tCallbackComplete","tContacting","tDialing","tFlowOut","tHandle","tHeld","tHeldComplete","tIvr","tMonitoring","tNotResponding","tShortAbandon","tTalk","tTalkComplete","tUserResponseTime","tVoicemail","tWait"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["nBlindTransferred","nCobrowseSessions","nConnected","nConsult","nConsultTransferred","nError","nOffered","nOutbound","nOutboundAbandoned","nOutboundAttempted","nOutboundConnected","nOverSla","nStateTransitionError","nTransferred","oExternalMediaCount","oMediaCount","oServiceLevel","oServiceTarget","tAbandon","tAcd","tAcw","tAgentResponseTime","tAlert","tAnswered","tCallback","tCallbackComplete","tCoaching","tCoachingComplete","tContacting","tDialing","tFlowOut","tHandle","tHeld","tHeldComplete","tIvr","tMonitoring","tMonitoringComplete","tNotResponding","tShortAbandon","tTalk","tTalkComplete","tUserResponseTime","tVoicemail","tWait"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -222,6 +222,12 @@ const (
 	// ConversationAggregationViewTargetTCallbackComplete captures enum value "tCallbackComplete"
 	ConversationAggregationViewTargetTCallbackComplete string = "tCallbackComplete"
 
+	// ConversationAggregationViewTargetTCoaching captures enum value "tCoaching"
+	ConversationAggregationViewTargetTCoaching string = "tCoaching"
+
+	// ConversationAggregationViewTargetTCoachingComplete captures enum value "tCoachingComplete"
+	ConversationAggregationViewTargetTCoachingComplete string = "tCoachingComplete"
+
 	// ConversationAggregationViewTargetTContacting captures enum value "tContacting"
 	ConversationAggregationViewTargetTContacting string = "tContacting"
 
@@ -245,6 +251,9 @@ const (
 
 	// ConversationAggregationViewTargetTMonitoring captures enum value "tMonitoring"
 	ConversationAggregationViewTargetTMonitoring string = "tMonitoring"
+
+	// ConversationAggregationViewTargetTMonitoringComplete captures enum value "tMonitoringComplete"
+	ConversationAggregationViewTargetTMonitoringComplete string = "tMonitoringComplete"
 
 	// ConversationAggregationViewTargetTNotResponding captures enum value "tNotResponding"
 	ConversationAggregationViewTargetTNotResponding string = "tNotResponding"

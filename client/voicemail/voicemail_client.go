@@ -75,6 +75,10 @@ type API interface {
 	*/
 	GetVoicemailQueueMessages(ctx context.Context, params *GetVoicemailQueueMessagesParams) (*GetVoicemailQueueMessagesOK, error)
 	/*
+	   GetVoicemailSearch searches voicemails using the q64 value returned from a previous search
+	*/
+	GetVoicemailSearch(ctx context.Context, params *GetVoicemailSearchParams) (*GetVoicemailSearchOK, error)
+	/*
 	   GetVoicemailUserpolicy gets a user s voicemail policy
 	*/
 	GetVoicemailUserpolicy(ctx context.Context, params *GetVoicemailUserpolicyParams) (*GetVoicemailUserpolicyOK, error)
@@ -99,6 +103,10 @@ type API interface {
 	   PostVoicemailMessages copies a voicemail message to a user or group
 	*/
 	PostVoicemailMessages(ctx context.Context, params *PostVoicemailMessagesParams) (*PostVoicemailMessagesOK, error)
+	/*
+	   PostVoicemailSearch searches voicemails
+	*/
+	PostVoicemailSearch(ctx context.Context, params *PostVoicemailSearchParams) (*PostVoicemailSearchOK, error)
 	/*
 	   PutVoicemailMessage updates a voicemail message
 	   A user voicemail can only be modified by its associated user. A group voicemail can only be modified by a user that is a member of the group. A queue voicemail can only be modified by a participant of the conversation the voicemail is associated with.
@@ -481,6 +489,31 @@ func (a *Client) GetVoicemailQueueMessages(ctx context.Context, params *GetVoice
 }
 
 /*
+GetVoicemailSearch searches voicemails using the q64 value returned from a previous search
+*/
+func (a *Client) GetVoicemailSearch(ctx context.Context, params *GetVoicemailSearchParams) (*GetVoicemailSearchOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getVoicemailSearch",
+		Method:             "GET",
+		PathPattern:        "/api/v2/voicemail/search",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetVoicemailSearchReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetVoicemailSearchOK), nil
+
+}
+
+/*
 GetVoicemailUserpolicy gets a user s voicemail policy
 */
 func (a *Client) GetVoicemailUserpolicy(ctx context.Context, params *GetVoicemailUserpolicyParams) (*GetVoicemailUserpolicyOK, error) {
@@ -629,6 +662,31 @@ func (a *Client) PostVoicemailMessages(ctx context.Context, params *PostVoicemai
 		return nil, err
 	}
 	return result.(*PostVoicemailMessagesOK), nil
+
+}
+
+/*
+PostVoicemailSearch searches voicemails
+*/
+func (a *Client) PostVoicemailSearch(ctx context.Context, params *PostVoicemailSearchParams) (*PostVoicemailSearchOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postVoicemailSearch",
+		Method:             "POST",
+		PathPattern:        "/api/v2/voicemail/search",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostVoicemailSearchReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostVoicemailSearchOK), nil
 
 }
 

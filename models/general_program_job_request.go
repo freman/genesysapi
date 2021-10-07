@@ -21,7 +21,7 @@ type GeneralProgramJobRequest struct {
 
 	// The dialect of the topics to link with the general program, dialect format is {language}-{country} where language follows ISO 639-1 standard and country follows ISO 3166-1 alpha 2 standard
 	// Required: true
-	// Enum: [en-US es-US en-AU en-GB en-ZA es-ES en-IN]
+	// Enum: [en-US es-US en-AU en-GB en-ZA es-ES en-IN fr-FR fr-CA it-IT de-DE pt-BR]
 	Dialect *string `json:"dialect"`
 
 	// The mode to use for the general program job, default value is Skip
@@ -51,7 +51,7 @@ var generalProgramJobRequestTypeDialectPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["en-US","es-US","en-AU","en-GB","en-ZA","es-ES","en-IN"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["en-US","es-US","en-AU","en-GB","en-ZA","es-ES","en-IN","fr-FR","fr-CA","it-IT","de-DE","pt-BR"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -81,6 +81,21 @@ const (
 
 	// GeneralProgramJobRequestDialectEnIN captures enum value "en-IN"
 	GeneralProgramJobRequestDialectEnIN string = "en-IN"
+
+	// GeneralProgramJobRequestDialectFrFR captures enum value "fr-FR"
+	GeneralProgramJobRequestDialectFrFR string = "fr-FR"
+
+	// GeneralProgramJobRequestDialectFrCA captures enum value "fr-CA"
+	GeneralProgramJobRequestDialectFrCA string = "fr-CA"
+
+	// GeneralProgramJobRequestDialectItIT captures enum value "it-IT"
+	GeneralProgramJobRequestDialectItIT string = "it-IT"
+
+	// GeneralProgramJobRequestDialectDeDE captures enum value "de-DE"
+	GeneralProgramJobRequestDialectDeDE string = "de-DE"
+
+	// GeneralProgramJobRequestDialectPtBR captures enum value "pt-BR"
+	GeneralProgramJobRequestDialectPtBR string = "pt-BR"
 )
 
 // prop value enum

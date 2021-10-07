@@ -18,7 +18,7 @@ import (
 // swagger:model ScimUserExtensions
 type ScimUserExtensions struct {
 
-	// The list of external identifiers assigned to user. Always includes an immutable SCIM authority prefixed with "x-pc:scimv2:v1".
+	// The list of external identifiers assigned to user. Always includes an immutable SCIM authority prefixed with "x-pc:scimv2:v1". ExternalIds are searchable with complex filter query parameter using 'authority' and 'value', e.g., filter=urn:ietf:params:scim:schemas:extension:genesys:purecloud:2.0:User:externalIds[authority eq "matchAuthName" and value eq "matchingExternalKeyValue"].
 	ExternalIds []*ScimGenesysUserExternalID `json:"externalIds"`
 
 	// The list of routing languages assigned to a user. Maximum 50 languages.

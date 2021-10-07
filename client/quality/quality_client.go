@@ -39,7 +39,7 @@ type API interface {
 	DeleteQualityFormsSurvey(ctx context.Context, params *DeleteQualityFormsSurveyParams) (*DeleteQualityFormsSurveyNoContent, error)
 	/*
 	   GetQualityAgentsActivity gets a list of agent activities
-	   Including the number of evaluations and average evaluation score
+	   Includes the number of evaluations and average evaluation score. These statistics include released evaluations only when evaluatorUserId is provided. In the absence of evaluatorUserId in the request, the api excludes evaluations which are set to never release for the calculation of evaluation statistics.
 	*/
 	GetQualityAgentsActivity(ctx context.Context, params *GetQualityAgentsActivityParams) (*GetQualityAgentsActivityOK, error)
 	/*
@@ -50,11 +50,6 @@ type API interface {
 	   GetQualityCalibrations gets the list of calibrations
 	*/
 	GetQualityCalibrations(ctx context.Context, params *GetQualityCalibrationsParams) (*GetQualityCalibrationsOK, error)
-	/*
-	   GetQualityConversationAudits gets audits for conversation or recording
-	   Different permissions are required for viewing different resource audit entries.  The quality:evaluation:viewAudit permission is required to view evaluation audits, the recording:recording:viewAudit permission is required to view recording audits, and so on.This endpoint is deprecated. Use following async endpoints, To query for audits POST /api/v2/quality/conversations/audits/queryTo get status of audit query GET /api/v2/quality/conversations/audits/query/{transactionId}To get results of audit query GET /api/v2/quality/conversations/audits/query/{transactionId}/results
-	*/
-	GetQualityConversationAudits(ctx context.Context, params *GetQualityConversationAuditsParams) (*GetQualityConversationAuditsOK, error)
 	/*
 	   GetQualityConversationEvaluation gets an evaluation
 	*/
@@ -160,14 +155,6 @@ type API interface {
 	   PatchQualityFormsSurvey disables a particular version of a survey form and invalidates any invitations that have already been sent to customers using this version of the form
 	*/
 	PatchQualityFormsSurvey(ctx context.Context, params *PatchQualityFormsSurveyParams) (*PatchQualityFormsSurveyOK, error)
-	/*
-	   PostAnalyticsEvaluationsAggregatesQuery queries for evaluation aggregates
-	*/
-	PostAnalyticsEvaluationsAggregatesQuery(ctx context.Context, params *PostAnalyticsEvaluationsAggregatesQueryParams) (*PostAnalyticsEvaluationsAggregatesQueryOK, error)
-	/*
-	   PostAnalyticsSurveysAggregatesQuery queries for survey aggregates
-	*/
-	PostAnalyticsSurveysAggregatesQuery(ctx context.Context, params *PostAnalyticsSurveysAggregatesQueryParams) (*PostAnalyticsSurveysAggregatesQueryOK, error)
 	/*
 	   PostQualityCalibrations creates a calibration
 	*/
@@ -385,7 +372,7 @@ func (a *Client) DeleteQualityFormsSurvey(ctx context.Context, params *DeleteQua
 /*
 GetQualityAgentsActivity gets a list of agent activities
 
-Including the number of evaluations and average evaluation score
+Includes the number of evaluations and average evaluation score. These statistics include released evaluations only when evaluatorUserId is provided. In the absence of evaluatorUserId in the request, the api excludes evaluations which are set to never release for the calculation of evaluation statistics.
 */
 func (a *Client) GetQualityAgentsActivity(ctx context.Context, params *GetQualityAgentsActivityParams) (*GetQualityAgentsActivityOK, error) {
 
@@ -456,33 +443,6 @@ func (a *Client) GetQualityCalibrations(ctx context.Context, params *GetQualityC
 		return nil, err
 	}
 	return result.(*GetQualityCalibrationsOK), nil
-
-}
-
-/*
-GetQualityConversationAudits gets audits for conversation or recording
-
-Different permissions are required for viewing different resource audit entries.  The quality:evaluation:viewAudit permission is required to view evaluation audits, the recording:recording:viewAudit permission is required to view recording audits, and so on.This endpoint is deprecated. Use following async endpoints, To query for audits POST /api/v2/quality/conversations/audits/queryTo get status of audit query GET /api/v2/quality/conversations/audits/query/{transactionId}To get results of audit query GET /api/v2/quality/conversations/audits/query/{transactionId}/results
-*/
-func (a *Client) GetQualityConversationAudits(ctx context.Context, params *GetQualityConversationAuditsParams) (*GetQualityConversationAuditsOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "getQualityConversationAudits",
-		Method:             "GET",
-		PathPattern:        "/api/v2/quality/conversations/{conversationId}/audits",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetQualityConversationAuditsReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*GetQualityConversationAuditsOK), nil
 
 }
 
@@ -1140,56 +1100,6 @@ func (a *Client) PatchQualityFormsSurvey(ctx context.Context, params *PatchQuali
 		return nil, err
 	}
 	return result.(*PatchQualityFormsSurveyOK), nil
-
-}
-
-/*
-PostAnalyticsEvaluationsAggregatesQuery queries for evaluation aggregates
-*/
-func (a *Client) PostAnalyticsEvaluationsAggregatesQuery(ctx context.Context, params *PostAnalyticsEvaluationsAggregatesQueryParams) (*PostAnalyticsEvaluationsAggregatesQueryOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "postAnalyticsEvaluationsAggregatesQuery",
-		Method:             "POST",
-		PathPattern:        "/api/v2/analytics/evaluations/aggregates/query",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PostAnalyticsEvaluationsAggregatesQueryReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*PostAnalyticsEvaluationsAggregatesQueryOK), nil
-
-}
-
-/*
-PostAnalyticsSurveysAggregatesQuery queries for survey aggregates
-*/
-func (a *Client) PostAnalyticsSurveysAggregatesQuery(ctx context.Context, params *PostAnalyticsSurveysAggregatesQueryParams) (*PostAnalyticsSurveysAggregatesQueryOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "postAnalyticsSurveysAggregatesQuery",
-		Method:             "POST",
-		PathPattern:        "/api/v2/analytics/surveys/aggregates/query",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PostAnalyticsSurveysAggregatesQueryReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*PostAnalyticsSurveysAggregatesQueryOK), nil
 
 }
 

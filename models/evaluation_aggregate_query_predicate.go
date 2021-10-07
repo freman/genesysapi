@@ -20,7 +20,7 @@ import (
 type EvaluationAggregateQueryPredicate struct {
 
 	// Left hand side for dimension predicates
-	// Enum: [calibrationId contextId conversationId divisionId evaluationCreatedDate evaluationId evaluatorId formId queueId rescored teamId userId]
+	// Enum: [calibrationId contextId conversationId conversationStart divisionId evaluationCreatedDate evaluationId evaluationReleaseDate evaluatorId formId queueId released rescored teamId userId]
 	Dimension string `json:"dimension,omitempty"`
 
 	// Optional operator, default is matches
@@ -68,7 +68,7 @@ var evaluationAggregateQueryPredicateTypeDimensionPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["calibrationId","contextId","conversationId","divisionId","evaluationCreatedDate","evaluationId","evaluatorId","formId","queueId","rescored","teamId","userId"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["calibrationId","contextId","conversationId","conversationStart","divisionId","evaluationCreatedDate","evaluationId","evaluationReleaseDate","evaluatorId","formId","queueId","released","rescored","teamId","userId"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -87,6 +87,9 @@ const (
 	// EvaluationAggregateQueryPredicateDimensionConversationID captures enum value "conversationId"
 	EvaluationAggregateQueryPredicateDimensionConversationID string = "conversationId"
 
+	// EvaluationAggregateQueryPredicateDimensionConversationStart captures enum value "conversationStart"
+	EvaluationAggregateQueryPredicateDimensionConversationStart string = "conversationStart"
+
 	// EvaluationAggregateQueryPredicateDimensionDivisionID captures enum value "divisionId"
 	EvaluationAggregateQueryPredicateDimensionDivisionID string = "divisionId"
 
@@ -96,6 +99,9 @@ const (
 	// EvaluationAggregateQueryPredicateDimensionEvaluationID captures enum value "evaluationId"
 	EvaluationAggregateQueryPredicateDimensionEvaluationID string = "evaluationId"
 
+	// EvaluationAggregateQueryPredicateDimensionEvaluationReleaseDate captures enum value "evaluationReleaseDate"
+	EvaluationAggregateQueryPredicateDimensionEvaluationReleaseDate string = "evaluationReleaseDate"
+
 	// EvaluationAggregateQueryPredicateDimensionEvaluatorID captures enum value "evaluatorId"
 	EvaluationAggregateQueryPredicateDimensionEvaluatorID string = "evaluatorId"
 
@@ -104,6 +110,9 @@ const (
 
 	// EvaluationAggregateQueryPredicateDimensionQueueID captures enum value "queueId"
 	EvaluationAggregateQueryPredicateDimensionQueueID string = "queueId"
+
+	// EvaluationAggregateQueryPredicateDimensionReleased captures enum value "released"
+	EvaluationAggregateQueryPredicateDimensionReleased string = "released"
 
 	// EvaluationAggregateQueryPredicateDimensionRescored captures enum value "rescored"
 	EvaluationAggregateQueryPredicateDimensionRescored string = "rescored"

@@ -24,7 +24,7 @@ type AuditQueryService struct {
 	Entities []*AuditQueryEntity `json:"entities"`
 
 	// Name of the Service
-	// Enum: [AnalyticsReporting Architect Coaching ContactCenter ContentManagement Datatables Gamification Groups Integrations LanguageUnderstanding Limits Outbound PeoplePermissions EmployeePerformance PredictiveEngagement Presence Quality ResponseManagement Routing SpeechAndTextAnalytics Telephony TopicsDefinitions Triggers WebDeployments Webhooks WorkforceManagement Messaging Supportability]
+	// Enum: [AnalyticsReporting Architect Coaching ContactCenter ContentManagement Datatables Directory Gamification Groups Integrations Knowledge LanguageUnderstanding Learning Limits Outbound PeoplePermissions EmployeePerformance PredictiveEngagement Presence Quality ResponseManagement Routing SpeechAndTextAnalytics Telephony TopicsDefinitions Triggers ProcessAutomation WebDeployments Webhooks WorkforceManagement Messaging Supportability Callback]
 	Name string `json:"name,omitempty"`
 }
 
@@ -75,7 +75,7 @@ var auditQueryServiceTypeNamePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["AnalyticsReporting","Architect","Coaching","ContactCenter","ContentManagement","Datatables","Gamification","Groups","Integrations","LanguageUnderstanding","Limits","Outbound","PeoplePermissions","EmployeePerformance","PredictiveEngagement","Presence","Quality","ResponseManagement","Routing","SpeechAndTextAnalytics","Telephony","TopicsDefinitions","Triggers","WebDeployments","Webhooks","WorkforceManagement","Messaging","Supportability"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["AnalyticsReporting","Architect","Coaching","ContactCenter","ContentManagement","Datatables","Directory","Gamification","Groups","Integrations","Knowledge","LanguageUnderstanding","Learning","Limits","Outbound","PeoplePermissions","EmployeePerformance","PredictiveEngagement","Presence","Quality","ResponseManagement","Routing","SpeechAndTextAnalytics","Telephony","TopicsDefinitions","Triggers","ProcessAutomation","WebDeployments","Webhooks","WorkforceManagement","Messaging","Supportability","Callback"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -103,6 +103,9 @@ const (
 	// AuditQueryServiceNameDatatables captures enum value "Datatables"
 	AuditQueryServiceNameDatatables string = "Datatables"
 
+	// AuditQueryServiceNameDirectory captures enum value "Directory"
+	AuditQueryServiceNameDirectory string = "Directory"
+
 	// AuditQueryServiceNameGamification captures enum value "Gamification"
 	AuditQueryServiceNameGamification string = "Gamification"
 
@@ -112,8 +115,14 @@ const (
 	// AuditQueryServiceNameIntegrations captures enum value "Integrations"
 	AuditQueryServiceNameIntegrations string = "Integrations"
 
+	// AuditQueryServiceNameKnowledge captures enum value "Knowledge"
+	AuditQueryServiceNameKnowledge string = "Knowledge"
+
 	// AuditQueryServiceNameLanguageUnderstanding captures enum value "LanguageUnderstanding"
 	AuditQueryServiceNameLanguageUnderstanding string = "LanguageUnderstanding"
+
+	// AuditQueryServiceNameLearning captures enum value "Learning"
+	AuditQueryServiceNameLearning string = "Learning"
 
 	// AuditQueryServiceNameLimits captures enum value "Limits"
 	AuditQueryServiceNameLimits string = "Limits"
@@ -154,6 +163,9 @@ const (
 	// AuditQueryServiceNameTriggers captures enum value "Triggers"
 	AuditQueryServiceNameTriggers string = "Triggers"
 
+	// AuditQueryServiceNameProcessAutomation captures enum value "ProcessAutomation"
+	AuditQueryServiceNameProcessAutomation string = "ProcessAutomation"
+
 	// AuditQueryServiceNameWebDeployments captures enum value "WebDeployments"
 	AuditQueryServiceNameWebDeployments string = "WebDeployments"
 
@@ -168,6 +180,9 @@ const (
 
 	// AuditQueryServiceNameSupportability captures enum value "Supportability"
 	AuditQueryServiceNameSupportability string = "Supportability"
+
+	// AuditQueryServiceNameCallback captures enum value "Callback"
+	AuditQueryServiceNameCallback string = "Callback"
 )
 
 // prop value enum

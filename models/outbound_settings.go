@@ -22,6 +22,9 @@ type OutboundSettings struct {
 	// The number of seconds used to determine if a call is abandoned
 	AbandonSeconds float64 `json:"abandonSeconds,omitempty"`
 
+	// The settings for automatic time zone mapping. Note that changing these settings will change them for both voice and messaging campaigns.
+	AutomaticTimeZoneMapping *AutomaticTimeZoneMappingSettings `json:"automaticTimeZoneMapping,omitempty"`
+
 	// The denominator to be used in determining the compliance abandon rate
 	// Enum: [ALL_CALLS CALLS_THAT_REACHED_QUEUE]
 	ComplianceAbandonRateDenominator string `json:"complianceAbandonRateDenominator,omitempty"`
@@ -66,6 +69,10 @@ type OutboundSettings struct {
 func (m *OutboundSettings) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateAutomaticTimeZoneMapping(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateComplianceAbandonRateDenominator(formats); err != nil {
 		res = append(res, err)
 	}
@@ -85,6 +92,24 @@ func (m *OutboundSettings) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *OutboundSettings) validateAutomaticTimeZoneMapping(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.AutomaticTimeZoneMapping) { // not required
+		return nil
+	}
+
+	if m.AutomaticTimeZoneMapping != nil {
+		if err := m.AutomaticTimeZoneMapping.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("automaticTimeZoneMapping")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

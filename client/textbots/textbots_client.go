@@ -18,6 +18,16 @@ import (
 // API is the interface of the textbots client
 type API interface {
 	/*
+	   PostTextbotsBotflowsSessionTurns issues a bot flow turn event
+	   Send a turn event to an executing bot flow and produce the next action to take.
+	*/
+	PostTextbotsBotflowsSessionTurns(ctx context.Context, params *PostTextbotsBotflowsSessionTurnsParams) (*PostTextbotsBotflowsSessionTurnsOK, error)
+	/*
+	   PostTextbotsBotflowsSessions creates an execution instance of a bot flow definition
+	   The launch is asynchronous; use the returned instance ID to post turns to it using 'POST /api/v2/textbots/botflows/sessions/{sessionId}/turns'.
+	*/
+	PostTextbotsBotflowsSessions(ctx context.Context, params *PostTextbotsBotflowsSessionsParams) (*PostTextbotsBotflowsSessionsOK, error)
+	/*
 	   PostTextbotsBotsExecute sends an intent to a bot to start a dialog interact with it via text
 	   This will either start a bot with the given id or relay a communication to an existing bot session.
 	*/
@@ -40,6 +50,60 @@ type Client struct {
 	transport runtime.ClientTransport
 	formats   strfmt.Registry
 	authInfo  runtime.ClientAuthInfoWriter
+}
+
+/*
+PostTextbotsBotflowsSessionTurns issues a bot flow turn event
+
+Send a turn event to an executing bot flow and produce the next action to take.
+*/
+func (a *Client) PostTextbotsBotflowsSessionTurns(ctx context.Context, params *PostTextbotsBotflowsSessionTurnsParams) (*PostTextbotsBotflowsSessionTurnsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postTextbotsBotflowsSessionTurns",
+		Method:             "POST",
+		PathPattern:        "/api/v2/textbots/botflows/sessions/{sessionId}/turns",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostTextbotsBotflowsSessionTurnsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostTextbotsBotflowsSessionTurnsOK), nil
+
+}
+
+/*
+PostTextbotsBotflowsSessions creates an execution instance of a bot flow definition
+
+The launch is asynchronous; use the returned instance ID to post turns to it using 'POST /api/v2/textbots/botflows/sessions/{sessionId}/turns'.
+*/
+func (a *Client) PostTextbotsBotflowsSessions(ctx context.Context, params *PostTextbotsBotflowsSessionsParams) (*PostTextbotsBotflowsSessionsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postTextbotsBotflowsSessions",
+		Method:             "POST",
+		PathPattern:        "/api/v2/textbots/botflows/sessions",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostTextbotsBotflowsSessionsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostTextbotsBotflowsSessionsOK), nil
+
 }
 
 /*

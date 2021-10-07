@@ -26,7 +26,7 @@ type WorkdayValuesMetricItem struct {
 
 	// Gamification metric for the average and the trend
 	// Read Only: true
-	MetricDefinition *MetricDefinition `json:"metricDefinition,omitempty"`
+	MetricDefinition *DomainEntityRef `json:"metricDefinition,omitempty"`
 
 	// The metric value trend
 	// Read Only: true
@@ -34,7 +34,7 @@ type WorkdayValuesMetricItem struct {
 
 	// The unit type of the metric value
 	// Read Only: true
-	// Enum: [None Percent Seconds Number AttendanceStatus Unit]
+	// Enum: [None Percent Currency Seconds Number AttendanceStatus Unit]
 	UnitType string `json:"unitType,omitempty"`
 }
 
@@ -107,7 +107,7 @@ var workdayValuesMetricItemTypeUnitTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["None","Percent","Seconds","Number","AttendanceStatus","Unit"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["None","Percent","Currency","Seconds","Number","AttendanceStatus","Unit"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -122,6 +122,9 @@ const (
 
 	// WorkdayValuesMetricItemUnitTypePercent captures enum value "Percent"
 	WorkdayValuesMetricItemUnitTypePercent string = "Percent"
+
+	// WorkdayValuesMetricItemUnitTypeCurrency captures enum value "Currency"
+	WorkdayValuesMetricItemUnitTypeCurrency string = "Currency"
 
 	// WorkdayValuesMetricItemUnitTypeSeconds captures enum value "Seconds"
 	WorkdayValuesMetricItemUnitTypeSeconds string = "Seconds"

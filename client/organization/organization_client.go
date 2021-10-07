@@ -18,10 +18,6 @@ import (
 // API is the interface of the organization client
 type API interface {
 	/*
-	   GetFieldconfig fetches field config for an entity type
-	*/
-	GetFieldconfig(ctx context.Context, params *GetFieldconfigParams) (*GetFieldconfigOK, error)
-	/*
 	   GetOrganizationsEmbeddedintegration gets the list of domains that will be allowed to embed pure cloud applications
 	*/
 	GetOrganizationsEmbeddedintegration(ctx context.Context, params *GetOrganizationsEmbeddedintegrationParams) (*GetOrganizationsEmbeddedintegrationOK, error)
@@ -46,6 +42,10 @@ type API interface {
 	   GetOrganizationsLimitsNamespace gets the effective limits in a namespace for an organization
 	*/
 	GetOrganizationsLimitsNamespace(ctx context.Context, params *GetOrganizationsLimitsNamespaceParams) (*GetOrganizationsLimitsNamespaceOK, error)
+	/*
+	   GetOrganizationsLimitsNamespaceDefaults gets the default limits in a namespace for an organization
+	*/
+	GetOrganizationsLimitsNamespaceDefaults(ctx context.Context, params *GetOrganizationsLimitsNamespaceDefaultsParams) (*GetOrganizationsLimitsNamespaceDefaultsOK, error)
 	/*
 	   GetOrganizationsLimitsNamespaces gets the available limit namespaces
 	*/
@@ -96,31 +96,6 @@ type Client struct {
 	transport runtime.ClientTransport
 	formats   strfmt.Registry
 	authInfo  runtime.ClientAuthInfoWriter
-}
-
-/*
-GetFieldconfig fetches field config for an entity type
-*/
-func (a *Client) GetFieldconfig(ctx context.Context, params *GetFieldconfigParams) (*GetFieldconfigOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "getFieldconfig",
-		Method:             "GET",
-		PathPattern:        "/api/v2/fieldconfig",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetFieldconfigReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*GetFieldconfigOK), nil
-
 }
 
 /*
@@ -272,6 +247,31 @@ func (a *Client) GetOrganizationsLimitsNamespace(ctx context.Context, params *Ge
 		return nil, err
 	}
 	return result.(*GetOrganizationsLimitsNamespaceOK), nil
+
+}
+
+/*
+GetOrganizationsLimitsNamespaceDefaults gets the default limits in a namespace for an organization
+*/
+func (a *Client) GetOrganizationsLimitsNamespaceDefaults(ctx context.Context, params *GetOrganizationsLimitsNamespaceDefaultsParams) (*GetOrganizationsLimitsNamespaceDefaultsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getOrganizationsLimitsNamespaceDefaults",
+		Method:             "GET",
+		PathPattern:        "/api/v2/organizations/limits/namespaces/{namespaceName}/defaults",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetOrganizationsLimitsNamespaceDefaultsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetOrganizationsLimitsNamespaceDefaultsOK), nil
 
 }
 

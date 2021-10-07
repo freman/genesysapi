@@ -74,6 +74,14 @@ type API interface {
 	*/
 	GetJourneySegments(ctx context.Context, params *GetJourneySegmentsParams) (*GetJourneySegmentsOK, error)
 	/*
+	   GetJourneySession retrieves a single session
+	*/
+	GetJourneySession(ctx context.Context, params *GetJourneySessionParams) (*GetJourneySessionOK, error)
+	/*
+	   GetJourneySessionOutcomescores retrieves latest outcome score associated with a session for all outcomes
+	*/
+	GetJourneySessionOutcomescores(ctx context.Context, params *GetJourneySessionOutcomescoresParams) (*GetJourneySessionOutcomescoresOK, error)
+	/*
 	   PatchJourneyActionmap updates single action map
 	*/
 	PatchJourneyActionmap(ctx context.Context, params *PatchJourneyActionmapParams) (*PatchJourneyActionmapOK, error)
@@ -93,10 +101,6 @@ type API interface {
 	   PatchJourneySegment updates a segment
 	*/
 	PatchJourneySegment(ctx context.Context, params *PatchJourneySegmentParams) (*PatchJourneySegmentOK, error)
-	/*
-	   PostAnalyticsJourneysAggregatesQuery queries for journey aggregates
-	*/
-	PostAnalyticsJourneysAggregatesQuery(ctx context.Context, params *PostAnalyticsJourneysAggregatesQueryParams) (*PostAnalyticsJourneysAggregatesQueryOK, error)
 	/*
 	   PostJourneyActionmaps creates an action map
 	*/
@@ -484,6 +488,56 @@ func (a *Client) GetJourneySegments(ctx context.Context, params *GetJourneySegme
 }
 
 /*
+GetJourneySession retrieves a single session
+*/
+func (a *Client) GetJourneySession(ctx context.Context, params *GetJourneySessionParams) (*GetJourneySessionOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getJourneySession",
+		Method:             "GET",
+		PathPattern:        "/api/v2/journey/sessions/{sessionId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetJourneySessionReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetJourneySessionOK), nil
+
+}
+
+/*
+GetJourneySessionOutcomescores retrieves latest outcome score associated with a session for all outcomes
+*/
+func (a *Client) GetJourneySessionOutcomescores(ctx context.Context, params *GetJourneySessionOutcomescoresParams) (*GetJourneySessionOutcomescoresOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getJourneySessionOutcomescores",
+		Method:             "GET",
+		PathPattern:        "/api/v2/journey/sessions/{sessionId}/outcomescores",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetJourneySessionOutcomescoresReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetJourneySessionOutcomescoresOK), nil
+
+}
+
+/*
 PatchJourneyActionmap updates single action map
 */
 func (a *Client) PatchJourneyActionmap(ctx context.Context, params *PatchJourneyActionmapParams) (*PatchJourneyActionmapOK, error) {
@@ -605,31 +659,6 @@ func (a *Client) PatchJourneySegment(ctx context.Context, params *PatchJourneySe
 		return nil, err
 	}
 	return result.(*PatchJourneySegmentOK), nil
-
-}
-
-/*
-PostAnalyticsJourneysAggregatesQuery queries for journey aggregates
-*/
-func (a *Client) PostAnalyticsJourneysAggregatesQuery(ctx context.Context, params *PostAnalyticsJourneysAggregatesQueryParams) (*PostAnalyticsJourneysAggregatesQueryOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "postAnalyticsJourneysAggregatesQuery",
-		Method:             "POST",
-		PathPattern:        "/api/v2/analytics/journeys/aggregates/query",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PostAnalyticsJourneysAggregatesQueryReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*PostAnalyticsJourneysAggregatesQueryOK), nil
 
 }
 

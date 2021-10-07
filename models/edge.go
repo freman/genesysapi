@@ -53,7 +53,7 @@ type Edge struct {
 	Description string `json:"description,omitempty"`
 
 	// edge deployment type
-	// Enum: [HARDWARE LDM CDM BYOH INVALID]
+	// Enum: [HARDWARE LDM CDM CHS INVALID]
 	EdgeDeploymentType string `json:"edgeDeploymentType,omitempty"`
 
 	// edge group
@@ -304,7 +304,7 @@ var edgeTypeEdgeDeploymentTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["HARDWARE","LDM","CDM","BYOH","INVALID"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["HARDWARE","LDM","CDM","CHS","INVALID"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -323,8 +323,8 @@ const (
 	// EdgeEdgeDeploymentTypeCDM captures enum value "CDM"
 	EdgeEdgeDeploymentTypeCDM string = "CDM"
 
-	// EdgeEdgeDeploymentTypeBYOH captures enum value "BYOH"
-	EdgeEdgeDeploymentTypeBYOH string = "BYOH"
+	// EdgeEdgeDeploymentTypeCHS captures enum value "CHS"
+	EdgeEdgeDeploymentTypeCHS string = "CHS"
 
 	// EdgeEdgeDeploymentTypeINVALID captures enum value "INVALID"
 	EdgeEdgeDeploymentTypeINVALID string = "INVALID"

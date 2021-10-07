@@ -36,10 +36,19 @@ type Okta struct {
 	// name
 	Name string `json:"name,omitempty"`
 
+	// relying party identifier
+	RelyingPartyIdentifier string `json:"relyingPartyIdentifier,omitempty"`
+
 	// The URI for this object
 	// Read Only: true
 	// Format: uri
 	SelfURI strfmt.URI `json:"selfUri,omitempty"`
+
+	// slo binding
+	SloBinding string `json:"sloBinding,omitempty"`
+
+	// slo URI
+	SloURI string `json:"sloURI,omitempty"`
 
 	// sso target URI
 	SsoTargetURI string `json:"ssoTargetURI,omitempty"`

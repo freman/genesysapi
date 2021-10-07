@@ -78,14 +78,6 @@ type API interface {
 	*/
 	DeleteRoutingWrapupcode(ctx context.Context, params *DeleteRoutingWrapupcodeParams) (*DeleteRoutingWrapupcodeOK, error)
 	/*
-	   DeleteUserRoutinglanguage removes routing language from user
-	*/
-	DeleteUserRoutinglanguage(ctx context.Context, params *DeleteUserRoutinglanguageParams) (*DeleteUserRoutinglanguageNoContent, error)
-	/*
-	   DeleteUserRoutingskill removes routing skill from user
-	*/
-	DeleteUserRoutingskill(ctx context.Context, params *DeleteUserRoutingskillParams) (*DeleteUserRoutingskillOK, error)
-	/*
 	   GetRoutingAssessment retrieves a single benefit assessment
 	*/
 	GetRoutingAssessment(ctx context.Context, params *GetRoutingAssessmentParams) (*GetRoutingAssessmentOK, error)
@@ -255,16 +247,8 @@ type API interface {
 	*/
 	GetUserQueues(ctx context.Context, params *GetUserQueuesParams) (*GetUserQueuesOK, error)
 	/*
-	   GetUserRoutinglanguages lists routing language for user
-	*/
-	GetUserRoutinglanguages(ctx context.Context, params *GetUserRoutinglanguagesParams) (*GetUserRoutinglanguagesOK, error)
-	/*
-	   GetUserRoutingskills lists routing skills for user
-	*/
-	GetUserRoutingskills(ctx context.Context, params *GetUserRoutingskillsParams) (*GetUserRoutingskillsOK, error)
-	/*
 	   PatchRoutingConversation updates attributes of an in queue conversation
-	   Returns an object indicating the updated values of all settable attributes.  Supported attributes: priority (each point of priority is equivalent to one minute of time in queue).
+	   Returns an object indicating the updated values of all settable attributes. Supported attributes: priority (each point of priority is equivalent to one minute of time in queue), skillIds and languageId.
 	*/
 	PatchRoutingConversation(ctx context.Context, params *PatchRoutingConversationParams) (*PatchRoutingConversationOK, error)
 	/*
@@ -275,10 +259,6 @@ type API interface {
 	   PatchRoutingEmailDomainValidate validates domain settings
 	*/
 	PatchRoutingEmailDomainValidate(ctx context.Context, params *PatchRoutingEmailDomainValidateParams) (*PatchRoutingEmailDomainValidateOK, error)
-	/*
-	   PatchRoutingEmailOutboundDomain requests an update of the emails from reply to of an outbound domain
-	*/
-	PatchRoutingEmailOutboundDomain(ctx context.Context, params *PatchRoutingEmailOutboundDomainParams) (*PatchRoutingEmailOutboundDomainOK, error)
 	/*
 	   PatchRoutingPredictor updates single predictor
 	*/
@@ -311,22 +291,6 @@ type API interface {
 	   PatchUserQueues joins or unjoin a set of queues for a user
 	*/
 	PatchUserQueues(ctx context.Context, params *PatchUserQueuesParams) (*PatchUserQueuesOK, error)
-	/*
-	   PatchUserRoutinglanguage updates routing language proficiency or state
-	*/
-	PatchUserRoutinglanguage(ctx context.Context, params *PatchUserRoutinglanguageParams) (*PatchUserRoutinglanguageOK, error)
-	/*
-	   PatchUserRoutinglanguagesBulk adds bulk routing language to user max limit 50 languages
-	*/
-	PatchUserRoutinglanguagesBulk(ctx context.Context, params *PatchUserRoutinglanguagesBulkParams) (*PatchUserRoutinglanguagesBulkOK, error)
-	/*
-	   PatchUserRoutingskillsBulk bulks add routing skills to user
-	*/
-	PatchUserRoutingskillsBulk(ctx context.Context, params *PatchUserRoutingskillsBulkParams) (*PatchUserRoutingskillsBulkOK, error)
-	/*
-	   PostAnalyticsQueuesObservationsQuery queries for queue observations
-	*/
-	PostAnalyticsQueuesObservationsQuery(ctx context.Context, params *PostAnalyticsQueuesObservationsQueryParams) (*PostAnalyticsQueuesObservationsQueryOK, error)
 	/*
 	   PostRoutingAssessments creates a benefit assessment
 	*/
@@ -389,14 +353,6 @@ type API interface {
 	*/
 	PostRoutingWrapupcodes(ctx context.Context, params *PostRoutingWrapupcodesParams) (*PostRoutingWrapupcodesOK, error)
 	/*
-	   PostUserRoutinglanguages adds routing language to user
-	*/
-	PostUserRoutinglanguages(ctx context.Context, params *PostUserRoutinglanguagesParams) (*PostUserRoutinglanguagesOK, error)
-	/*
-	   PostUserRoutingskills adds routing skill to user
-	*/
-	PostUserRoutingskills(ctx context.Context, params *PostUserRoutingskillsParams) (*PostUserRoutingskillsOK, error)
-	/*
 	   PutRoutingEmailDomainRoute updates a route
 	*/
 	PutRoutingEmailDomainRoute(ctx context.Context, params *PutRoutingEmailDomainRouteParams) (*PutRoutingEmailDomainRouteOK, error)
@@ -432,14 +388,6 @@ type API interface {
 	   PutRoutingWrapupcode updates wrap up code
 	*/
 	PutRoutingWrapupcode(ctx context.Context, params *PutRoutingWrapupcodeParams) (*PutRoutingWrapupcodeOK, error)
-	/*
-	   PutUserRoutingskill updates routing skill proficiency or state
-	*/
-	PutUserRoutingskill(ctx context.Context, params *PutUserRoutingskillParams) (*PutUserRoutingskillOK, error)
-	/*
-	   PutUserRoutingskillsBulk replaces all routing skills assigned to a user
-	*/
-	PutUserRoutingskillsBulk(ctx context.Context, params *PutUserRoutingskillsBulkParams) (*PutUserRoutingskillsBulkOK, error)
 }
 
 // New creates a new routing API client.
@@ -832,56 +780,6 @@ func (a *Client) DeleteRoutingWrapupcode(ctx context.Context, params *DeleteRout
 		return nil, err
 	}
 	return result.(*DeleteRoutingWrapupcodeOK), nil
-
-}
-
-/*
-DeleteUserRoutinglanguage removes routing language from user
-*/
-func (a *Client) DeleteUserRoutinglanguage(ctx context.Context, params *DeleteUserRoutinglanguageParams) (*DeleteUserRoutinglanguageNoContent, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "deleteUserRoutinglanguage",
-		Method:             "DELETE",
-		PathPattern:        "/api/v2/users/{userId}/routinglanguages/{languageId}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &DeleteUserRoutinglanguageReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*DeleteUserRoutinglanguageNoContent), nil
-
-}
-
-/*
-DeleteUserRoutingskill removes routing skill from user
-*/
-func (a *Client) DeleteUserRoutingskill(ctx context.Context, params *DeleteUserRoutingskillParams) (*DeleteUserRoutingskillOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "deleteUserRoutingskill",
-		Method:             "DELETE",
-		PathPattern:        "/api/v2/users/{userId}/routingskills/{skillId}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &DeleteUserRoutingskillReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*DeleteUserRoutingskillOK), nil
 
 }
 
@@ -1944,59 +1842,9 @@ func (a *Client) GetUserQueues(ctx context.Context, params *GetUserQueuesParams)
 }
 
 /*
-GetUserRoutinglanguages lists routing language for user
-*/
-func (a *Client) GetUserRoutinglanguages(ctx context.Context, params *GetUserRoutinglanguagesParams) (*GetUserRoutinglanguagesOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "getUserRoutinglanguages",
-		Method:             "GET",
-		PathPattern:        "/api/v2/users/{userId}/routinglanguages",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetUserRoutinglanguagesReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*GetUserRoutinglanguagesOK), nil
-
-}
-
-/*
-GetUserRoutingskills lists routing skills for user
-*/
-func (a *Client) GetUserRoutingskills(ctx context.Context, params *GetUserRoutingskillsParams) (*GetUserRoutingskillsOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "getUserRoutingskills",
-		Method:             "GET",
-		PathPattern:        "/api/v2/users/{userId}/routingskills",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetUserRoutingskillsReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*GetUserRoutingskillsOK), nil
-
-}
-
-/*
 PatchRoutingConversation updates attributes of an in queue conversation
 
-Returns an object indicating the updated values of all settable attributes.  Supported attributes: priority (each point of priority is equivalent to one minute of time in queue).
+Returns an object indicating the updated values of all settable attributes. Supported attributes: priority (each point of priority is equivalent to one minute of time in queue), skillIds and languageId.
 */
 func (a *Client) PatchRoutingConversation(ctx context.Context, params *PatchRoutingConversationParams) (*PatchRoutingConversationOK, error) {
 
@@ -2067,31 +1915,6 @@ func (a *Client) PatchRoutingEmailDomainValidate(ctx context.Context, params *Pa
 		return nil, err
 	}
 	return result.(*PatchRoutingEmailDomainValidateOK), nil
-
-}
-
-/*
-PatchRoutingEmailOutboundDomain requests an update of the emails from reply to of an outbound domain
-*/
-func (a *Client) PatchRoutingEmailOutboundDomain(ctx context.Context, params *PatchRoutingEmailOutboundDomainParams) (*PatchRoutingEmailOutboundDomainOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "patchRoutingEmailOutboundDomain",
-		Method:             "PATCH",
-		PathPattern:        "/api/v2/routing/email/outbound/domains/{domainId}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PatchRoutingEmailOutboundDomainReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*PatchRoutingEmailOutboundDomainOK), nil
 
 }
 
@@ -2292,106 +2115,6 @@ func (a *Client) PatchUserQueues(ctx context.Context, params *PatchUserQueuesPar
 		return nil, err
 	}
 	return result.(*PatchUserQueuesOK), nil
-
-}
-
-/*
-PatchUserRoutinglanguage updates routing language proficiency or state
-*/
-func (a *Client) PatchUserRoutinglanguage(ctx context.Context, params *PatchUserRoutinglanguageParams) (*PatchUserRoutinglanguageOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "patchUserRoutinglanguage",
-		Method:             "PATCH",
-		PathPattern:        "/api/v2/users/{userId}/routinglanguages/{languageId}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PatchUserRoutinglanguageReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*PatchUserRoutinglanguageOK), nil
-
-}
-
-/*
-PatchUserRoutinglanguagesBulk adds bulk routing language to user max limit 50 languages
-*/
-func (a *Client) PatchUserRoutinglanguagesBulk(ctx context.Context, params *PatchUserRoutinglanguagesBulkParams) (*PatchUserRoutinglanguagesBulkOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "patchUserRoutinglanguagesBulk",
-		Method:             "PATCH",
-		PathPattern:        "/api/v2/users/{userId}/routinglanguages/bulk",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PatchUserRoutinglanguagesBulkReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*PatchUserRoutinglanguagesBulkOK), nil
-
-}
-
-/*
-PatchUserRoutingskillsBulk bulks add routing skills to user
-*/
-func (a *Client) PatchUserRoutingskillsBulk(ctx context.Context, params *PatchUserRoutingskillsBulkParams) (*PatchUserRoutingskillsBulkOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "patchUserRoutingskillsBulk",
-		Method:             "PATCH",
-		PathPattern:        "/api/v2/users/{userId}/routingskills/bulk",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PatchUserRoutingskillsBulkReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*PatchUserRoutingskillsBulkOK), nil
-
-}
-
-/*
-PostAnalyticsQueuesObservationsQuery queries for queue observations
-*/
-func (a *Client) PostAnalyticsQueuesObservationsQuery(ctx context.Context, params *PostAnalyticsQueuesObservationsQueryParams) (*PostAnalyticsQueuesObservationsQueryOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "postAnalyticsQueuesObservationsQuery",
-		Method:             "POST",
-		PathPattern:        "/api/v2/analytics/queues/observations/query",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PostAnalyticsQueuesObservationsQueryReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*PostAnalyticsQueuesObservationsQueryOK), nil
 
 }
 
@@ -2791,56 +2514,6 @@ func (a *Client) PostRoutingWrapupcodes(ctx context.Context, params *PostRouting
 }
 
 /*
-PostUserRoutinglanguages adds routing language to user
-*/
-func (a *Client) PostUserRoutinglanguages(ctx context.Context, params *PostUserRoutinglanguagesParams) (*PostUserRoutinglanguagesOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "postUserRoutinglanguages",
-		Method:             "POST",
-		PathPattern:        "/api/v2/users/{userId}/routinglanguages",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PostUserRoutinglanguagesReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*PostUserRoutinglanguagesOK), nil
-
-}
-
-/*
-PostUserRoutingskills adds routing skill to user
-*/
-func (a *Client) PostUserRoutingskills(ctx context.Context, params *PostUserRoutingskillsParams) (*PostUserRoutingskillsOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "postUserRoutingskills",
-		Method:             "POST",
-		PathPattern:        "/api/v2/users/{userId}/routingskills",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PostUserRoutingskillsReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*PostUserRoutingskillsOK), nil
-
-}
-
-/*
 PutRoutingEmailDomainRoute updates a route
 */
 func (a *Client) PutRoutingEmailDomainRoute(ctx context.Context, params *PutRoutingEmailDomainRouteParams) (*PutRoutingEmailDomainRouteOK, error) {
@@ -3068,55 +2741,5 @@ func (a *Client) PutRoutingWrapupcode(ctx context.Context, params *PutRoutingWra
 		return nil, err
 	}
 	return result.(*PutRoutingWrapupcodeOK), nil
-
-}
-
-/*
-PutUserRoutingskill updates routing skill proficiency or state
-*/
-func (a *Client) PutUserRoutingskill(ctx context.Context, params *PutUserRoutingskillParams) (*PutUserRoutingskillOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "putUserRoutingskill",
-		Method:             "PUT",
-		PathPattern:        "/api/v2/users/{userId}/routingskills/{skillId}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PutUserRoutingskillReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*PutUserRoutingskillOK), nil
-
-}
-
-/*
-PutUserRoutingskillsBulk replaces all routing skills assigned to a user
-*/
-func (a *Client) PutUserRoutingskillsBulk(ctx context.Context, params *PutUserRoutingskillsBulkParams) (*PutUserRoutingskillsBulkOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "putUserRoutingskillsBulk",
-		Method:             "PUT",
-		PathPattern:        "/api/v2/users/{userId}/routingskills/bulk",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PutUserRoutingskillsBulkReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*PutUserRoutingskillsBulkOK), nil
 
 }

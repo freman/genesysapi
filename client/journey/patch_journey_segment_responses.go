@@ -59,6 +59,12 @@ func (o *PatchJourneySegmentReader) ReadResponse(response runtime.ClientResponse
 			return nil, err
 		}
 		return nil, result
+	case 409:
+		result := NewPatchJourneySegmentConflict()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPatchJourneySegmentRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -288,6 +294,39 @@ func (o *PatchJourneySegmentRequestTimeout) GetPayload() *models.ErrorBody {
 }
 
 func (o *PatchJourneySegmentRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPatchJourneySegmentConflict creates a PatchJourneySegmentConflict with default headers values
+func NewPatchJourneySegmentConflict() *PatchJourneySegmentConflict {
+	return &PatchJourneySegmentConflict{}
+}
+
+/*PatchJourneySegmentConflict handles this case with default header values.
+
+Conflict
+*/
+type PatchJourneySegmentConflict struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PatchJourneySegmentConflict) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/journey/segments/{segmentId}][%d] patchJourneySegmentConflict  %+v", 409, o.Payload)
+}
+
+func (o *PatchJourneySegmentConflict) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PatchJourneySegmentConflict) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ErrorBody)
 

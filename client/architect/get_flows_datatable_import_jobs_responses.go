@@ -111,20 +111,20 @@ func NewGetFlowsDatatableImportJobsOK() *GetFlowsDatatableImportJobsOK {
 successful operation
 */
 type GetFlowsDatatableImportJobsOK struct {
-	Payload *models.EntityListing
+	Payload *models.DataTableImportEntityListing
 }
 
 func (o *GetFlowsDatatableImportJobsOK) Error() string {
 	return fmt.Sprintf("[GET /api/v2/flows/datatables/{datatableId}/import/jobs][%d] getFlowsDatatableImportJobsOK  %+v", 200, o.Payload)
 }
 
-func (o *GetFlowsDatatableImportJobsOK) GetPayload() *models.EntityListing {
+func (o *GetFlowsDatatableImportJobsOK) GetPayload() *models.DataTableImportEntityListing {
 	return o.Payload
 }
 
 func (o *GetFlowsDatatableImportJobsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.EntityListing)
+	o.Payload = new(models.DataTableImportEntityListing)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

@@ -17,9 +17,25 @@ import (
 // swagger:model Metric
 type Metric struct {
 
+	// The created date of this metric
+	// Read Only: true
+	DateCreated int64 `json:"dateCreated,omitempty"`
+
+	// The unlinked workday for this metric if this metric was ever unlinked. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
+	// Read Only: true
+	// Format: date
+	DateUnlinked strfmt.Date `json:"dateUnlinked,omitempty"`
+
+	// The id of associated external metric definition
+	ExternalMetricDefinitionID string `json:"externalMetricDefinitionId,omitempty"`
+
 	// The globally unique identifier for the object.
 	// Read Only: true
 	ID string `json:"id,omitempty"`
+
+	// The linked metric entity reference
+	// Read Only: true
+	LinkedMetric *AddressableEntityRef `json:"linkedMetric,omitempty"`
 
 	// The id of associated metric definition
 	MetricDefinitionID string `json:"metricDefinitionId,omitempty"`
@@ -32,18 +48,29 @@ type Metric struct {
 	Objective *Objective `json:"objective,omitempty"`
 
 	// Performance profile id of this metric
-	// Required: true
-	PerformanceProfileID *string `json:"performanceProfileId"`
+	PerformanceProfileID string `json:"performanceProfileId,omitempty"`
 
 	// The URI for this object
 	// Read Only: true
 	// Format: uri
 	SelfURI strfmt.URI `json:"selfUri,omitempty"`
+
+	// The source performance profile when this metric is linked
+	// Read Only: true
+	SourcePerformanceProfile *PerformanceProfile `json:"sourcePerformanceProfile,omitempty"`
 }
 
 // Validate validates this metric
 func (m *Metric) Validate(formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.validateDateUnlinked(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateLinkedMetric(formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.validateName(formats); err != nil {
 		res = append(res, err)
@@ -53,17 +80,48 @@ func (m *Metric) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validatePerformanceProfileID(formats); err != nil {
+	if err := m.validateSelfURI(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateSelfURI(formats); err != nil {
+	if err := m.validateSourcePerformanceProfile(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *Metric) validateDateUnlinked(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.DateUnlinked) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("dateUnlinked", "body", "date", m.DateUnlinked.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Metric) validateLinkedMetric(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.LinkedMetric) { // not required
+		return nil
+	}
+
+	if m.LinkedMetric != nil {
+		if err := m.LinkedMetric.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("linkedMetric")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -94,15 +152,6 @@ func (m *Metric) validateObjective(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Metric) validatePerformanceProfileID(formats strfmt.Registry) error {
-
-	if err := validate.Required("performanceProfileId", "body", m.PerformanceProfileID); err != nil {
-		return err
-	}
-
-	return nil
-}
-
 func (m *Metric) validateSelfURI(formats strfmt.Registry) error {
 
 	if swag.IsZero(m.SelfURI) { // not required
@@ -111,6 +160,24 @@ func (m *Metric) validateSelfURI(formats strfmt.Registry) error {
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *Metric) validateSourcePerformanceProfile(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.SourcePerformanceProfile) { // not required
+		return nil
+	}
+
+	if m.SourcePerformanceProfile != nil {
+		if err := m.SourcePerformanceProfile.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("sourcePerformanceProfile")
+			}
+			return err
+		}
 	}
 
 	return nil

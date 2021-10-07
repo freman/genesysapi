@@ -61,7 +61,7 @@ for the get gamification leaderboard all bestpoints operation typically these ar
 type GetGamificationLeaderboardAllBestpointsParams struct {
 
 	/*FilterID
-	  ID for the filter type. For example, division Id
+	  ID for the filter type. For example, division or performance profile Id
 
 	*/
 	FilterID string

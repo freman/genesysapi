@@ -48,6 +48,10 @@ type API interface {
 	*/
 	DeleteWorkforcemanagementBusinessunitWeekShorttermforecast(ctx context.Context, params *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastParams) (*DeleteWorkforcemanagementBusinessunitWeekShorttermforecastNoContent, error)
 	/*
+	   DeleteWorkforcemanagementCalendarURLIcs disables generated calendar link for the current user
+	*/
+	DeleteWorkforcemanagementCalendarURLIcs(ctx context.Context, params *DeleteWorkforcemanagementCalendarURLIcsParams) (*DeleteWorkforcemanagementCalendarURLIcsNoContent, error)
+	/*
 	   DeleteWorkforcemanagementManagementunit deletes management unit
 	*/
 	DeleteWorkforcemanagementManagementunit(ctx context.Context, params *DeleteWorkforcemanagementManagementunitParams) (*DeleteWorkforcemanagementManagementunitNoContent, error)
@@ -142,7 +146,7 @@ type API interface {
 	GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgent(ctx context.Context, params *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentParams) (*GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentOK, error)
 	/*
 	   GetWorkforcemanagementBusinessunitWeekSchedules gets the list of week schedules for the specified week
-	   Use "recent" for the `weekId` path parameter to fetch all forecasts for +/- 26 weeks from the current date. Response will include any schedule which spans the specified week
+	   Use "recent" (without quotes) for the `weekId` path parameter to fetch all forecasts for +/- 26 weeks from the current date. Response will include any schedule which spans the specified week
 	*/
 	GetWorkforcemanagementBusinessunitWeekSchedules(ctx context.Context, params *GetWorkforcemanagementBusinessunitWeekSchedulesParams) (*GetWorkforcemanagementBusinessunitWeekSchedulesOK, error)
 	/*
@@ -169,7 +173,7 @@ type API interface {
 	GetWorkforcemanagementBusinessunitWeekShorttermforecastPlanninggroups(ctx context.Context, params *GetWorkforcemanagementBusinessunitWeekShorttermforecastPlanninggroupsParams) (*GetWorkforcemanagementBusinessunitWeekShorttermforecastPlanninggroupsOK, error)
 	/*
 	   GetWorkforcemanagementBusinessunitWeekShorttermforecasts gets short term forecasts
-	   Use "recent" for the `weekDateId` path parameter to fetch all forecasts for +/- 26 weeks from the current date. Response will include any forecast which spans the specified week
+	   Use "recent" (without quotes) for the `weekDateId` path parameter to fetch all forecasts for +/- 26 weeks from the current date. Response will include any forecast which spans the specified week
 	*/
 	GetWorkforcemanagementBusinessunitWeekShorttermforecasts(ctx context.Context, params *GetWorkforcemanagementBusinessunitWeekShorttermforecastsParams) (*GetWorkforcemanagementBusinessunitWeekShorttermforecastsOK, error)
 	/*
@@ -180,6 +184,14 @@ type API interface {
 	   GetWorkforcemanagementBusinessunitsDivisionviews gets business units across divisions
 	*/
 	GetWorkforcemanagementBusinessunitsDivisionviews(ctx context.Context, params *GetWorkforcemanagementBusinessunitsDivisionviewsParams) (*GetWorkforcemanagementBusinessunitsDivisionviewsOK, error)
+	/*
+	   GetWorkforcemanagementCalendarDataIcs gets ics formatted calendar based on shareable link
+	*/
+	GetWorkforcemanagementCalendarDataIcs(ctx context.Context, params *GetWorkforcemanagementCalendarDataIcsParams) (*GetWorkforcemanagementCalendarDataIcsOK, error)
+	/*
+	   GetWorkforcemanagementCalendarURLIcs gets existing calendar link for the current user
+	*/
+	GetWorkforcemanagementCalendarURLIcs(ctx context.Context, params *GetWorkforcemanagementCalendarURLIcsParams) (*GetWorkforcemanagementCalendarURLIcsOK, error)
 	/*
 	   GetWorkforcemanagementHistoricaldataDeletejob retrieves delete job status for historical data imports of the organization
 	*/
@@ -353,11 +365,11 @@ type API interface {
 	/*
 	   PostWorkforcemanagementBusinessunitPlanninggroups adds a new planning group
 	*/
-	PostWorkforcemanagementBusinessunitPlanninggroups(ctx context.Context, params *PostWorkforcemanagementBusinessunitPlanninggroupsParams) (*PostWorkforcemanagementBusinessunitPlanninggroupsOK, error)
+	PostWorkforcemanagementBusinessunitPlanninggroups(ctx context.Context, params *PostWorkforcemanagementBusinessunitPlanninggroupsParams) (*PostWorkforcemanagementBusinessunitPlanninggroupsOK, *PostWorkforcemanagementBusinessunitPlanninggroupsCreated, error)
 	/*
 	   PostWorkforcemanagementBusinessunitServicegoaltemplates adds a new service goal template
 	*/
-	PostWorkforcemanagementBusinessunitServicegoaltemplates(ctx context.Context, params *PostWorkforcemanagementBusinessunitServicegoaltemplatesParams) (*PostWorkforcemanagementBusinessunitServicegoaltemplatesOK, error)
+	PostWorkforcemanagementBusinessunitServicegoaltemplates(ctx context.Context, params *PostWorkforcemanagementBusinessunitServicegoaltemplatesParams) (*PostWorkforcemanagementBusinessunitServicegoaltemplatesOK, *PostWorkforcemanagementBusinessunitServicegoaltemplatesCreated, error)
 	/*
 	   PostWorkforcemanagementBusinessunitWeekScheduleAgentschedulesQuery loads agent schedule data from the schedule used in combination with the metadata route
 	*/
@@ -365,19 +377,19 @@ type API interface {
 	/*
 	   PostWorkforcemanagementBusinessunitWeekScheduleCopy copies a schedule
 	*/
-	PostWorkforcemanagementBusinessunitWeekScheduleCopy(ctx context.Context, params *PostWorkforcemanagementBusinessunitWeekScheduleCopyParams) (*PostWorkforcemanagementBusinessunitWeekScheduleCopyOK, error)
+	PostWorkforcemanagementBusinessunitWeekScheduleCopy(ctx context.Context, params *PostWorkforcemanagementBusinessunitWeekScheduleCopyParams) (*PostWorkforcemanagementBusinessunitWeekScheduleCopyOK, *PostWorkforcemanagementBusinessunitWeekScheduleCopyCreated, *PostWorkforcemanagementBusinessunitWeekScheduleCopyAccepted, error)
 	/*
 	   PostWorkforcemanagementBusinessunitWeekScheduleReschedule starts a rescheduling run
 	*/
-	PostWorkforcemanagementBusinessunitWeekScheduleReschedule(ctx context.Context, params *PostWorkforcemanagementBusinessunitWeekScheduleRescheduleParams) (*PostWorkforcemanagementBusinessunitWeekScheduleRescheduleOK, error)
+	PostWorkforcemanagementBusinessunitWeekScheduleReschedule(ctx context.Context, params *PostWorkforcemanagementBusinessunitWeekScheduleRescheduleParams) (*PostWorkforcemanagementBusinessunitWeekScheduleRescheduleOK, *PostWorkforcemanagementBusinessunitWeekScheduleRescheduleAccepted, error)
 	/*
 	   PostWorkforcemanagementBusinessunitWeekSchedules creates a blank schedule
 	*/
-	PostWorkforcemanagementBusinessunitWeekSchedules(ctx context.Context, params *PostWorkforcemanagementBusinessunitWeekSchedulesParams) (*PostWorkforcemanagementBusinessunitWeekSchedulesOK, error)
+	PostWorkforcemanagementBusinessunitWeekSchedules(ctx context.Context, params *PostWorkforcemanagementBusinessunitWeekSchedulesParams) (*PostWorkforcemanagementBusinessunitWeekSchedulesOK, *PostWorkforcemanagementBusinessunitWeekSchedulesCreated, error)
 	/*
 	   PostWorkforcemanagementBusinessunitWeekSchedulesGenerate generates a schedule
 	*/
-	PostWorkforcemanagementBusinessunitWeekSchedulesGenerate(ctx context.Context, params *PostWorkforcemanagementBusinessunitWeekSchedulesGenerateParams) (*PostWorkforcemanagementBusinessunitWeekSchedulesGenerateOK, error)
+	PostWorkforcemanagementBusinessunitWeekSchedulesGenerate(ctx context.Context, params *PostWorkforcemanagementBusinessunitWeekSchedulesGenerateParams) (*PostWorkforcemanagementBusinessunitWeekSchedulesGenerateOK, *PostWorkforcemanagementBusinessunitWeekSchedulesGenerateAccepted, error)
 	/*
 	   PostWorkforcemanagementBusinessunitWeekShorttermforecastCopy copies a short term forecast
 	*/
@@ -391,6 +403,10 @@ type API interface {
 	   It may take a minute or two for a new business unit to be available for api operations
 	*/
 	PostWorkforcemanagementBusinessunits(ctx context.Context, params *PostWorkforcemanagementBusinessunitsParams) (*PostWorkforcemanagementBusinessunitsOK, *PostWorkforcemanagementBusinessunitsCreated, error)
+	/*
+	   PostWorkforcemanagementCalendarURLIcs creates a newly generated calendar link for the current user if the current user has previously generated one the generated link will be returned
+	*/
+	PostWorkforcemanagementCalendarURLIcs(ctx context.Context, params *PostWorkforcemanagementCalendarURLIcsParams) (*PostWorkforcemanagementCalendarURLIcsOK, *PostWorkforcemanagementCalendarURLIcsCreated, error)
 	/*
 	   PostWorkforcemanagementHistoricaldataDeletejob deletes the entries of the historical data imports in the organization
 	*/
@@ -442,7 +458,7 @@ type API interface {
 	   PostWorkforcemanagementManagementunitWeekShifttradesStateBulk updates the state of a batch of shift trades
 	   Admin functionality is not supported with "mine".
 	*/
-	PostWorkforcemanagementManagementunitWeekShifttradesStateBulk(ctx context.Context, params *PostWorkforcemanagementManagementunitWeekShifttradesStateBulkParams) (*PostWorkforcemanagementManagementunitWeekShifttradesStateBulkOK, error)
+	PostWorkforcemanagementManagementunitWeekShifttradesStateBulk(ctx context.Context, params *PostWorkforcemanagementManagementunitWeekShifttradesStateBulkParams) (*PostWorkforcemanagementManagementunitWeekShifttradesStateBulkOK, *PostWorkforcemanagementManagementunitWeekShifttradesStateBulkAccepted, error)
 	/*
 	   PostWorkforcemanagementManagementunitWorkplanCopy creates a copy of work plan
 	*/
@@ -682,6 +698,31 @@ func (a *Client) DeleteWorkforcemanagementBusinessunitWeekShorttermforecast(ctx 
 		return nil, err
 	}
 	return result.(*DeleteWorkforcemanagementBusinessunitWeekShorttermforecastNoContent), nil
+
+}
+
+/*
+DeleteWorkforcemanagementCalendarURLIcs disables generated calendar link for the current user
+*/
+func (a *Client) DeleteWorkforcemanagementCalendarURLIcs(ctx context.Context, params *DeleteWorkforcemanagementCalendarURLIcsParams) (*DeleteWorkforcemanagementCalendarURLIcsNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteWorkforcemanagementCalendarUrlIcs",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/workforcemanagement/calendar/url/ics",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteWorkforcemanagementCalendarURLIcsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteWorkforcemanagementCalendarURLIcsNoContent), nil
 
 }
 
@@ -1265,7 +1306,7 @@ func (a *Client) GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgent(ctx 
 /*
 GetWorkforcemanagementBusinessunitWeekSchedules gets the list of week schedules for the specified week
 
-Use "recent" for the `weekId` path parameter to fetch all forecasts for +/- 26 weeks from the current date. Response will include any schedule which spans the specified week
+Use "recent" (without quotes) for the `weekId` path parameter to fetch all forecasts for +/- 26 weeks from the current date. Response will include any schedule which spans the specified week
 */
 func (a *Client) GetWorkforcemanagementBusinessunitWeekSchedules(ctx context.Context, params *GetWorkforcemanagementBusinessunitWeekSchedulesParams) (*GetWorkforcemanagementBusinessunitWeekSchedulesOK, error) {
 
@@ -1421,7 +1462,7 @@ func (a *Client) GetWorkforcemanagementBusinessunitWeekShorttermforecastPlanning
 /*
 GetWorkforcemanagementBusinessunitWeekShorttermforecasts gets short term forecasts
 
-Use "recent" for the `weekDateId` path parameter to fetch all forecasts for +/- 26 weeks from the current date. Response will include any forecast which spans the specified week
+Use "recent" (without quotes) for the `weekDateId` path parameter to fetch all forecasts for +/- 26 weeks from the current date. Response will include any forecast which spans the specified week
 */
 func (a *Client) GetWorkforcemanagementBusinessunitWeekShorttermforecasts(ctx context.Context, params *GetWorkforcemanagementBusinessunitWeekShorttermforecastsParams) (*GetWorkforcemanagementBusinessunitWeekShorttermforecastsOK, error) {
 
@@ -1492,6 +1533,55 @@ func (a *Client) GetWorkforcemanagementBusinessunitsDivisionviews(ctx context.Co
 		return nil, err
 	}
 	return result.(*GetWorkforcemanagementBusinessunitsDivisionviewsOK), nil
+
+}
+
+/*
+GetWorkforcemanagementCalendarDataIcs gets ics formatted calendar based on shareable link
+*/
+func (a *Client) GetWorkforcemanagementCalendarDataIcs(ctx context.Context, params *GetWorkforcemanagementCalendarDataIcsParams) (*GetWorkforcemanagementCalendarDataIcsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getWorkforcemanagementCalendarDataIcs",
+		Method:             "GET",
+		PathPattern:        "/api/v2/workforcemanagement/calendar/data/ics",
+		ProducesMediaTypes: []string{"text/calendar"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetWorkforcemanagementCalendarDataIcsReader{formats: a.formats},
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetWorkforcemanagementCalendarDataIcsOK), nil
+
+}
+
+/*
+GetWorkforcemanagementCalendarURLIcs gets existing calendar link for the current user
+*/
+func (a *Client) GetWorkforcemanagementCalendarURLIcs(ctx context.Context, params *GetWorkforcemanagementCalendarURLIcsParams) (*GetWorkforcemanagementCalendarURLIcsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getWorkforcemanagementCalendarUrlIcs",
+		Method:             "GET",
+		PathPattern:        "/api/v2/workforcemanagement/calendar/url/ics",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetWorkforcemanagementCalendarURLIcsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetWorkforcemanagementCalendarURLIcsOK), nil
 
 }
 
@@ -2552,7 +2642,7 @@ func (a *Client) PostWorkforcemanagementBusinessunitIntraday(ctx context.Context
 /*
 PostWorkforcemanagementBusinessunitPlanninggroups adds a new planning group
 */
-func (a *Client) PostWorkforcemanagementBusinessunitPlanninggroups(ctx context.Context, params *PostWorkforcemanagementBusinessunitPlanninggroupsParams) (*PostWorkforcemanagementBusinessunitPlanninggroupsOK, error) {
+func (a *Client) PostWorkforcemanagementBusinessunitPlanninggroups(ctx context.Context, params *PostWorkforcemanagementBusinessunitPlanninggroupsParams) (*PostWorkforcemanagementBusinessunitPlanninggroupsOK, *PostWorkforcemanagementBusinessunitPlanninggroupsCreated, error) {
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "postWorkforcemanagementBusinessunitPlanninggroups",
@@ -2568,16 +2658,22 @@ func (a *Client) PostWorkforcemanagementBusinessunitPlanninggroups(ctx context.C
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
-	return result.(*PostWorkforcemanagementBusinessunitPlanninggroupsOK), nil
+	switch value := result.(type) {
+	case *PostWorkforcemanagementBusinessunitPlanninggroupsOK:
+		return value, nil, nil
+	case *PostWorkforcemanagementBusinessunitPlanninggroupsCreated:
+		return nil, value, nil
+	}
+	return nil, nil, nil
 
 }
 
 /*
 PostWorkforcemanagementBusinessunitServicegoaltemplates adds a new service goal template
 */
-func (a *Client) PostWorkforcemanagementBusinessunitServicegoaltemplates(ctx context.Context, params *PostWorkforcemanagementBusinessunitServicegoaltemplatesParams) (*PostWorkforcemanagementBusinessunitServicegoaltemplatesOK, error) {
+func (a *Client) PostWorkforcemanagementBusinessunitServicegoaltemplates(ctx context.Context, params *PostWorkforcemanagementBusinessunitServicegoaltemplatesParams) (*PostWorkforcemanagementBusinessunitServicegoaltemplatesOK, *PostWorkforcemanagementBusinessunitServicegoaltemplatesCreated, error) {
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "postWorkforcemanagementBusinessunitServicegoaltemplates",
@@ -2593,9 +2689,15 @@ func (a *Client) PostWorkforcemanagementBusinessunitServicegoaltemplates(ctx con
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
-	return result.(*PostWorkforcemanagementBusinessunitServicegoaltemplatesOK), nil
+	switch value := result.(type) {
+	case *PostWorkforcemanagementBusinessunitServicegoaltemplatesOK:
+		return value, nil, nil
+	case *PostWorkforcemanagementBusinessunitServicegoaltemplatesCreated:
+		return nil, value, nil
+	}
+	return nil, nil, nil
 
 }
 
@@ -2627,7 +2729,7 @@ func (a *Client) PostWorkforcemanagementBusinessunitWeekScheduleAgentschedulesQu
 /*
 PostWorkforcemanagementBusinessunitWeekScheduleCopy copies a schedule
 */
-func (a *Client) PostWorkforcemanagementBusinessunitWeekScheduleCopy(ctx context.Context, params *PostWorkforcemanagementBusinessunitWeekScheduleCopyParams) (*PostWorkforcemanagementBusinessunitWeekScheduleCopyOK, error) {
+func (a *Client) PostWorkforcemanagementBusinessunitWeekScheduleCopy(ctx context.Context, params *PostWorkforcemanagementBusinessunitWeekScheduleCopyParams) (*PostWorkforcemanagementBusinessunitWeekScheduleCopyOK, *PostWorkforcemanagementBusinessunitWeekScheduleCopyCreated, *PostWorkforcemanagementBusinessunitWeekScheduleCopyAccepted, error) {
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "postWorkforcemanagementBusinessunitWeekScheduleCopy",
@@ -2643,16 +2745,24 @@ func (a *Client) PostWorkforcemanagementBusinessunitWeekScheduleCopy(ctx context
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
-		return nil, err
+		return nil, nil, nil, err
 	}
-	return result.(*PostWorkforcemanagementBusinessunitWeekScheduleCopyOK), nil
+	switch value := result.(type) {
+	case *PostWorkforcemanagementBusinessunitWeekScheduleCopyOK:
+		return value, nil, nil, nil
+	case *PostWorkforcemanagementBusinessunitWeekScheduleCopyCreated:
+		return nil, value, nil, nil
+	case *PostWorkforcemanagementBusinessunitWeekScheduleCopyAccepted:
+		return nil, nil, value, nil
+	}
+	return nil, nil, nil, nil
 
 }
 
 /*
 PostWorkforcemanagementBusinessunitWeekScheduleReschedule starts a rescheduling run
 */
-func (a *Client) PostWorkforcemanagementBusinessunitWeekScheduleReschedule(ctx context.Context, params *PostWorkforcemanagementBusinessunitWeekScheduleRescheduleParams) (*PostWorkforcemanagementBusinessunitWeekScheduleRescheduleOK, error) {
+func (a *Client) PostWorkforcemanagementBusinessunitWeekScheduleReschedule(ctx context.Context, params *PostWorkforcemanagementBusinessunitWeekScheduleRescheduleParams) (*PostWorkforcemanagementBusinessunitWeekScheduleRescheduleOK, *PostWorkforcemanagementBusinessunitWeekScheduleRescheduleAccepted, error) {
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "postWorkforcemanagementBusinessunitWeekScheduleReschedule",
@@ -2668,16 +2778,22 @@ func (a *Client) PostWorkforcemanagementBusinessunitWeekScheduleReschedule(ctx c
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
-	return result.(*PostWorkforcemanagementBusinessunitWeekScheduleRescheduleOK), nil
+	switch value := result.(type) {
+	case *PostWorkforcemanagementBusinessunitWeekScheduleRescheduleOK:
+		return value, nil, nil
+	case *PostWorkforcemanagementBusinessunitWeekScheduleRescheduleAccepted:
+		return nil, value, nil
+	}
+	return nil, nil, nil
 
 }
 
 /*
 PostWorkforcemanagementBusinessunitWeekSchedules creates a blank schedule
 */
-func (a *Client) PostWorkforcemanagementBusinessunitWeekSchedules(ctx context.Context, params *PostWorkforcemanagementBusinessunitWeekSchedulesParams) (*PostWorkforcemanagementBusinessunitWeekSchedulesOK, error) {
+func (a *Client) PostWorkforcemanagementBusinessunitWeekSchedules(ctx context.Context, params *PostWorkforcemanagementBusinessunitWeekSchedulesParams) (*PostWorkforcemanagementBusinessunitWeekSchedulesOK, *PostWorkforcemanagementBusinessunitWeekSchedulesCreated, error) {
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "postWorkforcemanagementBusinessunitWeekSchedules",
@@ -2693,16 +2809,22 @@ func (a *Client) PostWorkforcemanagementBusinessunitWeekSchedules(ctx context.Co
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
-	return result.(*PostWorkforcemanagementBusinessunitWeekSchedulesOK), nil
+	switch value := result.(type) {
+	case *PostWorkforcemanagementBusinessunitWeekSchedulesOK:
+		return value, nil, nil
+	case *PostWorkforcemanagementBusinessunitWeekSchedulesCreated:
+		return nil, value, nil
+	}
+	return nil, nil, nil
 
 }
 
 /*
 PostWorkforcemanagementBusinessunitWeekSchedulesGenerate generates a schedule
 */
-func (a *Client) PostWorkforcemanagementBusinessunitWeekSchedulesGenerate(ctx context.Context, params *PostWorkforcemanagementBusinessunitWeekSchedulesGenerateParams) (*PostWorkforcemanagementBusinessunitWeekSchedulesGenerateOK, error) {
+func (a *Client) PostWorkforcemanagementBusinessunitWeekSchedulesGenerate(ctx context.Context, params *PostWorkforcemanagementBusinessunitWeekSchedulesGenerateParams) (*PostWorkforcemanagementBusinessunitWeekSchedulesGenerateOK, *PostWorkforcemanagementBusinessunitWeekSchedulesGenerateAccepted, error) {
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "postWorkforcemanagementBusinessunitWeekSchedulesGenerate",
@@ -2718,9 +2840,15 @@ func (a *Client) PostWorkforcemanagementBusinessunitWeekSchedulesGenerate(ctx co
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
-	return result.(*PostWorkforcemanagementBusinessunitWeekSchedulesGenerateOK), nil
+	switch value := result.(type) {
+	case *PostWorkforcemanagementBusinessunitWeekSchedulesGenerateOK:
+		return value, nil, nil
+	case *PostWorkforcemanagementBusinessunitWeekSchedulesGenerateAccepted:
+		return nil, value, nil
+	}
+	return nil, nil, nil
 
 }
 
@@ -2817,6 +2945,37 @@ func (a *Client) PostWorkforcemanagementBusinessunits(ctx context.Context, param
 	case *PostWorkforcemanagementBusinessunitsOK:
 		return value, nil, nil
 	case *PostWorkforcemanagementBusinessunitsCreated:
+		return nil, value, nil
+	}
+	return nil, nil, nil
+
+}
+
+/*
+PostWorkforcemanagementCalendarURLIcs creates a newly generated calendar link for the current user if the current user has previously generated one the generated link will be returned
+*/
+func (a *Client) PostWorkforcemanagementCalendarURLIcs(ctx context.Context, params *PostWorkforcemanagementCalendarURLIcsParams) (*PostWorkforcemanagementCalendarURLIcsOK, *PostWorkforcemanagementCalendarURLIcsCreated, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postWorkforcemanagementCalendarUrlIcs",
+		Method:             "POST",
+		PathPattern:        "/api/v2/workforcemanagement/calendar/url/ics",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostWorkforcemanagementCalendarURLIcsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PostWorkforcemanagementCalendarURLIcsOK:
+		return value, nil, nil
+	case *PostWorkforcemanagementCalendarURLIcsCreated:
 		return nil, value, nil
 	}
 	return nil, nil, nil
@@ -3115,7 +3274,7 @@ PostWorkforcemanagementManagementunitWeekShifttradesStateBulk updates the state 
 
 Admin functionality is not supported with "mine".
 */
-func (a *Client) PostWorkforcemanagementManagementunitWeekShifttradesStateBulk(ctx context.Context, params *PostWorkforcemanagementManagementunitWeekShifttradesStateBulkParams) (*PostWorkforcemanagementManagementunitWeekShifttradesStateBulkOK, error) {
+func (a *Client) PostWorkforcemanagementManagementunitWeekShifttradesStateBulk(ctx context.Context, params *PostWorkforcemanagementManagementunitWeekShifttradesStateBulkParams) (*PostWorkforcemanagementManagementunitWeekShifttradesStateBulkOK, *PostWorkforcemanagementManagementunitWeekShifttradesStateBulkAccepted, error) {
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "postWorkforcemanagementManagementunitWeekShifttradesStateBulk",
@@ -3131,9 +3290,15 @@ func (a *Client) PostWorkforcemanagementManagementunitWeekShifttradesStateBulk(c
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
-	return result.(*PostWorkforcemanagementManagementunitWeekShifttradesStateBulkOK), nil
+	switch value := result.(type) {
+	case *PostWorkforcemanagementManagementunitWeekShifttradesStateBulkOK:
+		return value, nil, nil
+	case *PostWorkforcemanagementManagementunitWeekShifttradesStateBulkAccepted:
+		return nil, value, nil
+	}
+	return nil, nil, nil
 
 }
 

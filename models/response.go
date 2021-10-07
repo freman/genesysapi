@@ -20,6 +20,9 @@ import (
 // swagger:model Response
 type Response struct {
 
+	// Assets used in the response
+	Assets []*AddressableEntityRef `json:"assets"`
+
 	// User that created the response
 	// Read Only: true
 	CreatedBy *User `json:"createdBy,omitempty"`
@@ -74,6 +77,10 @@ type Response struct {
 func (m *Response) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateAssets(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateCreatedBy(formats); err != nil {
 		res = append(res, err)
 	}
@@ -117,6 +124,31 @@ func (m *Response) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *Response) validateAssets(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Assets) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Assets); i++ {
+		if swag.IsZero(m.Assets[i]) { // not required
+			continue
+		}
+
+		if m.Assets[i] != nil {
+			if err := m.Assets[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("assets" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 

@@ -59,6 +59,12 @@ func (o *PostQualityFormsSurveysReader) ReadResponse(response runtime.ClientResp
 			return nil, err
 		}
 		return nil, result
+	case 409:
+		result := NewPostQualityFormsSurveysConflict()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostQualityFormsSurveysRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -288,6 +294,39 @@ func (o *PostQualityFormsSurveysRequestTimeout) GetPayload() *models.ErrorBody {
 }
 
 func (o *PostQualityFormsSurveysRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPostQualityFormsSurveysConflict creates a PostQualityFormsSurveysConflict with default headers values
+func NewPostQualityFormsSurveysConflict() *PostQualityFormsSurveysConflict {
+	return &PostQualityFormsSurveysConflict{}
+}
+
+/*PostQualityFormsSurveysConflict handles this case with default header values.
+
+Conflict
+*/
+type PostQualityFormsSurveysConflict struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostQualityFormsSurveysConflict) Error() string {
+	return fmt.Sprintf("[POST /api/v2/quality/forms/surveys][%d] postQualityFormsSurveysConflict  %+v", 409, o.Payload)
+}
+
+func (o *PostQualityFormsSurveysConflict) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostQualityFormsSurveysConflict) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ErrorBody)
 

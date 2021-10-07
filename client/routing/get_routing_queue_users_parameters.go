@@ -23,12 +23,12 @@ func NewGetRoutingQueueUsersParams() *GetRoutingQueueUsersParams {
 	var (
 		pageNumberDefault = int32(1)
 		pageSizeDefault   = int32(25)
-		sortByDefault     = string("name")
+		sortOrderDefault  = string("asc")
 	)
 	return &GetRoutingQueueUsersParams{
 		PageNumber: &pageNumberDefault,
 		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
+		SortOrder:  &sortOrderDefault,
 
 		timeout: cr.DefaultTimeout,
 	}
@@ -40,12 +40,12 @@ func NewGetRoutingQueueUsersParamsWithTimeout(timeout time.Duration) *GetRouting
 	var (
 		pageNumberDefault = int32(1)
 		pageSizeDefault   = int32(25)
-		sortByDefault     = string("name")
+		sortOrderDefault  = string("asc")
 	)
 	return &GetRoutingQueueUsersParams{
 		PageNumber: &pageNumberDefault,
 		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
+		SortOrder:  &sortOrderDefault,
 
 		timeout: timeout,
 	}
@@ -57,12 +57,12 @@ func NewGetRoutingQueueUsersParamsWithContext(ctx context.Context) *GetRoutingQu
 	var (
 		pageNumberDefault = int32(1)
 		pageSizeDefault   = int32(25)
-		sortByDefault     = string("name")
+		sortOrderDefault  = string("asc")
 	)
 	return &GetRoutingQueueUsersParams{
 		PageNumber: &pageNumberDefault,
 		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
+		SortOrder:  &sortOrderDefault,
 
 		Context: ctx,
 	}
@@ -74,12 +74,12 @@ func NewGetRoutingQueueUsersParamsWithHTTPClient(client *http.Client) *GetRoutin
 	var (
 		pageNumberDefault = int32(1)
 		pageSizeDefault   = int32(25)
-		sortByDefault     = string("name")
+		sortOrderDefault  = string("asc")
 	)
 	return &GetRoutingQueueUsersParams{
 		PageNumber: &pageNumberDefault,
 		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
+		SortOrder:  &sortOrderDefault,
 		HTTPClient: client,
 	}
 }
@@ -109,13 +109,10 @@ type GetRoutingQueueUsersParams struct {
 
 	*/
 	Name *string
-	/*PageNumber
-	  Page number
-
-	*/
+	/*PageNumber*/
 	PageNumber *int32
 	/*PageSize
-	  Page size [max 100]
+	  Max value is 100
 
 	*/
 	PageSize *int32
@@ -144,11 +141,11 @@ type GetRoutingQueueUsersParams struct {
 
 	*/
 	Skills []string
-	/*SortBy
-	  Sort by
+	/*SortOrder
+	  Note: results are sorted by name.
 
 	*/
-	SortBy *string
+	SortOrder *string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -309,15 +306,15 @@ func (o *GetRoutingQueueUsersParams) SetSkills(skills []string) {
 	o.Skills = skills
 }
 
-// WithSortBy adds the sortBy to the get routing queue users params
-func (o *GetRoutingQueueUsersParams) WithSortBy(sortBy *string) *GetRoutingQueueUsersParams {
-	o.SetSortBy(sortBy)
+// WithSortOrder adds the sortOrder to the get routing queue users params
+func (o *GetRoutingQueueUsersParams) WithSortOrder(sortOrder *string) *GetRoutingQueueUsersParams {
+	o.SetSortOrder(sortOrder)
 	return o
 }
 
-// SetSortBy adds the sortBy to the get routing queue users params
-func (o *GetRoutingQueueUsersParams) SetSortBy(sortBy *string) {
-	o.SortBy = sortBy
+// SetSortOrder adds the sortOrder to the get routing queue users params
+func (o *GetRoutingQueueUsersParams) SetSortOrder(sortOrder *string) {
+	o.SortOrder = sortOrder
 }
 
 // WriteToRequest writes these params to a swagger request
@@ -445,16 +442,16 @@ func (o *GetRoutingQueueUsersParams) WriteToRequest(r runtime.ClientRequest, reg
 		return err
 	}
 
-	if o.SortBy != nil {
+	if o.SortOrder != nil {
 
-		// query param sortBy
-		var qrSortBy string
-		if o.SortBy != nil {
-			qrSortBy = *o.SortBy
+		// query param sortOrder
+		var qrSortOrder string
+		if o.SortOrder != nil {
+			qrSortOrder = *o.SortOrder
 		}
-		qSortBy := qrSortBy
-		if qSortBy != "" {
-			if err := r.SetQueryParam("sortBy", qSortBy); err != nil {
+		qSortOrder := qrSortOrder
+		if qSortOrder != "" {
+			if err := r.SetQueryParam("sortOrder", qSortOrder); err != nil {
 				return err
 			}
 		}

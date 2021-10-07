@@ -193,7 +193,7 @@ var transcriptAggregationQueryMetricsItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["nTopicCommunications","oCustomerSentiment"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["nTopicCommunications","oCustomerSentiment","oSentimentScore"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {

@@ -27,8 +27,11 @@ type ConversationMessageContent struct {
 
 	// Type of this content element. If contentType = "Attachment" only one item is allowed.
 	// Required: true
-	// Enum: [Attachment QuickReply Notification ButtonResponse]
+	// Enum: [Attachment QuickReply Notification ButtonResponse GenericTemplate]
 	ContentType *string `json:"contentType"`
+
+	// Generic Template Object
+	Generic *ContentGeneric `json:"generic,omitempty"`
 
 	// Quick reply content.
 	QuickReply *ConversationContentQuickReply `json:"quickReply,omitempty"`
@@ -50,6 +53,10 @@ func (m *ConversationMessageContent) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateContentType(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateGeneric(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -107,7 +114,7 @@ var conversationMessageContentTypeContentTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Attachment","QuickReply","Notification","ButtonResponse"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Attachment","QuickReply","Notification","ButtonResponse","GenericTemplate"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -128,6 +135,9 @@ const (
 
 	// ConversationMessageContentContentTypeButtonResponse captures enum value "ButtonResponse"
 	ConversationMessageContentContentTypeButtonResponse string = "ButtonResponse"
+
+	// ConversationMessageContentContentTypeGenericTemplate captures enum value "GenericTemplate"
+	ConversationMessageContentContentTypeGenericTemplate string = "GenericTemplate"
 )
 
 // prop value enum
@@ -147,6 +157,24 @@ func (m *ConversationMessageContent) validateContentType(formats strfmt.Registry
 	// value enum
 	if err := m.validateContentTypeEnum("contentType", "body", *m.ContentType); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *ConversationMessageContent) validateGeneric(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Generic) { // not required
+		return nil
+	}
+
+	if m.Generic != nil {
+		if err := m.Generic.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("generic")
+			}
+			return err
+		}
 	}
 
 	return nil

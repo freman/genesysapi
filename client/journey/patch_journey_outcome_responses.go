@@ -59,6 +59,12 @@ func (o *PatchJourneyOutcomeReader) ReadResponse(response runtime.ClientResponse
 			return nil, err
 		}
 		return nil, result
+	case 409:
+		result := NewPatchJourneyOutcomeConflict()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPatchJourneyOutcomeRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -288,6 +294,39 @@ func (o *PatchJourneyOutcomeRequestTimeout) GetPayload() *models.ErrorBody {
 }
 
 func (o *PatchJourneyOutcomeRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPatchJourneyOutcomeConflict creates a PatchJourneyOutcomeConflict with default headers values
+func NewPatchJourneyOutcomeConflict() *PatchJourneyOutcomeConflict {
+	return &PatchJourneyOutcomeConflict{}
+}
+
+/*PatchJourneyOutcomeConflict handles this case with default header values.
+
+Conflict
+*/
+type PatchJourneyOutcomeConflict struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PatchJourneyOutcomeConflict) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/journey/outcomes/{outcomeId}][%d] patchJourneyOutcomeConflict  %+v", 409, o.Payload)
+}
+
+func (o *PatchJourneyOutcomeConflict) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PatchJourneyOutcomeConflict) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ErrorBody)
 

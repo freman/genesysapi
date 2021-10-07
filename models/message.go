@@ -26,6 +26,12 @@ type Message struct {
 	// Indicates if after-call work is required for a communication. Only used when the ACW Setting is Agent Requested.
 	AfterCallWorkRequired bool `json:"afterCallWorkRequired"`
 
+	// UUID of virtual agent assistant that provide suggestions to the agent participant during the conversation.
+	AgentAssistantID string `json:"agentAssistantId,omitempty"`
+
+	// If true, the participant member is authenticated.
+	Authenticated bool `json:"authenticated"`
+
 	// The timestamp when this communication was connected in the cloud clock. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	ConnectedTime strfmt.DateTime `json:"connectedTime,omitempty"`

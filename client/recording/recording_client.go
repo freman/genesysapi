@@ -102,6 +102,10 @@ type API interface {
 	*/
 	GetRecordingJob(ctx context.Context, params *GetRecordingJobParams) (*GetRecordingJobOK, error)
 	/*
+	   GetRecordingJobFailedrecordings gets i ds of recordings that the bulk job failed for
+	*/
+	GetRecordingJobFailedrecordings(ctx context.Context, params *GetRecordingJobFailedrecordingsParams) (*GetRecordingJobFailedrecordingsOK, error)
+	/*
 	   GetRecordingJobs gets the status of all jobs within the user s organization
 	*/
 	GetRecordingJobs(ctx context.Context, params *GetRecordingJobsParams) (*GetRecordingJobsOK, error)
@@ -160,6 +164,7 @@ type API interface {
 	PostRecordingBatchrequests(ctx context.Context, params *PostRecordingBatchrequestsParams) (*PostRecordingBatchrequestsOK, error)
 	/*
 	   PostRecordingCrossplatformMediaretentionpolicies creates media retention policy
+	   Policy does not work retroactively
 	*/
 	PostRecordingCrossplatformMediaretentionpolicies(ctx context.Context, params *PostRecordingCrossplatformMediaretentionpoliciesParams) (*PostRecordingCrossplatformMediaretentionpoliciesOK, error)
 	/*
@@ -176,6 +181,7 @@ type API interface {
 	PostRecordingLocalkeysSettings(ctx context.Context, params *PostRecordingLocalkeysSettingsParams) (*PostRecordingLocalkeysSettingsOK, error)
 	/*
 	   PostRecordingMediaretentionpolicies creates media retention policy
+	   Policy does not work retroactively
 	*/
 	PostRecordingMediaretentionpolicies(ctx context.Context, params *PostRecordingMediaretentionpoliciesParams) (*PostRecordingMediaretentionpoliciesOK, error)
 	/*
@@ -210,6 +216,7 @@ type API interface {
 	PutOrphanrecording(ctx context.Context, params *PutOrphanrecordingParams) (*PutOrphanrecordingOK, error)
 	/*
 	   PutRecordingCrossplatformMediaretentionpolicy updates a media retention policy
+	   Policy does not work retroactively
 	*/
 	PutRecordingCrossplatformMediaretentionpolicy(ctx context.Context, params *PutRecordingCrossplatformMediaretentionpolicyParams) (*PutRecordingCrossplatformMediaretentionpolicyOK, error)
 	/*
@@ -223,6 +230,7 @@ type API interface {
 	PutRecordingLocalkeysSetting(ctx context.Context, params *PutRecordingLocalkeysSettingParams) (*PutRecordingLocalkeysSettingOK, error)
 	/*
 	   PutRecordingMediaretentionpolicy updates a media retention policy
+	   Policy does not work retroactively
 	*/
 	PutRecordingMediaretentionpolicy(ctx context.Context, params *PutRecordingMediaretentionpolicyParams) (*PutRecordingMediaretentionpolicyOK, error)
 	/*
@@ -778,6 +786,31 @@ func (a *Client) GetRecordingJob(ctx context.Context, params *GetRecordingJobPar
 }
 
 /*
+GetRecordingJobFailedrecordings gets i ds of recordings that the bulk job failed for
+*/
+func (a *Client) GetRecordingJobFailedrecordings(ctx context.Context, params *GetRecordingJobFailedrecordingsParams) (*GetRecordingJobFailedrecordingsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getRecordingJobFailedrecordings",
+		Method:             "GET",
+		PathPattern:        "/api/v2/recording/jobs/{jobId}/failedrecordings",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetRecordingJobFailedrecordingsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetRecordingJobFailedrecordingsOK), nil
+
+}
+
+/*
 GetRecordingJobs gets the status of all jobs within the user s organization
 */
 func (a *Client) GetRecordingJobs(ctx context.Context, params *GetRecordingJobsParams) (*GetRecordingJobsOK, error) {
@@ -1131,6 +1164,8 @@ func (a *Client) PostRecordingBatchrequests(ctx context.Context, params *PostRec
 
 /*
 PostRecordingCrossplatformMediaretentionpolicies creates media retention policy
+
+Policy does not work retroactively
 */
 func (a *Client) PostRecordingCrossplatformMediaretentionpolicies(ctx context.Context, params *PostRecordingCrossplatformMediaretentionpoliciesParams) (*PostRecordingCrossplatformMediaretentionpoliciesOK, error) {
 
@@ -1231,6 +1266,8 @@ func (a *Client) PostRecordingLocalkeysSettings(ctx context.Context, params *Pos
 
 /*
 PostRecordingMediaretentionpolicies creates media retention policy
+
+Policy does not work retroactively
 */
 func (a *Client) PostRecordingMediaretentionpolicies(ctx context.Context, params *PostRecordingMediaretentionpoliciesParams) (*PostRecordingMediaretentionpoliciesOK, error) {
 
@@ -1435,6 +1472,8 @@ func (a *Client) PutOrphanrecording(ctx context.Context, params *PutOrphanrecord
 
 /*
 PutRecordingCrossplatformMediaretentionpolicy updates a media retention policy
+
+Policy does not work retroactively
 */
 func (a *Client) PutRecordingCrossplatformMediaretentionpolicy(ctx context.Context, params *PutRecordingCrossplatformMediaretentionpolicyParams) (*PutRecordingCrossplatformMediaretentionpolicyOK, error) {
 
@@ -1512,6 +1551,8 @@ func (a *Client) PutRecordingLocalkeysSetting(ctx context.Context, params *PutRe
 
 /*
 PutRecordingMediaretentionpolicy updates a media retention policy
+
+Policy does not work retroactively
 */
 func (a *Client) PutRecordingMediaretentionpolicy(ctx context.Context, params *PutRecordingMediaretentionpolicyParams) (*PutRecordingMediaretentionpolicyOK, error) {
 

@@ -66,7 +66,7 @@ type GetWorkforcemanagementBusinessunitWeekShorttermforecastsParams struct {
 	*/
 	BusinessUnitID string
 	/*WeekDateID
-	  The week start date of the forecast in yyyy-MM-dd format or 'recent' to fetch recent forecasts
+	  The week start date of the forecast in yyyy-MM-dd format or 'recent' (without quotes) to fetch recent forecasts
 
 	*/
 	WeekDateID string

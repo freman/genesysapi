@@ -33,7 +33,6 @@ import (
 	"github.com/freman/genesysapi/client/data_extensions"
 	"github.com/freman/genesysapi/client/external_contacts"
 	"github.com/freman/genesysapi/client/fax"
-	"github.com/freman/genesysapi/client/flows"
 	"github.com/freman/genesysapi/client/gamification"
 	"github.com/freman/genesysapi/client/general_data_protection_regulation"
 	"github.com/freman/genesysapi/client/geolocation"
@@ -75,6 +74,7 @@ import (
 	"github.com/freman/genesysapi/client/utilities"
 	"github.com/freman/genesysapi/client/voicemail"
 	"github.com/freman/genesysapi/client/web_chat"
+	"github.com/freman/genesysapi/client/web_deployments"
 	"github.com/freman/genesysapi/client/widgets"
 	"github.com/freman/genesysapi/client/workforce_management"
 )
@@ -167,7 +167,6 @@ func New(c Config) *Genesys {
 	cli.DataExtensions = data_extensions.New(transport, strfmt.Default, nil)
 	cli.ExternalContacts = external_contacts.New(transport, strfmt.Default, nil)
 	cli.Fax = fax.New(transport, strfmt.Default, nil)
-	cli.Flows = flows.New(transport, strfmt.Default, nil)
 	cli.Gamification = gamification.New(transport, strfmt.Default, nil)
 	cli.GeneralDataProtectionRegulation = general_data_protection_regulation.New(transport, strfmt.Default, nil)
 	cli.Geolocation = geolocation.New(transport, strfmt.Default, nil)
@@ -209,6 +208,7 @@ func New(c Config) *Genesys {
 	cli.Utilities = utilities.New(transport, strfmt.Default, nil)
 	cli.Voicemail = voicemail.New(transport, strfmt.Default, nil)
 	cli.WebChat = web_chat.New(transport, strfmt.Default, nil)
+	cli.WebDeployments = web_deployments.New(transport, strfmt.Default, nil)
 	cli.Widgets = widgets.New(transport, strfmt.Default, nil)
 	cli.WorkforceManagement = workforce_management.New(transport, strfmt.Default, nil)
 	return cli
@@ -233,7 +233,6 @@ type Genesys struct {
 	DataExtensions                  *data_extensions.Client
 	ExternalContacts                *external_contacts.Client
 	Fax                             *fax.Client
-	Flows                           *flows.Client
 	Gamification                    *gamification.Client
 	GeneralDataProtectionRegulation *general_data_protection_regulation.Client
 	Geolocation                     *geolocation.Client
@@ -275,6 +274,7 @@ type Genesys struct {
 	Utilities                       *utilities.Client
 	Voicemail                       *voicemail.Client
 	WebChat                         *web_chat.Client
+	WebDeployments                  *web_deployments.Client
 	Widgets                         *widgets.Client
 	WorkforceManagement             *workforce_management.Client
 	Transport                       runtime.ClientTransport

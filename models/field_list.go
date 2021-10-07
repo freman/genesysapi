@@ -18,6 +18,9 @@ type FieldList struct {
 	// custom labels
 	CustomLabels bool `json:"customLabels"`
 
+	// gdpr
+	Gdpr bool `json:"gdpr"`
+
 	// instruction text
 	InstructionText string `json:"instructionText,omitempty"`
 

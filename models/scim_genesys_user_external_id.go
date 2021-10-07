@@ -6,8 +6,10 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // ScimGenesysUserExternalID External Identifiers of user. The external identifier must be unique within the organization and the 'authority'
@@ -16,14 +18,47 @@ import (
 type ScimGenesysUserExternalID struct {
 
 	// Authority, or scope, of "externalId". Allows multiple external identifiers to be defined. Represents the source of the external identifier.
-	Authority string `json:"authority,omitempty"`
+	// Required: true
+	Authority *string `json:"authority"`
 
 	// Identifier of the user in an external system.
-	Value string `json:"value,omitempty"`
+	// Required: true
+	Value *string `json:"value"`
 }
 
 // Validate validates this scim genesys user external Id
 func (m *ScimGenesysUserExternalID) Validate(formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.validateAuthority(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateValue(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ScimGenesysUserExternalID) validateAuthority(formats strfmt.Registry) error {
+
+	if err := validate.Required("authority", "body", m.Authority); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ScimGenesysUserExternalID) validateValue(formats strfmt.Registry) error {
+
+	if err := validate.Required("value", "body", m.Value); err != nil {
+		return err
+	}
+
 	return nil
 }
 

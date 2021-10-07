@@ -33,7 +33,7 @@ type TranscriptAggregationView struct {
 
 	// Target metric name
 	// Required: true
-	// Enum: [nTopicCommunications oCustomerSentiment]
+	// Enum: [nTopicCommunications oCustomerSentiment oSentimentScore]
 	Target *string `json:"target"`
 }
 
@@ -134,7 +134,7 @@ var transcriptAggregationViewTypeTargetPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["nTopicCommunications","oCustomerSentiment"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["nTopicCommunications","oCustomerSentiment","oSentimentScore"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -149,6 +149,9 @@ const (
 
 	// TranscriptAggregationViewTargetOCustomerSentiment captures enum value "oCustomerSentiment"
 	TranscriptAggregationViewTargetOCustomerSentiment string = "oCustomerSentiment"
+
+	// TranscriptAggregationViewTargetOSentimentScore captures enum value "oSentimentScore"
+	TranscriptAggregationViewTargetOSentimentScore string = "oSentimentScore"
 )
 
 // prop value enum

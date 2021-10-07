@@ -20,6 +20,9 @@ import (
 // swagger:model LearningModule
 type LearningModule struct {
 
+	// The assessment form for learning module
+	AssessmentForm *AssessmentForm `json:"assessmentForm,omitempty"`
+
 	// The completion time of learning module in days
 	// Required: true
 	CompletionTimeInDays *int32 `json:"completionTimeInDays"`
@@ -82,6 +85,13 @@ type LearningModule struct {
 	// Enum: [UserCreated GenesysBeyond]
 	Source string `json:"source,omitempty"`
 
+	// The learning module summary data
+	SummaryData *LearningModuleSummary `json:"summaryData,omitempty"`
+
+	// The type for the learning module
+	// Enum: [Informational AssessedContent Assessment]
+	Type string `json:"type,omitempty"`
+
 	// The version of published learning module
 	// Read Only: true
 	Version int32 `json:"version,omitempty"`
@@ -90,6 +100,10 @@ type LearningModule struct {
 // Validate validates this learning module
 func (m *LearningModule) Validate(formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.validateAssessmentForm(formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.validateCompletionTimeInDays(formats); err != nil {
 		res = append(res, err)
@@ -131,9 +145,35 @@ func (m *LearningModule) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateSummaryData(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateType(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *LearningModule) validateAssessmentForm(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.AssessmentForm) { // not required
+		return nil
+	}
+
+	if m.AssessmentForm != nil {
+		if err := m.AssessmentForm.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("assessmentForm")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -310,6 +350,70 @@ func (m *LearningModule) validateSource(formats strfmt.Registry) error {
 
 	// value enum
 	if err := m.validateSourceEnum("source", "body", m.Source); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *LearningModule) validateSummaryData(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.SummaryData) { // not required
+		return nil
+	}
+
+	if m.SummaryData != nil {
+		if err := m.SummaryData.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("summaryData")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+var learningModuleTypeTypePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Informational","AssessedContent","Assessment"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		learningModuleTypeTypePropEnum = append(learningModuleTypeTypePropEnum, v)
+	}
+}
+
+const (
+
+	// LearningModuleTypeInformational captures enum value "Informational"
+	LearningModuleTypeInformational string = "Informational"
+
+	// LearningModuleTypeAssessedContent captures enum value "AssessedContent"
+	LearningModuleTypeAssessedContent string = "AssessedContent"
+
+	// LearningModuleTypeAssessment captures enum value "Assessment"
+	LearningModuleTypeAssessment string = "Assessment"
+)
+
+// prop value enum
+func (m *LearningModule) validateTypeEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, learningModuleTypeTypePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *LearningModule) validateType(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Type) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateTypeEnum("type", "body", m.Type); err != nil {
 		return err
 	}
 

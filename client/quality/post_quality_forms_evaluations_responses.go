@@ -59,6 +59,12 @@ func (o *PostQualityFormsEvaluationsReader) ReadResponse(response runtime.Client
 			return nil, err
 		}
 		return nil, result
+	case 409:
+		result := NewPostQualityFormsEvaluationsConflict()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostQualityFormsEvaluationsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -288,6 +294,39 @@ func (o *PostQualityFormsEvaluationsRequestTimeout) GetPayload() *models.ErrorBo
 }
 
 func (o *PostQualityFormsEvaluationsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPostQualityFormsEvaluationsConflict creates a PostQualityFormsEvaluationsConflict with default headers values
+func NewPostQualityFormsEvaluationsConflict() *PostQualityFormsEvaluationsConflict {
+	return &PostQualityFormsEvaluationsConflict{}
+}
+
+/*PostQualityFormsEvaluationsConflict handles this case with default header values.
+
+Conflict
+*/
+type PostQualityFormsEvaluationsConflict struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostQualityFormsEvaluationsConflict) Error() string {
+	return fmt.Sprintf("[POST /api/v2/quality/forms/evaluations][%d] postQualityFormsEvaluationsConflict  %+v", 409, o.Payload)
+}
+
+func (o *PostQualityFormsEvaluationsConflict) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostQualityFormsEvaluationsConflict) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ErrorBody)
 

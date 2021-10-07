@@ -30,6 +30,10 @@ type Predictor struct {
 	// Format: date-time
 	DateModified strfmt.DateTime `json:"dateModified,omitempty"`
 
+	// Predictor error code - optional details on why the predictor went into error state.
+	// Read Only: true
+	ErrorCode string `json:"errorCode,omitempty"`
+
 	// The globally unique identifier for the object.
 	// Read Only: true
 	ID string `json:"id,omitempty"`

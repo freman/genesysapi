@@ -82,6 +82,11 @@ type GetGamificationScorecardsValuesTrendsParams struct {
 
 	*/
 	FilterType *string
+	/*ReferenceWorkday
+	  Reference workday for the trend. Used to determine the profile of the user as of this date. If not set, then the user's current profile will be used. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
+
+	*/
+	ReferenceWorkday *strfmt.Date
 	/*StartWorkday
 	  Start workday of querying workdays range. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
 
@@ -153,6 +158,17 @@ func (o *GetGamificationScorecardsValuesTrendsParams) SetFilterType(filterType *
 	o.FilterType = filterType
 }
 
+// WithReferenceWorkday adds the referenceWorkday to the get gamification scorecards values trends params
+func (o *GetGamificationScorecardsValuesTrendsParams) WithReferenceWorkday(referenceWorkday *strfmt.Date) *GetGamificationScorecardsValuesTrendsParams {
+	o.SetReferenceWorkday(referenceWorkday)
+	return o
+}
+
+// SetReferenceWorkday adds the referenceWorkday to the get gamification scorecards values trends params
+func (o *GetGamificationScorecardsValuesTrendsParams) SetReferenceWorkday(referenceWorkday *strfmt.Date) {
+	o.ReferenceWorkday = referenceWorkday
+}
+
 // WithStartWorkday adds the startWorkday to the get gamification scorecards values trends params
 func (o *GetGamificationScorecardsValuesTrendsParams) WithStartWorkday(startWorkday strfmt.Date) *GetGamificationScorecardsValuesTrendsParams {
 	o.SetStartWorkday(startWorkday)
@@ -202,6 +218,22 @@ func (o *GetGamificationScorecardsValuesTrendsParams) WriteToRequest(r runtime.C
 		qFilterType := qrFilterType
 		if qFilterType != "" {
 			if err := r.SetQueryParam("filterType", qFilterType); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	if o.ReferenceWorkday != nil {
+
+		// query param referenceWorkday
+		var qrReferenceWorkday strfmt.Date
+		if o.ReferenceWorkday != nil {
+			qrReferenceWorkday = *o.ReferenceWorkday
+		}
+		qReferenceWorkday := qrReferenceWorkday.String()
+		if qReferenceWorkday != "" {
+			if err := r.SetQueryParam("referenceWorkday", qReferenceWorkday); err != nil {
 				return err
 			}
 		}

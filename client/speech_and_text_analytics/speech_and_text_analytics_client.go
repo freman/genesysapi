@@ -78,6 +78,10 @@ type API interface {
 	*/
 	GetSpeechandtextanalyticsTopics(ctx context.Context, params *GetSpeechandtextanalyticsTopicsParams) (*GetSpeechandtextanalyticsTopicsOK, error)
 	/*
+	   GetSpeechandtextanalyticsTopicsDialects gets list of supported speech and text analytics topics dialects
+	*/
+	GetSpeechandtextanalyticsTopicsDialects(ctx context.Context, params *GetSpeechandtextanalyticsTopicsDialectsParams) (*GetSpeechandtextanalyticsTopicsDialectsOK, error)
+	/*
 	   GetSpeechandtextanalyticsTopicsGeneral gets the speech and text analytics general topics for a given dialect
 	*/
 	GetSpeechandtextanalyticsTopicsGeneral(ctx context.Context, params *GetSpeechandtextanalyticsTopicsGeneralParams) (*GetSpeechandtextanalyticsTopicsGeneralOK, error)
@@ -517,6 +521,31 @@ func (a *Client) GetSpeechandtextanalyticsTopics(ctx context.Context, params *Ge
 		return nil, err
 	}
 	return result.(*GetSpeechandtextanalyticsTopicsOK), nil
+
+}
+
+/*
+GetSpeechandtextanalyticsTopicsDialects gets list of supported speech and text analytics topics dialects
+*/
+func (a *Client) GetSpeechandtextanalyticsTopicsDialects(ctx context.Context, params *GetSpeechandtextanalyticsTopicsDialectsParams) (*GetSpeechandtextanalyticsTopicsDialectsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getSpeechandtextanalyticsTopicsDialects",
+		Method:             "GET",
+		PathPattern:        "/api/v2/speechandtextanalytics/topics/dialects",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetSpeechandtextanalyticsTopicsDialectsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetSpeechandtextanalyticsTopicsDialectsOK), nil
 
 }
 

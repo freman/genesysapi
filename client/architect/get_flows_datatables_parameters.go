@@ -107,6 +107,11 @@ type GetFlowsDatatablesParams struct {
 
 	*/
 	Expand *string
+	/*Name
+	  Name to filter by
+
+	*/
+	Name *string
 	/*PageNumber
 	  Page number
 
@@ -188,6 +193,17 @@ func (o *GetFlowsDatatablesParams) SetExpand(expand *string) {
 	o.Expand = expand
 }
 
+// WithName adds the name to the get flows datatables params
+func (o *GetFlowsDatatablesParams) WithName(name *string) *GetFlowsDatatablesParams {
+	o.SetName(name)
+	return o
+}
+
+// SetName adds the name to the get flows datatables params
+func (o *GetFlowsDatatablesParams) SetName(name *string) {
+	o.Name = name
+}
+
 // WithPageNumber adds the pageNumber to the get flows datatables params
 func (o *GetFlowsDatatablesParams) WithPageNumber(pageNumber *int32) *GetFlowsDatatablesParams {
 	o.SetPageNumber(pageNumber)
@@ -258,6 +274,22 @@ func (o *GetFlowsDatatablesParams) WriteToRequest(r runtime.ClientRequest, reg s
 		qExpand := qrExpand
 		if qExpand != "" {
 			if err := r.SetQueryParam("expand", qExpand); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	if o.Name != nil {
+
+		// query param name
+		var qrName string
+		if o.Name != nil {
+			qrName = *o.Name
+		}
+		qName := qrName
+		if qName != "" {
+			if err := r.SetQueryParam("name", qName); err != nil {
 				return err
 			}
 		}

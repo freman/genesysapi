@@ -83,6 +83,12 @@ func (o *PostUsersDevelopmentActivitiesAggregatesQueryReader) ReadResponse(respo
 			return nil, err
 		}
 		return nil, result
+	case 501:
+		result := NewPostUsersDevelopmentActivitiesAggregatesQueryNotImplemented()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 503:
 		result := NewPostUsersDevelopmentActivitiesAggregatesQueryServiceUnavailable()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -420,6 +426,39 @@ func (o *PostUsersDevelopmentActivitiesAggregatesQueryInternalServerError) GetPa
 }
 
 func (o *PostUsersDevelopmentActivitiesAggregatesQueryInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPostUsersDevelopmentActivitiesAggregatesQueryNotImplemented creates a PostUsersDevelopmentActivitiesAggregatesQueryNotImplemented with default headers values
+func NewPostUsersDevelopmentActivitiesAggregatesQueryNotImplemented() *PostUsersDevelopmentActivitiesAggregatesQueryNotImplemented {
+	return &PostUsersDevelopmentActivitiesAggregatesQueryNotImplemented{}
+}
+
+/*PostUsersDevelopmentActivitiesAggregatesQueryNotImplemented handles this case with default header values.
+
+Not Implemented
+*/
+type PostUsersDevelopmentActivitiesAggregatesQueryNotImplemented struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryNotImplemented) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users/development/activities/aggregates/query][%d] postUsersDevelopmentActivitiesAggregatesQueryNotImplemented  %+v", 501, o.Payload)
+}
+
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryNotImplemented) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryNotImplemented) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ErrorBody)
 

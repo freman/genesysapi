@@ -115,7 +115,7 @@ type GetIntegrationsActionsCategoriesParams struct {
 	*/
 	Secure *string
 	/*SortBy
-	  Root level field name to sort on.
+	  Root level field name to sort on.  Only 'name' is supported on this endpoint.
 
 	*/
 	SortBy *string

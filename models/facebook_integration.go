@@ -58,6 +58,14 @@ type FacebookIntegration struct {
 	// The Page Id from Facebook messenger
 	PageID string `json:"pageId,omitempty"`
 
+	// The name of the Facebook page
+	// Read Only: true
+	PageName string `json:"pageName,omitempty"`
+
+	// The url of the profile image of the Facebook page
+	// Read Only: true
+	PageProfileImageURL string `json:"pageProfileImageUrl,omitempty"`
+
 	// The recipient reference associated to the Facebook Integration. This recipient is used to associate a flow to an integration
 	// Read Only: true
 	Recipient *DomainEntityRef `json:"recipient,omitempty"`

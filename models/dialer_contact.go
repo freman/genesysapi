@@ -44,6 +44,10 @@ type DialerContact struct {
 	// Read Only: true
 	ID string `json:"id,omitempty"`
 
+	// A map of SMS records for the contact phone columns.
+	// Read Only: true
+	LatestSmsEvaluations map[string]MessageEvaluation `json:"latestSmsEvaluations,omitempty"`
+
 	// name
 	Name string `json:"name,omitempty"`
 
@@ -77,6 +81,10 @@ func (m *DialerContact) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateData(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateLatestSmsEvaluations(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -175,6 +183,28 @@ func (m *DialerContact) validateData(formats strfmt.Registry) error {
 
 		if err := validate.Required("data"+"."+k, "body", m.Data[k]); err != nil {
 			return err
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DialerContact) validateLatestSmsEvaluations(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.LatestSmsEvaluations) { // not required
+		return nil
+	}
+
+	for k := range m.LatestSmsEvaluations {
+
+		if err := validate.Required("latestSmsEvaluations"+"."+k, "body", m.LatestSmsEvaluations[k]); err != nil {
+			return err
+		}
+		if val, ok := m.LatestSmsEvaluations[k]; ok {
+			if err := val.Validate(formats); err != nil {
+				return err
+			}
 		}
 
 	}

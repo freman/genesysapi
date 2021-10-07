@@ -55,7 +55,7 @@ type ScimV2SchemaAttribute struct {
 
 	// The circumstances under which an attribute and its values are returned in response to a GET, PUT, POST, or PATCH request.
 	// Read Only: true
-	// Enum: [ALWAYS NEVER DEFAULT REQUEST]
+	// Enum: [always never default request]
 	Returned string `json:"returned,omitempty"`
 
 	// The list of subattributes for an attribute of the type "complex". Uses the same schema as "attributes".
@@ -64,12 +64,12 @@ type ScimV2SchemaAttribute struct {
 
 	// The data type of the attribute.
 	// Read Only: true
-	// Enum: [STRING BOOLEAN DECIMAL INTEGER DATE_TIME REFERENCE COMPLEX]
+	// Enum: [string boolean decimal integer dateTime reference complex]
 	Type string `json:"type,omitempty"`
 
 	// The method by which the service provider enforces the uniqueness of an attribute value. A server can reject a value by returning the HTTP response code 400 (Bad Request). A client can enforce uniqueness to a greater degree than the server provider enforces. For example, a client could make a value unique even though the server has "uniqueness" set to "none".
 	// Read Only: true
-	// Enum: [NONE SERVER GLOBAL]
+	// Enum: [none server global]
 	Uniqueness string `json:"uniqueness,omitempty"`
 }
 
@@ -160,7 +160,7 @@ var scimV2SchemaAttributeReferenceTypesItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["USER","GROUP","EXTERNAL","URI"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["User","Group","external","uri"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -197,7 +197,7 @@ var scimV2SchemaAttributeTypeReturnedPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["ALWAYS","NEVER","DEFAULT","REQUEST"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["always","never","default","request"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -207,17 +207,17 @@ func init() {
 
 const (
 
-	// ScimV2SchemaAttributeReturnedALWAYS captures enum value "ALWAYS"
-	ScimV2SchemaAttributeReturnedALWAYS string = "ALWAYS"
+	// ScimV2SchemaAttributeReturnedAlways captures enum value "always"
+	ScimV2SchemaAttributeReturnedAlways string = "always"
 
-	// ScimV2SchemaAttributeReturnedNEVER captures enum value "NEVER"
-	ScimV2SchemaAttributeReturnedNEVER string = "NEVER"
+	// ScimV2SchemaAttributeReturnedNever captures enum value "never"
+	ScimV2SchemaAttributeReturnedNever string = "never"
 
-	// ScimV2SchemaAttributeReturnedDEFAULT captures enum value "DEFAULT"
-	ScimV2SchemaAttributeReturnedDEFAULT string = "DEFAULT"
+	// ScimV2SchemaAttributeReturnedDefault captures enum value "default"
+	ScimV2SchemaAttributeReturnedDefault string = "default"
 
-	// ScimV2SchemaAttributeReturnedREQUEST captures enum value "REQUEST"
-	ScimV2SchemaAttributeReturnedREQUEST string = "REQUEST"
+	// ScimV2SchemaAttributeReturnedRequest captures enum value "request"
+	ScimV2SchemaAttributeReturnedRequest string = "request"
 )
 
 // prop value enum
@@ -271,7 +271,7 @@ var scimV2SchemaAttributeTypeTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["STRING","BOOLEAN","DECIMAL","INTEGER","DATE_TIME","REFERENCE","COMPLEX"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["string","boolean","decimal","integer","dateTime","reference","complex"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -281,26 +281,26 @@ func init() {
 
 const (
 
-	// ScimV2SchemaAttributeTypeSTRING captures enum value "STRING"
-	ScimV2SchemaAttributeTypeSTRING string = "STRING"
+	// ScimV2SchemaAttributeTypeString captures enum value "string"
+	ScimV2SchemaAttributeTypeString string = "string"
 
-	// ScimV2SchemaAttributeTypeBOOLEAN captures enum value "BOOLEAN"
-	ScimV2SchemaAttributeTypeBOOLEAN string = "BOOLEAN"
+	// ScimV2SchemaAttributeTypeBoolean captures enum value "boolean"
+	ScimV2SchemaAttributeTypeBoolean string = "boolean"
 
-	// ScimV2SchemaAttributeTypeDECIMAL captures enum value "DECIMAL"
-	ScimV2SchemaAttributeTypeDECIMAL string = "DECIMAL"
+	// ScimV2SchemaAttributeTypeDecimal captures enum value "decimal"
+	ScimV2SchemaAttributeTypeDecimal string = "decimal"
 
-	// ScimV2SchemaAttributeTypeINTEGER captures enum value "INTEGER"
-	ScimV2SchemaAttributeTypeINTEGER string = "INTEGER"
+	// ScimV2SchemaAttributeTypeInteger captures enum value "integer"
+	ScimV2SchemaAttributeTypeInteger string = "integer"
 
-	// ScimV2SchemaAttributeTypeDATETIME captures enum value "DATE_TIME"
-	ScimV2SchemaAttributeTypeDATETIME string = "DATE_TIME"
+	// ScimV2SchemaAttributeTypeDateTime captures enum value "dateTime"
+	ScimV2SchemaAttributeTypeDateTime string = "dateTime"
 
-	// ScimV2SchemaAttributeTypeREFERENCE captures enum value "REFERENCE"
-	ScimV2SchemaAttributeTypeREFERENCE string = "REFERENCE"
+	// ScimV2SchemaAttributeTypeReference captures enum value "reference"
+	ScimV2SchemaAttributeTypeReference string = "reference"
 
-	// ScimV2SchemaAttributeTypeCOMPLEX captures enum value "COMPLEX"
-	ScimV2SchemaAttributeTypeCOMPLEX string = "COMPLEX"
+	// ScimV2SchemaAttributeTypeComplex captures enum value "complex"
+	ScimV2SchemaAttributeTypeComplex string = "complex"
 )
 
 // prop value enum
@@ -329,7 +329,7 @@ var scimV2SchemaAttributeTypeUniquenessPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["NONE","SERVER","GLOBAL"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["none","server","global"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -339,14 +339,14 @@ func init() {
 
 const (
 
-	// ScimV2SchemaAttributeUniquenessNONE captures enum value "NONE"
-	ScimV2SchemaAttributeUniquenessNONE string = "NONE"
+	// ScimV2SchemaAttributeUniquenessNone captures enum value "none"
+	ScimV2SchemaAttributeUniquenessNone string = "none"
 
-	// ScimV2SchemaAttributeUniquenessSERVER captures enum value "SERVER"
-	ScimV2SchemaAttributeUniquenessSERVER string = "SERVER"
+	// ScimV2SchemaAttributeUniquenessServer captures enum value "server"
+	ScimV2SchemaAttributeUniquenessServer string = "server"
 
-	// ScimV2SchemaAttributeUniquenessGLOBAL captures enum value "GLOBAL"
-	ScimV2SchemaAttributeUniquenessGLOBAL string = "GLOBAL"
+	// ScimV2SchemaAttributeUniquenessGlobal captures enum value "global"
+	ScimV2SchemaAttributeUniquenessGlobal string = "global"
 )
 
 // prop value enum

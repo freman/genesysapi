@@ -18,7 +18,7 @@ import (
 // swagger:model Bullseye
 type Bullseye struct {
 
-	// rings
+	// The bullseye rings configured for this queue.
 	Rings []*Ring `json:"rings"`
 }
 

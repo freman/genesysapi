@@ -31,6 +31,9 @@ type CallMediaParticipant struct {
 	// A list of ad-hoc attributes for the participant.
 	Attributes map[string]string `json:"attributes,omitempty"`
 
+	// The ID of the participant being coached when performing a call coach.
+	CoachedParticipantID string `json:"coachedParticipantId,omitempty"`
+
 	// Value is true when the call is confined.
 	Confined bool `json:"confined"`
 

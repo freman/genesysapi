@@ -30,6 +30,14 @@ type API interface {
 	*/
 	DeleteLanguageunderstandingDomainVersion(ctx context.Context, params *DeleteLanguageunderstandingDomainVersionParams) (*DeleteLanguageunderstandingDomainVersionNoContent, error)
 	/*
+	   DeleteLanguageunderstandingMiner deletes a miner
+	*/
+	DeleteLanguageunderstandingMiner(ctx context.Context, params *DeleteLanguageunderstandingMinerParams) (*DeleteLanguageunderstandingMinerNoContent, error)
+	/*
+	   DeleteLanguageunderstandingMinerDraft deletes a draft
+	*/
+	DeleteLanguageunderstandingMinerDraft(ctx context.Context, params *DeleteLanguageunderstandingMinerDraftParams) (*DeleteLanguageunderstandingMinerDraftNoContent, error)
+	/*
 	   GetLanguageunderstandingDomain finds an n l u domain
 	*/
 	GetLanguageunderstandingDomain(ctx context.Context, params *GetLanguageunderstandingDomainParams) (*GetLanguageunderstandingDomainOK, error)
@@ -58,9 +66,37 @@ type API interface {
 	*/
 	GetLanguageunderstandingDomains(ctx context.Context, params *GetLanguageunderstandingDomainsParams) (*GetLanguageunderstandingDomainsOK, error)
 	/*
+	   GetLanguageunderstandingMiner gets information about a miner
+	*/
+	GetLanguageunderstandingMiner(ctx context.Context, params *GetLanguageunderstandingMinerParams) (*GetLanguageunderstandingMinerOK, error)
+	/*
+	   GetLanguageunderstandingMinerDraft gets information about a draft
+	*/
+	GetLanguageunderstandingMinerDraft(ctx context.Context, params *GetLanguageunderstandingMinerDraftParams) (*GetLanguageunderstandingMinerDraftOK, error)
+	/*
+	   GetLanguageunderstandingMinerDrafts retrieves the list of drafts created
+	*/
+	GetLanguageunderstandingMinerDrafts(ctx context.Context, params *GetLanguageunderstandingMinerDraftsParams) (*GetLanguageunderstandingMinerDraftsOK, error)
+	/*
+	   GetLanguageunderstandingMinerIntent gets information about a mined intent
+	*/
+	GetLanguageunderstandingMinerIntent(ctx context.Context, params *GetLanguageunderstandingMinerIntentParams) (*GetLanguageunderstandingMinerIntentOK, error)
+	/*
+	   GetLanguageunderstandingMinerIntents retrieves a list of mined intents
+	*/
+	GetLanguageunderstandingMinerIntents(ctx context.Context, params *GetLanguageunderstandingMinerIntentsParams) (*GetLanguageunderstandingMinerIntentsOK, error)
+	/*
+	   GetLanguageunderstandingMiners retrieves the list of miners created
+	*/
+	GetLanguageunderstandingMiners(ctx context.Context, params *GetLanguageunderstandingMinersParams) (*GetLanguageunderstandingMinersOK, error)
+	/*
 	   PatchLanguageunderstandingDomain updates an n l u domain
 	*/
 	PatchLanguageunderstandingDomain(ctx context.Context, params *PatchLanguageunderstandingDomainParams) (*PatchLanguageunderstandingDomainOK, error)
+	/*
+	   PatchLanguageunderstandingMinerDraft saves information for the draft
+	*/
+	PatchLanguageunderstandingMinerDraft(ctx context.Context, params *PatchLanguageunderstandingMinerDraftParams) (*PatchLanguageunderstandingMinerDraftOK, error)
 	/*
 	   PostLanguageunderstandingDomainFeedback creates feedback for the n l u domain version
 	*/
@@ -85,6 +121,18 @@ type API interface {
 	   PostLanguageunderstandingDomains creates an n l u domain
 	*/
 	PostLanguageunderstandingDomains(ctx context.Context, params *PostLanguageunderstandingDomainsParams) (*PostLanguageunderstandingDomainsOK, *PostLanguageunderstandingDomainsCreated, error)
+	/*
+	   PostLanguageunderstandingMinerDrafts creates a new draft resource
+	*/
+	PostLanguageunderstandingMinerDrafts(ctx context.Context, params *PostLanguageunderstandingMinerDraftsParams) (*PostLanguageunderstandingMinerDraftsOK, *PostLanguageunderstandingMinerDraftsCreated, error)
+	/*
+	   PostLanguageunderstandingMinerExecute starts the mining process specify date range pair with media type and queue ids for mining data from genesys cloud specify only upload key for mining through an external file
+	*/
+	PostLanguageunderstandingMinerExecute(ctx context.Context, params *PostLanguageunderstandingMinerExecuteParams) (*PostLanguageunderstandingMinerExecuteOK, *PostLanguageunderstandingMinerExecuteAccepted, error)
+	/*
+	   PostLanguageunderstandingMiners creates a unique miner
+	*/
+	PostLanguageunderstandingMiners(ctx context.Context, params *PostLanguageunderstandingMinersParams) (*PostLanguageunderstandingMinersOK, *PostLanguageunderstandingMinersCreated, error)
 	/*
 	   PutLanguageunderstandingDomainVersion updates an n l u domain version
 	*/
@@ -181,6 +229,56 @@ func (a *Client) DeleteLanguageunderstandingDomainVersion(ctx context.Context, p
 		return nil, err
 	}
 	return result.(*DeleteLanguageunderstandingDomainVersionNoContent), nil
+
+}
+
+/*
+DeleteLanguageunderstandingMiner deletes a miner
+*/
+func (a *Client) DeleteLanguageunderstandingMiner(ctx context.Context, params *DeleteLanguageunderstandingMinerParams) (*DeleteLanguageunderstandingMinerNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteLanguageunderstandingMiner",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/languageunderstanding/miners/{minerId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteLanguageunderstandingMinerReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteLanguageunderstandingMinerNoContent), nil
+
+}
+
+/*
+DeleteLanguageunderstandingMinerDraft deletes a draft
+*/
+func (a *Client) DeleteLanguageunderstandingMinerDraft(ctx context.Context, params *DeleteLanguageunderstandingMinerDraftParams) (*DeleteLanguageunderstandingMinerDraftNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteLanguageunderstandingMinerDraft",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/languageunderstanding/miners/{minerId}/drafts/{draftId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteLanguageunderstandingMinerDraftReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteLanguageunderstandingMinerDraftNoContent), nil
 
 }
 
@@ -360,6 +458,156 @@ func (a *Client) GetLanguageunderstandingDomains(ctx context.Context, params *Ge
 }
 
 /*
+GetLanguageunderstandingMiner gets information about a miner
+*/
+func (a *Client) GetLanguageunderstandingMiner(ctx context.Context, params *GetLanguageunderstandingMinerParams) (*GetLanguageunderstandingMinerOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getLanguageunderstandingMiner",
+		Method:             "GET",
+		PathPattern:        "/api/v2/languageunderstanding/miners/{minerId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetLanguageunderstandingMinerReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetLanguageunderstandingMinerOK), nil
+
+}
+
+/*
+GetLanguageunderstandingMinerDraft gets information about a draft
+*/
+func (a *Client) GetLanguageunderstandingMinerDraft(ctx context.Context, params *GetLanguageunderstandingMinerDraftParams) (*GetLanguageunderstandingMinerDraftOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getLanguageunderstandingMinerDraft",
+		Method:             "GET",
+		PathPattern:        "/api/v2/languageunderstanding/miners/{minerId}/drafts/{draftId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetLanguageunderstandingMinerDraftReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetLanguageunderstandingMinerDraftOK), nil
+
+}
+
+/*
+GetLanguageunderstandingMinerDrafts retrieves the list of drafts created
+*/
+func (a *Client) GetLanguageunderstandingMinerDrafts(ctx context.Context, params *GetLanguageunderstandingMinerDraftsParams) (*GetLanguageunderstandingMinerDraftsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getLanguageunderstandingMinerDrafts",
+		Method:             "GET",
+		PathPattern:        "/api/v2/languageunderstanding/miners/{minerId}/drafts",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetLanguageunderstandingMinerDraftsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetLanguageunderstandingMinerDraftsOK), nil
+
+}
+
+/*
+GetLanguageunderstandingMinerIntent gets information about a mined intent
+*/
+func (a *Client) GetLanguageunderstandingMinerIntent(ctx context.Context, params *GetLanguageunderstandingMinerIntentParams) (*GetLanguageunderstandingMinerIntentOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getLanguageunderstandingMinerIntent",
+		Method:             "GET",
+		PathPattern:        "/api/v2/languageunderstanding/miners/{minerId}/intents/{intentId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetLanguageunderstandingMinerIntentReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetLanguageunderstandingMinerIntentOK), nil
+
+}
+
+/*
+GetLanguageunderstandingMinerIntents retrieves a list of mined intents
+*/
+func (a *Client) GetLanguageunderstandingMinerIntents(ctx context.Context, params *GetLanguageunderstandingMinerIntentsParams) (*GetLanguageunderstandingMinerIntentsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getLanguageunderstandingMinerIntents",
+		Method:             "GET",
+		PathPattern:        "/api/v2/languageunderstanding/miners/{minerId}/intents",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetLanguageunderstandingMinerIntentsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetLanguageunderstandingMinerIntentsOK), nil
+
+}
+
+/*
+GetLanguageunderstandingMiners retrieves the list of miners created
+*/
+func (a *Client) GetLanguageunderstandingMiners(ctx context.Context, params *GetLanguageunderstandingMinersParams) (*GetLanguageunderstandingMinersOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getLanguageunderstandingMiners",
+		Method:             "GET",
+		PathPattern:        "/api/v2/languageunderstanding/miners",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetLanguageunderstandingMinersReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetLanguageunderstandingMinersOK), nil
+
+}
+
+/*
 PatchLanguageunderstandingDomain updates an n l u domain
 */
 func (a *Client) PatchLanguageunderstandingDomain(ctx context.Context, params *PatchLanguageunderstandingDomainParams) (*PatchLanguageunderstandingDomainOK, error) {
@@ -381,6 +629,31 @@ func (a *Client) PatchLanguageunderstandingDomain(ctx context.Context, params *P
 		return nil, err
 	}
 	return result.(*PatchLanguageunderstandingDomainOK), nil
+
+}
+
+/*
+PatchLanguageunderstandingMinerDraft saves information for the draft
+*/
+func (a *Client) PatchLanguageunderstandingMinerDraft(ctx context.Context, params *PatchLanguageunderstandingMinerDraftParams) (*PatchLanguageunderstandingMinerDraftOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "patchLanguageunderstandingMinerDraft",
+		Method:             "PATCH",
+		PathPattern:        "/api/v2/languageunderstanding/miners/{minerId}/drafts/{draftId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchLanguageunderstandingMinerDraftReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PatchLanguageunderstandingMinerDraftOK), nil
 
 }
 
@@ -558,6 +831,99 @@ func (a *Client) PostLanguageunderstandingDomains(ctx context.Context, params *P
 	case *PostLanguageunderstandingDomainsOK:
 		return value, nil, nil
 	case *PostLanguageunderstandingDomainsCreated:
+		return nil, value, nil
+	}
+	return nil, nil, nil
+
+}
+
+/*
+PostLanguageunderstandingMinerDrafts creates a new draft resource
+*/
+func (a *Client) PostLanguageunderstandingMinerDrafts(ctx context.Context, params *PostLanguageunderstandingMinerDraftsParams) (*PostLanguageunderstandingMinerDraftsOK, *PostLanguageunderstandingMinerDraftsCreated, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postLanguageunderstandingMinerDrafts",
+		Method:             "POST",
+		PathPattern:        "/api/v2/languageunderstanding/miners/{minerId}/drafts",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostLanguageunderstandingMinerDraftsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PostLanguageunderstandingMinerDraftsOK:
+		return value, nil, nil
+	case *PostLanguageunderstandingMinerDraftsCreated:
+		return nil, value, nil
+	}
+	return nil, nil, nil
+
+}
+
+/*
+PostLanguageunderstandingMinerExecute starts the mining process specify date range pair with media type and queue ids for mining data from genesys cloud specify only upload key for mining through an external file
+*/
+func (a *Client) PostLanguageunderstandingMinerExecute(ctx context.Context, params *PostLanguageunderstandingMinerExecuteParams) (*PostLanguageunderstandingMinerExecuteOK, *PostLanguageunderstandingMinerExecuteAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postLanguageunderstandingMinerExecute",
+		Method:             "POST",
+		PathPattern:        "/api/v2/languageunderstanding/miners/{minerId}/execute",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostLanguageunderstandingMinerExecuteReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PostLanguageunderstandingMinerExecuteOK:
+		return value, nil, nil
+	case *PostLanguageunderstandingMinerExecuteAccepted:
+		return nil, value, nil
+	}
+	return nil, nil, nil
+
+}
+
+/*
+PostLanguageunderstandingMiners creates a unique miner
+*/
+func (a *Client) PostLanguageunderstandingMiners(ctx context.Context, params *PostLanguageunderstandingMinersParams) (*PostLanguageunderstandingMinersOK, *PostLanguageunderstandingMinersCreated, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postLanguageunderstandingMiners",
+		Method:             "POST",
+		PathPattern:        "/api/v2/languageunderstanding/miners",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostLanguageunderstandingMinersReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PostLanguageunderstandingMinersOK:
+		return value, nil, nil
+	case *PostLanguageunderstandingMinersCreated:
 		return nil, value, nil
 	}
 	return nil, nil, nil

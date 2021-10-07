@@ -33,6 +33,9 @@ type Evaluation struct {
 	// Format: date-time
 	AssignedDate strfmt.DateTime `json:"assignedDate,omitempty"`
 
+	// List of user authorized actions on evaluation. Possible values: edit, editScore, editAgentSignoff, delete, viewAudit
+	AuthorizedActions []string `json:"authorizedActions"`
+
 	// calibration
 	Calibration *Calibration `json:"calibration,omitempty"`
 

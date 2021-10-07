@@ -29,7 +29,7 @@ type PermissionDetails struct {
 	Permissions []string `json:"permissions"`
 
 	// The type of permission requirement
-	// Enum: [requiresCurrentUser requiresPermissions requiresDivisionPermissions requiresAnyDivisionPermissions]
+	// Enum: [requiresCurrentUser requiresPermissions requiresDivisionPermissions requiresAnyDivisionPermissions requiresUserBeConversationParticipant]
 	Type string `json:"type,omitempty"`
 }
 
@@ -51,7 +51,7 @@ var permissionDetailsTypeTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["requiresCurrentUser","requiresPermissions","requiresDivisionPermissions","requiresAnyDivisionPermissions"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["requiresCurrentUser","requiresPermissions","requiresDivisionPermissions","requiresAnyDivisionPermissions","requiresUserBeConversationParticipant"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -72,6 +72,9 @@ const (
 
 	// PermissionDetailsTypeRequiresAnyDivisionPermissions captures enum value "requiresAnyDivisionPermissions"
 	PermissionDetailsTypeRequiresAnyDivisionPermissions string = "requiresAnyDivisionPermissions"
+
+	// PermissionDetailsTypeRequiresUserBeConversationParticipant captures enum value "requiresUserBeConversationParticipant"
+	PermissionDetailsTypeRequiresUserBeConversationParticipant string = "requiresUserBeConversationParticipant"
 )
 
 // prop value enum

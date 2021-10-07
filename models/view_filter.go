@@ -38,11 +38,47 @@ type ViewFilter struct {
 	// The address To values are used to filter the view
 	AddressTos []string `json:"addressTos"`
 
+	// The list of callback owners used to filter interactions
+	AgentCallbackOwnerIds []string `json:"agentCallbackOwnerIds"`
+
 	// The ani list ids are used to filter the view
 	AniList []string `json:"aniList"`
 
 	// Indicates filtering for answered interactions
 	Answered bool `json:"answered"`
+
+	// The list of blocked reason used to filter action map constraints views
+	BlockedReasons []string `json:"blockedReasons"`
+
+	// The list of bot final intents used to filter bot views
+	BotFinalIntentList []string `json:"botFinalIntentList"`
+
+	// The list of bot IDs used to filter bot views
+	BotIds []string `json:"botIds"`
+
+	// The list of bot intents used to filter bot views
+	BotIntentList []string `json:"botIntentList"`
+
+	// The list of bot message types used to filter bot views
+	BotMessageTypes []string `json:"botMessageTypes"`
+
+	// The list of bot products used to filter bot views
+	BotProductList []string `json:"botProductList"`
+
+	// The list of bot providers used to filter bot views
+	BotProviderList []string `json:"botProviderList"`
+
+	// The list of bot recognition failure reasons used to filter bot views
+	BotRecognitionFailureReasonList []string `json:"botRecognitionFailureReasonList"`
+
+	// The list of bot results used to filter bot views
+	BotResultList []string `json:"botResultList"`
+
+	// The list of bot slots used to filter bot views
+	BotSlotList []string `json:"botSlotList"`
+
+	// The list of bot versions used to filter bot views
+	BotVersions []string `json:"botVersions"`
 
 	// An interval of time to filter for scheduled callbacks. Intervals are represented as an ISO-8601 string. For example: YYYY-MM-DDThh:mm:ss/YYYY-MM-DDThh:mm:ss
 	CallbackInterval string `json:"callbackInterval,omitempty"`
@@ -94,6 +130,9 @@ type ViewFilter struct {
 
 	// The durations in milliseconds used to filter the view
 	DurationsMilliseconds []*NumericRange `json:"durationsMilliseconds"`
+
+	// The list of email delivery statuses used to filter views
+	EmailDeliveryStatusList []string `json:"emailDeliveryStatusList"`
 
 	// The evaluated agent ids are used to filter the view
 	EvaluatedAgentIds []string `json:"evaluatedAgentIds"`
@@ -170,6 +209,9 @@ type ViewFilter struct {
 	// Indicates filtering for agent assist id
 	HasAgentAssistID bool `json:"hasAgentAssistId"`
 
+	// Indicates filtering for evaluation
+	HasEvaluation bool `json:"hasEvaluation"`
+
 	// Indicates filtering for Journey action map id
 	HasJourneyActionMapID bool `json:"hasJourneyActionMapId"`
 
@@ -182,8 +224,14 @@ type ViewFilter struct {
 	// Indicates filtering for presence of MMS media
 	HasMedia bool `json:"hasMedia"`
 
+	// Indicates filtering for scored evaluation
+	HasScoredEvaluation bool `json:"hasScoredEvaluation"`
+
 	// The hold durations in milliseconds used to filter the view
 	HoldDurationsMilliseconds []*NumericRange `json:"holdDurationsMilliseconds"`
+
+	// Indicates filtering for agent owned callback interactions
+	IsAgentOwnedCallback bool `json:"isAgentOwnedCallback"`
 
 	// Indicates filtering for the authenticated chat
 	IsAuthenticated bool `json:"isAuthenticated"`
@@ -205,6 +253,9 @@ type ViewFilter struct {
 
 	// Indicates filtering for not responding users
 	IsNotResponding bool `json:"isNotResponding"`
+
+	// Indicates filtering for recorded
+	IsRecorded bool `json:"isRecorded"`
 
 	// Indicates filtering for survey
 	IsSurveyed bool `json:"isSurveyed"`
@@ -355,6 +406,30 @@ func (m *ViewFilter) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateBlockedReasons(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateBotMessageTypes(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateBotProductList(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateBotProviderList(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateBotRecognitionFailureReasonList(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateBotResultList(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateConversationProperties(formats); err != nil {
 		res = append(res, err)
 	}
@@ -384,6 +459,10 @@ func (m *ViewFilter) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateDurationsMilliseconds(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateEmailDeliveryStatusList(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -568,6 +647,228 @@ func (m *ViewFilter) validateAcwDurationsMilliseconds(formats strfmt.Registry) e
 	return nil
 }
 
+var viewFilterBlockedReasonsItemsEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["PageUrlConditionsNotMatching","AlreadyExistingOffer","TriggerDateInFuture","MultipleSimultaneousOffers","FrequencyCapping","OfferedOutsideSchedule","ServiceLevelThrottling","NoAvailableAgents"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		viewFilterBlockedReasonsItemsEnum = append(viewFilterBlockedReasonsItemsEnum, v)
+	}
+}
+
+func (m *ViewFilter) validateBlockedReasonsItemsEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, viewFilterBlockedReasonsItemsEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *ViewFilter) validateBlockedReasons(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.BlockedReasons) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.BlockedReasons); i++ {
+
+		// value enum
+		if err := m.validateBlockedReasonsItemsEnum("blockedReasons"+"."+strconv.Itoa(i), "body", m.BlockedReasons[i]); err != nil {
+			return err
+		}
+
+	}
+
+	return nil
+}
+
+var viewFilterBotMessageTypesItemsEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Unknown","Phone","SMS","GenesysChatWidget","FacebookMessenger","WeChat","Whatsapp","AppleBusinessChat","Telegram","Slack","Signal","Line","Discord","TwitterDirectMessage","Other"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		viewFilterBotMessageTypesItemsEnum = append(viewFilterBotMessageTypesItemsEnum, v)
+	}
+}
+
+func (m *ViewFilter) validateBotMessageTypesItemsEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, viewFilterBotMessageTypesItemsEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *ViewFilter) validateBotMessageTypes(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.BotMessageTypes) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.BotMessageTypes); i++ {
+
+		// value enum
+		if err := m.validateBotMessageTypesItemsEnum("botMessageTypes"+"."+strconv.Itoa(i), "body", m.BotMessageTypes[i]); err != nil {
+			return err
+		}
+
+	}
+
+	return nil
+}
+
+var viewFilterBotProductListItemsEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Unknown","GenesysDialogEngine","AmazonLex","GoogleDialogFlow","GoogleDialogFlowResell","GenesysBotFlow","NuanceDlg","GoogleDialogFlowCx","GenesysByob"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		viewFilterBotProductListItemsEnum = append(viewFilterBotProductListItemsEnum, v)
+	}
+}
+
+func (m *ViewFilter) validateBotProductListItemsEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, viewFilterBotProductListItemsEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *ViewFilter) validateBotProductList(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.BotProductList) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.BotProductList); i++ {
+
+		// value enum
+		if err := m.validateBotProductListItemsEnum("botProductList"+"."+strconv.Itoa(i), "body", m.BotProductList[i]); err != nil {
+			return err
+		}
+
+	}
+
+	return nil
+}
+
+var viewFilterBotProviderListItemsEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Unknown","Genesys","Amazon","Google","Nuance"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		viewFilterBotProviderListItemsEnum = append(viewFilterBotProviderListItemsEnum, v)
+	}
+}
+
+func (m *ViewFilter) validateBotProviderListItemsEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, viewFilterBotProviderListItemsEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *ViewFilter) validateBotProviderList(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.BotProviderList) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.BotProviderList); i++ {
+
+		// value enum
+		if err := m.validateBotProviderListItemsEnum("botProviderList"+"."+strconv.Itoa(i), "body", m.BotProviderList[i]); err != nil {
+			return err
+		}
+
+	}
+
+	return nil
+}
+
+var viewFilterBotRecognitionFailureReasonListItemsEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Unknown","NoInputCollection","NoInputConfirmation","NoMatchCollection","NoMatchConfirmation","MaxWrongMatch"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		viewFilterBotRecognitionFailureReasonListItemsEnum = append(viewFilterBotRecognitionFailureReasonListItemsEnum, v)
+	}
+}
+
+func (m *ViewFilter) validateBotRecognitionFailureReasonListItemsEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, viewFilterBotRecognitionFailureReasonListItemsEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *ViewFilter) validateBotRecognitionFailureReasonList(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.BotRecognitionFailureReasonList) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.BotRecognitionFailureReasonList); i++ {
+
+		// value enum
+		if err := m.validateBotRecognitionFailureReasonListItemsEnum("botRecognitionFailureReasonList"+"."+strconv.Itoa(i), "body", m.BotRecognitionFailureReasonList[i]); err != nil {
+			return err
+		}
+
+	}
+
+	return nil
+}
+
+var viewFilterBotResultListItemsEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Unknown","ExitRequestedByUser","ExitRequestedByBot","ExitError","ExitRecognitionFailure","DisconnectRequestedByUser","DisconnectRequestedByBot","DisconnectSessionExpired","DisconnectError","DisconnectRecognitionFailure"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		viewFilterBotResultListItemsEnum = append(viewFilterBotResultListItemsEnum, v)
+	}
+}
+
+func (m *ViewFilter) validateBotResultListItemsEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, viewFilterBotResultListItemsEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *ViewFilter) validateBotResultList(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.BotResultList) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.BotResultList); i++ {
+
+		// value enum
+		if err := m.validateBotResultListItemsEnum("botResultList"+"."+strconv.Itoa(i), "body", m.BotResultList[i]); err != nil {
+			return err
+		}
+
+	}
+
+	return nil
+}
+
 func (m *ViewFilter) validateConversationProperties(formats strfmt.Registry) error {
 
 	if swag.IsZero(m.ConversationProperties) { // not required
@@ -700,7 +1001,7 @@ var viewFilterDevelopmentTypeListItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Informational","Coaching"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Informational","Coaching","Assessment","AssessedContent"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -788,6 +1089,43 @@ func (m *ViewFilter) validateDurationsMilliseconds(formats strfmt.Registry) erro
 				}
 				return err
 			}
+		}
+
+	}
+
+	return nil
+}
+
+var viewFilterEmailDeliveryStatusListItemsEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["DeliveryFailed","DeliverySuccess","Failed","Queued","Read","Received","Sent"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		viewFilterEmailDeliveryStatusListItemsEnum = append(viewFilterEmailDeliveryStatusListItemsEnum, v)
+	}
+}
+
+func (m *ViewFilter) validateEmailDeliveryStatusListItemsEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, viewFilterEmailDeliveryStatusListItemsEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *ViewFilter) validateEmailDeliveryStatusList(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.EmailDeliveryStatusList) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.EmailDeliveryStatusList); i++ {
+
+		// value enum
+		if err := m.validateEmailDeliveryStatusListItemsEnum("emailDeliveryStatusList"+"."+strconv.Itoa(i), "body", m.EmailDeliveryStatusList[i]); err != nil {
+			return err
 		}
 
 	}
@@ -983,7 +1321,7 @@ var viewFilterFlowTypesItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["bot","commonmodule","inboundcall","inboundchat","inboundemail","inboundshortmessage","inqueuecall","inqueueshortmessage","inqueueemail","outboundcall","securecall","surveyinvite","workflow","workitem"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["bot","commonmodule","inboundcall","inboundchat","inboundemail","inboundshortmessage","inqueuecall","inqueueshortmessage","inqueueemail","outboundcall","securecall","surveyinvite","voicemail","workflow","workitem"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -1107,7 +1445,7 @@ var viewFilterMediaTypesItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["callback","chat","cobrowse","email","message","screenshare","video","voice"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["callback","chat","cobrowse","email","message","screenshare","unknown","video","voice"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {

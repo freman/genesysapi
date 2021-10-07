@@ -73,6 +73,16 @@ for the get speechandtextanalytics topics operation typically these are written 
 */
 type GetSpeechandtextanalyticsTopicsParams struct {
 
+	/*Ids
+	  Comma separated Topic IDs to filter by. Cannot be used with other filters. Maximum of 50 IDs allowed.
+
+	*/
+	Ids []string
+	/*Name
+	  Case insensitive partial name to filter by
+
+	*/
+	Name *string
 	/*NextPage
 	  The key for listing the next page
 
@@ -83,6 +93,21 @@ type GetSpeechandtextanalyticsTopicsParams struct {
 
 	*/
 	PageSize *int32
+	/*SortBy
+	  Sort results by. Defaults to name
+
+	*/
+	SortBy *string
+	/*SortOrder
+	  Sort order. Defaults to asc
+
+	*/
+	SortOrder *string
+	/*State
+	  Topic state. Defaults to latest
+
+	*/
+	State *string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -122,6 +147,28 @@ func (o *GetSpeechandtextanalyticsTopicsParams) SetHTTPClient(client *http.Clien
 	o.HTTPClient = client
 }
 
+// WithIds adds the ids to the get speechandtextanalytics topics params
+func (o *GetSpeechandtextanalyticsTopicsParams) WithIds(ids []string) *GetSpeechandtextanalyticsTopicsParams {
+	o.SetIds(ids)
+	return o
+}
+
+// SetIds adds the ids to the get speechandtextanalytics topics params
+func (o *GetSpeechandtextanalyticsTopicsParams) SetIds(ids []string) {
+	o.Ids = ids
+}
+
+// WithName adds the name to the get speechandtextanalytics topics params
+func (o *GetSpeechandtextanalyticsTopicsParams) WithName(name *string) *GetSpeechandtextanalyticsTopicsParams {
+	o.SetName(name)
+	return o
+}
+
+// SetName adds the name to the get speechandtextanalytics topics params
+func (o *GetSpeechandtextanalyticsTopicsParams) SetName(name *string) {
+	o.Name = name
+}
+
 // WithNextPage adds the nextPage to the get speechandtextanalytics topics params
 func (o *GetSpeechandtextanalyticsTopicsParams) WithNextPage(nextPage *string) *GetSpeechandtextanalyticsTopicsParams {
 	o.SetNextPage(nextPage)
@@ -144,6 +191,39 @@ func (o *GetSpeechandtextanalyticsTopicsParams) SetPageSize(pageSize *int32) {
 	o.PageSize = pageSize
 }
 
+// WithSortBy adds the sortBy to the get speechandtextanalytics topics params
+func (o *GetSpeechandtextanalyticsTopicsParams) WithSortBy(sortBy *string) *GetSpeechandtextanalyticsTopicsParams {
+	o.SetSortBy(sortBy)
+	return o
+}
+
+// SetSortBy adds the sortBy to the get speechandtextanalytics topics params
+func (o *GetSpeechandtextanalyticsTopicsParams) SetSortBy(sortBy *string) {
+	o.SortBy = sortBy
+}
+
+// WithSortOrder adds the sortOrder to the get speechandtextanalytics topics params
+func (o *GetSpeechandtextanalyticsTopicsParams) WithSortOrder(sortOrder *string) *GetSpeechandtextanalyticsTopicsParams {
+	o.SetSortOrder(sortOrder)
+	return o
+}
+
+// SetSortOrder adds the sortOrder to the get speechandtextanalytics topics params
+func (o *GetSpeechandtextanalyticsTopicsParams) SetSortOrder(sortOrder *string) {
+	o.SortOrder = sortOrder
+}
+
+// WithState adds the state to the get speechandtextanalytics topics params
+func (o *GetSpeechandtextanalyticsTopicsParams) WithState(state *string) *GetSpeechandtextanalyticsTopicsParams {
+	o.SetState(state)
+	return o
+}
+
+// SetState adds the state to the get speechandtextanalytics topics params
+func (o *GetSpeechandtextanalyticsTopicsParams) SetState(state *string) {
+	o.State = state
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *GetSpeechandtextanalyticsTopicsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -151,6 +231,30 @@ func (o *GetSpeechandtextanalyticsTopicsParams) WriteToRequest(r runtime.ClientR
 		return err
 	}
 	var res []error
+
+	valuesIds := o.Ids
+
+	joinedIds := swag.JoinByFormat(valuesIds, "multi")
+	// query array param ids
+	if err := r.SetQueryParam("ids", joinedIds...); err != nil {
+		return err
+	}
+
+	if o.Name != nil {
+
+		// query param name
+		var qrName string
+		if o.Name != nil {
+			qrName = *o.Name
+		}
+		qName := qrName
+		if qName != "" {
+			if err := r.SetQueryParam("name", qName); err != nil {
+				return err
+			}
+		}
+
+	}
 
 	if o.NextPage != nil {
 
@@ -178,6 +282,54 @@ func (o *GetSpeechandtextanalyticsTopicsParams) WriteToRequest(r runtime.ClientR
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	if o.SortBy != nil {
+
+		// query param sortBy
+		var qrSortBy string
+		if o.SortBy != nil {
+			qrSortBy = *o.SortBy
+		}
+		qSortBy := qrSortBy
+		if qSortBy != "" {
+			if err := r.SetQueryParam("sortBy", qSortBy); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	if o.SortOrder != nil {
+
+		// query param sortOrder
+		var qrSortOrder string
+		if o.SortOrder != nil {
+			qrSortOrder = *o.SortOrder
+		}
+		qSortOrder := qrSortOrder
+		if qSortOrder != "" {
+			if err := r.SetQueryParam("sortOrder", qSortOrder); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	if o.State != nil {
+
+		// query param state
+		var qrState string
+		if o.State != nil {
+			qrState = *o.State
+		}
+		qState := qrState
+		if qState != "" {
+			if err := r.SetQueryParam("state", qState); err != nil {
 				return err
 			}
 		}

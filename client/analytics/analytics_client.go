@@ -18,9 +18,41 @@ import (
 // API is the interface of the analytics client
 type API interface {
 	/*
+	   DeleteAnalyticsConversationsDetailsJob deletes cancel an async request
+	*/
+	DeleteAnalyticsConversationsDetailsJob(ctx context.Context, params *DeleteAnalyticsConversationsDetailsJobParams) (*DeleteAnalyticsConversationsDetailsJobNoContent, error)
+	/*
 	   DeleteAnalyticsReportingSchedule deletes a scheduled report job
 	*/
 	DeleteAnalyticsReportingSchedule(ctx context.Context, params *DeleteAnalyticsReportingScheduleParams) (*DeleteAnalyticsReportingScheduleOK, error)
+	/*
+	   DeleteAnalyticsUsersDetailsJob deletes cancel an async request
+	*/
+	DeleteAnalyticsUsersDetailsJob(ctx context.Context, params *DeleteAnalyticsUsersDetailsJobParams) (*DeleteAnalyticsUsersDetailsJobNoContent, error)
+	/*
+	   GetAnalyticsBotflowReportingturns gets reporting turns
+	*/
+	GetAnalyticsBotflowReportingturns(ctx context.Context, params *GetAnalyticsBotflowReportingturnsParams) (*GetAnalyticsBotflowReportingturnsOK, error)
+	/*
+	   GetAnalyticsConversationDetails gets a conversation by id
+	*/
+	GetAnalyticsConversationDetails(ctx context.Context, params *GetAnalyticsConversationDetailsParams) (*GetAnalyticsConversationDetailsOK, error)
+	/*
+	   GetAnalyticsConversationsDetails gets multiple conversations by id
+	*/
+	GetAnalyticsConversationsDetails(ctx context.Context, params *GetAnalyticsConversationsDetailsParams) (*GetAnalyticsConversationsDetailsOK, error)
+	/*
+	   GetAnalyticsConversationsDetailsJob gets status for async query for conversation details
+	*/
+	GetAnalyticsConversationsDetailsJob(ctx context.Context, params *GetAnalyticsConversationsDetailsJobParams) (*GetAnalyticsConversationsDetailsJobOK, *GetAnalyticsConversationsDetailsJobAccepted, error)
+	/*
+	   GetAnalyticsConversationsDetailsJobResults fetches a page of results for an async query
+	*/
+	GetAnalyticsConversationsDetailsJobResults(ctx context.Context, params *GetAnalyticsConversationsDetailsJobResultsParams) (*GetAnalyticsConversationsDetailsJobResultsOK, error)
+	/*
+	   GetAnalyticsConversationsDetailsJobsAvailability lookups the datalake availability date and time
+	*/
+	GetAnalyticsConversationsDetailsJobsAvailability(ctx context.Context, params *GetAnalyticsConversationsDetailsJobsAvailabilityParams) (*GetAnalyticsConversationsDetailsJobsAvailabilityOK, error)
 	/*
 	   GetAnalyticsReportingExports gets all view export requests for a user
 	*/
@@ -69,9 +101,61 @@ type API interface {
 	*/
 	GetAnalyticsReportingTimeperiods(ctx context.Context, params *GetAnalyticsReportingTimeperiodsParams) (*GetAnalyticsReportingTimeperiodsOK, error)
 	/*
+	   GetAnalyticsUsersDetailsJob gets status for async query for user details
+	*/
+	GetAnalyticsUsersDetailsJob(ctx context.Context, params *GetAnalyticsUsersDetailsJobParams) (*GetAnalyticsUsersDetailsJobOK, *GetAnalyticsUsersDetailsJobAccepted, error)
+	/*
+	   GetAnalyticsUsersDetailsJobResults fetches a page of results for an async query
+	*/
+	GetAnalyticsUsersDetailsJobResults(ctx context.Context, params *GetAnalyticsUsersDetailsJobResultsParams) (*GetAnalyticsUsersDetailsJobResultsOK, error)
+	/*
+	   GetAnalyticsUsersDetailsJobsAvailability lookups the datalake availability date and time
+	*/
+	GetAnalyticsUsersDetailsJobsAvailability(ctx context.Context, params *GetAnalyticsUsersDetailsJobsAvailabilityParams) (*GetAnalyticsUsersDetailsJobsAvailabilityOK, error)
+	/*
+	   PatchAnalyticsReportingSettings patches analytics reporting settings values for an organization
+	*/
+	PatchAnalyticsReportingSettings(ctx context.Context, params *PatchAnalyticsReportingSettingsParams) (*PatchAnalyticsReportingSettingsOK, error)
+	/*
 	   PostAnalyticsBotsAggregatesQuery queries for bot aggregates
 	*/
 	PostAnalyticsBotsAggregatesQuery(ctx context.Context, params *PostAnalyticsBotsAggregatesQueryParams) (*PostAnalyticsBotsAggregatesQueryOK, error)
+	/*
+	   PostAnalyticsConversationDetailsProperties indices conversation properties
+	*/
+	PostAnalyticsConversationDetailsProperties(ctx context.Context, params *PostAnalyticsConversationDetailsPropertiesParams) (*PostAnalyticsConversationDetailsPropertiesAccepted, error)
+	/*
+	   PostAnalyticsConversationsAggregatesQuery queries for conversation aggregates
+	*/
+	PostAnalyticsConversationsAggregatesQuery(ctx context.Context, params *PostAnalyticsConversationsAggregatesQueryParams) (*PostAnalyticsConversationsAggregatesQueryOK, error)
+	/*
+	   PostAnalyticsConversationsDetailsJobs queries for conversation details asynchronously
+	*/
+	PostAnalyticsConversationsDetailsJobs(ctx context.Context, params *PostAnalyticsConversationsDetailsJobsParams) (*PostAnalyticsConversationsDetailsJobsAccepted, error)
+	/*
+	   PostAnalyticsConversationsDetailsQuery queries for conversation details
+	*/
+	PostAnalyticsConversationsDetailsQuery(ctx context.Context, params *PostAnalyticsConversationsDetailsQueryParams) (*PostAnalyticsConversationsDetailsQueryOK, error)
+	/*
+	   PostAnalyticsEvaluationsAggregatesQuery queries for evaluation aggregates
+	*/
+	PostAnalyticsEvaluationsAggregatesQuery(ctx context.Context, params *PostAnalyticsEvaluationsAggregatesQueryParams) (*PostAnalyticsEvaluationsAggregatesQueryOK, error)
+	/*
+	   PostAnalyticsFlowsAggregatesQuery queries for flow aggregates
+	*/
+	PostAnalyticsFlowsAggregatesQuery(ctx context.Context, params *PostAnalyticsFlowsAggregatesQueryParams) (*PostAnalyticsFlowsAggregatesQueryOK, error)
+	/*
+	   PostAnalyticsFlowsObservationsQuery queries for flow observations
+	*/
+	PostAnalyticsFlowsObservationsQuery(ctx context.Context, params *PostAnalyticsFlowsObservationsQueryParams) (*PostAnalyticsFlowsObservationsQueryOK, error)
+	/*
+	   PostAnalyticsJourneysAggregatesQuery queries for journey aggregates
+	*/
+	PostAnalyticsJourneysAggregatesQuery(ctx context.Context, params *PostAnalyticsJourneysAggregatesQueryParams) (*PostAnalyticsJourneysAggregatesQueryOK, error)
+	/*
+	   PostAnalyticsQueuesObservationsQuery queries for queue observations
+	*/
+	PostAnalyticsQueuesObservationsQuery(ctx context.Context, params *PostAnalyticsQueuesObservationsQueryParams) (*PostAnalyticsQueuesObservationsQueryOK, error)
 	/*
 	   PostAnalyticsReportingExports generates a view export request
 	   This API creates a reporting export but the desired way to export analytics data is to use the analytics query APIs instead
@@ -87,9 +171,29 @@ type API interface {
 	*/
 	PostAnalyticsReportingSchedules(ctx context.Context, params *PostAnalyticsReportingSchedulesParams) (*PostAnalyticsReportingSchedulesOK, error)
 	/*
+	   PostAnalyticsSurveysAggregatesQuery queries for survey aggregates
+	*/
+	PostAnalyticsSurveysAggregatesQuery(ctx context.Context, params *PostAnalyticsSurveysAggregatesQueryParams) (*PostAnalyticsSurveysAggregatesQueryOK, error)
+	/*
 	   PostAnalyticsTranscriptsAggregatesQuery queries for transcript aggregates
 	*/
 	PostAnalyticsTranscriptsAggregatesQuery(ctx context.Context, params *PostAnalyticsTranscriptsAggregatesQueryParams) (*PostAnalyticsTranscriptsAggregatesQueryOK, error)
+	/*
+	   PostAnalyticsUsersAggregatesQuery queries for user aggregates
+	*/
+	PostAnalyticsUsersAggregatesQuery(ctx context.Context, params *PostAnalyticsUsersAggregatesQueryParams) (*PostAnalyticsUsersAggregatesQueryOK, error)
+	/*
+	   PostAnalyticsUsersDetailsJobs queries for user details asynchronously
+	*/
+	PostAnalyticsUsersDetailsJobs(ctx context.Context, params *PostAnalyticsUsersDetailsJobsParams) (*PostAnalyticsUsersDetailsJobsAccepted, error)
+	/*
+	   PostAnalyticsUsersDetailsQuery queries for user details
+	*/
+	PostAnalyticsUsersDetailsQuery(ctx context.Context, params *PostAnalyticsUsersDetailsQueryParams) (*PostAnalyticsUsersDetailsQueryOK, error)
+	/*
+	   PostAnalyticsUsersObservationsQuery queries for user observations
+	*/
+	PostAnalyticsUsersObservationsQuery(ctx context.Context, params *PostAnalyticsUsersObservationsQueryParams) (*PostAnalyticsUsersObservationsQueryOK, error)
 	/*
 	   PutAnalyticsReportingSchedule updates a scheduled report job
 	*/
@@ -115,6 +219,31 @@ type Client struct {
 }
 
 /*
+DeleteAnalyticsConversationsDetailsJob deletes cancel an async request
+*/
+func (a *Client) DeleteAnalyticsConversationsDetailsJob(ctx context.Context, params *DeleteAnalyticsConversationsDetailsJobParams) (*DeleteAnalyticsConversationsDetailsJobNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteAnalyticsConversationsDetailsJob",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/analytics/conversations/details/jobs/{jobId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteAnalyticsConversationsDetailsJobReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteAnalyticsConversationsDetailsJobNoContent), nil
+
+}
+
+/*
 DeleteAnalyticsReportingSchedule deletes a scheduled report job
 */
 func (a *Client) DeleteAnalyticsReportingSchedule(ctx context.Context, params *DeleteAnalyticsReportingScheduleParams) (*DeleteAnalyticsReportingScheduleOK, error) {
@@ -136,6 +265,187 @@ func (a *Client) DeleteAnalyticsReportingSchedule(ctx context.Context, params *D
 		return nil, err
 	}
 	return result.(*DeleteAnalyticsReportingScheduleOK), nil
+
+}
+
+/*
+DeleteAnalyticsUsersDetailsJob deletes cancel an async request
+*/
+func (a *Client) DeleteAnalyticsUsersDetailsJob(ctx context.Context, params *DeleteAnalyticsUsersDetailsJobParams) (*DeleteAnalyticsUsersDetailsJobNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteAnalyticsUsersDetailsJob",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/analytics/users/details/jobs/{jobId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteAnalyticsUsersDetailsJobReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteAnalyticsUsersDetailsJobNoContent), nil
+
+}
+
+/*
+GetAnalyticsBotflowReportingturns gets reporting turns
+*/
+func (a *Client) GetAnalyticsBotflowReportingturns(ctx context.Context, params *GetAnalyticsBotflowReportingturnsParams) (*GetAnalyticsBotflowReportingturnsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getAnalyticsBotflowReportingturns",
+		Method:             "GET",
+		PathPattern:        "/api/v2/analytics/botflows/{botFlowId}/reportingturns",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetAnalyticsBotflowReportingturnsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetAnalyticsBotflowReportingturnsOK), nil
+
+}
+
+/*
+GetAnalyticsConversationDetails gets a conversation by id
+*/
+func (a *Client) GetAnalyticsConversationDetails(ctx context.Context, params *GetAnalyticsConversationDetailsParams) (*GetAnalyticsConversationDetailsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getAnalyticsConversationDetails",
+		Method:             "GET",
+		PathPattern:        "/api/v2/analytics/conversations/{conversationId}/details",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetAnalyticsConversationDetailsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetAnalyticsConversationDetailsOK), nil
+
+}
+
+/*
+GetAnalyticsConversationsDetails gets multiple conversations by id
+*/
+func (a *Client) GetAnalyticsConversationsDetails(ctx context.Context, params *GetAnalyticsConversationsDetailsParams) (*GetAnalyticsConversationsDetailsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getAnalyticsConversationsDetails",
+		Method:             "GET",
+		PathPattern:        "/api/v2/analytics/conversations/details",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetAnalyticsConversationsDetailsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetAnalyticsConversationsDetailsOK), nil
+
+}
+
+/*
+GetAnalyticsConversationsDetailsJob gets status for async query for conversation details
+*/
+func (a *Client) GetAnalyticsConversationsDetailsJob(ctx context.Context, params *GetAnalyticsConversationsDetailsJobParams) (*GetAnalyticsConversationsDetailsJobOK, *GetAnalyticsConversationsDetailsJobAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getAnalyticsConversationsDetailsJob",
+		Method:             "GET",
+		PathPattern:        "/api/v2/analytics/conversations/details/jobs/{jobId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetAnalyticsConversationsDetailsJobReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *GetAnalyticsConversationsDetailsJobOK:
+		return value, nil, nil
+	case *GetAnalyticsConversationsDetailsJobAccepted:
+		return nil, value, nil
+	}
+	return nil, nil, nil
+
+}
+
+/*
+GetAnalyticsConversationsDetailsJobResults fetches a page of results for an async query
+*/
+func (a *Client) GetAnalyticsConversationsDetailsJobResults(ctx context.Context, params *GetAnalyticsConversationsDetailsJobResultsParams) (*GetAnalyticsConversationsDetailsJobResultsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getAnalyticsConversationsDetailsJobResults",
+		Method:             "GET",
+		PathPattern:        "/api/v2/analytics/conversations/details/jobs/{jobId}/results",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetAnalyticsConversationsDetailsJobResultsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetAnalyticsConversationsDetailsJobResultsOK), nil
+
+}
+
+/*
+GetAnalyticsConversationsDetailsJobsAvailability lookups the datalake availability date and time
+*/
+func (a *Client) GetAnalyticsConversationsDetailsJobsAvailability(ctx context.Context, params *GetAnalyticsConversationsDetailsJobsAvailabilityParams) (*GetAnalyticsConversationsDetailsJobsAvailabilityOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getAnalyticsConversationsDetailsJobsAvailability",
+		Method:             "GET",
+		PathPattern:        "/api/v2/analytics/conversations/details/jobs/availability",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetAnalyticsConversationsDetailsJobsAvailabilityReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetAnalyticsConversationsDetailsJobsAvailabilityOK), nil
 
 }
 
@@ -421,6 +731,112 @@ func (a *Client) GetAnalyticsReportingTimeperiods(ctx context.Context, params *G
 }
 
 /*
+GetAnalyticsUsersDetailsJob gets status for async query for user details
+*/
+func (a *Client) GetAnalyticsUsersDetailsJob(ctx context.Context, params *GetAnalyticsUsersDetailsJobParams) (*GetAnalyticsUsersDetailsJobOK, *GetAnalyticsUsersDetailsJobAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getAnalyticsUsersDetailsJob",
+		Method:             "GET",
+		PathPattern:        "/api/v2/analytics/users/details/jobs/{jobId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetAnalyticsUsersDetailsJobReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *GetAnalyticsUsersDetailsJobOK:
+		return value, nil, nil
+	case *GetAnalyticsUsersDetailsJobAccepted:
+		return nil, value, nil
+	}
+	return nil, nil, nil
+
+}
+
+/*
+GetAnalyticsUsersDetailsJobResults fetches a page of results for an async query
+*/
+func (a *Client) GetAnalyticsUsersDetailsJobResults(ctx context.Context, params *GetAnalyticsUsersDetailsJobResultsParams) (*GetAnalyticsUsersDetailsJobResultsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getAnalyticsUsersDetailsJobResults",
+		Method:             "GET",
+		PathPattern:        "/api/v2/analytics/users/details/jobs/{jobId}/results",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetAnalyticsUsersDetailsJobResultsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetAnalyticsUsersDetailsJobResultsOK), nil
+
+}
+
+/*
+GetAnalyticsUsersDetailsJobsAvailability lookups the datalake availability date and time
+*/
+func (a *Client) GetAnalyticsUsersDetailsJobsAvailability(ctx context.Context, params *GetAnalyticsUsersDetailsJobsAvailabilityParams) (*GetAnalyticsUsersDetailsJobsAvailabilityOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getAnalyticsUsersDetailsJobsAvailability",
+		Method:             "GET",
+		PathPattern:        "/api/v2/analytics/users/details/jobs/availability",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetAnalyticsUsersDetailsJobsAvailabilityReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetAnalyticsUsersDetailsJobsAvailabilityOK), nil
+
+}
+
+/*
+PatchAnalyticsReportingSettings patches analytics reporting settings values for an organization
+*/
+func (a *Client) PatchAnalyticsReportingSettings(ctx context.Context, params *PatchAnalyticsReportingSettingsParams) (*PatchAnalyticsReportingSettingsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "patchAnalyticsReportingSettings",
+		Method:             "PATCH",
+		PathPattern:        "/api/v2/analytics/reporting/settings",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchAnalyticsReportingSettingsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PatchAnalyticsReportingSettingsOK), nil
+
+}
+
+/*
 PostAnalyticsBotsAggregatesQuery queries for bot aggregates
 */
 func (a *Client) PostAnalyticsBotsAggregatesQuery(ctx context.Context, params *PostAnalyticsBotsAggregatesQueryParams) (*PostAnalyticsBotsAggregatesQueryOK, error) {
@@ -442,6 +858,231 @@ func (a *Client) PostAnalyticsBotsAggregatesQuery(ctx context.Context, params *P
 		return nil, err
 	}
 	return result.(*PostAnalyticsBotsAggregatesQueryOK), nil
+
+}
+
+/*
+PostAnalyticsConversationDetailsProperties indices conversation properties
+*/
+func (a *Client) PostAnalyticsConversationDetailsProperties(ctx context.Context, params *PostAnalyticsConversationDetailsPropertiesParams) (*PostAnalyticsConversationDetailsPropertiesAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postAnalyticsConversationDetailsProperties",
+		Method:             "POST",
+		PathPattern:        "/api/v2/analytics/conversations/{conversationId}/details/properties",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostAnalyticsConversationDetailsPropertiesReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostAnalyticsConversationDetailsPropertiesAccepted), nil
+
+}
+
+/*
+PostAnalyticsConversationsAggregatesQuery queries for conversation aggregates
+*/
+func (a *Client) PostAnalyticsConversationsAggregatesQuery(ctx context.Context, params *PostAnalyticsConversationsAggregatesQueryParams) (*PostAnalyticsConversationsAggregatesQueryOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postAnalyticsConversationsAggregatesQuery",
+		Method:             "POST",
+		PathPattern:        "/api/v2/analytics/conversations/aggregates/query",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostAnalyticsConversationsAggregatesQueryReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostAnalyticsConversationsAggregatesQueryOK), nil
+
+}
+
+/*
+PostAnalyticsConversationsDetailsJobs queries for conversation details asynchronously
+*/
+func (a *Client) PostAnalyticsConversationsDetailsJobs(ctx context.Context, params *PostAnalyticsConversationsDetailsJobsParams) (*PostAnalyticsConversationsDetailsJobsAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postAnalyticsConversationsDetailsJobs",
+		Method:             "POST",
+		PathPattern:        "/api/v2/analytics/conversations/details/jobs",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostAnalyticsConversationsDetailsJobsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostAnalyticsConversationsDetailsJobsAccepted), nil
+
+}
+
+/*
+PostAnalyticsConversationsDetailsQuery queries for conversation details
+*/
+func (a *Client) PostAnalyticsConversationsDetailsQuery(ctx context.Context, params *PostAnalyticsConversationsDetailsQueryParams) (*PostAnalyticsConversationsDetailsQueryOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postAnalyticsConversationsDetailsQuery",
+		Method:             "POST",
+		PathPattern:        "/api/v2/analytics/conversations/details/query",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostAnalyticsConversationsDetailsQueryReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostAnalyticsConversationsDetailsQueryOK), nil
+
+}
+
+/*
+PostAnalyticsEvaluationsAggregatesQuery queries for evaluation aggregates
+*/
+func (a *Client) PostAnalyticsEvaluationsAggregatesQuery(ctx context.Context, params *PostAnalyticsEvaluationsAggregatesQueryParams) (*PostAnalyticsEvaluationsAggregatesQueryOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postAnalyticsEvaluationsAggregatesQuery",
+		Method:             "POST",
+		PathPattern:        "/api/v2/analytics/evaluations/aggregates/query",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostAnalyticsEvaluationsAggregatesQueryReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostAnalyticsEvaluationsAggregatesQueryOK), nil
+
+}
+
+/*
+PostAnalyticsFlowsAggregatesQuery queries for flow aggregates
+*/
+func (a *Client) PostAnalyticsFlowsAggregatesQuery(ctx context.Context, params *PostAnalyticsFlowsAggregatesQueryParams) (*PostAnalyticsFlowsAggregatesQueryOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postAnalyticsFlowsAggregatesQuery",
+		Method:             "POST",
+		PathPattern:        "/api/v2/analytics/flows/aggregates/query",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostAnalyticsFlowsAggregatesQueryReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostAnalyticsFlowsAggregatesQueryOK), nil
+
+}
+
+/*
+PostAnalyticsFlowsObservationsQuery queries for flow observations
+*/
+func (a *Client) PostAnalyticsFlowsObservationsQuery(ctx context.Context, params *PostAnalyticsFlowsObservationsQueryParams) (*PostAnalyticsFlowsObservationsQueryOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postAnalyticsFlowsObservationsQuery",
+		Method:             "POST",
+		PathPattern:        "/api/v2/analytics/flows/observations/query",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostAnalyticsFlowsObservationsQueryReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostAnalyticsFlowsObservationsQueryOK), nil
+
+}
+
+/*
+PostAnalyticsJourneysAggregatesQuery queries for journey aggregates
+*/
+func (a *Client) PostAnalyticsJourneysAggregatesQuery(ctx context.Context, params *PostAnalyticsJourneysAggregatesQueryParams) (*PostAnalyticsJourneysAggregatesQueryOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postAnalyticsJourneysAggregatesQuery",
+		Method:             "POST",
+		PathPattern:        "/api/v2/analytics/journeys/aggregates/query",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostAnalyticsJourneysAggregatesQueryReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostAnalyticsJourneysAggregatesQueryOK), nil
+
+}
+
+/*
+PostAnalyticsQueuesObservationsQuery queries for queue observations
+*/
+func (a *Client) PostAnalyticsQueuesObservationsQuery(ctx context.Context, params *PostAnalyticsQueuesObservationsQueryParams) (*PostAnalyticsQueuesObservationsQueryOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postAnalyticsQueuesObservationsQuery",
+		Method:             "POST",
+		PathPattern:        "/api/v2/analytics/queues/observations/query",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostAnalyticsQueuesObservationsQueryReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostAnalyticsQueuesObservationsQueryOK), nil
 
 }
 
@@ -525,6 +1166,31 @@ func (a *Client) PostAnalyticsReportingSchedules(ctx context.Context, params *Po
 }
 
 /*
+PostAnalyticsSurveysAggregatesQuery queries for survey aggregates
+*/
+func (a *Client) PostAnalyticsSurveysAggregatesQuery(ctx context.Context, params *PostAnalyticsSurveysAggregatesQueryParams) (*PostAnalyticsSurveysAggregatesQueryOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postAnalyticsSurveysAggregatesQuery",
+		Method:             "POST",
+		PathPattern:        "/api/v2/analytics/surveys/aggregates/query",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostAnalyticsSurveysAggregatesQueryReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostAnalyticsSurveysAggregatesQueryOK), nil
+
+}
+
+/*
 PostAnalyticsTranscriptsAggregatesQuery queries for transcript aggregates
 */
 func (a *Client) PostAnalyticsTranscriptsAggregatesQuery(ctx context.Context, params *PostAnalyticsTranscriptsAggregatesQueryParams) (*PostAnalyticsTranscriptsAggregatesQueryOK, error) {
@@ -546,6 +1212,106 @@ func (a *Client) PostAnalyticsTranscriptsAggregatesQuery(ctx context.Context, pa
 		return nil, err
 	}
 	return result.(*PostAnalyticsTranscriptsAggregatesQueryOK), nil
+
+}
+
+/*
+PostAnalyticsUsersAggregatesQuery queries for user aggregates
+*/
+func (a *Client) PostAnalyticsUsersAggregatesQuery(ctx context.Context, params *PostAnalyticsUsersAggregatesQueryParams) (*PostAnalyticsUsersAggregatesQueryOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postAnalyticsUsersAggregatesQuery",
+		Method:             "POST",
+		PathPattern:        "/api/v2/analytics/users/aggregates/query",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostAnalyticsUsersAggregatesQueryReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostAnalyticsUsersAggregatesQueryOK), nil
+
+}
+
+/*
+PostAnalyticsUsersDetailsJobs queries for user details asynchronously
+*/
+func (a *Client) PostAnalyticsUsersDetailsJobs(ctx context.Context, params *PostAnalyticsUsersDetailsJobsParams) (*PostAnalyticsUsersDetailsJobsAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postAnalyticsUsersDetailsJobs",
+		Method:             "POST",
+		PathPattern:        "/api/v2/analytics/users/details/jobs",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostAnalyticsUsersDetailsJobsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostAnalyticsUsersDetailsJobsAccepted), nil
+
+}
+
+/*
+PostAnalyticsUsersDetailsQuery queries for user details
+*/
+func (a *Client) PostAnalyticsUsersDetailsQuery(ctx context.Context, params *PostAnalyticsUsersDetailsQueryParams) (*PostAnalyticsUsersDetailsQueryOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postAnalyticsUsersDetailsQuery",
+		Method:             "POST",
+		PathPattern:        "/api/v2/analytics/users/details/query",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostAnalyticsUsersDetailsQueryReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostAnalyticsUsersDetailsQueryOK), nil
+
+}
+
+/*
+PostAnalyticsUsersObservationsQuery queries for user observations
+*/
+func (a *Client) PostAnalyticsUsersObservationsQuery(ctx context.Context, params *PostAnalyticsUsersObservationsQueryParams) (*PostAnalyticsUsersObservationsQueryOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postAnalyticsUsersObservationsQuery",
+		Method:             "POST",
+		PathPattern:        "/api/v2/analytics/users/observations/query",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostAnalyticsUsersObservationsQueryReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostAnalyticsUsersObservationsQueryOK), nil
 
 }
 

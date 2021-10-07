@@ -20,7 +20,7 @@ import (
 type ConversationReason struct {
 
 	// The reason code for the failed message receipt.
-	// Enum: [MessageExpired RateLimited MessageNotAllowed GeneralError UnsupportedMessage UnknownMessage InvalidMessageStructure InvalidDestination ServerError MediaTypeNotAllowed InvalidMediaContentLength]
+	// Enum: [MessageExpired RateLimited MessageNotAllowed GeneralError UnsupportedMessage UnknownMessage InvalidMessageStructure InvalidDestination ServerError MediaTypeNotAllowed InvalidMediaContentLength RecipientOptedOut]
 	Code string `json:"code,omitempty"`
 
 	// Description of the reason for the failed message receipt.
@@ -50,7 +50,7 @@ var conversationReasonTypeCodePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["MessageExpired","RateLimited","MessageNotAllowed","GeneralError","UnsupportedMessage","UnknownMessage","InvalidMessageStructure","InvalidDestination","ServerError","MediaTypeNotAllowed","InvalidMediaContentLength"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["MessageExpired","RateLimited","MessageNotAllowed","GeneralError","UnsupportedMessage","UnknownMessage","InvalidMessageStructure","InvalidDestination","ServerError","MediaTypeNotAllowed","InvalidMediaContentLength","RecipientOptedOut"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -92,6 +92,9 @@ const (
 
 	// ConversationReasonCodeInvalidMediaContentLength captures enum value "InvalidMediaContentLength"
 	ConversationReasonCodeInvalidMediaContentLength string = "InvalidMediaContentLength"
+
+	// ConversationReasonCodeRecipientOptedOut captures enum value "RecipientOptedOut"
+	ConversationReasonCodeRecipientOptedOut string = "RecipientOptedOut"
 )
 
 // prop value enum

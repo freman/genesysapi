@@ -21,10 +21,10 @@ type LearningAssignmentAggregateQueryRequestPredicate struct {
 
 	// Each predicates specifies a dimension.
 	// Required: true
-	// Enum: [attendeeId type moduleId]
+	// Enum: [attendeeId type moduleId isPassed]
 	Dimension *string `json:"dimension"`
 
-	// Corresponding value for dimensions in predicates. If the dimensions is type, Valid Values: Informational, AssessedContent, Questionnaire
+	// Corresponding value for dimensions in predicates. If the dimension is type, Valid Values: Informational, AssessedContent, Assessment
 	// Required: true
 	Value *string `json:"value"`
 }
@@ -51,7 +51,7 @@ var learningAssignmentAggregateQueryRequestPredicateTypeDimensionPropEnum []inte
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["attendeeId","type","moduleId"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["attendeeId","type","moduleId","isPassed"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -69,6 +69,9 @@ const (
 
 	// LearningAssignmentAggregateQueryRequestPredicateDimensionModuleID captures enum value "moduleId"
 	LearningAssignmentAggregateQueryRequestPredicateDimensionModuleID string = "moduleId"
+
+	// LearningAssignmentAggregateQueryRequestPredicateDimensionIsPassed captures enum value "isPassed"
+	LearningAssignmentAggregateQueryRequestPredicateDimensionIsPassed string = "isPassed"
 )
 
 // prop value enum

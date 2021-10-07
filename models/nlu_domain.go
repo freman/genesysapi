@@ -31,6 +31,9 @@ type NluDomain struct {
 	// Read Only: true
 	DraftVersion *NluDomainVersion `json:"draftVersion,omitempty"`
 
+	// The version of the NLU engine to use.
+	EngineVersion string `json:"engineVersion,omitempty"`
+
 	// The globally unique identifier for the object.
 	// Read Only: true
 	ID string `json:"id,omitempty"`

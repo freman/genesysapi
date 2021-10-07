@@ -66,7 +66,7 @@ type PatchRoutingConversationParams struct {
 	  Conversation Attributes
 
 	*/
-	Body *models.RoutingConversationAttributes
+	Body *models.RoutingConversationAttributesRequest
 	/*ConversationID
 	  Conversation ID
 
@@ -112,13 +112,13 @@ func (o *PatchRoutingConversationParams) SetHTTPClient(client *http.Client) {
 }
 
 // WithBody adds the body to the patch routing conversation params
-func (o *PatchRoutingConversationParams) WithBody(body *models.RoutingConversationAttributes) *PatchRoutingConversationParams {
+func (o *PatchRoutingConversationParams) WithBody(body *models.RoutingConversationAttributesRequest) *PatchRoutingConversationParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the patch routing conversation params
-func (o *PatchRoutingConversationParams) SetBody(body *models.RoutingConversationAttributes) {
+func (o *PatchRoutingConversationParams) SetBody(body *models.RoutingConversationAttributesRequest) {
 	o.Body = body
 }
 

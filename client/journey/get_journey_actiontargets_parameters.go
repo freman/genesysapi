@@ -87,7 +87,7 @@ type GetJourneyActiontargetsParams struct {
 	*/
 	PageNumber *int32
 	/*PageSize
-	  Page size. The max that will be returned is 100.
+	  Page size
 
 	*/
 	PageSize *int32

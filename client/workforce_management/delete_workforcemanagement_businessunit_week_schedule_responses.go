@@ -147,7 +147,7 @@ func NewDeleteWorkforcemanagementBusinessunitWeekScheduleAccepted() *DeleteWorkf
 
 /*DeleteWorkforcemanagementBusinessunitWeekScheduleAccepted handles this case with default header values.
 
-The schedule is being deleted
+The schedule is being deleted and updates will be sent by notification
 */
 type DeleteWorkforcemanagementBusinessunitWeekScheduleAccepted struct {
 }

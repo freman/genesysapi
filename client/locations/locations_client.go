@@ -34,6 +34,10 @@ type API interface {
 	*/
 	GetLocations(ctx context.Context, params *GetLocationsParams) (*GetLocationsOK, error)
 	/*
+	   GetLocationsSearch searches locations using the q64 value returned from a previous search
+	*/
+	GetLocationsSearch(ctx context.Context, params *GetLocationsSearchParams) (*GetLocationsSearchOK, error)
+	/*
 	   PatchLocation updates a location
 	*/
 	PatchLocation(ctx context.Context, params *PatchLocationParams) (*PatchLocationOK, error)
@@ -41,6 +45,10 @@ type API interface {
 	   PostLocations creates a location
 	*/
 	PostLocations(ctx context.Context, params *PostLocationsParams) (*PostLocationsOK, error)
+	/*
+	   PostLocationsSearch searches locations
+	*/
+	PostLocationsSearch(ctx context.Context, params *PostLocationsSearchParams) (*PostLocationsSearchOK, error)
 }
 
 // New creates a new locations API client.
@@ -162,6 +170,31 @@ func (a *Client) GetLocations(ctx context.Context, params *GetLocationsParams) (
 }
 
 /*
+GetLocationsSearch searches locations using the q64 value returned from a previous search
+*/
+func (a *Client) GetLocationsSearch(ctx context.Context, params *GetLocationsSearchParams) (*GetLocationsSearchOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getLocationsSearch",
+		Method:             "GET",
+		PathPattern:        "/api/v2/locations/search",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetLocationsSearchReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetLocationsSearchOK), nil
+
+}
+
+/*
 PatchLocation updates a location
 */
 func (a *Client) PatchLocation(ctx context.Context, params *PatchLocationParams) (*PatchLocationOK, error) {
@@ -208,5 +241,30 @@ func (a *Client) PostLocations(ctx context.Context, params *PostLocationsParams)
 		return nil, err
 	}
 	return result.(*PostLocationsOK), nil
+
+}
+
+/*
+PostLocationsSearch searches locations
+*/
+func (a *Client) PostLocationsSearch(ctx context.Context, params *PostLocationsSearchParams) (*PostLocationsSearchOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postLocationsSearch",
+		Method:             "POST",
+		PathPattern:        "/api/v2/locations/search",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostLocationsSearchReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostLocationsSearchOK), nil
 
 }

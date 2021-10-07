@@ -47,6 +47,7 @@ type API interface {
 	DeleteTelephonyProvidersEdgesExtensionpool(ctx context.Context, params *DeleteTelephonyProvidersEdgesExtensionpoolParams) (*DeleteTelephonyProvidersEdgesExtensionpoolOK, error)
 	/*
 	   DeleteTelephonyProvidersEdgesOutboundroute deletes outbound route
+	   This route is deprecated, use /telephony/providers/edges/sites/{siteId}/outboundroutes/{outboundRouteId} instead.
 	*/
 	DeleteTelephonyProvidersEdgesOutboundroute(ctx context.Context, params *DeleteTelephonyProvidersEdgesOutboundrouteParams) (*DeleteTelephonyProvidersEdgesOutboundrouteOK, error)
 	/*
@@ -260,6 +261,7 @@ type API interface {
 	GetTelephonyProvidersEdgesMetrics(ctx context.Context, params *GetTelephonyProvidersEdgesMetricsParams) (*GetTelephonyProvidersEdgesMetricsOK, error)
 	/*
 	   GetTelephonyProvidersEdgesOutboundroute gets outbound route
+	   This route is deprecated, use /telephony/providers/edges/sites/{siteId}/outboundroutes/{outboundRouteId} instead.
 	*/
 	GetTelephonyProvidersEdgesOutboundroute(ctx context.Context, params *GetTelephonyProvidersEdgesOutboundrouteParams) (*GetTelephonyProvidersEdgesOutboundrouteOK, error)
 	/*
@@ -371,10 +373,6 @@ type API interface {
 	*/
 	GetTelephonyProvidersEdgesTrunkswithrecording(ctx context.Context, params *GetTelephonyProvidersEdgesTrunkswithrecordingParams) (*GetTelephonyProvidersEdgesTrunkswithrecordingOK, error)
 	/*
-	   PatchTelephonyProvidersEdgesAutoscalinggroupCapacity scales the a s g to match the desired capacity
-	*/
-	PatchTelephonyProvidersEdgesAutoscalinggroupCapacity(ctx context.Context, params *PatchTelephonyProvidersEdgesAutoscalinggroupCapacityParams) (*PatchTelephonyProvidersEdgesAutoscalinggroupCapacityOK, error)
-	/*
 	   PostTelephonyProvidersEdgeDiagnosticNslookup nslookups request command to collect networking related information from an edge for a target IP or host
 	*/
 	PostTelephonyProvidersEdgeDiagnosticNslookup(ctx context.Context, params *PostTelephonyProvidersEdgeDiagnosticNslookupParams) (*PostTelephonyProvidersEdgeDiagnosticNslookupAccepted, error)
@@ -445,6 +443,7 @@ type API interface {
 	PostTelephonyProvidersEdgesExtensionpools(ctx context.Context, params *PostTelephonyProvidersEdgesExtensionpoolsParams) (*PostTelephonyProvidersEdgesExtensionpoolsOK, error)
 	/*
 	   PostTelephonyProvidersEdgesOutboundroutes creates outbound rule
+	   This route is deprecated, use /telephony/providers/edges/sites/{siteId}/outboundroutes instead.
 	*/
 	PostTelephonyProvidersEdgesOutboundroutes(ctx context.Context, params *PostTelephonyProvidersEdgesOutboundroutesParams) (*PostTelephonyProvidersEdgesOutboundroutesOK, error)
 	/*
@@ -521,6 +520,7 @@ type API interface {
 	PutTelephonyProvidersEdgesExtensionpool(ctx context.Context, params *PutTelephonyProvidersEdgesExtensionpoolParams) (*PutTelephonyProvidersEdgesExtensionpoolOK, error)
 	/*
 	   PutTelephonyProvidersEdgesOutboundroute updates outbound route
+	   This route is deprecated, use /telephony/providers/edges/sites/{siteId}/outboundroutes/{outboundRouteId} instead.
 	*/
 	PutTelephonyProvidersEdgesOutboundroute(ctx context.Context, params *PutTelephonyProvidersEdgesOutboundrouteParams) (*PutTelephonyProvidersEdgesOutboundrouteOK, error)
 	/*
@@ -744,6 +744,8 @@ func (a *Client) DeleteTelephonyProvidersEdgesExtensionpool(ctx context.Context,
 
 /*
 DeleteTelephonyProvidersEdgesOutboundroute deletes outbound route
+
+This route is deprecated, use /telephony/providers/edges/sites/{siteId}/outboundroutes/{outboundRouteId} instead.
 */
 func (a *Client) DeleteTelephonyProvidersEdgesOutboundroute(ctx context.Context, params *DeleteTelephonyProvidersEdgesOutboundrouteParams) (*DeleteTelephonyProvidersEdgesOutboundrouteOK, error) {
 
@@ -2060,6 +2062,8 @@ func (a *Client) GetTelephonyProvidersEdgesMetrics(ctx context.Context, params *
 
 /*
 GetTelephonyProvidersEdgesOutboundroute gets outbound route
+
+This route is deprecated, use /telephony/providers/edges/sites/{siteId}/outboundroutes/{outboundRouteId} instead.
 */
 func (a *Client) GetTelephonyProvidersEdgesOutboundroute(ctx context.Context, params *GetTelephonyProvidersEdgesOutboundrouteParams) (*GetTelephonyProvidersEdgesOutboundrouteOK, error) {
 
@@ -2742,31 +2746,6 @@ func (a *Client) GetTelephonyProvidersEdgesTrunkswithrecording(ctx context.Conte
 }
 
 /*
-PatchTelephonyProvidersEdgesAutoscalinggroupCapacity scales the a s g to match the desired capacity
-*/
-func (a *Client) PatchTelephonyProvidersEdgesAutoscalinggroupCapacity(ctx context.Context, params *PatchTelephonyProvidersEdgesAutoscalinggroupCapacityParams) (*PatchTelephonyProvidersEdgesAutoscalinggroupCapacityOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "patchTelephonyProvidersEdgesAutoscalinggroupCapacity",
-		Method:             "PATCH",
-		PathPattern:        "/api/v2/telephony/providers/edges/autoscalinggroups/{asgId}/capacity",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PatchTelephonyProvidersEdgesAutoscalinggroupCapacityReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*PatchTelephonyProvidersEdgesAutoscalinggroupCapacityOK), nil
-
-}
-
-/*
 PostTelephonyProvidersEdgeDiagnosticNslookup nslookups request command to collect networking related information from an edge for a target IP or host
 */
 func (a *Client) PostTelephonyProvidersEdgeDiagnosticNslookup(ctx context.Context, params *PostTelephonyProvidersEdgeDiagnosticNslookupParams) (*PostTelephonyProvidersEdgeDiagnosticNslookupAccepted, error) {
@@ -3195,6 +3174,8 @@ func (a *Client) PostTelephonyProvidersEdgesExtensionpools(ctx context.Context, 
 
 /*
 PostTelephonyProvidersEdgesOutboundroutes creates outbound rule
+
+This route is deprecated, use /telephony/providers/edges/sites/{siteId}/outboundroutes instead.
 */
 func (a *Client) PostTelephonyProvidersEdgesOutboundroutes(ctx context.Context, params *PostTelephonyProvidersEdgesOutboundroutesParams) (*PostTelephonyProvidersEdgesOutboundroutesOK, error) {
 
@@ -3670,6 +3651,8 @@ func (a *Client) PutTelephonyProvidersEdgesExtensionpool(ctx context.Context, pa
 
 /*
 PutTelephonyProvidersEdgesOutboundroute updates outbound route
+
+This route is deprecated, use /telephony/providers/edges/sites/{siteId}/outboundroutes/{outboundRouteId} instead.
 */
 func (a *Client) PutTelephonyProvidersEdgesOutboundroute(ctx context.Context, params *PutTelephonyProvidersEdgesOutboundrouteParams) (*PutTelephonyProvidersEdgesOutboundrouteOK, error) {
 

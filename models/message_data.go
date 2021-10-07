@@ -20,6 +20,9 @@ import (
 // swagger:model MessageData
 type MessageData struct {
 
+	// The id of the conversation of this message.
+	ConversationID string `json:"conversationId,omitempty"`
+
 	// User who sent this message.
 	CreatedBy *User `json:"createdBy,omitempty"`
 

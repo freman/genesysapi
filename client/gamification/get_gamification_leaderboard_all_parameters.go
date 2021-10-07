@@ -66,7 +66,7 @@ type GetGamificationLeaderboardAllParams struct {
 	*/
 	EndWorkday strfmt.Date
 	/*FilterID
-	  ID for the filter type. For example, division Id
+	  ID for the filter type. For example, division or performance profile Id
 
 	*/
 	FilterID string

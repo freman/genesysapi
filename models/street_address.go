@@ -25,20 +25,23 @@ type StreetAddress struct {
 	// Required: true
 	A3 *string `json:"A3"`
 
-	// h n o
-	HNO string `json:"HNO,omitempty"`
+	// House Number
+	// Required: true
+	HNO *string `json:"HNO"`
 
-	// l o c
+	// extra location info like suite 300
 	LOC string `json:"LOC,omitempty"`
 
-	// n a m
+	// Name of the customer
 	NAM string `json:"NAM,omitempty"`
 
-	// p c
-	PC string `json:"PC,omitempty"`
+	// Postal code
+	// Required: true
+	PC *string `json:"PC"`
 
-	// r d
-	RD string `json:"RD,omitempty"`
+	// Number and street
+	// Required: true
+	RD *string `json:"RD"`
 
 	// 2 Letter Country code, like US or GB
 	// Required: true
@@ -54,6 +57,18 @@ func (m *StreetAddress) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateA3(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateHNO(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePC(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateRD(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -79,6 +94,33 @@ func (m *StreetAddress) validateA1(formats strfmt.Registry) error {
 func (m *StreetAddress) validateA3(formats strfmt.Registry) error {
 
 	if err := validate.Required("A3", "body", m.A3); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *StreetAddress) validateHNO(formats strfmt.Registry) error {
+
+	if err := validate.Required("HNO", "body", m.HNO); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *StreetAddress) validatePC(formats strfmt.Registry) error {
+
+	if err := validate.Required("PC", "body", m.PC); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *StreetAddress) validateRD(formats strfmt.Registry) error {
+
+	if err := validate.Required("RD", "body", m.RD); err != nil {
 		return err
 	}
 

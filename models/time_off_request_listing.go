@@ -19,7 +19,7 @@ import (
 // swagger:model TimeOffRequestListing
 type TimeOffRequestListing struct {
 
-	// List of time off request look up objects
+	// List of time off requests
 	// Required: true
 	Entities []*TimeOffRequest `json:"entities"`
 }

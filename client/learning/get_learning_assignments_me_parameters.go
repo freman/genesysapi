@@ -24,12 +24,14 @@ func NewGetLearningAssignmentsMeParams() *GetLearningAssignmentsMeParams {
 		overdueDefault    = string("Any")
 		pageNumberDefault = int32(1)
 		pageSizeDefault   = int32(25)
+		passDefault       = string("Any")
 		sortOrderDefault  = string("Desc")
 	)
 	return &GetLearningAssignmentsMeParams{
 		Overdue:    &overdueDefault,
 		PageNumber: &pageNumberDefault,
 		PageSize:   &pageSizeDefault,
+		Pass:       &passDefault,
 		SortOrder:  &sortOrderDefault,
 
 		timeout: cr.DefaultTimeout,
@@ -43,12 +45,14 @@ func NewGetLearningAssignmentsMeParamsWithTimeout(timeout time.Duration) *GetLea
 		overdueDefault    = string("Any")
 		pageNumberDefault = int32(1)
 		pageSizeDefault   = int32(25)
+		passDefault       = string("Any")
 		sortOrderDefault  = string("Desc")
 	)
 	return &GetLearningAssignmentsMeParams{
 		Overdue:    &overdueDefault,
 		PageNumber: &pageNumberDefault,
 		PageSize:   &pageSizeDefault,
+		Pass:       &passDefault,
 		SortOrder:  &sortOrderDefault,
 
 		timeout: timeout,
@@ -62,12 +66,14 @@ func NewGetLearningAssignmentsMeParamsWithContext(ctx context.Context) *GetLearn
 		overdueDefault    = string("Any")
 		pageNumberDefault = int32(1)
 		pageSizeDefault   = int32(25)
+		passDefault       = string("Any")
 		sortOrderDefault  = string("Desc")
 	)
 	return &GetLearningAssignmentsMeParams{
 		Overdue:    &overdueDefault,
 		PageNumber: &pageNumberDefault,
 		PageSize:   &pageSizeDefault,
+		Pass:       &passDefault,
 		SortOrder:  &sortOrderDefault,
 
 		Context: ctx,
@@ -81,12 +87,14 @@ func NewGetLearningAssignmentsMeParamsWithHTTPClient(client *http.Client) *GetLe
 		overdueDefault    = string("Any")
 		pageNumberDefault = int32(1)
 		pageSizeDefault   = int32(25)
+		passDefault       = string("Any")
 		sortOrderDefault  = string("Desc")
 	)
 	return &GetLearningAssignmentsMeParams{
 		Overdue:    &overdueDefault,
 		PageNumber: &pageNumberDefault,
 		PageSize:   &pageSizeDefault,
+		Pass:       &passDefault,
 		SortOrder:  &sortOrderDefault,
 		HTTPClient: client,
 	}
@@ -112,6 +120,16 @@ type GetLearningAssignmentsMeParams struct {
 
 	*/
 	Interval *string
+	/*MaxPercentageScore
+	  The maximum assessment score for an assignment (completed with assessment) to be included in the results (inclusive)
+
+	*/
+	MaxPercentageScore *float32
+	/*MinPercentageScore
+	  The minimum assessment score for an assignment (completed with assessment) to be included in the results (inclusive)
+
+	*/
+	MinPercentageScore *float32
 	/*ModuleID
 	  Specifies the ID of the learning module. Fetch assignments for learning module ID
 
@@ -132,6 +150,11 @@ type GetLearningAssignmentsMeParams struct {
 
 	*/
 	PageSize *int32
+	/*Pass
+	  Specifies if only the failed (pass is "False") or passed (pass is "True") assignments (completed with assessment)are returned. If pass is "Any" or if the pass parameter is not supplied, all assignments are returned
+
+	*/
+	Pass *string
 	/*SortBy
 	  Specifies which field to sort the results by, default sort is by recommendedCompletionDate
 
@@ -224,6 +247,28 @@ func (o *GetLearningAssignmentsMeParams) SetInterval(interval *string) {
 	o.Interval = interval
 }
 
+// WithMaxPercentageScore adds the maxPercentageScore to the get learning assignments me params
+func (o *GetLearningAssignmentsMeParams) WithMaxPercentageScore(maxPercentageScore *float32) *GetLearningAssignmentsMeParams {
+	o.SetMaxPercentageScore(maxPercentageScore)
+	return o
+}
+
+// SetMaxPercentageScore adds the maxPercentageScore to the get learning assignments me params
+func (o *GetLearningAssignmentsMeParams) SetMaxPercentageScore(maxPercentageScore *float32) {
+	o.MaxPercentageScore = maxPercentageScore
+}
+
+// WithMinPercentageScore adds the minPercentageScore to the get learning assignments me params
+func (o *GetLearningAssignmentsMeParams) WithMinPercentageScore(minPercentageScore *float32) *GetLearningAssignmentsMeParams {
+	o.SetMinPercentageScore(minPercentageScore)
+	return o
+}
+
+// SetMinPercentageScore adds the minPercentageScore to the get learning assignments me params
+func (o *GetLearningAssignmentsMeParams) SetMinPercentageScore(minPercentageScore *float32) {
+	o.MinPercentageScore = minPercentageScore
+}
+
 // WithModuleID adds the moduleID to the get learning assignments me params
 func (o *GetLearningAssignmentsMeParams) WithModuleID(moduleID *string) *GetLearningAssignmentsMeParams {
 	o.SetModuleID(moduleID)
@@ -266,6 +311,17 @@ func (o *GetLearningAssignmentsMeParams) WithPageSize(pageSize *int32) *GetLearn
 // SetPageSize adds the pageSize to the get learning assignments me params
 func (o *GetLearningAssignmentsMeParams) SetPageSize(pageSize *int32) {
 	o.PageSize = pageSize
+}
+
+// WithPass adds the pass to the get learning assignments me params
+func (o *GetLearningAssignmentsMeParams) WithPass(pass *string) *GetLearningAssignmentsMeParams {
+	o.SetPass(pass)
+	return o
+}
+
+// SetPass adds the pass to the get learning assignments me params
+func (o *GetLearningAssignmentsMeParams) SetPass(pass *string) {
+	o.Pass = pass
 }
 
 // WithSortBy adds the sortBy to the get learning assignments me params
@@ -360,6 +416,38 @@ func (o *GetLearningAssignmentsMeParams) WriteToRequest(r runtime.ClientRequest,
 
 	}
 
+	if o.MaxPercentageScore != nil {
+
+		// query param maxPercentageScore
+		var qrMaxPercentageScore float32
+		if o.MaxPercentageScore != nil {
+			qrMaxPercentageScore = *o.MaxPercentageScore
+		}
+		qMaxPercentageScore := swag.FormatFloat32(qrMaxPercentageScore)
+		if qMaxPercentageScore != "" {
+			if err := r.SetQueryParam("maxPercentageScore", qMaxPercentageScore); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	if o.MinPercentageScore != nil {
+
+		// query param minPercentageScore
+		var qrMinPercentageScore float32
+		if o.MinPercentageScore != nil {
+			qrMinPercentageScore = *o.MinPercentageScore
+		}
+		qMinPercentageScore := swag.FormatFloat32(qrMinPercentageScore)
+		if qMinPercentageScore != "" {
+			if err := r.SetQueryParam("minPercentageScore", qMinPercentageScore); err != nil {
+				return err
+			}
+		}
+
+	}
+
 	if o.ModuleID != nil {
 
 		// query param moduleId
@@ -418,6 +506,22 @@ func (o *GetLearningAssignmentsMeParams) WriteToRequest(r runtime.ClientRequest,
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	if o.Pass != nil {
+
+		// query param pass
+		var qrPass string
+		if o.Pass != nil {
+			qrPass = *o.Pass
+		}
+		qPass := qrPass
+		if qPass != "" {
+			if err := r.SetQueryParam("pass", qPass); err != nil {
 				return err
 			}
 		}

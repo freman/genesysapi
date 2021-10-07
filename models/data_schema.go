@@ -36,8 +36,7 @@ type DataSchema struct {
 	// The schema's enabled/disabled status. A disabled schema cannot be assigned to any other entities, but the data on those entities from the schema still exists.
 	Enabled bool `json:"enabled"`
 
-	// The globally unique identifier for the object.
-	// Read Only: true
+	// The globally unique identifier for the schema.  Only required if a schema is used for custom fields during external entity creation or updates.
 	ID string `json:"id,omitempty"`
 
 	// A JSON schema defining the extension to the built-in entity type.

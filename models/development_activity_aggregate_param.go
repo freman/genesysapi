@@ -129,7 +129,7 @@ var developmentActivityAggregateParamMetricsItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["nActivities","nPlannedActivities","nInProgressActivities","nCompleteActivities","nOverdueActivities","nInvalidScheduleActivities"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["nActivities","nPlannedActivities","nInProgressActivities","nCompleteActivities","nOverdueActivities","nInvalidScheduleActivities","nPassedActivities","nFailedActivities","oActivityScore"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {

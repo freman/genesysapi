@@ -43,6 +43,9 @@ type PostTextResponse struct {
 	// The name of the intent the bot is either processing or has processed, this will be blank if no intent could be detected.
 	IntentName string `json:"intentName,omitempty"`
 
+	// Raw data response from Nuance Mix Dlg (if called)
+	NuanceMixDlg map[string]interface{} `json:"nuanceMixDlg,omitempty"`
+
 	// The list of messages to respond with, if any
 	ReplyMessages []*PostTextMessage `json:"replyMessages"`
 

@@ -38,7 +38,7 @@ type API interface {
 	*/
 	PostAuditsQuery(ctx context.Context, params *PostAuditsQueryParams) (*PostAuditsQueryOK, *PostAuditsQueryAccepted, error)
 	/*
-	   PostAuditsQueryRealtime this endpoint will only retrieve 7 days worth of audits for certain services please use query to get a full list and older audits
+	   PostAuditsQueryRealtime this endpoint will only retrieve 14 days worth of audits for certain services please use query to get a full list and older audits
 	*/
 	PostAuditsQueryRealtime(ctx context.Context, params *PostAuditsQueryRealtimeParams) (*PostAuditsQueryRealtimeOK, error)
 }
@@ -199,7 +199,7 @@ func (a *Client) PostAuditsQuery(ctx context.Context, params *PostAuditsQueryPar
 }
 
 /*
-PostAuditsQueryRealtime this endpoint will only retrieve 7 days worth of audits for certain services please use query to get a full list and older audits
+PostAuditsQueryRealtime this endpoint will only retrieve 14 days worth of audits for certain services please use query to get a full list and older audits
 */
 func (a *Client) PostAuditsQueryRealtime(ctx context.Context, params *PostAuditsQueryRealtimeParams) (*PostAuditsQueryRealtimeOK, error) {
 

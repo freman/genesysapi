@@ -18,6 +18,10 @@ import (
 // API is the interface of the uploads client
 type API interface {
 	/*
+	   PostLanguageunderstandingMinerUploads creates a presigned URL for uploading a chat corpus which will be used for mining by intent miner
+	*/
+	PostLanguageunderstandingMinerUploads(ctx context.Context, params *PostLanguageunderstandingMinerUploadsParams) (*PostLanguageunderstandingMinerUploadsOK, error)
+	/*
 	   PostUploadsPublicassetsImages creates presigned url for uploading a public asset image
 	*/
 	PostUploadsPublicassetsImages(ctx context.Context, params *PostUploadsPublicassetsImagesParams) (*PostUploadsPublicassetsImagesOK, error)
@@ -51,6 +55,31 @@ type Client struct {
 	transport runtime.ClientTransport
 	formats   strfmt.Registry
 	authInfo  runtime.ClientAuthInfoWriter
+}
+
+/*
+PostLanguageunderstandingMinerUploads creates a presigned URL for uploading a chat corpus which will be used for mining by intent miner
+*/
+func (a *Client) PostLanguageunderstandingMinerUploads(ctx context.Context, params *PostLanguageunderstandingMinerUploadsParams) (*PostLanguageunderstandingMinerUploadsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postLanguageunderstandingMinerUploads",
+		Method:             "POST",
+		PathPattern:        "/api/v2/languageunderstanding/miners/{minerId}/uploads",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostLanguageunderstandingMinerUploadsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostLanguageunderstandingMinerUploadsOK), nil
+
 }
 
 /*

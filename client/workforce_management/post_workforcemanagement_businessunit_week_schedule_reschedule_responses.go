@@ -29,6 +29,12 @@ func (o *PostWorkforcemanagementBusinessunitWeekScheduleRescheduleReader) ReadRe
 			return nil, err
 		}
 		return result, nil
+	case 202:
+		result := NewPostWorkforcemanagementBusinessunitWeekScheduleRescheduleAccepted()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return result, nil
 	case 400:
 		result := NewPostWorkforcemanagementBusinessunitWeekScheduleRescheduleBadRequest()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -123,6 +129,39 @@ func (o *PostWorkforcemanagementBusinessunitWeekScheduleRescheduleOK) GetPayload
 }
 
 func (o *PostWorkforcemanagementBusinessunitWeekScheduleRescheduleOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.BuAsyncScheduleRunResponse)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPostWorkforcemanagementBusinessunitWeekScheduleRescheduleAccepted creates a PostWorkforcemanagementBusinessunitWeekScheduleRescheduleAccepted with default headers values
+func NewPostWorkforcemanagementBusinessunitWeekScheduleRescheduleAccepted() *PostWorkforcemanagementBusinessunitWeekScheduleRescheduleAccepted {
+	return &PostWorkforcemanagementBusinessunitWeekScheduleRescheduleAccepted{}
+}
+
+/*PostWorkforcemanagementBusinessunitWeekScheduleRescheduleAccepted handles this case with default header values.
+
+The rescheduling run was started and updates will be sent by notification
+*/
+type PostWorkforcemanagementBusinessunitWeekScheduleRescheduleAccepted struct {
+	Payload *models.BuAsyncScheduleRunResponse
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekScheduleRescheduleAccepted) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules/{scheduleId}/reschedule][%d] postWorkforcemanagementBusinessunitWeekScheduleRescheduleAccepted  %+v", 202, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekScheduleRescheduleAccepted) GetPayload() *models.BuAsyncScheduleRunResponse {
+	return o.Payload
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekScheduleRescheduleAccepted) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.BuAsyncScheduleRunResponse)
 

@@ -26,7 +26,7 @@ type PredictorSchedule struct {
 
 	// The predictor schedule type.
 	// Required: true
-	// Enum: [HourOnHourOff]
+	// Enum: [HourOnHourOff OngoingValueMonitoring]
 	ScheduleType *string `json:"scheduleType"`
 }
 
@@ -65,7 +65,7 @@ var predictorScheduleTypeScheduleTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["HourOnHourOff"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["HourOnHourOff","OngoingValueMonitoring"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -77,6 +77,9 @@ const (
 
 	// PredictorScheduleScheduleTypeHourOnHourOff captures enum value "HourOnHourOff"
 	PredictorScheduleScheduleTypeHourOnHourOff string = "HourOnHourOff"
+
+	// PredictorScheduleScheduleTypeOngoingValueMonitoring captures enum value "OngoingValueMonitoring"
+	PredictorScheduleScheduleTypeOngoingValueMonitoring string = "OngoingValueMonitoring"
 )
 
 // prop value enum

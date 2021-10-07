@@ -29,6 +29,12 @@ func (o *PostWorkforcemanagementManagementunitWeekShifttradesStateBulkReader) Re
 			return nil, err
 		}
 		return result, nil
+	case 202:
+		result := NewPostWorkforcemanagementManagementunitWeekShifttradesStateBulkAccepted()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return result, nil
 	case 400:
 		result := NewPostWorkforcemanagementManagementunitWeekShifttradesStateBulkBadRequest()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -129,6 +135,39 @@ func (o *PostWorkforcemanagementManagementunitWeekShifttradesStateBulkOK) GetPay
 }
 
 func (o *PostWorkforcemanagementManagementunitWeekShifttradesStateBulkOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.BulkUpdateShiftTradeStateResponse)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPostWorkforcemanagementManagementunitWeekShifttradesStateBulkAccepted creates a PostWorkforcemanagementManagementunitWeekShifttradesStateBulkAccepted with default headers values
+func NewPostWorkforcemanagementManagementunitWeekShifttradesStateBulkAccepted() *PostWorkforcemanagementManagementunitWeekShifttradesStateBulkAccepted {
+	return &PostWorkforcemanagementManagementunitWeekShifttradesStateBulkAccepted{}
+}
+
+/*PostWorkforcemanagementManagementunitWeekShifttradesStateBulkAccepted handles this case with default header values.
+
+The shift trades are being updated. Results will come via notification
+*/
+type PostWorkforcemanagementManagementunitWeekShifttradesStateBulkAccepted struct {
+	Payload *models.BulkUpdateShiftTradeStateResponse
+}
+
+func (o *PostWorkforcemanagementManagementunitWeekShifttradesStateBulkAccepted) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/weeks/{weekDateId}/shifttrades/state/bulk][%d] postWorkforcemanagementManagementunitWeekShifttradesStateBulkAccepted  %+v", 202, o.Payload)
+}
+
+func (o *PostWorkforcemanagementManagementunitWeekShifttradesStateBulkAccepted) GetPayload() *models.BulkUpdateShiftTradeStateResponse {
+	return o.Payload
+}
+
+func (o *PostWorkforcemanagementManagementunitWeekShifttradesStateBulkAccepted) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.BulkUpdateShiftTradeStateResponse)
 

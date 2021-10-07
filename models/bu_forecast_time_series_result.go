@@ -24,7 +24,7 @@ type BuForecastTimeSeriesResult struct {
 	ForecastType string `json:"forecastType,omitempty"`
 
 	// The forecasting method that was used for this metric
-	// Enum: [AutoRegressiveIntegratedMovingAverage MovingAverage SingleExponentialSmoothing RandomWalk DecompositionUsingAdditiveSeasonality DecompositionUsingMultiplicativeSeasonality HoltWintersAdditiveSeasonality HoltWintersAdditiveSeasonalityWithDampedTrend HoltWintersMultiplicativeSeasonality HoltWintersMultiplicativeSeasonalityWithDampedTrend DampedLinearExponentialSmoothing DoubleExponentialSmoothing DoubleMovingAverage LinearExponentialSmoothing LinearWeightedMovingAverage PointEstimateUsingDampedLinearExponentialSmoothing PointEstimateUsingDoubleExponentialSmoothing PointEstimateUsingLatestWeek PointEstimateUsingLinearExponentialSmoothing PointEstimateUsingWeightedAverage CurveFit MultiLinearRegression DynamicHarmonicRegression Theta Other]
+	// Enum: [AutoRegressiveIntegratedMovingAverage MovingAverage SingleExponentialSmoothing RandomWalk DecompositionUsingAdditiveSeasonality DecompositionUsingMultiplicativeSeasonality HoltWintersAdditiveSeasonality HoltWintersAdditiveSeasonalityWithDampedTrend HoltWintersMultiplicativeSeasonality HoltWintersMultiplicativeSeasonalityWithDampedTrend DampedLinearExponentialSmoothing DoubleExponentialSmoothing DoubleMovingAverage LinearExponentialSmoothing LinearWeightedMovingAverage PointEstimateUsingDampedLinearExponentialSmoothing PointEstimateUsingDoubleExponentialSmoothing PointEstimateUsingLatestWeek PointEstimateUsingLinearExponentialSmoothing PointEstimateUsingWeightedAverage CurveFit MultiLinearRegression DynamicHarmonicRegression Theta Ensemble Other]
 	ForecastingMethod string `json:"forecastingMethod,omitempty"`
 
 	// The metric this result applies to
@@ -101,7 +101,7 @@ var buForecastTimeSeriesResultTypeForecastingMethodPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["AutoRegressiveIntegratedMovingAverage","MovingAverage","SingleExponentialSmoothing","RandomWalk","DecompositionUsingAdditiveSeasonality","DecompositionUsingMultiplicativeSeasonality","HoltWintersAdditiveSeasonality","HoltWintersAdditiveSeasonalityWithDampedTrend","HoltWintersMultiplicativeSeasonality","HoltWintersMultiplicativeSeasonalityWithDampedTrend","DampedLinearExponentialSmoothing","DoubleExponentialSmoothing","DoubleMovingAverage","LinearExponentialSmoothing","LinearWeightedMovingAverage","PointEstimateUsingDampedLinearExponentialSmoothing","PointEstimateUsingDoubleExponentialSmoothing","PointEstimateUsingLatestWeek","PointEstimateUsingLinearExponentialSmoothing","PointEstimateUsingWeightedAverage","CurveFit","MultiLinearRegression","DynamicHarmonicRegression","Theta","Other"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["AutoRegressiveIntegratedMovingAverage","MovingAverage","SingleExponentialSmoothing","RandomWalk","DecompositionUsingAdditiveSeasonality","DecompositionUsingMultiplicativeSeasonality","HoltWintersAdditiveSeasonality","HoltWintersAdditiveSeasonalityWithDampedTrend","HoltWintersMultiplicativeSeasonality","HoltWintersMultiplicativeSeasonalityWithDampedTrend","DampedLinearExponentialSmoothing","DoubleExponentialSmoothing","DoubleMovingAverage","LinearExponentialSmoothing","LinearWeightedMovingAverage","PointEstimateUsingDampedLinearExponentialSmoothing","PointEstimateUsingDoubleExponentialSmoothing","PointEstimateUsingLatestWeek","PointEstimateUsingLinearExponentialSmoothing","PointEstimateUsingWeightedAverage","CurveFit","MultiLinearRegression","DynamicHarmonicRegression","Theta","Ensemble","Other"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -182,6 +182,9 @@ const (
 
 	// BuForecastTimeSeriesResultForecastingMethodTheta captures enum value "Theta"
 	BuForecastTimeSeriesResultForecastingMethodTheta string = "Theta"
+
+	// BuForecastTimeSeriesResultForecastingMethodEnsemble captures enum value "Ensemble"
+	BuForecastTimeSeriesResultForecastingMethodEnsemble string = "Ensemble"
 
 	// BuForecastTimeSeriesResultForecastingMethodOther captures enum value "Other"
 	BuForecastTimeSeriesResultForecastingMethodOther string = "Other"

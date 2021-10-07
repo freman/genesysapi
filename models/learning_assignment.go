@@ -19,6 +19,12 @@ import (
 // swagger:model LearningAssignment
 type LearningAssignment struct {
 
+	// The assessment associated with this assignment
+	Assessment *LearningAssessment `json:"assessment,omitempty"`
+
+	// The assessment form associated with this assignment
+	AssessmentForm *AssessmentForm `json:"assessmentForm,omitempty"`
+
 	// The user who created the assignment
 	// Read Only: true
 	CreatedBy *UserReference `json:"createdBy,omitempty"`
@@ -49,6 +55,10 @@ type LearningAssignment struct {
 	// Read Only: true
 	IsOverdue *bool `json:"isOverdue"`
 
+	// True if the assessment was passed
+	// Read Only: true
+	IsPassed *bool `json:"isPassed"`
+
 	// True if this assignment was created by a Rule
 	// Read Only: true
 	IsRule *bool `json:"isRule"`
@@ -59,6 +69,10 @@ type LearningAssignment struct {
 
 	// The Learning module object associated with this assignment
 	Module *LearningModule `json:"module,omitempty"`
+
+	// The user's percentage score for this assignment
+	// Read Only: true
+	PercentageScore float32 `json:"percentageScore,omitempty"`
 
 	// The URI for this object
 	// Read Only: true
@@ -79,6 +93,14 @@ type LearningAssignment struct {
 // Validate validates this learning assignment
 func (m *LearningAssignment) Validate(formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.validateAssessment(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateAssessmentForm(formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.validateCreatedBy(formats); err != nil {
 		res = append(res, err)
@@ -119,6 +141,42 @@ func (m *LearningAssignment) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *LearningAssignment) validateAssessment(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Assessment) { // not required
+		return nil
+	}
+
+	if m.Assessment != nil {
+		if err := m.Assessment.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("assessment")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *LearningAssignment) validateAssessmentForm(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.AssessmentForm) { // not required
+		return nil
+	}
+
+	if m.AssessmentForm != nil {
+		if err := m.AssessmentForm.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("assessmentForm")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

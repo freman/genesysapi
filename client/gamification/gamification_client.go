@@ -26,11 +26,11 @@ type API interface {
 	*/
 	GetGamificationLeaderboardAll(ctx context.Context, params *GetGamificationLeaderboardAllParams) (*GetGamificationLeaderboardAllOK, error)
 	/*
-	   GetGamificationLeaderboardAllBestpoints bests points by division
+	   GetGamificationLeaderboardAllBestpoints bests points by division or performance profile
 	*/
 	GetGamificationLeaderboardAllBestpoints(ctx context.Context, params *GetGamificationLeaderboardAllBestpointsParams) (*GetGamificationLeaderboardAllBestpointsOK, error)
 	/*
-	   GetGamificationLeaderboardBestpoints bests points of the requesting user s division
+	   GetGamificationLeaderboardBestpoints bests points of the requesting user s current performance profile or division
 	*/
 	GetGamificationLeaderboardBestpoints(ctx context.Context, params *GetGamificationLeaderboardBestpointsParams) (*GetGamificationLeaderboardBestpointsOK, error)
 	/*
@@ -55,9 +55,29 @@ type API interface {
 	*/
 	GetGamificationProfile(ctx context.Context, params *GetGamificationProfileParams) (*GetGamificationProfileOK, error)
 	/*
+	   GetGamificationProfileMetric performances profile gamified metric by id
+	*/
+	GetGamificationProfileMetric(ctx context.Context, params *GetGamificationProfileMetricParams) (*GetGamificationProfileMetricOK, error)
+	/*
+	   GetGamificationProfileMetrics alls gamified metrics for a given performance profile
+	*/
+	GetGamificationProfileMetrics(ctx context.Context, params *GetGamificationProfileMetricsParams) (*GetGamificationProfileMetricsOK, error)
+	/*
+	   GetGamificationProfileMetricsObjectivedetails alls metrics for a given performance profile with objective details such as order and max points
+	*/
+	GetGamificationProfileMetricsObjectivedetails(ctx context.Context, params *GetGamificationProfileMetricsObjectivedetailsParams) (*GetGamificationProfileMetricsObjectivedetailsOK, error)
+	/*
 	   GetGamificationProfiles alls performance profiles
 	*/
 	GetGamificationProfiles(ctx context.Context, params *GetGamificationProfilesParams) (*GetGamificationProfilesOK, error)
+	/*
+	   GetGamificationProfilesUser performances profile of a user
+	*/
+	GetGamificationProfilesUser(ctx context.Context, params *GetGamificationProfilesUserParams) (*GetGamificationProfilesUserOK, error)
+	/*
+	   GetGamificationProfilesUsersMe performances profile of the requesting user
+	*/
+	GetGamificationProfilesUsersMe(ctx context.Context, params *GetGamificationProfilesUsersMeParams) (*GetGamificationProfilesUsersMeOK, error)
 	/*
 	   GetGamificationScorecards workdays performance metrics of the requesting user
 	*/
@@ -75,7 +95,7 @@ type API interface {
 	*/
 	GetGamificationScorecardsPointsAlltime(ctx context.Context, params *GetGamificationScorecardsPointsAlltimeParams) (*GetGamificationScorecardsPointsAlltimeOK, error)
 	/*
-	   GetGamificationScorecardsPointsAverage averages points of the requesting user s division
+	   GetGamificationScorecardsPointsAverage averages points of the requesting user s division or performance profile
 	*/
 	GetGamificationScorecardsPointsAverage(ctx context.Context, params *GetGamificationScorecardsPointsAverageParams) (*GetGamificationScorecardsPointsAverageOK, error)
 	/*
@@ -119,7 +139,7 @@ type API interface {
 	*/
 	GetGamificationScorecardsUsersValuesTrends(ctx context.Context, params *GetGamificationScorecardsUsersValuesTrendsParams) (*GetGamificationScorecardsUsersValuesTrendsOK, error)
 	/*
-	   GetGamificationScorecardsValuesAverage averages values of the requesting user s division
+	   GetGamificationScorecardsValuesAverage averages values of the requesting user s division or performance profile
 	*/
 	GetGamificationScorecardsValuesAverage(ctx context.Context, params *GetGamificationScorecardsValuesAverageParams) (*GetGamificationScorecardsValuesAverageOK, error)
 	/*
@@ -143,6 +163,22 @@ type API interface {
 	*/
 	PostGamificationMetrics(ctx context.Context, params *PostGamificationMetricsParams) (*PostGamificationMetricsCreated, error)
 	/*
+	   PostGamificationProfileActivate activates a performance profile
+	*/
+	PostGamificationProfileActivate(ctx context.Context, params *PostGamificationProfileActivateParams) (*PostGamificationProfileActivateOK, error)
+	/*
+	   PostGamificationProfileDeactivate deactivates a performance profile
+	*/
+	PostGamificationProfileDeactivate(ctx context.Context, params *PostGamificationProfileDeactivateParams) (*PostGamificationProfileDeactivateOK, error)
+	/*
+	   PostGamificationProfileMetrics creates a gamified metric with a given metric definition and metric objective under in a performance profile
+	*/
+	PostGamificationProfileMetrics(ctx context.Context, params *PostGamificationProfileMetricsParams) (*PostGamificationProfileMetricsCreated, error)
+	/*
+	   PostGamificationProfiles creates a new custom performance profile
+	*/
+	PostGamificationProfiles(ctx context.Context, params *PostGamificationProfilesParams) (*PostGamificationProfilesOK, *PostGamificationProfilesCreated, error)
+	/*
 	   PutGamificationMetric updates a metric
 	*/
 	PutGamificationMetric(ctx context.Context, params *PutGamificationMetricParams) (*PutGamificationMetricOK, error)
@@ -150,6 +186,10 @@ type API interface {
 	   PutGamificationProfile updates a performance profile
 	*/
 	PutGamificationProfile(ctx context.Context, params *PutGamificationProfileParams) (*PutGamificationProfileOK, error)
+	/*
+	   PutGamificationProfileMetric updates a metric in performance profile
+	*/
+	PutGamificationProfileMetric(ctx context.Context, params *PutGamificationProfileMetricParams) (*PutGamificationProfileMetricOK, error)
 	/*
 	   PutGamificationStatus updates gamification activation status
 	*/
@@ -225,7 +265,7 @@ func (a *Client) GetGamificationLeaderboardAll(ctx context.Context, params *GetG
 }
 
 /*
-GetGamificationLeaderboardAllBestpoints bests points by division
+GetGamificationLeaderboardAllBestpoints bests points by division or performance profile
 */
 func (a *Client) GetGamificationLeaderboardAllBestpoints(ctx context.Context, params *GetGamificationLeaderboardAllBestpointsParams) (*GetGamificationLeaderboardAllBestpointsOK, error) {
 
@@ -250,7 +290,7 @@ func (a *Client) GetGamificationLeaderboardAllBestpoints(ctx context.Context, pa
 }
 
 /*
-GetGamificationLeaderboardBestpoints bests points of the requesting user s division
+GetGamificationLeaderboardBestpoints bests points of the requesting user s current performance profile or division
 */
 func (a *Client) GetGamificationLeaderboardBestpoints(ctx context.Context, params *GetGamificationLeaderboardBestpointsParams) (*GetGamificationLeaderboardBestpointsOK, error) {
 
@@ -402,6 +442,81 @@ func (a *Client) GetGamificationProfile(ctx context.Context, params *GetGamifica
 }
 
 /*
+GetGamificationProfileMetric performances profile gamified metric by id
+*/
+func (a *Client) GetGamificationProfileMetric(ctx context.Context, params *GetGamificationProfileMetricParams) (*GetGamificationProfileMetricOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getGamificationProfileMetric",
+		Method:             "GET",
+		PathPattern:        "/api/v2/gamification/profiles/{profileId}/metrics/{metricId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetGamificationProfileMetricReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetGamificationProfileMetricOK), nil
+
+}
+
+/*
+GetGamificationProfileMetrics alls gamified metrics for a given performance profile
+*/
+func (a *Client) GetGamificationProfileMetrics(ctx context.Context, params *GetGamificationProfileMetricsParams) (*GetGamificationProfileMetricsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getGamificationProfileMetrics",
+		Method:             "GET",
+		PathPattern:        "/api/v2/gamification/profiles/{profileId}/metrics",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetGamificationProfileMetricsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetGamificationProfileMetricsOK), nil
+
+}
+
+/*
+GetGamificationProfileMetricsObjectivedetails alls metrics for a given performance profile with objective details such as order and max points
+*/
+func (a *Client) GetGamificationProfileMetricsObjectivedetails(ctx context.Context, params *GetGamificationProfileMetricsObjectivedetailsParams) (*GetGamificationProfileMetricsObjectivedetailsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getGamificationProfileMetricsObjectivedetails",
+		Method:             "GET",
+		PathPattern:        "/api/v2/gamification/profiles/{profileId}/metrics/objectivedetails",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetGamificationProfileMetricsObjectivedetailsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetGamificationProfileMetricsObjectivedetailsOK), nil
+
+}
+
+/*
 GetGamificationProfiles alls performance profiles
 */
 func (a *Client) GetGamificationProfiles(ctx context.Context, params *GetGamificationProfilesParams) (*GetGamificationProfilesOK, error) {
@@ -423,6 +538,56 @@ func (a *Client) GetGamificationProfiles(ctx context.Context, params *GetGamific
 		return nil, err
 	}
 	return result.(*GetGamificationProfilesOK), nil
+
+}
+
+/*
+GetGamificationProfilesUser performances profile of a user
+*/
+func (a *Client) GetGamificationProfilesUser(ctx context.Context, params *GetGamificationProfilesUserParams) (*GetGamificationProfilesUserOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getGamificationProfilesUser",
+		Method:             "GET",
+		PathPattern:        "/api/v2/gamification/profiles/users/{userId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetGamificationProfilesUserReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetGamificationProfilesUserOK), nil
+
+}
+
+/*
+GetGamificationProfilesUsersMe performances profile of the requesting user
+*/
+func (a *Client) GetGamificationProfilesUsersMe(ctx context.Context, params *GetGamificationProfilesUsersMeParams) (*GetGamificationProfilesUsersMeOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getGamificationProfilesUsersMe",
+		Method:             "GET",
+		PathPattern:        "/api/v2/gamification/profiles/users/me",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetGamificationProfilesUsersMeReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetGamificationProfilesUsersMeOK), nil
 
 }
 
@@ -527,7 +692,7 @@ func (a *Client) GetGamificationScorecardsPointsAlltime(ctx context.Context, par
 }
 
 /*
-GetGamificationScorecardsPointsAverage averages points of the requesting user s division
+GetGamificationScorecardsPointsAverage averages points of the requesting user s division or performance profile
 */
 func (a *Client) GetGamificationScorecardsPointsAverage(ctx context.Context, params *GetGamificationScorecardsPointsAverageParams) (*GetGamificationScorecardsPointsAverageOK, error) {
 
@@ -802,7 +967,7 @@ func (a *Client) GetGamificationScorecardsUsersValuesTrends(ctx context.Context,
 }
 
 /*
-GetGamificationScorecardsValuesAverage averages values of the requesting user s division
+GetGamificationScorecardsValuesAverage averages values of the requesting user s division or performance profile
 */
 func (a *Client) GetGamificationScorecardsValuesAverage(ctx context.Context, params *GetGamificationScorecardsValuesAverageParams) (*GetGamificationScorecardsValuesAverageOK, error) {
 
@@ -952,6 +1117,112 @@ func (a *Client) PostGamificationMetrics(ctx context.Context, params *PostGamifi
 }
 
 /*
+PostGamificationProfileActivate activates a performance profile
+*/
+func (a *Client) PostGamificationProfileActivate(ctx context.Context, params *PostGamificationProfileActivateParams) (*PostGamificationProfileActivateOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postGamificationProfileActivate",
+		Method:             "POST",
+		PathPattern:        "/api/v2/gamification/profiles/{performanceProfileId}/activate",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostGamificationProfileActivateReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostGamificationProfileActivateOK), nil
+
+}
+
+/*
+PostGamificationProfileDeactivate deactivates a performance profile
+*/
+func (a *Client) PostGamificationProfileDeactivate(ctx context.Context, params *PostGamificationProfileDeactivateParams) (*PostGamificationProfileDeactivateOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postGamificationProfileDeactivate",
+		Method:             "POST",
+		PathPattern:        "/api/v2/gamification/profiles/{performanceProfileId}/deactivate",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostGamificationProfileDeactivateReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostGamificationProfileDeactivateOK), nil
+
+}
+
+/*
+PostGamificationProfileMetrics creates a gamified metric with a given metric definition and metric objective under in a performance profile
+*/
+func (a *Client) PostGamificationProfileMetrics(ctx context.Context, params *PostGamificationProfileMetricsParams) (*PostGamificationProfileMetricsCreated, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postGamificationProfileMetrics",
+		Method:             "POST",
+		PathPattern:        "/api/v2/gamification/profiles/{profileId}/metrics",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostGamificationProfileMetricsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostGamificationProfileMetricsCreated), nil
+
+}
+
+/*
+PostGamificationProfiles creates a new custom performance profile
+*/
+func (a *Client) PostGamificationProfiles(ctx context.Context, params *PostGamificationProfilesParams) (*PostGamificationProfilesOK, *PostGamificationProfilesCreated, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postGamificationProfiles",
+		Method:             "POST",
+		PathPattern:        "/api/v2/gamification/profiles",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostGamificationProfilesReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PostGamificationProfilesOK:
+		return value, nil, nil
+	case *PostGamificationProfilesCreated:
+		return nil, value, nil
+	}
+	return nil, nil, nil
+
+}
+
+/*
 PutGamificationMetric updates a metric
 */
 func (a *Client) PutGamificationMetric(ctx context.Context, params *PutGamificationMetricParams) (*PutGamificationMetricOK, error) {
@@ -998,6 +1269,31 @@ func (a *Client) PutGamificationProfile(ctx context.Context, params *PutGamifica
 		return nil, err
 	}
 	return result.(*PutGamificationProfileOK), nil
+
+}
+
+/*
+PutGamificationProfileMetric updates a metric in performance profile
+*/
+func (a *Client) PutGamificationProfileMetric(ctx context.Context, params *PutGamificationProfileMetricParams) (*PutGamificationProfileMetricOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "putGamificationProfileMetric",
+		Method:             "PUT",
+		PathPattern:        "/api/v2/gamification/profiles/{profileId}/metrics/{metricId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PutGamificationProfileMetricReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutGamificationProfileMetricOK), nil
 
 }
 

@@ -39,7 +39,7 @@ type Leaderboard struct {
 
 	// The metric id if the leaderboard is about a specific metric
 	// Read Only: true
-	Metric *Metric `json:"metric,omitempty"`
+	Metric *AddressableEntityRef `json:"metric,omitempty"`
 
 	// The requesting user's rank
 	// Read Only: true

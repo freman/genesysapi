@@ -29,6 +29,12 @@ func (o *PostWorkforcemanagementBusinessunitServicegoaltemplatesReader) ReadResp
 			return nil, err
 		}
 		return result, nil
+	case 201:
+		result := NewPostWorkforcemanagementBusinessunitServicegoaltemplatesCreated()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return result, nil
 	case 400:
 		result := NewPostWorkforcemanagementBusinessunitServicegoaltemplatesBadRequest()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -123,6 +129,39 @@ func (o *PostWorkforcemanagementBusinessunitServicegoaltemplatesOK) GetPayload()
 }
 
 func (o *PostWorkforcemanagementBusinessunitServicegoaltemplatesOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ServiceGoalTemplate)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPostWorkforcemanagementBusinessunitServicegoaltemplatesCreated creates a PostWorkforcemanagementBusinessunitServicegoaltemplatesCreated with default headers values
+func NewPostWorkforcemanagementBusinessunitServicegoaltemplatesCreated() *PostWorkforcemanagementBusinessunitServicegoaltemplatesCreated {
+	return &PostWorkforcemanagementBusinessunitServicegoaltemplatesCreated{}
+}
+
+/*PostWorkforcemanagementBusinessunitServicegoaltemplatesCreated handles this case with default header values.
+
+The service goal template was successfully created
+*/
+type PostWorkforcemanagementBusinessunitServicegoaltemplatesCreated struct {
+	Payload *models.ServiceGoalTemplate
+}
+
+func (o *PostWorkforcemanagementBusinessunitServicegoaltemplatesCreated) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates][%d] postWorkforcemanagementBusinessunitServicegoaltemplatesCreated  %+v", 201, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitServicegoaltemplatesCreated) GetPayload() *models.ServiceGoalTemplate {
+	return o.Payload
+}
+
+func (o *PostWorkforcemanagementBusinessunitServicegoaltemplatesCreated) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ServiceGoalTemplate)
 

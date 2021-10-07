@@ -35,6 +35,9 @@ type TopicsEntityListing struct {
 	// self Uri
 	// Format: uri
 	SelfURI strfmt.URI `json:"selfUri,omitempty"`
+
+	// total
+	Total int32 `json:"total,omitempty"`
 }
 
 // Validate validates this topics entity listing

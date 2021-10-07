@@ -20,7 +20,7 @@ import (
 type EvaluationDetailQueryPredicate struct {
 
 	// Left hand side for dimension predicates
-	// Enum: [calibrationId contextId deleted evaluationId evaluatorId eventTime formId formName queueId rescored userId]
+	// Enum: [calibrationId contextId deleted evaluationId evaluatorId eventTime formId formName queueId released rescored userId]
 	Dimension string `json:"dimension,omitempty"`
 
 	// Left hand side for metric predicates
@@ -76,7 +76,7 @@ var evaluationDetailQueryPredicateTypeDimensionPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["calibrationId","contextId","deleted","evaluationId","evaluatorId","eventTime","formId","formName","queueId","rescored","userId"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["calibrationId","contextId","deleted","evaluationId","evaluatorId","eventTime","formId","formName","queueId","released","rescored","userId"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -112,6 +112,9 @@ const (
 
 	// EvaluationDetailQueryPredicateDimensionQueueID captures enum value "queueId"
 	EvaluationDetailQueryPredicateDimensionQueueID string = "queueId"
+
+	// EvaluationDetailQueryPredicateDimensionReleased captures enum value "released"
+	EvaluationDetailQueryPredicateDimensionReleased string = "released"
 
 	// EvaluationDetailQueryPredicateDimensionRescored captures enum value "rescored"
 	EvaluationDetailQueryPredicateDimensionRescored string = "rescored"

@@ -21,7 +21,7 @@ import (
 type EvaluationAggregationQuery struct {
 
 	// Dimension to use as the alternative timestamp for data in the aggregate.  Choosing "eventTime" uses the actual time of the data event.
-	// Enum: [evaluationCreatedDate eventTime]
+	// Enum: [conversationStart evaluationCreatedDate evaluationReleaseDate eventTime]
 	AlternateTimeDimension string `json:"alternateTimeDimension,omitempty"`
 
 	// Behaves like a SQL WHERE clause. This is ANDed with the interval parameter. Expresses boolean logical predicates as well as dimensional filters
@@ -89,7 +89,7 @@ var evaluationAggregationQueryTypeAlternateTimeDimensionPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["evaluationCreatedDate","eventTime"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["conversationStart","evaluationCreatedDate","evaluationReleaseDate","eventTime"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -99,8 +99,14 @@ func init() {
 
 const (
 
+	// EvaluationAggregationQueryAlternateTimeDimensionConversationStart captures enum value "conversationStart"
+	EvaluationAggregationQueryAlternateTimeDimensionConversationStart string = "conversationStart"
+
 	// EvaluationAggregationQueryAlternateTimeDimensionEvaluationCreatedDate captures enum value "evaluationCreatedDate"
 	EvaluationAggregationQueryAlternateTimeDimensionEvaluationCreatedDate string = "evaluationCreatedDate"
+
+	// EvaluationAggregationQueryAlternateTimeDimensionEvaluationReleaseDate captures enum value "evaluationReleaseDate"
+	EvaluationAggregationQueryAlternateTimeDimensionEvaluationReleaseDate string = "evaluationReleaseDate"
 
 	// EvaluationAggregationQueryAlternateTimeDimensionEventTime captures enum value "eventTime"
 	EvaluationAggregationQueryAlternateTimeDimensionEventTime string = "eventTime"
@@ -150,7 +156,7 @@ var evaluationAggregationQueryGroupByItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["calibrationId","contextId","conversationId","divisionId","evaluationCreatedDate","evaluationId","evaluatorId","formId","queueId","rescored","teamId","userId"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["calibrationId","contextId","conversationId","conversationStart","divisionId","evaluationCreatedDate","evaluationId","evaluationReleaseDate","evaluatorId","formId","queueId","released","rescored","teamId","userId"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {

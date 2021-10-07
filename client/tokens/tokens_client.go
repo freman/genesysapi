@@ -29,6 +29,10 @@ type API interface {
 	   GetTokensMe fetches information about the current token
 	*/
 	GetTokensMe(ctx context.Context, params *GetTokensMeParams) (*GetTokensMeOK, error)
+	/*
+	   HeadTokensMe verifies user token
+	*/
+	HeadTokensMe(ctx context.Context, params *HeadTokensMeParams) error
 }
 
 // New creates a new tokens API client.
@@ -121,5 +125,30 @@ func (a *Client) GetTokensMe(ctx context.Context, params *GetTokensMeParams) (*G
 		return nil, err
 	}
 	return result.(*GetTokensMeOK), nil
+
+}
+
+/*
+HeadTokensMe verifies user token
+*/
+func (a *Client) HeadTokensMe(ctx context.Context, params *HeadTokensMeParams) error {
+
+	_, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "headTokensMe",
+		Method:             "HEAD",
+		PathPattern:        "/api/v2/tokens/me",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &HeadTokensMeReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return err
+	}
+	return nil
 
 }

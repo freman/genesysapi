@@ -65,6 +65,12 @@ func (o *DeleteKnowledgeKnowledgebaseReader) ReadResponse(response runtime.Clien
 			return nil, err
 		}
 		return nil, result
+	case 409:
+		result := NewDeleteKnowledgeKnowledgebaseConflict()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewDeleteKnowledgeKnowledgebaseRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -73,6 +79,12 @@ func (o *DeleteKnowledgeKnowledgebaseReader) ReadResponse(response runtime.Clien
 		return nil, result
 	case 415:
 		result := NewDeleteKnowledgeKnowledgebaseUnsupportedMediaType()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
+	case 424:
+		result := NewDeleteKnowledgeKnowledgebaseFailedDependency()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -326,6 +338,39 @@ func (o *DeleteKnowledgeKnowledgebaseRequestTimeout) readResponse(response runti
 	return nil
 }
 
+// NewDeleteKnowledgeKnowledgebaseConflict creates a DeleteKnowledgeKnowledgebaseConflict with default headers values
+func NewDeleteKnowledgeKnowledgebaseConflict() *DeleteKnowledgeKnowledgebaseConflict {
+	return &DeleteKnowledgeKnowledgebaseConflict{}
+}
+
+/*DeleteKnowledgeKnowledgebaseConflict handles this case with default header values.
+
+Conflict
+*/
+type DeleteKnowledgeKnowledgebaseConflict struct {
+	Payload *models.ErrorBody
+}
+
+func (o *DeleteKnowledgeKnowledgebaseConflict) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/knowledge/knowledgebases/{knowledgeBaseId}][%d] deleteKnowledgeKnowledgebaseConflict  %+v", 409, o.Payload)
+}
+
+func (o *DeleteKnowledgeKnowledgebaseConflict) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *DeleteKnowledgeKnowledgebaseConflict) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewDeleteKnowledgeKnowledgebaseRequestEntityTooLarge creates a DeleteKnowledgeKnowledgebaseRequestEntityTooLarge with default headers values
 func NewDeleteKnowledgeKnowledgebaseRequestEntityTooLarge() *DeleteKnowledgeKnowledgebaseRequestEntityTooLarge {
 	return &DeleteKnowledgeKnowledgebaseRequestEntityTooLarge{}
@@ -381,6 +426,39 @@ func (o *DeleteKnowledgeKnowledgebaseUnsupportedMediaType) GetPayload() *models.
 }
 
 func (o *DeleteKnowledgeKnowledgebaseUnsupportedMediaType) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewDeleteKnowledgeKnowledgebaseFailedDependency creates a DeleteKnowledgeKnowledgebaseFailedDependency with default headers values
+func NewDeleteKnowledgeKnowledgebaseFailedDependency() *DeleteKnowledgeKnowledgebaseFailedDependency {
+	return &DeleteKnowledgeKnowledgebaseFailedDependency{}
+}
+
+/*DeleteKnowledgeKnowledgebaseFailedDependency handles this case with default header values.
+
+DeleteKnowledgeKnowledgebaseFailedDependency delete knowledge knowledgebase failed dependency
+*/
+type DeleteKnowledgeKnowledgebaseFailedDependency struct {
+	Payload *models.ErrorBody
+}
+
+func (o *DeleteKnowledgeKnowledgebaseFailedDependency) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/knowledge/knowledgebases/{knowledgeBaseId}][%d] deleteKnowledgeKnowledgebaseFailedDependency  %+v", 424, o.Payload)
+}
+
+func (o *DeleteKnowledgeKnowledgebaseFailedDependency) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *DeleteKnowledgeKnowledgebaseFailedDependency) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ErrorBody)
 

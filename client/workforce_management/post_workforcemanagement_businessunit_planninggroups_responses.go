@@ -29,6 +29,12 @@ func (o *PostWorkforcemanagementBusinessunitPlanninggroupsReader) ReadResponse(r
 			return nil, err
 		}
 		return result, nil
+	case 201:
+		result := NewPostWorkforcemanagementBusinessunitPlanninggroupsCreated()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return result, nil
 	case 400:
 		result := NewPostWorkforcemanagementBusinessunitPlanninggroupsBadRequest()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -131,6 +137,39 @@ func (o *PostWorkforcemanagementBusinessunitPlanninggroupsOK) GetPayload() *mode
 func (o *PostWorkforcemanagementBusinessunitPlanninggroupsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.PlanningGroup)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPostWorkforcemanagementBusinessunitPlanninggroupsCreated creates a PostWorkforcemanagementBusinessunitPlanninggroupsCreated with default headers values
+func NewPostWorkforcemanagementBusinessunitPlanninggroupsCreated() *PostWorkforcemanagementBusinessunitPlanninggroupsCreated {
+	return &PostWorkforcemanagementBusinessunitPlanninggroupsCreated{}
+}
+
+/*PostWorkforcemanagementBusinessunitPlanninggroupsCreated handles this case with default header values.
+
+The planning group was successfully created
+*/
+type PostWorkforcemanagementBusinessunitPlanninggroupsCreated struct {
+	Payload *models.ServiceGoalTemplate
+}
+
+func (o *PostWorkforcemanagementBusinessunitPlanninggroupsCreated) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/planninggroups][%d] postWorkforcemanagementBusinessunitPlanninggroupsCreated  %+v", 201, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitPlanninggroupsCreated) GetPayload() *models.ServiceGoalTemplate {
+	return o.Payload
+}
+
+func (o *PostWorkforcemanagementBusinessunitPlanninggroupsCreated) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ServiceGoalTemplate)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

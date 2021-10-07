@@ -65,6 +65,11 @@ type GetGamificationMetricsParams struct {
 
 	*/
 	PerformanceProfileID *string
+	/*Workday
+	  The objective query workday. If not specified, then it retrieves the current objective. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
+
+	*/
+	Workday *strfmt.Date
 
 	timeout    time.Duration
 	Context    context.Context
@@ -115,6 +120,17 @@ func (o *GetGamificationMetricsParams) SetPerformanceProfileID(performanceProfil
 	o.PerformanceProfileID = performanceProfileID
 }
 
+// WithWorkday adds the workday to the get gamification metrics params
+func (o *GetGamificationMetricsParams) WithWorkday(workday *strfmt.Date) *GetGamificationMetricsParams {
+	o.SetWorkday(workday)
+	return o
+}
+
+// SetWorkday adds the workday to the get gamification metrics params
+func (o *GetGamificationMetricsParams) SetWorkday(workday *strfmt.Date) {
+	o.Workday = workday
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *GetGamificationMetricsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -125,14 +141,30 @@ func (o *GetGamificationMetricsParams) WriteToRequest(r runtime.ClientRequest, r
 
 	if o.PerformanceProfileID != nil {
 
-		// query param performance profile id
+		// query param performanceProfileId
 		var qrPerformanceProfileID string
 		if o.PerformanceProfileID != nil {
 			qrPerformanceProfileID = *o.PerformanceProfileID
 		}
 		qPerformanceProfileID := qrPerformanceProfileID
 		if qPerformanceProfileID != "" {
-			if err := r.SetQueryParam("performance profile id", qPerformanceProfileID); err != nil {
+			if err := r.SetQueryParam("performanceProfileId", qPerformanceProfileID); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	if o.Workday != nil {
+
+		// query param workday
+		var qrWorkday strfmt.Date
+		if o.Workday != nil {
+			qrWorkday = *o.Workday
+		}
+		qWorkday := qrWorkday.String()
+		if qWorkday != "" {
+			if err := r.SetQueryParam("workday", qWorkday); err != nil {
 				return err
 			}
 		}

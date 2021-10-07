@@ -18,13 +18,17 @@ import (
 // API is the interface of the users client
 type API interface {
 	/*
-	   DeleteAnalyticsUsersDetailsJob deletes cancel an async request
-	*/
-	DeleteAnalyticsUsersDetailsJob(ctx context.Context, params *DeleteAnalyticsUsersDetailsJobParams) (*DeleteAnalyticsUsersDetailsJobNoContent, error)
-	/*
 	   DeleteUser deletes user
 	*/
 	DeleteUser(ctx context.Context, params *DeleteUserParams) (*DeleteUserOK, error)
+	/*
+	   DeleteUserRoutinglanguage removes routing language from user
+	*/
+	DeleteUserRoutinglanguage(ctx context.Context, params *DeleteUserRoutinglanguageParams) (*DeleteUserRoutinglanguageNoContent, error)
+	/*
+	   DeleteUserRoutingskill removes routing skill from user
+	*/
+	DeleteUserRoutingskill(ctx context.Context, params *DeleteUserRoutingskillParams) (*DeleteUserRoutingskillOK, error)
 	/*
 	   DeleteUserStationAssociatedstation clears associated station
 	*/
@@ -34,17 +38,9 @@ type API interface {
 	*/
 	DeleteUserStationDefaultstation(ctx context.Context, params *DeleteUserStationDefaultstationParams) (*DeleteUserStationDefaultstationAccepted, error)
 	/*
-	   GetAnalyticsUsersDetailsJob gets status for async query for user details
+	   GetFieldconfig fetches field config for an entity type
 	*/
-	GetAnalyticsUsersDetailsJob(ctx context.Context, params *GetAnalyticsUsersDetailsJobParams) (*GetAnalyticsUsersDetailsJobOK, *GetAnalyticsUsersDetailsJobAccepted, error)
-	/*
-	   GetAnalyticsUsersDetailsJobResults fetches a page of results for an async query
-	*/
-	GetAnalyticsUsersDetailsJobResults(ctx context.Context, params *GetAnalyticsUsersDetailsJobResultsParams) (*GetAnalyticsUsersDetailsJobResultsOK, error)
-	/*
-	   GetAnalyticsUsersDetailsJobsAvailability lookups the datalake availability date and time
-	*/
-	GetAnalyticsUsersDetailsJobsAvailability(ctx context.Context, params *GetAnalyticsUsersDetailsJobsAvailabilityParams) (*GetAnalyticsUsersDetailsJobsAvailabilityOK, error)
+	GetFieldconfig(ctx context.Context, params *GetFieldconfigParams) (*GetFieldconfigOK, error)
 	/*
 	   GetProfilesUsers gets a user profile listing
 	   This api is deprecated. User /api/v2/users
@@ -84,9 +80,21 @@ type API interface {
 	*/
 	GetUserProfileskills(ctx context.Context, params *GetUserProfileskillsParams) (*GetUserProfileskillsOK, error)
 	/*
+	   GetUserRoutinglanguages lists routing language for user
+	*/
+	GetUserRoutinglanguages(ctx context.Context, params *GetUserRoutinglanguagesParams) (*GetUserRoutinglanguagesOK, error)
+	/*
+	   GetUserRoutingskills lists routing skills for user
+	*/
+	GetUserRoutingskills(ctx context.Context, params *GetUserRoutingskillsParams) (*GetUserRoutingskillsOK, error)
+	/*
 	   GetUserRoutingstatus fetches the routing status of a user
 	*/
 	GetUserRoutingstatus(ctx context.Context, params *GetUserRoutingstatusParams) (*GetUserRoutingstatusOK, error)
+	/*
+	   GetUserState gets user state information
+	*/
+	GetUserState(ctx context.Context, params *GetUserStateParams) (*GetUserStateOK, error)
 	/*
 	   GetUserStation gets station information for user
 	*/
@@ -124,6 +132,10 @@ type API interface {
 	*/
 	GetUsersMe(ctx context.Context, params *GetUsersMeParams) (*GetUsersMeOK, error)
 	/*
+	   GetUsersSearch searches users using the q64 value returned from a previous search
+	*/
+	GetUsersSearch(ctx context.Context, params *GetUsersSearchParams) (*GetUsersSearchOK, error)
+	/*
 	   PatchUser updates user
 	*/
 	PatchUser(ctx context.Context, params *PatchUserParams) (*PatchUserOK, error)
@@ -132,25 +144,21 @@ type API interface {
 	*/
 	PatchUserCallforwarding(ctx context.Context, params *PatchUserCallforwardingParams) (*PatchUserCallforwardingOK, error)
 	/*
+	   PatchUserRoutinglanguage updates routing language proficiency or state
+	*/
+	PatchUserRoutinglanguage(ctx context.Context, params *PatchUserRoutinglanguageParams) (*PatchUserRoutinglanguageOK, error)
+	/*
+	   PatchUserRoutinglanguagesBulk adds bulk routing language to user max limit 50 languages
+	*/
+	PatchUserRoutinglanguagesBulk(ctx context.Context, params *PatchUserRoutinglanguagesBulkParams) (*PatchUserRoutinglanguagesBulkOK, error)
+	/*
+	   PatchUserRoutingskillsBulk bulks add routing skills to user
+	*/
+	PatchUserRoutingskillsBulk(ctx context.Context, params *PatchUserRoutingskillsBulkParams) (*PatchUserRoutingskillsBulkOK, error)
+	/*
 	   PatchUsersBulk updates bulk acd autoanswer on users
 	*/
 	PatchUsersBulk(ctx context.Context, params *PatchUsersBulkParams) (*PatchUsersBulkOK, error)
-	/*
-	   PostAnalyticsUsersAggregatesQuery queries for user aggregates
-	*/
-	PostAnalyticsUsersAggregatesQuery(ctx context.Context, params *PostAnalyticsUsersAggregatesQueryParams) (*PostAnalyticsUsersAggregatesQueryOK, error)
-	/*
-	   PostAnalyticsUsersDetailsJobs queries for user details asynchronously
-	*/
-	PostAnalyticsUsersDetailsJobs(ctx context.Context, params *PostAnalyticsUsersDetailsJobsParams) (*PostAnalyticsUsersDetailsJobsAccepted, error)
-	/*
-	   PostAnalyticsUsersDetailsQuery queries for user details
-	*/
-	PostAnalyticsUsersDetailsQuery(ctx context.Context, params *PostAnalyticsUsersDetailsQueryParams) (*PostAnalyticsUsersDetailsQueryOK, error)
-	/*
-	   PostAnalyticsUsersObservationsQuery queries for user observations
-	*/
-	PostAnalyticsUsersObservationsQuery(ctx context.Context, params *PostAnalyticsUsersObservationsQueryParams) (*PostAnalyticsUsersObservationsQueryOK, error)
 	/*
 	   PostUserInvite sends an activation email to the user
 	*/
@@ -159,6 +167,14 @@ type API interface {
 	   PostUserPassword changes a users password
 	*/
 	PostUserPassword(ctx context.Context, params *PostUserPasswordParams) (*PostUserPasswordNoContent, error)
+	/*
+	   PostUserRoutinglanguages adds routing language to user
+	*/
+	PostUserRoutinglanguages(ctx context.Context, params *PostUserRoutinglanguagesParams) (*PostUserRoutinglanguagesOK, error)
+	/*
+	   PostUserRoutingskills adds routing skill to user
+	*/
+	PostUserRoutingskills(ctx context.Context, params *PostUserRoutingskillsParams) (*PostUserRoutingskillsOK, error)
 	/*
 	   PostUsers creates user
 	*/
@@ -173,6 +189,10 @@ type API interface {
 	*/
 	PostUsersMePassword(ctx context.Context, params *PostUsersMePasswordParams) (*PostUsersMePasswordNoContent, error)
 	/*
+	   PostUsersSearch searches users
+	*/
+	PostUsersSearch(ctx context.Context, params *PostUsersSearchParams) (*PostUsersSearchOK, error)
+	/*
 	   PutUserCallforwarding updates a user s call forwarding
 	*/
 	PutUserCallforwarding(ctx context.Context, params *PutUserCallforwardingParams) (*PutUserCallforwardingOK, error)
@@ -185,9 +205,21 @@ type API interface {
 	*/
 	PutUserProfileskills(ctx context.Context, params *PutUserProfileskillsParams) (*PutUserProfileskillsOK, error)
 	/*
+	   PutUserRoutingskill updates routing skill proficiency or state
+	*/
+	PutUserRoutingskill(ctx context.Context, params *PutUserRoutingskillParams) (*PutUserRoutingskillOK, error)
+	/*
+	   PutUserRoutingskillsBulk replaces all routing skills assigned to a user
+	*/
+	PutUserRoutingskillsBulk(ctx context.Context, params *PutUserRoutingskillsBulkParams) (*PutUserRoutingskillsBulkOK, error)
+	/*
 	   PutUserRoutingstatus updates the routing status of a user
 	*/
 	PutUserRoutingstatus(ctx context.Context, params *PutUserRoutingstatusParams) (*PutUserRoutingstatusOK, error)
+	/*
+	   PutUserState updates user state information
+	*/
+	PutUserState(ctx context.Context, params *PutUserStateParams) (*PutUserStateOK, error)
 	/*
 	   PutUserStationAssociatedstationStationID sets associated station
 	*/
@@ -217,31 +249,6 @@ type Client struct {
 }
 
 /*
-DeleteAnalyticsUsersDetailsJob deletes cancel an async request
-*/
-func (a *Client) DeleteAnalyticsUsersDetailsJob(ctx context.Context, params *DeleteAnalyticsUsersDetailsJobParams) (*DeleteAnalyticsUsersDetailsJobNoContent, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "deleteAnalyticsUsersDetailsJob",
-		Method:             "DELETE",
-		PathPattern:        "/api/v2/analytics/users/details/jobs/{jobId}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &DeleteAnalyticsUsersDetailsJobReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*DeleteAnalyticsUsersDetailsJobNoContent), nil
-
-}
-
-/*
 DeleteUser deletes user
 */
 func (a *Client) DeleteUser(ctx context.Context, params *DeleteUserParams) (*DeleteUserOK, error) {
@@ -263,6 +270,56 @@ func (a *Client) DeleteUser(ctx context.Context, params *DeleteUserParams) (*Del
 		return nil, err
 	}
 	return result.(*DeleteUserOK), nil
+
+}
+
+/*
+DeleteUserRoutinglanguage removes routing language from user
+*/
+func (a *Client) DeleteUserRoutinglanguage(ctx context.Context, params *DeleteUserRoutinglanguageParams) (*DeleteUserRoutinglanguageNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteUserRoutinglanguage",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/users/{userId}/routinglanguages/{languageId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteUserRoutinglanguageReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteUserRoutinglanguageNoContent), nil
+
+}
+
+/*
+DeleteUserRoutingskill removes routing skill from user
+*/
+func (a *Client) DeleteUserRoutingskill(ctx context.Context, params *DeleteUserRoutingskillParams) (*DeleteUserRoutingskillOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteUserRoutingskill",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/users/{userId}/routingskills/{skillId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteUserRoutingskillReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteUserRoutingskillOK), nil
 
 }
 
@@ -317,50 +374,19 @@ func (a *Client) DeleteUserStationDefaultstation(ctx context.Context, params *De
 }
 
 /*
-GetAnalyticsUsersDetailsJob gets status for async query for user details
+GetFieldconfig fetches field config for an entity type
 */
-func (a *Client) GetAnalyticsUsersDetailsJob(ctx context.Context, params *GetAnalyticsUsersDetailsJobParams) (*GetAnalyticsUsersDetailsJobOK, *GetAnalyticsUsersDetailsJobAccepted, error) {
+func (a *Client) GetFieldconfig(ctx context.Context, params *GetFieldconfigParams) (*GetFieldconfigOK, error) {
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "getAnalyticsUsersDetailsJob",
+		ID:                 "getFieldconfig",
 		Method:             "GET",
-		PathPattern:        "/api/v2/analytics/users/details/jobs/{jobId}",
+		PathPattern:        "/api/v2/fieldconfig",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &GetAnalyticsUsersDetailsJobReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, err
-	}
-	switch value := result.(type) {
-	case *GetAnalyticsUsersDetailsJobOK:
-		return value, nil, nil
-	case *GetAnalyticsUsersDetailsJobAccepted:
-		return nil, value, nil
-	}
-	return nil, nil, nil
-
-}
-
-/*
-GetAnalyticsUsersDetailsJobResults fetches a page of results for an async query
-*/
-func (a *Client) GetAnalyticsUsersDetailsJobResults(ctx context.Context, params *GetAnalyticsUsersDetailsJobResultsParams) (*GetAnalyticsUsersDetailsJobResultsOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "getAnalyticsUsersDetailsJobResults",
-		Method:             "GET",
-		PathPattern:        "/api/v2/analytics/users/details/jobs/{jobId}/results",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetAnalyticsUsersDetailsJobResultsReader{formats: a.formats},
+		Reader:             &GetFieldconfigReader{formats: a.formats},
 		AuthInfo:           a.authInfo,
 		Context:            ctx,
 		Client:             params.HTTPClient,
@@ -368,32 +394,7 @@ func (a *Client) GetAnalyticsUsersDetailsJobResults(ctx context.Context, params 
 	if err != nil {
 		return nil, err
 	}
-	return result.(*GetAnalyticsUsersDetailsJobResultsOK), nil
-
-}
-
-/*
-GetAnalyticsUsersDetailsJobsAvailability lookups the datalake availability date and time
-*/
-func (a *Client) GetAnalyticsUsersDetailsJobsAvailability(ctx context.Context, params *GetAnalyticsUsersDetailsJobsAvailabilityParams) (*GetAnalyticsUsersDetailsJobsAvailabilityOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "getAnalyticsUsersDetailsJobsAvailability",
-		Method:             "GET",
-		PathPattern:        "/api/v2/analytics/users/details/jobs/availability",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetAnalyticsUsersDetailsJobsAvailabilityReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*GetAnalyticsUsersDetailsJobsAvailabilityOK), nil
+	return result.(*GetFieldconfigOK), nil
 
 }
 
@@ -627,6 +628,56 @@ func (a *Client) GetUserProfileskills(ctx context.Context, params *GetUserProfil
 }
 
 /*
+GetUserRoutinglanguages lists routing language for user
+*/
+func (a *Client) GetUserRoutinglanguages(ctx context.Context, params *GetUserRoutinglanguagesParams) (*GetUserRoutinglanguagesOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getUserRoutinglanguages",
+		Method:             "GET",
+		PathPattern:        "/api/v2/users/{userId}/routinglanguages",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetUserRoutinglanguagesReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetUserRoutinglanguagesOK), nil
+
+}
+
+/*
+GetUserRoutingskills lists routing skills for user
+*/
+func (a *Client) GetUserRoutingskills(ctx context.Context, params *GetUserRoutingskillsParams) (*GetUserRoutingskillsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getUserRoutingskills",
+		Method:             "GET",
+		PathPattern:        "/api/v2/users/{userId}/routingskills",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetUserRoutingskillsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetUserRoutingskillsOK), nil
+
+}
+
+/*
 GetUserRoutingstatus fetches the routing status of a user
 */
 func (a *Client) GetUserRoutingstatus(ctx context.Context, params *GetUserRoutingstatusParams) (*GetUserRoutingstatusOK, error) {
@@ -648,6 +699,31 @@ func (a *Client) GetUserRoutingstatus(ctx context.Context, params *GetUserRoutin
 		return nil, err
 	}
 	return result.(*GetUserRoutingstatusOK), nil
+
+}
+
+/*
+GetUserState gets user state information
+*/
+func (a *Client) GetUserState(ctx context.Context, params *GetUserStateParams) (*GetUserStateOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getUserState",
+		Method:             "GET",
+		PathPattern:        "/api/v2/users/{userId}/state",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetUserStateReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetUserStateOK), nil
 
 }
 
@@ -860,6 +936,31 @@ func (a *Client) GetUsersMe(ctx context.Context, params *GetUsersMeParams) (*Get
 }
 
 /*
+GetUsersSearch searches users using the q64 value returned from a previous search
+*/
+func (a *Client) GetUsersSearch(ctx context.Context, params *GetUsersSearchParams) (*GetUsersSearchOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getUsersSearch",
+		Method:             "GET",
+		PathPattern:        "/api/v2/users/search",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetUsersSearchReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetUsersSearchOK), nil
+
+}
+
+/*
 PatchUser updates user
 */
 func (a *Client) PatchUser(ctx context.Context, params *PatchUserParams) (*PatchUserOK, error) {
@@ -910,6 +1011,81 @@ func (a *Client) PatchUserCallforwarding(ctx context.Context, params *PatchUserC
 }
 
 /*
+PatchUserRoutinglanguage updates routing language proficiency or state
+*/
+func (a *Client) PatchUserRoutinglanguage(ctx context.Context, params *PatchUserRoutinglanguageParams) (*PatchUserRoutinglanguageOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "patchUserRoutinglanguage",
+		Method:             "PATCH",
+		PathPattern:        "/api/v2/users/{userId}/routinglanguages/{languageId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchUserRoutinglanguageReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PatchUserRoutinglanguageOK), nil
+
+}
+
+/*
+PatchUserRoutinglanguagesBulk adds bulk routing language to user max limit 50 languages
+*/
+func (a *Client) PatchUserRoutinglanguagesBulk(ctx context.Context, params *PatchUserRoutinglanguagesBulkParams) (*PatchUserRoutinglanguagesBulkOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "patchUserRoutinglanguagesBulk",
+		Method:             "PATCH",
+		PathPattern:        "/api/v2/users/{userId}/routinglanguages/bulk",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchUserRoutinglanguagesBulkReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PatchUserRoutinglanguagesBulkOK), nil
+
+}
+
+/*
+PatchUserRoutingskillsBulk bulks add routing skills to user
+*/
+func (a *Client) PatchUserRoutingskillsBulk(ctx context.Context, params *PatchUserRoutingskillsBulkParams) (*PatchUserRoutingskillsBulkOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "patchUserRoutingskillsBulk",
+		Method:             "PATCH",
+		PathPattern:        "/api/v2/users/{userId}/routingskills/bulk",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchUserRoutingskillsBulkReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PatchUserRoutingskillsBulkOK), nil
+
+}
+
+/*
 PatchUsersBulk updates bulk acd autoanswer on users
 */
 func (a *Client) PatchUsersBulk(ctx context.Context, params *PatchUsersBulkParams) (*PatchUsersBulkOK, error) {
@@ -931,106 +1107,6 @@ func (a *Client) PatchUsersBulk(ctx context.Context, params *PatchUsersBulkParam
 		return nil, err
 	}
 	return result.(*PatchUsersBulkOK), nil
-
-}
-
-/*
-PostAnalyticsUsersAggregatesQuery queries for user aggregates
-*/
-func (a *Client) PostAnalyticsUsersAggregatesQuery(ctx context.Context, params *PostAnalyticsUsersAggregatesQueryParams) (*PostAnalyticsUsersAggregatesQueryOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "postAnalyticsUsersAggregatesQuery",
-		Method:             "POST",
-		PathPattern:        "/api/v2/analytics/users/aggregates/query",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PostAnalyticsUsersAggregatesQueryReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*PostAnalyticsUsersAggregatesQueryOK), nil
-
-}
-
-/*
-PostAnalyticsUsersDetailsJobs queries for user details asynchronously
-*/
-func (a *Client) PostAnalyticsUsersDetailsJobs(ctx context.Context, params *PostAnalyticsUsersDetailsJobsParams) (*PostAnalyticsUsersDetailsJobsAccepted, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "postAnalyticsUsersDetailsJobs",
-		Method:             "POST",
-		PathPattern:        "/api/v2/analytics/users/details/jobs",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PostAnalyticsUsersDetailsJobsReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*PostAnalyticsUsersDetailsJobsAccepted), nil
-
-}
-
-/*
-PostAnalyticsUsersDetailsQuery queries for user details
-*/
-func (a *Client) PostAnalyticsUsersDetailsQuery(ctx context.Context, params *PostAnalyticsUsersDetailsQueryParams) (*PostAnalyticsUsersDetailsQueryOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "postAnalyticsUsersDetailsQuery",
-		Method:             "POST",
-		PathPattern:        "/api/v2/analytics/users/details/query",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PostAnalyticsUsersDetailsQueryReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*PostAnalyticsUsersDetailsQueryOK), nil
-
-}
-
-/*
-PostAnalyticsUsersObservationsQuery queries for user observations
-*/
-func (a *Client) PostAnalyticsUsersObservationsQuery(ctx context.Context, params *PostAnalyticsUsersObservationsQueryParams) (*PostAnalyticsUsersObservationsQueryOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "postAnalyticsUsersObservationsQuery",
-		Method:             "POST",
-		PathPattern:        "/api/v2/analytics/users/observations/query",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PostAnalyticsUsersObservationsQueryReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*PostAnalyticsUsersObservationsQueryOK), nil
 
 }
 
@@ -1081,6 +1157,56 @@ func (a *Client) PostUserPassword(ctx context.Context, params *PostUserPasswordP
 		return nil, err
 	}
 	return result.(*PostUserPasswordNoContent), nil
+
+}
+
+/*
+PostUserRoutinglanguages adds routing language to user
+*/
+func (a *Client) PostUserRoutinglanguages(ctx context.Context, params *PostUserRoutinglanguagesParams) (*PostUserRoutinglanguagesOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postUserRoutinglanguages",
+		Method:             "POST",
+		PathPattern:        "/api/v2/users/{userId}/routinglanguages",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostUserRoutinglanguagesReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostUserRoutinglanguagesOK), nil
+
+}
+
+/*
+PostUserRoutingskills adds routing skill to user
+*/
+func (a *Client) PostUserRoutingskills(ctx context.Context, params *PostUserRoutingskillsParams) (*PostUserRoutingskillsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postUserRoutingskills",
+		Method:             "POST",
+		PathPattern:        "/api/v2/users/{userId}/routingskills",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostUserRoutingskillsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostUserRoutingskillsOK), nil
 
 }
 
@@ -1162,6 +1288,31 @@ func (a *Client) PostUsersMePassword(ctx context.Context, params *PostUsersMePas
 }
 
 /*
+PostUsersSearch searches users
+*/
+func (a *Client) PostUsersSearch(ctx context.Context, params *PostUsersSearchParams) (*PostUsersSearchOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postUsersSearch",
+		Method:             "POST",
+		PathPattern:        "/api/v2/users/search",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostUsersSearchReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostUsersSearchOK), nil
+
+}
+
+/*
 PutUserCallforwarding updates a user s call forwarding
 */
 func (a *Client) PutUserCallforwarding(ctx context.Context, params *PutUserCallforwardingParams) (*PutUserCallforwardingOK, error) {
@@ -1237,6 +1388,56 @@ func (a *Client) PutUserProfileskills(ctx context.Context, params *PutUserProfil
 }
 
 /*
+PutUserRoutingskill updates routing skill proficiency or state
+*/
+func (a *Client) PutUserRoutingskill(ctx context.Context, params *PutUserRoutingskillParams) (*PutUserRoutingskillOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "putUserRoutingskill",
+		Method:             "PUT",
+		PathPattern:        "/api/v2/users/{userId}/routingskills/{skillId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PutUserRoutingskillReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutUserRoutingskillOK), nil
+
+}
+
+/*
+PutUserRoutingskillsBulk replaces all routing skills assigned to a user
+*/
+func (a *Client) PutUserRoutingskillsBulk(ctx context.Context, params *PutUserRoutingskillsBulkParams) (*PutUserRoutingskillsBulkOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "putUserRoutingskillsBulk",
+		Method:             "PUT",
+		PathPattern:        "/api/v2/users/{userId}/routingskills/bulk",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PutUserRoutingskillsBulkReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutUserRoutingskillsBulkOK), nil
+
+}
+
+/*
 PutUserRoutingstatus updates the routing status of a user
 */
 func (a *Client) PutUserRoutingstatus(ctx context.Context, params *PutUserRoutingstatusParams) (*PutUserRoutingstatusOK, error) {
@@ -1258,6 +1459,31 @@ func (a *Client) PutUserRoutingstatus(ctx context.Context, params *PutUserRoutin
 		return nil, err
 	}
 	return result.(*PutUserRoutingstatusOK), nil
+
+}
+
+/*
+PutUserState updates user state information
+*/
+func (a *Client) PutUserState(ctx context.Context, params *PutUserStateParams) (*PutUserStateOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "putUserState",
+		Method:             "PUT",
+		PathPattern:        "/api/v2/users/{userId}/state",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PutUserStateReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutUserStateOK), nil
 
 }
 

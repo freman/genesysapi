@@ -30,7 +30,7 @@ type AuditQueryExecutionStatusResponse struct {
 	Interval string `json:"interval,omitempty"`
 
 	// Service name for the audit query.
-	// Enum: [AnalyticsReporting Architect Coaching ContactCenter ContentManagement Datatables Gamification Groups Integrations LanguageUnderstanding Limits Outbound PeoplePermissions EmployeePerformance PredictiveEngagement Presence Quality ResponseManagement Routing SpeechAndTextAnalytics Telephony TopicsDefinitions Triggers WebDeployments Webhooks WorkforceManagement Messaging Supportability]
+	// Enum: [AnalyticsReporting Architect Coaching ContactCenter ContentManagement Datatables Directory Gamification Groups Integrations Knowledge LanguageUnderstanding Learning Limits Outbound PeoplePermissions EmployeePerformance PredictiveEngagement Presence Quality ResponseManagement Routing SpeechAndTextAnalytics Telephony TopicsDefinitions Triggers ProcessAutomation WebDeployments Webhooks WorkforceManagement Messaging Supportability Callback]
 	ServiceName string `json:"serviceName,omitempty"`
 
 	// Sort parameter for the audit query.
@@ -104,7 +104,7 @@ var auditQueryExecutionStatusResponseTypeServiceNamePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["AnalyticsReporting","Architect","Coaching","ContactCenter","ContentManagement","Datatables","Gamification","Groups","Integrations","LanguageUnderstanding","Limits","Outbound","PeoplePermissions","EmployeePerformance","PredictiveEngagement","Presence","Quality","ResponseManagement","Routing","SpeechAndTextAnalytics","Telephony","TopicsDefinitions","Triggers","WebDeployments","Webhooks","WorkforceManagement","Messaging","Supportability"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["AnalyticsReporting","Architect","Coaching","ContactCenter","ContentManagement","Datatables","Directory","Gamification","Groups","Integrations","Knowledge","LanguageUnderstanding","Learning","Limits","Outbound","PeoplePermissions","EmployeePerformance","PredictiveEngagement","Presence","Quality","ResponseManagement","Routing","SpeechAndTextAnalytics","Telephony","TopicsDefinitions","Triggers","ProcessAutomation","WebDeployments","Webhooks","WorkforceManagement","Messaging","Supportability","Callback"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -132,6 +132,9 @@ const (
 	// AuditQueryExecutionStatusResponseServiceNameDatatables captures enum value "Datatables"
 	AuditQueryExecutionStatusResponseServiceNameDatatables string = "Datatables"
 
+	// AuditQueryExecutionStatusResponseServiceNameDirectory captures enum value "Directory"
+	AuditQueryExecutionStatusResponseServiceNameDirectory string = "Directory"
+
 	// AuditQueryExecutionStatusResponseServiceNameGamification captures enum value "Gamification"
 	AuditQueryExecutionStatusResponseServiceNameGamification string = "Gamification"
 
@@ -141,8 +144,14 @@ const (
 	// AuditQueryExecutionStatusResponseServiceNameIntegrations captures enum value "Integrations"
 	AuditQueryExecutionStatusResponseServiceNameIntegrations string = "Integrations"
 
+	// AuditQueryExecutionStatusResponseServiceNameKnowledge captures enum value "Knowledge"
+	AuditQueryExecutionStatusResponseServiceNameKnowledge string = "Knowledge"
+
 	// AuditQueryExecutionStatusResponseServiceNameLanguageUnderstanding captures enum value "LanguageUnderstanding"
 	AuditQueryExecutionStatusResponseServiceNameLanguageUnderstanding string = "LanguageUnderstanding"
+
+	// AuditQueryExecutionStatusResponseServiceNameLearning captures enum value "Learning"
+	AuditQueryExecutionStatusResponseServiceNameLearning string = "Learning"
 
 	// AuditQueryExecutionStatusResponseServiceNameLimits captures enum value "Limits"
 	AuditQueryExecutionStatusResponseServiceNameLimits string = "Limits"
@@ -183,6 +192,9 @@ const (
 	// AuditQueryExecutionStatusResponseServiceNameTriggers captures enum value "Triggers"
 	AuditQueryExecutionStatusResponseServiceNameTriggers string = "Triggers"
 
+	// AuditQueryExecutionStatusResponseServiceNameProcessAutomation captures enum value "ProcessAutomation"
+	AuditQueryExecutionStatusResponseServiceNameProcessAutomation string = "ProcessAutomation"
+
 	// AuditQueryExecutionStatusResponseServiceNameWebDeployments captures enum value "WebDeployments"
 	AuditQueryExecutionStatusResponseServiceNameWebDeployments string = "WebDeployments"
 
@@ -197,6 +209,9 @@ const (
 
 	// AuditQueryExecutionStatusResponseServiceNameSupportability captures enum value "Supportability"
 	AuditQueryExecutionStatusResponseServiceNameSupportability string = "Supportability"
+
+	// AuditQueryExecutionStatusResponseServiceNameCallback captures enum value "Callback"
+	AuditQueryExecutionStatusResponseServiceNameCallback string = "Callback"
 )
 
 // prop value enum

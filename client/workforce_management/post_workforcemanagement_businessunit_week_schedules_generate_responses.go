@@ -29,6 +29,12 @@ func (o *PostWorkforcemanagementBusinessunitWeekSchedulesGenerateReader) ReadRes
 			return nil, err
 		}
 		return result, nil
+	case 202:
+		result := NewPostWorkforcemanagementBusinessunitWeekSchedulesGenerateAccepted()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return result, nil
 	case 400:
 		result := NewPostWorkforcemanagementBusinessunitWeekSchedulesGenerateBadRequest()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -123,6 +129,39 @@ func (o *PostWorkforcemanagementBusinessunitWeekSchedulesGenerateOK) GetPayload(
 }
 
 func (o *PostWorkforcemanagementBusinessunitWeekSchedulesGenerateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.BuAsyncScheduleRunResponse)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPostWorkforcemanagementBusinessunitWeekSchedulesGenerateAccepted creates a PostWorkforcemanagementBusinessunitWeekSchedulesGenerateAccepted with default headers values
+func NewPostWorkforcemanagementBusinessunitWeekSchedulesGenerateAccepted() *PostWorkforcemanagementBusinessunitWeekSchedulesGenerateAccepted {
+	return &PostWorkforcemanagementBusinessunitWeekSchedulesGenerateAccepted{}
+}
+
+/*PostWorkforcemanagementBusinessunitWeekSchedulesGenerateAccepted handles this case with default header values.
+
+The schedule generation run was started and updates will be sent via notification
+*/
+type PostWorkforcemanagementBusinessunitWeekSchedulesGenerateAccepted struct {
+	Payload *models.BuAsyncScheduleRunResponse
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesGenerateAccepted) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules/generate][%d] postWorkforcemanagementBusinessunitWeekSchedulesGenerateAccepted  %+v", 202, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesGenerateAccepted) GetPayload() *models.BuAsyncScheduleRunResponse {
+	return o.Payload
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesGenerateAccepted) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.BuAsyncScheduleRunResponse)
 

@@ -47,7 +47,7 @@ type MetricDefinition struct {
 	ShortName string `json:"shortName,omitempty"`
 
 	// The type of associated metric unit
-	// Enum: [None Percent Seconds Number AttendanceStatus Unit]
+	// Enum: [None Percent Currency Seconds Number AttendanceStatus Unit]
 	UnitType string `json:"unitType,omitempty"`
 }
 
@@ -108,7 +108,7 @@ var metricDefinitionTypeUnitTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["None","Percent","Seconds","Number","AttendanceStatus","Unit"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["None","Percent","Currency","Seconds","Number","AttendanceStatus","Unit"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -123,6 +123,9 @@ const (
 
 	// MetricDefinitionUnitTypePercent captures enum value "Percent"
 	MetricDefinitionUnitTypePercent string = "Percent"
+
+	// MetricDefinitionUnitTypeCurrency captures enum value "Currency"
+	MetricDefinitionUnitTypeCurrency string = "Currency"
 
 	// MetricDefinitionUnitTypeSeconds captures enum value "Seconds"
 	MetricDefinitionUnitTypeSeconds string = "Seconds"

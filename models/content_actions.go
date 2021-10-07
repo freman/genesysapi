@@ -15,12 +15,6 @@ import (
 // swagger:model ContentActions
 type ContentActions struct {
 
-	// Execute an organization's specific command.
-	CommandName string `json:"commandName,omitempty"`
-
-	// Additional context for the command.
-	Context map[string]interface{} `json:"context,omitempty"`
-
 	// Text to be sent back in reply when the item is selected.
 	Textback string `json:"textback,omitempty"`
 

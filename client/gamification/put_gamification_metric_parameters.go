@@ -170,14 +170,14 @@ func (o *PutGamificationMetricParams) WriteToRequest(r runtime.ClientRequest, re
 
 	if o.PerformanceProfileID != nil {
 
-		// query param performance profile id
+		// query param performanceProfileId
 		var qrPerformanceProfileID string
 		if o.PerformanceProfileID != nil {
 			qrPerformanceProfileID = *o.PerformanceProfileID
 		}
 		qPerformanceProfileID := qrPerformanceProfileID
 		if qPerformanceProfileID != "" {
-			if err := r.SetQueryParam("performance profile id", qPerformanceProfileID); err != nil {
+			if err := r.SetQueryParam("performanceProfileId", qPerformanceProfileID); err != nil {
 				return err
 			}
 		}

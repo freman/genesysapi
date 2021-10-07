@@ -66,11 +66,25 @@ type AnalyticsSession struct {
 	// The name of the user requesting a call back
 	CallbackUserName string `json:"callbackUserName,omitempty"`
 
+	// The participantId being coached (if someone (e.g. an agent) is being coached, this would correspond to one of the other participantIds present in the conversation)
+	CoachedParticipantID string `json:"coachedParticipantId,omitempty"`
+
 	// Describes side of the cobrowse (sharer or viewer)
 	CobrowseRole string `json:"cobrowseRole,omitempty"`
 
 	// A unique identifier for a PureCloud cobrowse room
 	CobrowseRoomID string `json:"cobrowseRoomId,omitempty"`
+
+	// The email delivery status
+	// Enum: [DeliveryFailed DeliverySuccess Failed Queued Read Received Sent]
+	DeliveryStatus string `json:"deliveryStatus,omitempty"`
+
+	// Date and time of the most recent delivery status change. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+	// Format: date-time
+	DeliveryStatusChangeDate strfmt.DateTime `json:"deliveryStatusChangeDate,omitempty"`
+
+	// Destination address(es) of transfers or consults
+	DestinationAddresses []string `json:"destinationAddresses"`
 
 	// The direction of the communication
 	// Enum: [inbound outbound]
@@ -87,6 +101,9 @@ type AnalyticsSession struct {
 
 	// Unique identifier of the edge device
 	EdgeID string `json:"edgeId,omitempty"`
+
+	// Number of eligible agents for each predictive routing attempt
+	EligibleAgentCounts []int32 `json:"eligibleAgentCounts"`
 
 	// IVR flow execution associated with this session
 	Flow *AnalyticsFlow `json:"flow,omitempty"`
@@ -128,7 +145,7 @@ type AnalyticsSession struct {
 	MediaEndpointStats []*AnalyticsMediaEndpointStat `json:"mediaEndpointStats"`
 
 	// The session media type
-	// Enum: [callback chat cobrowse email message screenshare video voice]
+	// Enum: [callback chat cobrowse email message screenshare unknown video voice]
 	MediaType string `json:"mediaType,omitempty"`
 
 	// Message type for messaging services. E.g.: sms, facebook, twitter, line
@@ -137,7 +154,7 @@ type AnalyticsSession struct {
 	// List of metrics for this session
 	Metrics []*AnalyticsSessionMetric `json:"metrics"`
 
-	// The participantId being monitored (if someone (e.g. an agent) is being monitored, this would be the ID of the participant that was monitored that would correspond to other participantIds present in the conversation)
+	// The participantId being monitored (if someone (e.g. an agent) is being monitored, this would correspond to one of the other participantIds present in the conversation)
 	MonitoredParticipantID string `json:"monitoredParticipantId,omitempty"`
 
 	// (Dialer) Unique identifier of the outbound campaign
@@ -224,6 +241,9 @@ type AnalyticsSession struct {
 
 	// A unique identifier for a PureCloud video room
 	VideoRoomID string `json:"videoRoomId,omitempty"`
+
+	// Number of waiting interactions for each predictive routing attempt
+	WaitingInteractionCounts []int32 `json:"waitingInteractionCounts"`
 }
 
 // Validate validates this analytics session
@@ -231,6 +251,14 @@ func (m *AnalyticsSession) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateCallbackScheduledTime(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDeliveryStatus(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDeliveryStatusChangeDate(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -283,6 +311,77 @@ func (m *AnalyticsSession) validateCallbackScheduledTime(formats strfmt.Registry
 	}
 
 	if err := validate.FormatOf("callbackScheduledTime", "body", "date-time", m.CallbackScheduledTime.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+var analyticsSessionTypeDeliveryStatusPropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["DeliveryFailed","DeliverySuccess","Failed","Queued","Read","Received","Sent"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		analyticsSessionTypeDeliveryStatusPropEnum = append(analyticsSessionTypeDeliveryStatusPropEnum, v)
+	}
+}
+
+const (
+
+	// AnalyticsSessionDeliveryStatusDeliveryFailed captures enum value "DeliveryFailed"
+	AnalyticsSessionDeliveryStatusDeliveryFailed string = "DeliveryFailed"
+
+	// AnalyticsSessionDeliveryStatusDeliverySuccess captures enum value "DeliverySuccess"
+	AnalyticsSessionDeliveryStatusDeliverySuccess string = "DeliverySuccess"
+
+	// AnalyticsSessionDeliveryStatusFailed captures enum value "Failed"
+	AnalyticsSessionDeliveryStatusFailed string = "Failed"
+
+	// AnalyticsSessionDeliveryStatusQueued captures enum value "Queued"
+	AnalyticsSessionDeliveryStatusQueued string = "Queued"
+
+	// AnalyticsSessionDeliveryStatusRead captures enum value "Read"
+	AnalyticsSessionDeliveryStatusRead string = "Read"
+
+	// AnalyticsSessionDeliveryStatusReceived captures enum value "Received"
+	AnalyticsSessionDeliveryStatusReceived string = "Received"
+
+	// AnalyticsSessionDeliveryStatusSent captures enum value "Sent"
+	AnalyticsSessionDeliveryStatusSent string = "Sent"
+)
+
+// prop value enum
+func (m *AnalyticsSession) validateDeliveryStatusEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, analyticsSessionTypeDeliveryStatusPropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *AnalyticsSession) validateDeliveryStatus(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.DeliveryStatus) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateDeliveryStatusEnum("deliveryStatus", "body", m.DeliveryStatus); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AnalyticsSession) validateDeliveryStatusChangeDate(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.DeliveryStatusChangeDate) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("deliveryStatusChangeDate", "body", "date-time", m.DeliveryStatusChangeDate.String(), formats); err != nil {
 		return err
 	}
 
@@ -379,7 +478,7 @@ var analyticsSessionTypeMediaTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["callback","chat","cobrowse","email","message","screenshare","video","voice"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["callback","chat","cobrowse","email","message","screenshare","unknown","video","voice"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -406,6 +505,9 @@ const (
 
 	// AnalyticsSessionMediaTypeScreenshare captures enum value "screenshare"
 	AnalyticsSessionMediaTypeScreenshare string = "screenshare"
+
+	// AnalyticsSessionMediaTypeUnknown captures enum value "unknown"
+	AnalyticsSessionMediaTypeUnknown string = "unknown"
 
 	// AnalyticsSessionMediaTypeVideo captures enum value "video"
 	AnalyticsSessionMediaTypeVideo string = "video"

@@ -398,7 +398,7 @@ type API interface {
 	*/
 	PostOutboundMessagingcampaignsProgress(ctx context.Context, params *PostOutboundMessagingcampaignsProgressParams) (*PostOutboundMessagingcampaignsProgressOK, error)
 	/*
-	   PostOutboundRulesets creates a dialer call analysis response set
+	   PostOutboundRulesets creates a rule set
 	*/
 	PostOutboundRulesets(ctx context.Context, params *PostOutboundRulesetsParams) (*PostOutboundRulesetsOK, error)
 	/*
@@ -2833,7 +2833,7 @@ func (a *Client) PostOutboundMessagingcampaignsProgress(ctx context.Context, par
 }
 
 /*
-PostOutboundRulesets creates a dialer call analysis response set
+PostOutboundRulesets creates a rule set
 */
 func (a *Client) PostOutboundRulesets(ctx context.Context, params *PostOutboundRulesetsParams) (*PostOutboundRulesetsOK, error) {
 

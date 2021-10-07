@@ -20,6 +20,9 @@ import (
 // swagger:model WorkPlan
 type WorkPlan struct {
 
+	// Number of agents in this work plan
+	AgentCount int32 `json:"agentCount,omitempty"`
+
 	// Agents in this work plan
 	Agents []*DeletableUserReference `json:"agents"`
 

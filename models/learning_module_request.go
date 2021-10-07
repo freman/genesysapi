@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -18,6 +19,9 @@ import (
 //
 // swagger:model LearningModuleRequest
 type LearningModuleRequest struct {
+
+	// The assessment form for learning module
+	AssessmentForm *AssessmentForm `json:"assessmentForm,omitempty"`
 
 	// The completion time of learning module in days
 	// Required: true
@@ -32,11 +36,19 @@ type LearningModuleRequest struct {
 	// The name of learning module
 	// Required: true
 	Name *string `json:"name"`
+
+	// The type for the learning module
+	// Enum: [Informational AssessedContent Assessment]
+	Type string `json:"type,omitempty"`
 }
 
 // Validate validates this learning module request
 func (m *LearningModuleRequest) Validate(formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.validateAssessmentForm(formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.validateCompletionTimeInDays(formats); err != nil {
 		res = append(res, err)
@@ -50,9 +62,31 @@ func (m *LearningModuleRequest) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateType(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *LearningModuleRequest) validateAssessmentForm(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.AssessmentForm) { // not required
+		return nil
+	}
+
+	if m.AssessmentForm != nil {
+		if err := m.AssessmentForm.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("assessmentForm")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -93,6 +127,52 @@ func (m *LearningModuleRequest) validateInformSteps(formats strfmt.Registry) err
 func (m *LearningModuleRequest) validateName(formats strfmt.Registry) error {
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+var learningModuleRequestTypeTypePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Informational","AssessedContent","Assessment"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		learningModuleRequestTypeTypePropEnum = append(learningModuleRequestTypeTypePropEnum, v)
+	}
+}
+
+const (
+
+	// LearningModuleRequestTypeInformational captures enum value "Informational"
+	LearningModuleRequestTypeInformational string = "Informational"
+
+	// LearningModuleRequestTypeAssessedContent captures enum value "AssessedContent"
+	LearningModuleRequestTypeAssessedContent string = "AssessedContent"
+
+	// LearningModuleRequestTypeAssessment captures enum value "Assessment"
+	LearningModuleRequestTypeAssessment string = "Assessment"
+)
+
+// prop value enum
+func (m *LearningModuleRequest) validateTypeEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, learningModuleRequestTypeTypePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *LearningModuleRequest) validateType(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Type) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateTypeEnum("type", "body", m.Type); err != nil {
 		return err
 	}
 

@@ -21,7 +21,7 @@ import (
 type AuditLogMessage struct {
 
 	// Action that took place.
-	// Enum: [Create View Update Move Delete DeleteAll Download Upload MemberAdd MemberUpdate MemberRemove Read ReadAll Execute ApplyProtection RevokeProtection UpdateRetention Abandon Archive RestoreRequest RestoreComplete Publish Unpublish Activate Checkin Checkout Deactivate Debug Save Revert Transcode Enable Disable Authorize Deauthorize Authenticate ChangePassword Revoke Export Append Recycle Open Approved Rejected Rollback ImplementingChange ChangeImplemented ImplementingRollback RollbackImplemented Write Purge Processed Replace UpdateInService UpdateOutOfService Cycle Scale IpAllowlistClear AddPairingRole Add]
+	// Enum: [Create View Update Move Delete DeleteAll Download Upload MemberAdd MemberUpdate MemberRemove Read ReadAll Execute ApplyProtection RevokeProtection UpdateRetention Abandon Archive RestoreRequest RestoreComplete Promote Publish Unpublish Activate Checkin Checkout Deactivate Debug Save Revert Transcode Enable Disable Authorize Deauthorize Authenticate ChangePassword Revoke Export Append Recycle Open Approved Rejected Rollback ImplementingChange ChangeImplemented ImplementingRollback RollbackImplemented Write Purge Processed Replace UpdateInService UpdateOutOfService Cycle Scale IpAllowlistClear AddPairingRole Add Verify Assign Unassign Reassign Reschedule Cancel]
 	Action string `json:"action,omitempty"`
 
 	// Client associated with this audit message.
@@ -34,7 +34,7 @@ type AuditLogMessage struct {
 	Entity *DomainEntityRef `json:"entity,omitempty"`
 
 	// Type of the entity that was impacted.
-	// Enum: [AccessToken ActionMap ActionTemplate Annotation Appointment AttemptLimits AuthOrganization AuthUser Bulk BulkActions Calibration CallableTimeSet CallAnalysisResponseSet Campaign CampaignRule CampaignSchedule ChangeRequest ClickstreamSettings Configuration ConfigurationVersion ContactList ContactListFilter ConversationAccount ConversationDefaultSupportedContent ConversationPhoneNumber ConversationRecipient ConversationThreadingWindow DashboardSettings DependencyTrackingBuild Deployment DID DIDPool DNCList Document Edge EdgeGroup EdgeLog EdgeLogZip EdgePcaps EdgePreferences EdgeTraceLevel EmergencyGroup Evaluation EvaluationForm EventType Exports Extension ExtensionPool ExternalMetricsData ExternalMetricsDefinition Feedback Flow FlowMilestone FlowOutcome Forecast HistoricalData InsightSettings Integration IVR Line LineBase MaxOrgRoutingUtilizationCapacity MediaDiagnosticsTraceFile MessagingCampaign Metric NumberPlan OAuthClient OAuthClientAuthorization OrganizationAuthorizationTrust OrganizationAuthorizationUserTrust OrganizationFeature OrganizationIntegrationsAccess OrganizationSettings OrphanedRecording OutboundRoute Outcome Pcaps Phone PhoneBase Policy Predictor Product Program Prompt PromptResource Queue Recording RecordingAnnotation RecordingSettings Response Role Row RoutingTranscriptionSettings RuleSet Schedule ScheduledExports ScheduleGroup Schema ScreenRecording Segment SentimentFeedback Sequence SequenceSchedule SessionType Site SpeechTextAnalyticsSettings Status SupportedContent SupportFile Survey SurveyForm Team Topic TranscriptionSettings Trigger Trunk TrunkBase User UserPresence VoicemailPolicy VoicemailUserPolicy Webhook WorkPlan Workspace WrapupCode WrapUpCodeMapping]
+	// Enum: [AccessToken ActionMap ActionTemplate Annotation Appointment Assignment AttemptLimits AuthOrganization AuthUser Bulk BulkActions Calibration CallableTimeSet CallAnalysisResponseSet Campaign CampaignRule CampaignSchedule ChangeRequest ClickstreamSettings Configuration ConfigurationVersion ContactList ContactListFilter ConversationAccount ConversationDefaultSupportedContent ConversationPhoneNumber ConversationRecipient ConversationThreadingWindow DashboardSettings DependencyTrackingBuild Deployment DID DIDPool DNCList Document DynamicGroup Edge EdgeGroup EdgeLog EdgeLogZip EdgePcaps EdgePreferences EdgeTraceLevel EmergencyGroup Evaluation EvaluationForm EventType Exports Extension ExtensionPool ExternalMetricsData ExternalMetricsDefinition Feedback Flow FlowMilestone FlowOutcome Forecast HistoricalData InsightSettings Integration IVR KnowledgeBase KnowledgeCategory KnowledgeDocument KnowledgeSearchFeedback KnowledgeTraining Line LineBase Location MaxOrgRoutingUtilizationCapacity MediaDiagnosticsTraceFile MessagingCampaign Metric Module NumberPlan OAuthClient OAuthClientAuthorization OrganizationAuthorizationTrust OrganizationAuthorizationUserTrust OrganizationFeature OrganizationIntegrationsAccess OrganizationSettings OrphanedRecording OutboundRoute Outcome Pcaps Phone PhoneBase Policy Predictor Product Profile ProfileMembers Program Prompt PromptResource Queue Recording RecordingAnnotation RecordingSettings Response Role Row RoutingTranscriptionSettings Rule RuleSet Schedule ScheduledExports ScheduleGroup Schema ScreenRecording Segment SentimentFeedback Sequence SequenceSchedule SessionType Site SpeechTextAnalyticsSettings Status SupportedContent SupportFile Survey SurveyForm Team Topic TranscriptionSettings Trigger Trunk TrunkBase User UserPresence VoicemailPolicy VoicemailUserPolicy Webhook WorkPlan Workspace WrapupCode WrapUpCodeMapping Participant]
 	EntityType string `json:"entityType,omitempty"`
 
 	// Date and time of when the audit message was logged. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
@@ -54,7 +54,7 @@ type AuditLogMessage struct {
 	RemoteIP []string `json:"remoteIp"`
 
 	// Name of the service that logged this audit message.
-	// Enum: [AnalyticsReporting Architect Coaching ContactCenter ContentManagement Datatables Gamification Groups Integrations LanguageUnderstanding Limits Outbound PeoplePermissions EmployeePerformance PredictiveEngagement Presence Quality ResponseManagement Routing SpeechAndTextAnalytics Telephony TopicsDefinitions Triggers WebDeployments Webhooks WorkforceManagement Messaging Supportability]
+	// Enum: [AnalyticsReporting Architect Coaching ContactCenter ContentManagement Datatables Directory Gamification Groups Integrations Knowledge LanguageUnderstanding Learning Limits Outbound PeoplePermissions EmployeePerformance PredictiveEngagement Presence Quality ResponseManagement Routing SpeechAndTextAnalytics Telephony TopicsDefinitions Triggers ProcessAutomation WebDeployments Webhooks WorkforceManagement Messaging Supportability Callback]
 	ServiceName string `json:"serviceName,omitempty"`
 
 	// User associated with this audit message.
@@ -114,7 +114,7 @@ var auditLogMessageTypeActionPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Create","View","Update","Move","Delete","DeleteAll","Download","Upload","MemberAdd","MemberUpdate","MemberRemove","Read","ReadAll","Execute","ApplyProtection","RevokeProtection","UpdateRetention","Abandon","Archive","RestoreRequest","RestoreComplete","Publish","Unpublish","Activate","Checkin","Checkout","Deactivate","Debug","Save","Revert","Transcode","Enable","Disable","Authorize","Deauthorize","Authenticate","ChangePassword","Revoke","Export","Append","Recycle","Open","Approved","Rejected","Rollback","ImplementingChange","ChangeImplemented","ImplementingRollback","RollbackImplemented","Write","Purge","Processed","Replace","UpdateInService","UpdateOutOfService","Cycle","Scale","IpAllowlistClear","AddPairingRole","Add"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Create","View","Update","Move","Delete","DeleteAll","Download","Upload","MemberAdd","MemberUpdate","MemberRemove","Read","ReadAll","Execute","ApplyProtection","RevokeProtection","UpdateRetention","Abandon","Archive","RestoreRequest","RestoreComplete","Promote","Publish","Unpublish","Activate","Checkin","Checkout","Deactivate","Debug","Save","Revert","Transcode","Enable","Disable","Authorize","Deauthorize","Authenticate","ChangePassword","Revoke","Export","Append","Recycle","Open","Approved","Rejected","Rollback","ImplementingChange","ChangeImplemented","ImplementingRollback","RollbackImplemented","Write","Purge","Processed","Replace","UpdateInService","UpdateOutOfService","Cycle","Scale","IpAllowlistClear","AddPairingRole","Add","Verify","Assign","Unassign","Reassign","Reschedule","Cancel"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -186,6 +186,9 @@ const (
 
 	// AuditLogMessageActionRestoreComplete captures enum value "RestoreComplete"
 	AuditLogMessageActionRestoreComplete string = "RestoreComplete"
+
+	// AuditLogMessageActionPromote captures enum value "Promote"
+	AuditLogMessageActionPromote string = "Promote"
 
 	// AuditLogMessageActionPublish captures enum value "Publish"
 	AuditLogMessageActionPublish string = "Publish"
@@ -303,6 +306,24 @@ const (
 
 	// AuditLogMessageActionAdd captures enum value "Add"
 	AuditLogMessageActionAdd string = "Add"
+
+	// AuditLogMessageActionVerify captures enum value "Verify"
+	AuditLogMessageActionVerify string = "Verify"
+
+	// AuditLogMessageActionAssign captures enum value "Assign"
+	AuditLogMessageActionAssign string = "Assign"
+
+	// AuditLogMessageActionUnassign captures enum value "Unassign"
+	AuditLogMessageActionUnassign string = "Unassign"
+
+	// AuditLogMessageActionReassign captures enum value "Reassign"
+	AuditLogMessageActionReassign string = "Reassign"
+
+	// AuditLogMessageActionReschedule captures enum value "Reschedule"
+	AuditLogMessageActionReschedule string = "Reschedule"
+
+	// AuditLogMessageActionCancel captures enum value "Cancel"
+	AuditLogMessageActionCancel string = "Cancel"
 )
 
 // prop value enum
@@ -367,7 +388,7 @@ var auditLogMessageTypeEntityTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["AccessToken","ActionMap","ActionTemplate","Annotation","Appointment","AttemptLimits","AuthOrganization","AuthUser","Bulk","BulkActions","Calibration","CallableTimeSet","CallAnalysisResponseSet","Campaign","CampaignRule","CampaignSchedule","ChangeRequest","ClickstreamSettings","Configuration","ConfigurationVersion","ContactList","ContactListFilter","ConversationAccount","ConversationDefaultSupportedContent","ConversationPhoneNumber","ConversationRecipient","ConversationThreadingWindow","DashboardSettings","DependencyTrackingBuild","Deployment","DID","DIDPool","DNCList","Document","Edge","EdgeGroup","EdgeLog","EdgeLogZip","EdgePcaps","EdgePreferences","EdgeTraceLevel","EmergencyGroup","Evaluation","EvaluationForm","EventType","Exports","Extension","ExtensionPool","ExternalMetricsData","ExternalMetricsDefinition","Feedback","Flow","FlowMilestone","FlowOutcome","Forecast","HistoricalData","InsightSettings","Integration","IVR","Line","LineBase","MaxOrgRoutingUtilizationCapacity","MediaDiagnosticsTraceFile","MessagingCampaign","Metric","NumberPlan","OAuthClient","OAuthClientAuthorization","OrganizationAuthorizationTrust","OrganizationAuthorizationUserTrust","OrganizationFeature","OrganizationIntegrationsAccess","OrganizationSettings","OrphanedRecording","OutboundRoute","Outcome","Pcaps","Phone","PhoneBase","Policy","Predictor","Product","Program","Prompt","PromptResource","Queue","Recording","RecordingAnnotation","RecordingSettings","Response","Role","Row","RoutingTranscriptionSettings","RuleSet","Schedule","ScheduledExports","ScheduleGroup","Schema","ScreenRecording","Segment","SentimentFeedback","Sequence","SequenceSchedule","SessionType","Site","SpeechTextAnalyticsSettings","Status","SupportedContent","SupportFile","Survey","SurveyForm","Team","Topic","TranscriptionSettings","Trigger","Trunk","TrunkBase","User","UserPresence","VoicemailPolicy","VoicemailUserPolicy","Webhook","WorkPlan","Workspace","WrapupCode","WrapUpCodeMapping"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["AccessToken","ActionMap","ActionTemplate","Annotation","Appointment","Assignment","AttemptLimits","AuthOrganization","AuthUser","Bulk","BulkActions","Calibration","CallableTimeSet","CallAnalysisResponseSet","Campaign","CampaignRule","CampaignSchedule","ChangeRequest","ClickstreamSettings","Configuration","ConfigurationVersion","ContactList","ContactListFilter","ConversationAccount","ConversationDefaultSupportedContent","ConversationPhoneNumber","ConversationRecipient","ConversationThreadingWindow","DashboardSettings","DependencyTrackingBuild","Deployment","DID","DIDPool","DNCList","Document","DynamicGroup","Edge","EdgeGroup","EdgeLog","EdgeLogZip","EdgePcaps","EdgePreferences","EdgeTraceLevel","EmergencyGroup","Evaluation","EvaluationForm","EventType","Exports","Extension","ExtensionPool","ExternalMetricsData","ExternalMetricsDefinition","Feedback","Flow","FlowMilestone","FlowOutcome","Forecast","HistoricalData","InsightSettings","Integration","IVR","KnowledgeBase","KnowledgeCategory","KnowledgeDocument","KnowledgeSearchFeedback","KnowledgeTraining","Line","LineBase","Location","MaxOrgRoutingUtilizationCapacity","MediaDiagnosticsTraceFile","MessagingCampaign","Metric","Module","NumberPlan","OAuthClient","OAuthClientAuthorization","OrganizationAuthorizationTrust","OrganizationAuthorizationUserTrust","OrganizationFeature","OrganizationIntegrationsAccess","OrganizationSettings","OrphanedRecording","OutboundRoute","Outcome","Pcaps","Phone","PhoneBase","Policy","Predictor","Product","Profile","ProfileMembers","Program","Prompt","PromptResource","Queue","Recording","RecordingAnnotation","RecordingSettings","Response","Role","Row","RoutingTranscriptionSettings","Rule","RuleSet","Schedule","ScheduledExports","ScheduleGroup","Schema","ScreenRecording","Segment","SentimentFeedback","Sequence","SequenceSchedule","SessionType","Site","SpeechTextAnalyticsSettings","Status","SupportedContent","SupportFile","Survey","SurveyForm","Team","Topic","TranscriptionSettings","Trigger","Trunk","TrunkBase","User","UserPresence","VoicemailPolicy","VoicemailUserPolicy","Webhook","WorkPlan","Workspace","WrapupCode","WrapUpCodeMapping","Participant"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -391,6 +412,9 @@ const (
 
 	// AuditLogMessageEntityTypeAppointment captures enum value "Appointment"
 	AuditLogMessageEntityTypeAppointment string = "Appointment"
+
+	// AuditLogMessageEntityTypeAssignment captures enum value "Assignment"
+	AuditLogMessageEntityTypeAssignment string = "Assignment"
 
 	// AuditLogMessageEntityTypeAttemptLimits captures enum value "AttemptLimits"
 	AuditLogMessageEntityTypeAttemptLimits string = "AttemptLimits"
@@ -479,6 +503,9 @@ const (
 	// AuditLogMessageEntityTypeDocument captures enum value "Document"
 	AuditLogMessageEntityTypeDocument string = "Document"
 
+	// AuditLogMessageEntityTypeDynamicGroup captures enum value "DynamicGroup"
+	AuditLogMessageEntityTypeDynamicGroup string = "DynamicGroup"
+
 	// AuditLogMessageEntityTypeEdge captures enum value "Edge"
 	AuditLogMessageEntityTypeEdge string = "Edge"
 
@@ -554,11 +581,29 @@ const (
 	// AuditLogMessageEntityTypeIVR captures enum value "IVR"
 	AuditLogMessageEntityTypeIVR string = "IVR"
 
+	// AuditLogMessageEntityTypeKnowledgeBase captures enum value "KnowledgeBase"
+	AuditLogMessageEntityTypeKnowledgeBase string = "KnowledgeBase"
+
+	// AuditLogMessageEntityTypeKnowledgeCategory captures enum value "KnowledgeCategory"
+	AuditLogMessageEntityTypeKnowledgeCategory string = "KnowledgeCategory"
+
+	// AuditLogMessageEntityTypeKnowledgeDocument captures enum value "KnowledgeDocument"
+	AuditLogMessageEntityTypeKnowledgeDocument string = "KnowledgeDocument"
+
+	// AuditLogMessageEntityTypeKnowledgeSearchFeedback captures enum value "KnowledgeSearchFeedback"
+	AuditLogMessageEntityTypeKnowledgeSearchFeedback string = "KnowledgeSearchFeedback"
+
+	// AuditLogMessageEntityTypeKnowledgeTraining captures enum value "KnowledgeTraining"
+	AuditLogMessageEntityTypeKnowledgeTraining string = "KnowledgeTraining"
+
 	// AuditLogMessageEntityTypeLine captures enum value "Line"
 	AuditLogMessageEntityTypeLine string = "Line"
 
 	// AuditLogMessageEntityTypeLineBase captures enum value "LineBase"
 	AuditLogMessageEntityTypeLineBase string = "LineBase"
+
+	// AuditLogMessageEntityTypeLocation captures enum value "Location"
+	AuditLogMessageEntityTypeLocation string = "Location"
 
 	// AuditLogMessageEntityTypeMaxOrgRoutingUtilizationCapacity captures enum value "MaxOrgRoutingUtilizationCapacity"
 	AuditLogMessageEntityTypeMaxOrgRoutingUtilizationCapacity string = "MaxOrgRoutingUtilizationCapacity"
@@ -571,6 +616,9 @@ const (
 
 	// AuditLogMessageEntityTypeMetric captures enum value "Metric"
 	AuditLogMessageEntityTypeMetric string = "Metric"
+
+	// AuditLogMessageEntityTypeModule captures enum value "Module"
+	AuditLogMessageEntityTypeModule string = "Module"
 
 	// AuditLogMessageEntityTypeNumberPlan captures enum value "NumberPlan"
 	AuditLogMessageEntityTypeNumberPlan string = "NumberPlan"
@@ -623,6 +671,12 @@ const (
 	// AuditLogMessageEntityTypeProduct captures enum value "Product"
 	AuditLogMessageEntityTypeProduct string = "Product"
 
+	// AuditLogMessageEntityTypeProfile captures enum value "Profile"
+	AuditLogMessageEntityTypeProfile string = "Profile"
+
+	// AuditLogMessageEntityTypeProfileMembers captures enum value "ProfileMembers"
+	AuditLogMessageEntityTypeProfileMembers string = "ProfileMembers"
+
 	// AuditLogMessageEntityTypeProgram captures enum value "Program"
 	AuditLogMessageEntityTypeProgram string = "Program"
 
@@ -655,6 +709,9 @@ const (
 
 	// AuditLogMessageEntityTypeRoutingTranscriptionSettings captures enum value "RoutingTranscriptionSettings"
 	AuditLogMessageEntityTypeRoutingTranscriptionSettings string = "RoutingTranscriptionSettings"
+
+	// AuditLogMessageEntityTypeRule captures enum value "Rule"
+	AuditLogMessageEntityTypeRule string = "Rule"
 
 	// AuditLogMessageEntityTypeRuleSet captures enum value "RuleSet"
 	AuditLogMessageEntityTypeRuleSet string = "RuleSet"
@@ -754,6 +811,9 @@ const (
 
 	// AuditLogMessageEntityTypeWrapUpCodeMapping captures enum value "WrapUpCodeMapping"
 	AuditLogMessageEntityTypeWrapUpCodeMapping string = "WrapUpCodeMapping"
+
+	// AuditLogMessageEntityTypeParticipant captures enum value "Participant"
+	AuditLogMessageEntityTypeParticipant string = "Participant"
 )
 
 // prop value enum
@@ -838,7 +898,7 @@ var auditLogMessageTypeServiceNamePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["AnalyticsReporting","Architect","Coaching","ContactCenter","ContentManagement","Datatables","Gamification","Groups","Integrations","LanguageUnderstanding","Limits","Outbound","PeoplePermissions","EmployeePerformance","PredictiveEngagement","Presence","Quality","ResponseManagement","Routing","SpeechAndTextAnalytics","Telephony","TopicsDefinitions","Triggers","WebDeployments","Webhooks","WorkforceManagement","Messaging","Supportability"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["AnalyticsReporting","Architect","Coaching","ContactCenter","ContentManagement","Datatables","Directory","Gamification","Groups","Integrations","Knowledge","LanguageUnderstanding","Learning","Limits","Outbound","PeoplePermissions","EmployeePerformance","PredictiveEngagement","Presence","Quality","ResponseManagement","Routing","SpeechAndTextAnalytics","Telephony","TopicsDefinitions","Triggers","ProcessAutomation","WebDeployments","Webhooks","WorkforceManagement","Messaging","Supportability","Callback"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -866,6 +926,9 @@ const (
 	// AuditLogMessageServiceNameDatatables captures enum value "Datatables"
 	AuditLogMessageServiceNameDatatables string = "Datatables"
 
+	// AuditLogMessageServiceNameDirectory captures enum value "Directory"
+	AuditLogMessageServiceNameDirectory string = "Directory"
+
 	// AuditLogMessageServiceNameGamification captures enum value "Gamification"
 	AuditLogMessageServiceNameGamification string = "Gamification"
 
@@ -875,8 +938,14 @@ const (
 	// AuditLogMessageServiceNameIntegrations captures enum value "Integrations"
 	AuditLogMessageServiceNameIntegrations string = "Integrations"
 
+	// AuditLogMessageServiceNameKnowledge captures enum value "Knowledge"
+	AuditLogMessageServiceNameKnowledge string = "Knowledge"
+
 	// AuditLogMessageServiceNameLanguageUnderstanding captures enum value "LanguageUnderstanding"
 	AuditLogMessageServiceNameLanguageUnderstanding string = "LanguageUnderstanding"
+
+	// AuditLogMessageServiceNameLearning captures enum value "Learning"
+	AuditLogMessageServiceNameLearning string = "Learning"
 
 	// AuditLogMessageServiceNameLimits captures enum value "Limits"
 	AuditLogMessageServiceNameLimits string = "Limits"
@@ -917,6 +986,9 @@ const (
 	// AuditLogMessageServiceNameTriggers captures enum value "Triggers"
 	AuditLogMessageServiceNameTriggers string = "Triggers"
 
+	// AuditLogMessageServiceNameProcessAutomation captures enum value "ProcessAutomation"
+	AuditLogMessageServiceNameProcessAutomation string = "ProcessAutomation"
+
 	// AuditLogMessageServiceNameWebDeployments captures enum value "WebDeployments"
 	AuditLogMessageServiceNameWebDeployments string = "WebDeployments"
 
@@ -931,6 +1003,9 @@ const (
 
 	// AuditLogMessageServiceNameSupportability captures enum value "Supportability"
 	AuditLogMessageServiceNameSupportability string = "Supportability"
+
+	// AuditLogMessageServiceNameCallback captures enum value "Callback"
+	AuditLogMessageServiceNameCallback string = "Callback"
 )
 
 // prop value enum
