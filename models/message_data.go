@@ -41,7 +41,7 @@ type MessageData struct {
 	Media []*MessageMedia `json:"media"`
 
 	// Type of text messenger.
-	// Enum: [sms facebook twitter line whatsapp webmessaging open]
+	// Enum: [sms facebook twitter line whatsapp webmessaging instagram open]
 	MessengerType string `json:"messengerType,omitempty"`
 
 	// name
@@ -212,7 +212,7 @@ var messageDataTypeMessengerTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["sms","facebook","twitter","line","whatsapp","webmessaging","open"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["sms","facebook","twitter","line","whatsapp","webmessaging","instagram","open"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -239,6 +239,9 @@ const (
 
 	// MessageDataMessengerTypeWebmessaging captures enum value "webmessaging"
 	MessageDataMessengerTypeWebmessaging string = "webmessaging"
+
+	// MessageDataMessengerTypeInstagram captures enum value "instagram"
+	MessageDataMessengerTypeInstagram string = "instagram"
 
 	// MessageDataMessengerTypeOpen captures enum value "open"
 	MessageDataMessengerTypeOpen string = "open"

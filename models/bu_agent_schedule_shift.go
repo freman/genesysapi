@@ -22,11 +22,11 @@ type BuAgentScheduleShift struct {
 	// The activities associated with this shift
 	Activities []*BuAgentScheduleActivity `json:"activities"`
 
-	// The globally unique identifier for the object.
-	// Read Only: true
+	// The ID of the shift
 	ID string `json:"id,omitempty"`
 
 	// The length of this shift in minutes
+	// Read Only: true
 	LengthMinutes int32 `json:"lengthMinutes,omitempty"`
 
 	// Whether this shift was manually edited. This is only set by clients and is used for rescheduling
@@ -37,6 +37,7 @@ type BuAgentScheduleShift struct {
 	Schedule *BuScheduleReference `json:"schedule,omitempty"`
 
 	// The start date of this shift. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+	// Read Only: true
 	// Format: date-time
 	StartDate strfmt.DateTime `json:"startDate,omitempty"`
 }

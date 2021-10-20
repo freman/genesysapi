@@ -111,23 +111,21 @@ func NewGetQualityFormsSurveysBulkContextsOK() *GetQualityFormsSurveysBulkContex
 successful operation
 */
 type GetQualityFormsSurveysBulkContextsOK struct {
-	Payload *models.SurveyFormEntityListing
+	Payload []*models.SurveyForm
 }
 
 func (o *GetQualityFormsSurveysBulkContextsOK) Error() string {
 	return fmt.Sprintf("[GET /api/v2/quality/forms/surveys/bulk/contexts][%d] getQualityFormsSurveysBulkContextsOK  %+v", 200, o.Payload)
 }
 
-func (o *GetQualityFormsSurveysBulkContextsOK) GetPayload() *models.SurveyFormEntityListing {
+func (o *GetQualityFormsSurveysBulkContextsOK) GetPayload() []*models.SurveyForm {
 	return o.Payload
 }
 
 func (o *GetQualityFormsSurveysBulkContextsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.SurveyFormEntityListing)
-
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

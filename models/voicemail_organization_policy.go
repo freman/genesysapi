@@ -17,15 +17,18 @@ import (
 // swagger:model VoicemailOrganizationPolicy
 type VoicemailOrganizationPolicy struct {
 
-	// The organization's default number of seconds to ring a user's phone before a call is transfered to voicemail
+	// The organization's default number of seconds to ring a user's phone before a call is transferred to voicemail
 	AlertTimeoutSeconds int32 `json:"alertTimeoutSeconds,omitempty"`
 
 	// Removes any PII from emails. This overrides any analogous group configuration value. This is always true if HIPAA is enabled or unknown for an organization.
 	DisableEmailPii bool `json:"disableEmailPii"`
 
-	// Whether voicemail is enable for this organization
+	// Whether voicemail is enabled for this organization
 	// Read Only: true
 	Enabled *bool `json:"enabled"`
+
+	// Whether user should be prompted with a confirmation prompt when connecting to a Group Ring call
+	InteractiveResponseRequired bool `json:"interactiveResponseRequired"`
 
 	// The date the policy was last modified. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Read Only: true

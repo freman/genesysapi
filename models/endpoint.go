@@ -42,6 +42,9 @@ type Endpoint struct {
 	// dids
 	Dids []string `json:"dids"`
 
+	// The division to which this entity belongs.
+	Division *Division `json:"division,omitempty"`
+
 	// enabled
 	Enabled bool `json:"enabled"`
 
@@ -95,6 +98,10 @@ func (m *Endpoint) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateDivision(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateName(formats); err != nil {
 		res = append(res, err)
 	}
@@ -142,6 +149,24 @@ func (m *Endpoint) validateDateModified(formats strfmt.Registry) error {
 
 	if err := validate.FormatOf("dateModified", "body", "date-time", m.DateModified.String(), formats); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *Endpoint) validateDivision(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Division) { // not required
+		return nil
+	}
+
+	if m.Division != nil {
+		if err := m.Division.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("division")
+			}
+			return err
+		}
 	}
 
 	return nil

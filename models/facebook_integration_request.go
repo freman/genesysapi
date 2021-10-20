@@ -17,10 +17,10 @@ import (
 // swagger:model FacebookIntegrationRequest
 type FacebookIntegrationRequest struct {
 
-	// The app Id of a facebook app. The appId is required when a customer wants to use their own approved facebook app.
+	// The app Id of Facebook app. The appId is required when a customer wants to use their own approved Facebook app.
 	AppID string `json:"appId,omitempty"`
 
-	// The app Secret of a facebook app. The appSecret is required when appId is provided.
+	// The app Secret of Facebook app. The appSecret is required when appId is provided.
 	AppSecret string `json:"appSecret,omitempty"`
 
 	// The globally unique identifier for the object.
@@ -31,12 +31,12 @@ type FacebookIntegrationRequest struct {
 	// Required: true
 	Name *string `json:"name"`
 
-	// The long-lived Page Access Token of a facebook page.
+	// The long-lived Page Access Token of Facebook page.
 	// See https://developers.facebook.com/docs/facebook-login/access-tokens.
 	// When a pageAccessToken is provided, pageId and userAccessToken are not required.
 	PageAccessToken string `json:"pageAccessToken,omitempty"`
 
-	// The page Id of a facebook page. The pageId is required when userAccessToken is provided.
+	// The page Id of Facebook page. The pageId is required when userAccessToken is provided.
 	PageID string `json:"pageId,omitempty"`
 
 	// The URI for this object
@@ -44,7 +44,7 @@ type FacebookIntegrationRequest struct {
 	// Format: uri
 	SelfURI strfmt.URI `json:"selfUri,omitempty"`
 
-	// The short-lived User Access Token of the facebook user logged into the facebook app.
+	// The short-lived User Access Token of the Facebook user logged into the Facebook app.
 	// See https://developers.facebook.com/docs/facebook-login/access-tokens.
 	// When userAccessToken is provided, pageId is mandatory.
 	// When userAccessToken/pageId combination is provided, pageAccessToken is not required.

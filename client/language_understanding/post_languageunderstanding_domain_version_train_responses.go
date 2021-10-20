@@ -65,6 +65,12 @@ func (o *PostLanguageunderstandingDomainVersionTrainReader) ReadResponse(respons
 			return nil, err
 		}
 		return nil, result
+	case 409:
+		result := NewPostLanguageunderstandingDomainVersionTrainConflict()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostLanguageunderstandingDomainVersionTrainRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -327,6 +333,39 @@ func (o *PostLanguageunderstandingDomainVersionTrainRequestTimeout) GetPayload()
 }
 
 func (o *PostLanguageunderstandingDomainVersionTrainRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPostLanguageunderstandingDomainVersionTrainConflict creates a PostLanguageunderstandingDomainVersionTrainConflict with default headers values
+func NewPostLanguageunderstandingDomainVersionTrainConflict() *PostLanguageunderstandingDomainVersionTrainConflict {
+	return &PostLanguageunderstandingDomainVersionTrainConflict{}
+}
+
+/*PostLanguageunderstandingDomainVersionTrainConflict handles this case with default header values.
+
+Conflict
+*/
+type PostLanguageunderstandingDomainVersionTrainConflict struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostLanguageunderstandingDomainVersionTrainConflict) Error() string {
+	return fmt.Sprintf("[POST /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}/train][%d] postLanguageunderstandingDomainVersionTrainConflict  %+v", 409, o.Payload)
+}
+
+func (o *PostLanguageunderstandingDomainVersionTrainConflict) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostLanguageunderstandingDomainVersionTrainConflict) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ErrorBody)
 

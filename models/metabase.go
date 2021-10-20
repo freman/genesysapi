@@ -36,6 +36,9 @@ type Metabase struct {
 	// description
 	Description string `json:"description,omitempty"`
 
+	// The division to which this entity belongs.
+	Division *Division `json:"division,omitempty"`
+
 	// The globally unique identifier for the object.
 	// Read Only: true
 	ID string `json:"id,omitempty"`
@@ -77,6 +80,10 @@ func (m *Metabase) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateDateModified(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDivision(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -123,6 +130,24 @@ func (m *Metabase) validateDateModified(formats strfmt.Registry) error {
 
 	if err := validate.FormatOf("dateModified", "body", "date-time", m.DateModified.String(), formats); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *Metabase) validateDivision(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Division) { // not required
+		return nil
+	}
+
+	if m.Division != nil {
+		if err := m.Division.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("division")
+			}
+			return err
+		}
 	}
 
 	return nil

@@ -22,9 +22,11 @@ type ValidationServiceRequest struct {
 	// Format: date-time
 	DateImportEnded *strfmt.DateTime `json:"dateImportEnded"`
 
-	// Path to the file in the storage including the file name
-	// Required: true
-	FileURL *string `json:"fileUrl"`
+	// File URL is deprecated, please use upload key
+	FileURL string `json:"fileUrl,omitempty"`
+
+	// S3 key for the uploaded file
+	UploadKey string `json:"uploadKey,omitempty"`
 }
 
 // Validate validates this validation service request
@@ -32,10 +34,6 @@ func (m *ValidationServiceRequest) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateDateImportEnded(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateFileURL(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -52,15 +50,6 @@ func (m *ValidationServiceRequest) validateDateImportEnded(formats strfmt.Regist
 	}
 
 	if err := validate.FormatOf("dateImportEnded", "body", "date-time", m.DateImportEnded.String(), formats); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ValidationServiceRequest) validateFileURL(formats strfmt.Registry) error {
-
-	if err := validate.Required("fileUrl", "body", m.FileURL); err != nil {
 		return err
 	}
 

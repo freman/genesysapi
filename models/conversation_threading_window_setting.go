@@ -21,7 +21,7 @@ type ConversationThreadingWindowSetting struct {
 
 	// The type of messenger
 	// Required: true
-	// Enum: [sms facebook twitter line whatsapp webmessaging open]
+	// Enum: [sms facebook twitter line whatsapp webmessaging instagram open]
 	MessengerType *string `json:"messengerType"`
 
 	// The conversation threading window timeout (Minutes) of specified messenger type
@@ -51,7 +51,7 @@ var conversationThreadingWindowSettingTypeMessengerTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["sms","facebook","twitter","line","whatsapp","webmessaging","open"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["sms","facebook","twitter","line","whatsapp","webmessaging","instagram","open"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -78,6 +78,9 @@ const (
 
 	// ConversationThreadingWindowSettingMessengerTypeWebmessaging captures enum value "webmessaging"
 	ConversationThreadingWindowSettingMessengerTypeWebmessaging string = "webmessaging"
+
+	// ConversationThreadingWindowSettingMessengerTypeInstagram captures enum value "instagram"
+	ConversationThreadingWindowSettingMessengerTypeInstagram string = "instagram"
 
 	// ConversationThreadingWindowSettingMessengerTypeOpen captures enum value "open"
 	ConversationThreadingWindowSettingMessengerTypeOpen string = "open"

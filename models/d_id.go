@@ -39,6 +39,9 @@ type DID struct {
 	// did pool
 	DidPool *DomainEntityRef `json:"didPool,omitempty"`
 
+	// The division to which this entity belongs.
+	Division *Division `json:"division,omitempty"`
+
 	// The globally unique identifier for the object.
 	// Read Only: true
 	ID string `json:"id,omitempty"`
@@ -90,6 +93,10 @@ func (m *DID) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateDidPool(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDivision(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -155,6 +162,24 @@ func (m *DID) validateDidPool(formats strfmt.Registry) error {
 		if err := m.DidPool.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("didPool")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DID) validateDivision(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Division) { // not required
+		return nil
+	}
+
+	if m.Division != nil {
+		if err := m.Division.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("division")
 			}
 			return err
 		}

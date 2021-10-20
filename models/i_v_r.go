@@ -39,6 +39,9 @@ type IVR struct {
 	// The resource's description.
 	Description string `json:"description,omitempty"`
 
+	// The division to which this entity belongs.
+	Division *Division `json:"division,omitempty"`
+
 	// The phone number(s) to contact the IVR by.  Each phone number must be unique and not in use by another resource.  For example, a user and an iVR cannot have the same phone number.
 	Dnis []string `json:"dnis"`
 
@@ -92,6 +95,10 @@ func (m *IVR) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateDateModified(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDivision(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -164,6 +171,24 @@ func (m *IVR) validateDateModified(formats strfmt.Registry) error {
 
 	if err := validate.FormatOf("dateModified", "body", "date-time", m.DateModified.String(), formats); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *IVR) validateDivision(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Division) { // not required
+		return nil
+	}
+
+	if m.Division != nil {
+		if err := m.Division.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("division")
+			}
+			return err
+		}
 	}
 
 	return nil

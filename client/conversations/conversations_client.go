@@ -404,7 +404,7 @@ type API interface {
 	*/
 	PatchConversationsMessagingIntegrationsWhatsappIntegrationID(ctx context.Context, params *PatchConversationsMessagingIntegrationsWhatsappIntegrationIDParams) (*PatchConversationsMessagingIntegrationsWhatsappIntegrationIDOK, *PatchConversationsMessagingIntegrationsWhatsappIntegrationIDAccepted, error)
 	/*
-	   PostConversationAssign attempts to manually assign a specified conversation to a specified agent ignores bullseye ring p a r score skills and languages
+	   PostConversationAssign attempts to manually assign a specified conversation to a specified user ignores bullseye ring p a r score skills and languages
 	*/
 	PostConversationAssign(ctx context.Context, params *PostConversationAssignParams) (*PostConversationAssignAccepted, error)
 	/*
@@ -2998,7 +2998,7 @@ func (a *Client) PatchConversationsMessagingIntegrationsWhatsappIntegrationID(ct
 }
 
 /*
-PostConversationAssign attempts to manually assign a specified conversation to a specified agent ignores bullseye ring p a r score skills and languages
+PostConversationAssign attempts to manually assign a specified conversation to a specified user ignores bullseye ring p a r score skills and languages
 */
 func (a *Client) PostConversationAssign(ctx context.Context, params *PostConversationAssignParams) (*PostConversationAssignAccepted, error) {
 

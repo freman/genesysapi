@@ -58,7 +58,7 @@ type Miner struct {
 	ID string `json:"id,omitempty"`
 
 	// Language Localization code.
-	// Enum: [en-us]
+	// Enum: [en-us en-gb en-au en-in en-za]
 	Language string `json:"language,omitempty"`
 
 	// Latest draft details of the miner.
@@ -233,7 +233,7 @@ var minerTypeLanguagePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["en-us"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["en-us","en-gb","en-au","en-in","en-za"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -245,6 +245,18 @@ const (
 
 	// MinerLanguageEnUs captures enum value "en-us"
 	MinerLanguageEnUs string = "en-us"
+
+	// MinerLanguageEnGb captures enum value "en-gb"
+	MinerLanguageEnGb string = "en-gb"
+
+	// MinerLanguageEnAu captures enum value "en-au"
+	MinerLanguageEnAu string = "en-au"
+
+	// MinerLanguageEnIn captures enum value "en-in"
+	MinerLanguageEnIn string = "en-in"
+
+	// MinerLanguageEnZa captures enum value "en-za"
+	MinerLanguageEnZa string = "en-za"
 )
 
 // prop value enum

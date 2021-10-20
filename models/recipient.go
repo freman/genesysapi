@@ -38,7 +38,7 @@ type Recipient struct {
 	ID string `json:"id,omitempty"`
 
 	// The messenger type for this recipient
-	// Enum: [sms facebook twitter line whatsapp webmessaging open]
+	// Enum: [sms facebook twitter line whatsapp webmessaging instagram open]
 	MessengerType string `json:"messengerType,omitempty"`
 
 	// User that modified this recipient
@@ -157,7 +157,7 @@ var recipientTypeMessengerTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["sms","facebook","twitter","line","whatsapp","webmessaging","open"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["sms","facebook","twitter","line","whatsapp","webmessaging","instagram","open"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -184,6 +184,9 @@ const (
 
 	// RecipientMessengerTypeWebmessaging captures enum value "webmessaging"
 	RecipientMessengerTypeWebmessaging string = "webmessaging"
+
+	// RecipientMessengerTypeInstagram captures enum value "instagram"
+	RecipientMessengerTypeInstagram string = "instagram"
 
 	// RecipientMessengerTypeOpen captures enum value "open"
 	RecipientMessengerTypeOpen string = "open"

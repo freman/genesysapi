@@ -36,12 +36,28 @@ type OpenNormalizedMessage struct {
 	// Read Only: true
 	ID string `json:"id,omitempty"`
 
+	// Indicates if this is the last message receipt for this message, or if another message receipt can be expected.
+	// Read Only: true
+	IsFinalReceipt *bool `json:"isFinalReceipt"`
+
+	// Additional metadata about this message.
+	Metadata map[string]string `json:"metadata,omitempty"`
+
+	// List of reasons for a message receipt that indicates the message has failed. Only used with Failed status.
+	// Read Only: true
+	Reasons []*Reason `json:"reasons"`
+
+	// Message receipt status, only used with type Receipt.
+	// Read Only: true
+	// Enum: [Sent Delivered Read Failed Published Removed]
+	Status string `json:"status,omitempty"`
+
 	// Message text.
 	Text string `json:"text,omitempty"`
 
 	// Message type.
 	// Required: true
-	// Enum: [Text]
+	// Enum: [Text Receipt]
 	Type *string `json:"type"`
 }
 
@@ -58,6 +74,14 @@ func (m *OpenNormalizedMessage) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateDirection(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateReasons(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateStatus(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -157,11 +181,91 @@ func (m *OpenNormalizedMessage) validateDirection(formats strfmt.Registry) error
 	return nil
 }
 
+func (m *OpenNormalizedMessage) validateReasons(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Reasons) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Reasons); i++ {
+		if swag.IsZero(m.Reasons[i]) { // not required
+			continue
+		}
+
+		if m.Reasons[i] != nil {
+			if err := m.Reasons[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("reasons" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+var openNormalizedMessageTypeStatusPropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Sent","Delivered","Read","Failed","Published","Removed"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		openNormalizedMessageTypeStatusPropEnum = append(openNormalizedMessageTypeStatusPropEnum, v)
+	}
+}
+
+const (
+
+	// OpenNormalizedMessageStatusSent captures enum value "Sent"
+	OpenNormalizedMessageStatusSent string = "Sent"
+
+	// OpenNormalizedMessageStatusDelivered captures enum value "Delivered"
+	OpenNormalizedMessageStatusDelivered string = "Delivered"
+
+	// OpenNormalizedMessageStatusRead captures enum value "Read"
+	OpenNormalizedMessageStatusRead string = "Read"
+
+	// OpenNormalizedMessageStatusFailed captures enum value "Failed"
+	OpenNormalizedMessageStatusFailed string = "Failed"
+
+	// OpenNormalizedMessageStatusPublished captures enum value "Published"
+	OpenNormalizedMessageStatusPublished string = "Published"
+
+	// OpenNormalizedMessageStatusRemoved captures enum value "Removed"
+	OpenNormalizedMessageStatusRemoved string = "Removed"
+)
+
+// prop value enum
+func (m *OpenNormalizedMessage) validateStatusEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, openNormalizedMessageTypeStatusPropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *OpenNormalizedMessage) validateStatus(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Status) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateStatusEnum("status", "body", m.Status); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 var openNormalizedMessageTypeTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Text"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Text","Receipt"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -173,6 +277,9 @@ const (
 
 	// OpenNormalizedMessageTypeText captures enum value "Text"
 	OpenNormalizedMessageTypeText string = "Text"
+
+	// OpenNormalizedMessageTypeReceipt captures enum value "Receipt"
+	OpenNormalizedMessageTypeReceipt string = "Receipt"
 )
 
 // prop value enum

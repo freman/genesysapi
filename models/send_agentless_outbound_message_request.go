@@ -35,7 +35,7 @@ type SendAgentlessOutboundMessageRequest struct {
 
 	// The recipient messaging address messenger type. Currently SMS and Open are the only supported types. WhatsApp will be supported in a future release
 	// Required: true
-	// Enum: [sms facebook twitter line whatsapp webmessaging open]
+	// Enum: [sms facebook twitter line whatsapp webmessaging instagram open]
 	ToAddressMessengerType *string `json:"toAddressMessengerType"`
 }
 
@@ -105,7 +105,7 @@ var sendAgentlessOutboundMessageRequestTypeToAddressMessengerTypePropEnum []inte
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["sms","facebook","twitter","line","whatsapp","webmessaging","open"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["sms","facebook","twitter","line","whatsapp","webmessaging","instagram","open"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -132,6 +132,9 @@ const (
 
 	// SendAgentlessOutboundMessageRequestToAddressMessengerTypeWebmessaging captures enum value "webmessaging"
 	SendAgentlessOutboundMessageRequestToAddressMessengerTypeWebmessaging string = "webmessaging"
+
+	// SendAgentlessOutboundMessageRequestToAddressMessengerTypeInstagram captures enum value "instagram"
+	SendAgentlessOutboundMessageRequestToAddressMessengerTypeInstagram string = "instagram"
 
 	// SendAgentlessOutboundMessageRequestToAddressMessengerTypeOpen captures enum value "open"
 	SendAgentlessOutboundMessageRequestToAddressMessengerTypeOpen string = "open"

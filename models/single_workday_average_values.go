@@ -28,6 +28,10 @@ type SingleWorkdayAverageValues struct {
 	// Read Only: true
 	Division *Division `json:"division,omitempty"`
 
+	// The targeted performance profile for the average points
+	// Read Only: true
+	PerformanceProfile *AddressableEntityRef `json:"performanceProfile,omitempty"`
+
 	// The metric value averages
 	// Read Only: true
 	Results []*WorkdayValuesMetricItem `json:"results"`
@@ -50,6 +54,10 @@ func (m *SingleWorkdayAverageValues) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateDivision(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePerformanceProfile(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -90,6 +98,24 @@ func (m *SingleWorkdayAverageValues) validateDivision(formats strfmt.Registry) e
 		if err := m.Division.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("division")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *SingleWorkdayAverageValues) validatePerformanceProfile(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.PerformanceProfile) { // not required
+		return nil
+	}
+
+	if m.PerformanceProfile != nil {
+		if err := m.PerformanceProfile.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("performanceProfile")
 			}
 			return err
 		}

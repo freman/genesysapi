@@ -53,6 +53,9 @@ type AvailableTopic struct {
 	// schema
 	Schema map[string]interface{} `json:"schema,omitempty"`
 
+	// Parameters in the topic name that can be substituted
+	TopicParameters []string `json:"topicParameters"`
+
 	// Transports that support events for the topic
 	Transports []string `json:"transports"`
 

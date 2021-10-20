@@ -25,7 +25,7 @@ type MessagingSticker struct {
 
 	// The type of the messenger provider.
 	// Required: true
-	// Enum: [sms facebook twitter line whatsapp webmessaging open]
+	// Enum: [sms facebook twitter line whatsapp webmessaging instagram open]
 	MessengerType *string `json:"messengerType"`
 
 	// name
@@ -93,7 +93,7 @@ var messagingStickerTypeMessengerTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["sms","facebook","twitter","line","whatsapp","webmessaging","open"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["sms","facebook","twitter","line","whatsapp","webmessaging","instagram","open"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -120,6 +120,9 @@ const (
 
 	// MessagingStickerMessengerTypeWebmessaging captures enum value "webmessaging"
 	MessagingStickerMessengerTypeWebmessaging string = "webmessaging"
+
+	// MessagingStickerMessengerTypeInstagram captures enum value "instagram"
+	MessagingStickerMessengerTypeInstagram string = "instagram"
 
 	// MessagingStickerMessengerTypeOpen captures enum value "open"
 	MessagingStickerMessengerTypeOpen string = "open"

@@ -24,7 +24,7 @@ type FacebookIntegrationUpdateRequest struct {
 	// The name of the Facebook Integration
 	Name string `json:"name,omitempty"`
 
-	// The long-lived Page Access Token of a facebook page.
+	// The long-lived Page Access Token of Facebook page.
 	// See https://developers.facebook.com/docs/facebook-login/access-tokens.
 	// Either pageAccessToken or userAccessToken should be provided.
 	PageAccessToken string `json:"pageAccessToken,omitempty"`
@@ -34,7 +34,7 @@ type FacebookIntegrationUpdateRequest struct {
 	// Format: uri
 	SelfURI strfmt.URI `json:"selfUri,omitempty"`
 
-	// The short-lived User Access Token of the facebook user logged into the facebook app.
+	// The short-lived User Access Token of the Facebook user logged into the Facebook app.
 	// See https://developers.facebook.com/docs/facebook-login/access-tokens.
 	// Either pageAccessToken or userAccessToken should be provided.
 	UserAccessToken string `json:"userAccessToken,omitempty"`

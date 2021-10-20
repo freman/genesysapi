@@ -27,11 +27,14 @@ type ConversationMessageContent struct {
 
 	// Type of this content element. If contentType = "Attachment" only one item is allowed.
 	// Required: true
-	// Enum: [Attachment QuickReply Notification ButtonResponse GenericTemplate]
+	// Enum: [Attachment Location QuickReply Notification ButtonResponse GenericTemplate]
 	ContentType *string `json:"contentType"`
 
 	// Generic Template Object
-	Generic *ContentGeneric `json:"generic,omitempty"`
+	Generic *ConversationContentGeneric `json:"generic,omitempty"`
+
+	// Location content.
+	Location *ConversationContentLocation `json:"location,omitempty"`
 
 	// Quick reply content.
 	QuickReply *ConversationContentQuickReply `json:"quickReply,omitempty"`
@@ -57,6 +60,10 @@ func (m *ConversationMessageContent) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateGeneric(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateLocation(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -114,7 +121,7 @@ var conversationMessageContentTypeContentTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Attachment","QuickReply","Notification","ButtonResponse","GenericTemplate"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Attachment","Location","QuickReply","Notification","ButtonResponse","GenericTemplate"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -126,6 +133,9 @@ const (
 
 	// ConversationMessageContentContentTypeAttachment captures enum value "Attachment"
 	ConversationMessageContentContentTypeAttachment string = "Attachment"
+
+	// ConversationMessageContentContentTypeLocation captures enum value "Location"
+	ConversationMessageContentContentTypeLocation string = "Location"
 
 	// ConversationMessageContentContentTypeQuickReply captures enum value "QuickReply"
 	ConversationMessageContentContentTypeQuickReply string = "QuickReply"
@@ -172,6 +182,24 @@ func (m *ConversationMessageContent) validateGeneric(formats strfmt.Registry) er
 		if err := m.Generic.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("generic")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ConversationMessageContent) validateLocation(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Location) { // not required
+		return nil
+	}
+
+	if m.Location != nil {
+		if err := m.Location.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("location")
 			}
 			return err
 		}

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
@@ -15,12 +16,42 @@ import (
 // swagger:model WebMessagingOfferFields
 type WebMessagingOfferFields struct {
 
+	// Flow to be invoked, overrides default flow when specified.
+	ArchitectFlow *AddressableEntityRef `json:"architectFlow,omitempty"`
+
 	// Text value to be used when inviting a visitor to engage with a web messaging offer.
 	OfferText string `json:"offerText,omitempty"`
 }
 
 // Validate validates this web messaging offer fields
 func (m *WebMessagingOfferFields) Validate(formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.validateArchitectFlow(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *WebMessagingOfferFields) validateArchitectFlow(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.ArchitectFlow) { // not required
+		return nil
+	}
+
+	if m.ArchitectFlow != nil {
+		if err := m.ArchitectFlow.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("architectFlow")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

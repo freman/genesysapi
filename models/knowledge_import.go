@@ -47,7 +47,7 @@ type KnowledgeImport struct {
 
 	// Language code
 	// Read Only: true
-	// Enum: [en-US de-DE]
+	// Enum: [en-US en-UK en-AU de-DE]
 	LanguageCode string `json:"languageCode,omitempty"`
 
 	// Name of the import operation
@@ -209,7 +209,7 @@ var knowledgeImportTypeLanguageCodePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["en-US","de-DE"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["en-US","en-UK","en-AU","de-DE"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -221,6 +221,12 @@ const (
 
 	// KnowledgeImportLanguageCodeEnUS captures enum value "en-US"
 	KnowledgeImportLanguageCodeEnUS string = "en-US"
+
+	// KnowledgeImportLanguageCodeEnUK captures enum value "en-UK"
+	KnowledgeImportLanguageCodeEnUK string = "en-UK"
+
+	// KnowledgeImportLanguageCodeEnAU captures enum value "en-AU"
+	KnowledgeImportLanguageCodeEnAU string = "en-AU"
 
 	// KnowledgeImportLanguageCodeDeDE captures enum value "de-DE"
 	KnowledgeImportLanguageCodeDeDE string = "de-DE"

@@ -33,7 +33,7 @@ type SendAgentlessOutboundMessageResponse struct {
 	MessagingTemplate *MessagingTemplateRequest `json:"messagingTemplate,omitempty"`
 
 	// Type of messenger.
-	// Enum: [sms facebook twitter line whatsapp webmessaging open]
+	// Enum: [sms facebook twitter line whatsapp webmessaging instagram open]
 	MessengerType string `json:"messengerType,omitempty"`
 
 	// The URI for this object
@@ -108,7 +108,7 @@ var sendAgentlessOutboundMessageResponseTypeMessengerTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["sms","facebook","twitter","line","whatsapp","webmessaging","open"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["sms","facebook","twitter","line","whatsapp","webmessaging","instagram","open"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -135,6 +135,9 @@ const (
 
 	// SendAgentlessOutboundMessageResponseMessengerTypeWebmessaging captures enum value "webmessaging"
 	SendAgentlessOutboundMessageResponseMessengerTypeWebmessaging string = "webmessaging"
+
+	// SendAgentlessOutboundMessageResponseMessengerTypeInstagram captures enum value "instagram"
+	SendAgentlessOutboundMessageResponseMessengerTypeInstagram string = "instagram"
 
 	// SendAgentlessOutboundMessageResponseMessengerTypeOpen captures enum value "open"
 	SendAgentlessOutboundMessageResponseMessengerTypeOpen string = "open"

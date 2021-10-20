@@ -43,7 +43,7 @@ type ConversationMessagingChannel struct {
 
 	// The provider type.
 	// Read Only: true
-	// Enum: [Twitter Facebook Line Whatsapp WebMessaging Open Sms]
+	// Enum: [Twitter Facebook Instagram Line Whatsapp WebMessaging Open Sms]
 	Platform string `json:"platform,omitempty"`
 
 	// Original time of the event. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
@@ -138,7 +138,7 @@ var conversationMessagingChannelTypePlatformPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Twitter","Facebook","Line","Whatsapp","WebMessaging","Open","Sms"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Twitter","Facebook","Instagram","Line","Whatsapp","WebMessaging","Open","Sms"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -153,6 +153,9 @@ const (
 
 	// ConversationMessagingChannelPlatformFacebook captures enum value "Facebook"
 	ConversationMessagingChannelPlatformFacebook string = "Facebook"
+
+	// ConversationMessagingChannelPlatformInstagram captures enum value "Instagram"
+	ConversationMessagingChannelPlatformInstagram string = "Instagram"
 
 	// ConversationMessagingChannelPlatformLine captures enum value "Line"
 	ConversationMessagingChannelPlatformLine string = "Line"

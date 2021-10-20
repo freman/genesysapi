@@ -39,6 +39,9 @@ type DIDPool struct {
 	// The resource's description.
 	Description string `json:"description,omitempty"`
 
+	// The division to which this entity belongs.
+	Division *Division `json:"division,omitempty"`
+
 	// The ending phone number for the range of this DID pool. Must be in E.164 format
 	// Required: true
 	EndPhoneNumber *string `json:"endPhoneNumber"`
@@ -88,6 +91,10 @@ func (m *DIDPool) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateDateModified(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDivision(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -142,6 +149,24 @@ func (m *DIDPool) validateDateModified(formats strfmt.Registry) error {
 
 	if err := validate.FormatOf("dateModified", "body", "date-time", m.DateModified.String(), formats); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *DIDPool) validateDivision(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Division) { // not required
+		return nil
+	}
+
+	if m.Division != nil {
+		if err := m.Division.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("division")
+			}
+			return err
+		}
 	}
 
 	return nil

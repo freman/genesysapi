@@ -52,7 +52,7 @@ type KnowledgeDocument struct {
 
 	// Language of the document
 	// Required: true
-	// Enum: [en-US de-DE]
+	// Enum: [en-US en-UK en-AU de-DE]
 	LanguageCode *string `json:"languageCode"`
 
 	// name
@@ -224,7 +224,7 @@ var knowledgeDocumentTypeLanguageCodePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["en-US","de-DE"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["en-US","en-UK","en-AU","de-DE"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -236,6 +236,12 @@ const (
 
 	// KnowledgeDocumentLanguageCodeEnUS captures enum value "en-US"
 	KnowledgeDocumentLanguageCodeEnUS string = "en-US"
+
+	// KnowledgeDocumentLanguageCodeEnUK captures enum value "en-UK"
+	KnowledgeDocumentLanguageCodeEnUK string = "en-UK"
+
+	// KnowledgeDocumentLanguageCodeEnAU captures enum value "en-AU"
+	KnowledgeDocumentLanguageCodeEnAU string = "en-AU"
 
 	// KnowledgeDocumentLanguageCodeDeDE captures enum value "de-DE"
 	KnowledgeDocumentLanguageCodeDeDE string = "de-DE"

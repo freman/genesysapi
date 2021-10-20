@@ -33,10 +33,13 @@ type VoicemailGroupPolicy struct {
 	// Enum: [RANDOM ROUND_ROBIN SEQUENTIAL]
 	GroupAlertType string `json:"groupAlertType,omitempty"`
 
+	// The prompt to use when connecting a user to a Group Ring call
+	InteractiveResponsePromptID string `json:"interactiveResponsePromptId,omitempty"`
+
 	// name
 	Name string `json:"name,omitempty"`
 
-	//  A fallback group to contact when all of the members in this group did not answer the call.
+	// A fallback group to contact when all of the members in this group did not answer the call.
 	OverflowGroupID string `json:"overflowGroupId,omitempty"`
 
 	// How many seconds to ring before rotating to the next member in the group

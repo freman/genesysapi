@@ -19,6 +19,9 @@ import (
 // swagger:model OpenMessagingFromRecipient
 type OpenMessagingFromRecipient struct {
 
+	// E-mail address of the recipient.
+	Email string `json:"email,omitempty"`
+
 	// First name of the recipient.
 	FirstName string `json:"firstName,omitempty"`
 
@@ -30,6 +33,10 @@ type OpenMessagingFromRecipient struct {
 	// Required: true
 	// Enum: [Email Phone Opaque]
 	IDType *string `json:"idType"`
+
+	// URL of an image that represents the recipient.
+	// Read Only: true
+	Image string `json:"image,omitempty"`
 
 	// Last name of the recipient.
 	LastName string `json:"lastName,omitempty"`

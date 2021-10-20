@@ -6,8 +6,10 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // LongTermForecastPlanningGroupData long term forecast planning group data
@@ -16,17 +18,64 @@ import (
 type LongTermForecastPlanningGroupData struct {
 
 	// Forecast average handle time per day in seconds
+	// Required: true
 	AverageHandleTimeSecondsPerDay []float64 `json:"averageHandleTimeSecondsPerDay"`
 
 	// Forecast offered counts per day for this planning group
+	// Required: true
 	OfferedPerDay []float64 `json:"offeredPerDay"`
 
 	// The ID of the planning group to which this data applies. Note this is a snapshot of the planning group at the time of forecast creation and may not correspond to the current configuration
-	PlanningGroupID string `json:"planningGroupId,omitempty"`
+	// Required: true
+	PlanningGroupID *string `json:"planningGroupId"`
 }
 
 // Validate validates this long term forecast planning group data
 func (m *LongTermForecastPlanningGroupData) Validate(formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.validateAverageHandleTimeSecondsPerDay(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateOfferedPerDay(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePlanningGroupID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *LongTermForecastPlanningGroupData) validateAverageHandleTimeSecondsPerDay(formats strfmt.Registry) error {
+
+	if err := validate.Required("averageHandleTimeSecondsPerDay", "body", m.AverageHandleTimeSecondsPerDay); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *LongTermForecastPlanningGroupData) validateOfferedPerDay(formats strfmt.Registry) error {
+
+	if err := validate.Required("offeredPerDay", "body", m.OfferedPerDay); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *LongTermForecastPlanningGroupData) validatePlanningGroupID(formats strfmt.Registry) error {
+
+	if err := validate.Required("planningGroupId", "body", m.PlanningGroupID); err != nil {
+		return err
+	}
+
 	return nil
 }
 

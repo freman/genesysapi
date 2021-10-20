@@ -45,6 +45,9 @@ type OutboundRoute struct {
 	// Enum: [SEQUENTIAL RANDOM]
 	Distribution string `json:"distribution,omitempty"`
 
+	// The division to which this entity belongs.
+	Division *Division `json:"division,omitempty"`
+
 	// enabled
 	Enabled bool `json:"enabled"`
 
@@ -104,6 +107,10 @@ func (m *OutboundRoute) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateDistribution(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDivision(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -206,6 +213,24 @@ func (m *OutboundRoute) validateDistribution(formats strfmt.Registry) error {
 	// value enum
 	if err := m.validateDistributionEnum("distribution", "body", m.Distribution); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *OutboundRoute) validateDivision(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Division) { // not required
+		return nil
+	}
+
+	if m.Division != nil {
+		if err := m.Division.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("division")
+			}
+			return err
+		}
 	}
 
 	return nil

@@ -374,6 +374,9 @@ type ViewFilter struct {
 	// A list of transcript languages requested
 	TranscriptLanguages []string `json:"transcriptLanguages"`
 
+	// The list of transcript topics requested in filter
+	TranscriptTopics []*TranscriptTopics `json:"transcriptTopics"`
+
 	// A list of transcript contents requested
 	Transcripts []*Transcripts `json:"transcripts"`
 
@@ -555,6 +558,10 @@ func (m *ViewFilter) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateTalkDurationsMilliseconds(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTranscriptTopics(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -1781,6 +1788,31 @@ func (m *ViewFilter) validateTalkDurationsMilliseconds(formats strfmt.Registry) 
 			if err := m.TalkDurationsMilliseconds[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("talkDurationsMilliseconds" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ViewFilter) validateTranscriptTopics(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.TranscriptTopics) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.TranscriptTopics); i++ {
+		if swag.IsZero(m.TranscriptTopics[i]) { // not required
+			continue
+		}
+
+		if m.TranscriptTopics[i] != nil {
+			if err := m.TranscriptTopics[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("transcriptTopics" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

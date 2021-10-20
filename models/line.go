@@ -39,6 +39,9 @@ type Line struct {
 	// The resource's description.
 	Description string `json:"description,omitempty"`
 
+	// The division to which this entity belongs.
+	Division *Division `json:"division,omitempty"`
+
 	// edge group
 	EdgeGroup *DomainEntityRef `json:"edgeGroup,omitempty"`
 
@@ -104,6 +107,10 @@ func (m *Line) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateDefaultForUser(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDivision(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -189,6 +196,24 @@ func (m *Line) validateDefaultForUser(formats strfmt.Registry) error {
 		if err := m.DefaultForUser.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("defaultForUser")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Line) validateDivision(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Division) { // not required
+		return nil
+	}
+
+	if m.Division != nil {
+		if err := m.Division.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("division")
 			}
 			return err
 		}

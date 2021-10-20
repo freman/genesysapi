@@ -75,6 +75,7 @@ import (
 	"github.com/freman/genesysapi/client/voicemail"
 	"github.com/freman/genesysapi/client/web_chat"
 	"github.com/freman/genesysapi/client/web_deployments"
+	"github.com/freman/genesysapi/client/web_messaging"
 	"github.com/freman/genesysapi/client/widgets"
 	"github.com/freman/genesysapi/client/workforce_management"
 )
@@ -209,6 +210,7 @@ func New(c Config) *Genesys {
 	cli.Voicemail = voicemail.New(transport, strfmt.Default, nil)
 	cli.WebChat = web_chat.New(transport, strfmt.Default, nil)
 	cli.WebDeployments = web_deployments.New(transport, strfmt.Default, nil)
+	cli.WebMessaging = web_messaging.New(transport, strfmt.Default, nil)
 	cli.Widgets = widgets.New(transport, strfmt.Default, nil)
 	cli.WorkforceManagement = workforce_management.New(transport, strfmt.Default, nil)
 	return cli
@@ -275,6 +277,7 @@ type Genesys struct {
 	Voicemail                       *voicemail.Client
 	WebChat                         *web_chat.Client
 	WebDeployments                  *web_deployments.Client
+	WebMessaging                    *web_messaging.Client
 	Widgets                         *widgets.Client
 	WorkforceManagement             *workforce_management.Client
 	Transport                       runtime.ClientTransport

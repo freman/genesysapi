@@ -101,6 +101,16 @@ type GetKnowledgeKnowledgebaseLanguageDocumentsParams struct {
 
 	*/
 	PageSize *string
+	/*SortBy
+	  Sort by.
+
+	*/
+	SortBy *string
+	/*SortOrder
+	  Sort Order.
+
+	*/
+	SortOrder *string
 	/*Title
 	  Filter by document title.
 
@@ -233,6 +243,28 @@ func (o *GetKnowledgeKnowledgebaseLanguageDocumentsParams) SetPageSize(pageSize 
 	o.PageSize = pageSize
 }
 
+// WithSortBy adds the sortBy to the get knowledge knowledgebase language documents params
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsParams) WithSortBy(sortBy *string) *GetKnowledgeKnowledgebaseLanguageDocumentsParams {
+	o.SetSortBy(sortBy)
+	return o
+}
+
+// SetSortBy adds the sortBy to the get knowledge knowledgebase language documents params
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsParams) SetSortBy(sortBy *string) {
+	o.SortBy = sortBy
+}
+
+// WithSortOrder adds the sortOrder to the get knowledge knowledgebase language documents params
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsParams) WithSortOrder(sortOrder *string) *GetKnowledgeKnowledgebaseLanguageDocumentsParams {
+	o.SetSortOrder(sortOrder)
+	return o
+}
+
+// SetSortOrder adds the sortOrder to the get knowledge knowledgebase language documents params
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsParams) SetSortOrder(sortOrder *string) {
+	o.SortOrder = sortOrder
+}
+
 // WithTitle adds the title to the get knowledge knowledgebase language documents params
 func (o *GetKnowledgeKnowledgebaseLanguageDocumentsParams) WithTitle(title *string) *GetKnowledgeKnowledgebaseLanguageDocumentsParams {
 	o.SetTitle(title)
@@ -344,6 +376,38 @@ func (o *GetKnowledgeKnowledgebaseLanguageDocumentsParams) WriteToRequest(r runt
 		qPageSize := qrPageSize
 		if qPageSize != "" {
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	if o.SortBy != nil {
+
+		// query param sortBy
+		var qrSortBy string
+		if o.SortBy != nil {
+			qrSortBy = *o.SortBy
+		}
+		qSortBy := qrSortBy
+		if qSortBy != "" {
+			if err := r.SetQueryParam("sortBy", qSortBy); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	if o.SortOrder != nil {
+
+		// query param sortOrder
+		var qrSortOrder string
+		if o.SortOrder != nil {
+			qrSortOrder = *o.SortOrder
+		}
+		qSortOrder := qrSortOrder
+		if qSortOrder != "" {
+			if err := r.SetQueryParam("sortOrder", qSortOrder); err != nil {
 				return err
 			}
 		}

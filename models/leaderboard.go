@@ -41,6 +41,10 @@ type Leaderboard struct {
 	// Read Only: true
 	Metric *AddressableEntityRef `json:"metric,omitempty"`
 
+	// The targeted performance profile for the average points
+	// Read Only: true
+	PerformanceProfile *AddressableEntityRef `json:"performanceProfile,omitempty"`
+
 	// The requesting user's rank
 	// Read Only: true
 	UserRank *LeaderboardItem `json:"userRank,omitempty"`
@@ -67,6 +71,10 @@ func (m *Leaderboard) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateMetric(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePerformanceProfile(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -159,6 +167,24 @@ func (m *Leaderboard) validateMetric(formats strfmt.Registry) error {
 		if err := m.Metric.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("metric")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Leaderboard) validatePerformanceProfile(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.PerformanceProfile) { // not required
+		return nil
+	}
+
+	if m.PerformanceProfile != nil {
+		if err := m.PerformanceProfile.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("performanceProfile")
 			}
 			return err
 		}

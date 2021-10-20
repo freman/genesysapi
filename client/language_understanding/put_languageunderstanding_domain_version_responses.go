@@ -59,6 +59,12 @@ func (o *PutLanguageunderstandingDomainVersionReader) ReadResponse(response runt
 			return nil, err
 		}
 		return nil, result
+	case 409:
+		result := NewPutLanguageunderstandingDomainVersionConflict()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPutLanguageunderstandingDomainVersionRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -288,6 +294,39 @@ func (o *PutLanguageunderstandingDomainVersionRequestTimeout) GetPayload() *mode
 }
 
 func (o *PutLanguageunderstandingDomainVersionRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPutLanguageunderstandingDomainVersionConflict creates a PutLanguageunderstandingDomainVersionConflict with default headers values
+func NewPutLanguageunderstandingDomainVersionConflict() *PutLanguageunderstandingDomainVersionConflict {
+	return &PutLanguageunderstandingDomainVersionConflict{}
+}
+
+/*PutLanguageunderstandingDomainVersionConflict handles this case with default header values.
+
+Conflict
+*/
+type PutLanguageunderstandingDomainVersionConflict struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PutLanguageunderstandingDomainVersionConflict) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] putLanguageunderstandingDomainVersionConflict  %+v", 409, o.Payload)
+}
+
+func (o *PutLanguageunderstandingDomainVersionConflict) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PutLanguageunderstandingDomainVersionConflict) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ErrorBody)
 

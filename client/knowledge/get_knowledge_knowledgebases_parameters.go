@@ -96,6 +96,16 @@ type GetKnowledgeKnowledgebasesParams struct {
 
 	*/
 	Published *bool
+	/*SortBy
+	  Sort by.
+
+	*/
+	SortBy *string
+	/*SortOrder
+	  Sort Order.
+
+	*/
+	SortOrder *string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -212,6 +222,28 @@ func (o *GetKnowledgeKnowledgebasesParams) SetPublished(published *bool) {
 	o.Published = published
 }
 
+// WithSortBy adds the sortBy to the get knowledge knowledgebases params
+func (o *GetKnowledgeKnowledgebasesParams) WithSortBy(sortBy *string) *GetKnowledgeKnowledgebasesParams {
+	o.SetSortBy(sortBy)
+	return o
+}
+
+// SetSortBy adds the sortBy to the get knowledge knowledgebases params
+func (o *GetKnowledgeKnowledgebasesParams) SetSortBy(sortBy *string) {
+	o.SortBy = sortBy
+}
+
+// WithSortOrder adds the sortOrder to the get knowledge knowledgebases params
+func (o *GetKnowledgeKnowledgebasesParams) WithSortOrder(sortOrder *string) *GetKnowledgeKnowledgebasesParams {
+	o.SetSortOrder(sortOrder)
+	return o
+}
+
+// SetSortOrder adds the sortOrder to the get knowledge knowledgebases params
+func (o *GetKnowledgeKnowledgebasesParams) SetSortOrder(sortOrder *string) {
+	o.SortOrder = sortOrder
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *GetKnowledgeKnowledgebasesParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -326,6 +358,38 @@ func (o *GetKnowledgeKnowledgebasesParams) WriteToRequest(r runtime.ClientReques
 		qPublished := swag.FormatBool(qrPublished)
 		if qPublished != "" {
 			if err := r.SetQueryParam("published", qPublished); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	if o.SortBy != nil {
+
+		// query param sortBy
+		var qrSortBy string
+		if o.SortBy != nil {
+			qrSortBy = *o.SortBy
+		}
+		qSortBy := qrSortBy
+		if qSortBy != "" {
+			if err := r.SetQueryParam("sortBy", qSortBy); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	if o.SortOrder != nil {
+
+		// query param sortOrder
+		var qrSortOrder string
+		if o.SortOrder != nil {
+			qrSortOrder = *o.SortOrder
+		}
+		qSortOrder := qrSortOrder
+		if qSortOrder != "" {
+			if err := r.SetQueryParam("sortOrder", qSortOrder); err != nil {
 				return err
 			}
 		}

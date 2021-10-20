@@ -33,7 +33,8 @@ type CreatePerformanceProfile struct {
 	Description *string `json:"description"`
 
 	// The associated division for this Performance Profile
-	Division *WritableDivision `json:"division,omitempty"`
+	// Required: true
+	Division *WritableDivision `json:"division"`
 
 	// The globally unique identifier for the object.
 	// Read Only: true
@@ -140,8 +141,8 @@ func (m *CreatePerformanceProfile) validateDescription(formats strfmt.Registry) 
 
 func (m *CreatePerformanceProfile) validateDivision(formats strfmt.Registry) error {
 
-	if swag.IsZero(m.Division) { // not required
-		return nil
+	if err := validate.Required("division", "body", m.Division); err != nil {
+		return err
 	}
 
 	if m.Division != nil {
