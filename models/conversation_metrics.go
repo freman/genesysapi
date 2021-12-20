@@ -6,9 +6,12 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // ConversationMetrics conversation metrics
@@ -19,11 +22,18 @@ type ConversationMetrics struct {
 	// The Conversation Reference
 	Conversation *AddressableEntityRef `json:"conversation,omitempty"`
 
+	// The Participant Metrics
+	ParticipantMetrics *ParticipantMetrics `json:"participantMetrics,omitempty"`
+
 	// The Sentiment Score
 	SentimentScore float64 `json:"sentimentScore,omitempty"`
 
 	// The Sentiment Trend
 	SentimentTrend float64 `json:"sentimentTrend,omitempty"`
+
+	// The Sentiment Trend Class
+	// Enum: [NotCalculated Declining SlightlyDeclining NoChange SlightlyImproving Improving]
+	SentimentTrendClass string `json:"sentimentTrendClass,omitempty"`
 }
 
 // Validate validates this conversation metrics
@@ -31,6 +41,14 @@ func (m *ConversationMetrics) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateConversation(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateParticipantMetrics(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSentimentTrendClass(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -53,6 +71,79 @@ func (m *ConversationMetrics) validateConversation(formats strfmt.Registry) erro
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *ConversationMetrics) validateParticipantMetrics(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.ParticipantMetrics) { // not required
+		return nil
+	}
+
+	if m.ParticipantMetrics != nil {
+		if err := m.ParticipantMetrics.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("participantMetrics")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+var conversationMetricsTypeSentimentTrendClassPropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["NotCalculated","Declining","SlightlyDeclining","NoChange","SlightlyImproving","Improving"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		conversationMetricsTypeSentimentTrendClassPropEnum = append(conversationMetricsTypeSentimentTrendClassPropEnum, v)
+	}
+}
+
+const (
+
+	// ConversationMetricsSentimentTrendClassNotCalculated captures enum value "NotCalculated"
+	ConversationMetricsSentimentTrendClassNotCalculated string = "NotCalculated"
+
+	// ConversationMetricsSentimentTrendClassDeclining captures enum value "Declining"
+	ConversationMetricsSentimentTrendClassDeclining string = "Declining"
+
+	// ConversationMetricsSentimentTrendClassSlightlyDeclining captures enum value "SlightlyDeclining"
+	ConversationMetricsSentimentTrendClassSlightlyDeclining string = "SlightlyDeclining"
+
+	// ConversationMetricsSentimentTrendClassNoChange captures enum value "NoChange"
+	ConversationMetricsSentimentTrendClassNoChange string = "NoChange"
+
+	// ConversationMetricsSentimentTrendClassSlightlyImproving captures enum value "SlightlyImproving"
+	ConversationMetricsSentimentTrendClassSlightlyImproving string = "SlightlyImproving"
+
+	// ConversationMetricsSentimentTrendClassImproving captures enum value "Improving"
+	ConversationMetricsSentimentTrendClassImproving string = "Improving"
+)
+
+// prop value enum
+func (m *ConversationMetrics) validateSentimentTrendClassEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, conversationMetricsTypeSentimentTrendClassPropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *ConversationMetrics) validateSentimentTrendClass(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.SentimentTrendClass) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateSentimentTrendClassEnum("sentimentTrendClass", "body", m.SentimentTrendClass); err != nil {
+		return err
 	}
 
 	return nil

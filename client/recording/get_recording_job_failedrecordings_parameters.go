@@ -81,6 +81,16 @@ for the get recording job failedrecordings operation typically these are written
 */
 type GetRecordingJobFailedrecordingsParams struct {
 
+	/*Cursor
+	  Indicates where to resume query results (not required for first page)
+
+	*/
+	Cursor *string
+	/*IncludeTotal
+	  If false, cursor will be used to locate the page instead of pageNumber.
+
+	*/
+	IncludeTotal *bool
 	/*JobID
 	  jobId
 
@@ -135,6 +145,28 @@ func (o *GetRecordingJobFailedrecordingsParams) SetHTTPClient(client *http.Clien
 	o.HTTPClient = client
 }
 
+// WithCursor adds the cursor to the get recording job failedrecordings params
+func (o *GetRecordingJobFailedrecordingsParams) WithCursor(cursor *string) *GetRecordingJobFailedrecordingsParams {
+	o.SetCursor(cursor)
+	return o
+}
+
+// SetCursor adds the cursor to the get recording job failedrecordings params
+func (o *GetRecordingJobFailedrecordingsParams) SetCursor(cursor *string) {
+	o.Cursor = cursor
+}
+
+// WithIncludeTotal adds the includeTotal to the get recording job failedrecordings params
+func (o *GetRecordingJobFailedrecordingsParams) WithIncludeTotal(includeTotal *bool) *GetRecordingJobFailedrecordingsParams {
+	o.SetIncludeTotal(includeTotal)
+	return o
+}
+
+// SetIncludeTotal adds the includeTotal to the get recording job failedrecordings params
+func (o *GetRecordingJobFailedrecordingsParams) SetIncludeTotal(includeTotal *bool) {
+	o.IncludeTotal = includeTotal
+}
+
 // WithJobID adds the jobID to the get recording job failedrecordings params
 func (o *GetRecordingJobFailedrecordingsParams) WithJobID(jobID string) *GetRecordingJobFailedrecordingsParams {
 	o.SetJobID(jobID)
@@ -175,6 +207,38 @@ func (o *GetRecordingJobFailedrecordingsParams) WriteToRequest(r runtime.ClientR
 		return err
 	}
 	var res []error
+
+	if o.Cursor != nil {
+
+		// query param cursor
+		var qrCursor string
+		if o.Cursor != nil {
+			qrCursor = *o.Cursor
+		}
+		qCursor := qrCursor
+		if qCursor != "" {
+			if err := r.SetQueryParam("cursor", qCursor); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	if o.IncludeTotal != nil {
+
+		// query param includeTotal
+		var qrIncludeTotal bool
+		if o.IncludeTotal != nil {
+			qrIncludeTotal = *o.IncludeTotal
+		}
+		qIncludeTotal := swag.FormatBool(qrIncludeTotal)
+		if qIncludeTotal != "" {
+			if err := r.SetQueryParam("includeTotal", qIncludeTotal); err != nil {
+				return err
+			}
+		}
+
+	}
 
 	// path param jobId
 	if err := r.SetPathParam("jobId", o.JobID); err != nil {

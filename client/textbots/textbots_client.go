@@ -18,6 +18,11 @@ import (
 // API is the interface of the textbots client
 type API interface {
 	/*
+	   GetTextbotsBotsSearch finds bots using the currently configured friendly name or ID
+	   The name does allow case-insensitive partial string matches or by IDs (up to 50), but not both at the same time. Optionally you can limit the scope of the search by providing one or more bot types.  You can specify the maximum results to return, up to a limit of 100
+	*/
+	GetTextbotsBotsSearch(ctx context.Context, params *GetTextbotsBotsSearchParams) (*GetTextbotsBotsSearchOK, error)
+	/*
 	   PostTextbotsBotflowsSessionTurns issues a bot flow turn event
 	   Send a turn event to an executing bot flow and produce the next action to take.
 	*/
@@ -50,6 +55,33 @@ type Client struct {
 	transport runtime.ClientTransport
 	formats   strfmt.Registry
 	authInfo  runtime.ClientAuthInfoWriter
+}
+
+/*
+GetTextbotsBotsSearch finds bots using the currently configured friendly name or ID
+
+The name does allow case-insensitive partial string matches or by IDs (up to 50), but not both at the same time. Optionally you can limit the scope of the search by providing one or more bot types.  You can specify the maximum results to return, up to a limit of 100
+*/
+func (a *Client) GetTextbotsBotsSearch(ctx context.Context, params *GetTextbotsBotsSearchParams) (*GetTextbotsBotsSearchOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getTextbotsBotsSearch",
+		Method:             "GET",
+		PathPattern:        "/api/v2/textbots/bots/search",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetTextbotsBotsSearchReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetTextbotsBotsSearchOK), nil
+
 }
 
 /*

@@ -21,9 +21,6 @@ type AssignedSegment struct {
 	// Read Only: true
 	ID string `json:"id,omitempty"`
 
-	// The ID of the segment assigned.
-	Segment *AddressableEntityRef `json:"segment,omitempty"`
-
 	// The URI for this object
 	// Read Only: true
 	// Format: uri
@@ -34,10 +31,6 @@ type AssignedSegment struct {
 func (m *AssignedSegment) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateSegment(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateSelfURI(formats); err != nil {
 		res = append(res, err)
 	}
@@ -45,24 +38,6 @@ func (m *AssignedSegment) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *AssignedSegment) validateSegment(formats strfmt.Registry) error {
-
-	if swag.IsZero(m.Segment) { // not required
-		return nil
-	}
-
-	if m.Segment != nil {
-		if err := m.Segment.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("segment")
-			}
-			return err
-		}
-	}
-
 	return nil
 }
 

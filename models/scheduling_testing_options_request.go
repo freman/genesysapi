@@ -24,6 +24,9 @@ type SchedulingTestingOptionsRequest struct {
 	// Whether to enable fast scheduling
 	FastScheduling bool `json:"fastScheduling"`
 
+	// Whether to populate deprecated warnings in the generated schedule
+	PopulateDeprecatedWarnings bool `json:"populateDeprecatedWarnings"`
+
 	// Whether to populate warnings in the generated schedule
 	PopulateWarnings bool `json:"populateWarnings"`
 }

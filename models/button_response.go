@@ -19,6 +19,10 @@ import (
 // swagger:model ButtonResponse
 type ButtonResponse struct {
 
+	// Button response message type that captures QuickReply , Cards and Carousel .This is used  as label for Card selection
+	// Enum: [QuickReply Card Carousel]
+	MessageType string `json:"messageType,omitempty"`
+
 	// Content of the textback payload after clicking a button
 	Payload string `json:"payload,omitempty"`
 
@@ -34,6 +38,10 @@ type ButtonResponse struct {
 func (m *ButtonResponse) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateMessageType(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateType(formats); err != nil {
 		res = append(res, err)
 	}
@@ -41,6 +49,52 @@ func (m *ButtonResponse) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+var buttonResponseTypeMessageTypePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["QuickReply","Card","Carousel"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		buttonResponseTypeMessageTypePropEnum = append(buttonResponseTypeMessageTypePropEnum, v)
+	}
+}
+
+const (
+
+	// ButtonResponseMessageTypeQuickReply captures enum value "QuickReply"
+	ButtonResponseMessageTypeQuickReply string = "QuickReply"
+
+	// ButtonResponseMessageTypeCard captures enum value "Card"
+	ButtonResponseMessageTypeCard string = "Card"
+
+	// ButtonResponseMessageTypeCarousel captures enum value "Carousel"
+	ButtonResponseMessageTypeCarousel string = "Carousel"
+)
+
+// prop value enum
+func (m *ButtonResponse) validateMessageTypeEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, buttonResponseTypeMessageTypePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *ButtonResponse) validateMessageType(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.MessageType) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateMessageTypeEnum("messageType", "body", m.MessageType); err != nil {
+		return err
+	}
+
 	return nil
 }
 

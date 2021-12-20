@@ -113,10 +113,6 @@ type API interface {
 	*/
 	GetAnalyticsUsersDetailsJobsAvailability(ctx context.Context, params *GetAnalyticsUsersDetailsJobsAvailabilityParams) (*GetAnalyticsUsersDetailsJobsAvailabilityOK, error)
 	/*
-	   PatchAnalyticsReportingSettings patches analytics reporting settings values for an organization
-	*/
-	PatchAnalyticsReportingSettings(ctx context.Context, params *PatchAnalyticsReportingSettingsParams) (*PatchAnalyticsReportingSettingsOK, error)
-	/*
 	   PostAnalyticsBotsAggregatesQuery queries for bot aggregates
 	*/
 	PostAnalyticsBotsAggregatesQuery(ctx context.Context, params *PostAnalyticsBotsAggregatesQueryParams) (*PostAnalyticsBotsAggregatesQueryOK, error)
@@ -808,31 +804,6 @@ func (a *Client) GetAnalyticsUsersDetailsJobsAvailability(ctx context.Context, p
 		return nil, err
 	}
 	return result.(*GetAnalyticsUsersDetailsJobsAvailabilityOK), nil
-
-}
-
-/*
-PatchAnalyticsReportingSettings patches analytics reporting settings values for an organization
-*/
-func (a *Client) PatchAnalyticsReportingSettings(ctx context.Context, params *PatchAnalyticsReportingSettingsParams) (*PatchAnalyticsReportingSettingsOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "patchAnalyticsReportingSettings",
-		Method:             "PATCH",
-		PathPattern:        "/api/v2/analytics/reporting/settings",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PatchAnalyticsReportingSettingsReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*PatchAnalyticsReportingSettingsOK), nil
 
 }
 

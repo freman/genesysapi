@@ -14,7 +14,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// PlanningGroup Planning Group
+// PlanningGroup planning group
 //
 // swagger:model PlanningGroup
 type PlanningGroup struct {

@@ -19,11 +19,8 @@ import (
 // swagger:model CreateOutboundMessagingConversationRequest
 type CreateOutboundMessagingConversationRequest struct {
 
-	// The external contact Id of the recipient of the message.
+	// The external contact with which the message will be associated.
 	ExternalContactID string `json:"externalContactId,omitempty"`
-
-	// The external organization Id of the recipient of the message.
-	ExternalOrganizationID string `json:"externalOrganizationId,omitempty"`
 
 	// The ID of the queue to be associated with the message. This will determine the fromAddress of the message.
 	// Required: true

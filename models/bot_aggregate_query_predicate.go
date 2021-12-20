@@ -20,7 +20,7 @@ import (
 type BotAggregateQueryPredicate struct {
 
 	// Left hand side for dimension predicates
-	// Enum: [botFinalIntent botId botIntent botProduct botProvider botRecognitionFailureReason botResult botSessionId botSlot botVersion conversationId externalContactId lastActionId lastInputActionId mediaType messageType]
+	// Enum: [botFinalIntent botId botIntent botProduct botProvider botRecognitionFailureReason botResult botSessionId botSlot botVersion conversationId externalContactId knowledgeBaseId lastActionId lastInputActionId mediaType messageType selfServed]
 	Dimension string `json:"dimension,omitempty"`
 
 	// Optional operator, default is matches
@@ -68,7 +68,7 @@ var botAggregateQueryPredicateTypeDimensionPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["botFinalIntent","botId","botIntent","botProduct","botProvider","botRecognitionFailureReason","botResult","botSessionId","botSlot","botVersion","conversationId","externalContactId","lastActionId","lastInputActionId","mediaType","messageType"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["botFinalIntent","botId","botIntent","botProduct","botProvider","botRecognitionFailureReason","botResult","botSessionId","botSlot","botVersion","conversationId","externalContactId","knowledgeBaseId","lastActionId","lastInputActionId","mediaType","messageType","selfServed"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -114,6 +114,9 @@ const (
 	// BotAggregateQueryPredicateDimensionExternalContactID captures enum value "externalContactId"
 	BotAggregateQueryPredicateDimensionExternalContactID string = "externalContactId"
 
+	// BotAggregateQueryPredicateDimensionKnowledgeBaseID captures enum value "knowledgeBaseId"
+	BotAggregateQueryPredicateDimensionKnowledgeBaseID string = "knowledgeBaseId"
+
 	// BotAggregateQueryPredicateDimensionLastActionID captures enum value "lastActionId"
 	BotAggregateQueryPredicateDimensionLastActionID string = "lastActionId"
 
@@ -125,6 +128,9 @@ const (
 
 	// BotAggregateQueryPredicateDimensionMessageType captures enum value "messageType"
 	BotAggregateQueryPredicateDimensionMessageType string = "messageType"
+
+	// BotAggregateQueryPredicateDimensionSelfServed captures enum value "selfServed"
+	BotAggregateQueryPredicateDimensionSelfServed string = "selfServed"
 )
 
 // prop value enum

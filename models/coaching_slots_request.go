@@ -26,6 +26,10 @@ type CoachingSlotsRequest struct {
 	// Unique: true
 	FacilitatorIds []string `json:"facilitatorIds"`
 
+	// List of appointment ids to exclude from consideration when determining blocked slots
+	// Unique: true
+	InterruptibleAppointmentIds []string `json:"interruptibleAppointmentIds"`
+
 	// Range of time to get slots for scheduling coaching appointments. Intervals are represented as an ISO-8601 string. For example: YYYY-MM-DDThh:mm:ss/YYYY-MM-DDThh:mm:ss
 	// Required: true
 	Interval *string `json:"interval"`
@@ -44,6 +48,10 @@ func (m *CoachingSlotsRequest) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateFacilitatorIds(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateInterruptibleAppointmentIds(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -81,6 +89,19 @@ func (m *CoachingSlotsRequest) validateFacilitatorIds(formats strfmt.Registry) e
 	}
 
 	if err := validate.UniqueItems("facilitatorIds", "body", m.FacilitatorIds); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *CoachingSlotsRequest) validateInterruptibleAppointmentIds(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.InterruptibleAppointmentIds) { // not required
+		return nil
+	}
+
+	if err := validate.UniqueItems("interruptibleAppointmentIds", "body", m.InterruptibleAppointmentIds); err != nil {
 		return err
 	}
 

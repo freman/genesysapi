@@ -24,7 +24,7 @@ type ConversationDetailQueryPredicate struct {
 	Dimension string `json:"dimension,omitempty"`
 
 	// Left hand side for metric predicates
-	// Enum: [nBlindTransferred nCobrowseSessions nConnected nConsult nConsultTransferred nError nFlow nFlowMilestone nFlowOutcome nFlowOutcomeFailed nOffered nOutbound nOutboundAbandoned nOutboundAttempted nOutboundConnected nOverSla nStateTransitionError nTransferred oExternalMediaCount oFlowMilestone oMediaCount tAbandon tAcd tAcw tAgentResponseTime tAlert tAnswered tCallback tCallbackComplete tCoaching tCoachingComplete tContacting tConversationDuration tDialing tFlow tFlowDisconnect tFlowExit tFlowOut tFlowOutcome tHandle tHeld tHeldComplete tIvr tMonitoring tMonitoringComplete tNotResponding tShortAbandon tTalk tTalkComplete tUserResponseTime tVoicemail]
+	// Enum: [nBlindTransferred nCobrowseSessions nConnected nConsult nConsultTransferred nError nFlow nFlowMilestone nFlowOutcome nFlowOutcomeFailed nOffered nOutbound nOutboundAbandoned nOutboundAttempted nOutboundConnected nOverSla nStateTransitionError nTransferred oExternalMediaCount oFlowMilestone oMediaCount oMessageTurn tAbandon tAcd tAcw tAgentResponseTime tAlert tAnswered tCallback tCallbackComplete tCoaching tCoachingComplete tConnected tContacting tConversationDuration tDialing tFlow tFlowDisconnect tFlowExit tFlowOut tFlowOutcome tHandle tHeld tHeldComplete tIvr tMonitoring tMonitoringComplete tNotResponding tShortAbandon tTalk tTalkComplete tUserResponseTime tVoicemail]
 	Metric string `json:"metric,omitempty"`
 
 	// Optional operator, default is matches
@@ -134,7 +134,7 @@ var conversationDetailQueryPredicateTypeMetricPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["nBlindTransferred","nCobrowseSessions","nConnected","nConsult","nConsultTransferred","nError","nFlow","nFlowMilestone","nFlowOutcome","nFlowOutcomeFailed","nOffered","nOutbound","nOutboundAbandoned","nOutboundAttempted","nOutboundConnected","nOverSla","nStateTransitionError","nTransferred","oExternalMediaCount","oFlowMilestone","oMediaCount","tAbandon","tAcd","tAcw","tAgentResponseTime","tAlert","tAnswered","tCallback","tCallbackComplete","tCoaching","tCoachingComplete","tContacting","tConversationDuration","tDialing","tFlow","tFlowDisconnect","tFlowExit","tFlowOut","tFlowOutcome","tHandle","tHeld","tHeldComplete","tIvr","tMonitoring","tMonitoringComplete","tNotResponding","tShortAbandon","tTalk","tTalkComplete","tUserResponseTime","tVoicemail"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["nBlindTransferred","nCobrowseSessions","nConnected","nConsult","nConsultTransferred","nError","nFlow","nFlowMilestone","nFlowOutcome","nFlowOutcomeFailed","nOffered","nOutbound","nOutboundAbandoned","nOutboundAttempted","nOutboundConnected","nOverSla","nStateTransitionError","nTransferred","oExternalMediaCount","oFlowMilestone","oMediaCount","oMessageTurn","tAbandon","tAcd","tAcw","tAgentResponseTime","tAlert","tAnswered","tCallback","tCallbackComplete","tCoaching","tCoachingComplete","tConnected","tContacting","tConversationDuration","tDialing","tFlow","tFlowDisconnect","tFlowExit","tFlowOut","tFlowOutcome","tHandle","tHeld","tHeldComplete","tIvr","tMonitoring","tMonitoringComplete","tNotResponding","tShortAbandon","tTalk","tTalkComplete","tUserResponseTime","tVoicemail"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -207,6 +207,9 @@ const (
 	// ConversationDetailQueryPredicateMetricOMediaCount captures enum value "oMediaCount"
 	ConversationDetailQueryPredicateMetricOMediaCount string = "oMediaCount"
 
+	// ConversationDetailQueryPredicateMetricOMessageTurn captures enum value "oMessageTurn"
+	ConversationDetailQueryPredicateMetricOMessageTurn string = "oMessageTurn"
+
 	// ConversationDetailQueryPredicateMetricTAbandon captures enum value "tAbandon"
 	ConversationDetailQueryPredicateMetricTAbandon string = "tAbandon"
 
@@ -236,6 +239,9 @@ const (
 
 	// ConversationDetailQueryPredicateMetricTCoachingComplete captures enum value "tCoachingComplete"
 	ConversationDetailQueryPredicateMetricTCoachingComplete string = "tCoachingComplete"
+
+	// ConversationDetailQueryPredicateMetricTConnected captures enum value "tConnected"
+	ConversationDetailQueryPredicateMetricTConnected string = "tConnected"
 
 	// ConversationDetailQueryPredicateMetricTContacting captures enum value "tContacting"
 	ConversationDetailQueryPredicateMetricTContacting string = "tContacting"

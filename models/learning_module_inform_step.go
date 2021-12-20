@@ -34,7 +34,7 @@ type LearningModuleInformStep struct {
 
 	// The learning module inform step type
 	// Required: true
-	// Enum: [Url Content GenesysBuiltInCourse]
+	// Enum: [Url Content GenesysBuiltInCourse RichText]
 	Type *string `json:"type"`
 
 	// The value for inform step
@@ -77,7 +77,7 @@ var learningModuleInformStepTypeTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Url","Content","GenesysBuiltInCourse"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Url","Content","GenesysBuiltInCourse","RichText"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -95,6 +95,9 @@ const (
 
 	// LearningModuleInformStepTypeGenesysBuiltInCourse captures enum value "GenesysBuiltInCourse"
 	LearningModuleInformStepTypeGenesysBuiltInCourse string = "GenesysBuiltInCourse"
+
+	// LearningModuleInformStepTypeRichText captures enum value "RichText"
+	LearningModuleInformStepTypeRichText string = "RichText"
 )
 
 // prop value enum

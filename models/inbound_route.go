@@ -26,8 +26,7 @@ type InboundRoute struct {
 	Flow *DomainEntityRef `json:"flow,omitempty"`
 
 	// The sender email to use for outgoing replies.
-	// Required: true
-	FromEmail *string `json:"fromEmail"`
+	FromEmail string `json:"fromEmail,omitempty"`
 
 	// The sender name to use for outgoing replies.
 	// Required: true
@@ -77,10 +76,6 @@ func (m *InboundRoute) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateFlow(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateFromEmail(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -160,15 +155,6 @@ func (m *InboundRoute) validateFlow(formats strfmt.Registry) error {
 			}
 			return err
 		}
-	}
-
-	return nil
-}
-
-func (m *InboundRoute) validateFromEmail(formats strfmt.Registry) error {
-
-	if err := validate.Required("fromEmail", "body", m.FromEmail); err != nil {
-		return err
 	}
 
 	return nil

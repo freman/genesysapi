@@ -64,7 +64,7 @@ type SmsPhoneNumber struct {
 	PhoneNumber *string `json:"phoneNumber"`
 
 	// Status of the provisioned phone number.
-	// Enum: [INVALID ACTIVE PORTING PENDING PENDING_CANCELLATION]
+	// Enum: [INVALID ACTIVE PORTING PENDING PENDING_CANCELLATION INITIATED]
 	PhoneNumberStatus string `json:"phoneNumberStatus,omitempty"`
 
 	// Type of the phone number provisioned.
@@ -74,6 +74,9 @@ type SmsPhoneNumber struct {
 
 	// Is set to false, if the phone number is provisioned through a SMS provider, outside of PureCloud
 	ProvisionedThroughPureCloud bool `json:"provisionedThroughPureCloud"`
+
+	// Status of latest asynchronous provisioning action
+	ProvisioningStatus *SmsProvisioningStatus `json:"provisioningStatus,omitempty"`
 
 	// Date this phone number was purchased, if the phoneNumberType is shortcode. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
@@ -142,6 +145,10 @@ func (m *SmsPhoneNumber) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validatePhoneNumberType(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateProvisioningStatus(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -354,7 +361,7 @@ var smsPhoneNumberTypePhoneNumberStatusPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["INVALID","ACTIVE","PORTING","PENDING","PENDING_CANCELLATION"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["INVALID","ACTIVE","PORTING","PENDING","PENDING_CANCELLATION","INITIATED"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -378,6 +385,9 @@ const (
 
 	// SmsPhoneNumberPhoneNumberStatusPENDINGCANCELLATION captures enum value "PENDING_CANCELLATION"
 	SmsPhoneNumberPhoneNumberStatusPENDINGCANCELLATION string = "PENDING_CANCELLATION"
+
+	// SmsPhoneNumberPhoneNumberStatusINITIATED captures enum value "INITIATED"
+	SmsPhoneNumberPhoneNumberStatusINITIATED string = "INITIATED"
 )
 
 // prop value enum
@@ -446,6 +456,24 @@ func (m *SmsPhoneNumber) validatePhoneNumberType(formats strfmt.Registry) error 
 	// value enum
 	if err := m.validatePhoneNumberTypeEnum("phoneNumberType", "body", m.PhoneNumberType); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *SmsPhoneNumber) validateProvisioningStatus(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.ProvisioningStatus) { // not required
+		return nil
+	}
+
+	if m.ProvisioningStatus != nil {
+		if err := m.ProvisioningStatus.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("provisioningStatus")
+			}
+			return err
+		}
 	}
 
 	return nil

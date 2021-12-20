@@ -31,7 +31,7 @@ type OAuthClientRequest struct {
 	// Client Credential grant type - Used to created access tokens that are tied only to the client.
 	//
 	// Required: true
-	// Enum: [CODE TOKEN SAML2BEARER PASSWORD CLIENT_CREDENTIALS]
+	// Enum: [CODE TOKEN SAML2-BEARER PASSWORD CLIENT-CREDENTIALS]
 	AuthorizedGrantType *string `json:"authorizedGrantType"`
 
 	// The time at which this client will be deleted. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
@@ -109,7 +109,7 @@ var oAuthClientRequestTypeAuthorizedGrantTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["CODE","TOKEN","SAML2BEARER","PASSWORD","CLIENT_CREDENTIALS"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["CODE","TOKEN","SAML2-BEARER","PASSWORD","CLIENT-CREDENTIALS"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -125,14 +125,14 @@ const (
 	// OAuthClientRequestAuthorizedGrantTypeTOKEN captures enum value "TOKEN"
 	OAuthClientRequestAuthorizedGrantTypeTOKEN string = "TOKEN"
 
-	// OAuthClientRequestAuthorizedGrantTypeSAML2BEARER captures enum value "SAML2BEARER"
-	OAuthClientRequestAuthorizedGrantTypeSAML2BEARER string = "SAML2BEARER"
+	// OAuthClientRequestAuthorizedGrantTypeSAML2BEARER captures enum value "SAML2-BEARER"
+	OAuthClientRequestAuthorizedGrantTypeSAML2BEARER string = "SAML2-BEARER"
 
 	// OAuthClientRequestAuthorizedGrantTypePASSWORD captures enum value "PASSWORD"
 	OAuthClientRequestAuthorizedGrantTypePASSWORD string = "PASSWORD"
 
-	// OAuthClientRequestAuthorizedGrantTypeCLIENTCREDENTIALS captures enum value "CLIENT_CREDENTIALS"
-	OAuthClientRequestAuthorizedGrantTypeCLIENTCREDENTIALS string = "CLIENT_CREDENTIALS"
+	// OAuthClientRequestAuthorizedGrantTypeCLIENTCREDENTIALS captures enum value "CLIENT-CREDENTIALS"
+	OAuthClientRequestAuthorizedGrantTypeCLIENTCREDENTIALS string = "CLIENT-CREDENTIALS"
 )
 
 // prop value enum

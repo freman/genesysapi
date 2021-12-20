@@ -116,6 +116,10 @@ type API interface {
 	   PutVoicemailPolicy updates a policy
 	*/
 	PutVoicemailPolicy(ctx context.Context, params *PutVoicemailPolicyParams) (*PutVoicemailPolicyOK, error)
+	/*
+	   PutVoicemailUserpolicy updates a user s voicemail policy
+	*/
+	PutVoicemailUserpolicy(ctx context.Context, params *PutVoicemailUserpolicyParams) (*PutVoicemailUserpolicyOK, error)
 }
 
 // New creates a new voicemail API client.
@@ -739,5 +743,30 @@ func (a *Client) PutVoicemailPolicy(ctx context.Context, params *PutVoicemailPol
 		return nil, err
 	}
 	return result.(*PutVoicemailPolicyOK), nil
+
+}
+
+/*
+PutVoicemailUserpolicy updates a user s voicemail policy
+*/
+func (a *Client) PutVoicemailUserpolicy(ctx context.Context, params *PutVoicemailUserpolicyParams) (*PutVoicemailUserpolicyOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "putVoicemailUserpolicy",
+		Method:             "PUT",
+		PathPattern:        "/api/v2/voicemail/userpolicies/{userId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PutVoicemailUserpolicyReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutVoicemailUserpolicyOK), nil
 
 }

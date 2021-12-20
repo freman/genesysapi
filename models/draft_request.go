@@ -20,6 +20,9 @@ type DraftRequest struct {
 
 	// Draft intent object.
 	Intents []*DraftIntents `json:"intents"`
+
+	// topic
+	Topic []*DraftTopics `json:"topic"`
 }
 
 // Validate validates this draft request
@@ -27,6 +30,10 @@ func (m *DraftRequest) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateIntents(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTopic(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -51,6 +58,31 @@ func (m *DraftRequest) validateIntents(formats strfmt.Registry) error {
 			if err := m.Intents[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("intents" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DraftRequest) validateTopic(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Topic) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Topic); i++ {
+		if swag.IsZero(m.Topic[i]) { // not required
+			continue
+		}
+
+		if m.Topic[i] != nil {
+			if err := m.Topic[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("topic" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

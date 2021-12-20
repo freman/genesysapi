@@ -17,11 +17,10 @@ import (
 // swagger:model LogCaptureUserConfiguration
 type LogCaptureUserConfiguration struct {
 
-	// Indicates when log capture will be turned off for the user. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+	// Indicates when log capture will be turned off for the user. (Must be within 24 hours). Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Required: true
-	// Read Only: true
 	// Format: date-time
-	DateExpired strfmt.DateTime `json:"dateExpired"`
+	DateExpired *strfmt.DateTime `json:"dateExpired"`
 
 	// The globally unique identifier for the object.
 	// Read Only: true
@@ -53,7 +52,7 @@ func (m *LogCaptureUserConfiguration) Validate(formats strfmt.Registry) error {
 
 func (m *LogCaptureUserConfiguration) validateDateExpired(formats strfmt.Registry) error {
 
-	if err := validate.Required("dateExpired", "body", strfmt.DateTime(m.DateExpired)); err != nil {
+	if err := validate.Required("dateExpired", "body", m.DateExpired); err != nil {
 		return err
 	}
 

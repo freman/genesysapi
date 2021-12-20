@@ -22,6 +22,14 @@ type API interface {
 	*/
 	DeleteSpeechandtextanalyticsProgram(ctx context.Context, params *DeleteSpeechandtextanalyticsProgramParams) (*DeleteSpeechandtextanalyticsProgramNoContent, error)
 	/*
+	   DeleteSpeechandtextanalyticsSentimentfeedback deletes all speech and text analytics sentiment feedback
+	*/
+	DeleteSpeechandtextanalyticsSentimentfeedback(ctx context.Context, params *DeleteSpeechandtextanalyticsSentimentfeedbackParams) (*DeleteSpeechandtextanalyticsSentimentfeedbackNoContent, error)
+	/*
+	   DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackID deletes a speech and text analytics sentiment feedback by Id
+	*/
+	DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackID(ctx context.Context, params *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDParams) (*DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDNoContent, error)
+	/*
 	   DeleteSpeechandtextanalyticsTopic deletes a speech and text analytics topic by id
 	*/
 	DeleteSpeechandtextanalyticsTopic(ctx context.Context, params *DeleteSpeechandtextanalyticsTopicParams) (*DeleteSpeechandtextanalyticsTopicNoContent, error)
@@ -35,6 +43,7 @@ type API interface {
 	GetSpeechandtextanalyticsConversationCommunicationTranscripturl(ctx context.Context, params *GetSpeechandtextanalyticsConversationCommunicationTranscripturlParams) (*GetSpeechandtextanalyticsConversationCommunicationTranscripturlOK, error)
 	/*
 	   GetSpeechandtextanalyticsDialects gets list of supported speech and text analytics dialects
+	   This api has been deprecated. Use api/v2/topics/dialects instead
 	*/
 	GetSpeechandtextanalyticsDialects(ctx context.Context, params *GetSpeechandtextanalyticsDialectsParams) (*GetSpeechandtextanalyticsDialectsOK, error)
 	/*
@@ -65,6 +74,14 @@ type API interface {
 	   GetSpeechandtextanalyticsProgramsUnpublished gets the list of speech and text analytics unpublished programs
 	*/
 	GetSpeechandtextanalyticsProgramsUnpublished(ctx context.Context, params *GetSpeechandtextanalyticsProgramsUnpublishedParams) (*GetSpeechandtextanalyticsProgramsUnpublishedOK, error)
+	/*
+	   GetSpeechandtextanalyticsSentimentDialects gets the list of speech and text analytics sentiment supported dialects
+	*/
+	GetSpeechandtextanalyticsSentimentDialects(ctx context.Context, params *GetSpeechandtextanalyticsSentimentDialectsParams) (*GetSpeechandtextanalyticsSentimentDialectsOK, error)
+	/*
+	   GetSpeechandtextanalyticsSentimentfeedback gets the list of speech and text analytics sentiment feedback
+	*/
+	GetSpeechandtextanalyticsSentimentfeedback(ctx context.Context, params *GetSpeechandtextanalyticsSentimentfeedbackParams) (*GetSpeechandtextanalyticsSentimentfeedbackOK, error)
 	/*
 	   GetSpeechandtextanalyticsSettings gets speech and text analytics settings
 	*/
@@ -105,6 +122,10 @@ type API interface {
 	   PostSpeechandtextanalyticsProgramsPublishjobs creates new speech and text analytics publish programs job
 	*/
 	PostSpeechandtextanalyticsProgramsPublishjobs(ctx context.Context, params *PostSpeechandtextanalyticsProgramsPublishjobsParams) (*PostSpeechandtextanalyticsProgramsPublishjobsOK, error)
+	/*
+	   PostSpeechandtextanalyticsSentimentfeedback creates a speech and text analytics sentiment feedback
+	*/
+	PostSpeechandtextanalyticsSentimentfeedback(ctx context.Context, params *PostSpeechandtextanalyticsSentimentfeedbackParams) (*PostSpeechandtextanalyticsSentimentfeedbackCreated, error)
 	/*
 	   PostSpeechandtextanalyticsTopics creates new speech and text analytics topic
 	*/
@@ -171,6 +192,56 @@ func (a *Client) DeleteSpeechandtextanalyticsProgram(ctx context.Context, params
 		return nil, err
 	}
 	return result.(*DeleteSpeechandtextanalyticsProgramNoContent), nil
+
+}
+
+/*
+DeleteSpeechandtextanalyticsSentimentfeedback deletes all speech and text analytics sentiment feedback
+*/
+func (a *Client) DeleteSpeechandtextanalyticsSentimentfeedback(ctx context.Context, params *DeleteSpeechandtextanalyticsSentimentfeedbackParams) (*DeleteSpeechandtextanalyticsSentimentfeedbackNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteSpeechandtextanalyticsSentimentfeedback",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/speechandtextanalytics/sentimentfeedback",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteSpeechandtextanalyticsSentimentfeedbackReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteSpeechandtextanalyticsSentimentfeedbackNoContent), nil
+
+}
+
+/*
+DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackID deletes a speech and text analytics sentiment feedback by Id
+*/
+func (a *Client) DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackID(ctx context.Context, params *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDParams) (*DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackId",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/speechandtextanalytics/sentimentfeedback/{sentimentFeedbackId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDNoContent), nil
 
 }
 
@@ -251,6 +322,8 @@ func (a *Client) GetSpeechandtextanalyticsConversationCommunicationTranscripturl
 
 /*
 GetSpeechandtextanalyticsDialects gets list of supported speech and text analytics dialects
+
+This api has been deprecated. Use api/v2/topics/dialects instead
 */
 func (a *Client) GetSpeechandtextanalyticsDialects(ctx context.Context, params *GetSpeechandtextanalyticsDialectsParams) (*GetSpeechandtextanalyticsDialectsOK, error) {
 
@@ -446,6 +519,56 @@ func (a *Client) GetSpeechandtextanalyticsProgramsUnpublished(ctx context.Contex
 		return nil, err
 	}
 	return result.(*GetSpeechandtextanalyticsProgramsUnpublishedOK), nil
+
+}
+
+/*
+GetSpeechandtextanalyticsSentimentDialects gets the list of speech and text analytics sentiment supported dialects
+*/
+func (a *Client) GetSpeechandtextanalyticsSentimentDialects(ctx context.Context, params *GetSpeechandtextanalyticsSentimentDialectsParams) (*GetSpeechandtextanalyticsSentimentDialectsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getSpeechandtextanalyticsSentimentDialects",
+		Method:             "GET",
+		PathPattern:        "/api/v2/speechandtextanalytics/sentiment/dialects",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetSpeechandtextanalyticsSentimentDialectsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetSpeechandtextanalyticsSentimentDialectsOK), nil
+
+}
+
+/*
+GetSpeechandtextanalyticsSentimentfeedback gets the list of speech and text analytics sentiment feedback
+*/
+func (a *Client) GetSpeechandtextanalyticsSentimentfeedback(ctx context.Context, params *GetSpeechandtextanalyticsSentimentfeedbackParams) (*GetSpeechandtextanalyticsSentimentfeedbackOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getSpeechandtextanalyticsSentimentfeedback",
+		Method:             "GET",
+		PathPattern:        "/api/v2/speechandtextanalytics/sentimentfeedback",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetSpeechandtextanalyticsSentimentfeedbackReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetSpeechandtextanalyticsSentimentfeedbackOK), nil
 
 }
 
@@ -696,6 +819,31 @@ func (a *Client) PostSpeechandtextanalyticsProgramsPublishjobs(ctx context.Conte
 		return nil, err
 	}
 	return result.(*PostSpeechandtextanalyticsProgramsPublishjobsOK), nil
+
+}
+
+/*
+PostSpeechandtextanalyticsSentimentfeedback creates a speech and text analytics sentiment feedback
+*/
+func (a *Client) PostSpeechandtextanalyticsSentimentfeedback(ctx context.Context, params *PostSpeechandtextanalyticsSentimentfeedbackParams) (*PostSpeechandtextanalyticsSentimentfeedbackCreated, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postSpeechandtextanalyticsSentimentfeedback",
+		Method:             "POST",
+		PathPattern:        "/api/v2/speechandtextanalytics/sentimentfeedback",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostSpeechandtextanalyticsSentimentfeedbackReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostSpeechandtextanalyticsSentimentfeedbackCreated), nil
 
 }
 

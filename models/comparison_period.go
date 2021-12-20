@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"strconv"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -43,6 +45,10 @@ type ComparisonPeriod struct {
 	// Read Only: true
 	Kpi string `json:"kpi,omitempty"`
 
+	// KPI results for each metric
+	// Read Only: true
+	KpiResults []*KpiResult `json:"kpiResults"`
+
 	// Absolute metric (in which the KPI is based) total for the interactions not routed by predictive routing (GPR was off)
 	// Read Only: true
 	KpiTotalOff int64 `json:"kpiTotalOff,omitempty"`
@@ -66,6 +72,10 @@ func (m *ComparisonPeriod) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateDateStarted(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateKpiResults(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -100,6 +110,31 @@ func (m *ComparisonPeriod) validateDateStarted(formats strfmt.Registry) error {
 
 	if err := validate.FormatOf("dateStarted", "body", "date-time", m.DateStarted.String(), formats); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *ComparisonPeriod) validateKpiResults(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.KpiResults) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.KpiResults); i++ {
+		if swag.IsZero(m.KpiResults[i]) { // not required
+			continue
+		}
+
+		if m.KpiResults[i] != nil {
+			if err := m.KpiResults[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("kpiResults" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

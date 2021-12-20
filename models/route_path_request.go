@@ -14,7 +14,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// RoutePathRequest Route path configuration
+// RoutePathRequest route path request
 //
 // swagger:model RoutePathRequest
 type RoutePathRequest struct {
@@ -35,7 +35,7 @@ type RoutePathRequest struct {
 	// Unique: true
 	SkillIds []string `json:"skillIds"`
 
-	// The planning group from which to copy route paths
+	// The planning group from which to take route paths. This property is only needed if a route path already exists in another planning group.Note that taking a route path from another planning group will modify the other planning group
 	SourcePlanningGroup *SourcePlanningGroupRequest `json:"sourcePlanningGroup,omitempty"`
 }
 

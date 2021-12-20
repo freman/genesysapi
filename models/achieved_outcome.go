@@ -21,9 +21,6 @@ type AchievedOutcome struct {
 	// Read Only: true
 	ID string `json:"id,omitempty"`
 
-	// The ID of the outcome achieved.
-	Outcome *AddressableEntityRef `json:"outcome,omitempty"`
-
 	// The URI for this object
 	// Read Only: true
 	// Format: uri
@@ -34,10 +31,6 @@ type AchievedOutcome struct {
 func (m *AchievedOutcome) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateOutcome(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateSelfURI(formats); err != nil {
 		res = append(res, err)
 	}
@@ -45,24 +38,6 @@ func (m *AchievedOutcome) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *AchievedOutcome) validateOutcome(formats strfmt.Registry) error {
-
-	if swag.IsZero(m.Outcome) { // not required
-		return nil
-	}
-
-	if m.Outcome != nil {
-		if err := m.Outcome.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("outcome")
-			}
-			return err
-		}
-	}
-
 	return nil
 }
 

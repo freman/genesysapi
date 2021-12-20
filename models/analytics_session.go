@@ -75,7 +75,7 @@ type AnalyticsSession struct {
 	// A unique identifier for a PureCloud cobrowse room
 	CobrowseRoomID string `json:"cobrowseRoomId,omitempty"`
 
-	// The email delivery status
+	// The email or SMS delivery status
 	// Enum: [DeliveryFailed DeliverySuccess Failed Queued Read Received Sent]
 	DeliveryStatus string `json:"deliveryStatus,omitempty"`
 

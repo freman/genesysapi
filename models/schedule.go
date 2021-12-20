@@ -57,9 +57,8 @@ type Schedule struct {
 	// Required: true
 	Name *string `json:"name"`
 
-	// An iCal Recurrence Rule (RRULE) string.
-	// Required: true
-	Rrule *string `json:"rrule"`
+	// An iCal Recurrence Rule (RRULE) string. It is required to be set for schedules determining when upgrades to the Edge software can be applied.
+	Rrule string `json:"rrule,omitempty"`
 
 	// The URI for this object
 	// Read Only: true
@@ -100,10 +99,6 @@ func (m *Schedule) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateName(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateRrule(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -181,15 +176,6 @@ func (m *Schedule) validateEnd(formats strfmt.Registry) error {
 func (m *Schedule) validateName(formats strfmt.Registry) error {
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Schedule) validateRrule(formats strfmt.Registry) error {
-
-	if err := validate.Required("rrule", "body", m.Rrule); err != nil {
 		return err
 	}
 

@@ -12,7 +12,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// PlanningGroupReference Planning Group
+// PlanningGroupReference planning group reference
 //
 // swagger:model PlanningGroupReference
 type PlanningGroupReference struct {

@@ -15,7 +15,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// RoutePathResponse Route path configuration
+// RoutePathResponse route path response
 //
 // swagger:model RoutePathResponse
 type RoutePathResponse struct {

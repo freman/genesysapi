@@ -51,6 +51,9 @@ type SendAgentlessOutboundMessageResponse struct {
 	// The recipient of the message.
 	ToAddress string `json:"toAddress,omitempty"`
 
+	// Use an existing active conversation to send the agentless outbound message. Set this parameter to 'true' to use active conversation. Default value: false
+	UseExistingActiveConversation bool `json:"useExistingActiveConversation"`
+
 	// Details of the user created the job
 	// Read Only: true
 	User *AddressableEntityRef `json:"user,omitempty"`

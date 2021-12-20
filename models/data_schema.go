@@ -94,7 +94,7 @@ var dataSchemaAppliesToItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["CONTACT","EXTERNAL_ORGANIZATION"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["CONTACT","EXTERNAL_ORGANIZATION","OPEN_ACTION"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {

@@ -12,7 +12,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// SourcePlanningGroupRequest Source planning group
+// SourcePlanningGroupRequest source planning group request
 //
 // swagger:model SourcePlanningGroupRequest
 type SourcePlanningGroupRequest struct {

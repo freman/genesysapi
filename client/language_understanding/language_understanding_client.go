@@ -94,7 +94,7 @@ type API interface {
 	*/
 	PatchLanguageunderstandingDomain(ctx context.Context, params *PatchLanguageunderstandingDomainParams) (*PatchLanguageunderstandingDomainOK, error)
 	/*
-	   PatchLanguageunderstandingMinerDraft saves information for the draft
+	   PatchLanguageunderstandingMinerDraft saves information for the draft either topic draft or intent draft should be sent
 	*/
 	PatchLanguageunderstandingMinerDraft(ctx context.Context, params *PatchLanguageunderstandingMinerDraftParams) (*PatchLanguageunderstandingMinerDraftOK, error)
 	/*
@@ -126,7 +126,7 @@ type API interface {
 	*/
 	PostLanguageunderstandingMinerDrafts(ctx context.Context, params *PostLanguageunderstandingMinerDraftsParams) (*PostLanguageunderstandingMinerDraftsOK, *PostLanguageunderstandingMinerDraftsCreated, error)
 	/*
-	   PostLanguageunderstandingMinerExecute starts the mining process specify date range pair with media type and queue ids for mining data from genesys cloud specify only upload key for mining through an external file
+	   PostLanguageunderstandingMinerExecute starts the mining process specify date range pair with media type queue ids participant type for mining data from genesys cloud specify only upload key for mining through an external file
 	*/
 	PostLanguageunderstandingMinerExecute(ctx context.Context, params *PostLanguageunderstandingMinerExecuteParams) (*PostLanguageunderstandingMinerExecuteOK, *PostLanguageunderstandingMinerExecuteAccepted, error)
 	/*
@@ -633,7 +633,7 @@ func (a *Client) PatchLanguageunderstandingDomain(ctx context.Context, params *P
 }
 
 /*
-PatchLanguageunderstandingMinerDraft saves information for the draft
+PatchLanguageunderstandingMinerDraft saves information for the draft either topic draft or intent draft should be sent
 */
 func (a *Client) PatchLanguageunderstandingMinerDraft(ctx context.Context, params *PatchLanguageunderstandingMinerDraftParams) (*PatchLanguageunderstandingMinerDraftOK, error) {
 
@@ -869,7 +869,7 @@ func (a *Client) PostLanguageunderstandingMinerDrafts(ctx context.Context, param
 }
 
 /*
-PostLanguageunderstandingMinerExecute starts the mining process specify date range pair with media type and queue ids for mining data from genesys cloud specify only upload key for mining through an external file
+PostLanguageunderstandingMinerExecute starts the mining process specify date range pair with media type queue ids participant type for mining data from genesys cloud specify only upload key for mining through an external file
 */
 func (a *Client) PostLanguageunderstandingMinerExecute(ctx context.Context, params *PostLanguageunderstandingMinerExecuteParams) (*PostLanguageunderstandingMinerExecuteOK, *PostLanguageunderstandingMinerExecuteAccepted, error) {
 

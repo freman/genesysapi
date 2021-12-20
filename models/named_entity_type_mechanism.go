@@ -29,7 +29,7 @@ type NamedEntityTypeMechanism struct {
 
 	// The type of the mechanism.
 	// Required: true
-	// Enum: [List Regex Unknown]
+	// Enum: [DynamicList List Regex Unknown]
 	Type *string `json:"type"`
 }
 
@@ -80,7 +80,7 @@ var namedEntityTypeMechanismTypeTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["List","Regex","Unknown"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["DynamicList","List","Regex","Unknown"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -89,6 +89,9 @@ func init() {
 }
 
 const (
+
+	// NamedEntityTypeMechanismTypeDynamicList captures enum value "DynamicList"
+	NamedEntityTypeMechanismTypeDynamicList string = "DynamicList"
 
 	// NamedEntityTypeMechanismTypeList captures enum value "List"
 	NamedEntityTypeMechanismTypeList string = "List"

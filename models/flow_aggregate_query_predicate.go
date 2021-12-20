@@ -20,7 +20,7 @@ import (
 type FlowAggregateQueryPredicate struct {
 
 	// Left hand side for dimension predicates
-	// Enum: [activeSkillId addressFrom addressTo agentAssistantId agentBullseyeRing agentOwned agentRank agentScore ani assignerId authenticated conversationId convertedFrom convertedTo deliveryStatus destinationAddress direction disconnectType divisionId dnis edgeId eligibleAgentCount endingLanguage entryReason entryType exitReason externalContactId externalMediaCount externalOrganizationId externalTag firstQueue flaggedReason flowId flowInType flowMilestoneId flowName flowOutType flowOutcome flowOutcomeId flowOutcomeValue flowType flowVersion groupId interactionType journeyActionId journeyActionMapId journeyActionMapVersion journeyCustomerId journeyCustomerIdType journeyCustomerSessionId journeyCustomerSessionIdType mediaCount mediaType messageType originatingDirection outboundCampaignId outboundContactId outboundContactListId participantName peerId proposedAgentId provider purpose queueId recognitionFailureReason remote removedSkillId reoffered requestedLanguageId requestedRouting requestedRoutingSkillId roomId routingPriority routingRing scoredAgentId selectedAgentId selectedAgentRank sessionDnis sessionId startingLanguage stationId teamId transferTargetAddress transferTargetName transferType usedRouting userId waitingInteractionCount wrapUpCode]
+	// Enum: [activeSkillId addressFrom addressTo agentAssistantId agentBullseyeRing agentOwned agentRank agentScore ani assignerId authenticated conversationId convertedFrom convertedTo deliveryStatus destinationAddress direction disconnectType divisionId dnis edgeId eligibleAgentCount endingLanguage entryReason entryType exitReason externalContactId externalMediaCount externalOrganizationId externalTag firstQueue flaggedReason flowId flowInType flowMilestoneId flowName flowOutType flowOutcome flowOutcomeId flowOutcomeValue flowType flowVersion groupId interactionType journeyActionId journeyActionMapId journeyActionMapVersion journeyCustomerId journeyCustomerIdType journeyCustomerSessionId journeyCustomerSessionIdType knowledgeBaseId mediaCount mediaType messageType originatingDirection outboundCampaignId outboundContactId outboundContactListId participantName peerId proposedAgentId provider purpose queueId recognitionFailureReason remote removedSkillId reoffered requestedLanguageId requestedRouting requestedRoutingSkillId roomId routingPriority routingRing scoredAgentId selectedAgentId selectedAgentRank selfServed sessionDnis sessionId startingLanguage stationId teamId transferTargetAddress transferTargetName transferType usedRouting userId waitingInteractionCount wrapUpCode]
 	Dimension string `json:"dimension,omitempty"`
 
 	// Optional operator, default is matches
@@ -68,7 +68,7 @@ var flowAggregateQueryPredicateTypeDimensionPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["activeSkillId","addressFrom","addressTo","agentAssistantId","agentBullseyeRing","agentOwned","agentRank","agentScore","ani","assignerId","authenticated","conversationId","convertedFrom","convertedTo","deliveryStatus","destinationAddress","direction","disconnectType","divisionId","dnis","edgeId","eligibleAgentCount","endingLanguage","entryReason","entryType","exitReason","externalContactId","externalMediaCount","externalOrganizationId","externalTag","firstQueue","flaggedReason","flowId","flowInType","flowMilestoneId","flowName","flowOutType","flowOutcome","flowOutcomeId","flowOutcomeValue","flowType","flowVersion","groupId","interactionType","journeyActionId","journeyActionMapId","journeyActionMapVersion","journeyCustomerId","journeyCustomerIdType","journeyCustomerSessionId","journeyCustomerSessionIdType","mediaCount","mediaType","messageType","originatingDirection","outboundCampaignId","outboundContactId","outboundContactListId","participantName","peerId","proposedAgentId","provider","purpose","queueId","recognitionFailureReason","remote","removedSkillId","reoffered","requestedLanguageId","requestedRouting","requestedRoutingSkillId","roomId","routingPriority","routingRing","scoredAgentId","selectedAgentId","selectedAgentRank","sessionDnis","sessionId","startingLanguage","stationId","teamId","transferTargetAddress","transferTargetName","transferType","usedRouting","userId","waitingInteractionCount","wrapUpCode"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["activeSkillId","addressFrom","addressTo","agentAssistantId","agentBullseyeRing","agentOwned","agentRank","agentScore","ani","assignerId","authenticated","conversationId","convertedFrom","convertedTo","deliveryStatus","destinationAddress","direction","disconnectType","divisionId","dnis","edgeId","eligibleAgentCount","endingLanguage","entryReason","entryType","exitReason","externalContactId","externalMediaCount","externalOrganizationId","externalTag","firstQueue","flaggedReason","flowId","flowInType","flowMilestoneId","flowName","flowOutType","flowOutcome","flowOutcomeId","flowOutcomeValue","flowType","flowVersion","groupId","interactionType","journeyActionId","journeyActionMapId","journeyActionMapVersion","journeyCustomerId","journeyCustomerIdType","journeyCustomerSessionId","journeyCustomerSessionIdType","knowledgeBaseId","mediaCount","mediaType","messageType","originatingDirection","outboundCampaignId","outboundContactId","outboundContactListId","participantName","peerId","proposedAgentId","provider","purpose","queueId","recognitionFailureReason","remote","removedSkillId","reoffered","requestedLanguageId","requestedRouting","requestedRoutingSkillId","roomId","routingPriority","routingRing","scoredAgentId","selectedAgentId","selectedAgentRank","selfServed","sessionDnis","sessionId","startingLanguage","stationId","teamId","transferTargetAddress","transferTargetName","transferType","usedRouting","userId","waitingInteractionCount","wrapUpCode"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -231,6 +231,9 @@ const (
 	// FlowAggregateQueryPredicateDimensionJourneyCustomerSessionIDType captures enum value "journeyCustomerSessionIdType"
 	FlowAggregateQueryPredicateDimensionJourneyCustomerSessionIDType string = "journeyCustomerSessionIdType"
 
+	// FlowAggregateQueryPredicateDimensionKnowledgeBaseID captures enum value "knowledgeBaseId"
+	FlowAggregateQueryPredicateDimensionKnowledgeBaseID string = "knowledgeBaseId"
+
 	// FlowAggregateQueryPredicateDimensionMediaCount captures enum value "mediaCount"
 	FlowAggregateQueryPredicateDimensionMediaCount string = "mediaCount"
 
@@ -308,6 +311,9 @@ const (
 
 	// FlowAggregateQueryPredicateDimensionSelectedAgentRank captures enum value "selectedAgentRank"
 	FlowAggregateQueryPredicateDimensionSelectedAgentRank string = "selectedAgentRank"
+
+	// FlowAggregateQueryPredicateDimensionSelfServed captures enum value "selfServed"
+	FlowAggregateQueryPredicateDimensionSelfServed string = "selfServed"
 
 	// FlowAggregateQueryPredicateDimensionSessionDnis captures enum value "sessionDnis"
 	FlowAggregateQueryPredicateDimensionSessionDnis string = "sessionDnis"

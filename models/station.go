@@ -53,6 +53,10 @@ type Station struct {
 	// The Id of the user currently logged in and associated with the station.
 	UserID string `json:"userId,omitempty"`
 
+	// The number of call appearances on the station.
+	// Read Only: true
+	WebRtcCallAppearances int32 `json:"webRtcCallAppearances,omitempty"`
+
 	// Whether the station is configured to require TURN for routing WebRTC calls. Empty if station type is not inin_webrtc_softphone.
 	// Read Only: true
 	WebRtcForceTurn *bool `json:"webRtcForceTurn"`

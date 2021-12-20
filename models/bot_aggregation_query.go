@@ -147,7 +147,7 @@ var botAggregationQueryGroupByItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["botFinalIntent","botId","botIntent","botProduct","botProvider","botRecognitionFailureReason","botResult","botSessionId","botSlot","botVersion","conversationId","externalContactId","lastActionId","lastInputActionId","mediaType","messageType"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["botFinalIntent","botId","botIntent","botProduct","botProvider","botRecognitionFailureReason","botResult","botSessionId","botSlot","botVersion","conversationId","externalContactId","knowledgeBaseId","lastActionId","lastInputActionId","mediaType","messageType","selfServed"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {

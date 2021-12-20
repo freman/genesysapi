@@ -32,6 +32,9 @@ type ConversationNormalizedMessage struct {
 	// Enum: [Inbound Outbound]
 	Direction string `json:"direction,omitempty"`
 
+	// List of event elements.
+	Events []*ConversationMessageEvent `json:"events"`
+
 	// Unique ID of the message. Message receipts will have the same ID as the message they reference.
 	// Read Only: true
 	ID string `json:"id,omitempty"`
@@ -61,7 +64,7 @@ type ConversationNormalizedMessage struct {
 
 	// Message type.
 	// Required: true
-	// Enum: [Text Structured Receipt]
+	// Enum: [Text Structured Receipt Event]
 	Type *string `json:"type"`
 }
 
@@ -78,6 +81,10 @@ func (m *ConversationNormalizedMessage) Validate(formats strfmt.Registry) error 
 	}
 
 	if err := m.validateDirection(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateEvents(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -184,6 +191,31 @@ func (m *ConversationNormalizedMessage) validateDirection(formats strfmt.Registr
 	// value enum
 	if err := m.validateDirectionEnum("direction", "body", m.Direction); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *ConversationNormalizedMessage) validateEvents(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Events) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Events); i++ {
+		if swag.IsZero(m.Events[i]) { // not required
+			continue
+		}
+
+		if m.Events[i] != nil {
+			if err := m.Events[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("events" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil
@@ -316,7 +348,7 @@ var conversationNormalizedMessageTypeTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Text","Structured","Receipt"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Text","Structured","Receipt","Event"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -334,6 +366,9 @@ const (
 
 	// ConversationNormalizedMessageTypeReceipt captures enum value "Receipt"
 	ConversationNormalizedMessageTypeReceipt string = "Receipt"
+
+	// ConversationNormalizedMessageTypeEvent captures enum value "Event"
+	ConversationNormalizedMessageTypeEvent string = "Event"
 )
 
 // prop value enum

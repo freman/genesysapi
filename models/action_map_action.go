@@ -26,8 +26,11 @@ type ActionMapAction struct {
 	ArchitectFlowFields *ArchitectFlowFields `json:"architectFlowFields,omitempty"`
 
 	// Media type of action.
-	// Enum: [webchat webMessagingOffer contentOffer integrationAction architectFlow]
+	// Enum: [webchat webMessagingOffer contentOffer integrationAction architectFlow openAction]
 	MediaType string `json:"mediaType,omitempty"`
+
+	// Admin-configurable fields of an open action.
+	OpenActionFields *OpenActionFields `json:"openActionFields,omitempty"`
 
 	// Admin-configurable fields of a web messaging offer action.
 	WebMessagingOfferFields *WebMessagingOfferFields `json:"webMessagingOfferFields,omitempty"`
@@ -46,6 +49,10 @@ func (m *ActionMapAction) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateMediaType(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateOpenActionFields(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -99,7 +106,7 @@ var actionMapActionTypeMediaTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["webchat","webMessagingOffer","contentOffer","integrationAction","architectFlow"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["webchat","webMessagingOffer","contentOffer","integrationAction","architectFlow","openAction"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -123,6 +130,9 @@ const (
 
 	// ActionMapActionMediaTypeArchitectFlow captures enum value "architectFlow"
 	ActionMapActionMediaTypeArchitectFlow string = "architectFlow"
+
+	// ActionMapActionMediaTypeOpenAction captures enum value "openAction"
+	ActionMapActionMediaTypeOpenAction string = "openAction"
 )
 
 // prop value enum
@@ -142,6 +152,24 @@ func (m *ActionMapAction) validateMediaType(formats strfmt.Registry) error {
 	// value enum
 	if err := m.validateMediaTypeEnum("mediaType", "body", m.MediaType); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *ActionMapAction) validateOpenActionFields(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.OpenActionFields) { // not required
+		return nil
+	}
+
+	if m.OpenActionFields != nil {
+		if err := m.OpenActionFields.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("openActionFields")
+			}
+			return err
+		}
 	}
 
 	return nil

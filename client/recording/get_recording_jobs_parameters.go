@@ -89,6 +89,16 @@ for the get recording jobs operation typically these are written to a http.Reque
 */
 type GetRecordingJobsParams struct {
 
+	/*Cursor
+	  Indicates where to resume query results (not required for first page)
+
+	*/
+	Cursor *string
+	/*IncludeTotal
+	  If false, cursor will be used to locate the page instead of pageNumber.
+
+	*/
+	IncludeTotal *bool
 	/*JobType
 	  Job Type (Can be left empty for both)
 
@@ -156,6 +166,28 @@ func (o *GetRecordingJobsParams) WithHTTPClient(client *http.Client) *GetRecordi
 // SetHTTPClient adds the HTTPClient to the get recording jobs params
 func (o *GetRecordingJobsParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
+}
+
+// WithCursor adds the cursor to the get recording jobs params
+func (o *GetRecordingJobsParams) WithCursor(cursor *string) *GetRecordingJobsParams {
+	o.SetCursor(cursor)
+	return o
+}
+
+// SetCursor adds the cursor to the get recording jobs params
+func (o *GetRecordingJobsParams) SetCursor(cursor *string) {
+	o.Cursor = cursor
+}
+
+// WithIncludeTotal adds the includeTotal to the get recording jobs params
+func (o *GetRecordingJobsParams) WithIncludeTotal(includeTotal *bool) *GetRecordingJobsParams {
+	o.SetIncludeTotal(includeTotal)
+	return o
+}
+
+// SetIncludeTotal adds the includeTotal to the get recording jobs params
+func (o *GetRecordingJobsParams) SetIncludeTotal(includeTotal *bool) {
+	o.IncludeTotal = includeTotal
 }
 
 // WithJobType adds the jobType to the get recording jobs params
@@ -231,6 +263,38 @@ func (o *GetRecordingJobsParams) WriteToRequest(r runtime.ClientRequest, reg str
 		return err
 	}
 	var res []error
+
+	if o.Cursor != nil {
+
+		// query param cursor
+		var qrCursor string
+		if o.Cursor != nil {
+			qrCursor = *o.Cursor
+		}
+		qCursor := qrCursor
+		if qCursor != "" {
+			if err := r.SetQueryParam("cursor", qCursor); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	if o.IncludeTotal != nil {
+
+		// query param includeTotal
+		var qrIncludeTotal bool
+		if o.IncludeTotal != nil {
+			qrIncludeTotal = *o.IncludeTotal
+		}
+		qIncludeTotal := swag.FormatBool(qrIncludeTotal)
+		if qIncludeTotal != "" {
+			if err := r.SetQueryParam("includeTotal", qIncludeTotal); err != nil {
+				return err
+			}
+		}
+
+	}
 
 	if o.JobType != nil {
 

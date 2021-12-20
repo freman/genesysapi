@@ -23,13 +23,13 @@ type ReportingTurn struct {
 	AskAction *ReportingTurnAction `json:"askAction,omitempty"`
 
 	// Result of the bot flow 'ask' action.
-	// Enum: [SuccessCollection SuccessConfirmationYes SuccessConfirmationNo NoMatchCollection NoMatchConfirmation AgentRequestedByUser ConfirmationRequired Error NoInputCollection NoInputConfirmation DisambiguationRequired SuccessDisambiguation SuccessDisambiguationNone NoMatchDisambiguation NoInputDisambiguation]
+	// Enum: [SuccessCollection SuccessConfirmationYes SuccessConfirmationNo NoMatchCollection NoMatchConfirmation AgentRequestedByUser ConfirmationRequired Error ExpressionError NoInputCollection NoInputConfirmation DisambiguationRequired SuccessDisambiguation SuccessDisambiguationNone NoMatchDisambiguation NoInputDisambiguation]
 	AskActionResult string `json:"askActionResult,omitempty"`
 
 	// The bot prompts associated with this reporting turn.
 	BotPrompts []string `json:"botPrompts"`
 
-	// The conversation details, across potentially multiple Cicero sessions.
+	// The conversation details, across potentially multiple Bot Flow sessions.
 	// Read Only: true
 	Conversation *AddressableEntityRef `json:"conversation,omitempty"`
 
@@ -106,7 +106,7 @@ var reportingTurnTypeAskActionResultPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["SuccessCollection","SuccessConfirmationYes","SuccessConfirmationNo","NoMatchCollection","NoMatchConfirmation","AgentRequestedByUser","ConfirmationRequired","Error","NoInputCollection","NoInputConfirmation","DisambiguationRequired","SuccessDisambiguation","SuccessDisambiguationNone","NoMatchDisambiguation","NoInputDisambiguation"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["SuccessCollection","SuccessConfirmationYes","SuccessConfirmationNo","NoMatchCollection","NoMatchConfirmation","AgentRequestedByUser","ConfirmationRequired","Error","ExpressionError","NoInputCollection","NoInputConfirmation","DisambiguationRequired","SuccessDisambiguation","SuccessDisambiguationNone","NoMatchDisambiguation","NoInputDisambiguation"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -139,6 +139,9 @@ const (
 
 	// ReportingTurnAskActionResultError captures enum value "Error"
 	ReportingTurnAskActionResultError string = "Error"
+
+	// ReportingTurnAskActionResultExpressionError captures enum value "ExpressionError"
+	ReportingTurnAskActionResultExpressionError string = "ExpressionError"
 
 	// ReportingTurnAskActionResultNoInputCollection captures enum value "NoInputCollection"
 	ReportingTurnAskActionResultNoInputCollection string = "NoInputCollection"

@@ -20,7 +20,7 @@ import (
 type ConversationAggregateQueryPredicate struct {
 
 	// Left hand side for dimension predicates
-	// Enum: [activeSkillId addressFrom addressTo agentAssistantId agentBullseyeRing agentOwned agentRank agentScore ani assignerId authenticated conversationId convertedFrom convertedTo deliveryStatus destinationAddress direction disconnectType divisionId dnis edgeId eligibleAgentCount externalContactId externalMediaCount externalOrganizationId externalTag firstQueue flaggedReason flowInType flowOutType groupId interactionType journeyActionId journeyActionMapId journeyActionMapVersion journeyCustomerId journeyCustomerIdType journeyCustomerSessionId journeyCustomerSessionIdType mediaCount mediaType messageType originatingDirection outboundCampaignId outboundContactId outboundContactListId participantName peerId proposedAgentId provider purpose queueId remote removedSkillId reoffered requestedLanguageId requestedRouting requestedRoutingSkillId roomId routingPriority routingRing scoredAgentId selectedAgentId selectedAgentRank sessionDnis sessionId stationId teamId usedRouting userId waitingInteractionCount wrapUpCode]
+	// Enum: [activeSkillId addressFrom addressTo agentAssistantId agentBullseyeRing agentOwned agentRank agentScore ani assignerId authenticated conversationId convertedFrom convertedTo deliveryStatus destinationAddress direction disconnectType divisionId dnis edgeId eligibleAgentCount externalContactId externalMediaCount externalOrganizationId externalTag firstQueue flaggedReason flowInType flowOutType groupId interactionType journeyActionId journeyActionMapId journeyActionMapVersion journeyCustomerId journeyCustomerIdType journeyCustomerSessionId journeyCustomerSessionIdType knowledgeBaseId mediaCount mediaType messageType originatingDirection outboundCampaignId outboundContactId outboundContactListId participantName peerId proposedAgentId provider purpose queueId remote removedSkillId reoffered requestedLanguageId requestedRouting requestedRoutingSkillId roomId routingPriority routingRing scoredAgentId selectedAgentId selectedAgentRank selfServed sessionDnis sessionId stationId teamId usedRouting userId waitingInteractionCount wrapUpCode]
 	Dimension string `json:"dimension,omitempty"`
 
 	// Optional operator, default is matches
@@ -68,7 +68,7 @@ var conversationAggregateQueryPredicateTypeDimensionPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["activeSkillId","addressFrom","addressTo","agentAssistantId","agentBullseyeRing","agentOwned","agentRank","agentScore","ani","assignerId","authenticated","conversationId","convertedFrom","convertedTo","deliveryStatus","destinationAddress","direction","disconnectType","divisionId","dnis","edgeId","eligibleAgentCount","externalContactId","externalMediaCount","externalOrganizationId","externalTag","firstQueue","flaggedReason","flowInType","flowOutType","groupId","interactionType","journeyActionId","journeyActionMapId","journeyActionMapVersion","journeyCustomerId","journeyCustomerIdType","journeyCustomerSessionId","journeyCustomerSessionIdType","mediaCount","mediaType","messageType","originatingDirection","outboundCampaignId","outboundContactId","outboundContactListId","participantName","peerId","proposedAgentId","provider","purpose","queueId","remote","removedSkillId","reoffered","requestedLanguageId","requestedRouting","requestedRoutingSkillId","roomId","routingPriority","routingRing","scoredAgentId","selectedAgentId","selectedAgentRank","sessionDnis","sessionId","stationId","teamId","usedRouting","userId","waitingInteractionCount","wrapUpCode"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["activeSkillId","addressFrom","addressTo","agentAssistantId","agentBullseyeRing","agentOwned","agentRank","agentScore","ani","assignerId","authenticated","conversationId","convertedFrom","convertedTo","deliveryStatus","destinationAddress","direction","disconnectType","divisionId","dnis","edgeId","eligibleAgentCount","externalContactId","externalMediaCount","externalOrganizationId","externalTag","firstQueue","flaggedReason","flowInType","flowOutType","groupId","interactionType","journeyActionId","journeyActionMapId","journeyActionMapVersion","journeyCustomerId","journeyCustomerIdType","journeyCustomerSessionId","journeyCustomerSessionIdType","knowledgeBaseId","mediaCount","mediaType","messageType","originatingDirection","outboundCampaignId","outboundContactId","outboundContactListId","participantName","peerId","proposedAgentId","provider","purpose","queueId","remote","removedSkillId","reoffered","requestedLanguageId","requestedRouting","requestedRoutingSkillId","roomId","routingPriority","routingRing","scoredAgentId","selectedAgentId","selectedAgentRank","selfServed","sessionDnis","sessionId","stationId","teamId","usedRouting","userId","waitingInteractionCount","wrapUpCode"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -195,6 +195,9 @@ const (
 	// ConversationAggregateQueryPredicateDimensionJourneyCustomerSessionIDType captures enum value "journeyCustomerSessionIdType"
 	ConversationAggregateQueryPredicateDimensionJourneyCustomerSessionIDType string = "journeyCustomerSessionIdType"
 
+	// ConversationAggregateQueryPredicateDimensionKnowledgeBaseID captures enum value "knowledgeBaseId"
+	ConversationAggregateQueryPredicateDimensionKnowledgeBaseID string = "knowledgeBaseId"
+
 	// ConversationAggregateQueryPredicateDimensionMediaCount captures enum value "mediaCount"
 	ConversationAggregateQueryPredicateDimensionMediaCount string = "mediaCount"
 
@@ -269,6 +272,9 @@ const (
 
 	// ConversationAggregateQueryPredicateDimensionSelectedAgentRank captures enum value "selectedAgentRank"
 	ConversationAggregateQueryPredicateDimensionSelectedAgentRank string = "selectedAgentRank"
+
+	// ConversationAggregateQueryPredicateDimensionSelfServed captures enum value "selfServed"
+	ConversationAggregateQueryPredicateDimensionSelfServed string = "selfServed"
 
 	// ConversationAggregateQueryPredicateDimensionSessionDnis captures enum value "sessionDnis"
 	ConversationAggregateQueryPredicateDimensionSessionDnis string = "sessionDnis"

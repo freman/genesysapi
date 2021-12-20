@@ -147,7 +147,7 @@ func NewPostConversationsMessagingIntegrationsTwitterAccepted() *PostConversatio
 
 /*PostConversationsMessagingIntegrationsTwitterAccepted handles this case with default header values.
 
-Accepted - If async is true, the integration creation is in progress.
+Accepted - The integration creation is in progress.
 */
 type PostConversationsMessagingIntegrationsTwitterAccepted struct {
 	Payload *models.TwitterIntegration

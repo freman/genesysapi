@@ -30,7 +30,7 @@ type AuditQueryExecutionStatusResponse struct {
 	Interval string `json:"interval,omitempty"`
 
 	// Service name for the audit query.
-	// Enum: [AnalyticsReporting Architect Coaching ContactCenter ContentManagement Datatables Directory Gamification Groups Integrations Knowledge LanguageUnderstanding Learning Limits Outbound PeoplePermissions EmployeePerformance PredictiveEngagement Presence Quality ResponseManagement Routing SpeechAndTextAnalytics Telephony TopicsDefinitions Triggers ProcessAutomation WebDeployments Webhooks WorkforceManagement Messaging Supportability Callback]
+	// Enum: [AnalyticsReporting Architect Coaching ContactCenter ContentManagement Datatables Directory DynamicSchema Gamification Groups Integrations Knowledge LanguageUnderstanding Learning Limits Outbound PeoplePermissions EmployeePerformance PredictiveEngagement Presence Quality ResponseManagement Routing SpeechAndTextAnalytics Telephony TopicsDefinitions Triggers ProcessAutomation WebDeployments Webhooks WorkforceManagement Messaging Supportability Callback Workitems]
 	ServiceName string `json:"serviceName,omitempty"`
 
 	// Sort parameter for the audit query.
@@ -104,7 +104,7 @@ var auditQueryExecutionStatusResponseTypeServiceNamePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["AnalyticsReporting","Architect","Coaching","ContactCenter","ContentManagement","Datatables","Directory","Gamification","Groups","Integrations","Knowledge","LanguageUnderstanding","Learning","Limits","Outbound","PeoplePermissions","EmployeePerformance","PredictiveEngagement","Presence","Quality","ResponseManagement","Routing","SpeechAndTextAnalytics","Telephony","TopicsDefinitions","Triggers","ProcessAutomation","WebDeployments","Webhooks","WorkforceManagement","Messaging","Supportability","Callback"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["AnalyticsReporting","Architect","Coaching","ContactCenter","ContentManagement","Datatables","Directory","DynamicSchema","Gamification","Groups","Integrations","Knowledge","LanguageUnderstanding","Learning","Limits","Outbound","PeoplePermissions","EmployeePerformance","PredictiveEngagement","Presence","Quality","ResponseManagement","Routing","SpeechAndTextAnalytics","Telephony","TopicsDefinitions","Triggers","ProcessAutomation","WebDeployments","Webhooks","WorkforceManagement","Messaging","Supportability","Callback","Workitems"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -134,6 +134,9 @@ const (
 
 	// AuditQueryExecutionStatusResponseServiceNameDirectory captures enum value "Directory"
 	AuditQueryExecutionStatusResponseServiceNameDirectory string = "Directory"
+
+	// AuditQueryExecutionStatusResponseServiceNameDynamicSchema captures enum value "DynamicSchema"
+	AuditQueryExecutionStatusResponseServiceNameDynamicSchema string = "DynamicSchema"
 
 	// AuditQueryExecutionStatusResponseServiceNameGamification captures enum value "Gamification"
 	AuditQueryExecutionStatusResponseServiceNameGamification string = "Gamification"
@@ -212,6 +215,9 @@ const (
 
 	// AuditQueryExecutionStatusResponseServiceNameCallback captures enum value "Callback"
 	AuditQueryExecutionStatusResponseServiceNameCallback string = "Callback"
+
+	// AuditQueryExecutionStatusResponseServiceNameWorkitems captures enum value "Workitems"
+	AuditQueryExecutionStatusResponseServiceNameWorkitems string = "Workitems"
 )
 
 // prop value enum

@@ -22,6 +22,10 @@ type API interface {
 	*/
 	DeleteOrgauthorizationTrustee(ctx context.Context, params *DeleteOrgauthorizationTrusteeParams) (*DeleteOrgauthorizationTrusteeNoContent, error)
 	/*
+	   DeleteOrgauthorizationTrusteeCloneduser deletes cloned user
+	*/
+	DeleteOrgauthorizationTrusteeCloneduser(ctx context.Context, params *DeleteOrgauthorizationTrusteeCloneduserParams) (*DeleteOrgauthorizationTrusteeCloneduserNoContent, error)
+	/*
 	   DeleteOrgauthorizationTrusteeUser deletes trustee user
 	*/
 	DeleteOrgauthorizationTrusteeUser(ctx context.Context, params *DeleteOrgauthorizationTrusteeUserParams) (*DeleteOrgauthorizationTrusteeUserNoContent, error)
@@ -34,6 +38,10 @@ type API interface {
 	*/
 	DeleteOrgauthorizationTrustor(ctx context.Context, params *DeleteOrgauthorizationTrustorParams) (*DeleteOrgauthorizationTrustorNoContent, error)
 	/*
+	   DeleteOrgauthorizationTrustorCloneduser deletes cloned user
+	*/
+	DeleteOrgauthorizationTrustorCloneduser(ctx context.Context, params *DeleteOrgauthorizationTrustorCloneduserParams) (*DeleteOrgauthorizationTrustorCloneduserNoContent, error)
+	/*
 	   DeleteOrgauthorizationTrustorUser deletes trustee user
 	*/
 	DeleteOrgauthorizationTrustorUser(ctx context.Context, params *DeleteOrgauthorizationTrustorUserParams) (*DeleteOrgauthorizationTrustorUserNoContent, error)
@@ -45,6 +53,11 @@ type API interface {
 	   GetOrgauthorizationTrustee gets org trust
 	*/
 	GetOrgauthorizationTrustee(ctx context.Context, params *GetOrgauthorizationTrusteeParams) (*GetOrgauthorizationTrusteeOK, error)
+	/*
+	   GetOrgauthorizationTrusteeClonedusers thes list of cloned users from the trustee organization i e users with a native user record
+	   There can be no more than 5 cloned users per organization, so results are represented as simple list and not paged
+	*/
+	GetOrgauthorizationTrusteeClonedusers(ctx context.Context, params *GetOrgauthorizationTrusteeClonedusersParams) (*GetOrgauthorizationTrusteeClonedusersOK, error)
 	/*
 	   GetOrgauthorizationTrusteeUser gets trustee user
 	*/
@@ -62,9 +75,21 @@ type API interface {
 	*/
 	GetOrgauthorizationTrustees(ctx context.Context, params *GetOrgauthorizationTrusteesParams) (*GetOrgauthorizationTrusteesOK, error)
 	/*
+	   GetOrgauthorizationTrusteesDefault gets organization authorization trust with customer care if one exists
+	*/
+	GetOrgauthorizationTrusteesDefault(ctx context.Context, params *GetOrgauthorizationTrusteesDefaultParams) (*GetOrgauthorizationTrusteesDefaultOK, error)
+	/*
 	   GetOrgauthorizationTrustor gets org trust
 	*/
 	GetOrgauthorizationTrustor(ctx context.Context, params *GetOrgauthorizationTrustorParams) (*GetOrgauthorizationTrustorOK, error)
+	/*
+	   GetOrgauthorizationTrustorCloneduser gets cloned user
+	*/
+	GetOrgauthorizationTrustorCloneduser(ctx context.Context, params *GetOrgauthorizationTrustorCloneduserParams) (*GetOrgauthorizationTrustorCloneduserOK, error)
+	/*
+	   GetOrgauthorizationTrustorClonedusers thes list of cloned users in the trustor organization i e users with a native user record
+	*/
+	GetOrgauthorizationTrustorClonedusers(ctx context.Context, params *GetOrgauthorizationTrustorClonedusersParams) (*GetOrgauthorizationTrustorClonedusersOK, error)
 	/*
 	   GetOrgauthorizationTrustorUser gets trustee user
 	*/
@@ -94,6 +119,10 @@ type API interface {
 	*/
 	PostOrgauthorizationTrusteesAudits(ctx context.Context, params *PostOrgauthorizationTrusteesAuditsParams) (*PostOrgauthorizationTrusteesAuditsOK, error)
 	/*
+	   PostOrgauthorizationTrusteesDefault creates a new organization authorization trust with customer care this is required to grant your regional customer care organization access to your organization
+	*/
+	PostOrgauthorizationTrusteesDefault(ctx context.Context, params *PostOrgauthorizationTrusteesDefaultParams) (*PostOrgauthorizationTrusteesDefaultOK, error)
+	/*
 	   PostOrgauthorizationTrustorAudits gets org trustor audits
 	*/
 	PostOrgauthorizationTrustorAudits(ctx context.Context, params *PostOrgauthorizationTrustorAuditsParams) (*PostOrgauthorizationTrustorAuditsOK, error)
@@ -109,6 +138,10 @@ type API interface {
 	   PutOrgauthorizationTrusteeUserRoles updates trustee user roles
 	*/
 	PutOrgauthorizationTrusteeUserRoles(ctx context.Context, params *PutOrgauthorizationTrusteeUserRolesParams) (*PutOrgauthorizationTrusteeUserRolesOK, error)
+	/*
+	   PutOrgauthorizationTrustorCloneduser creates a clone of the trustee user in the trustor org
+	*/
+	PutOrgauthorizationTrustorCloneduser(ctx context.Context, params *PutOrgauthorizationTrustorCloneduserParams) (*PutOrgauthorizationTrustorCloneduserOK, error)
 	/*
 	   PutOrgauthorizationTrustorUser adds a trustee user to the trust
 	*/
@@ -155,6 +188,31 @@ func (a *Client) DeleteOrgauthorizationTrustee(ctx context.Context, params *Dele
 		return nil, err
 	}
 	return result.(*DeleteOrgauthorizationTrusteeNoContent), nil
+
+}
+
+/*
+DeleteOrgauthorizationTrusteeCloneduser deletes cloned user
+*/
+func (a *Client) DeleteOrgauthorizationTrusteeCloneduser(ctx context.Context, params *DeleteOrgauthorizationTrusteeCloneduserParams) (*DeleteOrgauthorizationTrusteeCloneduserNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteOrgauthorizationTrusteeCloneduser",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/orgauthorization/trustees/{trusteeOrgId}/clonedusers/{trusteeUserId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteOrgauthorizationTrusteeCloneduserReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteOrgauthorizationTrusteeCloneduserNoContent), nil
 
 }
 
@@ -234,6 +292,31 @@ func (a *Client) DeleteOrgauthorizationTrustor(ctx context.Context, params *Dele
 }
 
 /*
+DeleteOrgauthorizationTrustorCloneduser deletes cloned user
+*/
+func (a *Client) DeleteOrgauthorizationTrustorCloneduser(ctx context.Context, params *DeleteOrgauthorizationTrustorCloneduserParams) (*DeleteOrgauthorizationTrustorCloneduserNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteOrgauthorizationTrustorCloneduser",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/orgauthorization/trustors/{trustorOrgId}/clonedusers/{trusteeUserId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteOrgauthorizationTrustorCloneduserReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteOrgauthorizationTrustorCloneduserNoContent), nil
+
+}
+
+/*
 DeleteOrgauthorizationTrustorUser deletes trustee user
 */
 func (a *Client) DeleteOrgauthorizationTrustorUser(ctx context.Context, params *DeleteOrgauthorizationTrustorUserParams) (*DeleteOrgauthorizationTrustorUserNoContent, error) {
@@ -305,6 +388,33 @@ func (a *Client) GetOrgauthorizationTrustee(ctx context.Context, params *GetOrga
 		return nil, err
 	}
 	return result.(*GetOrgauthorizationTrusteeOK), nil
+
+}
+
+/*
+GetOrgauthorizationTrusteeClonedusers thes list of cloned users from the trustee organization i e users with a native user record
+
+There can be no more than 5 cloned users per organization, so results are represented as simple list and not paged
+*/
+func (a *Client) GetOrgauthorizationTrusteeClonedusers(ctx context.Context, params *GetOrgauthorizationTrusteeClonedusersParams) (*GetOrgauthorizationTrusteeClonedusersOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getOrgauthorizationTrusteeClonedusers",
+		Method:             "GET",
+		PathPattern:        "/api/v2/orgauthorization/trustees/{trusteeOrgId}/clonedusers",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetOrgauthorizationTrusteeClonedusersReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetOrgauthorizationTrusteeClonedusersOK), nil
 
 }
 
@@ -409,6 +519,31 @@ func (a *Client) GetOrgauthorizationTrustees(ctx context.Context, params *GetOrg
 }
 
 /*
+GetOrgauthorizationTrusteesDefault gets organization authorization trust with customer care if one exists
+*/
+func (a *Client) GetOrgauthorizationTrusteesDefault(ctx context.Context, params *GetOrgauthorizationTrusteesDefaultParams) (*GetOrgauthorizationTrusteesDefaultOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getOrgauthorizationTrusteesDefault",
+		Method:             "GET",
+		PathPattern:        "/api/v2/orgauthorization/trustees/default",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetOrgauthorizationTrusteesDefaultReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetOrgauthorizationTrusteesDefaultOK), nil
+
+}
+
+/*
 GetOrgauthorizationTrustor gets org trust
 */
 func (a *Client) GetOrgauthorizationTrustor(ctx context.Context, params *GetOrgauthorizationTrustorParams) (*GetOrgauthorizationTrustorOK, error) {
@@ -430,6 +565,56 @@ func (a *Client) GetOrgauthorizationTrustor(ctx context.Context, params *GetOrga
 		return nil, err
 	}
 	return result.(*GetOrgauthorizationTrustorOK), nil
+
+}
+
+/*
+GetOrgauthorizationTrustorCloneduser gets cloned user
+*/
+func (a *Client) GetOrgauthorizationTrustorCloneduser(ctx context.Context, params *GetOrgauthorizationTrustorCloneduserParams) (*GetOrgauthorizationTrustorCloneduserOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getOrgauthorizationTrustorCloneduser",
+		Method:             "GET",
+		PathPattern:        "/api/v2/orgauthorization/trustors/{trustorOrgId}/clonedusers/{trusteeUserId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetOrgauthorizationTrustorCloneduserReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetOrgauthorizationTrustorCloneduserOK), nil
+
+}
+
+/*
+GetOrgauthorizationTrustorClonedusers thes list of cloned users in the trustor organization i e users with a native user record
+*/
+func (a *Client) GetOrgauthorizationTrustorClonedusers(ctx context.Context, params *GetOrgauthorizationTrustorClonedusersParams) (*GetOrgauthorizationTrustorClonedusersOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getOrgauthorizationTrustorClonedusers",
+		Method:             "GET",
+		PathPattern:        "/api/v2/orgauthorization/trustors/{trustorOrgId}/clonedusers",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetOrgauthorizationTrustorClonedusersReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetOrgauthorizationTrustorClonedusersOK), nil
 
 }
 
@@ -609,6 +794,31 @@ func (a *Client) PostOrgauthorizationTrusteesAudits(ctx context.Context, params 
 }
 
 /*
+PostOrgauthorizationTrusteesDefault creates a new organization authorization trust with customer care this is required to grant your regional customer care organization access to your organization
+*/
+func (a *Client) PostOrgauthorizationTrusteesDefault(ctx context.Context, params *PostOrgauthorizationTrusteesDefaultParams) (*PostOrgauthorizationTrusteesDefaultOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postOrgauthorizationTrusteesDefault",
+		Method:             "POST",
+		PathPattern:        "/api/v2/orgauthorization/trustees/default",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostOrgauthorizationTrusteesDefaultReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostOrgauthorizationTrusteesDefaultOK), nil
+
+}
+
+/*
 PostOrgauthorizationTrustorAudits gets org trustor audits
 */
 func (a *Client) PostOrgauthorizationTrustorAudits(ctx context.Context, params *PostOrgauthorizationTrustorAuditsParams) (*PostOrgauthorizationTrustorAuditsOK, error) {
@@ -705,6 +915,31 @@ func (a *Client) PutOrgauthorizationTrusteeUserRoles(ctx context.Context, params
 		return nil, err
 	}
 	return result.(*PutOrgauthorizationTrusteeUserRolesOK), nil
+
+}
+
+/*
+PutOrgauthorizationTrustorCloneduser creates a clone of the trustee user in the trustor org
+*/
+func (a *Client) PutOrgauthorizationTrustorCloneduser(ctx context.Context, params *PutOrgauthorizationTrustorCloneduserParams) (*PutOrgauthorizationTrustorCloneduserOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "putOrgauthorizationTrustorCloneduser",
+		Method:             "PUT",
+		PathPattern:        "/api/v2/orgauthorization/trustors/{trustorOrgId}/clonedusers/{trusteeUserId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PutOrgauthorizationTrustorCloneduserReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutOrgauthorizationTrustorCloneduserOK), nil
 
 }
 

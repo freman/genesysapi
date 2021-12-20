@@ -147,7 +147,7 @@ func NewPostConversationsMessagingIntegrationsLineAccepted() *PostConversationsM
 
 /*PostConversationsMessagingIntegrationsLineAccepted handles this case with default header values.
 
-Accepted - If async is true, the integration creation in progress.
+Accepted - The integration creation in progress.
 */
 type PostConversationsMessagingIntegrationsLineAccepted struct {
 	Payload *models.LineIntegration

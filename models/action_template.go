@@ -36,7 +36,7 @@ type ActionTemplate struct {
 
 	// Media type of action described by the action template.
 	// Required: true
-	// Enum: [webchat webMessagingOffer contentOffer integrationAction architectFlow]
+	// Enum: [webchat webMessagingOffer contentOffer integrationAction architectFlow openAction]
 	MediaType *string `json:"mediaType"`
 
 	// Date when action template was last modified in ISO-8601 format.
@@ -132,7 +132,7 @@ var actionTemplateTypeMediaTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["webchat","webMessagingOffer","contentOffer","integrationAction","architectFlow"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["webchat","webMessagingOffer","contentOffer","integrationAction","architectFlow","openAction"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -156,6 +156,9 @@ const (
 
 	// ActionTemplateMediaTypeArchitectFlow captures enum value "architectFlow"
 	ActionTemplateMediaTypeArchitectFlow string = "architectFlow"
+
+	// ActionTemplateMediaTypeOpenAction captures enum value "openAction"
+	ActionTemplateMediaTypeOpenAction string = "openAction"
 )
 
 // prop value enum

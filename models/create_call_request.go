@@ -36,6 +36,9 @@ type CreateCallRequest struct {
 	// The list of existing call conversations to merge into a new ad-hoc conference.
 	ConversationIds []string `json:"conversationIds"`
 
+	// The external contact with which to associate the call.
+	ExternalContactID string `json:"externalContactId,omitempty"`
+
 	// The language skill ID to use for routing this call (if calling a queue).
 	LanguageID string `json:"languageId,omitempty"`
 

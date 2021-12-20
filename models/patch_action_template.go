@@ -26,7 +26,7 @@ type PatchActionTemplate struct {
 	Description string `json:"description,omitempty"`
 
 	// Media type of action described by the action template.
-	// Enum: [webchat webMessagingOffer contentOffer integrationAction architectFlow]
+	// Enum: [webchat webMessagingOffer contentOffer integrationAction architectFlow openAction]
 	MediaType string `json:"mediaType,omitempty"`
 
 	// Name of the action template.
@@ -86,7 +86,7 @@ var patchActionTemplateTypeMediaTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["webchat","webMessagingOffer","contentOffer","integrationAction","architectFlow"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["webchat","webMessagingOffer","contentOffer","integrationAction","architectFlow","openAction"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -110,6 +110,9 @@ const (
 
 	// PatchActionTemplateMediaTypeArchitectFlow captures enum value "architectFlow"
 	PatchActionTemplateMediaTypeArchitectFlow string = "architectFlow"
+
+	// PatchActionTemplateMediaTypeOpenAction captures enum value "openAction"
+	PatchActionTemplateMediaTypeOpenAction string = "openAction"
 )
 
 // prop value enum

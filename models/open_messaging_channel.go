@@ -31,6 +31,9 @@ type OpenMessagingChannel struct {
 	// Required: true
 	MessageID *string `json:"messageId"`
 
+	// Information about the channel.
+	Metadata ChannelMetadata `json:"metadata,omitempty"`
+
 	// The provider type.
 	// Read Only: true
 	// Enum: [Open]

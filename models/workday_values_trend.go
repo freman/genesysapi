@@ -24,6 +24,11 @@ type WorkdayValuesTrend struct {
 	// Format: date
 	DateEndWorkday strfmt.Date `json:"dateEndWorkday,omitempty"`
 
+	// The reference workday used to determine the metric definition. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
+	// Read Only: true
+	// Format: date
+	DateReferenceWorkday strfmt.Date `json:"dateReferenceWorkday,omitempty"`
+
 	// The start workday for the query range for the metric value trend. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
 	// Read Only: true
 	// Format: date
@@ -32,6 +37,10 @@ type WorkdayValuesTrend struct {
 	// The targeted division for the query
 	// Read Only: true
 	Division *Division `json:"division,omitempty"`
+
+	// The targeted metric for the average points
+	// Read Only: true
+	Metric *AddressableEntityRef `json:"metric,omitempty"`
 
 	// The targeted performance profile for the average points
 	// Read Only: true
@@ -58,11 +67,19 @@ func (m *WorkdayValuesTrend) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateDateReferenceWorkday(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateDateStartWorkday(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if err := m.validateDivision(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateMetric(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -97,6 +114,19 @@ func (m *WorkdayValuesTrend) validateDateEndWorkday(formats strfmt.Registry) err
 	return nil
 }
 
+func (m *WorkdayValuesTrend) validateDateReferenceWorkday(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.DateReferenceWorkday) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("dateReferenceWorkday", "body", "date", m.DateReferenceWorkday.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *WorkdayValuesTrend) validateDateStartWorkday(formats strfmt.Registry) error {
 
 	if swag.IsZero(m.DateStartWorkday) { // not required
@@ -120,6 +150,24 @@ func (m *WorkdayValuesTrend) validateDivision(formats strfmt.Registry) error {
 		if err := m.Division.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("division")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WorkdayValuesTrend) validateMetric(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Metric) { // not required
+		return nil
+	}
+
+	if m.Metric != nil {
+		if err := m.Metric.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("metric")
 			}
 			return err
 		}

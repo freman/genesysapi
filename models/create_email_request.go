@@ -26,6 +26,9 @@ type CreateEmailRequest struct {
 	// Enum: [OUTBOUND INBOUND]
 	Direction string `json:"direction,omitempty"`
 
+	// The external contact with which the email should be associated. This field is only valid for OUTBOUND email.
+	ExternalContactID string `json:"externalContactId,omitempty"`
+
 	// The ID of the flow to use for routing email conversation. This field is mutually exclusive with queueId
 	FlowID string `json:"flowId,omitempty"`
 

@@ -19,38 +19,51 @@ import (
 // swagger:model RecordingMessagingMessage
 type RecordingMessagingMessage struct {
 
-	// from
+	// Button Response selected by user for this message.
+	ButtonResponse *ButtonResponse `json:"buttonResponse,omitempty"`
+
+	// The message sender session id.
 	From string `json:"from,omitempty"`
 
-	// from external contact
+	// The PureCloud external contact sender details.
 	FromExternalContact *ExternalContact `json:"fromExternalContact,omitempty"`
 
-	// from user
+	// The user who sent this message.
 	FromUser *User `json:"fromUser,omitempty"`
 
-	// id
+	// A globally unique identifier for this communication.
 	ID string `json:"id,omitempty"`
 
-	// message media attachments
+	// List of media objects attached  with this message.
 	MessageMediaAttachments []*MessageMediaAttachment `json:"messageMediaAttachments"`
 
-	// message sticker attachments
+	// List of message stickers attached with this message.
 	MessageStickerAttachments []*MessageStickerAttachment `json:"messageStickerAttachments"`
 
-	// message text
+	// The content of this message.
 	MessageText string `json:"messageText,omitempty"`
 
-	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+	// List of quick reply options offered with this message.
+	QuickReplies []*QuickReply `json:"quickReplies"`
+
+	// Ephemeral story content.
+	Story *RecordingContentStory `json:"story,omitempty"`
+
+	// The time when the message was sent. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	Timestamp strfmt.DateTime `json:"timestamp,omitempty"`
 
-	// to
+	// The message recipient.
 	To string `json:"to,omitempty"`
 }
 
 // Validate validates this recording messaging message
 func (m *RecordingMessagingMessage) Validate(formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.validateButtonResponse(formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.validateFromExternalContact(formats); err != nil {
 		res = append(res, err)
@@ -68,6 +81,14 @@ func (m *RecordingMessagingMessage) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateQuickReplies(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateStory(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateTimestamp(formats); err != nil {
 		res = append(res, err)
 	}
@@ -75,6 +96,24 @@ func (m *RecordingMessagingMessage) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *RecordingMessagingMessage) validateButtonResponse(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.ButtonResponse) { // not required
+		return nil
+	}
+
+	if m.ButtonResponse != nil {
+		if err := m.ButtonResponse.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("buttonResponse")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -159,6 +198,49 @@ func (m *RecordingMessagingMessage) validateMessageStickerAttachments(formats st
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *RecordingMessagingMessage) validateQuickReplies(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.QuickReplies) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.QuickReplies); i++ {
+		if swag.IsZero(m.QuickReplies[i]) { // not required
+			continue
+		}
+
+		if m.QuickReplies[i] != nil {
+			if err := m.QuickReplies[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("quickReplies" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *RecordingMessagingMessage) validateStory(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Story) { // not required
+		return nil
+	}
+
+	if m.Story != nil {
+		if err := m.Story.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("story")
+			}
+			return err
+		}
 	}
 
 	return nil

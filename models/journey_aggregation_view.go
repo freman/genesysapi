@@ -33,7 +33,7 @@ type JourneyAggregationView struct {
 
 	// Target metric name
 	// Required: true
-	// Enum: [nDistinctJourneyActions nDistinctJourneySessions nJourneyActionsBlocked nJourneyOutcomesAchieved nJourneyOutcomesAttributed nJourneySegmentsAssigned nJourneySessions nWebActionsAbandoned nWebActionsAccepted nWebActionsEngaged nWebActionsErrored nWebActionsIgnored nWebActionsOffered nWebActionsQualified nWebActionsQualifiedOutsideSchedule nWebActionsRejected nWebActionsStarted nWebActionsTimedout nWebActionsFrequencyCapReached nWebActionsOfferedOutsideSchedule]
+	// Enum: [nDistinctJourneyActions nDistinctJourneySessions nJourneyActionsBlocked nJourneyOutcomesAchieved nJourneyOutcomesAttributed nJourneySegmentsAssigned nJourneySessions nWebActionsAbandoned nWebActionsAccepted nWebActionsEngaged nWebActionsErrored nWebActionsFrequencyCapReached nWebActionsIgnored nWebActionsOffered nWebActionsOfferedOutsideSchedule nWebActionsQualified nWebActionsQualifiedOutsideSchedule nWebActionsRejected nWebActionsStarted nWebActionsTimedout oJourneyOutcomeValue]
 	Target *string `json:"target"`
 }
 
@@ -134,7 +134,7 @@ var journeyAggregationViewTypeTargetPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["nDistinctJourneyActions","nDistinctJourneySessions","nJourneyActionsBlocked","nJourneyOutcomesAchieved","nJourneyOutcomesAttributed","nJourneySegmentsAssigned","nJourneySessions","nWebActionsAbandoned","nWebActionsAccepted","nWebActionsEngaged","nWebActionsErrored","nWebActionsIgnored","nWebActionsOffered","nWebActionsQualified","nWebActionsQualifiedOutsideSchedule","nWebActionsRejected","nWebActionsStarted","nWebActionsTimedout","nWebActionsFrequencyCapReached","nWebActionsOfferedOutsideSchedule"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["nDistinctJourneyActions","nDistinctJourneySessions","nJourneyActionsBlocked","nJourneyOutcomesAchieved","nJourneyOutcomesAttributed","nJourneySegmentsAssigned","nJourneySessions","nWebActionsAbandoned","nWebActionsAccepted","nWebActionsEngaged","nWebActionsErrored","nWebActionsFrequencyCapReached","nWebActionsIgnored","nWebActionsOffered","nWebActionsOfferedOutsideSchedule","nWebActionsQualified","nWebActionsQualifiedOutsideSchedule","nWebActionsRejected","nWebActionsStarted","nWebActionsTimedout","oJourneyOutcomeValue"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -177,11 +177,17 @@ const (
 	// JourneyAggregationViewTargetNWebActionsErrored captures enum value "nWebActionsErrored"
 	JourneyAggregationViewTargetNWebActionsErrored string = "nWebActionsErrored"
 
+	// JourneyAggregationViewTargetNWebActionsFrequencyCapReached captures enum value "nWebActionsFrequencyCapReached"
+	JourneyAggregationViewTargetNWebActionsFrequencyCapReached string = "nWebActionsFrequencyCapReached"
+
 	// JourneyAggregationViewTargetNWebActionsIgnored captures enum value "nWebActionsIgnored"
 	JourneyAggregationViewTargetNWebActionsIgnored string = "nWebActionsIgnored"
 
 	// JourneyAggregationViewTargetNWebActionsOffered captures enum value "nWebActionsOffered"
 	JourneyAggregationViewTargetNWebActionsOffered string = "nWebActionsOffered"
+
+	// JourneyAggregationViewTargetNWebActionsOfferedOutsideSchedule captures enum value "nWebActionsOfferedOutsideSchedule"
+	JourneyAggregationViewTargetNWebActionsOfferedOutsideSchedule string = "nWebActionsOfferedOutsideSchedule"
 
 	// JourneyAggregationViewTargetNWebActionsQualified captures enum value "nWebActionsQualified"
 	JourneyAggregationViewTargetNWebActionsQualified string = "nWebActionsQualified"
@@ -198,11 +204,8 @@ const (
 	// JourneyAggregationViewTargetNWebActionsTimedout captures enum value "nWebActionsTimedout"
 	JourneyAggregationViewTargetNWebActionsTimedout string = "nWebActionsTimedout"
 
-	// JourneyAggregationViewTargetNWebActionsFrequencyCapReached captures enum value "nWebActionsFrequencyCapReached"
-	JourneyAggregationViewTargetNWebActionsFrequencyCapReached string = "nWebActionsFrequencyCapReached"
-
-	// JourneyAggregationViewTargetNWebActionsOfferedOutsideSchedule captures enum value "nWebActionsOfferedOutsideSchedule"
-	JourneyAggregationViewTargetNWebActionsOfferedOutsideSchedule string = "nWebActionsOfferedOutsideSchedule"
+	// JourneyAggregationViewTargetOJourneyOutcomeValue captures enum value "oJourneyOutcomeValue"
+	JourneyAggregationViewTargetOJourneyOutcomeValue string = "oJourneyOutcomeValue"
 )
 
 // prop value enum

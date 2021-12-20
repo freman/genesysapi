@@ -111,20 +111,20 @@ func NewGetRecordingJobFailedrecordingsOK() *GetRecordingJobFailedrecordingsOK {
 successful operation
 */
 type GetRecordingJobFailedrecordingsOK struct {
-	Payload *models.FailedRecordingsEntityListing
+	Payload *models.FailedRecordingEntityListing
 }
 
 func (o *GetRecordingJobFailedrecordingsOK) Error() string {
 	return fmt.Sprintf("[GET /api/v2/recording/jobs/{jobId}/failedrecordings][%d] getRecordingJobFailedrecordingsOK  %+v", 200, o.Payload)
 }
 
-func (o *GetRecordingJobFailedrecordingsOK) GetPayload() *models.FailedRecordingsEntityListing {
+func (o *GetRecordingJobFailedrecordingsOK) GetPayload() *models.FailedRecordingEntityListing {
 	return o.Payload
 }
 
 func (o *GetRecordingJobFailedrecordingsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.FailedRecordingsEntityListing)
+	o.Payload = new(models.FailedRecordingEntityListing)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

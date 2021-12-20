@@ -84,6 +84,9 @@ type WebDeploymentConfigurationVersion struct {
 	// Enum: [Pending Active Inactive Error Deleting]
 	Status string `json:"status,omitempty"`
 
+	// The settings for support center
+	SupportCenter *SupportCenterSettings `json:"supportCenter,omitempty"`
+
 	// The version of the configuration
 	// Read Only: true
 	Version string `json:"version,omitempty"`
@@ -142,6 +145,10 @@ func (m *WebDeploymentConfigurationVersion) Validate(formats strfmt.Registry) er
 	}
 
 	if err := m.validateStatus(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSupportCenter(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -385,6 +392,24 @@ func (m *WebDeploymentConfigurationVersion) validateStatus(formats strfmt.Regist
 	// value enum
 	if err := m.validateStatusEnum("status", "body", m.Status); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *WebDeploymentConfigurationVersion) validateSupportCenter(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.SupportCenter) { // not required
+		return nil
+	}
+
+	if m.SupportCenter != nil {
+		if err := m.SupportCenter.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("supportCenter")
+			}
+			return err
+		}
 	}
 
 	return nil

@@ -40,6 +40,9 @@ type AnalyticsConversationWithoutAttributes struct {
 	// External tag for the conversation
 	ExternalTag string `json:"externalTag,omitempty"`
 
+	// The unique identifier(s) of the knowledge base(s) used
+	KnowledgeBaseIds []string `json:"knowledgeBaseIds"`
+
 	// The lowest estimated average MOS among all the audio streams belonging to this conversation
 	MediaStatsMinConversationMos float64 `json:"mediaStatsMinConversationMos,omitempty"`
 
@@ -55,6 +58,9 @@ type AnalyticsConversationWithoutAttributes struct {
 
 	// Resolutions associated with this conversation
 	Resolutions []*AnalyticsResolution `json:"resolutions"`
+
+	// Indicates whether all flow sessions were self serviced
+	SelfServed bool `json:"selfServed"`
 
 	// Surveys associated with this conversation
 	Surveys []*AnalyticsSurvey `json:"surveys"`

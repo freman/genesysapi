@@ -56,6 +56,14 @@ type API interface {
 	*/
 	DeleteWorkforcemanagementManagementunit(ctx context.Context, params *DeleteWorkforcemanagementManagementunitParams) (*DeleteWorkforcemanagementManagementunitNoContent, error)
 	/*
+	   DeleteWorkforcemanagementManagementunitTimeofflimit deletes a time off limit object
+	*/
+	DeleteWorkforcemanagementManagementunitTimeofflimit(ctx context.Context, params *DeleteWorkforcemanagementManagementunitTimeofflimitParams) (*DeleteWorkforcemanagementManagementunitTimeofflimitNoContent, error)
+	/*
+	   DeleteWorkforcemanagementManagementunitTimeoffplan deletes a time off plan
+	*/
+	DeleteWorkforcemanagementManagementunitTimeoffplan(ctx context.Context, params *DeleteWorkforcemanagementManagementunitTimeoffplanParams) (*DeleteWorkforcemanagementManagementunitTimeoffplanNoContent, error)
+	/*
 	   DeleteWorkforcemanagementManagementunitWorkplan deletes a work plan
 	*/
 	DeleteWorkforcemanagementManagementunitWorkplan(ctx context.Context, params *DeleteWorkforcemanagementManagementunitWorkplanParams) (*DeleteWorkforcemanagementManagementunitWorkplanNoContent, error)
@@ -230,9 +238,31 @@ type API interface {
 	*/
 	GetWorkforcemanagementManagementunitShifttradesUsers(ctx context.Context, params *GetWorkforcemanagementManagementunitShifttradesUsersParams) (*GetWorkforcemanagementManagementunitShifttradesUsersOK, error)
 	/*
+	   GetWorkforcemanagementManagementunitTimeofflimit gets a time off limit object
+	   Returns properties of time off limit object, but not daily values.
+	*/
+	GetWorkforcemanagementManagementunitTimeofflimit(ctx context.Context, params *GetWorkforcemanagementManagementunitTimeofflimitParams) (*GetWorkforcemanagementManagementunitTimeofflimitOK, error)
+	/*
+	   GetWorkforcemanagementManagementunitTimeofflimits gets a list of time off limit objects under management unit
+	   Currently only one time off limit object is allowed under management unit, so the list contains either 0 or 1 element.
+	*/
+	GetWorkforcemanagementManagementunitTimeofflimits(ctx context.Context, params *GetWorkforcemanagementManagementunitTimeofflimitsParams) (*GetWorkforcemanagementManagementunitTimeofflimitsOK, error)
+	/*
+	   GetWorkforcemanagementManagementunitTimeoffplan gets a time off plan
+	*/
+	GetWorkforcemanagementManagementunitTimeoffplan(ctx context.Context, params *GetWorkforcemanagementManagementunitTimeoffplanParams) (*GetWorkforcemanagementManagementunitTimeoffplanOK, error)
+	/*
+	   GetWorkforcemanagementManagementunitTimeoffplans gets a list of time off plans
+	*/
+	GetWorkforcemanagementManagementunitTimeoffplans(ctx context.Context, params *GetWorkforcemanagementManagementunitTimeoffplansParams) (*GetWorkforcemanagementManagementunitTimeoffplansOK, error)
+	/*
 	   GetWorkforcemanagementManagementunitUserTimeoffrequest gets a time off request
 	*/
 	GetWorkforcemanagementManagementunitUserTimeoffrequest(ctx context.Context, params *GetWorkforcemanagementManagementunitUserTimeoffrequestParams) (*GetWorkforcemanagementManagementunitUserTimeoffrequestOK, error)
+	/*
+	   GetWorkforcemanagementManagementunitUserTimeoffrequestTimeofflimits retrieves time off limit allocated and waitlisted values according to specific time off request
+	*/
+	GetWorkforcemanagementManagementunitUserTimeoffrequestTimeofflimits(ctx context.Context, params *GetWorkforcemanagementManagementunitUserTimeoffrequestTimeofflimitsParams) (*GetWorkforcemanagementManagementunitUserTimeoffrequestTimeofflimitsOK, error)
 	/*
 	   GetWorkforcemanagementManagementunitUserTimeoffrequests gets a list of time off requests for a given user
 	*/
@@ -295,6 +325,10 @@ type API interface {
 	*/
 	GetWorkforcemanagementTimeoffrequest(ctx context.Context, params *GetWorkforcemanagementTimeoffrequestParams) (*GetWorkforcemanagementTimeoffrequestOK, error)
 	/*
+	   GetWorkforcemanagementTimeoffrequestWaitlistpositions gets the daily waitlist positions of a time off request for the current user
+	*/
+	GetWorkforcemanagementTimeoffrequestWaitlistpositions(ctx context.Context, params *GetWorkforcemanagementTimeoffrequestWaitlistpositionsParams) (*GetWorkforcemanagementTimeoffrequestWaitlistpositionsOK, error)
+	/*
 	   GetWorkforcemanagementTimeoffrequests gets a list of time off requests for the current user
 	*/
 	GetWorkforcemanagementTimeoffrequests(ctx context.Context, params *GetWorkforcemanagementTimeoffrequestsParams) (*GetWorkforcemanagementTimeoffrequestsOK, error)
@@ -322,6 +356,15 @@ type API interface {
 	   PatchWorkforcemanagementManagementunit updates the requested management unit
 	*/
 	PatchWorkforcemanagementManagementunit(ctx context.Context, params *PatchWorkforcemanagementManagementunitParams) (*PatchWorkforcemanagementManagementunitOK, error)
+	/*
+	   PatchWorkforcemanagementManagementunitTimeofflimit updates a time off limit object
+	   Updates time off limit object properties, but not daily values.
+	*/
+	PatchWorkforcemanagementManagementunitTimeofflimit(ctx context.Context, params *PatchWorkforcemanagementManagementunitTimeofflimitParams) (*PatchWorkforcemanagementManagementunitTimeofflimitOK, error)
+	/*
+	   PatchWorkforcemanagementManagementunitTimeoffplan updates a time off plan
+	*/
+	PatchWorkforcemanagementManagementunitTimeoffplan(ctx context.Context, params *PatchWorkforcemanagementManagementunitTimeoffplanParams) (*PatchWorkforcemanagementManagementunitTimeoffplanOK, error)
 	/*
 	   PatchWorkforcemanagementManagementunitUserTimeoffrequest updates a time off request
 	*/
@@ -434,6 +477,19 @@ type API interface {
 	*/
 	PostWorkforcemanagementManagementunitSchedulesSearch(ctx context.Context, params *PostWorkforcemanagementManagementunitSchedulesSearchParams) (*PostWorkforcemanagementManagementunitSchedulesSearchOK, error)
 	/*
+	   PostWorkforcemanagementManagementunitTimeofflimits creates a new time off limit object under management unit
+	   Only one limit object is allowed under management unit, so an attempt to create second object will fail.
+	*/
+	PostWorkforcemanagementManagementunitTimeofflimits(ctx context.Context, params *PostWorkforcemanagementManagementunitTimeofflimitsParams) (*PostWorkforcemanagementManagementunitTimeofflimitsOK, *PostWorkforcemanagementManagementunitTimeofflimitsCreated, error)
+	/*
+	   PostWorkforcemanagementManagementunitTimeofflimitsValuesQuery retrieves time off limit related values based on a given set of filters
+	*/
+	PostWorkforcemanagementManagementunitTimeofflimitsValuesQuery(ctx context.Context, params *PostWorkforcemanagementManagementunitTimeofflimitsValuesQueryParams) (*PostWorkforcemanagementManagementunitTimeofflimitsValuesQueryOK, error)
+	/*
+	   PostWorkforcemanagementManagementunitTimeoffplans creates a new time off plan
+	*/
+	PostWorkforcemanagementManagementunitTimeoffplans(ctx context.Context, params *PostWorkforcemanagementManagementunitTimeoffplansParams) (*PostWorkforcemanagementManagementunitTimeoffplansOK, *PostWorkforcemanagementManagementunitTimeoffplansCreated, error)
+	/*
 	   PostWorkforcemanagementManagementunitTimeoffrequests creates a new time off request
 	*/
 	PostWorkforcemanagementManagementunitTimeoffrequests(ctx context.Context, params *PostWorkforcemanagementManagementunitTimeoffrequestsParams) (*PostWorkforcemanagementManagementunitTimeoffrequestsOK, error)
@@ -442,6 +498,10 @@ type API interface {
 	   Request body requires one of the following: User ID is specified, statuses == [Pending] or date range to be specified and less than or equal to 33 days.  All other fields are filters
 	*/
 	PostWorkforcemanagementManagementunitTimeoffrequestsQuery(ctx context.Context, params *PostWorkforcemanagementManagementunitTimeoffrequestsQueryParams) (*PostWorkforcemanagementManagementunitTimeoffrequestsQueryOK, error)
+	/*
+	   PostWorkforcemanagementManagementunitTimeoffrequestsWaitlistpositionsQuery retrieves daily waitlist position for a list of time off requests
+	*/
+	PostWorkforcemanagementManagementunitTimeoffrequestsWaitlistpositionsQuery(ctx context.Context, params *PostWorkforcemanagementManagementunitTimeoffrequestsWaitlistpositionsQueryParams) (*PostWorkforcemanagementManagementunitTimeoffrequestsWaitlistpositionsQueryOK, error)
 	/*
 	   PostWorkforcemanagementManagementunitWeekShifttradeMatch matches a shift trade this route can only be called by the receiving agent
 	*/
@@ -493,9 +553,18 @@ type API interface {
 	*/
 	PostWorkforcemanagementSchedules(ctx context.Context, params *PostWorkforcemanagementSchedulesParams) (*PostWorkforcemanagementSchedulesOK, error)
 	/*
+	   PostWorkforcemanagementTimeofflimitsAvailableQuery queries available time off for the current user
+	*/
+	PostWorkforcemanagementTimeofflimitsAvailableQuery(ctx context.Context, params *PostWorkforcemanagementTimeofflimitsAvailableQueryParams) (*PostWorkforcemanagementTimeofflimitsAvailableQueryOK, error)
+	/*
 	   PostWorkforcemanagementTimeoffrequests creates a time off request for the current user
 	*/
 	PostWorkforcemanagementTimeoffrequests(ctx context.Context, params *PostWorkforcemanagementTimeoffrequestsParams) (*PostWorkforcemanagementTimeoffrequestsOK, error)
+	/*
+	   PutWorkforcemanagementManagementunitTimeofflimitValues sets daily values for a date range of time off limit object
+	   Note that only limit daily values can be set through API, allocated and waitlisted values are read-only for time off limit API
+	*/
+	PutWorkforcemanagementManagementunitTimeofflimitValues(ctx context.Context, params *PutWorkforcemanagementManagementunitTimeofflimitValuesParams) (*PutWorkforcemanagementManagementunitTimeofflimitValuesOK, error)
 }
 
 // New creates a new workforce management API client.
@@ -748,6 +817,56 @@ func (a *Client) DeleteWorkforcemanagementManagementunit(ctx context.Context, pa
 		return nil, err
 	}
 	return result.(*DeleteWorkforcemanagementManagementunitNoContent), nil
+
+}
+
+/*
+DeleteWorkforcemanagementManagementunitTimeofflimit deletes a time off limit object
+*/
+func (a *Client) DeleteWorkforcemanagementManagementunitTimeofflimit(ctx context.Context, params *DeleteWorkforcemanagementManagementunitTimeofflimitParams) (*DeleteWorkforcemanagementManagementunitTimeofflimitNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteWorkforcemanagementManagementunitTimeofflimit",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/timeofflimits/{timeOffLimitId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteWorkforcemanagementManagementunitTimeofflimitReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteWorkforcemanagementManagementunitTimeofflimitNoContent), nil
+
+}
+
+/*
+DeleteWorkforcemanagementManagementunitTimeoffplan deletes a time off plan
+*/
+func (a *Client) DeleteWorkforcemanagementManagementunitTimeoffplan(ctx context.Context, params *DeleteWorkforcemanagementManagementunitTimeoffplanParams) (*DeleteWorkforcemanagementManagementunitTimeoffplanNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteWorkforcemanagementManagementunitTimeoffplan",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffplans/{timeOffPlanId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteWorkforcemanagementManagementunitTimeoffplanReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteWorkforcemanagementManagementunitTimeoffplanNoContent), nil
 
 }
 
@@ -1813,6 +1932,110 @@ func (a *Client) GetWorkforcemanagementManagementunitShifttradesUsers(ctx contex
 }
 
 /*
+GetWorkforcemanagementManagementunitTimeofflimit gets a time off limit object
+
+Returns properties of time off limit object, but not daily values.
+*/
+func (a *Client) GetWorkforcemanagementManagementunitTimeofflimit(ctx context.Context, params *GetWorkforcemanagementManagementunitTimeofflimitParams) (*GetWorkforcemanagementManagementunitTimeofflimitOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getWorkforcemanagementManagementunitTimeofflimit",
+		Method:             "GET",
+		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/timeofflimits/{timeOffLimitId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetWorkforcemanagementManagementunitTimeofflimitReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetWorkforcemanagementManagementunitTimeofflimitOK), nil
+
+}
+
+/*
+GetWorkforcemanagementManagementunitTimeofflimits gets a list of time off limit objects under management unit
+
+Currently only one time off limit object is allowed under management unit, so the list contains either 0 or 1 element.
+*/
+func (a *Client) GetWorkforcemanagementManagementunitTimeofflimits(ctx context.Context, params *GetWorkforcemanagementManagementunitTimeofflimitsParams) (*GetWorkforcemanagementManagementunitTimeofflimitsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getWorkforcemanagementManagementunitTimeofflimits",
+		Method:             "GET",
+		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/timeofflimits",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetWorkforcemanagementManagementunitTimeofflimitsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetWorkforcemanagementManagementunitTimeofflimitsOK), nil
+
+}
+
+/*
+GetWorkforcemanagementManagementunitTimeoffplan gets a time off plan
+*/
+func (a *Client) GetWorkforcemanagementManagementunitTimeoffplan(ctx context.Context, params *GetWorkforcemanagementManagementunitTimeoffplanParams) (*GetWorkforcemanagementManagementunitTimeoffplanOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getWorkforcemanagementManagementunitTimeoffplan",
+		Method:             "GET",
+		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffplans/{timeOffPlanId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetWorkforcemanagementManagementunitTimeoffplanReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetWorkforcemanagementManagementunitTimeoffplanOK), nil
+
+}
+
+/*
+GetWorkforcemanagementManagementunitTimeoffplans gets a list of time off plans
+*/
+func (a *Client) GetWorkforcemanagementManagementunitTimeoffplans(ctx context.Context, params *GetWorkforcemanagementManagementunitTimeoffplansParams) (*GetWorkforcemanagementManagementunitTimeoffplansOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getWorkforcemanagementManagementunitTimeoffplans",
+		Method:             "GET",
+		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffplans",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetWorkforcemanagementManagementunitTimeoffplansReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetWorkforcemanagementManagementunitTimeoffplansOK), nil
+
+}
+
+/*
 GetWorkforcemanagementManagementunitUserTimeoffrequest gets a time off request
 */
 func (a *Client) GetWorkforcemanagementManagementunitUserTimeoffrequest(ctx context.Context, params *GetWorkforcemanagementManagementunitUserTimeoffrequestParams) (*GetWorkforcemanagementManagementunitUserTimeoffrequestOK, error) {
@@ -1834,6 +2057,31 @@ func (a *Client) GetWorkforcemanagementManagementunitUserTimeoffrequest(ctx cont
 		return nil, err
 	}
 	return result.(*GetWorkforcemanagementManagementunitUserTimeoffrequestOK), nil
+
+}
+
+/*
+GetWorkforcemanagementManagementunitUserTimeoffrequestTimeofflimits retrieves time off limit allocated and waitlisted values according to specific time off request
+*/
+func (a *Client) GetWorkforcemanagementManagementunitUserTimeoffrequestTimeofflimits(ctx context.Context, params *GetWorkforcemanagementManagementunitUserTimeoffrequestTimeofflimitsParams) (*GetWorkforcemanagementManagementunitUserTimeoffrequestTimeofflimitsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getWorkforcemanagementManagementunitUserTimeoffrequestTimeofflimits",
+		Method:             "GET",
+		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/users/{userId}/timeoffrequests/{timeOffRequestId}/timeofflimits",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetWorkforcemanagementManagementunitUserTimeoffrequestTimeofflimitsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetWorkforcemanagementManagementunitUserTimeoffrequestTimeofflimitsOK), nil
 
 }
 
@@ -2215,6 +2463,31 @@ func (a *Client) GetWorkforcemanagementTimeoffrequest(ctx context.Context, param
 }
 
 /*
+GetWorkforcemanagementTimeoffrequestWaitlistpositions gets the daily waitlist positions of a time off request for the current user
+*/
+func (a *Client) GetWorkforcemanagementTimeoffrequestWaitlistpositions(ctx context.Context, params *GetWorkforcemanagementTimeoffrequestWaitlistpositionsParams) (*GetWorkforcemanagementTimeoffrequestWaitlistpositionsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getWorkforcemanagementTimeoffrequestWaitlistpositions",
+		Method:             "GET",
+		PathPattern:        "/api/v2/workforcemanagement/timeoffrequests/{timeOffRequestId}/waitlistpositions",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetWorkforcemanagementTimeoffrequestWaitlistpositionsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetWorkforcemanagementTimeoffrequestWaitlistpositionsOK), nil
+
+}
+
+/*
 GetWorkforcemanagementTimeoffrequests gets a list of time off requests for the current user
 */
 func (a *Client) GetWorkforcemanagementTimeoffrequests(ctx context.Context, params *GetWorkforcemanagementTimeoffrequestsParams) (*GetWorkforcemanagementTimeoffrequestsOK, error) {
@@ -2386,6 +2659,58 @@ func (a *Client) PatchWorkforcemanagementManagementunit(ctx context.Context, par
 		return nil, err
 	}
 	return result.(*PatchWorkforcemanagementManagementunitOK), nil
+
+}
+
+/*
+PatchWorkforcemanagementManagementunitTimeofflimit updates a time off limit object
+
+Updates time off limit object properties, but not daily values.
+*/
+func (a *Client) PatchWorkforcemanagementManagementunitTimeofflimit(ctx context.Context, params *PatchWorkforcemanagementManagementunitTimeofflimitParams) (*PatchWorkforcemanagementManagementunitTimeofflimitOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "patchWorkforcemanagementManagementunitTimeofflimit",
+		Method:             "PATCH",
+		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/timeofflimits/{timeOffLimitId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchWorkforcemanagementManagementunitTimeofflimitReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PatchWorkforcemanagementManagementunitTimeofflimitOK), nil
+
+}
+
+/*
+PatchWorkforcemanagementManagementunitTimeoffplan updates a time off plan
+*/
+func (a *Client) PatchWorkforcemanagementManagementunitTimeoffplan(ctx context.Context, params *PatchWorkforcemanagementManagementunitTimeoffplanParams) (*PatchWorkforcemanagementManagementunitTimeoffplanOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "patchWorkforcemanagementManagementunitTimeoffplan",
+		Method:             "PATCH",
+		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffplans/{timeOffPlanId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchWorkforcemanagementManagementunitTimeoffplanReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PatchWorkforcemanagementManagementunitTimeoffplanOK), nil
 
 }
 
@@ -3143,6 +3468,95 @@ func (a *Client) PostWorkforcemanagementManagementunitSchedulesSearch(ctx contex
 }
 
 /*
+PostWorkforcemanagementManagementunitTimeofflimits creates a new time off limit object under management unit
+
+Only one limit object is allowed under management unit, so an attempt to create second object will fail.
+*/
+func (a *Client) PostWorkforcemanagementManagementunitTimeofflimits(ctx context.Context, params *PostWorkforcemanagementManagementunitTimeofflimitsParams) (*PostWorkforcemanagementManagementunitTimeofflimitsOK, *PostWorkforcemanagementManagementunitTimeofflimitsCreated, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postWorkforcemanagementManagementunitTimeofflimits",
+		Method:             "POST",
+		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/timeofflimits",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostWorkforcemanagementManagementunitTimeofflimitsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PostWorkforcemanagementManagementunitTimeofflimitsOK:
+		return value, nil, nil
+	case *PostWorkforcemanagementManagementunitTimeofflimitsCreated:
+		return nil, value, nil
+	}
+	return nil, nil, nil
+
+}
+
+/*
+PostWorkforcemanagementManagementunitTimeofflimitsValuesQuery retrieves time off limit related values based on a given set of filters
+*/
+func (a *Client) PostWorkforcemanagementManagementunitTimeofflimitsValuesQuery(ctx context.Context, params *PostWorkforcemanagementManagementunitTimeofflimitsValuesQueryParams) (*PostWorkforcemanagementManagementunitTimeofflimitsValuesQueryOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postWorkforcemanagementManagementunitTimeofflimitsValuesQuery",
+		Method:             "POST",
+		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/timeofflimits/values/query",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostWorkforcemanagementManagementunitTimeofflimitsValuesQueryReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostWorkforcemanagementManagementunitTimeofflimitsValuesQueryOK), nil
+
+}
+
+/*
+PostWorkforcemanagementManagementunitTimeoffplans creates a new time off plan
+*/
+func (a *Client) PostWorkforcemanagementManagementunitTimeoffplans(ctx context.Context, params *PostWorkforcemanagementManagementunitTimeoffplansParams) (*PostWorkforcemanagementManagementunitTimeoffplansOK, *PostWorkforcemanagementManagementunitTimeoffplansCreated, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postWorkforcemanagementManagementunitTimeoffplans",
+		Method:             "POST",
+		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffplans",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostWorkforcemanagementManagementunitTimeoffplansReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PostWorkforcemanagementManagementunitTimeoffplansOK:
+		return value, nil, nil
+	case *PostWorkforcemanagementManagementunitTimeoffplansCreated:
+		return nil, value, nil
+	}
+	return nil, nil, nil
+
+}
+
+/*
 PostWorkforcemanagementManagementunitTimeoffrequests creates a new time off request
 */
 func (a *Client) PostWorkforcemanagementManagementunitTimeoffrequests(ctx context.Context, params *PostWorkforcemanagementManagementunitTimeoffrequestsParams) (*PostWorkforcemanagementManagementunitTimeoffrequestsOK, error) {
@@ -3191,6 +3605,31 @@ func (a *Client) PostWorkforcemanagementManagementunitTimeoffrequestsQuery(ctx c
 		return nil, err
 	}
 	return result.(*PostWorkforcemanagementManagementunitTimeoffrequestsQueryOK), nil
+
+}
+
+/*
+PostWorkforcemanagementManagementunitTimeoffrequestsWaitlistpositionsQuery retrieves daily waitlist position for a list of time off requests
+*/
+func (a *Client) PostWorkforcemanagementManagementunitTimeoffrequestsWaitlistpositionsQuery(ctx context.Context, params *PostWorkforcemanagementManagementunitTimeoffrequestsWaitlistpositionsQueryParams) (*PostWorkforcemanagementManagementunitTimeoffrequestsWaitlistpositionsQueryOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postWorkforcemanagementManagementunitTimeoffrequestsWaitlistpositionsQuery",
+		Method:             "POST",
+		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffrequests/waitlistpositions/query",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostWorkforcemanagementManagementunitTimeoffrequestsWaitlistpositionsQueryReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostWorkforcemanagementManagementunitTimeoffrequestsWaitlistpositionsQueryOK), nil
 
 }
 
@@ -3517,6 +3956,31 @@ func (a *Client) PostWorkforcemanagementSchedules(ctx context.Context, params *P
 }
 
 /*
+PostWorkforcemanagementTimeofflimitsAvailableQuery queries available time off for the current user
+*/
+func (a *Client) PostWorkforcemanagementTimeofflimitsAvailableQuery(ctx context.Context, params *PostWorkforcemanagementTimeofflimitsAvailableQueryParams) (*PostWorkforcemanagementTimeofflimitsAvailableQueryOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postWorkforcemanagementTimeofflimitsAvailableQuery",
+		Method:             "POST",
+		PathPattern:        "/api/v2/workforcemanagement/timeofflimits/available/query",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostWorkforcemanagementTimeofflimitsAvailableQueryReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostWorkforcemanagementTimeofflimitsAvailableQueryOK), nil
+
+}
+
+/*
 PostWorkforcemanagementTimeoffrequests creates a time off request for the current user
 */
 func (a *Client) PostWorkforcemanagementTimeoffrequests(ctx context.Context, params *PostWorkforcemanagementTimeoffrequestsParams) (*PostWorkforcemanagementTimeoffrequestsOK, error) {
@@ -3538,5 +4002,32 @@ func (a *Client) PostWorkforcemanagementTimeoffrequests(ctx context.Context, par
 		return nil, err
 	}
 	return result.(*PostWorkforcemanagementTimeoffrequestsOK), nil
+
+}
+
+/*
+PutWorkforcemanagementManagementunitTimeofflimitValues sets daily values for a date range of time off limit object
+
+Note that only limit daily values can be set through API, allocated and waitlisted values are read-only for time off limit API
+*/
+func (a *Client) PutWorkforcemanagementManagementunitTimeofflimitValues(ctx context.Context, params *PutWorkforcemanagementManagementunitTimeofflimitValuesParams) (*PutWorkforcemanagementManagementunitTimeofflimitValuesOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "putWorkforcemanagementManagementunitTimeofflimitValues",
+		Method:             "PUT",
+		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/timeofflimits/{timeOffLimitId}/values",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PutWorkforcemanagementManagementunitTimeofflimitValuesReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutWorkforcemanagementManagementunitTimeofflimitValuesOK), nil
 
 }

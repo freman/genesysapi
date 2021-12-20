@@ -64,7 +64,7 @@ type API interface {
 	/*
 	   DeleteRoutingSmsPhonenumber deletes a phone number provisioned for s m s
 	*/
-	DeleteRoutingSmsPhonenumber(ctx context.Context, params *DeleteRoutingSmsPhonenumberParams) (*DeleteRoutingSmsPhonenumberOK, error)
+	DeleteRoutingSmsPhonenumber(ctx context.Context, params *DeleteRoutingSmsPhonenumberParams) (*DeleteRoutingSmsPhonenumberAccepted, error)
 	/*
 	   DeleteRoutingUserUtilization deletes the user s max utilization settings and revert to the organization wide default
 	*/
@@ -178,7 +178,7 @@ type API interface {
 	*/
 	GetRoutingQueuesDivisionviews(ctx context.Context, params *GetRoutingQueuesDivisionviewsParams) (*GetRoutingQueuesDivisionviewsOK, error)
 	/*
-	   GetRoutingQueuesDivisionviewsAll gets a paged listing of simplified queue objects can be used to get a digest of all queues in an organization
+	   GetRoutingQueuesDivisionviewsAll gets a paged listing of simplified queue objects sorted by name can be used to get a digest of all queues in an organization
 	*/
 	GetRoutingQueuesDivisionviewsAll(ctx context.Context, params *GetRoutingQueuesDivisionviewsAllParams) (*GetRoutingQueuesDivisionviewsAllOK, error)
 	/*
@@ -248,7 +248,7 @@ type API interface {
 	GetUserQueues(ctx context.Context, params *GetUserQueuesParams) (*GetUserQueuesOK, error)
 	/*
 	   PatchRoutingConversation updates attributes of an in queue conversation
-	   Returns an object indicating the updated values of all settable attributes. Supported attributes: priority (each point of priority is equivalent to one minute of time in queue), skillIds and languageId.
+	   Returns an object indicating the updated values of all settable attributes. Supported attributes: skillIds, languageId, and priority.
 	*/
 	PatchRoutingConversation(ctx context.Context, params *PatchRoutingConversationParams) (*PatchRoutingConversationOK, error)
 	/*
@@ -347,7 +347,7 @@ type API interface {
 	/*
 	   PostRoutingSmsPhonenumbers provisions a phone number for s m s
 	*/
-	PostRoutingSmsPhonenumbers(ctx context.Context, params *PostRoutingSmsPhonenumbersParams) (*PostRoutingSmsPhonenumbersOK, error)
+	PostRoutingSmsPhonenumbers(ctx context.Context, params *PostRoutingSmsPhonenumbersParams) (*PostRoutingSmsPhonenumbersOK, *PostRoutingSmsPhonenumbersAccepted, error)
 	/*
 	   PostRoutingWrapupcodes creates a wrap up code
 	*/
@@ -375,7 +375,7 @@ type API interface {
 	/*
 	   PutRoutingSmsPhonenumber updates a phone number provisioned for s m s
 	*/
-	PutRoutingSmsPhonenumber(ctx context.Context, params *PutRoutingSmsPhonenumberParams) (*PutRoutingSmsPhonenumberOK, error)
+	PutRoutingSmsPhonenumber(ctx context.Context, params *PutRoutingSmsPhonenumberParams) (*PutRoutingSmsPhonenumberOK, *PutRoutingSmsPhonenumberAccepted, error)
 	/*
 	   PutRoutingUserUtilization updates the user s max utilization settings include only those media types requiring custom configuration
 	*/
@@ -686,7 +686,7 @@ func (a *Client) DeleteRoutingSmsAddress(ctx context.Context, params *DeleteRout
 /*
 DeleteRoutingSmsPhonenumber deletes a phone number provisioned for s m s
 */
-func (a *Client) DeleteRoutingSmsPhonenumber(ctx context.Context, params *DeleteRoutingSmsPhonenumberParams) (*DeleteRoutingSmsPhonenumberOK, error) {
+func (a *Client) DeleteRoutingSmsPhonenumber(ctx context.Context, params *DeleteRoutingSmsPhonenumberParams) (*DeleteRoutingSmsPhonenumberAccepted, error) {
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "deleteRoutingSmsPhonenumber",
@@ -704,7 +704,7 @@ func (a *Client) DeleteRoutingSmsPhonenumber(ctx context.Context, params *Delete
 	if err != nil {
 		return nil, err
 	}
-	return result.(*DeleteRoutingSmsPhonenumberOK), nil
+	return result.(*DeleteRoutingSmsPhonenumberAccepted), nil
 
 }
 
@@ -1415,7 +1415,7 @@ func (a *Client) GetRoutingQueuesDivisionviews(ctx context.Context, params *GetR
 }
 
 /*
-GetRoutingQueuesDivisionviewsAll gets a paged listing of simplified queue objects can be used to get a digest of all queues in an organization
+GetRoutingQueuesDivisionviewsAll gets a paged listing of simplified queue objects sorted by name can be used to get a digest of all queues in an organization
 */
 func (a *Client) GetRoutingQueuesDivisionviewsAll(ctx context.Context, params *GetRoutingQueuesDivisionviewsAllParams) (*GetRoutingQueuesDivisionviewsAllOK, error) {
 
@@ -1844,7 +1844,7 @@ func (a *Client) GetUserQueues(ctx context.Context, params *GetUserQueuesParams)
 /*
 PatchRoutingConversation updates attributes of an in queue conversation
 
-Returns an object indicating the updated values of all settable attributes. Supported attributes: priority (each point of priority is equivalent to one minute of time in queue), skillIds and languageId.
+Returns an object indicating the updated values of all settable attributes. Supported attributes: skillIds, languageId, and priority.
 */
 func (a *Client) PatchRoutingConversation(ctx context.Context, params *PatchRoutingConversationParams) (*PatchRoutingConversationOK, error) {
 
@@ -2466,7 +2466,7 @@ func (a *Client) PostRoutingSmsAddresses(ctx context.Context, params *PostRoutin
 /*
 PostRoutingSmsPhonenumbers provisions a phone number for s m s
 */
-func (a *Client) PostRoutingSmsPhonenumbers(ctx context.Context, params *PostRoutingSmsPhonenumbersParams) (*PostRoutingSmsPhonenumbersOK, error) {
+func (a *Client) PostRoutingSmsPhonenumbers(ctx context.Context, params *PostRoutingSmsPhonenumbersParams) (*PostRoutingSmsPhonenumbersOK, *PostRoutingSmsPhonenumbersAccepted, error) {
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "postRoutingSmsPhonenumbers",
@@ -2482,9 +2482,15 @@ func (a *Client) PostRoutingSmsPhonenumbers(ctx context.Context, params *PostRou
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
-	return result.(*PostRoutingSmsPhonenumbersOK), nil
+	switch value := result.(type) {
+	case *PostRoutingSmsPhonenumbersOK:
+		return value, nil, nil
+	case *PostRoutingSmsPhonenumbersAccepted:
+		return nil, value, nil
+	}
+	return nil, nil, nil
 
 }
 
@@ -2647,7 +2653,7 @@ func (a *Client) PutRoutingSettingsTranscription(ctx context.Context, params *Pu
 /*
 PutRoutingSmsPhonenumber updates a phone number provisioned for s m s
 */
-func (a *Client) PutRoutingSmsPhonenumber(ctx context.Context, params *PutRoutingSmsPhonenumberParams) (*PutRoutingSmsPhonenumberOK, error) {
+func (a *Client) PutRoutingSmsPhonenumber(ctx context.Context, params *PutRoutingSmsPhonenumberParams) (*PutRoutingSmsPhonenumberOK, *PutRoutingSmsPhonenumberAccepted, error) {
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "putRoutingSmsPhonenumber",
@@ -2663,9 +2669,15 @@ func (a *Client) PutRoutingSmsPhonenumber(ctx context.Context, params *PutRoutin
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
-	return result.(*PutRoutingSmsPhonenumberOK), nil
+	switch value := result.(type) {
+	case *PutRoutingSmsPhonenumberOK:
+		return value, nil, nil
+	case *PutRoutingSmsPhonenumberAccepted:
+		return nil, value, nil
+	}
+	return nil, nil, nil
 
 }
 

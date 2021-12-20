@@ -23,13 +23,11 @@ func NewGetRoutingQueuesDivisionviewsAllParams() *GetRoutingQueuesDivisionviewsA
 	var (
 		pageNumberDefault = int32(1)
 		pageSizeDefault   = int32(25)
-		sortByDefault     = string("name")
 		sortOrderDefault  = string("asc")
 	)
 	return &GetRoutingQueuesDivisionviewsAllParams{
 		PageNumber: &pageNumberDefault,
 		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
 		SortOrder:  &sortOrderDefault,
 
 		timeout: cr.DefaultTimeout,
@@ -42,13 +40,11 @@ func NewGetRoutingQueuesDivisionviewsAllParamsWithTimeout(timeout time.Duration)
 	var (
 		pageNumberDefault = int32(1)
 		pageSizeDefault   = int32(25)
-		sortByDefault     = string("name")
 		sortOrderDefault  = string("asc")
 	)
 	return &GetRoutingQueuesDivisionviewsAllParams{
 		PageNumber: &pageNumberDefault,
 		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
 		SortOrder:  &sortOrderDefault,
 
 		timeout: timeout,
@@ -61,13 +57,11 @@ func NewGetRoutingQueuesDivisionviewsAllParamsWithContext(ctx context.Context) *
 	var (
 		pageNumberDefault = int32(1)
 		pageSizeDefault   = int32(25)
-		sortByDefault     = string("name")
 		sortOrderDefault  = string("asc")
 	)
 	return &GetRoutingQueuesDivisionviewsAllParams{
 		PageNumber: &pageNumberDefault,
 		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
 		SortOrder:  &sortOrderDefault,
 
 		Context: ctx,
@@ -80,13 +74,11 @@ func NewGetRoutingQueuesDivisionviewsAllParamsWithHTTPClient(client *http.Client
 	var (
 		pageNumberDefault = int32(1)
 		pageSizeDefault   = int32(25)
-		sortByDefault     = string("name")
 		sortOrderDefault  = string("asc")
 	)
 	return &GetRoutingQueuesDivisionviewsAllParams{
 		PageNumber: &pageNumberDefault,
 		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
 		SortOrder:  &sortOrderDefault,
 		HTTPClient: client,
 	}
@@ -107,11 +99,6 @@ type GetRoutingQueuesDivisionviewsAllParams struct {
 
 	*/
 	PageSize *int32
-	/*SortBy
-	  Sort by
-
-	*/
-	SortBy *string
 	/*SortOrder
 	  Sort order
 
@@ -178,17 +165,6 @@ func (o *GetRoutingQueuesDivisionviewsAllParams) SetPageSize(pageSize *int32) {
 	o.PageSize = pageSize
 }
 
-// WithSortBy adds the sortBy to the get routing queues divisionviews all params
-func (o *GetRoutingQueuesDivisionviewsAllParams) WithSortBy(sortBy *string) *GetRoutingQueuesDivisionviewsAllParams {
-	o.SetSortBy(sortBy)
-	return o
-}
-
-// SetSortBy adds the sortBy to the get routing queues divisionviews all params
-func (o *GetRoutingQueuesDivisionviewsAllParams) SetSortBy(sortBy *string) {
-	o.SortBy = sortBy
-}
-
 // WithSortOrder adds the sortOrder to the get routing queues divisionviews all params
 func (o *GetRoutingQueuesDivisionviewsAllParams) WithSortOrder(sortOrder *string) *GetRoutingQueuesDivisionviewsAllParams {
 	o.SetSortOrder(sortOrder)
@@ -234,22 +210,6 @@ func (o *GetRoutingQueuesDivisionviewsAllParams) WriteToRequest(r runtime.Client
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
-				return err
-			}
-		}
-
-	}
-
-	if o.SortBy != nil {
-
-		// query param sortBy
-		var qrSortBy string
-		if o.SortBy != nil {
-			qrSortBy = *o.SortBy
-		}
-		qSortBy := qrSortBy
-		if qSortBy != "" {
-			if err := r.SetQueryParam("sortBy", qSortBy); err != nil {
 				return err
 			}
 		}

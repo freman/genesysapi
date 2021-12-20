@@ -29,6 +29,12 @@ func (o *PostRoutingSmsPhonenumbersReader) ReadResponse(response runtime.ClientR
 			return nil, err
 		}
 		return result, nil
+	case 202:
+		result := NewPostRoutingSmsPhonenumbersAccepted()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return result, nil
 	case 400:
 		result := NewPostRoutingSmsPhonenumbersBadRequest()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -59,6 +65,12 @@ func (o *PostRoutingSmsPhonenumbersReader) ReadResponse(response runtime.ClientR
 			return nil, err
 		}
 		return nil, result
+	case 409:
+		result := NewPostRoutingSmsPhonenumbersConflict()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostRoutingSmsPhonenumbersRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -79,6 +91,12 @@ func (o *PostRoutingSmsPhonenumbersReader) ReadResponse(response runtime.ClientR
 		return nil, result
 	case 500:
 		result := NewPostRoutingSmsPhonenumbersInternalServerError()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
+	case 501:
+		result := NewPostRoutingSmsPhonenumbersNotImplemented()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -123,6 +141,39 @@ func (o *PostRoutingSmsPhonenumbersOK) GetPayload() *models.SmsPhoneNumber {
 }
 
 func (o *PostRoutingSmsPhonenumbersOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.SmsPhoneNumber)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPostRoutingSmsPhonenumbersAccepted creates a PostRoutingSmsPhonenumbersAccepted with default headers values
+func NewPostRoutingSmsPhonenumbersAccepted() *PostRoutingSmsPhonenumbersAccepted {
+	return &PostRoutingSmsPhonenumbersAccepted{}
+}
+
+/*PostRoutingSmsPhonenumbersAccepted handles this case with default header values.
+
+Accepted - If async is true, the phone number create is in progress.
+*/
+type PostRoutingSmsPhonenumbersAccepted struct {
+	Payload *models.SmsPhoneNumber
+}
+
+func (o *PostRoutingSmsPhonenumbersAccepted) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/sms/phonenumbers][%d] postRoutingSmsPhonenumbersAccepted  %+v", 202, o.Payload)
+}
+
+func (o *PostRoutingSmsPhonenumbersAccepted) GetPayload() *models.SmsPhoneNumber {
+	return o.Payload
+}
+
+func (o *PostRoutingSmsPhonenumbersAccepted) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.SmsPhoneNumber)
 
@@ -299,6 +350,39 @@ func (o *PostRoutingSmsPhonenumbersRequestTimeout) readResponse(response runtime
 	return nil
 }
 
+// NewPostRoutingSmsPhonenumbersConflict creates a PostRoutingSmsPhonenumbersConflict with default headers values
+func NewPostRoutingSmsPhonenumbersConflict() *PostRoutingSmsPhonenumbersConflict {
+	return &PostRoutingSmsPhonenumbersConflict{}
+}
+
+/*PostRoutingSmsPhonenumbersConflict handles this case with default header values.
+
+Conflict
+*/
+type PostRoutingSmsPhonenumbersConflict struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostRoutingSmsPhonenumbersConflict) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/sms/phonenumbers][%d] postRoutingSmsPhonenumbersConflict  %+v", 409, o.Payload)
+}
+
+func (o *PostRoutingSmsPhonenumbersConflict) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostRoutingSmsPhonenumbersConflict) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostRoutingSmsPhonenumbersRequestEntityTooLarge creates a PostRoutingSmsPhonenumbersRequestEntityTooLarge with default headers values
 func NewPostRoutingSmsPhonenumbersRequestEntityTooLarge() *PostRoutingSmsPhonenumbersRequestEntityTooLarge {
 	return &PostRoutingSmsPhonenumbersRequestEntityTooLarge{}
@@ -420,6 +504,39 @@ func (o *PostRoutingSmsPhonenumbersInternalServerError) GetPayload() *models.Err
 }
 
 func (o *PostRoutingSmsPhonenumbersInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPostRoutingSmsPhonenumbersNotImplemented creates a PostRoutingSmsPhonenumbersNotImplemented with default headers values
+func NewPostRoutingSmsPhonenumbersNotImplemented() *PostRoutingSmsPhonenumbersNotImplemented {
+	return &PostRoutingSmsPhonenumbersNotImplemented{}
+}
+
+/*PostRoutingSmsPhonenumbersNotImplemented handles this case with default header values.
+
+Not Implemented
+*/
+type PostRoutingSmsPhonenumbersNotImplemented struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostRoutingSmsPhonenumbersNotImplemented) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/sms/phonenumbers][%d] postRoutingSmsPhonenumbersNotImplemented  %+v", 501, o.Payload)
+}
+
+func (o *PostRoutingSmsPhonenumbersNotImplemented) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostRoutingSmsPhonenumbersNotImplemented) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ErrorBody)
 

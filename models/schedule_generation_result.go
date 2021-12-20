@@ -27,7 +27,7 @@ type ScheduleGenerationResult struct {
 	// User facing messages related to the schedule generation run
 	Messages []*ScheduleGenerationMessage `json:"messages"`
 
-	// The run ID for the schedule generation. Reference this when requesting support
+	// The ID of the schedule generation run. Reference this when requesting support
 	RunID string `json:"runId,omitempty"`
 }
 

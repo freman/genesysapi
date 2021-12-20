@@ -29,6 +29,10 @@ type CoachingSlotsResponse struct {
 	// List of slots where coaching appointment can be scheduled
 	// Read Only: true
 	SuggestedSlots []*CoachingSlot `json:"suggestedSlots"`
+
+	// Detailed data for WFM scheduled activities
+	// Read Only: true
+	WfmScheduleActivities []*WfmScheduleActivity `json:"wfmScheduleActivities"`
 }
 
 // Validate validates this coaching slots response
@@ -44,6 +48,10 @@ func (m *CoachingSlotsResponse) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateSuggestedSlots(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateWfmScheduleActivities(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -118,6 +126,31 @@ func (m *CoachingSlotsResponse) validateSuggestedSlots(formats strfmt.Registry) 
 			if err := m.SuggestedSlots[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("suggestedSlots" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *CoachingSlotsResponse) validateWfmScheduleActivities(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.WfmScheduleActivities) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.WfmScheduleActivities); i++ {
+		if swag.IsZero(m.WfmScheduleActivities[i]) { // not required
+			continue
+		}
+
+		if m.WfmScheduleActivities[i] != nil {
+			if err := m.WfmScheduleActivities[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("wfmScheduleActivities" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

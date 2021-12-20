@@ -22,14 +22,14 @@ type MessageMediaAttachment struct {
 	// The optional content length of the the media object, in bytes.
 	ContentLength int64 `json:"contentLength,omitempty"`
 
-	// id
+	// A globally unique identifier for the media object.
 	ID string `json:"id,omitempty"`
 
 	// The optional internet media type of the the media object.If null then the media type should be dictated by the url.
 	// Enum: [image/png image/jpeg image/gif]
 	MediaType string `json:"mediaType,omitempty"`
 
-	// name
+	// The name of the media object.
 	Name string `json:"name,omitempty"`
 
 	// The location of the media, useful for retrieving it

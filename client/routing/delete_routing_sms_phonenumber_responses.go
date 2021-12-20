@@ -23,8 +23,8 @@ type DeleteRoutingSmsPhonenumberReader struct {
 // ReadResponse reads a server response into the received o.
 func (o *DeleteRoutingSmsPhonenumberReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {
-	case 200:
-		result := NewDeleteRoutingSmsPhonenumberOK()
+	case 202:
+		result := NewDeleteRoutingSmsPhonenumberAccepted()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -59,6 +59,12 @@ func (o *DeleteRoutingSmsPhonenumberReader) ReadResponse(response runtime.Client
 			return nil, err
 		}
 		return nil, result
+	case 409:
+		result := NewDeleteRoutingSmsPhonenumberConflict()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewDeleteRoutingSmsPhonenumberRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -83,6 +89,12 @@ func (o *DeleteRoutingSmsPhonenumberReader) ReadResponse(response runtime.Client
 			return nil, err
 		}
 		return nil, result
+	case 501:
+		result := NewDeleteRoutingSmsPhonenumberNotImplemented()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 503:
 		result := NewDeleteRoutingSmsPhonenumberServiceUnavailable()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -101,23 +113,23 @@ func (o *DeleteRoutingSmsPhonenumberReader) ReadResponse(response runtime.Client
 	}
 }
 
-// NewDeleteRoutingSmsPhonenumberOK creates a DeleteRoutingSmsPhonenumberOK with default headers values
-func NewDeleteRoutingSmsPhonenumberOK() *DeleteRoutingSmsPhonenumberOK {
-	return &DeleteRoutingSmsPhonenumberOK{}
+// NewDeleteRoutingSmsPhonenumberAccepted creates a DeleteRoutingSmsPhonenumberAccepted with default headers values
+func NewDeleteRoutingSmsPhonenumberAccepted() *DeleteRoutingSmsPhonenumberAccepted {
+	return &DeleteRoutingSmsPhonenumberAccepted{}
 }
 
-/*DeleteRoutingSmsPhonenumberOK handles this case with default header values.
+/*DeleteRoutingSmsPhonenumberAccepted handles this case with default header values.
 
-Operation was successful
+Accepted - If async is true, the phone number delete is in progress.
 */
-type DeleteRoutingSmsPhonenumberOK struct {
+type DeleteRoutingSmsPhonenumberAccepted struct {
 }
 
-func (o *DeleteRoutingSmsPhonenumberOK) Error() string {
-	return fmt.Sprintf("[DELETE /api/v2/routing/sms/phonenumbers/{addressId}][%d] deleteRoutingSmsPhonenumberOK ", 200)
+func (o *DeleteRoutingSmsPhonenumberAccepted) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/sms/phonenumbers/{addressId}][%d] deleteRoutingSmsPhonenumberAccepted ", 202)
 }
 
-func (o *DeleteRoutingSmsPhonenumberOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+func (o *DeleteRoutingSmsPhonenumberAccepted) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	return nil
 }
@@ -287,6 +299,39 @@ func (o *DeleteRoutingSmsPhonenumberRequestTimeout) readResponse(response runtim
 	return nil
 }
 
+// NewDeleteRoutingSmsPhonenumberConflict creates a DeleteRoutingSmsPhonenumberConflict with default headers values
+func NewDeleteRoutingSmsPhonenumberConflict() *DeleteRoutingSmsPhonenumberConflict {
+	return &DeleteRoutingSmsPhonenumberConflict{}
+}
+
+/*DeleteRoutingSmsPhonenumberConflict handles this case with default header values.
+
+Conflict
+*/
+type DeleteRoutingSmsPhonenumberConflict struct {
+	Payload *models.ErrorBody
+}
+
+func (o *DeleteRoutingSmsPhonenumberConflict) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/sms/phonenumbers/{addressId}][%d] deleteRoutingSmsPhonenumberConflict  %+v", 409, o.Payload)
+}
+
+func (o *DeleteRoutingSmsPhonenumberConflict) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *DeleteRoutingSmsPhonenumberConflict) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewDeleteRoutingSmsPhonenumberRequestEntityTooLarge creates a DeleteRoutingSmsPhonenumberRequestEntityTooLarge with default headers values
 func NewDeleteRoutingSmsPhonenumberRequestEntityTooLarge() *DeleteRoutingSmsPhonenumberRequestEntityTooLarge {
 	return &DeleteRoutingSmsPhonenumberRequestEntityTooLarge{}
@@ -408,6 +453,39 @@ func (o *DeleteRoutingSmsPhonenumberInternalServerError) GetPayload() *models.Er
 }
 
 func (o *DeleteRoutingSmsPhonenumberInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewDeleteRoutingSmsPhonenumberNotImplemented creates a DeleteRoutingSmsPhonenumberNotImplemented with default headers values
+func NewDeleteRoutingSmsPhonenumberNotImplemented() *DeleteRoutingSmsPhonenumberNotImplemented {
+	return &DeleteRoutingSmsPhonenumberNotImplemented{}
+}
+
+/*DeleteRoutingSmsPhonenumberNotImplemented handles this case with default header values.
+
+Not Implemented
+*/
+type DeleteRoutingSmsPhonenumberNotImplemented struct {
+	Payload *models.ErrorBody
+}
+
+func (o *DeleteRoutingSmsPhonenumberNotImplemented) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/sms/phonenumbers/{addressId}][%d] deleteRoutingSmsPhonenumberNotImplemented  %+v", 501, o.Payload)
+}
+
+func (o *DeleteRoutingSmsPhonenumberNotImplemented) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *DeleteRoutingSmsPhonenumberNotImplemented) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ErrorBody)
 

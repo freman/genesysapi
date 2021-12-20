@@ -15,7 +15,7 @@ import (
 // swagger:model MessageStickerAttachment
 type MessageStickerAttachment struct {
 
-	// id
+	// A globally unique identifier for the media object.
 	ID string `json:"id,omitempty"`
 
 	// The location of the media, useful for retrieving it

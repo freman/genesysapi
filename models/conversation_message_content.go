@@ -27,7 +27,7 @@ type ConversationMessageContent struct {
 
 	// Type of this content element. If contentType = "Attachment" only one item is allowed.
 	// Required: true
-	// Enum: [Attachment Location QuickReply Notification ButtonResponse GenericTemplate]
+	// Enum: [Attachment Location Story QuickReply Notification ButtonResponse GenericTemplate]
 	ContentType *string `json:"contentType"`
 
 	// Generic Template Object
@@ -38,6 +38,9 @@ type ConversationMessageContent struct {
 
 	// Quick reply content.
 	QuickReply *ConversationContentQuickReply `json:"quickReply,omitempty"`
+
+	// Ephemeral story content.
+	Story *ConversationContentStory `json:"story,omitempty"`
 
 	// Template notification content.
 	Template *ConversationContentNotificationTemplate `json:"template,omitempty"`
@@ -68,6 +71,10 @@ func (m *ConversationMessageContent) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateQuickReply(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateStory(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -121,7 +128,7 @@ var conversationMessageContentTypeContentTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Attachment","Location","QuickReply","Notification","ButtonResponse","GenericTemplate"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Attachment","Location","Story","QuickReply","Notification","ButtonResponse","GenericTemplate"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -136,6 +143,9 @@ const (
 
 	// ConversationMessageContentContentTypeLocation captures enum value "Location"
 	ConversationMessageContentContentTypeLocation string = "Location"
+
+	// ConversationMessageContentContentTypeStory captures enum value "Story"
+	ConversationMessageContentContentTypeStory string = "Story"
 
 	// ConversationMessageContentContentTypeQuickReply captures enum value "QuickReply"
 	ConversationMessageContentContentTypeQuickReply string = "QuickReply"
@@ -218,6 +228,24 @@ func (m *ConversationMessageContent) validateQuickReply(formats strfmt.Registry)
 		if err := m.QuickReply.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("quickReply")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ConversationMessageContent) validateStory(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Story) { // not required
+		return nil
+	}
+
+	if m.Story != nil {
+		if err := m.Story.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("story")
 			}
 			return err
 		}

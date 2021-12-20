@@ -43,6 +43,11 @@ type User struct {
 	// Read Only: true
 	ConversationSummary *UserConversationSummary `json:"conversationSummary,omitempty"`
 
+	// The last time the user logged in using username and password. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+	// Read Only: true
+	// Format: date-time
+	DateLastLogin strfmt.DateTime `json:"dateLastLogin,omitempty"`
+
 	// department
 	Department string `json:"department,omitempty"`
 
@@ -165,6 +170,10 @@ func (m *User) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateConversationSummary(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDateLastLogin(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -342,6 +351,19 @@ func (m *User) validateConversationSummary(formats strfmt.Registry) error {
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *User) validateDateLastLogin(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.DateLastLogin) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("dateLastLogin", "body", "date-time", m.DateLastLogin.String(), formats); err != nil {
+		return err
 	}
 
 	return nil

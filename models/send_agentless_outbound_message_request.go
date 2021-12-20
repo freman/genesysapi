@@ -37,6 +37,9 @@ type SendAgentlessOutboundMessageRequest struct {
 	// Required: true
 	// Enum: [sms facebook twitter line whatsapp webmessaging instagram open]
 	ToAddressMessengerType *string `json:"toAddressMessengerType"`
+
+	// Use an existing active conversation to send the agentless outbound message. Set this parameter to 'true' to use active conversation. Default value: false
+	UseExistingActiveConversation bool `json:"useExistingActiveConversation"`
 }
 
 // Validate validates this send agentless outbound message request

@@ -75,7 +75,7 @@ type QueueRequest struct {
 	// The media settings for the queue. Valid key values: CALL, CALLBACK, CHAT, EMAIL, MESSAGE, SOCIAL_EXPRESSION, VIDEO_COMM
 	MediaSettings map[string]MediaSetting `json:"mediaSettings,omitempty"`
 
-	// The total number of members (joined or unjoined) in the queue.
+	// The total number of members in the queue.
 	// Read Only: true
 	MemberCount int32 `json:"memberCount,omitempty"`
 
@@ -88,6 +88,9 @@ type QueueRequest struct {
 	// The queue name
 	// Required: true
 	Name *string `json:"name"`
+
+	// The audio to be played when calls on this queue are on hold. If not configured, the default on-hold music will play.
+	OnHoldPrompt *DomainEntityRef `json:"onHoldPrompt,omitempty"`
 
 	// outbound email address
 	OutboundEmailAddress *QueueEmailAddress `json:"outboundEmailAddress,omitempty"`
@@ -109,6 +112,10 @@ type QueueRequest struct {
 	// The skill evaluation method to use when routing conversations.
 	// Enum: [NONE BEST ALL]
 	SkillEvaluationMethod string `json:"skillEvaluationMethod,omitempty"`
+
+	// The number of user members (i.e., non-group members) in the queue.
+	// Read Only: true
+	UserMemberCount int32 `json:"userMemberCount,omitempty"`
 
 	// The prompt used for whisper on the queue, if configured.
 	WhisperPrompt *DomainEntityRef `json:"whisperPrompt,omitempty"`
@@ -155,6 +162,10 @@ func (m *QueueRequest) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateName(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateOnHoldPrompt(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -356,6 +367,24 @@ func (m *QueueRequest) validateName(formats strfmt.Registry) error {
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *QueueRequest) validateOnHoldPrompt(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.OnHoldPrompt) { // not required
+		return nil
+	}
+
+	if m.OnHoldPrompt != nil {
+		if err := m.OnHoldPrompt.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("onHoldPrompt")
+			}
+			return err
+		}
 	}
 
 	return nil

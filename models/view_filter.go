@@ -182,6 +182,9 @@ type ViewFilter struct {
 	// The list of flow Ids
 	FlowIds []string `json:"flowIds"`
 
+	// The list of flow milestones to filter exports
+	FlowMilestoneIds []string `json:"flowMilestoneIds"`
+
 	// A list of flow out types
 	FlowOutTypes []string `json:"flowOutTypes"`
 
@@ -266,11 +269,50 @@ type ViewFilter struct {
 	// The journey action map types are used to filter action map data for the associated view
 	JourneyActionMapTypes []string `json:"journeyActionMapTypes"`
 
+	// The list of action targets to filter offer constraints
+	JourneyActionTargetIds []string `json:"journeyActionTargetIds"`
+
+	// The list of blocking action maps to filter offer constraints
+	JourneyBlockingActionMapIds []string `json:"journeyBlockingActionMapIds"`
+
+	// The list of emergency schedule groups to filter offer constraints
+	JourneyBlockingEmergencyScheduleGroupIds []string `json:"journeyBlockingEmergencyScheduleGroupIds"`
+
+	// The list of blocking schedule groups to filter offer constraints
+	JourneyBlockingScheduleGroupIds []string `json:"journeyBlockingScheduleGroupIds"`
+
+	// The list of frequency cap reasons to filter offer constraints
+	JourneyFrequencyCapReasons []string `json:"journeyFrequencyCapReasons"`
+
 	// The journey outcome ids are used to fetch outcomes for the associated view
 	JourneyOutcomeIds []string `json:"journeyOutcomeIds"`
 
 	// The journey segment ids are used to fetch segments for the associated view
 	JourneySegmentIds []string `json:"journeySegmentIds"`
+
+	// The list of url contains all conditions to filter offer constraints
+	JourneyURLContainsAllConditions []string `json:"journeyUrlContainsAllConditions"`
+
+	// The list of url contains any conditions to filter offer constraints
+	JourneyURLContainsAnyConditions []string `json:"journeyUrlContainsAnyConditions"`
+
+	// The list of url ends with conditions to filter offer constraints
+	JourneyURLEndsWithConditions []string `json:"journeyUrlEndsWithConditions"`
+
+	// The list of url equal conditions to filter offer constraints
+	JourneyURLEqualConditions []string `json:"journeyUrlEqualConditions"`
+
+	// The list of url not contains all conditions to filter offer constraints
+	JourneyURLNotContainsAllConditions []string `json:"journeyUrlNotContainsAllConditions"`
+
+	// The list of url not contains any conditions to filter offer constraints
+	JourneyURLNotContainsAnyConditions []string `json:"journeyUrlNotContainsAnyConditions"`
+
+	// The list of url not equal conditions to filter offer constraints
+	JourneyURLNotEqualConditions []string `json:"journeyUrlNotEqualConditions"`
+
+	// The list of url starts with conditions to filter offer constraints
+	JourneyURLStartsWithConditions []string `json:"journeyUrlStartsWithConditions"`
 
 	// The language groups used to filter the view
 	LanguageGroups []string `json:"languageGroups"`
@@ -1415,7 +1457,7 @@ var viewFilterJourneyActionMapTypesItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["webchat","webMessagingOffer","contentOffer","integrationAction","architectFlow"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["webchat","webMessagingOffer","contentOffer","integrationAction","architectFlow","openAction"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {

@@ -22,6 +22,9 @@ type NluInfo struct {
 	// Read Only: true
 	Domain *AddressableEntityRef `json:"domain,omitempty"`
 
+	// engine version
+	EngineVersion string `json:"engineVersion,omitempty"`
+
 	// intents
 	Intents []*Intent `json:"intents"`
 

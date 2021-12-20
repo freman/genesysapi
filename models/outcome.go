@@ -17,6 +17,9 @@ import (
 // swagger:model Outcome
 type Outcome struct {
 
+	// The field from the event indicating the associated value.
+	AssociatedValueField *AssociatedValueField `json:"associatedValueField,omitempty"`
+
 	// The context of the outcome.
 	Context *Context `json:"context,omitempty"`
 
@@ -61,6 +64,10 @@ type Outcome struct {
 func (m *Outcome) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateAssociatedValueField(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateContext(formats); err != nil {
 		res = append(res, err)
 	}
@@ -88,6 +95,24 @@ func (m *Outcome) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *Outcome) validateAssociatedValueField(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.AssociatedValueField) { // not required
+		return nil
+	}
+
+	if m.AssociatedValueField != nil {
+		if err := m.AssociatedValueField.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("associatedValueField")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

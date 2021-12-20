@@ -20,13 +20,13 @@ import (
 type MemberGroup struct {
 
 	// The division to which this entity belongs.
-	Division *Division `json:"division,omitempty"`
+	Division *WritableDivision `json:"division,omitempty"`
 
 	// The globally unique identifier for the object.
-	// Read Only: true
 	ID string `json:"id,omitempty"`
 
 	// The number of members in this group
+	// Read Only: true
 	MemberCount int32 `json:"memberCount,omitempty"`
 
 	// name
@@ -37,8 +37,8 @@ type MemberGroup struct {
 	// Format: uri
 	SelfURI strfmt.URI `json:"selfUri,omitempty"`
 
-	// The type of group, e.g. TEAM, etc.
-	// Enum: [TEAM]
+	// The group type
+	// Enum: [TEAM GROUP]
 	Type string `json:"type,omitempty"`
 }
 
@@ -99,7 +99,7 @@ var memberGroupTypeTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["TEAM"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["TEAM","GROUP"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -111,6 +111,9 @@ const (
 
 	// MemberGroupTypeTEAM captures enum value "TEAM"
 	MemberGroupTypeTEAM string = "TEAM"
+
+	// MemberGroupTypeGROUP captures enum value "GROUP"
+	MemberGroupTypeGROUP string = "GROUP"
 )
 
 // prop value enum

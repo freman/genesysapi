@@ -19,9 +19,10 @@ import (
 // swagger:model Metrics
 type Metrics struct {
 
-	// The created date of this metric
+	// The created date of this metric. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Read Only: true
-	DateCreated int64 `json:"dateCreated,omitempty"`
+	// Format: date-time
+	DateCreated strfmt.DateTime `json:"dateCreated,omitempty"`
 
 	// The unlinked workday for this metric if this metric was ever unlinked. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
 	// Read Only: true
@@ -89,6 +90,10 @@ type Metrics struct {
 func (m *Metrics) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateDateCreated(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateDateUnlinked(formats); err != nil {
 		res = append(res, err)
 	}
@@ -112,6 +117,19 @@ func (m *Metrics) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *Metrics) validateDateCreated(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.DateCreated) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("dateCreated", "body", "date-time", m.DateCreated.String(), formats); err != nil {
+		return err
+	}
+
 	return nil
 }
 
