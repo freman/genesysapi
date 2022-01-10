@@ -39,6 +39,10 @@ type UserScheduleAdherence struct {
 	// Enum: [InAdherence OutOfAdherence Unscheduled Unknown Ignored]
 	AdherenceState string `json:"adherenceState,omitempty"`
 
+	// The business unit to which this user belongs
+	// Read Only: true
+	BusinessUnit *BusinessUnit `json:"businessUnit,omitempty"`
+
 	// The globally unique identifier for the object.
 	// Read Only: true
 	ID string `json:"id,omitempty"`
@@ -123,6 +127,10 @@ func (m *UserScheduleAdherence) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateAdherenceState(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateBusinessUnit(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -321,6 +329,24 @@ func (m *UserScheduleAdherence) validateAdherenceState(formats strfmt.Registry) 
 	// value enum
 	if err := m.validateAdherenceStateEnum("adherenceState", "body", m.AdherenceState); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *UserScheduleAdherence) validateBusinessUnit(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.BusinessUnit) { // not required
+		return nil
+	}
+
+	if m.BusinessUnit != nil {
+		if err := m.BusinessUnit.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("businessUnit")
+			}
+			return err
+		}
 	}
 
 	return nil

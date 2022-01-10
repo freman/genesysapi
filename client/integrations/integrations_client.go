@@ -106,6 +106,11 @@ type API interface {
 	*/
 	GetIntegrationsClientapps(ctx context.Context, params *GetIntegrationsClientappsParams) (*GetIntegrationsClientappsOK, error)
 	/*
+	   GetIntegrationsClientappsUnifiedcommunications us c integration client application configuration
+	   This endpoint returns basic UI configuration data for all Unified Communications integrations client applications enabled for the current organization.
+	*/
+	GetIntegrationsClientappsUnifiedcommunications(ctx context.Context, params *GetIntegrationsClientappsUnifiedcommunicationsParams) (*GetIntegrationsClientappsUnifiedcommunicationsOK, error)
+	/*
 	   GetIntegrationsCredential gets a single credential with sensitive fields redacted
 	*/
 	GetIntegrationsCredential(ctx context.Context, params *GetIntegrationsCredentialParams) (*GetIntegrationsCredentialOK, error)
@@ -816,6 +821,33 @@ func (a *Client) GetIntegrationsClientapps(ctx context.Context, params *GetInteg
 		return nil, err
 	}
 	return result.(*GetIntegrationsClientappsOK), nil
+
+}
+
+/*
+GetIntegrationsClientappsUnifiedcommunications us c integration client application configuration
+
+This endpoint returns basic UI configuration data for all Unified Communications integrations client applications enabled for the current organization.
+*/
+func (a *Client) GetIntegrationsClientappsUnifiedcommunications(ctx context.Context, params *GetIntegrationsClientappsUnifiedcommunicationsParams) (*GetIntegrationsClientappsUnifiedcommunicationsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getIntegrationsClientappsUnifiedcommunications",
+		Method:             "GET",
+		PathPattern:        "/api/v2/integrations/clientapps/unifiedcommunications",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetIntegrationsClientappsUnifiedcommunicationsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetIntegrationsClientappsUnifiedcommunicationsOK), nil
 
 }
 

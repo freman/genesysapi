@@ -17,6 +17,15 @@ import (
 // swagger:model WfmVersionedEntityMetadata
 type WfmVersionedEntityMetadata struct {
 
+	// The user who created the associated entity, if available
+	// Read Only: true
+	CreatedBy *UserReference `json:"createdBy,omitempty"`
+
+	// The date the associated entity was created, if available. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+	// Read Only: true
+	// Format: date-time
+	DateCreated strfmt.DateTime `json:"dateCreated,omitempty"`
+
 	// The date the associated entity was last modified. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Read Only: true
 	// Format: date-time
@@ -35,6 +44,14 @@ type WfmVersionedEntityMetadata struct {
 func (m *WfmVersionedEntityMetadata) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateCreatedBy(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDateCreated(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateDateModified(formats); err != nil {
 		res = append(res, err)
 	}
@@ -50,6 +67,37 @@ func (m *WfmVersionedEntityMetadata) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *WfmVersionedEntityMetadata) validateCreatedBy(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.CreatedBy) { // not required
+		return nil
+	}
+
+	if m.CreatedBy != nil {
+		if err := m.CreatedBy.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("createdBy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WfmVersionedEntityMetadata) validateDateCreated(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.DateCreated) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("dateCreated", "body", "date-time", m.DateCreated.String(), formats); err != nil {
+		return err
+	}
+
 	return nil
 }
 

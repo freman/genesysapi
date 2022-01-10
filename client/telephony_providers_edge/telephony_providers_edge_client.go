@@ -215,6 +215,10 @@ type API interface {
 	*/
 	GetTelephonyProvidersEdgesEdgeversionreport(ctx context.Context, params *GetTelephonyProvidersEdgesEdgeversionreportParams) (*GetTelephonyProvidersEdgesEdgeversionreportOK, error)
 	/*
+	   GetTelephonyProvidersEdgesExpired lists of edges more than 4 edge versions behind the latest software
+	*/
+	GetTelephonyProvidersEdgesExpired(ctx context.Context, params *GetTelephonyProvidersEdgesExpiredParams) (*GetTelephonyProvidersEdgesExpiredOK, error)
+	/*
 	   GetTelephonyProvidersEdgesExtension gets an extension by ID
 	*/
 	GetTelephonyProvidersEdgesExtension(ctx context.Context, params *GetTelephonyProvidersEdgesExtensionParams) (*GetTelephonyProvidersEdgesExtensionOK, error)
@@ -1780,6 +1784,31 @@ func (a *Client) GetTelephonyProvidersEdgesEdgeversionreport(ctx context.Context
 		return nil, err
 	}
 	return result.(*GetTelephonyProvidersEdgesEdgeversionreportOK), nil
+
+}
+
+/*
+GetTelephonyProvidersEdgesExpired lists of edges more than 4 edge versions behind the latest software
+*/
+func (a *Client) GetTelephonyProvidersEdgesExpired(ctx context.Context, params *GetTelephonyProvidersEdgesExpiredParams) (*GetTelephonyProvidersEdgesExpiredOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getTelephonyProvidersEdgesExpired",
+		Method:             "GET",
+		PathPattern:        "/api/v2/telephony/providers/edges/expired",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetTelephonyProvidersEdgesExpiredReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetTelephonyProvidersEdgesExpiredOK), nil
 
 }
 

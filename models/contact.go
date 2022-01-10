@@ -40,7 +40,7 @@ type Contact struct {
 	MediaType string `json:"mediaType,omitempty"`
 
 	// type
-	// Enum: [PRIMARY WORK WORK2 WORK3 WORK4 HOME MOBILE MAIN]
+	// Enum: [PRIMARY WORK WORK2 WORK3 WORK4 HOME MOBILE MAIN OTHER]
 	Type string `json:"type,omitempty"`
 }
 
@@ -112,7 +112,7 @@ var contactTypeTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["PRIMARY","WORK","WORK2","WORK3","WORK4","HOME","MOBILE","MAIN"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["PRIMARY","WORK","WORK2","WORK3","WORK4","HOME","MOBILE","MAIN","OTHER"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -145,6 +145,9 @@ const (
 
 	// ContactTypeMAIN captures enum value "MAIN"
 	ContactTypeMAIN string = "MAIN"
+
+	// ContactTypeOTHER captures enum value "OTHER"
+	ContactTypeOTHER string = "OTHER"
 )
 
 // prop value enum

@@ -236,6 +236,9 @@ type ViewFilter struct {
 	// Indicates filtering for agent owned callback interactions
 	IsAgentOwnedCallback bool `json:"isAgentOwnedCallback"`
 
+	// Filter to indicate if Agent passed assessment or not
+	IsAssessmentPassed bool `json:"isAssessmentPassed"`
+
 	// Indicates filtering for the authenticated chat
 	IsAuthenticated bool `json:"isAuthenticated"`
 

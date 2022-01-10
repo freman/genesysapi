@@ -55,6 +55,10 @@ type API interface {
 	*/
 	GetGamificationProfile(ctx context.Context, params *GetGamificationProfileParams) (*GetGamificationProfileOK, error)
 	/*
+	   GetGamificationProfileMembers members of a given performance profile
+	*/
+	GetGamificationProfileMembers(ctx context.Context, params *GetGamificationProfileMembersParams) (*GetGamificationProfileMembersOK, error)
+	/*
 	   GetGamificationProfileMetric performances profile gamified metric by id
 	*/
 	GetGamificationProfileMetric(ctx context.Context, params *GetGamificationProfileMetricParams) (*GetGamificationProfileMetricOK, error)
@@ -170,6 +174,18 @@ type API interface {
 	   PostGamificationProfileDeactivate deactivates a performance profile
 	*/
 	PostGamificationProfileDeactivate(ctx context.Context, params *PostGamificationProfileDeactivateParams) (*PostGamificationProfileDeactivateOK, error)
+	/*
+	   PostGamificationProfileMembers assigns members to a given performance profile
+	*/
+	PostGamificationProfileMembers(ctx context.Context, params *PostGamificationProfileMembersParams) (*PostGamificationProfileMembersOK, error)
+	/*
+	   PostGamificationProfileMembersValidate validates member assignment
+	*/
+	PostGamificationProfileMembersValidate(ctx context.Context, params *PostGamificationProfileMembersValidateParams) (*PostGamificationProfileMembersValidateOK, error)
+	/*
+	   PostGamificationProfileMetricLink creates a linked metric
+	*/
+	PostGamificationProfileMetricLink(ctx context.Context, params *PostGamificationProfileMetricLinkParams) (*PostGamificationProfileMetricLinkCreated, error)
 	/*
 	   PostGamificationProfileMetrics creates a gamified metric with a given metric definition and metric objective under in a performance profile
 	*/
@@ -438,6 +454,31 @@ func (a *Client) GetGamificationProfile(ctx context.Context, params *GetGamifica
 		return nil, err
 	}
 	return result.(*GetGamificationProfileOK), nil
+
+}
+
+/*
+GetGamificationProfileMembers members of a given performance profile
+*/
+func (a *Client) GetGamificationProfileMembers(ctx context.Context, params *GetGamificationProfileMembersParams) (*GetGamificationProfileMembersOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getGamificationProfileMembers",
+		Method:             "GET",
+		PathPattern:        "/api/v2/gamification/profiles/{performanceProfileId}/members",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetGamificationProfileMembersReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetGamificationProfileMembersOK), nil
 
 }
 
@@ -1163,6 +1204,81 @@ func (a *Client) PostGamificationProfileDeactivate(ctx context.Context, params *
 		return nil, err
 	}
 	return result.(*PostGamificationProfileDeactivateOK), nil
+
+}
+
+/*
+PostGamificationProfileMembers assigns members to a given performance profile
+*/
+func (a *Client) PostGamificationProfileMembers(ctx context.Context, params *PostGamificationProfileMembersParams) (*PostGamificationProfileMembersOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postGamificationProfileMembers",
+		Method:             "POST",
+		PathPattern:        "/api/v2/gamification/profiles/{performanceProfileId}/members",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostGamificationProfileMembersReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostGamificationProfileMembersOK), nil
+
+}
+
+/*
+PostGamificationProfileMembersValidate validates member assignment
+*/
+func (a *Client) PostGamificationProfileMembersValidate(ctx context.Context, params *PostGamificationProfileMembersValidateParams) (*PostGamificationProfileMembersValidateOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postGamificationProfileMembersValidate",
+		Method:             "POST",
+		PathPattern:        "/api/v2/gamification/profiles/{performanceProfileId}/members/validate",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostGamificationProfileMembersValidateReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostGamificationProfileMembersValidateOK), nil
+
+}
+
+/*
+PostGamificationProfileMetricLink creates a linked metric
+*/
+func (a *Client) PostGamificationProfileMetricLink(ctx context.Context, params *PostGamificationProfileMetricLinkParams) (*PostGamificationProfileMetricLinkCreated, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postGamificationProfileMetricLink",
+		Method:             "POST",
+		PathPattern:        "/api/v2/gamification/profiles/{sourceProfileId}/metrics/{sourceMetricId}/link",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostGamificationProfileMetricLinkReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostGamificationProfileMetricLinkCreated), nil
 
 }
 
