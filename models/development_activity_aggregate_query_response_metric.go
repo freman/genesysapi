@@ -20,7 +20,7 @@ import (
 type DevelopmentActivityAggregateQueryResponseMetric struct {
 
 	// The metric this applies to
-	// Enum: [nActivities nPlannedActivities nInProgressActivities nCompleteActivities nOverdueActivities nInvalidScheduleActivities nPassedActivities nFailedActivities oActivityScore]
+	// Enum: [nActivities nPlannedActivities nInProgressActivities nCompleteActivities nOverdueActivities nInvalidScheduleActivities nPassedActivities nFailedActivities oActivityScore nNotCompletedActivities]
 	Metric string `json:"metric,omitempty"`
 
 	// The aggregated values for this metric
@@ -49,7 +49,7 @@ var developmentActivityAggregateQueryResponseMetricTypeMetricPropEnum []interfac
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["nActivities","nPlannedActivities","nInProgressActivities","nCompleteActivities","nOverdueActivities","nInvalidScheduleActivities","nPassedActivities","nFailedActivities","oActivityScore"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["nActivities","nPlannedActivities","nInProgressActivities","nCompleteActivities","nOverdueActivities","nInvalidScheduleActivities","nPassedActivities","nFailedActivities","oActivityScore","nNotCompletedActivities"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -85,6 +85,9 @@ const (
 
 	// DevelopmentActivityAggregateQueryResponseMetricMetricOActivityScore captures enum value "oActivityScore"
 	DevelopmentActivityAggregateQueryResponseMetricMetricOActivityScore string = "oActivityScore"
+
+	// DevelopmentActivityAggregateQueryResponseMetricMetricNNotCompletedActivities captures enum value "nNotCompletedActivities"
+	DevelopmentActivityAggregateQueryResponseMetricMetricNNotCompletedActivities string = "nNotCompletedActivities"
 )
 
 // prop value enum

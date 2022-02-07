@@ -33,7 +33,7 @@ type BotAggregationView struct {
 
 	// Target metric name
 	// Required: true
-	// Enum: [nBotSessions oBotIntent oBotSessionTurn oBotSlot tBotDisconnect tBotExit tBotRecognitionFailure tBotSession]
+	// Enum: [nBotSessions oBotIntent oBotSessionQuery oBotSessionTurn oBotSlot tBotDisconnect tBotExit tBotRecognitionFailure tBotSession]
 	Target *string `json:"target"`
 }
 
@@ -134,7 +134,7 @@ var botAggregationViewTypeTargetPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["nBotSessions","oBotIntent","oBotSessionTurn","oBotSlot","tBotDisconnect","tBotExit","tBotRecognitionFailure","tBotSession"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["nBotSessions","oBotIntent","oBotSessionQuery","oBotSessionTurn","oBotSlot","tBotDisconnect","tBotExit","tBotRecognitionFailure","tBotSession"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -149,6 +149,9 @@ const (
 
 	// BotAggregationViewTargetOBotIntent captures enum value "oBotIntent"
 	BotAggregationViewTargetOBotIntent string = "oBotIntent"
+
+	// BotAggregationViewTargetOBotSessionQuery captures enum value "oBotSessionQuery"
+	BotAggregationViewTargetOBotSessionQuery string = "oBotSessionQuery"
 
 	// BotAggregationViewTargetOBotSessionTurn captures enum value "oBotSessionTurn"
 	BotAggregationViewTargetOBotSessionTurn string = "oBotSessionTurn"

@@ -17,7 +17,7 @@ import (
 type ScoredAgent struct {
 
 	// The agent
-	Agent *AddressableEntityRef `json:"agent,omitempty"`
+	Agent *DomainEntityRef `json:"agent,omitempty"`
 
 	// Agent's score for the current conversation, from 0 - 100, higher being better
 	Score int32 `json:"score,omitempty"`

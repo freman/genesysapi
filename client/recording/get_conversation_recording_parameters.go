@@ -106,7 +106,7 @@ for the get conversation recording operation typically these are written to a ht
 type GetConversationRecordingParams struct {
 
 	/*ChatFormatID
-	  The desired media format when downloading a chat recording.
+	  The desired media format when downloading a chat recording. Valid values:ZIP,NONE
 
 	*/
 	ChatFormatID *string
@@ -116,12 +116,12 @@ type GetConversationRecordingParams struct {
 	*/
 	ConversationID string
 	/*Download
-	  requesting a download format of the recording
+	  requesting a download format of the recording. Valid values:true,false
 
 	*/
 	Download *bool
 	/*EmailFormatID
-	  The desired media format when downloading an email recording.
+	  The desired media format when downloading an email recording. Valid values:EML,NONE
 
 	*/
 	EmailFormatID *string
@@ -131,7 +131,7 @@ type GetConversationRecordingParams struct {
 	*/
 	FileName *string
 	/*FormatID
-	  The desired media format.
+	  The desired media format. Valid values:WAV,WEBM,WAV_ULAW,OGG_VORBIS,OGG_OPUS,MP3,NONE
 
 	*/
 	FormatID *string
@@ -141,7 +141,7 @@ type GetConversationRecordingParams struct {
 	*/
 	Locale *string
 	/*MessageFormatID
-	  The desired media format when downloading a message recording.
+	  The desired media format when downloading a message recording. Valid values:ZIP,NONE
 
 	*/
 	MessageFormatID *string

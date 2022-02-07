@@ -24,9 +24,16 @@ type OrphanUpdateRequest struct {
 	// A conversation Id that this orphan's recording is to be attached to. If not present, the conversationId will be deduced from the recording media.
 	ConversationID string `json:"conversationId,omitempty"`
 
-	// The orphan recording's delete date. Must be greater than archiveDate if set, otherwise one day from now. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+	// The orphan recording's delete date. Must be greater than archiveDate and exportDate if set, otherwise one day from now. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	DeleteDate strfmt.DateTime `json:"deleteDate,omitempty"`
+
+	// The orphan recording's export date. Must be greater than 1 day from now if set. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+	// Format: date-time
+	ExportDate strfmt.DateTime `json:"exportDate,omitempty"`
+
+	// IntegrationId to access AWS S3 bucket for export. This field is required if exportDate is set.
+	IntegrationID string `json:"integrationId,omitempty"`
 }
 
 // Validate validates this orphan update request
@@ -38,6 +45,10 @@ func (m *OrphanUpdateRequest) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateDeleteDate(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateExportDate(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -67,6 +78,19 @@ func (m *OrphanUpdateRequest) validateDeleteDate(formats strfmt.Registry) error 
 	}
 
 	if err := validate.FormatOf("deleteDate", "body", "date-time", m.DeleteDate.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *OrphanUpdateRequest) validateExportDate(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.ExportDate) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("exportDate", "body", "date-time", m.ExportDate.String(), formats); err != nil {
 		return err
 	}
 

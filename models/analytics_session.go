@@ -105,6 +105,9 @@ type AnalyticsSession struct {
 	// Number of eligible agents for each predictive routing attempt
 	EligibleAgentCounts []int32 `json:"eligibleAgentCounts"`
 
+	// Extended email delivery status
+	ExtendedDeliveryStatus string `json:"extendedDeliveryStatus,omitempty"`
+
 	// IVR flow execution associated with this session
 	Flow *AnalyticsFlow `json:"flow,omitempty"`
 

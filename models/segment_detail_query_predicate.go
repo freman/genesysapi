@@ -20,7 +20,7 @@ import (
 type SegmentDetailQueryPredicate struct {
 
 	// Left hand side for dimension predicates
-	// Enum: [addressFrom addressTo agentAssistantId agentOwned ani authenticated callbackNumber callbackScheduledTime coachedParticipantId conference deliveryStatus destinationAddress destinationConversationId direction disconnectType dnis edgeId errorCode exitReason externalContactId externalOrganizationId flaggedReason flowId flowName flowOutType flowOutcome flowOutcomeId flowOutcomeValue flowVersion groupId journeyActionId journeyActionMapId journeyCustomerId journeyCustomerIdType journeyCustomerSessionId mediaCount mediaType messageType monitoredParticipantId outboundCampaignId outboundContactId outboundContactListId participantName protocolCallId provider purpose queueId recording remote remoteNameDisplayable requestedLanguageId requestedRouting requestedRoutingSkillId scoredAgentId scriptId segmentEnd segmentType sessionDnis sipResponseCode subject teamId transferTargetAddress transferTargetName transferType usedRouting userId wrapUpCode wrapUpNote]
+	// Enum: [addressFrom addressTo agentAssistantId agentOwned ani authenticated callbackNumber callbackScheduledTime coachedParticipantId conference deliveryStatus destinationAddress destinationConversationId direction disconnectType dnis edgeId errorCode exitReason extendedDeliveryStatus externalContactId externalOrganizationId flaggedReason flowId flowName flowOutType flowOutcome flowOutcomeId flowOutcomeValue flowVersion groupId journeyActionId journeyActionMapId journeyCustomerId journeyCustomerIdType journeyCustomerSessionId mediaCount mediaType messageType monitoredParticipantId outboundCampaignId outboundContactId outboundContactListId participantName protocolCallId provider purpose queueId recording remote remoteNameDisplayable requestedLanguageId requestedRouting requestedRoutingSkillId scoredAgentId scriptId segmentEnd segmentType sessionDnis sipResponseCode subject teamId transferTargetAddress transferTargetName transferType usedRouting userId wrapUpCode wrapUpNote]
 	Dimension string `json:"dimension,omitempty"`
 
 	// Left hand side for metric predicates
@@ -87,7 +87,7 @@ var segmentDetailQueryPredicateTypeDimensionPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["addressFrom","addressTo","agentAssistantId","agentOwned","ani","authenticated","callbackNumber","callbackScheduledTime","coachedParticipantId","conference","deliveryStatus","destinationAddress","destinationConversationId","direction","disconnectType","dnis","edgeId","errorCode","exitReason","externalContactId","externalOrganizationId","flaggedReason","flowId","flowName","flowOutType","flowOutcome","flowOutcomeId","flowOutcomeValue","flowVersion","groupId","journeyActionId","journeyActionMapId","journeyCustomerId","journeyCustomerIdType","journeyCustomerSessionId","mediaCount","mediaType","messageType","monitoredParticipantId","outboundCampaignId","outboundContactId","outboundContactListId","participantName","protocolCallId","provider","purpose","queueId","recording","remote","remoteNameDisplayable","requestedLanguageId","requestedRouting","requestedRoutingSkillId","scoredAgentId","scriptId","segmentEnd","segmentType","sessionDnis","sipResponseCode","subject","teamId","transferTargetAddress","transferTargetName","transferType","usedRouting","userId","wrapUpCode","wrapUpNote"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["addressFrom","addressTo","agentAssistantId","agentOwned","ani","authenticated","callbackNumber","callbackScheduledTime","coachedParticipantId","conference","deliveryStatus","destinationAddress","destinationConversationId","direction","disconnectType","dnis","edgeId","errorCode","exitReason","extendedDeliveryStatus","externalContactId","externalOrganizationId","flaggedReason","flowId","flowName","flowOutType","flowOutcome","flowOutcomeId","flowOutcomeValue","flowVersion","groupId","journeyActionId","journeyActionMapId","journeyCustomerId","journeyCustomerIdType","journeyCustomerSessionId","mediaCount","mediaType","messageType","monitoredParticipantId","outboundCampaignId","outboundContactId","outboundContactListId","participantName","protocolCallId","provider","purpose","queueId","recording","remote","remoteNameDisplayable","requestedLanguageId","requestedRouting","requestedRoutingSkillId","scoredAgentId","scriptId","segmentEnd","segmentType","sessionDnis","sipResponseCode","subject","teamId","transferTargetAddress","transferTargetName","transferType","usedRouting","userId","wrapUpCode","wrapUpNote"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -153,6 +153,9 @@ const (
 
 	// SegmentDetailQueryPredicateDimensionExitReason captures enum value "exitReason"
 	SegmentDetailQueryPredicateDimensionExitReason string = "exitReason"
+
+	// SegmentDetailQueryPredicateDimensionExtendedDeliveryStatus captures enum value "extendedDeliveryStatus"
+	SegmentDetailQueryPredicateDimensionExtendedDeliveryStatus string = "extendedDeliveryStatus"
 
 	// SegmentDetailQueryPredicateDimensionExternalContactID captures enum value "externalContactId"
 	SegmentDetailQueryPredicateDimensionExternalContactID string = "externalContactId"

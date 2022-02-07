@@ -6,11 +6,13 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // DefaultObjective default objective
@@ -28,6 +30,13 @@ type DefaultObjective struct {
 	// The id of this objective's base template
 	TemplateID string `json:"templateId,omitempty"`
 
+	// A filter type for topic Ids. It's only used for objectives with topicIds. Default filter behavior is "or".
+	// Enum: [and or]
+	TopicIdsFilterType string `json:"topicIdsFilterType,omitempty"`
+
+	// A list of topic ids for detected topic metrics
+	Topics []*AddressableEntityRef `json:"topics"`
+
 	// Objective zone specifies min,max points and values for the associated metric
 	Zones []*ObjectiveZone `json:"zones"`
 }
@@ -36,6 +45,14 @@ type DefaultObjective struct {
 func (m *DefaultObjective) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateTopicIdsFilterType(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTopics(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateZones(formats); err != nil {
 		res = append(res, err)
 	}
@@ -43,6 +60,74 @@ func (m *DefaultObjective) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+var defaultObjectiveTypeTopicIdsFilterTypePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["and","or"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		defaultObjectiveTypeTopicIdsFilterTypePropEnum = append(defaultObjectiveTypeTopicIdsFilterTypePropEnum, v)
+	}
+}
+
+const (
+
+	// DefaultObjectiveTopicIdsFilterTypeAnd captures enum value "and"
+	DefaultObjectiveTopicIdsFilterTypeAnd string = "and"
+
+	// DefaultObjectiveTopicIdsFilterTypeOr captures enum value "or"
+	DefaultObjectiveTopicIdsFilterTypeOr string = "or"
+)
+
+// prop value enum
+func (m *DefaultObjective) validateTopicIdsFilterTypeEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, defaultObjectiveTypeTopicIdsFilterTypePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *DefaultObjective) validateTopicIdsFilterType(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.TopicIdsFilterType) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateTopicIdsFilterTypeEnum("topicIdsFilterType", "body", m.TopicIdsFilterType); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DefaultObjective) validateTopics(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Topics) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Topics); i++ {
+		if swag.IsZero(m.Topics[i]) { // not required
+			continue
+		}
+
+		if m.Topics[i] != nil {
+			if err := m.Topics[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("topics" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 

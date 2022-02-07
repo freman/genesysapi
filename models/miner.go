@@ -67,7 +67,7 @@ type Miner struct {
 
 	// Media type for filtering conversations.
 	// Read Only: true
-	// Enum: [Chat Call]
+	// Enum: [Chat Call Message]
 	MediaType string `json:"mediaType,omitempty"`
 
 	// Mining message if present.
@@ -309,7 +309,7 @@ var minerTypeMediaTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Chat","Call"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Chat","Call","Message"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -324,6 +324,9 @@ const (
 
 	// MinerMediaTypeCall captures enum value "Call"
 	MinerMediaTypeCall string = "Call"
+
+	// MinerMediaTypeMessage captures enum value "Message"
+	MinerMediaTypeMessage string = "Message"
 )
 
 // prop value enum

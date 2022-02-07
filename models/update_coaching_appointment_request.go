@@ -34,6 +34,9 @@ type UpdateCoachingAppointmentRequest struct {
 	// Unique: true
 	DocumentIds []string `json:"documentIds"`
 
+	// The list of external links related to the appointment
+	ExternalLinks []string `json:"externalLinks"`
+
 	// The duration of coaching appointment in minutes.
 	LengthInMinutes int32 `json:"lengthInMinutes,omitempty"`
 
@@ -43,6 +46,9 @@ type UpdateCoachingAppointmentRequest struct {
 	// The status of the coaching appointment.
 	// Enum: [Scheduled InProgress Completed]
 	Status string `json:"status,omitempty"`
+
+	// The Workforce Management schedule the appointment is associated with.
+	WfmSchedule *WfmScheduleReference `json:"wfmSchedule,omitempty"`
 }
 
 // Validate validates this update coaching appointment request
@@ -62,6 +68,10 @@ func (m *UpdateCoachingAppointmentRequest) Validate(formats strfmt.Registry) err
 	}
 
 	if err := m.validateStatus(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateWfmSchedule(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -151,6 +161,24 @@ func (m *UpdateCoachingAppointmentRequest) validateStatus(formats strfmt.Registr
 	// value enum
 	if err := m.validateStatusEnum("status", "body", m.Status); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *UpdateCoachingAppointmentRequest) validateWfmSchedule(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.WfmSchedule) { // not required
+		return nil
+	}
+
+	if m.WfmSchedule != nil {
+		if err := m.WfmSchedule.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("wfmSchedule")
+			}
+			return err
+		}
 	}
 
 	return nil

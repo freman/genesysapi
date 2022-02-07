@@ -66,7 +66,7 @@ type PostGamificationProfileMetricsParams struct {
 	  Metric
 
 	*/
-	Body *models.Metric
+	Body *models.CreateMetric
 	/*ProfileID
 	  Performance Profile Id
 
@@ -112,13 +112,13 @@ func (o *PostGamificationProfileMetricsParams) SetHTTPClient(client *http.Client
 }
 
 // WithBody adds the body to the post gamification profile metrics params
-func (o *PostGamificationProfileMetricsParams) WithBody(body *models.Metric) *PostGamificationProfileMetricsParams {
+func (o *PostGamificationProfileMetricsParams) WithBody(body *models.CreateMetric) *PostGamificationProfileMetricsParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the post gamification profile metrics params
-func (o *PostGamificationProfileMetricsParams) SetBody(body *models.Metric) {
+func (o *PostGamificationProfileMetricsParams) SetBody(body *models.CreateMetric) {
 	o.Body = body
 }
 

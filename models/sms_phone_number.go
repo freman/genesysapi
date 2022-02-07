@@ -35,6 +35,9 @@ type SmsPhoneNumber struct {
 	// Read Only: true
 	Capabilities []string `json:"capabilities"`
 
+	// Localized country name for the country code this phone number belongs too
+	Country string `json:"country,omitempty"`
+
 	// The ISO 3166-1 alpha-2 country code of the country this phone number is associated with.
 	CountryCode string `json:"countryCode,omitempty"`
 
@@ -94,6 +97,15 @@ type SmsPhoneNumber struct {
 	// BillingType of this phone number, if the phoneNumberType is shortcode.
 	// Enum: [Basic Vanity]
 	ShortCodeBillingType string `json:"shortCodeBillingType,omitempty"`
+
+	// Set to true if this phone number has the capability to support MMS
+	SupportsMms bool `json:"supportsMms"`
+
+	// Set to true if this phone number has the capability to support SMS
+	SupportsSms bool `json:"supportsSms"`
+
+	// Set to true if this phone number has the capability to support voice
+	SupportsVoice bool `json:"supportsVoice"`
 
 	// Version number required for updates.
 	// Required: true

@@ -66,7 +66,7 @@ type PutGamificationProfileMetricParams struct {
 	  Metric
 
 	*/
-	Body *models.Metric
+	Body *models.CreateMetric
 	/*MetricID
 	  Metric Id
 
@@ -117,13 +117,13 @@ func (o *PutGamificationProfileMetricParams) SetHTTPClient(client *http.Client) 
 }
 
 // WithBody adds the body to the put gamification profile metric params
-func (o *PutGamificationProfileMetricParams) WithBody(body *models.Metric) *PutGamificationProfileMetricParams {
+func (o *PutGamificationProfileMetricParams) WithBody(body *models.CreateMetric) *PutGamificationProfileMetricParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the put gamification profile metric params
-func (o *PutGamificationProfileMetricParams) SetBody(body *models.Metric) {
+func (o *PutGamificationProfileMetricParams) SetBody(body *models.CreateMetric) {
 	o.Body = body
 }
 

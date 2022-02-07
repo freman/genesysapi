@@ -15,10 +15,10 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// Objective objective
+// CreateObjective create objective
 //
-// swagger:model Objective
-type Objective struct {
+// swagger:model CreateObjective
+type CreateObjective struct {
 
 	// start date of the objective. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
 	// Format: date
@@ -34,19 +34,19 @@ type Objective struct {
 	// The id of this objective's base template
 	TemplateID string `json:"templateId,omitempty"`
 
+	// A list of topic ids for detected topic metrics
+	TopicIds []string `json:"topicIds"`
+
 	// A filter type for topic Ids. It's only used for objectives with topicIds. Default filter behavior is "or".
 	// Enum: [and or]
 	TopicIdsFilterType string `json:"topicIdsFilterType,omitempty"`
-
-	// A list of topic ids for detected topic metrics
-	Topics []*AddressableEntityRef `json:"topics"`
 
 	// Objective zone specifies min,max points and values for the associated metric
 	Zones []*ObjectiveZone `json:"zones"`
 }
 
-// Validate validates this objective
-func (m *Objective) Validate(formats strfmt.Registry) error {
+// Validate validates this create objective
+func (m *CreateObjective) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateDateStart(formats); err != nil {
@@ -54,10 +54,6 @@ func (m *Objective) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateTopicIdsFilterType(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateTopics(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -71,7 +67,7 @@ func (m *Objective) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Objective) validateDateStart(formats strfmt.Registry) error {
+func (m *CreateObjective) validateDateStart(formats strfmt.Registry) error {
 
 	if swag.IsZero(m.DateStart) { // not required
 		return nil
@@ -84,7 +80,7 @@ func (m *Objective) validateDateStart(formats strfmt.Registry) error {
 	return nil
 }
 
-var objectiveTypeTopicIdsFilterTypePropEnum []interface{}
+var createObjectiveTypeTopicIdsFilterTypePropEnum []interface{}
 
 func init() {
 	var res []string
@@ -92,28 +88,28 @@ func init() {
 		panic(err)
 	}
 	for _, v := range res {
-		objectiveTypeTopicIdsFilterTypePropEnum = append(objectiveTypeTopicIdsFilterTypePropEnum, v)
+		createObjectiveTypeTopicIdsFilterTypePropEnum = append(createObjectiveTypeTopicIdsFilterTypePropEnum, v)
 	}
 }
 
 const (
 
-	// ObjectiveTopicIdsFilterTypeAnd captures enum value "and"
-	ObjectiveTopicIdsFilterTypeAnd string = "and"
+	// CreateObjectiveTopicIdsFilterTypeAnd captures enum value "and"
+	CreateObjectiveTopicIdsFilterTypeAnd string = "and"
 
-	// ObjectiveTopicIdsFilterTypeOr captures enum value "or"
-	ObjectiveTopicIdsFilterTypeOr string = "or"
+	// CreateObjectiveTopicIdsFilterTypeOr captures enum value "or"
+	CreateObjectiveTopicIdsFilterTypeOr string = "or"
 )
 
 // prop value enum
-func (m *Objective) validateTopicIdsFilterTypeEnum(path, location string, value string) error {
-	if err := validate.EnumCase(path, location, value, objectiveTypeTopicIdsFilterTypePropEnum, true); err != nil {
+func (m *CreateObjective) validateTopicIdsFilterTypeEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, createObjectiveTypeTopicIdsFilterTypePropEnum, true); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (m *Objective) validateTopicIdsFilterType(formats strfmt.Registry) error {
+func (m *CreateObjective) validateTopicIdsFilterType(formats strfmt.Registry) error {
 
 	if swag.IsZero(m.TopicIdsFilterType) { // not required
 		return nil
@@ -127,32 +123,7 @@ func (m *Objective) validateTopicIdsFilterType(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Objective) validateTopics(formats strfmt.Registry) error {
-
-	if swag.IsZero(m.Topics) { // not required
-		return nil
-	}
-
-	for i := 0; i < len(m.Topics); i++ {
-		if swag.IsZero(m.Topics[i]) { // not required
-			continue
-		}
-
-		if m.Topics[i] != nil {
-			if err := m.Topics[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("topics" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
-		}
-
-	}
-
-	return nil
-}
-
-func (m *Objective) validateZones(formats strfmt.Registry) error {
+func (m *CreateObjective) validateZones(formats strfmt.Registry) error {
 
 	if swag.IsZero(m.Zones) { // not required
 		return nil
@@ -178,7 +149,7 @@ func (m *Objective) validateZones(formats strfmt.Registry) error {
 }
 
 // MarshalBinary interface implementation
-func (m *Objective) MarshalBinary() ([]byte, error) {
+func (m *CreateObjective) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -186,8 +157,8 @@ func (m *Objective) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *Objective) UnmarshalBinary(b []byte) error {
-	var res Objective
+func (m *CreateObjective) UnmarshalBinary(b []byte) error {
+	var res CreateObjective
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

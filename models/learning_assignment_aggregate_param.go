@@ -129,7 +129,7 @@ var learningAssignmentAggregateParamMetricsItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["nActivities","nPlannedActivities","nInProgressActivities","nCompleteActivities","nOverdueActivities","nPassedActivities","nFailedActivities","oActivityScore"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["nActivities","nPlannedActivities","nInProgressActivities","nCompleteActivities","nOverdueActivities","nPassedActivities","nFailedActivities","oActivityScore","nNotCompletedActivities"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {

@@ -11,6 +11,7 @@ import (
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // RecordingJobEntityListing recording job entity listing
@@ -20,6 +21,38 @@ type RecordingJobEntityListing struct {
 
 	// entities
 	Entities []*RecordingJob `json:"entities"`
+
+	// first Uri
+	// Format: uri
+	FirstURI strfmt.URI `json:"firstUri,omitempty"`
+
+	// last Uri
+	// Format: uri
+	LastURI strfmt.URI `json:"lastUri,omitempty"`
+
+	// next Uri
+	// Format: uri
+	NextURI strfmt.URI `json:"nextUri,omitempty"`
+
+	// page count
+	PageCount int32 `json:"pageCount,omitempty"`
+
+	// page number
+	PageNumber int32 `json:"pageNumber,omitempty"`
+
+	// page size
+	PageSize int32 `json:"pageSize,omitempty"`
+
+	// previous Uri
+	// Format: uri
+	PreviousURI strfmt.URI `json:"previousUri,omitempty"`
+
+	// self Uri
+	// Format: uri
+	SelfURI strfmt.URI `json:"selfUri,omitempty"`
+
+	// total
+	Total int64 `json:"total,omitempty"`
 }
 
 // Validate validates this recording job entity listing
@@ -27,6 +60,26 @@ func (m *RecordingJobEntityListing) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateEntities(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateFirstURI(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateLastURI(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateNextURI(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePreviousURI(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSelfURI(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -56,6 +109,71 @@ func (m *RecordingJobEntityListing) validateEntities(formats strfmt.Registry) er
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *RecordingJobEntityListing) validateFirstURI(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.FirstURI) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("firstUri", "body", "uri", m.FirstURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *RecordingJobEntityListing) validateLastURI(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.LastURI) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("lastUri", "body", "uri", m.LastURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *RecordingJobEntityListing) validateNextURI(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.NextURI) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("nextUri", "body", "uri", m.NextURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *RecordingJobEntityListing) validatePreviousURI(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.PreviousURI) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("previousUri", "body", "uri", m.PreviousURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *RecordingJobEntityListing) validateSelfURI(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.SelfURI) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+		return err
 	}
 
 	return nil

@@ -34,6 +34,11 @@ type CoachingAppointmentResponse struct {
 	// Read Only: true
 	CreatedBy *UserReference `json:"createdBy,omitempty"`
 
+	// The date/time the coaching appointment was set to completed status. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+	// Read Only: true
+	// Format: date-time
+	DateCompleted strfmt.DateTime `json:"dateCompleted,omitempty"`
+
 	// The date/time the coaching appointment was created. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Read Only: true
 	// Format: date-time
@@ -57,6 +62,10 @@ type CoachingAppointmentResponse struct {
 	// Read Only: true
 	// Unique: true
 	Documents []*DocumentReference `json:"documents"`
+
+	// The list of external links related to the appointment
+	// Read Only: true
+	ExternalLinks []string `json:"externalLinks"`
 
 	// The facilitator of coaching appointment
 	// Read Only: true
@@ -91,6 +100,10 @@ type CoachingAppointmentResponse struct {
 	// Read Only: true
 	// Enum: [Scheduled InProgress Completed InvalidSchedule]
 	Status string `json:"status,omitempty"`
+
+	// The Workforce Management schedule the appointment is associated with.
+	// Read Only: true
+	WfmSchedule *WfmScheduleReference `json:"wfmSchedule,omitempty"`
 }
 
 // Validate validates this coaching appointment response
@@ -106,6 +119,10 @@ func (m *CoachingAppointmentResponse) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateCreatedBy(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDateCompleted(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -138,6 +155,10 @@ func (m *CoachingAppointmentResponse) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateStatus(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateWfmSchedule(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -218,6 +239,19 @@ func (m *CoachingAppointmentResponse) validateCreatedBy(formats strfmt.Registry)
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *CoachingAppointmentResponse) validateDateCompleted(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.DateCompleted) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("dateCompleted", "body", "date-time", m.DateCompleted.String(), formats); err != nil {
+		return err
 	}
 
 	return nil
@@ -384,6 +418,24 @@ func (m *CoachingAppointmentResponse) validateStatus(formats strfmt.Registry) er
 	// value enum
 	if err := m.validateStatusEnum("status", "body", m.Status); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *CoachingAppointmentResponse) validateWfmSchedule(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.WfmSchedule) { // not required
+		return nil
+	}
+
+	if m.WfmSchedule != nil {
+		if err := m.WfmSchedule.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("wfmSchedule")
+			}
+			return err
+		}
 	}
 
 	return nil

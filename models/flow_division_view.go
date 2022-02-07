@@ -7,6 +7,7 @@ package models
 
 import (
 	"encoding/json"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -21,6 +22,9 @@ type FlowDivisionView struct {
 
 	// debug version information if there is a debug version
 	DebugVersion *FlowVersion `json:"debugVersion,omitempty"`
+
+	// the flow description
+	Description string `json:"description,omitempty"`
 
 	// The division to which this entity belongs.
 	Division *WritableDivision `json:"division,omitempty"`
@@ -45,6 +49,10 @@ type FlowDivisionView struct {
 	// Read Only: true
 	// Format: uri
 	SelfURI strfmt.URI `json:"selfUri,omitempty"`
+
+	// List of supported languages for the published version of the flow.
+	// Read Only: true
+	SupportedLanguages []*SupportedLanguage `json:"supportedLanguages"`
 
 	// type
 	// Enum: [BOT COMMONMODULE INBOUNDCALL INBOUNDCHAT INBOUNDEMAIL INBOUNDSHORTMESSAGE INQUEUECALL INQUEUEEMAIL INQUEUESHORTMESSAGE OUTBOUNDCALL SECURECALL SPEECH SURVEYINVITE VOICEMAIL WORKFLOW WORKITEM]
@@ -80,6 +88,10 @@ func (m *FlowDivisionView) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateSelfURI(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSupportedLanguages(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -200,6 +212,31 @@ func (m *FlowDivisionView) validateSelfURI(formats strfmt.Registry) error {
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *FlowDivisionView) validateSupportedLanguages(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.SupportedLanguages) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.SupportedLanguages); i++ {
+		if swag.IsZero(m.SupportedLanguages[i]) { // not required
+			continue
+		}
+
+		if m.SupportedLanguages[i] != nil {
+			if err := m.SupportedLanguages[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("supportedLanguages" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

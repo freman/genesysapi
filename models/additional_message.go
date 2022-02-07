@@ -26,7 +26,7 @@ type AdditionalMessage struct {
 	// The sticker ids associated with the text message.
 	StickerIds []string `json:"stickerIds"`
 
-	// The body of the text message.
+	// The body of the text message.  Maximum character counts are: SMS - 765 characters, other channels - 2000 characters.
 	// Required: true
 	TextBody *string `json:"textBody"`
 }

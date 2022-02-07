@@ -96,6 +96,11 @@ type GetCoachingAppointmentsParams struct {
 
 	*/
 	Interval *string
+	/*IntervalCondition
+	  Filter condition for interval
+
+	*/
+	IntervalCondition *string
 	/*Overdue
 	  Overdue status to filter by
 
@@ -201,6 +206,17 @@ func (o *GetCoachingAppointmentsParams) WithInterval(interval *string) *GetCoach
 // SetInterval adds the interval to the get coaching appointments params
 func (o *GetCoachingAppointmentsParams) SetInterval(interval *string) {
 	o.Interval = interval
+}
+
+// WithIntervalCondition adds the intervalCondition to the get coaching appointments params
+func (o *GetCoachingAppointmentsParams) WithIntervalCondition(intervalCondition *string) *GetCoachingAppointmentsParams {
+	o.SetIntervalCondition(intervalCondition)
+	return o
+}
+
+// SetIntervalCondition adds the intervalCondition to the get coaching appointments params
+func (o *GetCoachingAppointmentsParams) SetIntervalCondition(intervalCondition *string) {
+	o.IntervalCondition = intervalCondition
 }
 
 // WithOverdue adds the overdue to the get coaching appointments params
@@ -322,6 +338,22 @@ func (o *GetCoachingAppointmentsParams) WriteToRequest(r runtime.ClientRequest, 
 		qInterval := qrInterval
 		if qInterval != "" {
 			if err := r.SetQueryParam("interval", qInterval); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	if o.IntervalCondition != nil {
+
+		// query param intervalCondition
+		var qrIntervalCondition string
+		if o.IntervalCondition != nil {
+			qrIntervalCondition = *o.IntervalCondition
+		}
+		qIntervalCondition := qrIntervalCondition
+		if qIntervalCondition != "" {
+			if err := r.SetQueryParam("intervalCondition", qIntervalCondition); err != nil {
 				return err
 			}
 		}

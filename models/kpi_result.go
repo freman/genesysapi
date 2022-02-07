@@ -21,23 +21,23 @@ type KpiResult struct {
 
 	// Total interactions not routed by predictive routing (GPR was off)
 	// Read Only: true
-	InteractionCountOff int32 `json:"interactionCountOff,omitempty"`
+	InteractionCountOff int64 `json:"interactionCountOff,omitempty"`
 
 	// Total interactions handled by predictive routing (GPR was on)
 	// Read Only: true
-	InteractionCountOn int32 `json:"interactionCountOn,omitempty"`
+	InteractionCountOn int64 `json:"interactionCountOn,omitempty"`
 
 	// Absolute metric (in which the KPI is based) total for the interactions not routed by predictive routing (GPR was off)
 	// Read Only: true
-	KpiTotalOff int32 `json:"kpiTotalOff,omitempty"`
+	KpiTotalOff int64 `json:"kpiTotalOff,omitempty"`
 
 	// Absolute metric (in which the KPI is based) total for the interactions handled by predictive routing (GPR was on)
 	// Read Only: true
-	KpiTotalOn int32 `json:"kpiTotalOn,omitempty"`
+	KpiTotalOn int64 `json:"kpiTotalOn,omitempty"`
 
 	// Media type used for the KPI
 	// Read Only: true
-	// Enum: [Voice Email Message]
+	// Enum: [voice email message]
 	MediaType string `json:"mediaType,omitempty"`
 }
 
@@ -59,7 +59,7 @@ var kpiResultTypeMediaTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Voice","Email","Message"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["voice","email","message"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -69,14 +69,14 @@ func init() {
 
 const (
 
-	// KpiResultMediaTypeVoice captures enum value "Voice"
-	KpiResultMediaTypeVoice string = "Voice"
+	// KpiResultMediaTypeVoice captures enum value "voice"
+	KpiResultMediaTypeVoice string = "voice"
 
-	// KpiResultMediaTypeEmail captures enum value "Email"
-	KpiResultMediaTypeEmail string = "Email"
+	// KpiResultMediaTypeEmail captures enum value "email"
+	KpiResultMediaTypeEmail string = "email"
 
-	// KpiResultMediaTypeMessage captures enum value "Message"
-	KpiResultMediaTypeMessage string = "Message"
+	// KpiResultMediaTypeMessage captures enum value "message"
+	KpiResultMediaTypeMessage string = "message"
 )
 
 // prop value enum

@@ -60,7 +60,7 @@ type DevelopmentActivity struct {
 	SelfURI strfmt.URI `json:"selfUri,omitempty"`
 
 	// The status of the activity
-	// Enum: [Planned InProgress Completed InvalidSchedule]
+	// Enum: [Planned InProgress Completed InvalidSchedule NotCompleted]
 	Status string `json:"status,omitempty"`
 
 	// The type of activity
@@ -231,7 +231,7 @@ var developmentActivityTypeStatusPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Planned","InProgress","Completed","InvalidSchedule"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Planned","InProgress","Completed","InvalidSchedule","NotCompleted"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -252,6 +252,9 @@ const (
 
 	// DevelopmentActivityStatusInvalidSchedule captures enum value "InvalidSchedule"
 	DevelopmentActivityStatusInvalidSchedule string = "InvalidSchedule"
+
+	// DevelopmentActivityStatusNotCompleted captures enum value "NotCompleted"
+	DevelopmentActivityStatusNotCompleted string = "NotCompleted"
 )
 
 // prop value enum

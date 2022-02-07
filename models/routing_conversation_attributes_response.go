@@ -24,6 +24,9 @@ type RoutingConversationAttributesResponse struct {
 	// Current priority value on in-queue conversation. Range:[-25000000, 25000000]
 	Priority int32 `json:"priority,omitempty"`
 
+	// Current scored agents on in-queue conversation
+	ScoredAgents []*ScoredAgent `json:"scoredAgents"`
+
 	// Current routing skills on in-queue conversation
 	Skills []*RoutingSkill `json:"skills"`
 }
@@ -33,6 +36,10 @@ func (m *RoutingConversationAttributesResponse) Validate(formats strfmt.Registry
 	var res []error
 
 	if err := m.validateLanguage(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateScoredAgents(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -59,6 +66,31 @@ func (m *RoutingConversationAttributesResponse) validateLanguage(formats strfmt.
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *RoutingConversationAttributesResponse) validateScoredAgents(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.ScoredAgents) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.ScoredAgents); i++ {
+		if swag.IsZero(m.ScoredAgents[i]) { // not required
+			continue
+		}
+
+		if m.ScoredAgents[i] != nil {
+			if err := m.ScoredAgents[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("scoredAgents" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

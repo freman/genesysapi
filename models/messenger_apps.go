@@ -16,6 +16,9 @@ import (
 // swagger:model MessengerApps
 type MessengerApps struct {
 
+	// The conversation settings that handles chats within the messenger
+	Conversations *ConversationAppSettings `json:"conversations,omitempty"`
+
 	// The knowledge base config for messenger
 	Knowledge *Knowledge `json:"knowledge,omitempty"`
 }
@@ -24,6 +27,10 @@ type MessengerApps struct {
 func (m *MessengerApps) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateConversations(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateKnowledge(formats); err != nil {
 		res = append(res, err)
 	}
@@ -31,6 +38,24 @@ func (m *MessengerApps) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *MessengerApps) validateConversations(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Conversations) { // not required
+		return nil
+	}
+
+	if m.Conversations != nil {
+		if err := m.Conversations.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("conversations")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

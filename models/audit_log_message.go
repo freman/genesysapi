@@ -34,7 +34,7 @@ type AuditLogMessage struct {
 	Entity *DomainEntityRef `json:"entity,omitempty"`
 
 	// Type of the entity that was impacted.
-	// Enum: [AccessToken ActionMap ActionTemplate ActivityCode AgentRoutingInfo Annotation Appointment Assignment AttemptLimits AuthOrganization AuthUser Bulk BulkActions BusinessUnit Calibration CallableTimeSet CallAnalysisResponseSet Campaign CampaignRule CampaignSchedule ChangeRequest ClickstreamSettings Configuration ConfigurationVersion ContactList ContactListFilter ContactSchema ConversationAttributes ConversationAccount ConversationDefaultSupportedContent ConversationPhoneNumber ConversationRecipient ConversationThreadingWindow DashboardSettings DependencyTrackingBuild Deployment DID DIDPool DNCList Document DynamicGroup DynamicSchema Edge EdgeGroup EdgeLog EdgeLogZip EdgePcaps EdgePreferences EdgeTraceLevel EmergencyGroup Evaluation EvaluationForm EventType Exports Extension ExtensionPool ExternalMetricsData ExternalMetricsDefinition ExternalOrganizationSchema Feedback Flow FlowMilestone FlowOutcome Forecast HistoricalData InsightSettings Integration IVR KnowledgeBase KnowledgeCategory KnowledgeDocument KnowledgeDocumentVariation KnowledgeSearchFeedback KnowledgeTraining Line LineBase Location ManagementUnit MaxOrgRoutingUtilizationCapacity MediaDiagnosticsTraceFile MessagingCampaign Metric Module NumberPlan OAuthClient OAuthClientAuthorization OrganizationAuthorizationTrust OrganizationAuthorizationUserTrust OrganizationFeature OrganizationIntegrationsAccess OrganizationSettings OrphanedRecording OutboundRoute Outcome Pcaps Phone PhoneBase PlanningGroup Policy Predictor Product Profile ProfileMembers Program Prompt PromptResource Queue Recording RecordingAnnotation RecordingSettings Response Role Row RoutingTranscriptionSettings RoutingUtilizationTag Rule RuleSet Schedule ScheduledExports ScheduleGroup Schema ScreenRecording Segment SentimentFeedback Sequence SequenceSchedule ServiceGoalTemplate SessionType ShiftTrade Site SpeechTextAnalyticsSettings Status SupportedContent SupportFile Survey SurveyForm Team TimeOffRequest Topic TranscriptionSettings Trigger Trunk TrunkBase User UserPresence VoicemailPolicy VoicemailUserPolicy Webhook Workbin Workitem WorkPlan WorkPlanRotation Workspace Worktype WrapupCode WrapUpCodeMapping Participant]
+	// Enum: [AccessToken ActionMap ActionTemplate ActivityCode AgentRoutingInfo AnalyticsReportingSettings Annotation Appointment Assignment AttemptLimits AuthOrganization AuthUser Bulk BulkActions BusinessUnit Calibration CallableTimeSet CallAnalysisResponseSet Campaign CampaignRule CampaignSchedule ChangeRequest ClickstreamSettings Configuration ConfigurationVersion ContactList ContactListFilter ContactSchema ConversationAttributes ConversationAccount ConversationDefaultSupportedContent ConversationPhoneNumber ConversationRecipient ConversationThreadingWindow Credential DashboardSettings DependencyTrackingBuild Deployment DID DIDPool DNCList Document DynamicGroup DynamicSchema Edge EdgeGroup EdgeLog EdgeLogZip EdgePcaps EdgePreferences EdgeTraceLevel EmergencyGroup Evaluation EvaluationForm EventType Exports Extension ExtensionPool ExternalMetricsData ExternalMetricsDefinition ExternalOrganizationSchema Feedback Flow FlowMilestone FlowOutcome Forecast HistoricalData InsightSettings Integration IVR KnowledgeBase KnowledgeCategory KnowledgeDocument KnowledgeDocumentVariation KnowledgeSearchFeedback KnowledgeTraining Line LineBase Location ManagementUnit MaxOrgRoutingUtilizationCapacity MediaDiagnosticsTraceFile MessagingCampaign Metric Module NumberPlan OAuthClient OAuthClientAuthorization OrganizationAuthorizationTrust OrganizationAuthorizationUserTrust OrganizationFeature OrganizationIntegrationsAccess OrganizationSettings OrphanedRecording OutboundRoute Outcome Pcaps Phone PhoneBase PlanningGroup Policy Predictor Product Profile ProfileMembers Program Prompt PromptResource Queue Recording RecordingAnnotation RecordingSettings Response ResponseAsset Role Row RoutingTranscriptionSettings RoutingUtilizationTag Rule RuleSet Schedule ScheduledExports ScheduleGroup Schema ScreenRecording Segment SentimentFeedback Sequence SequenceSchedule ServiceGoalTemplate SessionType ShiftTrade Site SpeechTextAnalyticsSettings Status SupportedContent SupportFile Survey SurveyForm Team TimeOffLimit TimeOffPlan TimeOffRequest Topic TranscriptionSettings Trigger Trunk TrunkBase User UserPresence VoicemailPolicy VoicemailUserPolicy Webhook Workbin Workitem WorkPlan WorkPlanRotation Workspace Worktype WrapupCode WrapUpCodeMapping Participant]
 	EntityType string `json:"entityType,omitempty"`
 
 	// Date and time of when the audit message was logged. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
@@ -54,7 +54,7 @@ type AuditLogMessage struct {
 	RemoteIP []string `json:"remoteIp"`
 
 	// Name of the service that logged this audit message.
-	// Enum: [AnalyticsReporting Architect Coaching ContactCenter ContentManagement Datatables Directory DynamicSchema Gamification Groups Integrations Knowledge LanguageUnderstanding Learning Limits Outbound PeoplePermissions EmployeePerformance PredictiveEngagement Presence Quality ResponseManagement Routing SpeechAndTextAnalytics Telephony TopicsDefinitions Triggers ProcessAutomation WebDeployments Webhooks WorkforceManagement Messaging Supportability Callback Workitems]
+	// Enum: [AnalyticsReporting Architect Coaching ContactCenter ContentManagement Datatables Directory DynamicSchema Gamification Groups Integrations Knowledge LanguageUnderstanding Learning Limits Outbound PeoplePermissions EmployeePerformance PredictiveEngagement Presence Quality ResponseManagement Routing SpeechAndTextAnalytics Telephony TopicsDefinitions Triggers ProcessAutomation WebDeployments Webhooks WorkforceManagement Messaging Supportability Callback Workitems SCIM]
 	ServiceName string `json:"serviceName,omitempty"`
 
 	// User associated with this audit message.
@@ -394,7 +394,7 @@ var auditLogMessageTypeEntityTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["AccessToken","ActionMap","ActionTemplate","ActivityCode","AgentRoutingInfo","Annotation","Appointment","Assignment","AttemptLimits","AuthOrganization","AuthUser","Bulk","BulkActions","BusinessUnit","Calibration","CallableTimeSet","CallAnalysisResponseSet","Campaign","CampaignRule","CampaignSchedule","ChangeRequest","ClickstreamSettings","Configuration","ConfigurationVersion","ContactList","ContactListFilter","ContactSchema","ConversationAttributes","ConversationAccount","ConversationDefaultSupportedContent","ConversationPhoneNumber","ConversationRecipient","ConversationThreadingWindow","DashboardSettings","DependencyTrackingBuild","Deployment","DID","DIDPool","DNCList","Document","DynamicGroup","DynamicSchema","Edge","EdgeGroup","EdgeLog","EdgeLogZip","EdgePcaps","EdgePreferences","EdgeTraceLevel","EmergencyGroup","Evaluation","EvaluationForm","EventType","Exports","Extension","ExtensionPool","ExternalMetricsData","ExternalMetricsDefinition","ExternalOrganizationSchema","Feedback","Flow","FlowMilestone","FlowOutcome","Forecast","HistoricalData","InsightSettings","Integration","IVR","KnowledgeBase","KnowledgeCategory","KnowledgeDocument","KnowledgeDocumentVariation","KnowledgeSearchFeedback","KnowledgeTraining","Line","LineBase","Location","ManagementUnit","MaxOrgRoutingUtilizationCapacity","MediaDiagnosticsTraceFile","MessagingCampaign","Metric","Module","NumberPlan","OAuthClient","OAuthClientAuthorization","OrganizationAuthorizationTrust","OrganizationAuthorizationUserTrust","OrganizationFeature","OrganizationIntegrationsAccess","OrganizationSettings","OrphanedRecording","OutboundRoute","Outcome","Pcaps","Phone","PhoneBase","PlanningGroup","Policy","Predictor","Product","Profile","ProfileMembers","Program","Prompt","PromptResource","Queue","Recording","RecordingAnnotation","RecordingSettings","Response","Role","Row","RoutingTranscriptionSettings","RoutingUtilizationTag","Rule","RuleSet","Schedule","ScheduledExports","ScheduleGroup","Schema","ScreenRecording","Segment","SentimentFeedback","Sequence","SequenceSchedule","ServiceGoalTemplate","SessionType","ShiftTrade","Site","SpeechTextAnalyticsSettings","Status","SupportedContent","SupportFile","Survey","SurveyForm","Team","TimeOffRequest","Topic","TranscriptionSettings","Trigger","Trunk","TrunkBase","User","UserPresence","VoicemailPolicy","VoicemailUserPolicy","Webhook","Workbin","Workitem","WorkPlan","WorkPlanRotation","Workspace","Worktype","WrapupCode","WrapUpCodeMapping","Participant"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["AccessToken","ActionMap","ActionTemplate","ActivityCode","AgentRoutingInfo","AnalyticsReportingSettings","Annotation","Appointment","Assignment","AttemptLimits","AuthOrganization","AuthUser","Bulk","BulkActions","BusinessUnit","Calibration","CallableTimeSet","CallAnalysisResponseSet","Campaign","CampaignRule","CampaignSchedule","ChangeRequest","ClickstreamSettings","Configuration","ConfigurationVersion","ContactList","ContactListFilter","ContactSchema","ConversationAttributes","ConversationAccount","ConversationDefaultSupportedContent","ConversationPhoneNumber","ConversationRecipient","ConversationThreadingWindow","Credential","DashboardSettings","DependencyTrackingBuild","Deployment","DID","DIDPool","DNCList","Document","DynamicGroup","DynamicSchema","Edge","EdgeGroup","EdgeLog","EdgeLogZip","EdgePcaps","EdgePreferences","EdgeTraceLevel","EmergencyGroup","Evaluation","EvaluationForm","EventType","Exports","Extension","ExtensionPool","ExternalMetricsData","ExternalMetricsDefinition","ExternalOrganizationSchema","Feedback","Flow","FlowMilestone","FlowOutcome","Forecast","HistoricalData","InsightSettings","Integration","IVR","KnowledgeBase","KnowledgeCategory","KnowledgeDocument","KnowledgeDocumentVariation","KnowledgeSearchFeedback","KnowledgeTraining","Line","LineBase","Location","ManagementUnit","MaxOrgRoutingUtilizationCapacity","MediaDiagnosticsTraceFile","MessagingCampaign","Metric","Module","NumberPlan","OAuthClient","OAuthClientAuthorization","OrganizationAuthorizationTrust","OrganizationAuthorizationUserTrust","OrganizationFeature","OrganizationIntegrationsAccess","OrganizationSettings","OrphanedRecording","OutboundRoute","Outcome","Pcaps","Phone","PhoneBase","PlanningGroup","Policy","Predictor","Product","Profile","ProfileMembers","Program","Prompt","PromptResource","Queue","Recording","RecordingAnnotation","RecordingSettings","Response","ResponseAsset","Role","Row","RoutingTranscriptionSettings","RoutingUtilizationTag","Rule","RuleSet","Schedule","ScheduledExports","ScheduleGroup","Schema","ScreenRecording","Segment","SentimentFeedback","Sequence","SequenceSchedule","ServiceGoalTemplate","SessionType","ShiftTrade","Site","SpeechTextAnalyticsSettings","Status","SupportedContent","SupportFile","Survey","SurveyForm","Team","TimeOffLimit","TimeOffPlan","TimeOffRequest","Topic","TranscriptionSettings","Trigger","Trunk","TrunkBase","User","UserPresence","VoicemailPolicy","VoicemailUserPolicy","Webhook","Workbin","Workitem","WorkPlan","WorkPlanRotation","Workspace","Worktype","WrapupCode","WrapUpCodeMapping","Participant"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -418,6 +418,9 @@ const (
 
 	// AuditLogMessageEntityTypeAgentRoutingInfo captures enum value "AgentRoutingInfo"
 	AuditLogMessageEntityTypeAgentRoutingInfo string = "AgentRoutingInfo"
+
+	// AuditLogMessageEntityTypeAnalyticsReportingSettings captures enum value "AnalyticsReportingSettings"
+	AuditLogMessageEntityTypeAnalyticsReportingSettings string = "AnalyticsReportingSettings"
 
 	// AuditLogMessageEntityTypeAnnotation captures enum value "Annotation"
 	AuditLogMessageEntityTypeAnnotation string = "Annotation"
@@ -502,6 +505,9 @@ const (
 
 	// AuditLogMessageEntityTypeConversationThreadingWindow captures enum value "ConversationThreadingWindow"
 	AuditLogMessageEntityTypeConversationThreadingWindow string = "ConversationThreadingWindow"
+
+	// AuditLogMessageEntityTypeCredential captures enum value "Credential"
+	AuditLogMessageEntityTypeCredential string = "Credential"
 
 	// AuditLogMessageEntityTypeDashboardSettings captures enum value "DashboardSettings"
 	AuditLogMessageEntityTypeDashboardSettings string = "DashboardSettings"
@@ -737,6 +743,9 @@ const (
 	// AuditLogMessageEntityTypeResponse captures enum value "Response"
 	AuditLogMessageEntityTypeResponse string = "Response"
 
+	// AuditLogMessageEntityTypeResponseAsset captures enum value "ResponseAsset"
+	AuditLogMessageEntityTypeResponseAsset string = "ResponseAsset"
+
 	// AuditLogMessageEntityTypeRole captures enum value "Role"
 	AuditLogMessageEntityTypeRole string = "Role"
 
@@ -814,6 +823,12 @@ const (
 
 	// AuditLogMessageEntityTypeTeam captures enum value "Team"
 	AuditLogMessageEntityTypeTeam string = "Team"
+
+	// AuditLogMessageEntityTypeTimeOffLimit captures enum value "TimeOffLimit"
+	AuditLogMessageEntityTypeTimeOffLimit string = "TimeOffLimit"
+
+	// AuditLogMessageEntityTypeTimeOffPlan captures enum value "TimeOffPlan"
+	AuditLogMessageEntityTypeTimeOffPlan string = "TimeOffPlan"
 
 	// AuditLogMessageEntityTypeTimeOffRequest captures enum value "TimeOffRequest"
 	AuditLogMessageEntityTypeTimeOffRequest string = "TimeOffRequest"
@@ -958,7 +973,7 @@ var auditLogMessageTypeServiceNamePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["AnalyticsReporting","Architect","Coaching","ContactCenter","ContentManagement","Datatables","Directory","DynamicSchema","Gamification","Groups","Integrations","Knowledge","LanguageUnderstanding","Learning","Limits","Outbound","PeoplePermissions","EmployeePerformance","PredictiveEngagement","Presence","Quality","ResponseManagement","Routing","SpeechAndTextAnalytics","Telephony","TopicsDefinitions","Triggers","ProcessAutomation","WebDeployments","Webhooks","WorkforceManagement","Messaging","Supportability","Callback","Workitems"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["AnalyticsReporting","Architect","Coaching","ContactCenter","ContentManagement","Datatables","Directory","DynamicSchema","Gamification","Groups","Integrations","Knowledge","LanguageUnderstanding","Learning","Limits","Outbound","PeoplePermissions","EmployeePerformance","PredictiveEngagement","Presence","Quality","ResponseManagement","Routing","SpeechAndTextAnalytics","Telephony","TopicsDefinitions","Triggers","ProcessAutomation","WebDeployments","Webhooks","WorkforceManagement","Messaging","Supportability","Callback","Workitems","SCIM"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -1072,6 +1087,9 @@ const (
 
 	// AuditLogMessageServiceNameWorkitems captures enum value "Workitems"
 	AuditLogMessageServiceNameWorkitems string = "Workitems"
+
+	// AuditLogMessageServiceNameSCIM captures enum value "SCIM"
+	AuditLogMessageServiceNameSCIM string = "SCIM"
 )
 
 // prop value enum

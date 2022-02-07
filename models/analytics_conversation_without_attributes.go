@@ -27,6 +27,10 @@ type AnalyticsConversationWithoutAttributes struct {
 	// Unique identifier for the conversation
 	ConversationID string `json:"conversationId,omitempty"`
 
+	// Indicates the participant purpose of the participant initiating a message conversation
+	// Enum: [acd agent api botflow campaign customer dialer external fax group inbound ivr manual outbound station user voicemail workflow]
+	ConversationInitiator string `json:"conversationInitiator,omitempty"`
+
 	// The start time of a conversation. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	ConversationStart strfmt.DateTime `json:"conversationStart,omitempty"`
@@ -74,6 +78,10 @@ func (m *AnalyticsConversationWithoutAttributes) Validate(formats strfmt.Registr
 		res = append(res, err)
 	}
 
+	if err := m.validateConversationInitiator(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateConversationStart(formats); err != nil {
 		res = append(res, err)
 	}
@@ -111,6 +119,97 @@ func (m *AnalyticsConversationWithoutAttributes) validateConversationEnd(formats
 	}
 
 	if err := validate.FormatOf("conversationEnd", "body", "date-time", m.ConversationEnd.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+var analyticsConversationWithoutAttributesTypeConversationInitiatorPropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["acd","agent","api","botflow","campaign","customer","dialer","external","fax","group","inbound","ivr","manual","outbound","station","user","voicemail","workflow"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		analyticsConversationWithoutAttributesTypeConversationInitiatorPropEnum = append(analyticsConversationWithoutAttributesTypeConversationInitiatorPropEnum, v)
+	}
+}
+
+const (
+
+	// AnalyticsConversationWithoutAttributesConversationInitiatorAcd captures enum value "acd"
+	AnalyticsConversationWithoutAttributesConversationInitiatorAcd string = "acd"
+
+	// AnalyticsConversationWithoutAttributesConversationInitiatorAgent captures enum value "agent"
+	AnalyticsConversationWithoutAttributesConversationInitiatorAgent string = "agent"
+
+	// AnalyticsConversationWithoutAttributesConversationInitiatorAPI captures enum value "api"
+	AnalyticsConversationWithoutAttributesConversationInitiatorAPI string = "api"
+
+	// AnalyticsConversationWithoutAttributesConversationInitiatorBotflow captures enum value "botflow"
+	AnalyticsConversationWithoutAttributesConversationInitiatorBotflow string = "botflow"
+
+	// AnalyticsConversationWithoutAttributesConversationInitiatorCampaign captures enum value "campaign"
+	AnalyticsConversationWithoutAttributesConversationInitiatorCampaign string = "campaign"
+
+	// AnalyticsConversationWithoutAttributesConversationInitiatorCustomer captures enum value "customer"
+	AnalyticsConversationWithoutAttributesConversationInitiatorCustomer string = "customer"
+
+	// AnalyticsConversationWithoutAttributesConversationInitiatorDialer captures enum value "dialer"
+	AnalyticsConversationWithoutAttributesConversationInitiatorDialer string = "dialer"
+
+	// AnalyticsConversationWithoutAttributesConversationInitiatorExternal captures enum value "external"
+	AnalyticsConversationWithoutAttributesConversationInitiatorExternal string = "external"
+
+	// AnalyticsConversationWithoutAttributesConversationInitiatorFax captures enum value "fax"
+	AnalyticsConversationWithoutAttributesConversationInitiatorFax string = "fax"
+
+	// AnalyticsConversationWithoutAttributesConversationInitiatorGroup captures enum value "group"
+	AnalyticsConversationWithoutAttributesConversationInitiatorGroup string = "group"
+
+	// AnalyticsConversationWithoutAttributesConversationInitiatorInbound captures enum value "inbound"
+	AnalyticsConversationWithoutAttributesConversationInitiatorInbound string = "inbound"
+
+	// AnalyticsConversationWithoutAttributesConversationInitiatorIvr captures enum value "ivr"
+	AnalyticsConversationWithoutAttributesConversationInitiatorIvr string = "ivr"
+
+	// AnalyticsConversationWithoutAttributesConversationInitiatorManual captures enum value "manual"
+	AnalyticsConversationWithoutAttributesConversationInitiatorManual string = "manual"
+
+	// AnalyticsConversationWithoutAttributesConversationInitiatorOutbound captures enum value "outbound"
+	AnalyticsConversationWithoutAttributesConversationInitiatorOutbound string = "outbound"
+
+	// AnalyticsConversationWithoutAttributesConversationInitiatorStation captures enum value "station"
+	AnalyticsConversationWithoutAttributesConversationInitiatorStation string = "station"
+
+	// AnalyticsConversationWithoutAttributesConversationInitiatorUser captures enum value "user"
+	AnalyticsConversationWithoutAttributesConversationInitiatorUser string = "user"
+
+	// AnalyticsConversationWithoutAttributesConversationInitiatorVoicemail captures enum value "voicemail"
+	AnalyticsConversationWithoutAttributesConversationInitiatorVoicemail string = "voicemail"
+
+	// AnalyticsConversationWithoutAttributesConversationInitiatorWorkflow captures enum value "workflow"
+	AnalyticsConversationWithoutAttributesConversationInitiatorWorkflow string = "workflow"
+)
+
+// prop value enum
+func (m *AnalyticsConversationWithoutAttributes) validateConversationInitiatorEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, analyticsConversationWithoutAttributesTypeConversationInitiatorPropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *AnalyticsConversationWithoutAttributes) validateConversationInitiator(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.ConversationInitiator) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateConversationInitiatorEnum("conversationInitiator", "body", m.ConversationInitiator); err != nil {
 		return err
 	}
 

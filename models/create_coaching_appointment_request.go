@@ -23,7 +23,6 @@ type CreateCoachingAppointmentRequest struct {
 	AttendeeIds []string `json:"attendeeIds"`
 
 	// IDs of conversations associated with this coaching appointment.
-	// Required: true
 	// Unique: true
 	ConversationIds []string `json:"conversationIds"`
 
@@ -37,9 +36,11 @@ type CreateCoachingAppointmentRequest struct {
 	Description *string `json:"description"`
 
 	// IDs of documents associated with this coaching appointment.
-	// Required: true
 	// Unique: true
 	DocumentIds []string `json:"documentIds"`
+
+	// The list of external links related to the appointment
+	ExternalLinks []string `json:"externalLinks"`
 
 	// The facilitator ID of coaching appointment.
 	FacilitatorID string `json:"facilitatorId,omitempty"`
@@ -51,6 +52,9 @@ type CreateCoachingAppointmentRequest struct {
 	// The name of coaching appointment.
 	// Required: true
 	Name *string `json:"name"`
+
+	// The Workforce Management schedule the appointment is associated with.
+	WfmSchedule *WfmScheduleReference `json:"wfmSchedule,omitempty"`
 }
 
 // Validate validates this create coaching appointment request
@@ -85,6 +89,10 @@ func (m *CreateCoachingAppointmentRequest) Validate(formats strfmt.Registry) err
 		res = append(res, err)
 	}
 
+	if err := m.validateWfmSchedule(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
@@ -106,8 +114,8 @@ func (m *CreateCoachingAppointmentRequest) validateAttendeeIds(formats strfmt.Re
 
 func (m *CreateCoachingAppointmentRequest) validateConversationIds(formats strfmt.Registry) error {
 
-	if err := validate.Required("conversationIds", "body", m.ConversationIds); err != nil {
-		return err
+	if swag.IsZero(m.ConversationIds) { // not required
+		return nil
 	}
 
 	if err := validate.UniqueItems("conversationIds", "body", m.ConversationIds); err != nil {
@@ -141,8 +149,8 @@ func (m *CreateCoachingAppointmentRequest) validateDescription(formats strfmt.Re
 
 func (m *CreateCoachingAppointmentRequest) validateDocumentIds(formats strfmt.Registry) error {
 
-	if err := validate.Required("documentIds", "body", m.DocumentIds); err != nil {
-		return err
+	if swag.IsZero(m.DocumentIds) { // not required
+		return nil
 	}
 
 	if err := validate.UniqueItems("documentIds", "body", m.DocumentIds); err != nil {
@@ -165,6 +173,24 @@ func (m *CreateCoachingAppointmentRequest) validateName(formats strfmt.Registry)
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *CreateCoachingAppointmentRequest) validateWfmSchedule(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.WfmSchedule) { // not required
+		return nil
+	}
+
+	if m.WfmSchedule != nil {
+		if err := m.WfmSchedule.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("wfmSchedule")
+			}
+			return err
+		}
 	}
 
 	return nil

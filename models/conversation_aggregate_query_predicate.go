@@ -20,7 +20,7 @@ import (
 type ConversationAggregateQueryPredicate struct {
 
 	// Left hand side for dimension predicates
-	// Enum: [activeSkillId addressFrom addressTo agentAssistantId agentBullseyeRing agentOwned agentRank agentScore ani assignerId authenticated conversationId convertedFrom convertedTo deliveryStatus destinationAddress direction disconnectType divisionId dnis edgeId eligibleAgentCount externalContactId externalMediaCount externalOrganizationId externalTag firstQueue flaggedReason flowInType flowOutType groupId interactionType journeyActionId journeyActionMapId journeyActionMapVersion journeyCustomerId journeyCustomerIdType journeyCustomerSessionId journeyCustomerSessionIdType knowledgeBaseId mediaCount mediaType messageType originatingDirection outboundCampaignId outboundContactId outboundContactListId participantName peerId proposedAgentId provider purpose queueId remote removedSkillId reoffered requestedLanguageId requestedRouting requestedRoutingSkillId roomId routingPriority routingRing scoredAgentId selectedAgentId selectedAgentRank selfServed sessionDnis sessionId stationId teamId usedRouting userId waitingInteractionCount wrapUpCode]
+	// Enum: [activeSkillId addressFrom addressTo agentAssistantId agentBullseyeRing agentOwned agentRank agentScore ani assignerId authenticated conversationId conversationInitiator convertedFrom convertedTo deliveryStatus destinationAddress direction disconnectType divisionId dnis edgeId eligibleAgentCount extendedDeliveryStatus externalContactId externalMediaCount externalOrganizationId externalTag firstQueue flaggedReason flowInType flowOutType groupId interactionType journeyActionId journeyActionMapId journeyActionMapVersion journeyCustomerId journeyCustomerIdType journeyCustomerSessionId journeyCustomerSessionIdType knowledgeBaseId mediaCount mediaType messageType originatingDirection outboundCampaignId outboundContactId outboundContactListId participantName peerId proposedAgentId provider purpose queueId remote removedSkillId reoffered requestedLanguageId requestedRouting requestedRoutingSkillId roomId routingPriority routingRing scoredAgentId selectedAgentId selectedAgentRank selfServed sessionDnis sessionId stationId teamId usedRouting userId waitingInteractionCount wrapUpCode]
 	Dimension string `json:"dimension,omitempty"`
 
 	// Optional operator, default is matches
@@ -68,7 +68,7 @@ var conversationAggregateQueryPredicateTypeDimensionPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["activeSkillId","addressFrom","addressTo","agentAssistantId","agentBullseyeRing","agentOwned","agentRank","agentScore","ani","assignerId","authenticated","conversationId","convertedFrom","convertedTo","deliveryStatus","destinationAddress","direction","disconnectType","divisionId","dnis","edgeId","eligibleAgentCount","externalContactId","externalMediaCount","externalOrganizationId","externalTag","firstQueue","flaggedReason","flowInType","flowOutType","groupId","interactionType","journeyActionId","journeyActionMapId","journeyActionMapVersion","journeyCustomerId","journeyCustomerIdType","journeyCustomerSessionId","journeyCustomerSessionIdType","knowledgeBaseId","mediaCount","mediaType","messageType","originatingDirection","outboundCampaignId","outboundContactId","outboundContactListId","participantName","peerId","proposedAgentId","provider","purpose","queueId","remote","removedSkillId","reoffered","requestedLanguageId","requestedRouting","requestedRoutingSkillId","roomId","routingPriority","routingRing","scoredAgentId","selectedAgentId","selectedAgentRank","selfServed","sessionDnis","sessionId","stationId","teamId","usedRouting","userId","waitingInteractionCount","wrapUpCode"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["activeSkillId","addressFrom","addressTo","agentAssistantId","agentBullseyeRing","agentOwned","agentRank","agentScore","ani","assignerId","authenticated","conversationId","conversationInitiator","convertedFrom","convertedTo","deliveryStatus","destinationAddress","direction","disconnectType","divisionId","dnis","edgeId","eligibleAgentCount","extendedDeliveryStatus","externalContactId","externalMediaCount","externalOrganizationId","externalTag","firstQueue","flaggedReason","flowInType","flowOutType","groupId","interactionType","journeyActionId","journeyActionMapId","journeyActionMapVersion","journeyCustomerId","journeyCustomerIdType","journeyCustomerSessionId","journeyCustomerSessionIdType","knowledgeBaseId","mediaCount","mediaType","messageType","originatingDirection","outboundCampaignId","outboundContactId","outboundContactListId","participantName","peerId","proposedAgentId","provider","purpose","queueId","remote","removedSkillId","reoffered","requestedLanguageId","requestedRouting","requestedRoutingSkillId","roomId","routingPriority","routingRing","scoredAgentId","selectedAgentId","selectedAgentRank","selfServed","sessionDnis","sessionId","stationId","teamId","usedRouting","userId","waitingInteractionCount","wrapUpCode"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -114,6 +114,9 @@ const (
 	// ConversationAggregateQueryPredicateDimensionConversationID captures enum value "conversationId"
 	ConversationAggregateQueryPredicateDimensionConversationID string = "conversationId"
 
+	// ConversationAggregateQueryPredicateDimensionConversationInitiator captures enum value "conversationInitiator"
+	ConversationAggregateQueryPredicateDimensionConversationInitiator string = "conversationInitiator"
+
 	// ConversationAggregateQueryPredicateDimensionConvertedFrom captures enum value "convertedFrom"
 	ConversationAggregateQueryPredicateDimensionConvertedFrom string = "convertedFrom"
 
@@ -143,6 +146,9 @@ const (
 
 	// ConversationAggregateQueryPredicateDimensionEligibleAgentCount captures enum value "eligibleAgentCount"
 	ConversationAggregateQueryPredicateDimensionEligibleAgentCount string = "eligibleAgentCount"
+
+	// ConversationAggregateQueryPredicateDimensionExtendedDeliveryStatus captures enum value "extendedDeliveryStatus"
+	ConversationAggregateQueryPredicateDimensionExtendedDeliveryStatus string = "extendedDeliveryStatus"
 
 	// ConversationAggregateQueryPredicateDimensionExternalContactID captures enum value "externalContactId"
 	ConversationAggregateQueryPredicateDimensionExternalContactID string = "externalContactId"

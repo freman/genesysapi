@@ -28,7 +28,7 @@ type MinerExecuteRequest struct {
 	DateStart strfmt.Date `json:"dateStart,omitempty"`
 
 	// Media type for filtering conversations.
-	// Enum: [Chat Call]
+	// Enum: [Chat Call Message]
 	MediaType string `json:"mediaType,omitempty"`
 
 	// List of queue IDs for filtering conversations.
@@ -90,7 +90,7 @@ var minerExecuteRequestTypeMediaTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Chat","Call"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Chat","Call","Message"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -105,6 +105,9 @@ const (
 
 	// MinerExecuteRequestMediaTypeCall captures enum value "Call"
 	MinerExecuteRequestMediaTypeCall string = "Call"
+
+	// MinerExecuteRequestMediaTypeMessage captures enum value "Message"
+	MinerExecuteRequestMediaTypeMessage string = "Message"
 )
 
 // prop value enum

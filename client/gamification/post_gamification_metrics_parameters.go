@@ -66,7 +66,7 @@ type PostGamificationMetricsParams struct {
 	  Metric
 
 	*/
-	Body *models.Metric
+	Body *models.CreateMetric
 
 	timeout    time.Duration
 	Context    context.Context
@@ -107,13 +107,13 @@ func (o *PostGamificationMetricsParams) SetHTTPClient(client *http.Client) {
 }
 
 // WithBody adds the body to the post gamification metrics params
-func (o *PostGamificationMetricsParams) WithBody(body *models.Metric) *PostGamificationMetricsParams {
+func (o *PostGamificationMetricsParams) WithBody(body *models.CreateMetric) *PostGamificationMetricsParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the post gamification metrics params
-func (o *PostGamificationMetricsParams) SetBody(body *models.Metric) {
+func (o *PostGamificationMetricsParams) SetBody(body *models.CreateMetric) {
 	o.Body = body
 }
 

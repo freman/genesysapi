@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"strconv"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -25,6 +27,9 @@ type RoutingConversationAttributesRequest struct {
 	// Minimum: -2.5e+07
 	Priority *int32 `json:"priority,omitempty"`
 
+	// request scored agents
+	RequestScoredAgents []*RequestScoredAgent `json:"requestScoredAgents"`
+
 	// Skill requirements for the conversation.  To remove all skill requirements, specify an empty list, i.e. [].
 	SkillIds []string `json:"skillIds"`
 }
@@ -34,6 +39,10 @@ func (m *RoutingConversationAttributesRequest) Validate(formats strfmt.Registry)
 	var res []error
 
 	if err := m.validatePriority(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateRequestScoredAgents(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -55,6 +64,31 @@ func (m *RoutingConversationAttributesRequest) validatePriority(formats strfmt.R
 
 	if err := validate.MaximumInt("priority", "body", int64(*m.Priority), 2.5e+07, false); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *RoutingConversationAttributesRequest) validateRequestScoredAgents(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.RequestScoredAgents) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.RequestScoredAgents); i++ {
+		if swag.IsZero(m.RequestScoredAgents[i]) { // not required
+			continue
+		}
+
+		if m.RequestScoredAgents[i] != nil {
+			if err := m.RequestScoredAgents[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("requestScoredAgents" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

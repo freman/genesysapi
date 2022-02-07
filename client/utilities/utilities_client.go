@@ -22,7 +22,7 @@ type API interface {
 	*/
 	GetDate(ctx context.Context, params *GetDateParams) (*GetDateOK, error)
 	/*
-	   GetIpranges gets public ip address ranges for pure cloud
+	   GetIpranges gets public ip address ranges for genesys cloud
 	*/
 	GetIpranges(ctx context.Context, params *GetIprangesParams) (*GetIprangesOK, error)
 	/*
@@ -79,7 +79,7 @@ func (a *Client) GetDate(ctx context.Context, params *GetDateParams) (*GetDateOK
 }
 
 /*
-GetIpranges gets public ip address ranges for pure cloud
+GetIpranges gets public ip address ranges for genesys cloud
 */
 func (a *Client) GetIpranges(ctx context.Context, params *GetIprangesParams) (*GetIprangesOK, error) {
 

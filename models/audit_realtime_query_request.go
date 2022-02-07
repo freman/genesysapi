@@ -35,7 +35,7 @@ type AuditRealtimeQueryRequest struct {
 
 	// Name of the service to query audits for.
 	// Required: true
-	// Enum: [AnalyticsReporting Architect Coaching ContactCenter ContentManagement Datatables Directory DynamicSchema Gamification Groups Integrations Knowledge LanguageUnderstanding Learning Limits Outbound PeoplePermissions EmployeePerformance PredictiveEngagement Presence Quality ResponseManagement Routing SpeechAndTextAnalytics Telephony TopicsDefinitions Triggers ProcessAutomation WebDeployments Webhooks WorkforceManagement Messaging Supportability Callback Workitems]
+	// Enum: [AnalyticsReporting Architect Coaching ContactCenter ContentManagement Datatables Directory DynamicSchema Gamification Groups Integrations Knowledge LanguageUnderstanding Learning Limits Outbound PeoplePermissions EmployeePerformance PredictiveEngagement Presence Quality ResponseManagement Routing SpeechAndTextAnalytics Telephony TopicsDefinitions Triggers ProcessAutomation WebDeployments Webhooks WorkforceManagement Messaging Supportability Callback Workitems SCIM]
 	ServiceName *string `json:"serviceName"`
 
 	// Sort parameter for the query.
@@ -106,7 +106,7 @@ var auditRealtimeQueryRequestTypeServiceNamePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["AnalyticsReporting","Architect","Coaching","ContactCenter","ContentManagement","Datatables","Directory","DynamicSchema","Gamification","Groups","Integrations","Knowledge","LanguageUnderstanding","Learning","Limits","Outbound","PeoplePermissions","EmployeePerformance","PredictiveEngagement","Presence","Quality","ResponseManagement","Routing","SpeechAndTextAnalytics","Telephony","TopicsDefinitions","Triggers","ProcessAutomation","WebDeployments","Webhooks","WorkforceManagement","Messaging","Supportability","Callback","Workitems"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["AnalyticsReporting","Architect","Coaching","ContactCenter","ContentManagement","Datatables","Directory","DynamicSchema","Gamification","Groups","Integrations","Knowledge","LanguageUnderstanding","Learning","Limits","Outbound","PeoplePermissions","EmployeePerformance","PredictiveEngagement","Presence","Quality","ResponseManagement","Routing","SpeechAndTextAnalytics","Telephony","TopicsDefinitions","Triggers","ProcessAutomation","WebDeployments","Webhooks","WorkforceManagement","Messaging","Supportability","Callback","Workitems","SCIM"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -220,6 +220,9 @@ const (
 
 	// AuditRealtimeQueryRequestServiceNameWorkitems captures enum value "Workitems"
 	AuditRealtimeQueryRequestServiceNameWorkitems string = "Workitems"
+
+	// AuditRealtimeQueryRequestServiceNameSCIM captures enum value "SCIM"
+	AuditRealtimeQueryRequestServiceNameSCIM string = "SCIM"
 )
 
 // prop value enum

@@ -37,10 +37,10 @@ type HistoricalAdherenceExceptionInfo struct {
 	// Enum: [OnQueueWork Break Meal Meeting OffQueueWork TimeOff Training Unavailable Unscheduled]
 	ScheduledActivityCategory string `json:"scheduledActivityCategory,omitempty"`
 
-	// The ID of the scheduled activity for this user
+	// The ID of the scheduled activity code for this user
 	ScheduledActivityCodeID string `json:"scheduledActivityCodeId,omitempty"`
 
-	// The lookup ID used to retrieve secondary status from map of lookup ID to corresponding secondary presence ID
+	// The lookup ID used to retrieve the actual secondary status from map of lookup ID to corresponding secondary presence ID
 	SecondaryPresenceLookupID string `json:"secondaryPresenceLookupId,omitempty"`
 
 	// Exception start offset in seconds relative to query start time

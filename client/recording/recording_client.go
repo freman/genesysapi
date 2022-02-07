@@ -60,7 +60,7 @@ type API interface {
 	*/
 	GetConversationRecordingAnnotations(ctx context.Context, params *GetConversationRecordingAnnotationsParams) (*GetConversationRecordingAnnotationsOK, error)
 	/*
-	   GetConversationRecordingmetadata gets recording metadata for a conversation does not return playable media
+	   GetConversationRecordingmetadata gets recording metadata for a conversation does not return playable media annotations won t be included in the response if recording recording view permission is missing
 	*/
 	GetConversationRecordingmetadata(ctx context.Context, params *GetConversationRecordingmetadataParams) (*GetConversationRecordingmetadataOK, error)
 	/*
@@ -520,7 +520,7 @@ func (a *Client) GetConversationRecordingAnnotations(ctx context.Context, params
 }
 
 /*
-GetConversationRecordingmetadata gets recording metadata for a conversation does not return playable media
+GetConversationRecordingmetadata gets recording metadata for a conversation does not return playable media annotations won t be included in the response if recording recording view permission is missing
 */
 func (a *Client) GetConversationRecordingmetadata(ctx context.Context, params *GetConversationRecordingmetadataParams) (*GetConversationRecordingmetadataOK, error) {
 
