@@ -6,8 +6,13 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	"strconv"
+
+	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // SupportCenterSettings Settings concerning support center
@@ -15,12 +20,214 @@ import (
 // swagger:model SupportCenterSettings
 type SupportCenterSettings struct {
 
+	// Customizable display texts for support center
+	CustomMessages []*SupportCenterCustomMessage `json:"customMessages"`
+
 	// Whether or not support center is enabled
 	Enabled bool `json:"enabled"`
+
+	// Enabled article categories for support center
+	EnabledCategories []*AddressableEntityRef `json:"enabledCategories"`
+
+	// The knowledge base for support center
+	KnowledgeBase *AddressableEntityRef `json:"knowledgeBase,omitempty"`
+
+	// Router type for support center
+	// Enum: [Hash Browser]
+	RouterType string `json:"routerType,omitempty"`
+
+	// Available screens for the support center with its modules
+	Screens []*SupportCenterScreen `json:"screens"`
+
+	// Style attributes for support center
+	StyleSetting *SupportCenterStyleSetting `json:"styleSetting,omitempty"`
 }
 
 // Validate validates this support center settings
 func (m *SupportCenterSettings) Validate(formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.validateCustomMessages(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateEnabledCategories(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateKnowledgeBase(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateRouterType(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateScreens(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateStyleSetting(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *SupportCenterSettings) validateCustomMessages(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.CustomMessages) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.CustomMessages); i++ {
+		if swag.IsZero(m.CustomMessages[i]) { // not required
+			continue
+		}
+
+		if m.CustomMessages[i] != nil {
+			if err := m.CustomMessages[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("customMessages" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *SupportCenterSettings) validateEnabledCategories(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.EnabledCategories) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.EnabledCategories); i++ {
+		if swag.IsZero(m.EnabledCategories[i]) { // not required
+			continue
+		}
+
+		if m.EnabledCategories[i] != nil {
+			if err := m.EnabledCategories[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("enabledCategories" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *SupportCenterSettings) validateKnowledgeBase(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.KnowledgeBase) { // not required
+		return nil
+	}
+
+	if m.KnowledgeBase != nil {
+		if err := m.KnowledgeBase.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("knowledgeBase")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+var supportCenterSettingsTypeRouterTypePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Hash","Browser"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		supportCenterSettingsTypeRouterTypePropEnum = append(supportCenterSettingsTypeRouterTypePropEnum, v)
+	}
+}
+
+const (
+
+	// SupportCenterSettingsRouterTypeHash captures enum value "Hash"
+	SupportCenterSettingsRouterTypeHash string = "Hash"
+
+	// SupportCenterSettingsRouterTypeBrowser captures enum value "Browser"
+	SupportCenterSettingsRouterTypeBrowser string = "Browser"
+)
+
+// prop value enum
+func (m *SupportCenterSettings) validateRouterTypeEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, supportCenterSettingsTypeRouterTypePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *SupportCenterSettings) validateRouterType(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.RouterType) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateRouterTypeEnum("routerType", "body", m.RouterType); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *SupportCenterSettings) validateScreens(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Screens) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Screens); i++ {
+		if swag.IsZero(m.Screens[i]) { // not required
+			continue
+		}
+
+		if m.Screens[i] != nil {
+			if err := m.Screens[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("screens" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *SupportCenterSettings) validateStyleSetting(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.StyleSetting) { // not required
+		return nil
+	}
+
+	if m.StyleSetting != nil {
+		if err := m.StyleSetting.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("styleSetting")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

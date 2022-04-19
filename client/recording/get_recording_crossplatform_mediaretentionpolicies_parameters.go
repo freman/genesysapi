@@ -89,6 +89,11 @@ for the get recording crossplatform mediaretentionpolicies operation typically t
 */
 type GetRecordingCrossplatformMediaretentionpoliciesParams struct {
 
+	/*DeleteDaysThreshold
+	  provides a way to fetch all policies with any actions having deleteDays exceeding the provided value
+
+	*/
+	DeleteDaysThreshold *int32
 	/*Enabled
 	  checks to see if policy is enabled - use enabled = true or enabled = false
 
@@ -176,6 +181,17 @@ func (o *GetRecordingCrossplatformMediaretentionpoliciesParams) WithHTTPClient(c
 // SetHTTPClient adds the HTTPClient to the get recording crossplatform mediaretentionpolicies params
 func (o *GetRecordingCrossplatformMediaretentionpoliciesParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
+}
+
+// WithDeleteDaysThreshold adds the deleteDaysThreshold to the get recording crossplatform mediaretentionpolicies params
+func (o *GetRecordingCrossplatformMediaretentionpoliciesParams) WithDeleteDaysThreshold(deleteDaysThreshold *int32) *GetRecordingCrossplatformMediaretentionpoliciesParams {
+	o.SetDeleteDaysThreshold(deleteDaysThreshold)
+	return o
+}
+
+// SetDeleteDaysThreshold adds the deleteDaysThreshold to the get recording crossplatform mediaretentionpolicies params
+func (o *GetRecordingCrossplatformMediaretentionpoliciesParams) SetDeleteDaysThreshold(deleteDaysThreshold *int32) {
+	o.DeleteDaysThreshold = deleteDaysThreshold
 }
 
 // WithEnabled adds the enabled to the get recording crossplatform mediaretentionpolicies params
@@ -295,6 +311,22 @@ func (o *GetRecordingCrossplatformMediaretentionpoliciesParams) WriteToRequest(r
 		return err
 	}
 	var res []error
+
+	if o.DeleteDaysThreshold != nil {
+
+		// query param deleteDaysThreshold
+		var qrDeleteDaysThreshold int32
+		if o.DeleteDaysThreshold != nil {
+			qrDeleteDaysThreshold = *o.DeleteDaysThreshold
+		}
+		qDeleteDaysThreshold := swag.FormatInt32(qrDeleteDaysThreshold)
+		if qDeleteDaysThreshold != "" {
+			if err := r.SetQueryParam("deleteDaysThreshold", qDeleteDaysThreshold); err != nil {
+				return err
+			}
+		}
+
+	}
 
 	if o.Enabled != nil {
 

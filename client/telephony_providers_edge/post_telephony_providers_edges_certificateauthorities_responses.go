@@ -306,7 +306,7 @@ func NewPostTelephonyProvidersEdgesCertificateauthoritiesRequestEntityTooLarge()
 
 /*PostTelephonyProvidersEdgesCertificateauthoritiesRequestEntityTooLarge handles this case with default header values.
 
-The request is over the size limit. Content-Length: %s
+The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
 type PostTelephonyProvidersEdgesCertificateauthoritiesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

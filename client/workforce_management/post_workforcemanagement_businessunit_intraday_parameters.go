@@ -69,7 +69,7 @@ type PostWorkforcemanagementBusinessunitIntradayParams struct {
 	*/
 	Body *models.IntradayPlanningGroupRequest
 	/*BusinessUnitID
-	  The business unit ID of the business unit
+	  The ID of the business unit
 
 	*/
 	BusinessUnitID string

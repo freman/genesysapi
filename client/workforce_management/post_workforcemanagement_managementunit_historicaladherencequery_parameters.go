@@ -68,7 +68,7 @@ type PostWorkforcemanagementManagementunitHistoricaladherencequeryParams struct 
 	*/
 	Body *models.WfmHistoricalAdherenceQuery
 	/*ManagementUnitID
-	  The management unit ID of the management unit
+	  The ID of the management unit
 
 	*/
 	ManagementUnitID string

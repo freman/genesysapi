@@ -306,7 +306,7 @@ func NewGetContentmanagementWorkspaceTagvaluesRequestEntityTooLarge() *GetConten
 
 /*GetContentmanagementWorkspaceTagvaluesRequestEntityTooLarge handles this case with default header values.
 
-The request is over the size limit. Content-Length: %s
+The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
 type GetContentmanagementWorkspaceTagvaluesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

@@ -6,6 +6,9 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"strconv"
+
+	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
@@ -14,6 +17,9 @@ import (
 //
 // swagger:model AnswerOption
 type AnswerOption struct {
+
+	// List of assistance conditions which are combined together with a logical AND operator. Eg ( assistanceCondtion1 && assistanceCondition2 ) wherein assistanceCondition could be ( EXISTS topic1 || topic2 || ... ) or (NOTEXISTS topic3 || topic4 || ...).
+	AssistanceConditions []*AssistanceCondition `json:"assistanceConditions"`
 
 	// id
 	ID string `json:"id,omitempty"`
@@ -27,6 +33,40 @@ type AnswerOption struct {
 
 // Validate validates this answer option
 func (m *AnswerOption) Validate(formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.validateAssistanceConditions(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *AnswerOption) validateAssistanceConditions(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.AssistanceConditions) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.AssistanceConditions); i++ {
+		if swag.IsZero(m.AssistanceConditions[i]) { // not required
+			continue
+		}
+
+		if m.AssistanceConditions[i] != nil {
+			if err := m.AssistanceConditions[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("assistanceConditions" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 

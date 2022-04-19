@@ -68,7 +68,7 @@ type PatchWorkforcemanagementManagementunitUserTimeoffrequestParams struct {
 	*/
 	Body *models.AdminTimeOffRequestPatch
 	/*ManagementUnitID
-	  The muId of the management unit, or 'mine' for the management unit of the logged-in user.
+	  The ID of the management unit, or 'mine' for the management unit of the logged-in user.
 
 	*/
 	ManagementUnitID string

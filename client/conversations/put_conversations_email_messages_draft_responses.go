@@ -306,7 +306,7 @@ func NewPutConversationsEmailMessagesDraftRequestEntityTooLarge() *PutConversati
 
 /*PutConversationsEmailMessagesDraftRequestEntityTooLarge handles this case with default header values.
 
-The request is over the size limit. Content-Length: %s
+The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
 type PutConversationsEmailMessagesDraftRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

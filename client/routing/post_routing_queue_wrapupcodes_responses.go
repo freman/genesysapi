@@ -304,7 +304,7 @@ func NewPostRoutingQueueWrapupcodesRequestEntityTooLarge() *PostRoutingQueueWrap
 
 /*PostRoutingQueueWrapupcodesRequestEntityTooLarge handles this case with default header values.
 
-The request is over the size limit. Content-Length: %s
+The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
 type PostRoutingQueueWrapupcodesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

@@ -34,6 +34,9 @@ type MessagingCampaign struct {
 	// Required: true
 	ContactList *DomainEntityRef `json:"contactList"`
 
+	// The contact list filter to check before sending a message for this messaging campaign.
+	ContactListFilters []*DomainEntityRef `json:"contactListFilters"`
+
 	// The order in which to sort contacts for dialing, based on up to four columns.
 	ContactSorts []*ContactSort `json:"contactSorts"`
 
@@ -92,6 +95,10 @@ func (m *MessagingCampaign) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateContactList(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateContactListFilters(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -220,6 +227,31 @@ func (m *MessagingCampaign) validateContactList(formats strfmt.Registry) error {
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *MessagingCampaign) validateContactListFilters(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.ContactListFilters) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.ContactListFilters); i++ {
+		if swag.IsZero(m.ContactListFilters[i]) { // not required
+			continue
+		}
+
+		if m.ContactListFilters[i] != nil {
+			if err := m.ContactListFilters[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("contactListFilters" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

@@ -61,7 +61,7 @@ for the delete workforcemanagement managementunit timeoffplan operation typicall
 type DeleteWorkforcemanagementManagementunitTimeoffplanParams struct {
 
 	/*ManagementUnitID
-	  The management unit ID.
+	  The ID of the management unit
 
 	*/
 	ManagementUnitID string

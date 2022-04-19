@@ -17,11 +17,11 @@ import (
 // swagger:model ForecastPlanningGroupData
 type ForecastPlanningGroupData struct {
 
-	// Forecast average handle time per interval in seconds
+	// Forecast average handle time per 15 minute interval in seconds
 	// Required: true
 	AverageHandleTimeSecondsPerInterval []float64 `json:"averageHandleTimeSecondsPerInterval"`
 
-	// Forecast offered counts per interval for this week of the forecast
+	// Forecast offered counts per 15 minute interval for this week of the forecast
 	// Required: true
 	OfferedPerInterval []float64 `json:"offeredPerInterval"`
 

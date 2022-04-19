@@ -35,6 +35,9 @@ type AnalyticsConversationWithoutAttributes struct {
 	// Format: date-time
 	ConversationStart strfmt.DateTime `json:"conversationStart,omitempty"`
 
+	// Indicates a messaging conversation in which the customer participated by sending at least one message
+	CustomerParticipation bool `json:"customerParticipation"`
+
 	// Identifier(s) of division(s) associated with a conversation
 	DivisionIds []string `json:"divisionIds"`
 

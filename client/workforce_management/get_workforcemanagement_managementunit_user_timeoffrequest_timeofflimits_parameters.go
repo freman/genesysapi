@@ -61,7 +61,7 @@ for the get workforcemanagement managementunit user timeoffrequest timeofflimits
 type GetWorkforcemanagementManagementunitUserTimeoffrequestTimeofflimitsParams struct {
 
 	/*ManagementUnitID
-	  The management unit ID of the management unit.
+	  The ID of the management unit.
 
 	*/
 	ManagementUnitID string

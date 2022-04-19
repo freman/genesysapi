@@ -6,17 +6,23 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // EmailMediaPolicyConditions email media policy conditions
 //
 // swagger:model EmailMediaPolicyConditions
 type EmailMediaPolicyConditions struct {
+
+	// customer participation
+	// Enum: [YES NO]
+	CustomerParticipation string `json:"customerParticipation,omitempty"`
 
 	// date ranges
 	DateRanges []string `json:"dateRanges"`
@@ -41,6 +47,10 @@ type EmailMediaPolicyConditions struct {
 func (m *EmailMediaPolicyConditions) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateCustomerParticipation(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateForQueues(formats); err != nil {
 		res = append(res, err)
 	}
@@ -64,6 +74,49 @@ func (m *EmailMediaPolicyConditions) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+var emailMediaPolicyConditionsTypeCustomerParticipationPropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["YES","NO"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		emailMediaPolicyConditionsTypeCustomerParticipationPropEnum = append(emailMediaPolicyConditionsTypeCustomerParticipationPropEnum, v)
+	}
+}
+
+const (
+
+	// EmailMediaPolicyConditionsCustomerParticipationYES captures enum value "YES"
+	EmailMediaPolicyConditionsCustomerParticipationYES string = "YES"
+
+	// EmailMediaPolicyConditionsCustomerParticipationNO captures enum value "NO"
+	EmailMediaPolicyConditionsCustomerParticipationNO string = "NO"
+)
+
+// prop value enum
+func (m *EmailMediaPolicyConditions) validateCustomerParticipationEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, emailMediaPolicyConditionsTypeCustomerParticipationPropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *EmailMediaPolicyConditions) validateCustomerParticipation(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.CustomerParticipation) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateCustomerParticipationEnum("customerParticipation", "body", m.CustomerParticipation); err != nil {
+		return err
+	}
+
 	return nil
 }
 

@@ -20,6 +20,11 @@ type Team struct {
 	// Last modified datetime. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Read Only: true
 	// Format: date-time
+	DateCreated strfmt.DateTime `json:"dateCreated,omitempty"`
+
+	// Last modified datetime. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+	// Read Only: true
+	// Format: date-time
 	DateModified strfmt.DateTime `json:"dateModified,omitempty"`
 
 	// Team information.
@@ -50,6 +55,10 @@ type Team struct {
 func (m *Team) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateDateCreated(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateDateModified(formats); err != nil {
 		res = append(res, err)
 	}
@@ -69,6 +78,19 @@ func (m *Team) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *Team) validateDateCreated(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.DateCreated) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("dateCreated", "body", "date-time", m.DateCreated.String(), formats); err != nil {
+		return err
+	}
+
 	return nil
 }
 

@@ -7,6 +7,7 @@ package models
 
 import (
 	"encoding/json"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -28,6 +29,9 @@ type BuScheduleRun struct {
 
 	// The number of schedule generation messages for this schedule generation run
 	MessageCount int32 `json:"messageCount,omitempty"`
+
+	// The list of schedule generation message counts by severity for this schedule generation run
+	MessageSeverityCounts []*SchedulerMessageSeverityCount `json:"messageSeverityCounts"`
 
 	// Percent completion of the schedule run
 	PercentComplete float64 `json:"percentComplete,omitempty"`
@@ -83,6 +87,10 @@ type BuScheduleRun struct {
 func (m *BuScheduleRun) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateMessageSeverityCounts(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateReschedulingOptions(formats); err != nil {
 		res = append(res, err)
 	}
@@ -126,6 +134,31 @@ func (m *BuScheduleRun) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *BuScheduleRun) validateMessageSeverityCounts(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.MessageSeverityCounts) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.MessageSeverityCounts); i++ {
+		if swag.IsZero(m.MessageSeverityCounts[i]) { // not required
+			continue
+		}
+
+		if m.MessageSeverityCounts[i] != nil {
+			if err := m.MessageSeverityCounts[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("messageSeverityCounts" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 

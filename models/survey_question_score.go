@@ -18,6 +18,9 @@ type SurveyQuestionScore struct {
 	// answer Id
 	AnswerID string `json:"answerId,omitempty"`
 
+	// AnswerId found with evaluation assistance conditions
+	AssistedAnswerID string `json:"assistedAnswerId,omitempty"`
+
 	// free text answer
 	FreeTextAnswer string `json:"freeTextAnswer,omitempty"`
 

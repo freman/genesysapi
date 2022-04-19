@@ -29,7 +29,7 @@ type ReportingTurnAction struct {
 	ActionNumber int32 `json:"actionNumber,omitempty"`
 
 	// action type
-	// Enum: [AskForNLUIntentAction AskForBooleanAction AskForSlotAction AskForNLUNextIntentAction BotState DisconnectAction ExitBotFlowAction CallTaskAction EndTaskAction UpdateVariableAction CommunicateAction DecisionAction SwitchAction DataAction DataTableLookupAction GetExternalContactAction GetExternalOrganizationAction LoopAction ExitLoopAction NextLoopAction LoopUntilAction SetActiveIntentAction ClearSlotAction SetFlowOutcomeAction InitializeFlowOutcomeAction AddFlowMilestoneAction AskForStringAction SendResponseAction GetResponseAction Unknown]
+	// Enum: [AskForNLUIntentAction AskForBooleanAction AskForSlotAction AskForNLUNextIntentAction BotState DisconnectAction ExitBotFlowAction CallTaskAction EndTaskAction UpdateVariableAction CommunicateAction DecisionAction SwitchAction DataAction DataTableLookupAction GetExternalContactAction GetExternalOrganizationAction LoopAction ExitLoopAction NextLoopAction LoopUntilAction SetActiveIntentAction ClearSlotAction SetFlowOutcomeAction InitializeFlowOutcomeAction AddFlowMilestoneAction AskForStringAction SendResponseAction GetResponseAction ExtractSecureDataAction SecureAction TransferTaskAction DigitalMenuAction WaitForInputAction Unknown]
 	ActionType string `json:"actionType,omitempty"`
 }
 
@@ -51,7 +51,7 @@ var reportingTurnActionTypeActionTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["AskForNLUIntentAction","AskForBooleanAction","AskForSlotAction","AskForNLUNextIntentAction","BotState","DisconnectAction","ExitBotFlowAction","CallTaskAction","EndTaskAction","UpdateVariableAction","CommunicateAction","DecisionAction","SwitchAction","DataAction","DataTableLookupAction","GetExternalContactAction","GetExternalOrganizationAction","LoopAction","ExitLoopAction","NextLoopAction","LoopUntilAction","SetActiveIntentAction","ClearSlotAction","SetFlowOutcomeAction","InitializeFlowOutcomeAction","AddFlowMilestoneAction","AskForStringAction","SendResponseAction","GetResponseAction","Unknown"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["AskForNLUIntentAction","AskForBooleanAction","AskForSlotAction","AskForNLUNextIntentAction","BotState","DisconnectAction","ExitBotFlowAction","CallTaskAction","EndTaskAction","UpdateVariableAction","CommunicateAction","DecisionAction","SwitchAction","DataAction","DataTableLookupAction","GetExternalContactAction","GetExternalOrganizationAction","LoopAction","ExitLoopAction","NextLoopAction","LoopUntilAction","SetActiveIntentAction","ClearSlotAction","SetFlowOutcomeAction","InitializeFlowOutcomeAction","AddFlowMilestoneAction","AskForStringAction","SendResponseAction","GetResponseAction","ExtractSecureDataAction","SecureAction","TransferTaskAction","DigitalMenuAction","WaitForInputAction","Unknown"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -147,6 +147,21 @@ const (
 
 	// ReportingTurnActionActionTypeGetResponseAction captures enum value "GetResponseAction"
 	ReportingTurnActionActionTypeGetResponseAction string = "GetResponseAction"
+
+	// ReportingTurnActionActionTypeExtractSecureDataAction captures enum value "ExtractSecureDataAction"
+	ReportingTurnActionActionTypeExtractSecureDataAction string = "ExtractSecureDataAction"
+
+	// ReportingTurnActionActionTypeSecureAction captures enum value "SecureAction"
+	ReportingTurnActionActionTypeSecureAction string = "SecureAction"
+
+	// ReportingTurnActionActionTypeTransferTaskAction captures enum value "TransferTaskAction"
+	ReportingTurnActionActionTypeTransferTaskAction string = "TransferTaskAction"
+
+	// ReportingTurnActionActionTypeDigitalMenuAction captures enum value "DigitalMenuAction"
+	ReportingTurnActionActionTypeDigitalMenuAction string = "DigitalMenuAction"
+
+	// ReportingTurnActionActionTypeWaitForInputAction captures enum value "WaitForInputAction"
+	ReportingTurnActionActionTypeWaitForInputAction string = "WaitForInputAction"
 
 	// ReportingTurnActionActionTypeUnknown captures enum value "Unknown"
 	ReportingTurnActionActionTypeUnknown string = "Unknown"

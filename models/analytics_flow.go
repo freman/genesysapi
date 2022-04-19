@@ -40,7 +40,7 @@ type AnalyticsFlow struct {
 	FlowName string `json:"flowName,omitempty"`
 
 	// The type of this flow
-	// Enum: [BOT COMMONMODULE INBOUNDCALL INBOUNDCHAT INBOUNDEMAIL INBOUNDSHORTMESSAGE INQUEUECALL INQUEUEEMAIL INQUEUESHORTMESSAGE OUTBOUNDCALL SECURECALL SPEECH SURVEYINVITE VOICEMAIL WORKFLOW WORKITEM]
+	// Enum: [BOT COMMONMODULE DIGITALBOT INBOUNDCALL INBOUNDCHAT INBOUNDEMAIL INBOUNDSHORTMESSAGE INQUEUECALL INQUEUEEMAIL INQUEUESHORTMESSAGE OUTBOUNDCALL SECURECALL SPEECH SURVEYINVITE VOICE VOICEMAIL WORKFLOW WORKITEM]
 	FlowType string `json:"flowType,omitempty"`
 
 	// The version of this flow
@@ -146,7 +146,7 @@ var analyticsFlowTypeFlowTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["BOT","COMMONMODULE","INBOUNDCALL","INBOUNDCHAT","INBOUNDEMAIL","INBOUNDSHORTMESSAGE","INQUEUECALL","INQUEUEEMAIL","INQUEUESHORTMESSAGE","OUTBOUNDCALL","SECURECALL","SPEECH","SURVEYINVITE","VOICEMAIL","WORKFLOW","WORKITEM"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["BOT","COMMONMODULE","DIGITALBOT","INBOUNDCALL","INBOUNDCHAT","INBOUNDEMAIL","INBOUNDSHORTMESSAGE","INQUEUECALL","INQUEUEEMAIL","INQUEUESHORTMESSAGE","OUTBOUNDCALL","SECURECALL","SPEECH","SURVEYINVITE","VOICE","VOICEMAIL","WORKFLOW","WORKITEM"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -161,6 +161,9 @@ const (
 
 	// AnalyticsFlowFlowTypeCOMMONMODULE captures enum value "COMMONMODULE"
 	AnalyticsFlowFlowTypeCOMMONMODULE string = "COMMONMODULE"
+
+	// AnalyticsFlowFlowTypeDIGITALBOT captures enum value "DIGITALBOT"
+	AnalyticsFlowFlowTypeDIGITALBOT string = "DIGITALBOT"
 
 	// AnalyticsFlowFlowTypeINBOUNDCALL captures enum value "INBOUNDCALL"
 	AnalyticsFlowFlowTypeINBOUNDCALL string = "INBOUNDCALL"
@@ -194,6 +197,9 @@ const (
 
 	// AnalyticsFlowFlowTypeSURVEYINVITE captures enum value "SURVEYINVITE"
 	AnalyticsFlowFlowTypeSURVEYINVITE string = "SURVEYINVITE"
+
+	// AnalyticsFlowFlowTypeVOICE captures enum value "VOICE"
+	AnalyticsFlowFlowTypeVOICE string = "VOICE"
 
 	// AnalyticsFlowFlowTypeVOICEMAIL captures enum value "VOICEMAIL"
 	AnalyticsFlowFlowTypeVOICEMAIL string = "VOICEMAIL"

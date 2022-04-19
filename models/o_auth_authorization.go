@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -40,6 +42,9 @@ type OAuthAuthorization struct {
 	// resource owner
 	ResourceOwner *DomainEntityRef `json:"resourceOwner,omitempty"`
 
+	// roles
+	Roles []string `json:"roles"`
+
 	// scope
 	Scope []string `json:"scope"`
 
@@ -47,6 +52,10 @@ type OAuthAuthorization struct {
 	// Read Only: true
 	// Format: uri
 	SelfURI strfmt.URI `json:"selfUri,omitempty"`
+
+	// state
+	// Enum: [Unauthorized Requested Authorized Revoked]
+	State string `json:"state,omitempty"`
 }
 
 // Validate validates this o auth authorization
@@ -78,6 +87,10 @@ func (m *OAuthAuthorization) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateSelfURI(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateState(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -192,6 +205,55 @@ func (m *OAuthAuthorization) validateSelfURI(formats strfmt.Registry) error {
 	}
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+var oAuthAuthorizationTypeStatePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Unauthorized","Requested","Authorized","Revoked"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		oAuthAuthorizationTypeStatePropEnum = append(oAuthAuthorizationTypeStatePropEnum, v)
+	}
+}
+
+const (
+
+	// OAuthAuthorizationStateUnauthorized captures enum value "Unauthorized"
+	OAuthAuthorizationStateUnauthorized string = "Unauthorized"
+
+	// OAuthAuthorizationStateRequested captures enum value "Requested"
+	OAuthAuthorizationStateRequested string = "Requested"
+
+	// OAuthAuthorizationStateAuthorized captures enum value "Authorized"
+	OAuthAuthorizationStateAuthorized string = "Authorized"
+
+	// OAuthAuthorizationStateRevoked captures enum value "Revoked"
+	OAuthAuthorizationStateRevoked string = "Revoked"
+)
+
+// prop value enum
+func (m *OAuthAuthorization) validateStateEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, oAuthAuthorizationTypeStatePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *OAuthAuthorization) validateState(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.State) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateStateEnum("state", "body", m.State); err != nil {
 		return err
 	}
 

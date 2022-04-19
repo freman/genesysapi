@@ -33,7 +33,7 @@ type SendAgentlessOutboundMessageResponse struct {
 	MessagingTemplate *MessagingTemplateRequest `json:"messagingTemplate,omitempty"`
 
 	// Type of messenger.
-	// Enum: [sms facebook twitter line whatsapp webmessaging instagram open]
+	// Enum: [sms whatsapp open]
 	MessengerType string `json:"messengerType,omitempty"`
 
 	// The URI for this object
@@ -111,7 +111,7 @@ var sendAgentlessOutboundMessageResponseTypeMessengerTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["sms","facebook","twitter","line","whatsapp","webmessaging","instagram","open"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["sms","whatsapp","open"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -124,23 +124,8 @@ const (
 	// SendAgentlessOutboundMessageResponseMessengerTypeSms captures enum value "sms"
 	SendAgentlessOutboundMessageResponseMessengerTypeSms string = "sms"
 
-	// SendAgentlessOutboundMessageResponseMessengerTypeFacebook captures enum value "facebook"
-	SendAgentlessOutboundMessageResponseMessengerTypeFacebook string = "facebook"
-
-	// SendAgentlessOutboundMessageResponseMessengerTypeTwitter captures enum value "twitter"
-	SendAgentlessOutboundMessageResponseMessengerTypeTwitter string = "twitter"
-
-	// SendAgentlessOutboundMessageResponseMessengerTypeLine captures enum value "line"
-	SendAgentlessOutboundMessageResponseMessengerTypeLine string = "line"
-
 	// SendAgentlessOutboundMessageResponseMessengerTypeWhatsapp captures enum value "whatsapp"
 	SendAgentlessOutboundMessageResponseMessengerTypeWhatsapp string = "whatsapp"
-
-	// SendAgentlessOutboundMessageResponseMessengerTypeWebmessaging captures enum value "webmessaging"
-	SendAgentlessOutboundMessageResponseMessengerTypeWebmessaging string = "webmessaging"
-
-	// SendAgentlessOutboundMessageResponseMessengerTypeInstagram captures enum value "instagram"
-	SendAgentlessOutboundMessageResponseMessengerTypeInstagram string = "instagram"
 
 	// SendAgentlessOutboundMessageResponseMessengerTypeOpen captures enum value "open"
 	SendAgentlessOutboundMessageResponseMessengerTypeOpen string = "open"

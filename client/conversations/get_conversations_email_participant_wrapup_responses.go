@@ -306,7 +306,7 @@ func NewGetConversationsEmailParticipantWrapupRequestEntityTooLarge() *GetConver
 
 /*GetConversationsEmailParticipantWrapupRequestEntityTooLarge handles this case with default header values.
 
-The request is over the size limit. Content-Length: %s
+The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
 type GetConversationsEmailParticipantWrapupRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

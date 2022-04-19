@@ -306,7 +306,7 @@ func NewPostRecordingMediaretentionpoliciesRequestEntityTooLarge() *PostRecordin
 
 /*PostRecordingMediaretentionpoliciesRequestEntityTooLarge handles this case with default header values.
 
-The request is over the size limit. Content-Length: %s
+The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
 type PostRecordingMediaretentionpoliciesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

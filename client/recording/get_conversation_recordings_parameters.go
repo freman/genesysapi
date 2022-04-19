@@ -87,7 +87,7 @@ type GetConversationRecordingsParams struct {
 	*/
 	ConversationID string
 	/*FormatID
-	  The desired media format . Valid values:WAV,WEBM,WAV_ULAW,OGG_VORBIS,OGG_OPUS,MP3,NONE.
+	  The desired media format. Valid values:WAV,WEBM,WAV_ULAW,OGG_VORBIS,OGG_OPUS,MP3,NONE.
 
 	*/
 	FormatID *string
@@ -96,6 +96,11 @@ type GetConversationRecordingsParams struct {
 
 	*/
 	MaxWaitMs *int32
+	/*MediaFormats
+	  All acceptable media formats. Overrides formatId. Valid values:WAV,WEBM,WAV_ULAW,OGG_VORBIS,OGG_OPUS,MP3.
+
+	*/
+	MediaFormats []string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -168,6 +173,17 @@ func (o *GetConversationRecordingsParams) SetMaxWaitMs(maxWaitMs *int32) {
 	o.MaxWaitMs = maxWaitMs
 }
 
+// WithMediaFormats adds the mediaFormats to the get conversation recordings params
+func (o *GetConversationRecordingsParams) WithMediaFormats(mediaFormats []string) *GetConversationRecordingsParams {
+	o.SetMediaFormats(mediaFormats)
+	return o
+}
+
+// SetMediaFormats adds the mediaFormats to the get conversation recordings params
+func (o *GetConversationRecordingsParams) SetMediaFormats(mediaFormats []string) {
+	o.MediaFormats = mediaFormats
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *GetConversationRecordingsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -211,6 +227,14 @@ func (o *GetConversationRecordingsParams) WriteToRequest(r runtime.ClientRequest
 			}
 		}
 
+	}
+
+	valuesMediaFormats := o.MediaFormats
+
+	joinedMediaFormats := swag.JoinByFormat(valuesMediaFormats, "multi")
+	// query array param mediaFormats
+	if err := r.SetQueryParam("mediaFormats", joinedMediaFormats...); err != nil {
+		return err
 	}
 
 	if len(res) > 0 {

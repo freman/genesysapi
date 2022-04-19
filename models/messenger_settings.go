@@ -25,11 +25,11 @@ type MessengerSettings struct {
 	// The file upload settings for messenger
 	FileUpload *FileUploadSettings `json:"fileUpload,omitempty"`
 
+	// The homescreen settings for messenger
+	HomeScreen *MessengerHomeScreen `json:"homeScreen,omitempty"`
+
 	// The launcher button settings for messenger
 	LauncherButton *LauncherButtonSettings `json:"launcherButton,omitempty"`
-
-	// The position settings for messenger
-	Position *MessengerPositionSettings `json:"position,omitempty"`
 
 	// The style settings for messenger
 	Styles *MessengerStyles `json:"styles,omitempty"`
@@ -47,11 +47,11 @@ func (m *MessengerSettings) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateLauncherButton(formats); err != nil {
+	if err := m.validateHomeScreen(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validatePosition(formats); err != nil {
+	if err := m.validateLauncherButton(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -101,6 +101,24 @@ func (m *MessengerSettings) validateFileUpload(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *MessengerSettings) validateHomeScreen(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.HomeScreen) { // not required
+		return nil
+	}
+
+	if m.HomeScreen != nil {
+		if err := m.HomeScreen.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("homeScreen")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *MessengerSettings) validateLauncherButton(formats strfmt.Registry) error {
 
 	if swag.IsZero(m.LauncherButton) { // not required
@@ -111,24 +129,6 @@ func (m *MessengerSettings) validateLauncherButton(formats strfmt.Registry) erro
 		if err := m.LauncherButton.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("launcherButton")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *MessengerSettings) validatePosition(formats strfmt.Registry) error {
-
-	if swag.IsZero(m.Position) { // not required
-		return nil
-	}
-
-	if m.Position != nil {
-		if err := m.Position.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("position")
 			}
 			return err
 		}

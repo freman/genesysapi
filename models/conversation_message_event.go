@@ -24,8 +24,14 @@ type ConversationMessageEvent struct {
 
 	// Type of this event element
 	// Required: true
-	// Enum: [CoBrowse]
+	// Enum: [CoBrowse Typing Presence Unknown]
 	EventType *string `json:"eventType"`
+
+	// Presence event.
+	Presence *ConversationEventPresence `json:"presence,omitempty"`
+
+	// Typing event.
+	Typing *ConversationEventTyping `json:"typing,omitempty"`
 }
 
 // Validate validates this conversation message event
@@ -37,6 +43,14 @@ func (m *ConversationMessageEvent) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateEventType(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePresence(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTyping(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -68,7 +82,7 @@ var conversationMessageEventTypeEventTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["CoBrowse"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["CoBrowse","Typing","Presence","Unknown"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -80,6 +94,15 @@ const (
 
 	// ConversationMessageEventEventTypeCoBrowse captures enum value "CoBrowse"
 	ConversationMessageEventEventTypeCoBrowse string = "CoBrowse"
+
+	// ConversationMessageEventEventTypeTyping captures enum value "Typing"
+	ConversationMessageEventEventTypeTyping string = "Typing"
+
+	// ConversationMessageEventEventTypePresence captures enum value "Presence"
+	ConversationMessageEventEventTypePresence string = "Presence"
+
+	// ConversationMessageEventEventTypeUnknown captures enum value "Unknown"
+	ConversationMessageEventEventTypeUnknown string = "Unknown"
 )
 
 // prop value enum
@@ -99,6 +122,42 @@ func (m *ConversationMessageEvent) validateEventType(formats strfmt.Registry) er
 	// value enum
 	if err := m.validateEventTypeEnum("eventType", "body", *m.EventType); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *ConversationMessageEvent) validatePresence(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Presence) { // not required
+		return nil
+	}
+
+	if m.Presence != nil {
+		if err := m.Presence.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("presence")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ConversationMessageEvent) validateTyping(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Typing) { // not required
+		return nil
+	}
+
+	if m.Typing != nil {
+		if err := m.Typing.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("typing")
+			}
+			return err
+		}
 	}
 
 	return nil

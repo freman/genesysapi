@@ -47,6 +47,7 @@ import (
 	"github.com/freman/genesysapi/client/learning"
 	"github.com/freman/genesysapi/client/license"
 	"github.com/freman/genesysapi/client/locations"
+	"github.com/freman/genesysapi/client/messaging"
 	"github.com/freman/genesysapi/client/mobile_devices"
 	"github.com/freman/genesysapi/client/notifications"
 	"github.com/freman/genesysapi/client/o_auth"
@@ -182,6 +183,7 @@ func New(c Config) *Genesys {
 	cli.Learning = learning.New(transport, strfmt.Default, nil)
 	cli.License = license.New(transport, strfmt.Default, nil)
 	cli.Locations = locations.New(transport, strfmt.Default, nil)
+	cli.Messaging = messaging.New(transport, strfmt.Default, nil)
 	cli.MobileDevices = mobile_devices.New(transport, strfmt.Default, nil)
 	cli.Notifications = notifications.New(transport, strfmt.Default, nil)
 	cli.OAuth = o_auth.New(transport, strfmt.Default, nil)
@@ -249,6 +251,7 @@ type Genesys struct {
 	Learning                        *learning.Client
 	License                         *license.Client
 	Locations                       *locations.Client
+	Messaging                       *messaging.Client
 	MobileDevices                   *mobile_devices.Client
 	Notifications                   *notifications.Client
 	OAuth                           *o_auth.Client

@@ -61,7 +61,7 @@ for the delete workforcemanagement businessunit week shorttermforecast operation
 type DeleteWorkforcemanagementBusinessunitWeekShorttermforecastParams struct {
 
 	/*BusinessUnitID
-	  The business unit ID of the business unit to which the forecast belongs
+	  The ID of the business unit to which the forecast belongs
 
 	*/
 	BusinessUnitID string

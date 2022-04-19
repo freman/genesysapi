@@ -28,6 +28,10 @@ type API interface {
 	*/
 	DeleteResponsemanagementResponse(ctx context.Context, params *DeleteResponsemanagementResponseParams) error
 	/*
+	   DeleteResponsemanagementResponseasset deletes response asset
+	*/
+	DeleteResponsemanagementResponseasset(ctx context.Context, params *DeleteResponsemanagementResponseassetParams) (*DeleteResponsemanagementResponseassetNoContent, error)
+	/*
 	   GetResponsemanagementLibraries gets a list of existing response libraries
 	*/
 	GetResponsemanagementLibraries(ctx context.Context, params *GetResponsemanagementLibrariesParams) (*GetResponsemanagementLibrariesOK, error)
@@ -40,6 +44,14 @@ type API interface {
 	*/
 	GetResponsemanagementResponse(ctx context.Context, params *GetResponsemanagementResponseParams) (*GetResponsemanagementResponseOK, error)
 	/*
+	   GetResponsemanagementResponseasset gets response asset information
+	*/
+	GetResponsemanagementResponseasset(ctx context.Context, params *GetResponsemanagementResponseassetParams) (*GetResponsemanagementResponseassetOK, error)
+	/*
+	   GetResponsemanagementResponseassetsStatusStatusID gets response asset upload status
+	*/
+	GetResponsemanagementResponseassetsStatusStatusID(ctx context.Context, params *GetResponsemanagementResponseassetsStatusStatusIDParams) (*GetResponsemanagementResponseassetsStatusStatusIDOK, error)
+	/*
 	   GetResponsemanagementResponses gets a list of existing responses
 	*/
 	GetResponsemanagementResponses(ctx context.Context, params *GetResponsemanagementResponsesParams) (*GetResponsemanagementResponsesOK, error)
@@ -47,6 +59,14 @@ type API interface {
 	   PostResponsemanagementLibraries creates a response library
 	*/
 	PostResponsemanagementLibraries(ctx context.Context, params *PostResponsemanagementLibrariesParams) (*PostResponsemanagementLibrariesOK, error)
+	/*
+	   PostResponsemanagementResponseassetsSearch searches response assets
+	*/
+	PostResponsemanagementResponseassetsSearch(ctx context.Context, params *PostResponsemanagementResponseassetsSearchParams) (*PostResponsemanagementResponseassetsSearchOK, error)
+	/*
+	   PostResponsemanagementResponseassetsUploads creates pre signed url for uploading response asset
+	*/
+	PostResponsemanagementResponseassetsUploads(ctx context.Context, params *PostResponsemanagementResponseassetsUploadsParams) (*PostResponsemanagementResponseassetsUploadsOK, error)
 	/*
 	   PostResponsemanagementResponses creates a response
 	*/
@@ -65,6 +85,10 @@ type API interface {
 	   Fields that can be updated: name, libraries, and texts. The most recent version is required for updates.
 	*/
 	PutResponsemanagementResponse(ctx context.Context, params *PutResponsemanagementResponseParams) (*PutResponsemanagementResponseOK, error)
+	/*
+	   PutResponsemanagementResponseasset updates response asset
+	*/
+	PutResponsemanagementResponseasset(ctx context.Context, params *PutResponsemanagementResponseassetParams) (*PutResponsemanagementResponseassetOK, error)
 }
 
 // New creates a new response management API client.
@@ -136,6 +160,31 @@ func (a *Client) DeleteResponsemanagementResponse(ctx context.Context, params *D
 		return err
 	}
 	return nil
+
+}
+
+/*
+DeleteResponsemanagementResponseasset deletes response asset
+*/
+func (a *Client) DeleteResponsemanagementResponseasset(ctx context.Context, params *DeleteResponsemanagementResponseassetParams) (*DeleteResponsemanagementResponseassetNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteResponsemanagementResponseasset",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/responsemanagement/responseassets/{responseAssetId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteResponsemanagementResponseassetReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteResponsemanagementResponseassetNoContent), nil
 
 }
 
@@ -215,6 +264,56 @@ func (a *Client) GetResponsemanagementResponse(ctx context.Context, params *GetR
 }
 
 /*
+GetResponsemanagementResponseasset gets response asset information
+*/
+func (a *Client) GetResponsemanagementResponseasset(ctx context.Context, params *GetResponsemanagementResponseassetParams) (*GetResponsemanagementResponseassetOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getResponsemanagementResponseasset",
+		Method:             "GET",
+		PathPattern:        "/api/v2/responsemanagement/responseassets/{responseAssetId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetResponsemanagementResponseassetReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetResponsemanagementResponseassetOK), nil
+
+}
+
+/*
+GetResponsemanagementResponseassetsStatusStatusID gets response asset upload status
+*/
+func (a *Client) GetResponsemanagementResponseassetsStatusStatusID(ctx context.Context, params *GetResponsemanagementResponseassetsStatusStatusIDParams) (*GetResponsemanagementResponseassetsStatusStatusIDOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getResponsemanagementResponseassetsStatusStatusId",
+		Method:             "GET",
+		PathPattern:        "/api/v2/responsemanagement/responseassets/status/{statusId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetResponsemanagementResponseassetsStatusStatusIDReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetResponsemanagementResponseassetsStatusStatusIDOK), nil
+
+}
+
+/*
 GetResponsemanagementResponses gets a list of existing responses
 */
 func (a *Client) GetResponsemanagementResponses(ctx context.Context, params *GetResponsemanagementResponsesParams) (*GetResponsemanagementResponsesOK, error) {
@@ -261,6 +360,56 @@ func (a *Client) PostResponsemanagementLibraries(ctx context.Context, params *Po
 		return nil, err
 	}
 	return result.(*PostResponsemanagementLibrariesOK), nil
+
+}
+
+/*
+PostResponsemanagementResponseassetsSearch searches response assets
+*/
+func (a *Client) PostResponsemanagementResponseassetsSearch(ctx context.Context, params *PostResponsemanagementResponseassetsSearchParams) (*PostResponsemanagementResponseassetsSearchOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postResponsemanagementResponseassetsSearch",
+		Method:             "POST",
+		PathPattern:        "/api/v2/responsemanagement/responseassets/search",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostResponsemanagementResponseassetsSearchReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostResponsemanagementResponseassetsSearchOK), nil
+
+}
+
+/*
+PostResponsemanagementResponseassetsUploads creates pre signed url for uploading response asset
+*/
+func (a *Client) PostResponsemanagementResponseassetsUploads(ctx context.Context, params *PostResponsemanagementResponseassetsUploadsParams) (*PostResponsemanagementResponseassetsUploadsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postResponsemanagementResponseassetsUploads",
+		Method:             "POST",
+		PathPattern:        "/api/v2/responsemanagement/responseassets/uploads",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostResponsemanagementResponseassetsUploadsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostResponsemanagementResponseassetsUploadsOK), nil
 
 }
 
@@ -365,5 +514,30 @@ func (a *Client) PutResponsemanagementResponse(ctx context.Context, params *PutR
 		return nil, err
 	}
 	return result.(*PutResponsemanagementResponseOK), nil
+
+}
+
+/*
+PutResponsemanagementResponseasset updates response asset
+*/
+func (a *Client) PutResponsemanagementResponseasset(ctx context.Context, params *PutResponsemanagementResponseassetParams) (*PutResponsemanagementResponseassetOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "putResponsemanagementResponseasset",
+		Method:             "PUT",
+		PathPattern:        "/api/v2/responsemanagement/responseassets/{responseAssetId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PutResponsemanagementResponseassetReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutResponsemanagementResponseassetOK), nil
 
 }

@@ -236,7 +236,7 @@ type AnalyticsSession struct {
 	TimeoutSeconds int32 `json:"timeoutSeconds,omitempty"`
 
 	// Complete routing method
-	// Enum: [Bullseye Last Manual Predictive Preferred Standard]
+	// Enum: [Bullseye Conditional Last Manual Predictive Preferred Standard]
 	UsedRouting string `json:"usedRouting,omitempty"`
 
 	// Direct Video address
@@ -595,7 +595,7 @@ var analyticsSessionRequestedRoutingsItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Bullseye","Last","Manual","Predictive","Preferred","Standard"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Bullseye","Conditional","Last","Manual","Predictive","Preferred","Standard"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -657,7 +657,7 @@ var analyticsSessionTypeUsedRoutingPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Bullseye","Last","Manual","Predictive","Preferred","Standard"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Bullseye","Conditional","Last","Manual","Predictive","Preferred","Standard"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -669,6 +669,9 @@ const (
 
 	// AnalyticsSessionUsedRoutingBullseye captures enum value "Bullseye"
 	AnalyticsSessionUsedRoutingBullseye string = "Bullseye"
+
+	// AnalyticsSessionUsedRoutingConditional captures enum value "Conditional"
+	AnalyticsSessionUsedRoutingConditional string = "Conditional"
 
 	// AnalyticsSessionUsedRoutingLast captures enum value "Last"
 	AnalyticsSessionUsedRoutingLast string = "Last"

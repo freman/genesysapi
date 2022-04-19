@@ -19,6 +19,10 @@ import (
 // swagger:model WfmUserNotification
 type WfmUserNotification struct {
 
+	// An adherence explanation notification.  Only set if type == AdherenceExplanation
+	// Read Only: true
+	AdherenceExplanation *AdherenceExplanationNotification `json:"adherenceExplanation,omitempty"`
+
 	// Whether this notification is for an agent
 	// Read Only: true
 	AgentNotification *bool `json:"agentNotification"`
@@ -55,13 +59,17 @@ type WfmUserNotification struct {
 
 	// The type of this notification
 	// Read Only: true
-	// Enum: [ShiftTrade TimeOffRequest]
+	// Enum: [AdherenceExplanation ShiftTrade TimeOffRequest]
 	Type string `json:"type,omitempty"`
 }
 
 // Validate validates this wfm user notification
 func (m *WfmUserNotification) Validate(formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.validateAdherenceExplanation(formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.validateID(formats); err != nil {
 		res = append(res, err)
@@ -98,6 +106,24 @@ func (m *WfmUserNotification) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *WfmUserNotification) validateAdherenceExplanation(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.AdherenceExplanation) { // not required
+		return nil
+	}
+
+	if m.AdherenceExplanation != nil {
+		if err := m.AdherenceExplanation.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("adherenceExplanation")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -194,7 +220,7 @@ var wfmUserNotificationTypeTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["ShiftTrade","TimeOffRequest"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["AdherenceExplanation","ShiftTrade","TimeOffRequest"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -203,6 +229,9 @@ func init() {
 }
 
 const (
+
+	// WfmUserNotificationTypeAdherenceExplanation captures enum value "AdherenceExplanation"
+	WfmUserNotificationTypeAdherenceExplanation string = "AdherenceExplanation"
 
 	// WfmUserNotificationTypeShiftTrade captures enum value "ShiftTrade"
 	WfmUserNotificationTypeShiftTrade string = "ShiftTrade"

@@ -310,6 +310,7 @@ type API interface {
 	GetWorkforcemanagementManagementunitsDivisionviews(ctx context.Context, params *GetWorkforcemanagementManagementunitsDivisionviewsParams) (*GetWorkforcemanagementManagementunitsDivisionviewsOK, error)
 	/*
 	   GetWorkforcemanagementNotifications gets a list of notifications for the current user
+	   Notifications are only initially sent if you have the relevant Notify and Edit permissions
 	*/
 	GetWorkforcemanagementNotifications(ctx context.Context, params *GetWorkforcemanagementNotificationsParams) (*GetWorkforcemanagementNotificationsOK, error)
 	/*
@@ -426,6 +427,16 @@ type API interface {
 	*/
 	PostWorkforcemanagementBusinessunitWeekScheduleReschedule(ctx context.Context, params *PostWorkforcemanagementBusinessunitWeekScheduleRescheduleParams) (*PostWorkforcemanagementBusinessunitWeekScheduleRescheduleOK, *PostWorkforcemanagementBusinessunitWeekScheduleRescheduleAccepted, error)
 	/*
+	   PostWorkforcemanagementBusinessunitWeekScheduleUpdate starts processing a schedule update
+	   Call after uploading the schedule data to the url supplied by the /update/uploadurl route
+	*/
+	PostWorkforcemanagementBusinessunitWeekScheduleUpdate(ctx context.Context, params *PostWorkforcemanagementBusinessunitWeekScheduleUpdateParams) (*PostWorkforcemanagementBusinessunitWeekScheduleUpdateOK, *PostWorkforcemanagementBusinessunitWeekScheduleUpdateAccepted, error)
+	/*
+	   PostWorkforcemanagementBusinessunitWeekScheduleUpdateUploadurl creates a signed upload URL for updating a schedule
+	   Once the upload is complete, call the /{scheduleId}/update route to start the schedule update process
+	*/
+	PostWorkforcemanagementBusinessunitWeekScheduleUpdateUploadurl(ctx context.Context, params *PostWorkforcemanagementBusinessunitWeekScheduleUpdateUploadurlParams) (*PostWorkforcemanagementBusinessunitWeekScheduleUpdateUploadurlOK, *PostWorkforcemanagementBusinessunitWeekScheduleUpdateUploadurlCreated, error)
+	/*
 	   PostWorkforcemanagementBusinessunitWeekSchedules creates a blank schedule
 	*/
 	PostWorkforcemanagementBusinessunitWeekSchedules(ctx context.Context, params *PostWorkforcemanagementBusinessunitWeekSchedulesParams) (*PostWorkforcemanagementBusinessunitWeekSchedulesOK, *PostWorkforcemanagementBusinessunitWeekSchedulesCreated, error)
@@ -434,6 +445,16 @@ type API interface {
 	*/
 	PostWorkforcemanagementBusinessunitWeekSchedulesGenerate(ctx context.Context, params *PostWorkforcemanagementBusinessunitWeekSchedulesGenerateParams) (*PostWorkforcemanagementBusinessunitWeekSchedulesGenerateOK, *PostWorkforcemanagementBusinessunitWeekSchedulesGenerateAccepted, error)
 	/*
+	   PostWorkforcemanagementBusinessunitWeekSchedulesImport starts processing a schedule import
+	   Call after uploading the schedule data to the url supplied by the /import/uploadurl route
+	*/
+	PostWorkforcemanagementBusinessunitWeekSchedulesImport(ctx context.Context, params *PostWorkforcemanagementBusinessunitWeekSchedulesImportParams) (*PostWorkforcemanagementBusinessunitWeekSchedulesImportOK, *PostWorkforcemanagementBusinessunitWeekSchedulesImportAccepted, error)
+	/*
+	   PostWorkforcemanagementBusinessunitWeekSchedulesImportUploadurl creates a signed upload URL for importing a schedule
+	   Once the upload is complete, call the /import route to start the schedule import process
+	*/
+	PostWorkforcemanagementBusinessunitWeekSchedulesImportUploadurl(ctx context.Context, params *PostWorkforcemanagementBusinessunitWeekSchedulesImportUploadurlParams) (*PostWorkforcemanagementBusinessunitWeekSchedulesImportUploadurlOK, *PostWorkforcemanagementBusinessunitWeekSchedulesImportUploadurlCreated, error)
+	/*
 	   PostWorkforcemanagementBusinessunitWeekShorttermforecastCopy copies a short term forecast
 	*/
 	PostWorkforcemanagementBusinessunitWeekShorttermforecastCopy(ctx context.Context, params *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyParams) (*PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyOK, *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyCreated, *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyAccepted, error)
@@ -441,6 +462,16 @@ type API interface {
 	   PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerate generates a short term forecast
 	*/
 	PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerate(ctx context.Context, params *PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateParams) (*PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateOK, *PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateCreated, *PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateAccepted, error)
+	/*
+	   PostWorkforcemanagementBusinessunitWeekShorttermforecastsImport starts importing the uploaded short term forecast
+	   Call after uploading the forecast data to the url supplied by the /import/uploadurl route
+	*/
+	PostWorkforcemanagementBusinessunitWeekShorttermforecastsImport(ctx context.Context, params *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportParams) (*PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportOK, *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportAccepted, error)
+	/*
+	   PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUploadurl creates a signed upload URL for importing a short term forecast
+	   Once the upload is complete, call the /import route to start the short term forecast import process
+	*/
+	PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUploadurl(ctx context.Context, params *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUploadurlParams) (*PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUploadurlOK, *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUploadurlCreated, error)
 	/*
 	   PostWorkforcemanagementBusinessunits adds a new business unit
 	   It may take a minute or two for a new business unit to be available for api operations
@@ -2364,6 +2395,8 @@ func (a *Client) GetWorkforcemanagementManagementunitsDivisionviews(ctx context.
 
 /*
 GetWorkforcemanagementNotifications gets a list of notifications for the current user
+
+Notifications are only initially sent if you have the relevant Notify and Edit permissions
 */
 func (a *Client) GetWorkforcemanagementNotifications(ctx context.Context, params *GetWorkforcemanagementNotificationsParams) (*GetWorkforcemanagementNotificationsOK, error) {
 
@@ -3116,6 +3149,72 @@ func (a *Client) PostWorkforcemanagementBusinessunitWeekScheduleReschedule(ctx c
 }
 
 /*
+PostWorkforcemanagementBusinessunitWeekScheduleUpdate starts processing a schedule update
+
+Call after uploading the schedule data to the url supplied by the /update/uploadurl route
+*/
+func (a *Client) PostWorkforcemanagementBusinessunitWeekScheduleUpdate(ctx context.Context, params *PostWorkforcemanagementBusinessunitWeekScheduleUpdateParams) (*PostWorkforcemanagementBusinessunitWeekScheduleUpdateOK, *PostWorkforcemanagementBusinessunitWeekScheduleUpdateAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postWorkforcemanagementBusinessunitWeekScheduleUpdate",
+		Method:             "POST",
+		PathPattern:        "/api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules/{scheduleId}/update",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostWorkforcemanagementBusinessunitWeekScheduleUpdateReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PostWorkforcemanagementBusinessunitWeekScheduleUpdateOK:
+		return value, nil, nil
+	case *PostWorkforcemanagementBusinessunitWeekScheduleUpdateAccepted:
+		return nil, value, nil
+	}
+	return nil, nil, nil
+
+}
+
+/*
+PostWorkforcemanagementBusinessunitWeekScheduleUpdateUploadurl creates a signed upload URL for updating a schedule
+
+Once the upload is complete, call the /{scheduleId}/update route to start the schedule update process
+*/
+func (a *Client) PostWorkforcemanagementBusinessunitWeekScheduleUpdateUploadurl(ctx context.Context, params *PostWorkforcemanagementBusinessunitWeekScheduleUpdateUploadurlParams) (*PostWorkforcemanagementBusinessunitWeekScheduleUpdateUploadurlOK, *PostWorkforcemanagementBusinessunitWeekScheduleUpdateUploadurlCreated, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postWorkforcemanagementBusinessunitWeekScheduleUpdateUploadurl",
+		Method:             "POST",
+		PathPattern:        "/api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules/{scheduleId}/update/uploadurl",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostWorkforcemanagementBusinessunitWeekScheduleUpdateUploadurlReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PostWorkforcemanagementBusinessunitWeekScheduleUpdateUploadurlOK:
+		return value, nil, nil
+	case *PostWorkforcemanagementBusinessunitWeekScheduleUpdateUploadurlCreated:
+		return nil, value, nil
+	}
+	return nil, nil, nil
+
+}
+
+/*
 PostWorkforcemanagementBusinessunitWeekSchedules creates a blank schedule
 */
 func (a *Client) PostWorkforcemanagementBusinessunitWeekSchedules(ctx context.Context, params *PostWorkforcemanagementBusinessunitWeekSchedulesParams) (*PostWorkforcemanagementBusinessunitWeekSchedulesOK, *PostWorkforcemanagementBusinessunitWeekSchedulesCreated, error) {
@@ -3171,6 +3270,72 @@ func (a *Client) PostWorkforcemanagementBusinessunitWeekSchedulesGenerate(ctx co
 	case *PostWorkforcemanagementBusinessunitWeekSchedulesGenerateOK:
 		return value, nil, nil
 	case *PostWorkforcemanagementBusinessunitWeekSchedulesGenerateAccepted:
+		return nil, value, nil
+	}
+	return nil, nil, nil
+
+}
+
+/*
+PostWorkforcemanagementBusinessunitWeekSchedulesImport starts processing a schedule import
+
+Call after uploading the schedule data to the url supplied by the /import/uploadurl route
+*/
+func (a *Client) PostWorkforcemanagementBusinessunitWeekSchedulesImport(ctx context.Context, params *PostWorkforcemanagementBusinessunitWeekSchedulesImportParams) (*PostWorkforcemanagementBusinessunitWeekSchedulesImportOK, *PostWorkforcemanagementBusinessunitWeekSchedulesImportAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postWorkforcemanagementBusinessunitWeekSchedulesImport",
+		Method:             "POST",
+		PathPattern:        "/api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules/import",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostWorkforcemanagementBusinessunitWeekSchedulesImportReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PostWorkforcemanagementBusinessunitWeekSchedulesImportOK:
+		return value, nil, nil
+	case *PostWorkforcemanagementBusinessunitWeekSchedulesImportAccepted:
+		return nil, value, nil
+	}
+	return nil, nil, nil
+
+}
+
+/*
+PostWorkforcemanagementBusinessunitWeekSchedulesImportUploadurl creates a signed upload URL for importing a schedule
+
+Once the upload is complete, call the /import route to start the schedule import process
+*/
+func (a *Client) PostWorkforcemanagementBusinessunitWeekSchedulesImportUploadurl(ctx context.Context, params *PostWorkforcemanagementBusinessunitWeekSchedulesImportUploadurlParams) (*PostWorkforcemanagementBusinessunitWeekSchedulesImportUploadurlOK, *PostWorkforcemanagementBusinessunitWeekSchedulesImportUploadurlCreated, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postWorkforcemanagementBusinessunitWeekSchedulesImportUploadurl",
+		Method:             "POST",
+		PathPattern:        "/api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules/import/uploadurl",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostWorkforcemanagementBusinessunitWeekSchedulesImportUploadurlReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PostWorkforcemanagementBusinessunitWeekSchedulesImportUploadurlOK:
+		return value, nil, nil
+	case *PostWorkforcemanagementBusinessunitWeekSchedulesImportUploadurlCreated:
 		return nil, value, nil
 	}
 	return nil, nil, nil
@@ -3240,6 +3405,72 @@ func (a *Client) PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenera
 		return nil, nil, value, nil
 	}
 	return nil, nil, nil, nil
+
+}
+
+/*
+PostWorkforcemanagementBusinessunitWeekShorttermforecastsImport starts importing the uploaded short term forecast
+
+Call after uploading the forecast data to the url supplied by the /import/uploadurl route
+*/
+func (a *Client) PostWorkforcemanagementBusinessunitWeekShorttermforecastsImport(ctx context.Context, params *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportParams) (*PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportOK, *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postWorkforcemanagementBusinessunitWeekShorttermforecastsImport",
+		Method:             "POST",
+		PathPattern:        "/api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/import",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportOK:
+		return value, nil, nil
+	case *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportAccepted:
+		return nil, value, nil
+	}
+	return nil, nil, nil
+
+}
+
+/*
+PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUploadurl creates a signed upload URL for importing a short term forecast
+
+Once the upload is complete, call the /import route to start the short term forecast import process
+*/
+func (a *Client) PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUploadurl(ctx context.Context, params *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUploadurlParams) (*PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUploadurlOK, *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUploadurlCreated, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postWorkforcemanagementBusinessunitWeekShorttermforecastsImportUploadurl",
+		Method:             "POST",
+		PathPattern:        "/api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/import/uploadurl",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUploadurlReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUploadurlOK:
+		return value, nil, nil
+	case *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUploadurlCreated:
+		return nil, value, nil
+	}
+	return nil, nil, nil
 
 }
 

@@ -17,6 +17,9 @@ import (
 // swagger:model ResponseSet
 type ResponseSet struct {
 
+	// Whether to enable answering machine beep detection
+	BeepDetectionEnabled bool `json:"beepDetectionEnabled"`
+
 	// Creation time of the entity. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Read Only: true
 	// Format: date-time

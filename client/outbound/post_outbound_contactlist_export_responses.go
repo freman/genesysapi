@@ -306,7 +306,7 @@ func NewPostOutboundContactlistExportRequestEntityTooLarge() *PostOutboundContac
 
 /*PostOutboundContactlistExportRequestEntityTooLarge handles this case with default header values.
 
-The request is over the size limit. Content-Length: %s
+The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
 type PostOutboundContactlistExportRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

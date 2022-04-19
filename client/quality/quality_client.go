@@ -39,7 +39,7 @@ type API interface {
 	DeleteQualityFormsSurvey(ctx context.Context, params *DeleteQualityFormsSurveyParams) (*DeleteQualityFormsSurveyNoContent, error)
 	/*
 	   GetQualityAgentsActivity gets a list of agent activities
-	   Includes the number of evaluations and average evaluation score. These statistics include released evaluations only when evaluatorUserId is provided. In the absence of evaluatorUserId in the request, the api excludes evaluations which are set to never release for the calculation of evaluation statistics.
+	   Each item on the list shows one agent's evaluation activity comprised of the number of evaluations and the highest, average, and lowest standard and critical scores, as well as a sub list showing the number and average score of evaluations for each evaluator for that agent.  evaluatorUserId, startTime, and endTime are all filtering criteria. If specified, the only evaluations used to compile the agent activity response will be ones that match the filtering criteria. agentUserId, name, group, and agentTeamId are all agent selection criteria. criteria.  If one or more agent selection criteria are specified, then the returned activity will include users that match the criteria even if those users did not have any agent activity or evaluations that do not match any filtering criteria.  If no agent selection criteria are specified but an evaluatorUserId is, then the returned activity will be only for those agents that had evaluations where the evaluator is the evaluatorUserId.  If no agent selection criteria are specified and no evaluatorUserId is specified, then the returned activity will be for all users
 	*/
 	GetQualityAgentsActivity(ctx context.Context, params *GetQualityAgentsActivityParams) (*GetQualityAgentsActivityOK, error)
 	/*
@@ -99,6 +99,10 @@ type API interface {
 	   GetQualityFormsEvaluations gets the list of evaluation forms
 	*/
 	GetQualityFormsEvaluations(ctx context.Context, params *GetQualityFormsEvaluationsParams) (*GetQualityFormsEvaluationsOK, error)
+	/*
+	   GetQualityFormsEvaluationsBulkContexts retrieves a list of the latest published evaluation form versions by context ids
+	*/
+	GetQualityFormsEvaluationsBulkContexts(ctx context.Context, params *GetQualityFormsEvaluationsBulkContextsParams) (*GetQualityFormsEvaluationsBulkContextsOK, error)
 	/*
 	   GetQualityFormsSurvey gets a survey form
 	*/
@@ -167,6 +171,10 @@ type API interface {
 	   PostQualityConversationsAuditsQuery creates audit query execution
 	*/
 	PostQualityConversationsAuditsQuery(ctx context.Context, params *PostQualityConversationsAuditsQueryParams) (*PostQualityConversationsAuditsQueryOK, *PostQualityConversationsAuditsQueryAccepted, error)
+	/*
+	   PostQualityEvaluationsAggregatesQueryMe queries for evaluation aggregates for the current user
+	*/
+	PostQualityEvaluationsAggregatesQueryMe(ctx context.Context, params *PostQualityEvaluationsAggregatesQueryMeParams) (*PostQualityEvaluationsAggregatesQueryMeOK, error)
 	/*
 	   PostQualityEvaluationsScoring scores evaluation
 	*/
@@ -372,7 +380,7 @@ func (a *Client) DeleteQualityFormsSurvey(ctx context.Context, params *DeleteQua
 /*
 GetQualityAgentsActivity gets a list of agent activities
 
-Includes the number of evaluations and average evaluation score. These statistics include released evaluations only when evaluatorUserId is provided. In the absence of evaluatorUserId in the request, the api excludes evaluations which are set to never release for the calculation of evaluation statistics.
+Each item on the list shows one agent's evaluation activity comprised of the number of evaluations and the highest, average, and lowest standard and critical scores, as well as a sub list showing the number and average score of evaluations for each evaluator for that agent.  evaluatorUserId, startTime, and endTime are all filtering criteria. If specified, the only evaluations used to compile the agent activity response will be ones that match the filtering criteria. agentUserId, name, group, and agentTeamId are all agent selection criteria. criteria.  If one or more agent selection criteria are specified, then the returned activity will include users that match the criteria even if those users did not have any agent activity or evaluations that do not match any filtering criteria.  If no agent selection criteria are specified but an evaluatorUserId is, then the returned activity will be only for those agents that had evaluations where the evaluator is the evaluatorUserId.  If no agent selection criteria are specified and no evaluatorUserId is specified, then the returned activity will be for all users
 */
 func (a *Client) GetQualityAgentsActivity(ctx context.Context, params *GetQualityAgentsActivityParams) (*GetQualityAgentsActivityOK, error) {
 
@@ -751,6 +759,31 @@ func (a *Client) GetQualityFormsEvaluations(ctx context.Context, params *GetQual
 		return nil, err
 	}
 	return result.(*GetQualityFormsEvaluationsOK), nil
+
+}
+
+/*
+GetQualityFormsEvaluationsBulkContexts retrieves a list of the latest published evaluation form versions by context ids
+*/
+func (a *Client) GetQualityFormsEvaluationsBulkContexts(ctx context.Context, params *GetQualityFormsEvaluationsBulkContextsParams) (*GetQualityFormsEvaluationsBulkContextsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getQualityFormsEvaluationsBulkContexts",
+		Method:             "GET",
+		PathPattern:        "/api/v2/quality/forms/evaluations/bulk/contexts",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetQualityFormsEvaluationsBulkContextsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetQualityFormsEvaluationsBulkContextsOK), nil
 
 }
 
@@ -1181,6 +1214,31 @@ func (a *Client) PostQualityConversationsAuditsQuery(ctx context.Context, params
 		return nil, value, nil
 	}
 	return nil, nil, nil
+
+}
+
+/*
+PostQualityEvaluationsAggregatesQueryMe queries for evaluation aggregates for the current user
+*/
+func (a *Client) PostQualityEvaluationsAggregatesQueryMe(ctx context.Context, params *PostQualityEvaluationsAggregatesQueryMeParams) (*PostQualityEvaluationsAggregatesQueryMeOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postQualityEvaluationsAggregatesQueryMe",
+		Method:             "POST",
+		PathPattern:        "/api/v2/quality/evaluations/aggregates/query/me",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostQualityEvaluationsAggregatesQueryMeReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostQualityEvaluationsAggregatesQueryMeOK), nil
 
 }
 

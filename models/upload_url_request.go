@@ -19,7 +19,7 @@ import (
 // swagger:model UploadUrlRequest
 type UploadURLRequest struct {
 
-	// Content MD-5 of the file to upload
+	// Content MD5 of the file to upload
 	ContentMd5 string `json:"contentMd5,omitempty"`
 
 	// Name of the file to upload. It must not start with a dot and not end with a forward slash. Whitespace and the following characters are not allowed: \{^}%`]">[~<#|

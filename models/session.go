@@ -96,6 +96,10 @@ type Session struct {
 	// Customer's IP-based organization or ISP name.
 	IPOrganization string `json:"ipOrganization,omitempty"`
 
+	// Last ACD outcome for the conversation.
+	// Enum: [Unknown Abandon Answered FlowOut]
+	LastAcdOutcome string `json:"lastAcdOutcome,omitempty"`
+
 	// The last queue connected to this session.
 	LastConnectedQueue *ConnectedQueue `json:"lastConnectedQueue,omitempty"`
 
@@ -108,6 +112,10 @@ type Session struct {
 	// The webpage where the customer's last web interaction occurred.
 	LastPage *JourneyPage `json:"lastPage,omitempty"`
 
+	// Disconnect reason for the last user connected to the conversation.
+	// Enum: [Unknown Endpoint Client System Transfer Error Peer Other Spam Timeout TransportFailure ConferenceTransfer ConsultTransfer ForwardTransfer NoAnswerTransfer NotAvailableTransfer Uncallable]
+	LastUserDisconnectType string `json:"lastUserDisconnectType,omitempty"`
+
 	// The last user disposition connected to this session.
 	LastUserDisposition *ConversationUserDisposition `json:"lastUserDisposition,omitempty"`
 
@@ -115,7 +123,7 @@ type Session struct {
 	MktCampaign *JourneyCampaign `json:"mktCampaign,omitempty"`
 
 	// The original direction of the conversation.
-	// Enum: [Inbound Outbound]
+	// Enum: [Unknown Inbound Outbound]
 	OriginatingDirection string `json:"originatingDirection,omitempty"`
 
 	// List of the outcome achievements by the customer in this session.
@@ -203,6 +211,10 @@ func (m *Session) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateLastAcdOutcome(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateLastConnectedQueue(formats); err != nil {
 		res = append(res, err)
 	}
@@ -216,6 +228,10 @@ func (m *Session) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateLastPage(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateLastUserDisconnectType(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -464,6 +480,55 @@ func (m *Session) validateIdleDate(formats strfmt.Registry) error {
 	return nil
 }
 
+var sessionTypeLastAcdOutcomePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Unknown","Abandon","Answered","FlowOut"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		sessionTypeLastAcdOutcomePropEnum = append(sessionTypeLastAcdOutcomePropEnum, v)
+	}
+}
+
+const (
+
+	// SessionLastAcdOutcomeUnknown captures enum value "Unknown"
+	SessionLastAcdOutcomeUnknown string = "Unknown"
+
+	// SessionLastAcdOutcomeAbandon captures enum value "Abandon"
+	SessionLastAcdOutcomeAbandon string = "Abandon"
+
+	// SessionLastAcdOutcomeAnswered captures enum value "Answered"
+	SessionLastAcdOutcomeAnswered string = "Answered"
+
+	// SessionLastAcdOutcomeFlowOut captures enum value "FlowOut"
+	SessionLastAcdOutcomeFlowOut string = "FlowOut"
+)
+
+// prop value enum
+func (m *Session) validateLastAcdOutcomeEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, sessionTypeLastAcdOutcomePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *Session) validateLastAcdOutcome(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.LastAcdOutcome) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateLastAcdOutcomeEnum("lastAcdOutcome", "body", m.LastAcdOutcome); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *Session) validateLastConnectedQueue(formats strfmt.Registry) error {
 
 	if swag.IsZero(m.LastConnectedQueue) { // not required
@@ -536,6 +601,94 @@ func (m *Session) validateLastPage(formats strfmt.Registry) error {
 	return nil
 }
 
+var sessionTypeLastUserDisconnectTypePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Unknown","Endpoint","Client","System","Transfer","Error","Peer","Other","Spam","Timeout","TransportFailure","ConferenceTransfer","ConsultTransfer","ForwardTransfer","NoAnswerTransfer","NotAvailableTransfer","Uncallable"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		sessionTypeLastUserDisconnectTypePropEnum = append(sessionTypeLastUserDisconnectTypePropEnum, v)
+	}
+}
+
+const (
+
+	// SessionLastUserDisconnectTypeUnknown captures enum value "Unknown"
+	SessionLastUserDisconnectTypeUnknown string = "Unknown"
+
+	// SessionLastUserDisconnectTypeEndpoint captures enum value "Endpoint"
+	SessionLastUserDisconnectTypeEndpoint string = "Endpoint"
+
+	// SessionLastUserDisconnectTypeClient captures enum value "Client"
+	SessionLastUserDisconnectTypeClient string = "Client"
+
+	// SessionLastUserDisconnectTypeSystem captures enum value "System"
+	SessionLastUserDisconnectTypeSystem string = "System"
+
+	// SessionLastUserDisconnectTypeTransfer captures enum value "Transfer"
+	SessionLastUserDisconnectTypeTransfer string = "Transfer"
+
+	// SessionLastUserDisconnectTypeError captures enum value "Error"
+	SessionLastUserDisconnectTypeError string = "Error"
+
+	// SessionLastUserDisconnectTypePeer captures enum value "Peer"
+	SessionLastUserDisconnectTypePeer string = "Peer"
+
+	// SessionLastUserDisconnectTypeOther captures enum value "Other"
+	SessionLastUserDisconnectTypeOther string = "Other"
+
+	// SessionLastUserDisconnectTypeSpam captures enum value "Spam"
+	SessionLastUserDisconnectTypeSpam string = "Spam"
+
+	// SessionLastUserDisconnectTypeTimeout captures enum value "Timeout"
+	SessionLastUserDisconnectTypeTimeout string = "Timeout"
+
+	// SessionLastUserDisconnectTypeTransportFailure captures enum value "TransportFailure"
+	SessionLastUserDisconnectTypeTransportFailure string = "TransportFailure"
+
+	// SessionLastUserDisconnectTypeConferenceTransfer captures enum value "ConferenceTransfer"
+	SessionLastUserDisconnectTypeConferenceTransfer string = "ConferenceTransfer"
+
+	// SessionLastUserDisconnectTypeConsultTransfer captures enum value "ConsultTransfer"
+	SessionLastUserDisconnectTypeConsultTransfer string = "ConsultTransfer"
+
+	// SessionLastUserDisconnectTypeForwardTransfer captures enum value "ForwardTransfer"
+	SessionLastUserDisconnectTypeForwardTransfer string = "ForwardTransfer"
+
+	// SessionLastUserDisconnectTypeNoAnswerTransfer captures enum value "NoAnswerTransfer"
+	SessionLastUserDisconnectTypeNoAnswerTransfer string = "NoAnswerTransfer"
+
+	// SessionLastUserDisconnectTypeNotAvailableTransfer captures enum value "NotAvailableTransfer"
+	SessionLastUserDisconnectTypeNotAvailableTransfer string = "NotAvailableTransfer"
+
+	// SessionLastUserDisconnectTypeUncallable captures enum value "Uncallable"
+	SessionLastUserDisconnectTypeUncallable string = "Uncallable"
+)
+
+// prop value enum
+func (m *Session) validateLastUserDisconnectTypeEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, sessionTypeLastUserDisconnectTypePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *Session) validateLastUserDisconnectType(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.LastUserDisconnectType) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateLastUserDisconnectTypeEnum("lastUserDisconnectType", "body", m.LastUserDisconnectType); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *Session) validateLastUserDisposition(formats strfmt.Registry) error {
 
 	if swag.IsZero(m.LastUserDisposition) { // not required
@@ -576,7 +729,7 @@ var sessionTypeOriginatingDirectionPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Inbound","Outbound"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Unknown","Inbound","Outbound"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -585,6 +738,9 @@ func init() {
 }
 
 const (
+
+	// SessionOriginatingDirectionUnknown captures enum value "Unknown"
+	SessionOriginatingDirectionUnknown string = "Unknown"
 
 	// SessionOriginatingDirectionInbound captures enum value "Inbound"
 	SessionOriginatingDirectionInbound string = "Inbound"

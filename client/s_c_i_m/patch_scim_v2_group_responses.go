@@ -345,7 +345,7 @@ func NewPatchScimV2GroupRequestEntityTooLarge() *PatchScimV2GroupRequestEntityTo
 
 /*PatchScimV2GroupRequestEntityTooLarge handles this case with default header values.
 
-The request is over the size limit. Content-Length: %s
+The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
 type PatchScimV2GroupRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

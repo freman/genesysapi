@@ -26,6 +26,10 @@ type WorkdayValuesMetricItem struct {
 
 	// Gamification metric for the average and the trend
 	// Read Only: true
+	Metric *AddressableEntityRef `json:"metric,omitempty"`
+
+	// Gamification metric definition for the average and the trend
+	// Read Only: true
 	MetricDefinition *DomainEntityRef `json:"metricDefinition,omitempty"`
 
 	// The metric value trend
@@ -42,6 +46,10 @@ type WorkdayValuesMetricItem struct {
 func (m *WorkdayValuesMetricItem) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateMetric(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateMetricDefinition(formats); err != nil {
 		res = append(res, err)
 	}
@@ -57,6 +65,24 @@ func (m *WorkdayValuesMetricItem) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *WorkdayValuesMetricItem) validateMetric(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Metric) { // not required
+		return nil
+	}
+
+	if m.Metric != nil {
+		if err := m.Metric.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("metric")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

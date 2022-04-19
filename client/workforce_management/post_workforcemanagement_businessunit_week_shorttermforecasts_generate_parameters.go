@@ -66,7 +66,7 @@ type PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateParams str
 	/*Body*/
 	Body *models.GenerateBuForecastRequest
 	/*BusinessUnitID
-	  The business unit ID of the business unit to which the forecast belongs
+	  The ID of the business unit to which the forecast belongs
 
 	*/
 	BusinessUnitID string

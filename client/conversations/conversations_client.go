@@ -55,6 +55,10 @@ type API interface {
 	*/
 	DeleteConversationsMessagingIntegrationsWhatsappIntegrationID(ctx context.Context, params *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDParams) (*DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDOK, *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDAccepted, error)
 	/*
+	   DeleteConversationsMessagingSupportedcontentSupportedContentID deletes a supported content profile
+	*/
+	DeleteConversationsMessagingSupportedcontentSupportedContentID(ctx context.Context, params *DeleteConversationsMessagingSupportedcontentSupportedContentIDParams) (*DeleteConversationsMessagingSupportedcontentSupportedContentIDNoContent, error)
+	/*
 	   GetConversation gets conversation
 	*/
 	GetConversation(ctx context.Context, params *GetConversationParams) (*GetConversationOK, error)
@@ -185,6 +189,10 @@ type API interface {
 	*/
 	GetConversationsEmailParticipantWrapupcodes(ctx context.Context, params *GetConversationsEmailParticipantWrapupcodesParams) (*GetConversationsEmailParticipantWrapupcodesOK, error)
 	/*
+	   GetConversationsEmailSettings gets emails settings for a given conversation
+	*/
+	GetConversationsEmailSettings(ctx context.Context, params *GetConversationsEmailSettingsParams) (*GetConversationsEmailSettingsOK, error)
+	/*
 	   GetConversationsEmails gets active email conversations for the logged in user
 	*/
 	GetConversationsEmails(ctx context.Context, params *GetConversationsEmailsParams) (*GetConversationsEmailsOK, error)
@@ -272,6 +280,19 @@ type API interface {
 	*/
 	GetConversationsMessagingSticker(ctx context.Context, params *GetConversationsMessagingStickerParams) (*GetConversationsMessagingStickerOK, error)
 	/*
+	   GetConversationsMessagingSupportedcontent gets a list of supported content profiles
+	*/
+	GetConversationsMessagingSupportedcontent(ctx context.Context, params *GetConversationsMessagingSupportedcontentParams) (*GetConversationsMessagingSupportedcontentOK, error)
+	/*
+	   GetConversationsMessagingSupportedcontentDefault gets the organization s default supported content profile that will be used as the default when creating an integration
+	   When an integration is created a supported content ID may be assigned to it. If the supported content ID is not supplied, the default supported content profile will be assigned to it.
+	*/
+	GetConversationsMessagingSupportedcontentDefault(ctx context.Context, params *GetConversationsMessagingSupportedcontentDefaultParams) (*GetConversationsMessagingSupportedcontentDefaultOK, error)
+	/*
+	   GetConversationsMessagingSupportedcontentSupportedContentID gets a supported content profile
+	*/
+	GetConversationsMessagingSupportedcontentSupportedContentID(ctx context.Context, params *GetConversationsMessagingSupportedcontentSupportedContentIDParams) (*GetConversationsMessagingSupportedcontentSupportedContentIDOK, error)
+	/*
 	   GetConversationsMessagingThreadingtimeline gets conversation threading window timeline for each messaging type
 	   Conversation messaging threading timeline is a setting defined for each messenger type in your organization. This setting will dictate whether a new message is added to the most recent existing conversation, or creates a new Conversation. If the existing Conversation is still in a connected state the threading timeline setting will never play a role. After the conversation is disconnected, if an inbound message is received or an outbound message is sent after the setting for threading timeline expires, a new conversation is created.
 	*/
@@ -286,7 +307,7 @@ type API interface {
 	*/
 	PatchConversationParticipantAttributes(ctx context.Context, params *PatchConversationParticipantAttributesParams) (*PatchConversationParticipantAttributesAccepted, error)
 	/*
-	   PatchConversationsCall updates a conversation by setting it s recording state merging in other conversations to create a conference or disconnecting all of the participants
+	   PatchConversationsCall updates a conversation by setting its recording state merging in other conversations to create a conference or disconnecting all of the participants
 	*/
 	PatchConversationsCall(ctx context.Context, params *PatchConversationsCallParams) (*PatchConversationsCallOK, *PatchConversationsCallAccepted, error)
 	/*
@@ -321,6 +342,10 @@ type API interface {
 	   PatchConversationsCallbackParticipantCommunication updates conversation participant s communication by disconnecting it
 	*/
 	PatchConversationsCallbackParticipantCommunication(ctx context.Context, params *PatchConversationsCallbackParticipantCommunicationParams) (*PatchConversationsCallbackParticipantCommunicationOK, error)
+	/*
+	   PatchConversationsCallbacks updates a scheduled callback
+	*/
+	PatchConversationsCallbacks(ctx context.Context, params *PatchConversationsCallbacksParams) (*PatchConversationsCallbacksOK, error)
 	/*
 	   PatchConversationsChat updates a conversation by disconnecting all of the participants
 	*/
@@ -404,6 +429,10 @@ type API interface {
 	*/
 	PatchConversationsMessagingIntegrationsWhatsappIntegrationID(ctx context.Context, params *PatchConversationsMessagingIntegrationsWhatsappIntegrationIDParams) (*PatchConversationsMessagingIntegrationsWhatsappIntegrationIDOK, *PatchConversationsMessagingIntegrationsWhatsappIntegrationIDAccepted, error)
 	/*
+	   PatchConversationsMessagingSupportedcontentSupportedContentID updates a supported content profile
+	*/
+	PatchConversationsMessagingSupportedcontentSupportedContentID(ctx context.Context, params *PatchConversationsMessagingSupportedcontentSupportedContentIDParams) (*PatchConversationsMessagingSupportedcontentSupportedContentIDOK, error)
+	/*
 	   PostConversationAssign attempts to manually assign a specified conversation to a specified user ignores bullseye ring p a r score skills and languages
 	*/
 	PostConversationAssign(ctx context.Context, params *PostConversationAssignParams) (*PostConversationAssignAccepted, error)
@@ -459,6 +488,14 @@ type API interface {
 	   PostConversationsCallbacks creates a callback
 	*/
 	PostConversationsCallbacks(ctx context.Context, params *PostConversationsCallbacksParams) (*PostConversationsCallbacksOK, *PostConversationsCallbacksAccepted, error)
+	/*
+	   PostConversationsCallbacksBulkDisconnect disconnects multiple scheduled callbacks
+	*/
+	PostConversationsCallbacksBulkDisconnect(ctx context.Context, params *PostConversationsCallbacksBulkDisconnectParams) (*PostConversationsCallbacksBulkDisconnectAccepted, error)
+	/*
+	   PostConversationsCallbacksBulkUpdate updates multiple scheduled callbacks
+	*/
+	PostConversationsCallbacksBulkUpdate(ctx context.Context, params *PostConversationsCallbacksBulkUpdateParams) (*PostConversationsCallbacksBulkUpdateOK, error)
 	/*
 	   PostConversationsCalls creates a call conversation
 	*/
@@ -534,7 +571,7 @@ type API interface {
 	PostConversationsMessages(ctx context.Context, params *PostConversationsMessagesParams) (*PostConversationsMessagesOK, error)
 	/*
 	   PostConversationsMessagesAgentless sends an agentless outbound message
-	   Send an agentlesss (api participant) outbound message using a client credential grant. In order to call this endpoint you will need OAuth token generated using OAuth client credentials authorized with at least messaging scope. This will generate a new Conversation, if there is an existing active Conversation between the fromAddress and toAddress already, then this POST will fail.
+	   Send an agentless (api participant) outbound message using a client credential grant. In order to call this endpoint you will need OAuth token generated using OAuth client credentials authorized with at least messaging scope. This will generate a new Conversation, if there is an existing active Conversation between the fromAddress and toAddress already, then this POST will fail.
 	*/
 	PostConversationsMessagesAgentless(ctx context.Context, params *PostConversationsMessagesAgentlessParams) (*PostConversationsMessagesAgentlessOK, *PostConversationsMessagesAgentlessAccepted, error)
 	/*
@@ -565,6 +602,10 @@ type API interface {
 	*/
 	PostConversationsMessagingIntegrationsWhatsapp(ctx context.Context, params *PostConversationsMessagingIntegrationsWhatsappParams) (*PostConversationsMessagingIntegrationsWhatsappOK, error)
 	/*
+	   PostConversationsMessagingSupportedcontent creates a supported content profile
+	*/
+	PostConversationsMessagingSupportedcontent(ctx context.Context, params *PostConversationsMessagingSupportedcontentParams) (*PostConversationsMessagingSupportedcontentOK, *PostConversationsMessagingSupportedcontentCreated, error)
+	/*
 	   PutConversationParticipantFlaggedreason sets flagged reason on conversation participant to indicate bad conversation quality
 	*/
 	PutConversationParticipantFlaggedreason(ctx context.Context, params *PutConversationParticipantFlaggedreasonParams) (*PutConversationParticipantFlaggedreasonNoContent, error)
@@ -584,6 +625,11 @@ type API interface {
 	   PutConversationsMessagingIntegrationsLineIntegrationID updates a l i n e messenger integration
 	*/
 	PutConversationsMessagingIntegrationsLineIntegrationID(ctx context.Context, params *PutConversationsMessagingIntegrationsLineIntegrationIDParams) (*PutConversationsMessagingIntegrationsLineIntegrationIDOK, error)
+	/*
+	   PutConversationsMessagingSupportedcontentDefault sets the organization s default supported content profile that may be assigned to an integration when it is created
+	   When an integration is created a supported content ID may be assigned to it. If the supported content ID is not supplied, the default supported content profile will be assigned to it.
+	*/
+	PutConversationsMessagingSupportedcontentDefault(ctx context.Context, params *PutConversationsMessagingSupportedcontentDefaultParams) (*PutConversationsMessagingSupportedcontentDefaultOK, error)
 	/*
 	   PutConversationsMessagingThreadingtimeline updates conversation threading window timeline for each messaging type
 	   PUT Conversation messaging threading timeline is intended to set the conversation threading settings for ALL messengerTypes. If you omit a messengerType in the request body then the setting for that messengerType will use the platform default value. The PUT replaces the existing setting(s) that were previously set for each messengerType.
@@ -839,6 +885,31 @@ func (a *Client) DeleteConversationsMessagingIntegrationsWhatsappIntegrationID(c
 		return nil, value, nil
 	}
 	return nil, nil, nil
+
+}
+
+/*
+DeleteConversationsMessagingSupportedcontentSupportedContentID deletes a supported content profile
+*/
+func (a *Client) DeleteConversationsMessagingSupportedcontentSupportedContentID(ctx context.Context, params *DeleteConversationsMessagingSupportedcontentSupportedContentIDParams) (*DeleteConversationsMessagingSupportedcontentSupportedContentIDNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteConversationsMessagingSupportedcontentSupportedContentId",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/conversations/messaging/supportedcontent/{supportedContentId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteConversationsMessagingSupportedcontentSupportedContentIDReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteConversationsMessagingSupportedcontentSupportedContentIDNoContent), nil
 
 }
 
@@ -1647,6 +1718,31 @@ func (a *Client) GetConversationsEmailParticipantWrapupcodes(ctx context.Context
 }
 
 /*
+GetConversationsEmailSettings gets emails settings for a given conversation
+*/
+func (a *Client) GetConversationsEmailSettings(ctx context.Context, params *GetConversationsEmailSettingsParams) (*GetConversationsEmailSettingsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getConversationsEmailSettings",
+		Method:             "GET",
+		PathPattern:        "/api/v2/conversations/emails/{conversationId}/settings",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetConversationsEmailSettingsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetConversationsEmailSettingsOK), nil
+
+}
+
+/*
 GetConversationsEmails gets active email conversations for the logged in user
 */
 func (a *Client) GetConversationsEmails(ctx context.Context, params *GetConversationsEmailsParams) (*GetConversationsEmailsOK, error) {
@@ -2178,6 +2274,83 @@ func (a *Client) GetConversationsMessagingSticker(ctx context.Context, params *G
 }
 
 /*
+GetConversationsMessagingSupportedcontent gets a list of supported content profiles
+*/
+func (a *Client) GetConversationsMessagingSupportedcontent(ctx context.Context, params *GetConversationsMessagingSupportedcontentParams) (*GetConversationsMessagingSupportedcontentOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getConversationsMessagingSupportedcontent",
+		Method:             "GET",
+		PathPattern:        "/api/v2/conversations/messaging/supportedcontent",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetConversationsMessagingSupportedcontentReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetConversationsMessagingSupportedcontentOK), nil
+
+}
+
+/*
+GetConversationsMessagingSupportedcontentDefault gets the organization s default supported content profile that will be used as the default when creating an integration
+
+When an integration is created a supported content ID may be assigned to it. If the supported content ID is not supplied, the default supported content profile will be assigned to it.
+*/
+func (a *Client) GetConversationsMessagingSupportedcontentDefault(ctx context.Context, params *GetConversationsMessagingSupportedcontentDefaultParams) (*GetConversationsMessagingSupportedcontentDefaultOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getConversationsMessagingSupportedcontentDefault",
+		Method:             "GET",
+		PathPattern:        "/api/v2/conversations/messaging/supportedcontent/default",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetConversationsMessagingSupportedcontentDefaultReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetConversationsMessagingSupportedcontentDefaultOK), nil
+
+}
+
+/*
+GetConversationsMessagingSupportedcontentSupportedContentID gets a supported content profile
+*/
+func (a *Client) GetConversationsMessagingSupportedcontentSupportedContentID(ctx context.Context, params *GetConversationsMessagingSupportedcontentSupportedContentIDParams) (*GetConversationsMessagingSupportedcontentSupportedContentIDOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getConversationsMessagingSupportedcontentSupportedContentId",
+		Method:             "GET",
+		PathPattern:        "/api/v2/conversations/messaging/supportedcontent/{supportedContentId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetConversationsMessagingSupportedcontentSupportedContentIDReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetConversationsMessagingSupportedcontentSupportedContentIDOK), nil
+
+}
+
+/*
 GetConversationsMessagingThreadingtimeline gets conversation threading window timeline for each messaging type
 
 Conversation messaging threading timeline is a setting defined for each messenger type in your organization. This setting will dictate whether a new message is added to the most recent existing conversation, or creates a new Conversation. If the existing Conversation is still in a connected state the threading timeline setting will never play a role. After the conversation is disconnected, if an inbound message is received or an outbound message is sent after the setting for threading timeline expires, a new conversation is created.
@@ -2257,7 +2430,7 @@ func (a *Client) PatchConversationParticipantAttributes(ctx context.Context, par
 }
 
 /*
-PatchConversationsCall updates a conversation by setting it s recording state merging in other conversations to create a conference or disconnecting all of the participants
+PatchConversationsCall updates a conversation by setting its recording state merging in other conversations to create a conference or disconnecting all of the participants
 */
 func (a *Client) PatchConversationsCall(ctx context.Context, params *PatchConversationsCallParams) (*PatchConversationsCallOK, *PatchConversationsCallAccepted, error) {
 
@@ -2484,6 +2657,31 @@ func (a *Client) PatchConversationsCallbackParticipantCommunication(ctx context.
 		return nil, err
 	}
 	return result.(*PatchConversationsCallbackParticipantCommunicationOK), nil
+
+}
+
+/*
+PatchConversationsCallbacks updates a scheduled callback
+*/
+func (a *Client) PatchConversationsCallbacks(ctx context.Context, params *PatchConversationsCallbacksParams) (*PatchConversationsCallbacksOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "patchConversationsCallbacks",
+		Method:             "PATCH",
+		PathPattern:        "/api/v2/conversations/callbacks",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchConversationsCallbacksReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PatchConversationsCallbacksOK), nil
 
 }
 
@@ -2998,6 +3196,31 @@ func (a *Client) PatchConversationsMessagingIntegrationsWhatsappIntegrationID(ct
 }
 
 /*
+PatchConversationsMessagingSupportedcontentSupportedContentID updates a supported content profile
+*/
+func (a *Client) PatchConversationsMessagingSupportedcontentSupportedContentID(ctx context.Context, params *PatchConversationsMessagingSupportedcontentSupportedContentIDParams) (*PatchConversationsMessagingSupportedcontentSupportedContentIDOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "patchConversationsMessagingSupportedcontentSupportedContentId",
+		Method:             "PATCH",
+		PathPattern:        "/api/v2/conversations/messaging/supportedcontent/{supportedContentId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchConversationsMessagingSupportedcontentSupportedContentIDReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PatchConversationsMessagingSupportedcontentSupportedContentIDOK), nil
+
+}
+
+/*
 PostConversationAssign attempts to manually assign a specified conversation to a specified user ignores bullseye ring p a r score skills and languages
 */
 func (a *Client) PostConversationAssign(ctx context.Context, params *PostConversationAssignParams) (*PostConversationAssignAccepted, error) {
@@ -3350,6 +3573,56 @@ func (a *Client) PostConversationsCallbacks(ctx context.Context, params *PostCon
 		return nil, value, nil
 	}
 	return nil, nil, nil
+
+}
+
+/*
+PostConversationsCallbacksBulkDisconnect disconnects multiple scheduled callbacks
+*/
+func (a *Client) PostConversationsCallbacksBulkDisconnect(ctx context.Context, params *PostConversationsCallbacksBulkDisconnectParams) (*PostConversationsCallbacksBulkDisconnectAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postConversationsCallbacksBulkDisconnect",
+		Method:             "POST",
+		PathPattern:        "/api/v2/conversations/callbacks/bulk/disconnect",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostConversationsCallbacksBulkDisconnectReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostConversationsCallbacksBulkDisconnectAccepted), nil
+
+}
+
+/*
+PostConversationsCallbacksBulkUpdate updates multiple scheduled callbacks
+*/
+func (a *Client) PostConversationsCallbacksBulkUpdate(ctx context.Context, params *PostConversationsCallbacksBulkUpdateParams) (*PostConversationsCallbacksBulkUpdateOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postConversationsCallbacksBulkUpdate",
+		Method:             "POST",
+		PathPattern:        "/api/v2/conversations/callbacks/bulk/update",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostConversationsCallbacksBulkUpdateReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostConversationsCallbacksBulkUpdateOK), nil
 
 }
 
@@ -3797,7 +4070,7 @@ func (a *Client) PostConversationsMessages(ctx context.Context, params *PostConv
 /*
 PostConversationsMessagesAgentless sends an agentless outbound message
 
-Send an agentlesss (api participant) outbound message using a client credential grant. In order to call this endpoint you will need OAuth token generated using OAuth client credentials authorized with at least messaging scope. This will generate a new Conversation, if there is an existing active Conversation between the fromAddress and toAddress already, then this POST will fail.
+Send an agentless (api participant) outbound message using a client credential grant. In order to call this endpoint you will need OAuth token generated using OAuth client credentials authorized with at least messaging scope. This will generate a new Conversation, if there is an existing active Conversation between the fromAddress and toAddress already, then this POST will fail.
 */
 func (a *Client) PostConversationsMessagesAgentless(ctx context.Context, params *PostConversationsMessagesAgentlessParams) (*PostConversationsMessagesAgentlessOK, *PostConversationsMessagesAgentlessAccepted, error) {
 
@@ -4014,6 +4287,37 @@ func (a *Client) PostConversationsMessagingIntegrationsWhatsapp(ctx context.Cont
 }
 
 /*
+PostConversationsMessagingSupportedcontent creates a supported content profile
+*/
+func (a *Client) PostConversationsMessagingSupportedcontent(ctx context.Context, params *PostConversationsMessagingSupportedcontentParams) (*PostConversationsMessagingSupportedcontentOK, *PostConversationsMessagingSupportedcontentCreated, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postConversationsMessagingSupportedcontent",
+		Method:             "POST",
+		PathPattern:        "/api/v2/conversations/messaging/supportedcontent",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostConversationsMessagingSupportedcontentReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PostConversationsMessagingSupportedcontentOK:
+		return value, nil, nil
+	case *PostConversationsMessagingSupportedcontentCreated:
+		return nil, value, nil
+	}
+	return nil, nil, nil
+
+}
+
+/*
 PutConversationParticipantFlaggedreason sets flagged reason on conversation participant to indicate bad conversation quality
 */
 func (a *Client) PutConversationParticipantFlaggedreason(ctx context.Context, params *PutConversationParticipantFlaggedreasonParams) (*PutConversationParticipantFlaggedreasonNoContent, error) {
@@ -4135,6 +4439,33 @@ func (a *Client) PutConversationsMessagingIntegrationsLineIntegrationID(ctx cont
 		return nil, err
 	}
 	return result.(*PutConversationsMessagingIntegrationsLineIntegrationIDOK), nil
+
+}
+
+/*
+PutConversationsMessagingSupportedcontentDefault sets the organization s default supported content profile that may be assigned to an integration when it is created
+
+When an integration is created a supported content ID may be assigned to it. If the supported content ID is not supplied, the default supported content profile will be assigned to it.
+*/
+func (a *Client) PutConversationsMessagingSupportedcontentDefault(ctx context.Context, params *PutConversationsMessagingSupportedcontentDefaultParams) (*PutConversationsMessagingSupportedcontentDefaultOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "putConversationsMessagingSupportedcontentDefault",
+		Method:             "PUT",
+		PathPattern:        "/api/v2/conversations/messaging/supportedcontent/default",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PutConversationsMessagingSupportedcontentDefaultReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutConversationsMessagingSupportedcontentDefaultOK), nil
 
 }
 

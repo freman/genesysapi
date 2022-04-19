@@ -38,6 +38,9 @@ type MessagingIntegration struct {
 	// Read Only: true
 	ID string `json:"id"`
 
+	// messaging setting
+	MessagingSetting *MessagingSettingReference `json:"messagingSetting,omitempty"`
+
 	// The type of Messaging Integration
 	// Required: true
 	// Read Only: true
@@ -67,6 +70,9 @@ type MessagingIntegration struct {
 	// Enum: [Active Inactive Error Starting Incomplete Deleting DeletionFailed]
 	Status string `json:"status,omitempty"`
 
+	// Defines the SupportedContent profile configured for an integration
+	SupportedContent *SupportedContentReference `json:"supportedContent,omitempty"`
+
 	// Version number required for updates.
 	// Required: true
 	// Read Only: true
@@ -93,6 +99,10 @@ func (m *MessagingIntegration) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateMessagingSetting(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateMessengerType(formats); err != nil {
 		res = append(res, err)
 	}
@@ -114,6 +124,10 @@ func (m *MessagingIntegration) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateStatus(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSupportedContent(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -175,6 +189,24 @@ func (m *MessagingIntegration) validateID(formats strfmt.Registry) error {
 
 	if err := validate.RequiredString("id", "body", string(m.ID)); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *MessagingIntegration) validateMessagingSetting(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.MessagingSetting) { // not required
+		return nil
+	}
+
+	if m.MessagingSetting != nil {
+		if err := m.MessagingSetting.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("messagingSetting")
+			}
+			return err
+		}
 	}
 
 	return nil
@@ -352,6 +384,24 @@ func (m *MessagingIntegration) validateStatus(formats strfmt.Registry) error {
 	// value enum
 	if err := m.validateStatusEnum("status", "body", m.Status); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *MessagingIntegration) validateSupportedContent(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.SupportedContent) { // not required
+		return nil
+	}
+
+	if m.SupportedContent != nil {
+		if err := m.SupportedContent.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("supportedContent")
+			}
+			return err
+		}
 	}
 
 	return nil

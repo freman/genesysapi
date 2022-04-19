@@ -32,7 +32,7 @@ type CreateOutboundMessagingConversationRequest struct {
 
 	// The messaging address messenger type.
 	// Required: true
-	// Enum: [sms facebook twitter line whatsapp webmessaging instagram open]
+	// Enum: [sms]
 	ToAddressMessengerType *string `json:"toAddressMessengerType"`
 
 	// An override to use an existing conversation.
@@ -85,7 +85,7 @@ var createOutboundMessagingConversationRequestTypeToAddressMessengerTypePropEnum
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["sms","facebook","twitter","line","whatsapp","webmessaging","instagram","open"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["sms"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -97,27 +97,6 @@ const (
 
 	// CreateOutboundMessagingConversationRequestToAddressMessengerTypeSms captures enum value "sms"
 	CreateOutboundMessagingConversationRequestToAddressMessengerTypeSms string = "sms"
-
-	// CreateOutboundMessagingConversationRequestToAddressMessengerTypeFacebook captures enum value "facebook"
-	CreateOutboundMessagingConversationRequestToAddressMessengerTypeFacebook string = "facebook"
-
-	// CreateOutboundMessagingConversationRequestToAddressMessengerTypeTwitter captures enum value "twitter"
-	CreateOutboundMessagingConversationRequestToAddressMessengerTypeTwitter string = "twitter"
-
-	// CreateOutboundMessagingConversationRequestToAddressMessengerTypeLine captures enum value "line"
-	CreateOutboundMessagingConversationRequestToAddressMessengerTypeLine string = "line"
-
-	// CreateOutboundMessagingConversationRequestToAddressMessengerTypeWhatsapp captures enum value "whatsapp"
-	CreateOutboundMessagingConversationRequestToAddressMessengerTypeWhatsapp string = "whatsapp"
-
-	// CreateOutboundMessagingConversationRequestToAddressMessengerTypeWebmessaging captures enum value "webmessaging"
-	CreateOutboundMessagingConversationRequestToAddressMessengerTypeWebmessaging string = "webmessaging"
-
-	// CreateOutboundMessagingConversationRequestToAddressMessengerTypeInstagram captures enum value "instagram"
-	CreateOutboundMessagingConversationRequestToAddressMessengerTypeInstagram string = "instagram"
-
-	// CreateOutboundMessagingConversationRequestToAddressMessengerTypeOpen captures enum value "open"
-	CreateOutboundMessagingConversationRequestToAddressMessengerTypeOpen string = "open"
 )
 
 // prop value enum

@@ -62,7 +62,7 @@ for the get workforcemanagement businessunit week shorttermforecast data operati
 type GetWorkforcemanagementBusinessunitWeekShorttermforecastDataParams struct {
 
 	/*BusinessUnitID
-	  The business unit ID of the business unit to which the forecast belongs
+	  The ID of the business unit to which the forecast belongs
 
 	*/
 	BusinessUnitID string

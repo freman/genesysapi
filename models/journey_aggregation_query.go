@@ -147,7 +147,7 @@ var journeyAggregationQueryGroupByItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["containsAllCondition","containsAnyCondition","endsWithCondition","equalCondition","journeyActionId","journeyActionMapId","journeyActionMapVersion","journeyActionMediaType","journeyActionTargetId","journeyActionTemplateId","journeyBlockingActionMapId","journeyBlockingEmergencyScheduleGroupId","journeyBlockingReason","journeyBlockingScheduleGroupId","journeyCustomerId","journeyCustomerIdType","journeyDeviceCategory","journeyDeviceType","journeyFrequencyCapReason","journeyOutcomeId","journeySegmentId","journeySegmentScope","journeySessionSegmentId","journeySessionType","notContainsAllCondition","notContainsAnyCondition","notEqualCondition","startsWithCondition","touchpointActionMapId"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["containsAllCondition","containsAnyCondition","endsWithCondition","equalCondition","journeyActionId","journeyActionMapId","journeyActionMapVersion","journeyActionMediaType","journeyActionTargetId","journeyActionTemplateId","journeyBlockingActionMapId","journeyBlockingEmergencyScheduleGroupId","journeyBlockingReason","journeyBlockingScheduleGroupId","journeyCustomerId","journeyCustomerIdType","journeyDeviceCategory","journeyDeviceType","journeyFrequencyCapReason","journeyOutcomeId","journeySegmentId","journeySegmentScope","journeySessionId","journeySessionSegmentId","journeySessionType","notContainsAllCondition","notContainsAnyCondition","notEqualCondition","startsWithCondition","touchpointActionMapId"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {

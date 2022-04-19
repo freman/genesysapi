@@ -306,7 +306,7 @@ func NewPutOutboundAttemptlimitRequestEntityTooLarge() *PutOutboundAttemptlimitR
 
 /*PutOutboundAttemptlimitRequestEntityTooLarge handles this case with default header values.
 
-The request is over the size limit. Content-Length: %s
+The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
 type PutOutboundAttemptlimitRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

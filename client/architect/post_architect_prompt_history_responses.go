@@ -306,7 +306,7 @@ func NewPostArchitectPromptHistoryRequestEntityTooLarge() *PostArchitectPromptHi
 
 /*PostArchitectPromptHistoryRequestEntityTooLarge handles this case with default header values.
 
-The request is over the size limit. Content-Length: %s
+The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
 type PostArchitectPromptHistoryRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

@@ -306,7 +306,7 @@ func NewGetUserOutofofficeRequestEntityTooLarge() *GetUserOutofofficeRequestEnti
 
 /*GetUserOutofofficeRequestEntityTooLarge handles this case with default header values.
 
-The request is over the size limit. Content-Length: %s
+The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
 type GetUserOutofofficeRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

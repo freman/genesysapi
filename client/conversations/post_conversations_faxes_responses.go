@@ -306,7 +306,7 @@ func NewPostConversationsFaxesRequestEntityTooLarge() *PostConversationsFaxesReq
 
 /*PostConversationsFaxesRequestEntityTooLarge handles this case with default header values.
 
-The request is over the size limit. Content-Length: %s
+The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
 type PostConversationsFaxesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

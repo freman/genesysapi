@@ -55,6 +55,9 @@ type TwitterIntegration struct {
 	// Read Only: true
 	ID string `json:"id"`
 
+	// messaging setting
+	MessagingSetting *MessagingSettingReference `json:"messagingSetting,omitempty"`
+
 	// User reference that last modified this Integration
 	ModifiedBy *DomainEntityRef `json:"modifiedBy,omitempty"`
 
@@ -73,6 +76,9 @@ type TwitterIntegration struct {
 
 	// The status of the Twitter Integration
 	Status string `json:"status,omitempty"`
+
+	// Defines the SupportedContent profile configured for an integration
+	SupportedContent *SupportedContentReference `json:"supportedContent,omitempty"`
 
 	// The type of twitter account to be used for the integration
 	// Required: true
@@ -126,6 +132,10 @@ func (m *TwitterIntegration) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateMessagingSetting(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateModifiedBy(formats); err != nil {
 		res = append(res, err)
 	}
@@ -139,6 +149,10 @@ func (m *TwitterIntegration) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateSelfURI(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSupportedContent(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -291,6 +305,24 @@ func (m *TwitterIntegration) validateID(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *TwitterIntegration) validateMessagingSetting(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.MessagingSetting) { // not required
+		return nil
+	}
+
+	if m.MessagingSetting != nil {
+		if err := m.MessagingSetting.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("messagingSetting")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *TwitterIntegration) validateModifiedBy(formats strfmt.Registry) error {
 
 	if swag.IsZero(m.ModifiedBy) { // not required
@@ -344,6 +376,24 @@ func (m *TwitterIntegration) validateSelfURI(formats strfmt.Registry) error {
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *TwitterIntegration) validateSupportedContent(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.SupportedContent) { // not required
+		return nil
+	}
+
+	if m.SupportedContent != nil {
+		if err := m.SupportedContent.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("supportedContent")
+			}
+			return err
+		}
 	}
 
 	return nil

@@ -312,7 +312,7 @@ func NewGetExternalcontactsScanNotesRequestEntityTooLarge() *GetExternalcontacts
 
 /*GetExternalcontactsScanNotesRequestEntityTooLarge handles this case with default header values.
 
-The request is over the size limit. Content-Length: %s
+The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
 type GetExternalcontactsScanNotesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

@@ -38,6 +38,9 @@ type EvaluationScoringSet struct {
 
 	// Score of all questions
 	TotalScore float32 `json:"totalScore,omitempty"`
+
+	// List of topics found within the conversation's transcripts
+	TranscriptTopics []*TranscriptTopic `json:"transcriptTopics"`
 }
 
 // Validate validates this evaluation scoring set
@@ -45,6 +48,10 @@ func (m *EvaluationScoringSet) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateQuestionGroupScores(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTranscriptTopics(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -69,6 +76,31 @@ func (m *EvaluationScoringSet) validateQuestionGroupScores(formats strfmt.Regist
 			if err := m.QuestionGroupScores[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("questionGroupScores" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *EvaluationScoringSet) validateTranscriptTopics(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.TranscriptTopics) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.TranscriptTopics); i++ {
+		if swag.IsZero(m.TranscriptTopics[i]) { // not required
+			continue
+		}
+
+		if m.TranscriptTopics[i] != nil {
+			if err := m.TranscriptTopics[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("transcriptTopics" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

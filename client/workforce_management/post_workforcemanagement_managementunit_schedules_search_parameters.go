@@ -68,7 +68,7 @@ type PostWorkforcemanagementManagementunitSchedulesSearchParams struct {
 	*/
 	Body *models.UserListScheduleRequestBody
 	/*ManagementUnitID
-	  The management unit ID of the management unit, or 'mine' for the management unit of the logged-in user.
+	  The ID of the management unit, or 'mine' for the management unit of the logged-in user.
 
 	*/
 	ManagementUnitID string

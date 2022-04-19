@@ -193,7 +193,7 @@ type API interface {
 	/*
 	   PostGamificationProfiles creates a new custom performance profile
 	*/
-	PostGamificationProfiles(ctx context.Context, params *PostGamificationProfilesParams) (*PostGamificationProfilesOK, *PostGamificationProfilesCreated, error)
+	PostGamificationProfiles(ctx context.Context, params *PostGamificationProfilesParams) (*PostGamificationProfilesCreated, error)
 	/*
 	   PutGamificationMetric updates a metric
 	*/
@@ -1310,7 +1310,7 @@ func (a *Client) PostGamificationProfileMetrics(ctx context.Context, params *Pos
 /*
 PostGamificationProfiles creates a new custom performance profile
 */
-func (a *Client) PostGamificationProfiles(ctx context.Context, params *PostGamificationProfilesParams) (*PostGamificationProfilesOK, *PostGamificationProfilesCreated, error) {
+func (a *Client) PostGamificationProfiles(ctx context.Context, params *PostGamificationProfilesParams) (*PostGamificationProfilesCreated, error) {
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "postGamificationProfiles",
@@ -1326,15 +1326,9 @@ func (a *Client) PostGamificationProfiles(ctx context.Context, params *PostGamif
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
-		return nil, nil, err
+		return nil, err
 	}
-	switch value := result.(type) {
-	case *PostGamificationProfilesOK:
-		return value, nil, nil
-	case *PostGamificationProfilesCreated:
-		return nil, value, nil
-	}
-	return nil, nil, nil
+	return result.(*PostGamificationProfilesCreated), nil
 
 }
 

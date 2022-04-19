@@ -51,8 +51,16 @@ type DevelopmentActivity struct {
 	// Indicates if the activity is overdue
 	IsOverdue bool `json:"isOverdue"`
 
+	// True if the activity was passed
+	// Read Only: true
+	IsPassed *bool `json:"isPassed"`
+
 	// The name of the activity
 	Name string `json:"name,omitempty"`
+
+	// The user's percentage score for this activity
+	// Read Only: true
+	PercentageScore float32 `json:"percentageScore,omitempty"`
 
 	// The URI for this object
 	// Read Only: true

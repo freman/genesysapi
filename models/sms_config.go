@@ -17,6 +17,9 @@ import (
 // swagger:model SmsConfig
 type SmsConfig struct {
 
+	// The content template used to formulate the message to send to the contact.
+	ContentTemplate *DomainEntityRef `json:"contentTemplate,omitempty"`
+
 	// The Contact List column specifying the message to send to the contact.
 	// Required: true
 	MessageColumn *string `json:"messageColumn"`
@@ -34,6 +37,10 @@ type SmsConfig struct {
 func (m *SmsConfig) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateContentTemplate(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateMessageColumn(formats); err != nil {
 		res = append(res, err)
 	}
@@ -49,6 +56,24 @@ func (m *SmsConfig) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *SmsConfig) validateContentTemplate(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.ContentTemplate) { // not required
+		return nil
+	}
+
+	if m.ContentTemplate != nil {
+		if err := m.ContentTemplate.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("contentTemplate")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

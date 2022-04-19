@@ -306,7 +306,7 @@ func NewGetMobiledevicesRequestEntityTooLarge() *GetMobiledevicesRequestEntityTo
 
 /*GetMobiledevicesRequestEntityTooLarge handles this case with default header values.
 
-The request is over the size limit. Content-Length: %s
+The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
 type GetMobiledevicesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

@@ -111,20 +111,20 @@ func NewPatchRoutingQueueUsersOK() *PatchRoutingQueueUsersOK {
 successful operation
 */
 type PatchRoutingQueueUsersOK struct {
-	Payload *models.QueueMemberEntityListing
+	Payload *models.QueueMemberEntityListingV1
 }
 
 func (o *PatchRoutingQueueUsersOK) Error() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/queues/{queueId}/users][%d] patchRoutingQueueUsersOK  %+v", 200, o.Payload)
 }
 
-func (o *PatchRoutingQueueUsersOK) GetPayload() *models.QueueMemberEntityListing {
+func (o *PatchRoutingQueueUsersOK) GetPayload() *models.QueueMemberEntityListingV1 {
 	return o.Payload
 }
 
 func (o *PatchRoutingQueueUsersOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.QueueMemberEntityListing)
+	o.Payload = new(models.QueueMemberEntityListingV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -306,7 +306,7 @@ func NewPatchRoutingQueueUsersRequestEntityTooLarge() *PatchRoutingQueueUsersReq
 
 /*PatchRoutingQueueUsersRequestEntityTooLarge handles this case with default header values.
 
-The request is over the size limit. Content-Length: %s
+The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
 type PatchRoutingQueueUsersRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

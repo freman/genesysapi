@@ -306,7 +306,7 @@ func NewGetSpeechandtextanalyticsProgramsRequestEntityTooLarge() *GetSpeechandte
 
 /*GetSpeechandtextanalyticsProgramsRequestEntityTooLarge handles this case with default header values.
 
-The request is over the size limit. Content-Length: %s
+The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
 type GetSpeechandtextanalyticsProgramsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

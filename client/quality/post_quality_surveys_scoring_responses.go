@@ -306,7 +306,7 @@ func NewPostQualitySurveysScoringRequestEntityTooLarge() *PostQualitySurveysScor
 
 /*PostQualitySurveysScoringRequestEntityTooLarge handles this case with default header values.
 
-The request is over the size limit. Content-Length: %s
+The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
 type PostQualitySurveysScoringRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

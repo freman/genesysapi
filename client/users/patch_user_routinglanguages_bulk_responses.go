@@ -306,7 +306,7 @@ func NewPatchUserRoutinglanguagesBulkRequestEntityTooLarge() *PatchUserRoutingla
 
 /*PatchUserRoutinglanguagesBulkRequestEntityTooLarge handles this case with default header values.
 
-The request is over the size limit. Content-Length: %s
+The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
 type PatchUserRoutinglanguagesBulkRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

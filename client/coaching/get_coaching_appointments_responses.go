@@ -306,7 +306,7 @@ func NewGetCoachingAppointmentsRequestEntityTooLarge() *GetCoachingAppointmentsR
 
 /*GetCoachingAppointmentsRequestEntityTooLarge handles this case with default header values.
 
-The request is over the size limit. Content-Length: %s
+The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
 type GetCoachingAppointmentsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

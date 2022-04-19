@@ -345,7 +345,7 @@ func NewPostQualityConversationsAuditsQueryRequestEntityTooLarge() *PostQualityC
 
 /*PostQualityConversationsAuditsQueryRequestEntityTooLarge handles this case with default header values.
 
-The request is over the size limit. Content-Length: %s
+The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
 type PostQualityConversationsAuditsQueryRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

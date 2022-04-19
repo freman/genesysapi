@@ -68,7 +68,7 @@ type PatchWorkforcemanagementTimeoffrequestParams struct {
 	*/
 	Body *models.AgentTimeOffRequestPatch
 	/*TimeOffRequestID
-	  Time Off Request Id
+	  The ID of the time off request
 
 	*/
 	TimeOffRequestID string

@@ -294,7 +294,7 @@ func NewDeleteLocationRequestEntityTooLarge() *DeleteLocationRequestEntityTooLar
 
 /*DeleteLocationRequestEntityTooLarge handles this case with default header values.
 
-The request is over the size limit. Content-Length: %s
+The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
 type DeleteLocationRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

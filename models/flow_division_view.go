@@ -55,7 +55,7 @@ type FlowDivisionView struct {
 	SupportedLanguages []*SupportedLanguage `json:"supportedLanguages"`
 
 	// type
-	// Enum: [BOT COMMONMODULE INBOUNDCALL INBOUNDCHAT INBOUNDEMAIL INBOUNDSHORTMESSAGE INQUEUECALL INQUEUEEMAIL INQUEUESHORTMESSAGE OUTBOUNDCALL SECURECALL SPEECH SURVEYINVITE VOICEMAIL WORKFLOW WORKITEM]
+	// Enum: [BOT COMMONMODULE DIGITALBOT INBOUNDCALL INBOUNDCHAT INBOUNDEMAIL INBOUNDSHORTMESSAGE INQUEUECALL INQUEUEEMAIL INQUEUESHORTMESSAGE OUTBOUNDCALL SECURECALL SPEECH SURVEYINVITE VOICE VOICEMAIL WORKFLOW WORKITEM]
 	Type string `json:"type,omitempty"`
 }
 
@@ -246,7 +246,7 @@ var flowDivisionViewTypeTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["BOT","COMMONMODULE","INBOUNDCALL","INBOUNDCHAT","INBOUNDEMAIL","INBOUNDSHORTMESSAGE","INQUEUECALL","INQUEUEEMAIL","INQUEUESHORTMESSAGE","OUTBOUNDCALL","SECURECALL","SPEECH","SURVEYINVITE","VOICEMAIL","WORKFLOW","WORKITEM"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["BOT","COMMONMODULE","DIGITALBOT","INBOUNDCALL","INBOUNDCHAT","INBOUNDEMAIL","INBOUNDSHORTMESSAGE","INQUEUECALL","INQUEUEEMAIL","INQUEUESHORTMESSAGE","OUTBOUNDCALL","SECURECALL","SPEECH","SURVEYINVITE","VOICE","VOICEMAIL","WORKFLOW","WORKITEM"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -261,6 +261,9 @@ const (
 
 	// FlowDivisionViewTypeCOMMONMODULE captures enum value "COMMONMODULE"
 	FlowDivisionViewTypeCOMMONMODULE string = "COMMONMODULE"
+
+	// FlowDivisionViewTypeDIGITALBOT captures enum value "DIGITALBOT"
+	FlowDivisionViewTypeDIGITALBOT string = "DIGITALBOT"
 
 	// FlowDivisionViewTypeINBOUNDCALL captures enum value "INBOUNDCALL"
 	FlowDivisionViewTypeINBOUNDCALL string = "INBOUNDCALL"
@@ -294,6 +297,9 @@ const (
 
 	// FlowDivisionViewTypeSURVEYINVITE captures enum value "SURVEYINVITE"
 	FlowDivisionViewTypeSURVEYINVITE string = "SURVEYINVITE"
+
+	// FlowDivisionViewTypeVOICE captures enum value "VOICE"
+	FlowDivisionViewTypeVOICE string = "VOICE"
 
 	// FlowDivisionViewTypeVOICEMAIL captures enum value "VOICEMAIL"
 	FlowDivisionViewTypeVOICEMAIL string = "VOICEMAIL"

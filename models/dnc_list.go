@@ -19,6 +19,10 @@ import (
 // swagger:model DncList
 type DncList struct {
 
+	// The contact method. Required if dncSourceType is rds.
+	// Enum: [Email Phone]
+	ContactMethod string `json:"contactMethod,omitempty"`
+
 	// Creation time of the entity. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Read Only: true
 	// Format: date-time
@@ -77,6 +81,10 @@ type DncList struct {
 func (m *DncList) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateContactMethod(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateDateCreated(formats); err != nil {
 		res = append(res, err)
 	}
@@ -112,6 +120,49 @@ func (m *DncList) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+var dncListTypeContactMethodPropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Email","Phone"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		dncListTypeContactMethodPropEnum = append(dncListTypeContactMethodPropEnum, v)
+	}
+}
+
+const (
+
+	// DncListContactMethodEmail captures enum value "Email"
+	DncListContactMethodEmail string = "Email"
+
+	// DncListContactMethodPhone captures enum value "Phone"
+	DncListContactMethodPhone string = "Phone"
+)
+
+// prop value enum
+func (m *DncList) validateContactMethodEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, dncListTypeContactMethodPropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *DncList) validateContactMethod(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.ContactMethod) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateContactMethodEnum("contactMethod", "body", m.ContactMethod); err != nil {
+		return err
+	}
+
 	return nil
 }
 

@@ -23,6 +23,9 @@ type BusinessUnitSettings struct {
 	// Required: true
 	Metadata *WfmVersionedEntityMetadata `json:"metadata"`
 
+	// Scheduling settings
+	Scheduling *BuSchedulingSettings `json:"scheduling,omitempty"`
+
 	// Short term forecasting settings
 	ShortTermForecasting *BuShortTermForecastingSettings `json:"shortTermForecasting,omitempty"`
 
@@ -41,6 +44,10 @@ func (m *BusinessUnitSettings) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateMetadata(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateScheduling(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -72,6 +79,24 @@ func (m *BusinessUnitSettings) validateMetadata(formats strfmt.Registry) error {
 		if err := m.Metadata.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("metadata")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *BusinessUnitSettings) validateScheduling(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Scheduling) { // not required
+		return nil
+	}
+
+	if m.Scheduling != nil {
+		if err := m.Scheduling.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("scheduling")
 			}
 			return err
 		}

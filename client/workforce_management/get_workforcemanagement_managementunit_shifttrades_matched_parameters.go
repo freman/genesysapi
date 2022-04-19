@@ -61,7 +61,7 @@ for the get workforcemanagement managementunit shifttrades matched operation typ
 type GetWorkforcemanagementManagementunitShifttradesMatchedParams struct {
 
 	/*ManagementUnitID
-	  The management unit ID of the management unit, or 'mine' for the management unit of the logged-in user.
+	  The ID of the management unit, or 'mine' for the management unit of the logged-in user.
 
 	*/
 	ManagementUnitID string

@@ -24,8 +24,11 @@ type WebMessagingEvent struct {
 
 	// Type of this event element
 	// Required: true
-	// Enum: [CoBrowse]
+	// Enum: [CoBrowse Presence]
 	EventType *string `json:"eventType"`
+
+	// Presence event.
+	Presence *WebMessagingEventPresence `json:"presence,omitempty"`
 }
 
 // Validate validates this web messaging event
@@ -37,6 +40,10 @@ func (m *WebMessagingEvent) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateEventType(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePresence(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -68,7 +75,7 @@ var webMessagingEventTypeEventTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["CoBrowse"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["CoBrowse","Presence"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -80,6 +87,9 @@ const (
 
 	// WebMessagingEventEventTypeCoBrowse captures enum value "CoBrowse"
 	WebMessagingEventEventTypeCoBrowse string = "CoBrowse"
+
+	// WebMessagingEventEventTypePresence captures enum value "Presence"
+	WebMessagingEventEventTypePresence string = "Presence"
 )
 
 // prop value enum
@@ -99,6 +109,24 @@ func (m *WebMessagingEvent) validateEventType(formats strfmt.Registry) error {
 	// value enum
 	if err := m.validateEventTypeEnum("eventType", "body", *m.EventType); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *WebMessagingEvent) validatePresence(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Presence) { // not required
+		return nil
+	}
+
+	if m.Presence != nil {
+		if err := m.Presence.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("presence")
+			}
+			return err
+		}
 	}
 
 	return nil

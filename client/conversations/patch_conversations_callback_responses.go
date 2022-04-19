@@ -306,7 +306,7 @@ func NewPatchConversationsCallbackRequestEntityTooLarge() *PatchConversationsCal
 
 /*PatchConversationsCallbackRequestEntityTooLarge handles this case with default header values.
 
-The request is over the size limit. Content-Length: %s
+The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
 type PatchConversationsCallbackRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

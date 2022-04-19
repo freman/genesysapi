@@ -27,6 +27,12 @@ type DefaultObjective struct {
 	// Read Only: true
 	ID string `json:"id,omitempty"`
 
+	// A list of media types for the metric
+	MediaTypes []string `json:"mediaTypes"`
+
+	// A list of queues for the metric
+	Queues []*AddressableEntityRef `json:"queues"`
+
 	// The id of this objective's base template
 	TemplateID string `json:"templateId,omitempty"`
 
@@ -45,6 +51,14 @@ type DefaultObjective struct {
 func (m *DefaultObjective) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateMediaTypes(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateQueues(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateTopicIdsFilterType(formats); err != nil {
 		res = append(res, err)
 	}
@@ -60,6 +74,68 @@ func (m *DefaultObjective) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+var defaultObjectiveMediaTypesItemsEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["callback","chat","cobrowse","email","message","screenshare","unknown","video","voice"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		defaultObjectiveMediaTypesItemsEnum = append(defaultObjectiveMediaTypesItemsEnum, v)
+	}
+}
+
+func (m *DefaultObjective) validateMediaTypesItemsEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, defaultObjectiveMediaTypesItemsEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *DefaultObjective) validateMediaTypes(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.MediaTypes) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.MediaTypes); i++ {
+
+		// value enum
+		if err := m.validateMediaTypesItemsEnum("mediaTypes"+"."+strconv.Itoa(i), "body", m.MediaTypes[i]); err != nil {
+			return err
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DefaultObjective) validateQueues(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Queues) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Queues); i++ {
+		if swag.IsZero(m.Queues[i]) { // not required
+			continue
+		}
+
+		if m.Queues[i] != nil {
+			if err := m.Queues[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("queues" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 

@@ -23,7 +23,7 @@ type UserQueue struct {
 	// The ACW settings for the queue.
 	AcwSettings *AcwSettings `json:"acwSettings,omitempty"`
 
-	// The bulls-eye settings for the queue.
+	// The bullseye settings for the queue.
 	Bullseye *Bullseye `json:"bullseye,omitempty"`
 
 	// The name to use for caller identification for outbound calls from this queue.
@@ -100,7 +100,7 @@ type UserQueue struct {
 	// The in-queue flow to use for call conversations waiting in queue.
 	QueueFlow *DomainEntityRef `json:"queueFlow,omitempty"`
 
-	// The routing rules for the queue, used for routing to known or preferred agents.
+	// The routing rules for the queue, used for Preferred Agent Routing.
 	RoutingRules []*RoutingRule `json:"routingRules"`
 
 	// The URI for this object

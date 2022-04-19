@@ -81,6 +81,11 @@ for the get scripts operation typically these are written to a http.Request
 */
 type GetScriptsParams struct {
 
+	/*DivisionIds
+	  Filters scripts to requested divisionIds
+
+	*/
+	DivisionIds *string
 	/*Expand
 	  Expand
 
@@ -163,6 +168,17 @@ func (o *GetScriptsParams) WithHTTPClient(client *http.Client) *GetScriptsParams
 // SetHTTPClient adds the HTTPClient to the get scripts params
 func (o *GetScriptsParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
+}
+
+// WithDivisionIds adds the divisionIds to the get scripts params
+func (o *GetScriptsParams) WithDivisionIds(divisionIds *string) *GetScriptsParams {
+	o.SetDivisionIds(divisionIds)
+	return o
+}
+
+// SetDivisionIds adds the divisionIds to the get scripts params
+func (o *GetScriptsParams) SetDivisionIds(divisionIds *string) {
+	o.DivisionIds = divisionIds
 }
 
 // WithExpand adds the expand to the get scripts params
@@ -271,6 +287,22 @@ func (o *GetScriptsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Re
 		return err
 	}
 	var res []error
+
+	if o.DivisionIds != nil {
+
+		// query param divisionIds
+		var qrDivisionIds string
+		if o.DivisionIds != nil {
+			qrDivisionIds = *o.DivisionIds
+		}
+		qDivisionIds := qrDivisionIds
+		if qDivisionIds != "" {
+			if err := r.SetQueryParam("divisionIds", qDivisionIds); err != nil {
+				return err
+			}
+		}
+
+	}
 
 	if o.Expand != nil {
 

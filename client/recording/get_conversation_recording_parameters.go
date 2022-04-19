@@ -140,6 +140,11 @@ type GetConversationRecordingParams struct {
 
 	*/
 	Locale *string
+	/*MediaFormats
+	  All acceptable media formats. Overrides formatId. Valid values:WAV,WEBM,WAV_ULAW,OGG_VORBIS,OGG_OPUS,MP3
+
+	*/
+	MediaFormats []string
 	/*MessageFormatID
 	  The desired media format when downloading a message recording. Valid values:ZIP,NONE
 
@@ -264,6 +269,17 @@ func (o *GetConversationRecordingParams) WithLocale(locale *string) *GetConversa
 // SetLocale adds the locale to the get conversation recording params
 func (o *GetConversationRecordingParams) SetLocale(locale *string) {
 	o.Locale = locale
+}
+
+// WithMediaFormats adds the mediaFormats to the get conversation recording params
+func (o *GetConversationRecordingParams) WithMediaFormats(mediaFormats []string) *GetConversationRecordingParams {
+	o.SetMediaFormats(mediaFormats)
+	return o
+}
+
+// SetMediaFormats adds the mediaFormats to the get conversation recording params
+func (o *GetConversationRecordingParams) SetMediaFormats(mediaFormats []string) {
+	o.MediaFormats = mediaFormats
 }
 
 // WithMessageFormatID adds the messageFormatID to the get conversation recording params
@@ -395,6 +411,14 @@ func (o *GetConversationRecordingParams) WriteToRequest(r runtime.ClientRequest,
 			}
 		}
 
+	}
+
+	valuesMediaFormats := o.MediaFormats
+
+	joinedMediaFormats := swag.JoinByFormat(valuesMediaFormats, "multi")
+	// query array param mediaFormats
+	if err := r.SetQueryParam("mediaFormats", joinedMediaFormats...); err != nil {
+		return err
 	}
 
 	if o.MessageFormatID != nil {

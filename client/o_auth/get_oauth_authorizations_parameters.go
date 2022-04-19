@@ -19,8 +19,11 @@ import (
 // NewGetOauthAuthorizationsParams creates a new GetOauthAuthorizationsParams object
 // with the default values initialized.
 func NewGetOauthAuthorizationsParams() *GetOauthAuthorizationsParams {
-
+	var (
+		acceptLanguageDefault = string("en-us")
+	)
 	return &GetOauthAuthorizationsParams{
+		AcceptLanguage: &acceptLanguageDefault,
 
 		timeout: cr.DefaultTimeout,
 	}
@@ -29,8 +32,11 @@ func NewGetOauthAuthorizationsParams() *GetOauthAuthorizationsParams {
 // NewGetOauthAuthorizationsParamsWithTimeout creates a new GetOauthAuthorizationsParams object
 // with the default values initialized, and the ability to set a timeout on a request
 func NewGetOauthAuthorizationsParamsWithTimeout(timeout time.Duration) *GetOauthAuthorizationsParams {
-
+	var (
+		acceptLanguageDefault = string("en-us")
+	)
 	return &GetOauthAuthorizationsParams{
+		AcceptLanguage: &acceptLanguageDefault,
 
 		timeout: timeout,
 	}
@@ -39,8 +45,11 @@ func NewGetOauthAuthorizationsParamsWithTimeout(timeout time.Duration) *GetOauth
 // NewGetOauthAuthorizationsParamsWithContext creates a new GetOauthAuthorizationsParams object
 // with the default values initialized, and the ability to set a context for a request
 func NewGetOauthAuthorizationsParamsWithContext(ctx context.Context) *GetOauthAuthorizationsParams {
-
+	var (
+		acceptLanguageDefault = string("en-us")
+	)
 	return &GetOauthAuthorizationsParams{
+		AcceptLanguage: &acceptLanguageDefault,
 
 		Context: ctx,
 	}
@@ -49,9 +58,12 @@ func NewGetOauthAuthorizationsParamsWithContext(ctx context.Context) *GetOauthAu
 // NewGetOauthAuthorizationsParamsWithHTTPClient creates a new GetOauthAuthorizationsParams object
 // with the default values initialized, and the ability to set a custom HTTPClient for a request
 func NewGetOauthAuthorizationsParamsWithHTTPClient(client *http.Client) *GetOauthAuthorizationsParams {
-
+	var (
+		acceptLanguageDefault = string("en-us")
+	)
 	return &GetOauthAuthorizationsParams{
-		HTTPClient: client,
+		AcceptLanguage: &acceptLanguageDefault,
+		HTTPClient:     client,
 	}
 }
 
@@ -59,6 +71,13 @@ func NewGetOauthAuthorizationsParamsWithHTTPClient(client *http.Client) *GetOaut
 for the get oauth authorizations operation typically these are written to a http.Request
 */
 type GetOauthAuthorizationsParams struct {
+
+	/*AcceptLanguage
+	  The language in which to display the client descriptions.
+
+	*/
+	AcceptLanguage *string
+
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
@@ -97,6 +116,17 @@ func (o *GetOauthAuthorizationsParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithAcceptLanguage adds the acceptLanguage to the get oauth authorizations params
+func (o *GetOauthAuthorizationsParams) WithAcceptLanguage(acceptLanguage *string) *GetOauthAuthorizationsParams {
+	o.SetAcceptLanguage(acceptLanguage)
+	return o
+}
+
+// SetAcceptLanguage adds the acceptLanguage to the get oauth authorizations params
+func (o *GetOauthAuthorizationsParams) SetAcceptLanguage(acceptLanguage *string) {
+	o.AcceptLanguage = acceptLanguage
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *GetOauthAuthorizationsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -104,6 +134,15 @@ func (o *GetOauthAuthorizationsParams) WriteToRequest(r runtime.ClientRequest, r
 		return err
 	}
 	var res []error
+
+	if o.AcceptLanguage != nil {
+
+		// header param Accept-Language
+		if err := r.SetHeaderParam("Accept-Language", *o.AcceptLanguage); err != nil {
+			return err
+		}
+
+	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)

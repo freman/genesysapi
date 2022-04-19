@@ -304,7 +304,7 @@ func NewPostLicenseUsersRequestEntityTooLarge() *PostLicenseUsersRequestEntityTo
 
 /*PostLicenseUsersRequestEntityTooLarge handles this case with default header values.
 
-The request is over the size limit. Content-Length: %s
+The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
 type PostLicenseUsersRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

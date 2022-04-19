@@ -19,6 +19,9 @@ import (
 // swagger:model CreateBusinessUnitSettings
 type CreateBusinessUnitSettings struct {
 
+	// Scheduling settings
+	Scheduling *BuSchedulingSettings `json:"scheduling,omitempty"`
+
 	// Short term forecasting settings
 	ShortTermForecasting *BuShortTermForecastingSettings `json:"shortTermForecasting,omitempty"`
 
@@ -36,6 +39,10 @@ type CreateBusinessUnitSettings struct {
 func (m *CreateBusinessUnitSettings) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateScheduling(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateShortTermForecasting(formats); err != nil {
 		res = append(res, err)
 	}
@@ -51,6 +58,24 @@ func (m *CreateBusinessUnitSettings) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *CreateBusinessUnitSettings) validateScheduling(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Scheduling) { // not required
+		return nil
+	}
+
+	if m.Scheduling != nil {
+		if err := m.Scheduling.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("scheduling")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

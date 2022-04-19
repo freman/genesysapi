@@ -68,7 +68,7 @@ type PatchWorkforcemanagementManagementunitTimeofflimitParams struct {
 	*/
 	Body *models.UpdateTimeOffLimitRequest
 	/*ManagementUnitID
-	  The management unit ID of the management unit.
+	  The ID of the management unit.
 
 	*/
 	ManagementUnitID string

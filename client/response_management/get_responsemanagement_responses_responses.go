@@ -306,7 +306,7 @@ func NewGetResponsemanagementResponsesRequestEntityTooLarge() *GetResponsemanage
 
 /*GetResponsemanagementResponsesRequestEntityTooLarge handles this case with default header values.
 
-The request is over the size limit. Content-Length: %s
+The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
 type GetResponsemanagementResponsesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

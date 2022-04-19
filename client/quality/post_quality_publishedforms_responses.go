@@ -345,7 +345,7 @@ func NewPostQualityPublishedformsRequestEntityTooLarge() *PostQualityPublishedfo
 
 /*PostQualityPublishedformsRequestEntityTooLarge handles this case with default header values.
 
-The request is over the size limit. Content-Length: %s
+The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
 type PostQualityPublishedformsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

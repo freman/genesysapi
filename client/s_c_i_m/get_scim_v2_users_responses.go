@@ -306,7 +306,7 @@ func NewGetScimV2UsersRequestEntityTooLarge() *GetScimV2UsersRequestEntityTooLar
 
 /*GetScimV2UsersRequestEntityTooLarge handles this case with default header values.
 
-The request is over the size limit. Content-Length: %s
+The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
 type GetScimV2UsersRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

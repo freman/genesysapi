@@ -7,6 +7,7 @@ package models
 
 import (
 	"encoding/json"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -19,11 +20,29 @@ import (
 // swagger:model Condition
 type Condition struct {
 
+	// The input field from the data action that the agentWrapup will be passed to for this condition. Valid for a wrapup dataActionCondition.
+	AgentWrapupField string `json:"agentWrapupField,omitempty"`
+
 	// An attribute name associated with this Condition. Required for a contactAttributeCondition.
 	AttributeName string `json:"attributeName,omitempty"`
 
+	// The input field from the data action that the callAnalysisResult will be passed to for this condition. Valid for a wrapup dataActionCondition.
+	CallAnalysisResultField string `json:"callAnalysisResultField,omitempty"`
+
 	// List of wrap-up code identifiers. Required for a wrapupCondition.
 	Codes []string `json:"codes"`
+
+	// A list of mappings defining which contact data fields will be passed to which data action input fields for this condition. Valid for a dataActionCondition.
+	ContactColumnToDataActionFieldMappings []*ContactColumnToDataActionFieldMapping `json:"contactColumnToDataActionFieldMappings"`
+
+	// The input field from the data action that the contactId will be passed to for this condition. Valid for a dataActionCondition.
+	ContactIDField string `json:"contactIdField,omitempty"`
+
+	// The Data Action to use for this condition. Required for a dataActionCondition.
+	DataAction *DomainEntityRef `json:"dataAction,omitempty"`
+
+	// The result of this condition if the data action returns a result indicating there was no data. Required for a DataActionCondition.
+	DataNotFoundResolution bool `json:"dataNotFoundResolution"`
 
 	// If true, inverts the result of evaluating this Condition. Default is false.
 	Inverted bool `json:"inverted"`
@@ -31,6 +50,9 @@ type Condition struct {
 	// An operation with which to evaluate the Condition. Not used for a DataActionCondition.
 	// Enum: [EQUALS LESS_THAN LESS_THAN_EQUALS GREATER_THAN GREATER_THAN_EQUALS CONTAINS BEGINS_WITH ENDS_WITH BEFORE AFTER IN]
 	Operator string `json:"operator,omitempty"`
+
+	// A list of predicates defining the comparisons to use for this condition. Required for a dataActionCondition.
+	Predicates []*DataActionConditionPredicate `json:"predicates"`
 
 	// A value associated with the property type of this Condition. Required for a contactPropertyCondition.
 	Property string `json:"property,omitempty"`
@@ -55,7 +77,19 @@ type Condition struct {
 func (m *Condition) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateContactColumnToDataActionFieldMappings(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDataAction(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateOperator(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePredicates(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -74,6 +108,49 @@ func (m *Condition) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *Condition) validateContactColumnToDataActionFieldMappings(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.ContactColumnToDataActionFieldMappings) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.ContactColumnToDataActionFieldMappings); i++ {
+		if swag.IsZero(m.ContactColumnToDataActionFieldMappings[i]) { // not required
+			continue
+		}
+
+		if m.ContactColumnToDataActionFieldMappings[i] != nil {
+			if err := m.ContactColumnToDataActionFieldMappings[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("contactColumnToDataActionFieldMappings" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Condition) validateDataAction(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.DataAction) { // not required
+		return nil
+	}
+
+	if m.DataAction != nil {
+		if err := m.DataAction.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("dataAction")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -142,6 +219,31 @@ func (m *Condition) validateOperator(formats strfmt.Registry) error {
 	// value enum
 	if err := m.validateOperatorEnum("operator", "body", m.Operator); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *Condition) validatePredicates(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Predicates) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Predicates); i++ {
+		if swag.IsZero(m.Predicates[i]) { // not required
+			continue
+		}
+
+		if m.Predicates[i] != nil {
+			if err := m.Predicates[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("predicates" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

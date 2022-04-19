@@ -44,7 +44,7 @@ type WebDeploymentConfigurationVersion struct {
 	// Format: date-time
 	DatePublished strfmt.DateTime `json:"datePublished,omitempty"`
 
-	// The default language to use for the configuration
+	// The default language to use for the configuration required if the messenger is enabled
 	DefaultLanguage string `json:"defaultLanguage,omitempty"`
 
 	// The description of the configuration
@@ -57,7 +57,7 @@ type WebDeploymentConfigurationVersion struct {
 	// The settings for journey events
 	JourneyEvents *JourneyEventsSettings `json:"journeyEvents,omitempty"`
 
-	// A list of languages supported on the configuration
+	// A list of languages supported on the configuration required if the messenger is enabled
 	Languages []string `json:"languages"`
 
 	// A reference to the user who most recently modified the configuration version
@@ -70,6 +70,9 @@ type WebDeploymentConfigurationVersion struct {
 	// The configuration version name
 	// Required: true
 	Name *string `json:"name"`
+
+	// The settings for position
+	Position *PositionSettings `json:"position,omitempty"`
 
 	// A reference to the user who published the configuration version
 	// Read Only: true
@@ -133,6 +136,10 @@ func (m *WebDeploymentConfigurationVersion) Validate(formats strfmt.Registry) er
 	}
 
 	if err := m.validateName(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePosition(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -309,6 +316,24 @@ func (m *WebDeploymentConfigurationVersion) validateName(formats strfmt.Registry
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *WebDeploymentConfigurationVersion) validatePosition(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Position) { // not required
+		return nil
+	}
+
+	if m.Position != nil {
+		if err := m.Position.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("position")
+			}
+			return err
+		}
 	}
 
 	return nil

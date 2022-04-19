@@ -39,20 +39,10 @@ type API interface {
 	*/
 	GetUserPresence(ctx context.Context, params *GetUserPresenceParams) (*GetUserPresenceOK, error)
 	/*
-	   GetUserPresencesMicrosoftteams gets a user s microsoft teams presence
-	   Gets the presence for a Microsoft Teams user.  This will return the Microsoft Teams presence mapped to Genesys Cloud presence with additional activity details in the message field. This presence source is read-only.
-	*/
-	GetUserPresencesMicrosoftteams(ctx context.Context, params *GetUserPresencesMicrosoftteamsParams) (*GetUserPresencesMicrosoftteamsOK, error)
-	/*
 	   GetUserPresencesPurecloud gets a user s genesys cloud presence
 	   Get the default Genesys Cloud user presence source PURECLOUD
 	*/
 	GetUserPresencesPurecloud(ctx context.Context, params *GetUserPresencesPurecloudParams) (*GetUserPresencesPurecloudOK, error)
-	/*
-	   GetUserPresencesZoomphone gets a user s zoom phone presence
-	   Gets the presence for a Zoom user.  This will return the Zoom Phone presence mapped to Genesys Cloud presence with additional activity details in the message field. This presence source is read-only.
-	*/
-	GetUserPresencesZoomphone(ctx context.Context, params *GetUserPresencesZoomphoneParams) (*GetUserPresencesZoomphoneOK, error)
 	/*
 	   PatchUserPresence patches a user s presence
 	   Patch a user's presence for the specified source that is not specifically listed. The presence object can be patched one of three ways. Option 1: Set the 'primary' property to true. This will set the 'source' defined in the path as the user's primary presence source. Option 2: Provide the presenceDefinition value. The 'id' is the only value required within the presenceDefinition. Option 3: Provide the message value. Option 1 can be combined with Option 2 and/or Option 3.
@@ -223,33 +213,6 @@ func (a *Client) GetUserPresence(ctx context.Context, params *GetUserPresencePar
 }
 
 /*
-GetUserPresencesMicrosoftteams gets a user s microsoft teams presence
-
-Gets the presence for a Microsoft Teams user.  This will return the Microsoft Teams presence mapped to Genesys Cloud presence with additional activity details in the message field. This presence source is read-only.
-*/
-func (a *Client) GetUserPresencesMicrosoftteams(ctx context.Context, params *GetUserPresencesMicrosoftteamsParams) (*GetUserPresencesMicrosoftteamsOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "getUserPresencesMicrosoftteams",
-		Method:             "GET",
-		PathPattern:        "/api/v2/users/{userId}/presences/microsoftteams",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetUserPresencesMicrosoftteamsReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*GetUserPresencesMicrosoftteamsOK), nil
-
-}
-
-/*
 GetUserPresencesPurecloud gets a user s genesys cloud presence
 
 Get the default Genesys Cloud user presence source PURECLOUD
@@ -273,33 +236,6 @@ func (a *Client) GetUserPresencesPurecloud(ctx context.Context, params *GetUserP
 		return nil, err
 	}
 	return result.(*GetUserPresencesPurecloudOK), nil
-
-}
-
-/*
-GetUserPresencesZoomphone gets a user s zoom phone presence
-
-Gets the presence for a Zoom user.  This will return the Zoom Phone presence mapped to Genesys Cloud presence with additional activity details in the message field. This presence source is read-only.
-*/
-func (a *Client) GetUserPresencesZoomphone(ctx context.Context, params *GetUserPresencesZoomphoneParams) (*GetUserPresencesZoomphoneOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "getUserPresencesZoomphone",
-		Method:             "GET",
-		PathPattern:        "/api/v2/users/{userId}/presences/zoomphone",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetUserPresencesZoomphoneReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*GetUserPresencesZoomphoneOK), nil
 
 }
 

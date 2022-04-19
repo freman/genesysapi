@@ -34,6 +34,9 @@ type WhatsAppIntegrationUpdateRequest struct {
 	// Read Only: true
 	ID string `json:"id,omitempty"`
 
+	// messaging setting
+	MessagingSetting *MessagingSettingReference `json:"messagingSetting,omitempty"`
+
 	// WhatsApp Integration name
 	// Read Only: true
 	Name string `json:"name,omitempty"`
@@ -42,6 +45,9 @@ type WhatsAppIntegrationUpdateRequest struct {
 	// Read Only: true
 	// Format: uri
 	SelfURI strfmt.URI `json:"selfUri,omitempty"`
+
+	// Defines the SupportedContent profile configured for an integration
+	SupportedContent *SupportedContentReference `json:"supportedContent,omitempty"`
 }
 
 // Validate validates this whats app integration update request
@@ -56,7 +62,15 @@ func (m *WhatsAppIntegrationUpdateRequest) Validate(formats strfmt.Registry) err
 		res = append(res, err)
 	}
 
+	if err := m.validateMessagingSetting(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateSelfURI(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSupportedContent(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -152,6 +166,24 @@ func (m *WhatsAppIntegrationUpdateRequest) validateAuthenticationMethod(formats 
 	return nil
 }
 
+func (m *WhatsAppIntegrationUpdateRequest) validateMessagingSetting(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.MessagingSetting) { // not required
+		return nil
+	}
+
+	if m.MessagingSetting != nil {
+		if err := m.MessagingSetting.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("messagingSetting")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *WhatsAppIntegrationUpdateRequest) validateSelfURI(formats strfmt.Registry) error {
 
 	if swag.IsZero(m.SelfURI) { // not required
@@ -160,6 +192,24 @@ func (m *WhatsAppIntegrationUpdateRequest) validateSelfURI(formats strfmt.Regist
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *WhatsAppIntegrationUpdateRequest) validateSupportedContent(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.SupportedContent) { // not required
+		return nil
+	}
+
+	if m.SupportedContent != nil {
+		if err := m.SupportedContent.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("supportedContent")
+			}
+			return err
+		}
 	}
 
 	return nil

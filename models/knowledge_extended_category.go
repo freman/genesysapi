@@ -47,7 +47,7 @@ type KnowledgeExtendedCategory struct {
 
 	// Actual language of the category
 	// Read Only: true
-	// Enum: [en-US en-UK en-AU de-DE]
+	// Enum: [en-US en-UK en-AU de-DE es-US es-ES fr-FR pt-BR nl-NL it-IT]
 	LanguageCode string `json:"languageCode,omitempty"`
 
 	// Category name
@@ -179,7 +179,7 @@ var knowledgeExtendedCategoryTypeLanguageCodePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["en-US","en-UK","en-AU","de-DE"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["en-US","en-UK","en-AU","de-DE","es-US","es-ES","fr-FR","pt-BR","nl-NL","it-IT"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -200,6 +200,24 @@ const (
 
 	// KnowledgeExtendedCategoryLanguageCodeDeDE captures enum value "de-DE"
 	KnowledgeExtendedCategoryLanguageCodeDeDE string = "de-DE"
+
+	// KnowledgeExtendedCategoryLanguageCodeEsUS captures enum value "es-US"
+	KnowledgeExtendedCategoryLanguageCodeEsUS string = "es-US"
+
+	// KnowledgeExtendedCategoryLanguageCodeEsES captures enum value "es-ES"
+	KnowledgeExtendedCategoryLanguageCodeEsES string = "es-ES"
+
+	// KnowledgeExtendedCategoryLanguageCodeFrFR captures enum value "fr-FR"
+	KnowledgeExtendedCategoryLanguageCodeFrFR string = "fr-FR"
+
+	// KnowledgeExtendedCategoryLanguageCodePtBR captures enum value "pt-BR"
+	KnowledgeExtendedCategoryLanguageCodePtBR string = "pt-BR"
+
+	// KnowledgeExtendedCategoryLanguageCodeNlNL captures enum value "nl-NL"
+	KnowledgeExtendedCategoryLanguageCodeNlNL string = "nl-NL"
+
+	// KnowledgeExtendedCategoryLanguageCodeItIT captures enum value "it-IT"
+	KnowledgeExtendedCategoryLanguageCodeItIT string = "it-IT"
 )
 
 // prop value enum

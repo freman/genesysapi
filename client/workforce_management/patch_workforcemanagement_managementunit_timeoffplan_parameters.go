@@ -68,7 +68,7 @@ type PatchWorkforcemanagementManagementunitTimeoffplanParams struct {
 	*/
 	Body *models.UpdateTimeOffPlanRequest
 	/*ManagementUnitID
-	  The management unit ID.
+	  The ID of the management unit
 
 	*/
 	ManagementUnitID string

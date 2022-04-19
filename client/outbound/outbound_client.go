@@ -70,6 +70,10 @@ type API interface {
 	*/
 	DeleteOutboundMessagingcampaign(ctx context.Context, params *DeleteOutboundMessagingcampaignParams) (*DeleteOutboundMessagingcampaignOK, *DeleteOutboundMessagingcampaignNoContent, error)
 	/*
+	   DeleteOutboundMessagingcampaignProgress resets messaging campaign progress and recycle the messaging campaign
+	*/
+	DeleteOutboundMessagingcampaignProgress(ctx context.Context, params *DeleteOutboundMessagingcampaignProgressParams) (*DeleteOutboundMessagingcampaignProgressNoContent, error)
+	/*
 	   DeleteOutboundRuleset deletes a rule set
 	*/
 	DeleteOutboundRuleset(ctx context.Context, params *DeleteOutboundRulesetParams) (*DeleteOutboundRulesetOK, error)
@@ -818,6 +822,31 @@ func (a *Client) DeleteOutboundMessagingcampaign(ctx context.Context, params *De
 		return nil, value, nil
 	}
 	return nil, nil, nil
+
+}
+
+/*
+DeleteOutboundMessagingcampaignProgress resets messaging campaign progress and recycle the messaging campaign
+*/
+func (a *Client) DeleteOutboundMessagingcampaignProgress(ctx context.Context, params *DeleteOutboundMessagingcampaignProgressParams) (*DeleteOutboundMessagingcampaignProgressNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteOutboundMessagingcampaignProgress",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/outbound/messagingcampaigns/{messagingCampaignId}/progress",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteOutboundMessagingcampaignProgressReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteOutboundMessagingcampaignProgressNoContent), nil
 
 }
 

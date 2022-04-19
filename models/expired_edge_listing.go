@@ -19,7 +19,7 @@ import (
 type ExpiredEdgeListing struct {
 
 	// entities
-	Entities []*EdgeIDNamePair `json:"entities"`
+	Entities []*DomainEntityRef `json:"entities"`
 }
 
 // Validate validates this expired edge listing

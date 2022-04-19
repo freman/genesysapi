@@ -53,6 +53,9 @@ type WhatsAppIntegration struct {
 	// Read Only: true
 	ID string `json:"id"`
 
+	// messaging setting
+	MessagingSetting *MessagingSettingReference `json:"messagingSetting,omitempty"`
+
 	// User reference that last modified this Integration
 	ModifiedBy *DomainEntityRef `json:"modifiedBy,omitempty"`
 
@@ -76,6 +79,9 @@ type WhatsAppIntegration struct {
 	// The status of the WhatsApp Integration
 	// Enum: [Active Inactive Error Starting Incomplete Deleting DeletionFailed]
 	Status string `json:"status,omitempty"`
+
+	// Defines the SupportedContent profile configured for an integration
+	SupportedContent *SupportedContentReference `json:"supportedContent,omitempty"`
 
 	// Version number required for updates.
 	// Required: true
@@ -118,6 +124,10 @@ func (m *WhatsAppIntegration) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateMessagingSetting(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateModifiedBy(formats); err != nil {
 		res = append(res, err)
 	}
@@ -139,6 +149,10 @@ func (m *WhatsAppIntegration) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateStatus(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSupportedContent(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -342,6 +356,24 @@ func (m *WhatsAppIntegration) validateID(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *WhatsAppIntegration) validateMessagingSetting(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.MessagingSetting) { // not required
+		return nil
+	}
+
+	if m.MessagingSetting != nil {
+		if err := m.MessagingSetting.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("messagingSetting")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *WhatsAppIntegration) validateModifiedBy(formats strfmt.Registry) error {
 
 	if swag.IsZero(m.ModifiedBy) { // not required
@@ -462,6 +494,24 @@ func (m *WhatsAppIntegration) validateStatus(formats strfmt.Registry) error {
 	// value enum
 	if err := m.validateStatusEnum("status", "body", m.Status); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *WhatsAppIntegration) validateSupportedContent(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.SupportedContent) { // not required
+		return nil
+	}
+
+	if m.SupportedContent != nil {
+		if err := m.SupportedContent.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("supportedContent")
+			}
+			return err
+		}
 	}
 
 	return nil

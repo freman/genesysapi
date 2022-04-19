@@ -7,6 +7,7 @@ package models
 
 import (
 	"encoding/json"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -23,6 +24,21 @@ type DialerAction struct {
 	// Required: true
 	// Enum: [DO_NOT_DIAL MODIFY_CONTACT_ATTRIBUTE SWITCH_TO_PREVIEW APPEND_NUMBER_TO_DNC_LIST SCHEDULE_CALLBACK CONTACT_UNCALLABLE NUMBER_UNCALLABLE SET_CALLER_ID SET_SKILLS DATA_ACTION]
 	ActionTypeName *string `json:"actionTypeName"`
+
+	// The input field from the data action that the agentWrapup will be passed to for this condition. Valid for a wrapup dataActionBehavior.
+	AgentWrapupField string `json:"agentWrapupField,omitempty"`
+
+	// The input field from the data action that the callAnalysisResult will be passed to for this condition. Valid for a wrapup dataActionBehavior.
+	CallAnalysisResultField string `json:"callAnalysisResultField,omitempty"`
+
+	// A list of mappings defining which contact data fields will be passed to which data action input fields for this condition. Valid for a dataActionBehavior.
+	ContactColumnToDataActionFieldMappings []*ContactColumnToDataActionFieldMapping `json:"contactColumnToDataActionFieldMappings"`
+
+	// The input field from the data action that the contactId will be passed to for this condition. Valid for a dataActionBehavior.
+	ContactIDField string `json:"contactIdField,omitempty"`
+
+	// The Data Action to use for this action. Required for a dataActionBehavior.
+	DataAction *DomainEntityRef `json:"dataAction,omitempty"`
 
 	// A map of key-value pairs pertinent to the DialerAction. Different types of DialerActions require different properties. MODIFY_CONTACT_ATTRIBUTE with an updateOption of SET takes a contact column as the key and accepts any value. SCHEDULE_CALLBACK takes a key 'callbackOffset' that specifies how far in the future the callback should be scheduled, in minutes. SET_CALLER_ID takes two keys: 'callerAddress', which should be the caller id phone number, and 'callerName'. For either key, you can also specify a column on the contact to get the value from. To do this, specify 'contact.Column', where 'Column' is the name of the contact column from which to get the value. SET_SKILLS takes a key 'skills' with an array of skill ids wrapped into a string (Example: {'skills': '['skillIdHere']'} ).
 	Properties map[string]string `json:"properties,omitempty"`
@@ -42,6 +58,14 @@ func (m *DialerAction) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateActionTypeName(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateContactColumnToDataActionFieldMappings(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDataAction(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -121,6 +145,49 @@ func (m *DialerAction) validateActionTypeName(formats strfmt.Registry) error {
 	// value enum
 	if err := m.validateActionTypeNameEnum("actionTypeName", "body", *m.ActionTypeName); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *DialerAction) validateContactColumnToDataActionFieldMappings(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.ContactColumnToDataActionFieldMappings) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.ContactColumnToDataActionFieldMappings); i++ {
+		if swag.IsZero(m.ContactColumnToDataActionFieldMappings[i]) { // not required
+			continue
+		}
+
+		if m.ContactColumnToDataActionFieldMappings[i] != nil {
+			if err := m.ContactColumnToDataActionFieldMappings[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("contactColumnToDataActionFieldMappings" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DialerAction) validateDataAction(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.DataAction) { // not required
+		return nil
+	}
+
+	if m.DataAction != nil {
+		if err := m.DataAction.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("dataAction")
+			}
+			return err
+		}
 	}
 
 	return nil

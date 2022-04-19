@@ -306,7 +306,7 @@ func NewPutRecordingCrossplatformMediaretentionpolicyRequestEntityTooLarge() *Pu
 
 /*PutRecordingCrossplatformMediaretentionpolicyRequestEntityTooLarge handles this case with default header values.
 
-The request is over the size limit. Content-Length: %s
+The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
 type PutRecordingCrossplatformMediaretentionpolicyRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

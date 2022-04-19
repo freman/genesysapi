@@ -306,7 +306,7 @@ func NewGetContentmanagementDocumentAuditsRequestEntityTooLarge() *GetContentman
 
 /*GetContentmanagementDocumentAuditsRequestEntityTooLarge handles this case with default header values.
 
-The request is over the size limit. Content-Length: %s
+The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
 type GetContentmanagementDocumentAuditsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

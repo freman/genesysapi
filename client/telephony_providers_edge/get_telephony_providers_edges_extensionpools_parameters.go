@@ -23,12 +23,10 @@ func NewGetTelephonyProvidersEdgesExtensionpoolsParams() *GetTelephonyProvidersE
 	var (
 		pageNumberDefault = int32(1)
 		pageSizeDefault   = int32(25)
-		sortByDefault     = string("startNumber")
 	)
 	return &GetTelephonyProvidersEdgesExtensionpoolsParams{
 		PageNumber: &pageNumberDefault,
 		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
 
 		timeout: cr.DefaultTimeout,
 	}
@@ -40,12 +38,10 @@ func NewGetTelephonyProvidersEdgesExtensionpoolsParamsWithTimeout(timeout time.D
 	var (
 		pageNumberDefault = int32(1)
 		pageSizeDefault   = int32(25)
-		sortByDefault     = string("startNumber")
 	)
 	return &GetTelephonyProvidersEdgesExtensionpoolsParams{
 		PageNumber: &pageNumberDefault,
 		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
 
 		timeout: timeout,
 	}
@@ -57,12 +53,10 @@ func NewGetTelephonyProvidersEdgesExtensionpoolsParamsWithContext(ctx context.Co
 	var (
 		pageNumberDefault = int32(1)
 		pageSizeDefault   = int32(25)
-		sortByDefault     = string("startNumber")
 	)
 	return &GetTelephonyProvidersEdgesExtensionpoolsParams{
 		PageNumber: &pageNumberDefault,
 		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
 
 		Context: ctx,
 	}
@@ -74,12 +68,10 @@ func NewGetTelephonyProvidersEdgesExtensionpoolsParamsWithHTTPClient(client *htt
 	var (
 		pageNumberDefault = int32(1)
 		pageSizeDefault   = int32(25)
-		sortByDefault     = string("startNumber")
 	)
 	return &GetTelephonyProvidersEdgesExtensionpoolsParams{
 		PageNumber: &pageNumberDefault,
 		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
 		HTTPClient: client,
 	}
 }
@@ -90,7 +82,7 @@ for the get telephony providers edges extensionpools operation typically these a
 type GetTelephonyProvidersEdgesExtensionpoolsParams struct {
 
 	/*Number
-	  Number
+	  Deprecated, filtering by number not supported
 
 	*/
 	Number *string

@@ -68,7 +68,7 @@ type PostWorkforcemanagementManagementunitTimeofflimitsValuesQueryParams struct 
 	*/
 	Body *models.QueryTimeOffLimitValuesRequest
 	/*ManagementUnitID
-	  The management unit ID of the management unit.
+	  The ID of the management unit.
 
 	*/
 	ManagementUnitID string

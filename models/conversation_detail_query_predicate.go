@@ -20,7 +20,7 @@ import (
 type ConversationDetailQueryPredicate struct {
 
 	// Left hand side for dimension predicates
-	// Enum: [conversationEnd conversationId conversationStart divisionId externalTag mediaStatsMinConversationMos originatingDirection]
+	// Enum: [conversationEnd conversationId conversationInitiator conversationStart customerParticipation divisionId externalTag mediaStatsMinConversationMos originatingDirection]
 	Dimension string `json:"dimension,omitempty"`
 
 	// Left hand side for metric predicates
@@ -76,7 +76,7 @@ var conversationDetailQueryPredicateTypeDimensionPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["conversationEnd","conversationId","conversationStart","divisionId","externalTag","mediaStatsMinConversationMos","originatingDirection"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["conversationEnd","conversationId","conversationInitiator","conversationStart","customerParticipation","divisionId","externalTag","mediaStatsMinConversationMos","originatingDirection"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -92,8 +92,14 @@ const (
 	// ConversationDetailQueryPredicateDimensionConversationID captures enum value "conversationId"
 	ConversationDetailQueryPredicateDimensionConversationID string = "conversationId"
 
+	// ConversationDetailQueryPredicateDimensionConversationInitiator captures enum value "conversationInitiator"
+	ConversationDetailQueryPredicateDimensionConversationInitiator string = "conversationInitiator"
+
 	// ConversationDetailQueryPredicateDimensionConversationStart captures enum value "conversationStart"
 	ConversationDetailQueryPredicateDimensionConversationStart string = "conversationStart"
+
+	// ConversationDetailQueryPredicateDimensionCustomerParticipation captures enum value "customerParticipation"
+	ConversationDetailQueryPredicateDimensionCustomerParticipation string = "customerParticipation"
 
 	// ConversationDetailQueryPredicateDimensionDivisionID captures enum value "divisionId"
 	ConversationDetailQueryPredicateDimensionDivisionID string = "divisionId"

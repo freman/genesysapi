@@ -18,6 +18,9 @@ type EvaluationQuestionScore struct {
 	// answer Id
 	AnswerID string `json:"answerId,omitempty"`
 
+	// AnswerId found with evaluation assistance conditions
+	AssistedAnswerID string `json:"assistedAnswerId,omitempty"`
+
 	// Comments from the evaluator specific to this question
 	Comments string `json:"comments,omitempty"`
 

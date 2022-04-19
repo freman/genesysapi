@@ -306,7 +306,7 @@ func NewPostGreetingsRequestEntityTooLarge() *PostGreetingsRequestEntityTooLarge
 
 /*PostGreetingsRequestEntityTooLarge handles this case with default header values.
 
-The request is over the size limit. Content-Length: %s
+The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
 type PostGreetingsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

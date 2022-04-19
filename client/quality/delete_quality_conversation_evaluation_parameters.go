@@ -71,7 +71,7 @@ type DeleteQualityConversationEvaluationParams struct {
 	*/
 	EvaluationID string
 	/*Expand
-	  evaluatorId
+	  evaluatorId, evaluationForm
 
 	*/
 	Expand *string

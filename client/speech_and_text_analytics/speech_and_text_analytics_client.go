@@ -42,11 +42,6 @@ type API interface {
 	*/
 	GetSpeechandtextanalyticsConversationCommunicationTranscripturl(ctx context.Context, params *GetSpeechandtextanalyticsConversationCommunicationTranscripturlParams) (*GetSpeechandtextanalyticsConversationCommunicationTranscripturlOK, error)
 	/*
-	   GetSpeechandtextanalyticsDialects gets list of supported speech and text analytics dialects
-	   This api has been deprecated. Use api/v2/topics/dialects instead
-	*/
-	GetSpeechandtextanalyticsDialects(ctx context.Context, params *GetSpeechandtextanalyticsDialectsParams) (*GetSpeechandtextanalyticsDialectsOK, error)
-	/*
 	   GetSpeechandtextanalyticsProgram gets a speech and text analytics program by id
 	*/
 	GetSpeechandtextanalyticsProgram(ctx context.Context, params *GetSpeechandtextanalyticsProgramParams) (*GetSpeechandtextanalyticsProgramOK, error)
@@ -317,33 +312,6 @@ func (a *Client) GetSpeechandtextanalyticsConversationCommunicationTranscripturl
 		return nil, err
 	}
 	return result.(*GetSpeechandtextanalyticsConversationCommunicationTranscripturlOK), nil
-
-}
-
-/*
-GetSpeechandtextanalyticsDialects gets list of supported speech and text analytics dialects
-
-This api has been deprecated. Use api/v2/topics/dialects instead
-*/
-func (a *Client) GetSpeechandtextanalyticsDialects(ctx context.Context, params *GetSpeechandtextanalyticsDialectsParams) (*GetSpeechandtextanalyticsDialectsOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "getSpeechandtextanalyticsDialects",
-		Method:             "GET",
-		PathPattern:        "/api/v2/speechandtextanalytics/dialects",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetSpeechandtextanalyticsDialectsReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*GetSpeechandtextanalyticsDialectsOK), nil
 
 }
 

@@ -304,7 +304,7 @@ func NewDeleteGroupMembersRequestEntityTooLarge() *DeleteGroupMembersRequestEnti
 
 /*DeleteGroupMembersRequestEntityTooLarge handles this case with default header values.
 
-The request is over the size limit. Content-Length: %s
+The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
 type DeleteGroupMembersRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

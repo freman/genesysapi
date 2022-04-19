@@ -14,6 +14,7 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+	"github.com/go-openapi/swag"
 
 	"github.com/freman/genesysapi/models"
 )
@@ -21,8 +22,11 @@ import (
 // NewPostGamificationProfilesParams creates a new PostGamificationProfilesParams object
 // with the default values initialized.
 func NewPostGamificationProfilesParams() *PostGamificationProfilesParams {
-	var ()
+	var (
+		copyMetricsDefault = bool(true)
+	)
 	return &PostGamificationProfilesParams{
+		CopyMetrics: &copyMetricsDefault,
 
 		timeout: cr.DefaultTimeout,
 	}
@@ -31,8 +35,11 @@ func NewPostGamificationProfilesParams() *PostGamificationProfilesParams {
 // NewPostGamificationProfilesParamsWithTimeout creates a new PostGamificationProfilesParams object
 // with the default values initialized, and the ability to set a timeout on a request
 func NewPostGamificationProfilesParamsWithTimeout(timeout time.Duration) *PostGamificationProfilesParams {
-	var ()
+	var (
+		copyMetricsDefault = bool(true)
+	)
 	return &PostGamificationProfilesParams{
+		CopyMetrics: &copyMetricsDefault,
 
 		timeout: timeout,
 	}
@@ -41,8 +48,11 @@ func NewPostGamificationProfilesParamsWithTimeout(timeout time.Duration) *PostGa
 // NewPostGamificationProfilesParamsWithContext creates a new PostGamificationProfilesParams object
 // with the default values initialized, and the ability to set a context for a request
 func NewPostGamificationProfilesParamsWithContext(ctx context.Context) *PostGamificationProfilesParams {
-	var ()
+	var (
+		copyMetricsDefault = bool(true)
+	)
 	return &PostGamificationProfilesParams{
+		CopyMetrics: &copyMetricsDefault,
 
 		Context: ctx,
 	}
@@ -51,9 +61,12 @@ func NewPostGamificationProfilesParamsWithContext(ctx context.Context) *PostGami
 // NewPostGamificationProfilesParamsWithHTTPClient creates a new PostGamificationProfilesParams object
 // with the default values initialized, and the ability to set a custom HTTPClient for a request
 func NewPostGamificationProfilesParamsWithHTTPClient(client *http.Client) *PostGamificationProfilesParams {
-	var ()
+	var (
+		copyMetricsDefault = bool(true)
+	)
 	return &PostGamificationProfilesParams{
-		HTTPClient: client,
+		CopyMetrics: &copyMetricsDefault,
+		HTTPClient:  client,
 	}
 }
 
@@ -67,6 +80,11 @@ type PostGamificationProfilesParams struct {
 
 	*/
 	Body *models.CreatePerformanceProfile
+	/*CopyMetrics
+	  Flag to copy metrics. If set to false, there will be no metrics associated with the new profile. If set to true or is absent (the default behavior), all metrics from the default profile will be copied over into the new profile.
+
+	*/
+	CopyMetrics *bool
 
 	timeout    time.Duration
 	Context    context.Context
@@ -117,6 +135,17 @@ func (o *PostGamificationProfilesParams) SetBody(body *models.CreatePerformanceP
 	o.Body = body
 }
 
+// WithCopyMetrics adds the copyMetrics to the post gamification profiles params
+func (o *PostGamificationProfilesParams) WithCopyMetrics(copyMetrics *bool) *PostGamificationProfilesParams {
+	o.SetCopyMetrics(copyMetrics)
+	return o
+}
+
+// SetCopyMetrics adds the copyMetrics to the post gamification profiles params
+func (o *PostGamificationProfilesParams) SetCopyMetrics(copyMetrics *bool) {
+	o.CopyMetrics = copyMetrics
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *PostGamificationProfilesParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -129,6 +158,22 @@ func (o *PostGamificationProfilesParams) WriteToRequest(r runtime.ClientRequest,
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
 		}
+	}
+
+	if o.CopyMetrics != nil {
+
+		// query param copyMetrics
+		var qrCopyMetrics bool
+		if o.CopyMetrics != nil {
+			qrCopyMetrics = *o.CopyMetrics
+		}
+		qCopyMetrics := swag.FormatBool(qrCopyMetrics)
+		if qCopyMetrics != "" {
+			if err := r.SetQueryParam("copyMetrics", qCopyMetrics); err != nil {
+				return err
+			}
+		}
+
 	}
 
 	if len(res) > 0 {

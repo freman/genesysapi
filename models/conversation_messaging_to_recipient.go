@@ -7,6 +7,7 @@ package models
 
 import (
 	"encoding/json"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -18,6 +19,10 @@ import (
 //
 // swagger:model ConversationMessagingToRecipient
 type ConversationMessagingToRecipient struct {
+
+	// List of recipient additional identifiers
+	// Read Only: true
+	AdditionalIds []*ConversationRecipientAdditionalIdentifier `json:"additionalIds"`
 
 	// E-mail address of the recipient.
 	// Read Only: true
@@ -53,6 +58,10 @@ type ConversationMessagingToRecipient struct {
 func (m *ConversationMessagingToRecipient) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateAdditionalIds(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateID(formats); err != nil {
 		res = append(res, err)
 	}
@@ -64,6 +73,31 @@ func (m *ConversationMessagingToRecipient) Validate(formats strfmt.Registry) err
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *ConversationMessagingToRecipient) validateAdditionalIds(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.AdditionalIds) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.AdditionalIds); i++ {
+		if swag.IsZero(m.AdditionalIds[i]) { // not required
+			continue
+		}
+
+		if m.AdditionalIds[i] != nil {
+			if err := m.AdditionalIds[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("additionalIds" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 

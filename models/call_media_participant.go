@@ -31,6 +31,13 @@ type CallMediaParticipant struct {
 	// A list of ad-hoc attributes for the participant.
 	Attributes map[string]string `json:"attributes,omitempty"`
 
+	// If this participant barged in a participant's call, then this will be the id of the targeted participant.
+	BargedParticipantID string `json:"bargedParticipantId,omitempty"`
+
+	// The timestamp when this participant was connected to the barge conference in the provider clock. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+	// Format: date-time
+	BargedTime strfmt.DateTime `json:"bargedTime,omitempty"`
+
 	// The ID of the participant being coached when performing a call coach.
 	CoachedParticipantID string `json:"coachedParticipantId,omitempty"`
 
@@ -173,6 +180,10 @@ type CallMediaParticipant struct {
 func (m *CallMediaParticipant) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateBargedTime(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateConnectedTime(formats); err != nil {
 		res = append(res, err)
 	}
@@ -268,6 +279,19 @@ func (m *CallMediaParticipant) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *CallMediaParticipant) validateBargedTime(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.BargedTime) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("bargedTime", "body", "date-time", m.BargedTime.String(), formats); err != nil {
+		return err
+	}
+
 	return nil
 }
 

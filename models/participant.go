@@ -35,6 +35,9 @@ type Participant struct {
 	// Additional participant attributes
 	Attributes map[string]string `json:"attributes,omitempty"`
 
+	// If this participant barged in a participant's call, then this will be the id of the targeted participant.
+	BargedParticipantID string `json:"bargedParticipantId,omitempty"`
+
 	// callbacks
 	Callbacks []*Callback `json:"callbacks"`
 

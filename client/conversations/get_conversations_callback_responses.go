@@ -306,7 +306,7 @@ func NewGetConversationsCallbackRequestEntityTooLarge() *GetConversationsCallbac
 
 /*GetConversationsCallbackRequestEntityTooLarge handles this case with default header values.
 
-The request is over the size limit. Content-Length: %s
+The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
 type GetConversationsCallbackRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

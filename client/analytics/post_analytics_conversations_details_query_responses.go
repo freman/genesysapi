@@ -306,7 +306,7 @@ func NewPostAnalyticsConversationsDetailsQueryRequestEntityTooLarge() *PostAnaly
 
 /*PostAnalyticsConversationsDetailsQueryRequestEntityTooLarge handles this case with default header values.
 
-The request is over the size limit. Content-Length: %s
+The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
 type PostAnalyticsConversationsDetailsQueryRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

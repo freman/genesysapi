@@ -92,6 +92,9 @@ type ViewFilter struct {
 	// The list of conversation ids used to filter the view
 	ConversationIds []string `json:"conversationIds"`
 
+	// The list to filter based on Brands (Bot/User/Agent) or End User who initiated the first message in the conversation
+	ConversationInitiators []string `json:"conversationInitiators"`
+
 	// A grouping of conversation level filters
 	ConversationProperties *ConversationProperties `json:"conversationProperties,omitempty"`
 
@@ -212,6 +215,9 @@ type ViewFilter struct {
 	// Indicates filtering for agent assist id
 	HasAgentAssistID bool `json:"hasAgentAssistId"`
 
+	// Indicates if the customer has participated in an initiated conversation
+	HasCustomerParticipated bool `json:"hasCustomerParticipated"`
+
 	// Indicates filtering for evaluation
 	HasEvaluation bool `json:"hasEvaluation"`
 
@@ -232,6 +238,9 @@ type ViewFilter struct {
 
 	// The hold durations in milliseconds used to filter the view
 	HoldDurationsMilliseconds []*NumericRange `json:"holdDurationsMilliseconds"`
+
+	// Filter to indicate if interaction was ACD or non-ACD
+	IsAcdInteraction bool `json:"isAcdInteraction"`
 
 	// Indicates filtering for agent owned callback interactions
 	IsAgentOwnedCallback bool `json:"isAgentOwnedCallback"`
@@ -325,6 +334,9 @@ type ViewFilter struct {
 
 	// The location Ids used to filter the view
 	LocationIds []string `json:"locationIds"`
+
+	// The management unit ids are used to filter the view
+	ManagementUnitIds []string `json:"managementUnitIds"`
 
 	// The media types are used to filter the view
 	MediaTypes []string `json:"mediaTypes"`
@@ -1016,7 +1028,7 @@ var viewFilterDevelopmentStatusListItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Planned","Scheduled","InvalidSchedule","InProgress","Completed"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Planned","Scheduled","InvalidSchedule","InProgress","Completed","NotCompleted"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -1373,7 +1385,7 @@ var viewFilterFlowTypesItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["bot","commonmodule","inboundcall","inboundchat","inboundemail","inboundshortmessage","inqueuecall","inqueueshortmessage","inqueueemail","outboundcall","securecall","surveyinvite","voicemail","workflow","workitem"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["bot","commonmodule","digitalbot","inboundcall","inboundchat","inboundemail","inboundshortmessage","inqueuecall","inqueueshortmessage","inqueueemail","outboundcall","securecall","surveyinvite","voice","voicemail","workflow","workitem"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -1688,7 +1700,7 @@ var viewFilterRequestedRoutingTypesItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Bullseye","Last","Manual","Predictive","Preferred","Standard"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Bullseye","Conditional","Last","Manual","Predictive","Preferred","Standard"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -1897,7 +1909,7 @@ var viewFilterUsedRoutingTypesItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Bullseye","Last","Manual","Predictive","Preferred","Standard"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Bullseye","Conditional","Last","Manual","Predictive","Preferred","Standard"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {

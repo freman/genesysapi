@@ -61,7 +61,7 @@ for the delete workforcemanagement managementunit timeofflimit operation typical
 type DeleteWorkforcemanagementManagementunitTimeofflimitParams struct {
 
 	/*ManagementUnitID
-	  The management unit ID of the management unit.
+	  The ID of the management unit.
 
 	*/
 	ManagementUnitID string

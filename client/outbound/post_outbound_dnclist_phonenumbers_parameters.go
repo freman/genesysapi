@@ -70,6 +70,11 @@ type PostOutboundDnclistPhonenumbersParams struct {
 
 	*/
 	DncListID string
+	/*ExpirationDateTime
+	  Expiration date for DNC phone numbers in yyyy-MM-ddTHH:mmZ format
+
+	*/
+	ExpirationDateTime *string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -131,6 +136,17 @@ func (o *PostOutboundDnclistPhonenumbersParams) SetDncListID(dncListID string) {
 	o.DncListID = dncListID
 }
 
+// WithExpirationDateTime adds the expirationDateTime to the post outbound dnclist phonenumbers params
+func (o *PostOutboundDnclistPhonenumbersParams) WithExpirationDateTime(expirationDateTime *string) *PostOutboundDnclistPhonenumbersParams {
+	o.SetExpirationDateTime(expirationDateTime)
+	return o
+}
+
+// SetExpirationDateTime adds the expirationDateTime to the post outbound dnclist phonenumbers params
+func (o *PostOutboundDnclistPhonenumbersParams) SetExpirationDateTime(expirationDateTime *string) {
+	o.ExpirationDateTime = expirationDateTime
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *PostOutboundDnclistPhonenumbersParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -148,6 +164,22 @@ func (o *PostOutboundDnclistPhonenumbersParams) WriteToRequest(r runtime.ClientR
 	// path param dncListId
 	if err := r.SetPathParam("dncListId", o.DncListID); err != nil {
 		return err
+	}
+
+	if o.ExpirationDateTime != nil {
+
+		// query param expirationDateTime
+		var qrExpirationDateTime string
+		if o.ExpirationDateTime != nil {
+			qrExpirationDateTime = *o.ExpirationDateTime
+		}
+		qExpirationDateTime := qrExpirationDateTime
+		if qExpirationDateTime != "" {
+			if err := r.SetQueryParam("expirationDateTime", qExpirationDateTime); err != nil {
+				return err
+			}
+		}
+
 	}
 
 	if len(res) > 0 {

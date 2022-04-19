@@ -20,6 +20,9 @@ type AutomaticTimeZoneMappingSettings struct {
 
 	// The time intervals to use for automatic time zone mapping.
 	CallableWindows []*CallableWindow `json:"callableWindows"`
+
+	// The countries that are supported for automatic time zone mapping.
+	SupportedCountries []string `json:"supportedCountries"`
 }
 
 // Validate validates this automatic time zone mapping settings

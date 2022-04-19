@@ -31,6 +31,12 @@ type CreateObjective struct {
 	// Read Only: true
 	ID string `json:"id,omitempty"`
 
+	// A list of media types for the metric
+	MediaTypes []string `json:"mediaTypes"`
+
+	// A list of queue ids for the metric
+	QueueIds []string `json:"queueIds"`
+
 	// The id of this objective's base template
 	TemplateID string `json:"templateId,omitempty"`
 
@@ -50,6 +56,10 @@ func (m *CreateObjective) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateDateStart(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateMediaTypes(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -75,6 +85,43 @@ func (m *CreateObjective) validateDateStart(formats strfmt.Registry) error {
 
 	if err := validate.FormatOf("dateStart", "body", "date", m.DateStart.String(), formats); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+var createObjectiveMediaTypesItemsEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["callback","chat","cobrowse","email","message","screenshare","unknown","video","voice"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		createObjectiveMediaTypesItemsEnum = append(createObjectiveMediaTypesItemsEnum, v)
+	}
+}
+
+func (m *CreateObjective) validateMediaTypesItemsEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, createObjectiveMediaTypesItemsEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *CreateObjective) validateMediaTypes(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.MediaTypes) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.MediaTypes); i++ {
+
+		// value enum
+		if err := m.validateMediaTypesItemsEnum("mediaTypes"+"."+strconv.Itoa(i), "body", m.MediaTypes[i]); err != nil {
+			return err
+		}
+
 	}
 
 	return nil

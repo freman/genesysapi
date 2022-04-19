@@ -306,7 +306,7 @@ func NewPostLearningAssignmentsBulkremoveRequestEntityTooLarge() *PostLearningAs
 
 /*PostLearningAssignmentsBulkremoveRequestEntityTooLarge handles this case with default header values.
 
-The request is over the size limit. Content-Length: %s
+The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
 type PostLearningAssignmentsBulkremoveRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

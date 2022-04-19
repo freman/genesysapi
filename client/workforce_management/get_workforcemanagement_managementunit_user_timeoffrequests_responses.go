@@ -306,7 +306,7 @@ func NewGetWorkforcemanagementManagementunitUserTimeoffrequestsRequestEntityTooL
 
 /*GetWorkforcemanagementManagementunitUserTimeoffrequestsRequestEntityTooLarge handles this case with default header values.
 
-The request is over the size limit. Content-Length: %s
+The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
 type GetWorkforcemanagementManagementunitUserTimeoffrequestsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

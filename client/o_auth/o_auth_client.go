@@ -26,7 +26,7 @@ type API interface {
 	*/
 	GetOauthAuthorization(ctx context.Context, params *GetOauthAuthorizationParams) (*GetOauthAuthorizationOK, error)
 	/*
-	   GetOauthAuthorizations lists clients that are authorized by the resource owner
+	   GetOauthAuthorizations lists clients that have been authorized requested or revoked by the resource owner
 	*/
 	GetOauthAuthorizations(ctx context.Context, params *GetOauthAuthorizationsParams) (*GetOauthAuthorizationsOK, error)
 	/*
@@ -148,7 +148,7 @@ func (a *Client) GetOauthAuthorization(ctx context.Context, params *GetOauthAuth
 }
 
 /*
-GetOauthAuthorizations lists clients that are authorized by the resource owner
+GetOauthAuthorizations lists clients that have been authorized requested or revoked by the resource owner
 */
 func (a *Client) GetOauthAuthorizations(ctx context.Context, params *GetOauthAuthorizationsParams) (*GetOauthAuthorizationsOK, error) {
 

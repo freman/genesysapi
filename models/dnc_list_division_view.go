@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -17,8 +19,17 @@ import (
 // swagger:model DncListDivisionView
 type DncListDivisionView struct {
 
+	// The contact method. Required if dncSourceType is rds.
+	// Enum: [Email Phone]
+	ContactMethod string `json:"contactMethod,omitempty"`
+
 	// The division to which this entity belongs.
 	Division *Division `json:"division,omitempty"`
+
+	// The type of the DncList.
+	// Read Only: true
+	// Enum: [rds dnc.com gryphon]
+	DncSourceType string `json:"dncSourceType,omitempty"`
 
 	// The globally unique identifier for the object.
 	// Read Only: true
@@ -45,7 +56,15 @@ type DncListDivisionView struct {
 func (m *DncListDivisionView) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateContactMethod(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateDivision(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDncSourceType(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -63,6 +82,49 @@ func (m *DncListDivisionView) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
+var dncListDivisionViewTypeContactMethodPropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Email","Phone"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		dncListDivisionViewTypeContactMethodPropEnum = append(dncListDivisionViewTypeContactMethodPropEnum, v)
+	}
+}
+
+const (
+
+	// DncListDivisionViewContactMethodEmail captures enum value "Email"
+	DncListDivisionViewContactMethodEmail string = "Email"
+
+	// DncListDivisionViewContactMethodPhone captures enum value "Phone"
+	DncListDivisionViewContactMethodPhone string = "Phone"
+)
+
+// prop value enum
+func (m *DncListDivisionView) validateContactMethodEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, dncListDivisionViewTypeContactMethodPropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *DncListDivisionView) validateContactMethod(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.ContactMethod) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateContactMethodEnum("contactMethod", "body", m.ContactMethod); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *DncListDivisionView) validateDivision(formats strfmt.Registry) error {
 
 	if swag.IsZero(m.Division) { // not required
@@ -76,6 +138,52 @@ func (m *DncListDivisionView) validateDivision(formats strfmt.Registry) error {
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+var dncListDivisionViewTypeDncSourceTypePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["rds","dnc.com","gryphon"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		dncListDivisionViewTypeDncSourceTypePropEnum = append(dncListDivisionViewTypeDncSourceTypePropEnum, v)
+	}
+}
+
+const (
+
+	// DncListDivisionViewDncSourceTypeRds captures enum value "rds"
+	DncListDivisionViewDncSourceTypeRds string = "rds"
+
+	// DncListDivisionViewDncSourceTypeDncCom captures enum value "dnc.com"
+	DncListDivisionViewDncSourceTypeDncCom string = "dnc.com"
+
+	// DncListDivisionViewDncSourceTypeGryphon captures enum value "gryphon"
+	DncListDivisionViewDncSourceTypeGryphon string = "gryphon"
+)
+
+// prop value enum
+func (m *DncListDivisionView) validateDncSourceTypeEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, dncListDivisionViewTypeDncSourceTypePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *DncListDivisionView) validateDncSourceType(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.DncSourceType) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateDncSourceTypeEnum("dncSourceType", "body", m.DncSourceType); err != nil {
+		return err
 	}
 
 	return nil

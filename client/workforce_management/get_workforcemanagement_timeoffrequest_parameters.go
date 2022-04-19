@@ -61,7 +61,7 @@ for the get workforcemanagement timeoffrequest operation typically these are wri
 type GetWorkforcemanagementTimeoffrequestParams struct {
 
 	/*TimeOffRequestID
-	  Time Off Request Id
+	  The ID of the time off request
 
 	*/
 	TimeOffRequestID string

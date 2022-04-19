@@ -61,7 +61,7 @@ for the get workforcemanagement managementunit timeoffplan operation typically t
 type GetWorkforcemanagementManagementunitTimeoffplanParams struct {
 
 	/*ManagementUnitID
-	  The management unit ID.
+	  The ID of the management unit
 
 	*/
 	ManagementUnitID string

@@ -23,12 +23,6 @@ type PostGamificationProfilesReader struct {
 // ReadResponse reads a server response into the received o.
 func (o *PostGamificationProfilesReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {
-	case 200:
-		result := NewPostGamificationProfilesOK()
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		return result, nil
 	case 201:
 		result := NewPostGamificationProfilesCreated()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -105,39 +99,6 @@ func (o *PostGamificationProfilesReader) ReadResponse(response runtime.ClientRes
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
-}
-
-// NewPostGamificationProfilesOK creates a PostGamificationProfilesOK with default headers values
-func NewPostGamificationProfilesOK() *PostGamificationProfilesOK {
-	return &PostGamificationProfilesOK{}
-}
-
-/*PostGamificationProfilesOK handles this case with default header values.
-
-successful operation
-*/
-type PostGamificationProfilesOK struct {
-	Payload *models.GetProfilesResponse
-}
-
-func (o *PostGamificationProfilesOK) Error() string {
-	return fmt.Sprintf("[POST /api/v2/gamification/profiles][%d] postGamificationProfilesOK  %+v", 200, o.Payload)
-}
-
-func (o *PostGamificationProfilesOK) GetPayload() *models.GetProfilesResponse {
-	return o.Payload
-}
-
-func (o *PostGamificationProfilesOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.GetProfilesResponse)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
 }
 
 // NewPostGamificationProfilesCreated creates a PostGamificationProfilesCreated with default headers values
@@ -345,7 +306,7 @@ func NewPostGamificationProfilesRequestEntityTooLarge() *PostGamificationProfile
 
 /*PostGamificationProfilesRequestEntityTooLarge handles this case with default header values.
 
-The request is over the size limit. Content-Length: %s
+The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
 type PostGamificationProfilesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

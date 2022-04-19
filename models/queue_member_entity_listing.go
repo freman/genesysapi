@@ -26,16 +26,9 @@ type QueueMemberEntityListing struct {
 	// Format: uri
 	FirstURI strfmt.URI `json:"firstUri,omitempty"`
 
-	// last Uri
-	// Format: uri
-	LastURI strfmt.URI `json:"lastUri,omitempty"`
-
 	// next Uri
 	// Format: uri
 	NextURI strfmt.URI `json:"nextUri,omitempty"`
-
-	// page count
-	PageCount int32 `json:"pageCount,omitempty"`
 
 	// page number
 	PageNumber int32 `json:"pageNumber,omitempty"`
@@ -50,9 +43,6 @@ type QueueMemberEntityListing struct {
 	// self Uri
 	// Format: uri
 	SelfURI strfmt.URI `json:"selfUri,omitempty"`
-
-	// total
-	Total int64 `json:"total,omitempty"`
 }
 
 // Validate validates this queue member entity listing
@@ -64,10 +54,6 @@ func (m *QueueMemberEntityListing) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateFirstURI(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateLastURI(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -121,19 +107,6 @@ func (m *QueueMemberEntityListing) validateFirstURI(formats strfmt.Registry) err
 	}
 
 	if err := validate.FormatOf("firstUri", "body", "uri", m.FirstURI.String(), formats); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *QueueMemberEntityListing) validateLastURI(formats strfmt.Registry) error {
-
-	if swag.IsZero(m.LastURI) { // not required
-		return nil
-	}
-
-	if err := validate.FormatOf("lastUri", "body", "uri", m.LastURI.String(), formats); err != nil {
 		return err
 	}
 

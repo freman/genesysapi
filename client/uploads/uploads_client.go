@@ -33,10 +33,6 @@ type API interface {
 	   PostUploadsWorkforcemanagementHistoricaldataCsv creates presigned url for uploading w f m historical data file requires data in csv format
 	*/
 	PostUploadsWorkforcemanagementHistoricaldataCsv(ctx context.Context, params *PostUploadsWorkforcemanagementHistoricaldataCsvParams) (*PostUploadsWorkforcemanagementHistoricaldataCsvOK, error)
-	/*
-	   PostUploadsWorkforcemanagementHistoricaldataJSON creates presigned url for uploading w f m historical data file requires data in json format
-	*/
-	PostUploadsWorkforcemanagementHistoricaldataJSON(ctx context.Context, params *PostUploadsWorkforcemanagementHistoricaldataJSONParams) (*PostUploadsWorkforcemanagementHistoricaldataJSONOK, error)
 }
 
 // New creates a new uploads API client.
@@ -154,30 +150,5 @@ func (a *Client) PostUploadsWorkforcemanagementHistoricaldataCsv(ctx context.Con
 		return nil, err
 	}
 	return result.(*PostUploadsWorkforcemanagementHistoricaldataCsvOK), nil
-
-}
-
-/*
-PostUploadsWorkforcemanagementHistoricaldataJSON creates presigned url for uploading w f m historical data file requires data in json format
-*/
-func (a *Client) PostUploadsWorkforcemanagementHistoricaldataJSON(ctx context.Context, params *PostUploadsWorkforcemanagementHistoricaldataJSONParams) (*PostUploadsWorkforcemanagementHistoricaldataJSONOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "postUploadsWorkforcemanagementHistoricaldataJson",
-		Method:             "POST",
-		PathPattern:        "/api/v2/uploads/workforcemanagement/historicaldata/json",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PostUploadsWorkforcemanagementHistoricaldataJSONReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*PostUploadsWorkforcemanagementHistoricaldataJSONOK), nil
 
 }

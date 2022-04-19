@@ -21,11 +21,14 @@ type OpenIntegrationRequest struct {
 	// Read Only: true
 	ID string `json:"id,omitempty"`
 
+	// messaging setting
+	MessagingSetting *MessagingSettingReference `json:"messagingSetting,omitempty"`
+
 	// The name of the Open messaging integration.
 	// Required: true
 	Name *string `json:"name"`
 
-	// The outbound notification webhook signature secret token.
+	// The outbound notification webhook signature secret token. This token must be longer than 15 characters.
 	// Required: true
 	OutboundNotificationWebhookSignatureSecretToken *string `json:"outboundNotificationWebhookSignatureSecretToken"`
 
@@ -38,6 +41,9 @@ type OpenIntegrationRequest struct {
 	// Format: uri
 	SelfURI strfmt.URI `json:"selfUri,omitempty"`
 
+	// Defines the SupportedContent profile configured for an integration
+	SupportedContent *SupportedContentReference `json:"supportedContent,omitempty"`
+
 	// The user specified headers for the Open messaging integration.
 	WebhookHeaders map[string]string `json:"webhookHeaders,omitempty"`
 }
@@ -45,6 +51,10 @@ type OpenIntegrationRequest struct {
 // Validate validates this open integration request
 func (m *OpenIntegrationRequest) Validate(formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.validateMessagingSetting(formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.validateName(formats); err != nil {
 		res = append(res, err)
@@ -62,9 +72,31 @@ func (m *OpenIntegrationRequest) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateSupportedContent(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *OpenIntegrationRequest) validateMessagingSetting(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.MessagingSetting) { // not required
+		return nil
+	}
+
+	if m.MessagingSetting != nil {
+		if err := m.MessagingSetting.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("messagingSetting")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -103,6 +135,24 @@ func (m *OpenIntegrationRequest) validateSelfURI(formats strfmt.Registry) error 
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *OpenIntegrationRequest) validateSupportedContent(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.SupportedContent) { // not required
+		return nil
+	}
+
+	if m.SupportedContent != nil {
+		if err := m.SupportedContent.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("supportedContent")
+			}
+			return err
+		}
 	}
 
 	return nil

@@ -25,9 +25,15 @@ type ConversationMessageContent struct {
 	// Button response content.
 	ButtonResponse *ConversationContentButtonResponse `json:"buttonResponse,omitempty"`
 
+	// Card (Generic Template) Object
+	Card *ConversationContentCard `json:"card,omitempty"`
+
+	// Carousel (Multiple Generic Template) Object
+	Carousel *ConversationContentCarousel `json:"carousel,omitempty"`
+
 	// Type of this content element. If contentType = "Attachment" only one item is allowed.
 	// Required: true
-	// Enum: [Attachment Location Story QuickReply Notification ButtonResponse GenericTemplate]
+	// Enum: [Attachment Location Story QuickReply Notification ButtonResponse GenericTemplate Card Carousel]
 	ContentType *string `json:"contentType"`
 
 	// Generic Template Object
@@ -55,6 +61,14 @@ func (m *ConversationMessageContent) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateButtonResponse(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCard(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCarousel(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -124,11 +138,47 @@ func (m *ConversationMessageContent) validateButtonResponse(formats strfmt.Regis
 	return nil
 }
 
+func (m *ConversationMessageContent) validateCard(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Card) { // not required
+		return nil
+	}
+
+	if m.Card != nil {
+		if err := m.Card.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("card")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ConversationMessageContent) validateCarousel(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Carousel) { // not required
+		return nil
+	}
+
+	if m.Carousel != nil {
+		if err := m.Carousel.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("carousel")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 var conversationMessageContentTypeContentTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Attachment","Location","Story","QuickReply","Notification","ButtonResponse","GenericTemplate"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Attachment","Location","Story","QuickReply","Notification","ButtonResponse","GenericTemplate","Card","Carousel"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -158,6 +208,12 @@ const (
 
 	// ConversationMessageContentContentTypeGenericTemplate captures enum value "GenericTemplate"
 	ConversationMessageContentContentTypeGenericTemplate string = "GenericTemplate"
+
+	// ConversationMessageContentContentTypeCard captures enum value "Card"
+	ConversationMessageContentContentTypeCard string = "Card"
+
+	// ConversationMessageContentContentTypeCarousel captures enum value "Carousel"
+	ConversationMessageContentContentTypeCarousel string = "Carousel"
 )
 
 // prop value enum

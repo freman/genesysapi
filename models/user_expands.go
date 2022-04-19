@@ -28,6 +28,10 @@ type UserExpands struct {
 	// Read Only: true
 	Geolocation *Geolocation `json:"geolocation,omitempty"`
 
+	// Active 3rd party presence
+	// Read Only: true
+	IntegrationPresence *UserPresence `json:"integrationPresence,omitempty"`
+
 	// Determine if out of office is enabled
 	// Read Only: true
 	OutOfOffice *OutOfOffice `json:"outOfOffice,omitempty"`
@@ -58,6 +62,10 @@ func (m *UserExpands) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateGeolocation(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateIntegrationPresence(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -129,6 +137,24 @@ func (m *UserExpands) validateGeolocation(formats strfmt.Registry) error {
 		if err := m.Geolocation.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("geolocation")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UserExpands) validateIntegrationPresence(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.IntegrationPresence) { // not required
+		return nil
+	}
+
+	if m.IntegrationPresence != nil {
+		if err := m.IntegrationPresence.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("integrationPresence")
 			}
 			return err
 		}

@@ -423,7 +423,7 @@ func NewPostFlowsActionsCheckoutRequestEntityTooLarge() *PostFlowsActionsCheckou
 
 /*PostFlowsActionsCheckoutRequestEntityTooLarge handles this case with default header values.
 
-The request is over the size limit. Content-Length: %s
+The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
 type PostFlowsActionsCheckoutRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

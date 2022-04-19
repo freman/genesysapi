@@ -77,7 +77,7 @@ type ObservationValue struct {
 	TeamID string `json:"teamId,omitempty"`
 
 	// Complete routing method
-	// Enum: [Bullseye Last Manual Predictive Preferred Standard]
+	// Enum: [Bullseye Conditional Last Manual Predictive Preferred Standard]
 	UsedRouting string `json:"usedRouting,omitempty"`
 
 	// Unique identifier for the user
@@ -191,7 +191,7 @@ var observationValueRequestedRoutingsItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Bullseye","Last","Manual","Predictive","Preferred","Standard"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Bullseye","Conditional","Last","Manual","Predictive","Preferred","Standard"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -257,7 +257,7 @@ var observationValueTypeUsedRoutingPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Bullseye","Last","Manual","Predictive","Preferred","Standard"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Bullseye","Conditional","Last","Manual","Predictive","Preferred","Standard"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -269,6 +269,9 @@ const (
 
 	// ObservationValueUsedRoutingBullseye captures enum value "Bullseye"
 	ObservationValueUsedRoutingBullseye string = "Bullseye"
+
+	// ObservationValueUsedRoutingConditional captures enum value "Conditional"
+	ObservationValueUsedRoutingConditional string = "Conditional"
 
 	// ObservationValueUsedRoutingLast captures enum value "Last"
 	ObservationValueUsedRoutingLast string = "Last"

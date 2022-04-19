@@ -37,6 +37,10 @@ type Recording struct {
 	// conversation Id
 	ConversationID string `json:"conversationId,omitempty"`
 
+	// The creation time of the recording. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+	// Format: date-time
+	CreationTime strfmt.DateTime `json:"creationTime,omitempty"`
+
 	// The date the recording will be deleted. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	DeleteDate strfmt.DateTime `json:"deleteDate,omitempty"`
@@ -140,6 +144,10 @@ func (m *Recording) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateArchiveMedium(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCreationTime(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -277,6 +285,19 @@ func (m *Recording) validateArchiveMedium(formats strfmt.Registry) error {
 
 	// value enum
 	if err := m.validateArchiveMediumEnum("archiveMedium", "body", m.ArchiveMedium); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Recording) validateCreationTime(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.CreationTime) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("creationTime", "body", "date-time", m.CreationTime.String(), formats); err != nil {
 		return err
 	}
 

@@ -345,7 +345,7 @@ func NewPutOutboundCallanalysisresponsesetRequestEntityTooLarge() *PutOutboundCa
 
 /*PutOutboundCallanalysisresponsesetRequestEntityTooLarge handles this case with default header values.
 
-The request is over the size limit. Content-Length: %s
+The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
 type PutOutboundCallanalysisresponsesetRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

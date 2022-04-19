@@ -75,6 +75,10 @@ type User struct {
 	// images
 	Images []*UserImage `json:"images"`
 
+	// Integration presence
+	// Read Only: true
+	IntegrationPresence *UserPresence `json:"integrationPresence,omitempty"`
+
 	// preferred language by the user
 	// Read Only: true
 	LanguagePreference string `json:"languagePreference,omitempty"`
@@ -194,6 +198,10 @@ func (m *User) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateImages(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateIntegrationPresence(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -468,6 +476,24 @@ func (m *User) validateImages(formats strfmt.Registry) error {
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *User) validateIntegrationPresence(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.IntegrationPresence) { // not required
+		return nil
+	}
+
+	if m.IntegrationPresence != nil {
+		if err := m.IntegrationPresence.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("integrationPresence")
+			}
+			return err
+		}
 	}
 
 	return nil

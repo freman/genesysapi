@@ -39,6 +39,10 @@ type UserStation struct {
 
 	// type
 	Type string `json:"type,omitempty"`
+
+	// The number of call appearances on the station.
+	// Read Only: true
+	WebRtcCallAppearances int32 `json:"webRtcCallAppearances,omitempty"`
 }
 
 // Validate validates this user station

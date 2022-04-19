@@ -33,9 +33,9 @@ type SendAgentlessOutboundMessageRequest struct {
 	// Required: true
 	ToAddress *string `json:"toAddress"`
 
-	// The recipient messaging address messenger type. Currently SMS and Open are the only supported types. WhatsApp will be supported in a future release
+	// The recipient messaging address messenger type.
 	// Required: true
-	// Enum: [sms facebook twitter line whatsapp webmessaging instagram open]
+	// Enum: [sms whatsapp open]
 	ToAddressMessengerType *string `json:"toAddressMessengerType"`
 
 	// Use an existing active conversation to send the agentless outbound message. Set this parameter to 'true' to use active conversation. Default value: false
@@ -108,7 +108,7 @@ var sendAgentlessOutboundMessageRequestTypeToAddressMessengerTypePropEnum []inte
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["sms","facebook","twitter","line","whatsapp","webmessaging","instagram","open"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["sms","whatsapp","open"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -121,23 +121,8 @@ const (
 	// SendAgentlessOutboundMessageRequestToAddressMessengerTypeSms captures enum value "sms"
 	SendAgentlessOutboundMessageRequestToAddressMessengerTypeSms string = "sms"
 
-	// SendAgentlessOutboundMessageRequestToAddressMessengerTypeFacebook captures enum value "facebook"
-	SendAgentlessOutboundMessageRequestToAddressMessengerTypeFacebook string = "facebook"
-
-	// SendAgentlessOutboundMessageRequestToAddressMessengerTypeTwitter captures enum value "twitter"
-	SendAgentlessOutboundMessageRequestToAddressMessengerTypeTwitter string = "twitter"
-
-	// SendAgentlessOutboundMessageRequestToAddressMessengerTypeLine captures enum value "line"
-	SendAgentlessOutboundMessageRequestToAddressMessengerTypeLine string = "line"
-
 	// SendAgentlessOutboundMessageRequestToAddressMessengerTypeWhatsapp captures enum value "whatsapp"
 	SendAgentlessOutboundMessageRequestToAddressMessengerTypeWhatsapp string = "whatsapp"
-
-	// SendAgentlessOutboundMessageRequestToAddressMessengerTypeWebmessaging captures enum value "webmessaging"
-	SendAgentlessOutboundMessageRequestToAddressMessengerTypeWebmessaging string = "webmessaging"
-
-	// SendAgentlessOutboundMessageRequestToAddressMessengerTypeInstagram captures enum value "instagram"
-	SendAgentlessOutboundMessageRequestToAddressMessengerTypeInstagram string = "instagram"
 
 	// SendAgentlessOutboundMessageRequestToAddressMessengerTypeOpen captures enum value "open"
 	SendAgentlessOutboundMessageRequestToAddressMessengerTypeOpen string = "open"

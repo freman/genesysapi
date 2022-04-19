@@ -306,7 +306,7 @@ func NewPutAuthorizationRolesDefaultRequestEntityTooLarge() *PutAuthorizationRol
 
 /*PutAuthorizationRolesDefaultRequestEntityTooLarge handles this case with default header values.
 
-The request is over the size limit. Content-Length: %s
+The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
 type PutAuthorizationRolesDefaultRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

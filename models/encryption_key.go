@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -25,8 +27,15 @@ type EncryptionKey struct {
 	// Read Only: true
 	ID string `json:"id,omitempty"`
 
+	// Key type used in this configuration
+	// Enum: [KmsSymmetric LocalKeyManager Native None]
+	KeyConfigurationType string `json:"keyConfigurationType,omitempty"`
+
 	// key data summary (base 64 encoded public key)
 	KeydataSummary string `json:"keydataSummary,omitempty"`
+
+	// ARN of internal key to be wrapped by AWS KMS Symmetric key
+	KmsKeyArn string `json:"kmsKeyArn,omitempty"`
 
 	// Local configuration
 	LocalEncryptionConfiguration *LocalEncryptionConfiguration `json:"localEncryptionConfiguration,omitempty"`
@@ -48,6 +57,10 @@ func (m *EncryptionKey) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateCreateDate(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateKeyConfigurationType(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -76,6 +89,55 @@ func (m *EncryptionKey) validateCreateDate(formats strfmt.Registry) error {
 	}
 
 	if err := validate.FormatOf("createDate", "body", "date-time", m.CreateDate.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+var encryptionKeyTypeKeyConfigurationTypePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["KmsSymmetric","LocalKeyManager","Native","None"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		encryptionKeyTypeKeyConfigurationTypePropEnum = append(encryptionKeyTypeKeyConfigurationTypePropEnum, v)
+	}
+}
+
+const (
+
+	// EncryptionKeyKeyConfigurationTypeKmsSymmetric captures enum value "KmsSymmetric"
+	EncryptionKeyKeyConfigurationTypeKmsSymmetric string = "KmsSymmetric"
+
+	// EncryptionKeyKeyConfigurationTypeLocalKeyManager captures enum value "LocalKeyManager"
+	EncryptionKeyKeyConfigurationTypeLocalKeyManager string = "LocalKeyManager"
+
+	// EncryptionKeyKeyConfigurationTypeNative captures enum value "Native"
+	EncryptionKeyKeyConfigurationTypeNative string = "Native"
+
+	// EncryptionKeyKeyConfigurationTypeNone captures enum value "None"
+	EncryptionKeyKeyConfigurationTypeNone string = "None"
+)
+
+// prop value enum
+func (m *EncryptionKey) validateKeyConfigurationTypeEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, encryptionKeyTypeKeyConfigurationTypePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *EncryptionKey) validateKeyConfigurationType(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.KeyConfigurationType) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateKeyConfigurationTypeEnum("keyConfigurationType", "body", m.KeyConfigurationType); err != nil {
 		return err
 	}
 

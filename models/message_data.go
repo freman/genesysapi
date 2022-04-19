@@ -47,6 +47,14 @@ type MessageData struct {
 	// name
 	Name string `json:"name,omitempty"`
 
+	// The message into normalized format
+	// Read Only: true
+	NormalizedMessage *ConversationNormalizedMessage `json:"normalizedMessage,omitempty"`
+
+	// The delivery event associated with this message in normalized format, if the message direction was outbound
+	// Read Only: true
+	NormalizedReceipts []*ConversationNormalizedMessage `json:"normalizedReceipts"`
+
 	// The unique identifier of the message from provider
 	ProviderMessageID string `json:"providerMessageId,omitempty"`
 
@@ -93,6 +101,14 @@ func (m *MessageData) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateMessengerType(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateNormalizedMessage(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateNormalizedReceipts(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -264,6 +280,49 @@ func (m *MessageData) validateMessengerType(formats strfmt.Registry) error {
 	// value enum
 	if err := m.validateMessengerTypeEnum("messengerType", "body", m.MessengerType); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *MessageData) validateNormalizedMessage(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.NormalizedMessage) { // not required
+		return nil
+	}
+
+	if m.NormalizedMessage != nil {
+		if err := m.NormalizedMessage.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("normalizedMessage")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *MessageData) validateNormalizedReceipts(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.NormalizedReceipts) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.NormalizedReceipts); i++ {
+		if swag.IsZero(m.NormalizedReceipts[i]) { // not required
+			continue
+		}
+
+		if m.NormalizedReceipts[i] != nil {
+			if err := m.NormalizedReceipts[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("normalizedReceipts" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

@@ -21,6 +21,9 @@ type WhatsAppIntegrationRequest struct {
 	// Read Only: true
 	ID string `json:"id,omitempty"`
 
+	// messaging setting
+	MessagingSetting *MessagingSettingReference `json:"messagingSetting,omitempty"`
+
 	// The name of the WhatsApp Integration
 	// Required: true
 	Name *string `json:"name"`
@@ -34,6 +37,9 @@ type WhatsAppIntegrationRequest struct {
 	// Format: uri
 	SelfURI strfmt.URI `json:"selfUri,omitempty"`
 
+	// Defines the SupportedContent profile configured for an integration
+	SupportedContent *SupportedContentReference `json:"supportedContent,omitempty"`
+
 	// The waba(WhatsApp Business Manager) certificate associated to the WhatsApp integration phone number
 	// Required: true
 	WabaCertificate *string `json:"wabaCertificate"`
@@ -42,6 +48,10 @@ type WhatsAppIntegrationRequest struct {
 // Validate validates this whats app integration request
 func (m *WhatsAppIntegrationRequest) Validate(formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.validateMessagingSetting(formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.validateName(formats); err != nil {
 		res = append(res, err)
@@ -55,6 +65,10 @@ func (m *WhatsAppIntegrationRequest) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateSupportedContent(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateWabaCertificate(formats); err != nil {
 		res = append(res, err)
 	}
@@ -62,6 +76,24 @@ func (m *WhatsAppIntegrationRequest) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *WhatsAppIntegrationRequest) validateMessagingSetting(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.MessagingSetting) { // not required
+		return nil
+	}
+
+	if m.MessagingSetting != nil {
+		if err := m.MessagingSetting.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("messagingSetting")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -91,6 +123,24 @@ func (m *WhatsAppIntegrationRequest) validateSelfURI(formats strfmt.Registry) er
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *WhatsAppIntegrationRequest) validateSupportedContent(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.SupportedContent) { // not required
+		return nil
+	}
+
+	if m.SupportedContent != nil {
+		if err := m.SupportedContent.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("supportedContent")
+			}
+			return err
+		}
 	}
 
 	return nil

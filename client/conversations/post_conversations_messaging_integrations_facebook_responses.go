@@ -65,6 +65,12 @@ func (o *PostConversationsMessagingIntegrationsFacebookReader) ReadResponse(resp
 			return nil, err
 		}
 		return nil, result
+	case 409:
+		result := NewPostConversationsMessagingIntegrationsFacebookConflict()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostConversationsMessagingIntegrationsFacebookRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -338,6 +344,39 @@ func (o *PostConversationsMessagingIntegrationsFacebookRequestTimeout) readRespo
 	return nil
 }
 
+// NewPostConversationsMessagingIntegrationsFacebookConflict creates a PostConversationsMessagingIntegrationsFacebookConflict with default headers values
+func NewPostConversationsMessagingIntegrationsFacebookConflict() *PostConversationsMessagingIntegrationsFacebookConflict {
+	return &PostConversationsMessagingIntegrationsFacebookConflict{}
+}
+
+/*PostConversationsMessagingIntegrationsFacebookConflict handles this case with default header values.
+
+Conflict
+*/
+type PostConversationsMessagingIntegrationsFacebookConflict struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostConversationsMessagingIntegrationsFacebookConflict) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messaging/integrations/facebook][%d] postConversationsMessagingIntegrationsFacebookConflict  %+v", 409, o.Payload)
+}
+
+func (o *PostConversationsMessagingIntegrationsFacebookConflict) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostConversationsMessagingIntegrationsFacebookConflict) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostConversationsMessagingIntegrationsFacebookRequestEntityTooLarge creates a PostConversationsMessagingIntegrationsFacebookRequestEntityTooLarge with default headers values
 func NewPostConversationsMessagingIntegrationsFacebookRequestEntityTooLarge() *PostConversationsMessagingIntegrationsFacebookRequestEntityTooLarge {
 	return &PostConversationsMessagingIntegrationsFacebookRequestEntityTooLarge{}
@@ -345,7 +384,7 @@ func NewPostConversationsMessagingIntegrationsFacebookRequestEntityTooLarge() *P
 
 /*PostConversationsMessagingIntegrationsFacebookRequestEntityTooLarge handles this case with default header values.
 
-The request is over the size limit. Content-Length: %s
+The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
 type PostConversationsMessagingIntegrationsFacebookRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

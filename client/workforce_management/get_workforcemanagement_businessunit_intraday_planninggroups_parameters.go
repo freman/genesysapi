@@ -61,7 +61,7 @@ for the get workforcemanagement businessunit intraday planninggroups operation t
 type GetWorkforcemanagementBusinessunitIntradayPlanninggroupsParams struct {
 
 	/*BusinessUnitID
-	  The business unit ID of the business unit
+	  The ID of the business unit
 
 	*/
 	BusinessUnitID string

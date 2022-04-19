@@ -294,7 +294,7 @@ func NewDeleteTokensMeRequestEntityTooLarge() *DeleteTokensMeRequestEntityTooLar
 
 /*DeleteTokensMeRequestEntityTooLarge handles this case with default header values.
 
-The request is over the size limit. Content-Length: %s
+The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
 type DeleteTokensMeRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

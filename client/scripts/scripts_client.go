@@ -34,9 +34,17 @@ type API interface {
 	*/
 	GetScripts(ctx context.Context, params *GetScriptsParams) (*GetScriptsOK, error)
 	/*
+	   GetScriptsDivisionviews gets the metadata for a list of scripts
+	*/
+	GetScriptsDivisionviews(ctx context.Context, params *GetScriptsDivisionviewsParams) (*GetScriptsDivisionviewsOK, error)
+	/*
 	   GetScriptsPublished gets the published scripts
 	*/
 	GetScriptsPublished(ctx context.Context, params *GetScriptsPublishedParams) (*GetScriptsPublishedOK, error)
+	/*
+	   GetScriptsPublishedDivisionviews gets the published scripts metadata
+	*/
+	GetScriptsPublishedDivisionviews(ctx context.Context, params *GetScriptsPublishedDivisionviewsParams) (*GetScriptsPublishedDivisionviewsOK, error)
 	/*
 	   GetScriptsPublishedScriptID gets the published script
 	*/
@@ -182,6 +190,31 @@ func (a *Client) GetScripts(ctx context.Context, params *GetScriptsParams) (*Get
 }
 
 /*
+GetScriptsDivisionviews gets the metadata for a list of scripts
+*/
+func (a *Client) GetScriptsDivisionviews(ctx context.Context, params *GetScriptsDivisionviewsParams) (*GetScriptsDivisionviewsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getScriptsDivisionviews",
+		Method:             "GET",
+		PathPattern:        "/api/v2/scripts/divisionviews",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetScriptsDivisionviewsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetScriptsDivisionviewsOK), nil
+
+}
+
+/*
 GetScriptsPublished gets the published scripts
 */
 func (a *Client) GetScriptsPublished(ctx context.Context, params *GetScriptsPublishedParams) (*GetScriptsPublishedOK, error) {
@@ -203,6 +236,31 @@ func (a *Client) GetScriptsPublished(ctx context.Context, params *GetScriptsPubl
 		return nil, err
 	}
 	return result.(*GetScriptsPublishedOK), nil
+
+}
+
+/*
+GetScriptsPublishedDivisionviews gets the published scripts metadata
+*/
+func (a *Client) GetScriptsPublishedDivisionviews(ctx context.Context, params *GetScriptsPublishedDivisionviewsParams) (*GetScriptsPublishedDivisionviewsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getScriptsPublishedDivisionviews",
+		Method:             "GET",
+		PathPattern:        "/api/v2/scripts/published/divisionviews",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetScriptsPublishedDivisionviewsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetScriptsPublishedDivisionviewsOK), nil
 
 }
 

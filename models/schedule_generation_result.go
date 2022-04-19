@@ -24,6 +24,9 @@ type ScheduleGenerationResult struct {
 	// The number of schedule generation messages for this schedule generation run
 	MessageCount int32 `json:"messageCount,omitempty"`
 
+	// The list of messages by severity in this schedule generation run
+	MessageSeverities []*SchedulerMessageTypeSeverity `json:"messageSeverities"`
+
 	// User facing messages related to the schedule generation run
 	Messages []*ScheduleGenerationMessage `json:"messages"`
 
@@ -35,6 +38,10 @@ type ScheduleGenerationResult struct {
 func (m *ScheduleGenerationResult) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateMessageSeverities(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateMessages(formats); err != nil {
 		res = append(res, err)
 	}
@@ -42,6 +49,31 @@ func (m *ScheduleGenerationResult) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *ScheduleGenerationResult) validateMessageSeverities(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.MessageSeverities) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.MessageSeverities); i++ {
+		if swag.IsZero(m.MessageSeverities[i]) { // not required
+			continue
+		}
+
+		if m.MessageSeverities[i] != nil {
+			if err := m.MessageSeverities[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("messageSeverities" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 

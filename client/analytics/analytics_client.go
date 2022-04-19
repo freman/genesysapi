@@ -97,6 +97,10 @@ type API interface {
 	*/
 	GetAnalyticsReportingSchedules(ctx context.Context, params *GetAnalyticsReportingSchedulesParams) (*GetAnalyticsReportingSchedulesOK, error)
 	/*
+	   GetAnalyticsReportingSettings gets analytics reporting settings for an organization
+	*/
+	GetAnalyticsReportingSettings(ctx context.Context, params *GetAnalyticsReportingSettingsParams) (*GetAnalyticsReportingSettingsOK, error)
+	/*
 	   GetAnalyticsReportingTimeperiods gets a list of report time periods
 	*/
 	GetAnalyticsReportingTimeperiods(ctx context.Context, params *GetAnalyticsReportingTimeperiodsParams) (*GetAnalyticsReportingTimeperiodsOK, error)
@@ -112,6 +116,10 @@ type API interface {
 	   GetAnalyticsUsersDetailsJobsAvailability lookups the datalake availability date and time
 	*/
 	GetAnalyticsUsersDetailsJobsAvailability(ctx context.Context, params *GetAnalyticsUsersDetailsJobsAvailabilityParams) (*GetAnalyticsUsersDetailsJobsAvailabilityOK, error)
+	/*
+	   PatchAnalyticsReportingSettings patches analytics reporting settings values for an organization
+	*/
+	PatchAnalyticsReportingSettings(ctx context.Context, params *PatchAnalyticsReportingSettingsParams) (*PatchAnalyticsReportingSettingsOK, error)
 	/*
 	   PostAnalyticsBotsAggregatesQuery queries for bot aggregates
 	*/
@@ -702,6 +710,31 @@ func (a *Client) GetAnalyticsReportingSchedules(ctx context.Context, params *Get
 }
 
 /*
+GetAnalyticsReportingSettings gets analytics reporting settings for an organization
+*/
+func (a *Client) GetAnalyticsReportingSettings(ctx context.Context, params *GetAnalyticsReportingSettingsParams) (*GetAnalyticsReportingSettingsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getAnalyticsReportingSettings",
+		Method:             "GET",
+		PathPattern:        "/api/v2/analytics/reporting/settings",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetAnalyticsReportingSettingsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetAnalyticsReportingSettingsOK), nil
+
+}
+
+/*
 GetAnalyticsReportingTimeperiods gets a list of report time periods
 */
 func (a *Client) GetAnalyticsReportingTimeperiods(ctx context.Context, params *GetAnalyticsReportingTimeperiodsParams) (*GetAnalyticsReportingTimeperiodsOK, error) {
@@ -804,6 +837,31 @@ func (a *Client) GetAnalyticsUsersDetailsJobsAvailability(ctx context.Context, p
 		return nil, err
 	}
 	return result.(*GetAnalyticsUsersDetailsJobsAvailabilityOK), nil
+
+}
+
+/*
+PatchAnalyticsReportingSettings patches analytics reporting settings values for an organization
+*/
+func (a *Client) PatchAnalyticsReportingSettings(ctx context.Context, params *PatchAnalyticsReportingSettingsParams) (*PatchAnalyticsReportingSettingsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "patchAnalyticsReportingSettings",
+		Method:             "PATCH",
+		PathPattern:        "/api/v2/analytics/reporting/settings",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchAnalyticsReportingSettingsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PatchAnalyticsReportingSettingsOK), nil
 
 }
 

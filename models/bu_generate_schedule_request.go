@@ -21,9 +21,11 @@ type BuGenerateScheduleRequest struct {
 	// Required: true
 	Description *string `json:"description"`
 
+	// Additional scheduling options
+	Options *SchedulingOptionsRequest `json:"options,omitempty"`
+
 	// The forecast to use when generating the schedule.  Note that the forecast must fully encompass the schedule's start week + week count
-	// Required: true
-	ShortTermForecast *BuShortTermForecastReference `json:"shortTermForecast"`
+	ShortTermForecast *BuShortTermForecastReference `json:"shortTermForecast,omitempty"`
 
 	// The number of weeks in the schedule. One extra day is added at the end
 	// Required: true
@@ -35,6 +37,10 @@ func (m *BuGenerateScheduleRequest) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateDescription(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateOptions(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -61,10 +67,28 @@ func (m *BuGenerateScheduleRequest) validateDescription(formats strfmt.Registry)
 	return nil
 }
 
+func (m *BuGenerateScheduleRequest) validateOptions(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Options) { // not required
+		return nil
+	}
+
+	if m.Options != nil {
+		if err := m.Options.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("options")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *BuGenerateScheduleRequest) validateShortTermForecast(formats strfmt.Registry) error {
 
-	if err := validate.Required("shortTermForecast", "body", m.ShortTermForecast); err != nil {
-		return err
+	if swag.IsZero(m.ShortTermForecast) { // not required
+		return nil
 	}
 
 	if m.ShortTermForecast != nil {

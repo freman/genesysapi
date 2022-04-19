@@ -306,7 +306,7 @@ func NewPutTelephonyProvidersEdgeLogicalinterfaceRequestEntityTooLarge() *PutTel
 
 /*PutTelephonyProvidersEdgeLogicalinterfaceRequestEntityTooLarge handles this case with default header values.
 
-The request is over the size limit. Content-Length: %s
+The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
 type PutTelephonyProvidersEdgeLogicalinterfaceRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

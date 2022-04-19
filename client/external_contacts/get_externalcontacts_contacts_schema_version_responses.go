@@ -312,7 +312,7 @@ func NewGetExternalcontactsContactsSchemaVersionRequestEntityTooLarge() *GetExte
 
 /*GetExternalcontactsContactsSchemaVersionRequestEntityTooLarge handles this case with default header values.
 
-The request is over the size limit. Content-Length: %s
+The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
 type GetExternalcontactsContactsSchemaVersionRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

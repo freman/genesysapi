@@ -304,7 +304,7 @@ func NewPostRecordingsDeletionprotectionRequestEntityTooLarge() *PostRecordingsD
 
 /*PostRecordingsDeletionprotectionRequestEntityTooLarge handles this case with default header values.
 
-The request is over the size limit. Content-Length: %s
+The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
 type PostRecordingsDeletionprotectionRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

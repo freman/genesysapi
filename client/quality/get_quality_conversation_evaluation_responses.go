@@ -306,7 +306,7 @@ func NewGetQualityConversationEvaluationRequestEntityTooLarge() *GetQualityConve
 
 /*GetQualityConversationEvaluationRequestEntityTooLarge handles this case with default header values.
 
-The request is over the size limit. Content-Length: %s
+The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
 type GetQualityConversationEvaluationRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

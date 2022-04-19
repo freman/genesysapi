@@ -31,7 +31,8 @@ type HistoricalAdherenceExceptionInfo struct {
 	Impact string `json:"impact,omitempty"`
 
 	// Actual underlying routing status, used to determine whether a user is actually in adherence when OnQueue
-	RoutingStatus *RoutingStatus `json:"routingStatus,omitempty"`
+	// Enum: [OFF_QUEUE IDLE INTERACTING NOT_RESPONDING COMMUNICATING]
+	RoutingStatus string `json:"routingStatus,omitempty"`
 
 	// Activity for which the user is scheduled
 	// Enum: [OnQueueWork Break Meal Meeting OffQueueWork TimeOff Training Unavailable Unscheduled]
@@ -194,19 +195,53 @@ func (m *HistoricalAdherenceExceptionInfo) validateImpact(formats strfmt.Registr
 	return nil
 }
 
+var historicalAdherenceExceptionInfoTypeRoutingStatusPropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["OFF_QUEUE","IDLE","INTERACTING","NOT_RESPONDING","COMMUNICATING"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		historicalAdherenceExceptionInfoTypeRoutingStatusPropEnum = append(historicalAdherenceExceptionInfoTypeRoutingStatusPropEnum, v)
+	}
+}
+
+const (
+
+	// HistoricalAdherenceExceptionInfoRoutingStatusOFFQUEUE captures enum value "OFF_QUEUE"
+	HistoricalAdherenceExceptionInfoRoutingStatusOFFQUEUE string = "OFF_QUEUE"
+
+	// HistoricalAdherenceExceptionInfoRoutingStatusIDLE captures enum value "IDLE"
+	HistoricalAdherenceExceptionInfoRoutingStatusIDLE string = "IDLE"
+
+	// HistoricalAdherenceExceptionInfoRoutingStatusINTERACTING captures enum value "INTERACTING"
+	HistoricalAdherenceExceptionInfoRoutingStatusINTERACTING string = "INTERACTING"
+
+	// HistoricalAdherenceExceptionInfoRoutingStatusNOTRESPONDING captures enum value "NOT_RESPONDING"
+	HistoricalAdherenceExceptionInfoRoutingStatusNOTRESPONDING string = "NOT_RESPONDING"
+
+	// HistoricalAdherenceExceptionInfoRoutingStatusCOMMUNICATING captures enum value "COMMUNICATING"
+	HistoricalAdherenceExceptionInfoRoutingStatusCOMMUNICATING string = "COMMUNICATING"
+)
+
+// prop value enum
+func (m *HistoricalAdherenceExceptionInfo) validateRoutingStatusEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, historicalAdherenceExceptionInfoTypeRoutingStatusPropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
 func (m *HistoricalAdherenceExceptionInfo) validateRoutingStatus(formats strfmt.Registry) error {
 
 	if swag.IsZero(m.RoutingStatus) { // not required
 		return nil
 	}
 
-	if m.RoutingStatus != nil {
-		if err := m.RoutingStatus.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("routingStatus")
-			}
-			return err
-		}
+	// value enum
+	if err := m.validateRoutingStatusEnum("routingStatus", "body", m.RoutingStatus); err != nil {
+		return err
 	}
 
 	return nil

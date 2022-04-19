@@ -345,7 +345,7 @@ func NewPutOutboundCampaignruleRequestEntityTooLarge() *PutOutboundCampaignruleR
 
 /*PutOutboundCampaignruleRequestEntityTooLarge handles this case with default header values.
 
-The request is over the size limit. Content-Length: %s
+The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
 type PutOutboundCampaignruleRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

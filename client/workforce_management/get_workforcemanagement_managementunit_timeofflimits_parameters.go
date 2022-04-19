@@ -61,7 +61,7 @@ for the get workforcemanagement managementunit timeofflimits operation typically
 type GetWorkforcemanagementManagementunitTimeofflimitsParams struct {
 
 	/*ManagementUnitID
-	  The management unit ID of the management unit.
+	  The ID of the management unit.
 
 	*/
 	ManagementUnitID string

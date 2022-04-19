@@ -59,6 +59,12 @@ func (o *PostSpeechandtextanalyticsProgramsGeneralJobsReader) ReadResponse(respo
 			return nil, err
 		}
 		return nil, result
+	case 409:
+		result := NewPostSpeechandtextanalyticsProgramsGeneralJobsConflict()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostSpeechandtextanalyticsProgramsGeneralJobsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -299,6 +305,39 @@ func (o *PostSpeechandtextanalyticsProgramsGeneralJobsRequestTimeout) readRespon
 	return nil
 }
 
+// NewPostSpeechandtextanalyticsProgramsGeneralJobsConflict creates a PostSpeechandtextanalyticsProgramsGeneralJobsConflict with default headers values
+func NewPostSpeechandtextanalyticsProgramsGeneralJobsConflict() *PostSpeechandtextanalyticsProgramsGeneralJobsConflict {
+	return &PostSpeechandtextanalyticsProgramsGeneralJobsConflict{}
+}
+
+/*PostSpeechandtextanalyticsProgramsGeneralJobsConflict handles this case with default header values.
+
+Conflict
+*/
+type PostSpeechandtextanalyticsProgramsGeneralJobsConflict struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostSpeechandtextanalyticsProgramsGeneralJobsConflict) Error() string {
+	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/programs/general/jobs][%d] postSpeechandtextanalyticsProgramsGeneralJobsConflict  %+v", 409, o.Payload)
+}
+
+func (o *PostSpeechandtextanalyticsProgramsGeneralJobsConflict) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostSpeechandtextanalyticsProgramsGeneralJobsConflict) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostSpeechandtextanalyticsProgramsGeneralJobsRequestEntityTooLarge creates a PostSpeechandtextanalyticsProgramsGeneralJobsRequestEntityTooLarge with default headers values
 func NewPostSpeechandtextanalyticsProgramsGeneralJobsRequestEntityTooLarge() *PostSpeechandtextanalyticsProgramsGeneralJobsRequestEntityTooLarge {
 	return &PostSpeechandtextanalyticsProgramsGeneralJobsRequestEntityTooLarge{}
@@ -306,7 +345,7 @@ func NewPostSpeechandtextanalyticsProgramsGeneralJobsRequestEntityTooLarge() *Po
 
 /*PostSpeechandtextanalyticsProgramsGeneralJobsRequestEntityTooLarge handles this case with default header values.
 
-The request is over the size limit. Content-Length: %s
+The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
 type PostSpeechandtextanalyticsProgramsGeneralJobsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

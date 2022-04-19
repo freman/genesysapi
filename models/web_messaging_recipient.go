@@ -6,6 +6,9 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"strconv"
+
+	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
@@ -14,6 +17,10 @@ import (
 //
 // swagger:model WebMessagingRecipient
 type WebMessagingRecipient struct {
+
+	// List of recipient additional identifiers
+	// Read Only: true
+	AdditionalIds []*RecipientAdditionalIdentifier `json:"additionalIds"`
 
 	// First name of the recipient.
 	// Read Only: true
@@ -30,6 +37,40 @@ type WebMessagingRecipient struct {
 
 // Validate validates this web messaging recipient
 func (m *WebMessagingRecipient) Validate(formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.validateAdditionalIds(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *WebMessagingRecipient) validateAdditionalIds(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.AdditionalIds) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.AdditionalIds); i++ {
+		if swag.IsZero(m.AdditionalIds[i]) { // not required
+			continue
+		}
+
+		if m.AdditionalIds[i] != nil {
+			if err := m.AdditionalIds[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("additionalIds" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 
