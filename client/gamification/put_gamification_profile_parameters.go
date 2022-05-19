@@ -67,11 +67,11 @@ type PutGamificationProfileParams struct {
 
 	*/
 	Body *models.PerformanceProfile
-	/*PerformanceProfileID
-	  Performance Profile Id
+	/*ProfileID
+	  performanceProfileId
 
 	*/
-	PerformanceProfileID string
+	ProfileID string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -122,15 +122,15 @@ func (o *PutGamificationProfileParams) SetBody(body *models.PerformanceProfile) 
 	o.Body = body
 }
 
-// WithPerformanceProfileID adds the performanceProfileID to the put gamification profile params
-func (o *PutGamificationProfileParams) WithPerformanceProfileID(performanceProfileID string) *PutGamificationProfileParams {
-	o.SetPerformanceProfileID(performanceProfileID)
+// WithProfileID adds the profileID to the put gamification profile params
+func (o *PutGamificationProfileParams) WithProfileID(profileID string) *PutGamificationProfileParams {
+	o.SetProfileID(profileID)
 	return o
 }
 
-// SetPerformanceProfileID adds the performanceProfileId to the put gamification profile params
-func (o *PutGamificationProfileParams) SetPerformanceProfileID(performanceProfileID string) {
-	o.PerformanceProfileID = performanceProfileID
+// SetProfileID adds the profileId to the put gamification profile params
+func (o *PutGamificationProfileParams) SetProfileID(profileID string) {
+	o.ProfileID = profileID
 }
 
 // WriteToRequest writes these params to a swagger request
@@ -147,8 +147,8 @@ func (o *PutGamificationProfileParams) WriteToRequest(r runtime.ClientRequest, r
 		}
 	}
 
-	// path param performanceProfileId
-	if err := r.SetPathParam("performanceProfileId", o.PerformanceProfileID); err != nil {
+	// path param profileId
+	if err := r.SetPathParam("profileId", o.ProfileID); err != nil {
 		return err
 	}
 

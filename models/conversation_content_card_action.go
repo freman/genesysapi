@@ -14,10 +14,10 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// ConversationCardAction CardAction Object
+// ConversationContentCardAction CardAction Object
 //
-// swagger:model ConversationCardAction
-type ConversationCardAction struct {
+// swagger:model ConversationContentCardAction
+type ConversationContentCardAction struct {
 
 	// Text to be returned as the payload from a ButtonResponse when a button is clicked.
 	Payload string `json:"payload,omitempty"`
@@ -33,8 +33,8 @@ type ConversationCardAction struct {
 	URL string `json:"url,omitempty"`
 }
 
-// Validate validates this conversation card action
-func (m *ConversationCardAction) Validate(formats strfmt.Registry) error {
+// Validate validates this conversation content card action
+func (m *ConversationContentCardAction) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateType(formats); err != nil {
@@ -47,7 +47,7 @@ func (m *ConversationCardAction) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-var conversationCardActionTypeTypePropEnum []interface{}
+var conversationContentCardActionTypeTypePropEnum []interface{}
 
 func init() {
 	var res []string
@@ -55,31 +55,31 @@ func init() {
 		panic(err)
 	}
 	for _, v := range res {
-		conversationCardActionTypeTypePropEnum = append(conversationCardActionTypeTypePropEnum, v)
+		conversationContentCardActionTypeTypePropEnum = append(conversationContentCardActionTypeTypePropEnum, v)
 	}
 }
 
 const (
 
-	// ConversationCardActionTypeLink captures enum value "Link"
-	ConversationCardActionTypeLink string = "Link"
+	// ConversationContentCardActionTypeLink captures enum value "Link"
+	ConversationContentCardActionTypeLink string = "Link"
 
-	// ConversationCardActionTypePostback captures enum value "Postback"
-	ConversationCardActionTypePostback string = "Postback"
+	// ConversationContentCardActionTypePostback captures enum value "Postback"
+	ConversationContentCardActionTypePostback string = "Postback"
 
-	// ConversationCardActionTypeUnknown captures enum value "Unknown"
-	ConversationCardActionTypeUnknown string = "Unknown"
+	// ConversationContentCardActionTypeUnknown captures enum value "Unknown"
+	ConversationContentCardActionTypeUnknown string = "Unknown"
 )
 
 // prop value enum
-func (m *ConversationCardAction) validateTypeEnum(path, location string, value string) error {
-	if err := validate.EnumCase(path, location, value, conversationCardActionTypeTypePropEnum, true); err != nil {
+func (m *ConversationContentCardAction) validateTypeEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, conversationContentCardActionTypeTypePropEnum, true); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (m *ConversationCardAction) validateType(formats strfmt.Registry) error {
+func (m *ConversationContentCardAction) validateType(formats strfmt.Registry) error {
 
 	if swag.IsZero(m.Type) { // not required
 		return nil
@@ -94,7 +94,7 @@ func (m *ConversationCardAction) validateType(formats strfmt.Registry) error {
 }
 
 // MarshalBinary interface implementation
-func (m *ConversationCardAction) MarshalBinary() ([]byte, error) {
+func (m *ConversationContentCardAction) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -102,8 +102,8 @@ func (m *ConversationCardAction) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *ConversationCardAction) UnmarshalBinary(b []byte) error {
-	var res ConversationCardAction
+func (m *ConversationContentCardAction) UnmarshalBinary(b []byte) error {
+	var res ConversationContentCardAction
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

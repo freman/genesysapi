@@ -44,7 +44,7 @@ type Evaluation struct {
 	ChangedDate strfmt.DateTime `json:"changedDate,omitempty"`
 
 	// conversation
-	Conversation *Conversation `json:"conversation,omitempty"`
+	Conversation *ConversationReference `json:"conversation,omitempty"`
 
 	// Date of conversation. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time

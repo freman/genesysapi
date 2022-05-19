@@ -440,7 +440,7 @@ func (a *Client) GetGamificationProfile(ctx context.Context, params *GetGamifica
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "getGamificationProfile",
 		Method:             "GET",
-		PathPattern:        "/api/v2/gamification/profiles/{performanceProfileId}",
+		PathPattern:        "/api/v2/gamification/profiles/{profileId}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
@@ -1165,7 +1165,7 @@ func (a *Client) PostGamificationProfileActivate(ctx context.Context, params *Po
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "postGamificationProfileActivate",
 		Method:             "POST",
-		PathPattern:        "/api/v2/gamification/profiles/{performanceProfileId}/activate",
+		PathPattern:        "/api/v2/gamification/profiles/{profileId}/activate",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
@@ -1190,7 +1190,7 @@ func (a *Client) PostGamificationProfileDeactivate(ctx context.Context, params *
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "postGamificationProfileDeactivate",
 		Method:             "POST",
-		PathPattern:        "/api/v2/gamification/profiles/{performanceProfileId}/deactivate",
+		PathPattern:        "/api/v2/gamification/profiles/{profileId}/deactivate",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
@@ -1365,7 +1365,7 @@ func (a *Client) PutGamificationProfile(ctx context.Context, params *PutGamifica
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "putGamificationProfile",
 		Method:             "PUT",
-		PathPattern:        "/api/v2/gamification/profiles/{performanceProfileId}",
+		PathPattern:        "/api/v2/gamification/profiles/{profileId}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},

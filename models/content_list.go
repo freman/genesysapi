@@ -20,7 +20,7 @@ import (
 // swagger:model ContentList
 type ContentList struct {
 
-	// The list actions.
+	// The list actions (Deprecated).
 	Actions *ContentActions `json:"actions,omitempty"`
 
 	// An array of component objects.

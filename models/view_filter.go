@@ -789,7 +789,7 @@ var viewFilterBotProductListItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Unknown","GenesysDialogEngine","AmazonLex","GoogleDialogFlow","GoogleDialogFlowResell","GenesysBotFlow","NuanceDlg","GoogleDialogFlowCx","GenesysByob"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Unknown","GenesysDialogEngine","AmazonLex","GoogleDialogFlow","GoogleDialogFlowResell","GenesysBotFlow","NuanceDlg","GoogleDialogFlowCx","GenesysByob","AmazonLexV2","GoogleDialogFlowCxResell","MicrosoftSttBotFlow"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {

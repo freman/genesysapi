@@ -38,8 +38,10 @@ type WhatsAppIntegrationUpdateRequest struct {
 	MessagingSetting *MessagingSettingReference `json:"messagingSetting,omitempty"`
 
 	// WhatsApp Integration name
-	// Read Only: true
 	Name string `json:"name,omitempty"`
+
+	// Phone number to associate with the WhatsApp integration
+	PhoneNumber string `json:"phoneNumber,omitempty"`
 
 	// The URI for this object
 	// Read Only: true

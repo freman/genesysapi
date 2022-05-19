@@ -27,6 +27,9 @@ type LearningModule struct {
 	// Required: true
 	CompletionTimeInDays *int32 `json:"completionTimeInDays"`
 
+	// The cover art for the learning module
+	CoverArt *LearningModuleCoverArtResponse `json:"coverArt,omitempty"`
+
 	// The user who created learning module
 	// Read Only: true
 	CreatedBy *UserReference `json:"createdBy,omitempty"`
@@ -109,6 +112,10 @@ func (m *LearningModule) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateCoverArt(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateCreatedBy(formats); err != nil {
 		res = append(res, err)
 	}
@@ -181,6 +188,24 @@ func (m *LearningModule) validateCompletionTimeInDays(formats strfmt.Registry) e
 
 	if err := validate.Required("completionTimeInDays", "body", m.CompletionTimeInDays); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *LearningModule) validateCoverArt(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.CoverArt) { // not required
+		return nil
+	}
+
+	if m.CoverArt != nil {
+		if err := m.CoverArt.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("coverArt")
+			}
+			return err
+		}
 	}
 
 	return nil

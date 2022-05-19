@@ -15,7 +15,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// MessageContent Message content element.
+// MessageContent Message content element. If contentType = "Attachment" only one item is allowed.
 //
 // swagger:model MessageContent
 type MessageContent struct {
@@ -26,15 +26,21 @@ type MessageContent struct {
 	// Button response content.
 	ButtonResponse *ContentButtonResponse `json:"buttonResponse,omitempty"`
 
-	// Type of this content element. If contentType = "Attachment" only one item is allowed.
+	// Card content
+	Card *ContentCard `json:"card,omitempty"`
+
+	// Carousel content
+	Carousel *ContentCarousel `json:"carousel,omitempty"`
+
+	// Type of this content element.
 	// Required: true
-	// Enum: [Attachment Location QuickReply Notification GenericTemplate ListTemplate Postback Reactions Mention ButtonResponse]
+	// Enum: [Attachment Location QuickReply Notification GenericTemplate ListTemplate Postback Reactions Mention ButtonResponse Story Card Carousel]
 	ContentType *string `json:"contentType"`
 
-	// Generic content.
+	// Generic content (Deprecated).
 	Generic *ContentGeneric `json:"generic,omitempty"`
 
-	// List content.
+	// List content (Deprecated).
 	List *ContentList `json:"list,omitempty"`
 
 	// Location content.
@@ -52,6 +58,9 @@ type MessageContent struct {
 	// A set of reactions to a message.
 	Reactions []*ContentReaction `json:"reactions"`
 
+	// Ephemeral story content.
+	Story *ContentStory `json:"story,omitempty"`
+
 	// Template notification content.
 	Template *ContentNotificationTemplate `json:"template,omitempty"`
 }
@@ -65,6 +74,14 @@ func (m *MessageContent) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateButtonResponse(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCard(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCarousel(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -97,6 +114,10 @@ func (m *MessageContent) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateReactions(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateStory(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -146,11 +167,47 @@ func (m *MessageContent) validateButtonResponse(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *MessageContent) validateCard(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Card) { // not required
+		return nil
+	}
+
+	if m.Card != nil {
+		if err := m.Card.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("card")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *MessageContent) validateCarousel(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Carousel) { // not required
+		return nil
+	}
+
+	if m.Carousel != nil {
+		if err := m.Carousel.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("carousel")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 var messageContentTypeContentTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Attachment","Location","QuickReply","Notification","GenericTemplate","ListTemplate","Postback","Reactions","Mention","ButtonResponse"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Attachment","Location","QuickReply","Notification","GenericTemplate","ListTemplate","Postback","Reactions","Mention","ButtonResponse","Story","Card","Carousel"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -189,6 +246,15 @@ const (
 
 	// MessageContentContentTypeButtonResponse captures enum value "ButtonResponse"
 	MessageContentContentTypeButtonResponse string = "ButtonResponse"
+
+	// MessageContentContentTypeStory captures enum value "Story"
+	MessageContentContentTypeStory string = "Story"
+
+	// MessageContentContentTypeCard captures enum value "Card"
+	MessageContentContentTypeCard string = "Card"
+
+	// MessageContentContentTypeCarousel captures enum value "Carousel"
+	MessageContentContentTypeCarousel string = "Carousel"
 )
 
 // prop value enum
@@ -341,6 +407,24 @@ func (m *MessageContent) validateReactions(formats strfmt.Registry) error {
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *MessageContent) validateStory(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Story) { // not required
+		return nil
+	}
+
+	if m.Story != nil {
+		if err := m.Story.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("story")
+			}
+			return err
+		}
 	}
 
 	return nil

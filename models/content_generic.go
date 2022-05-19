@@ -13,12 +13,12 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// ContentGeneric Generic content object.
+// ContentGeneric Deprecated, should use Card.
 //
 // swagger:model ContentGeneric
 type ContentGeneric struct {
 
-	// Actions to be taken.
+	// Actions to be taken (Deprecated).
 	Actions *ContentActions `json:"actions,omitempty"`
 
 	// An array of component objects.

@@ -271,6 +271,10 @@ type API interface {
 	*/
 	GetFlowsExecution(ctx context.Context, params *GetFlowsExecutionParams) (*GetFlowsExecutionOK, error)
 	/*
+	   GetFlowsJob fetches architect job status
+	*/
+	GetFlowsJob(ctx context.Context, params *GetFlowsJobParams) (*GetFlowsJobOK, error)
+	/*
 	   GetFlowsMilestone gets a flow milestone
 	   Returns a specified flow milestone
 	*/
@@ -413,6 +417,10 @@ type API interface {
 	   The launch is asynchronous, it returns as soon as the flow starts. You can use the returned ID to query its status if you need.
 	*/
 	PostFlowsExecutions(ctx context.Context, params *PostFlowsExecutionsParams) (*PostFlowsExecutionsOK, error)
+	/*
+	   PostFlowsJobs registers architect job returns a URL where a file such as an architect flow y a m l file can be p u t which will then initiate the job
+	*/
+	PostFlowsJobs(ctx context.Context, params *PostFlowsJobsParams) (*PostFlowsJobsOK, *PostFlowsJobsAccepted, error)
 	/*
 	   PostFlowsMilestones creates a flow milestone
 	*/
@@ -2062,6 +2070,31 @@ func (a *Client) GetFlowsExecution(ctx context.Context, params *GetFlowsExecutio
 }
 
 /*
+GetFlowsJob fetches architect job status
+*/
+func (a *Client) GetFlowsJob(ctx context.Context, params *GetFlowsJobParams) (*GetFlowsJobOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getFlowsJob",
+		Method:             "GET",
+		PathPattern:        "/api/v2/flows/jobs/{jobId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetFlowsJobReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetFlowsJobOK), nil
+
+}
+
+/*
 GetFlowsMilestone gets a flow milestone
 
 Returns a specified flow milestone
@@ -2867,6 +2900,37 @@ func (a *Client) PostFlowsExecutions(ctx context.Context, params *PostFlowsExecu
 		return nil, err
 	}
 	return result.(*PostFlowsExecutionsOK), nil
+
+}
+
+/*
+PostFlowsJobs registers architect job returns a URL where a file such as an architect flow y a m l file can be p u t which will then initiate the job
+*/
+func (a *Client) PostFlowsJobs(ctx context.Context, params *PostFlowsJobsParams) (*PostFlowsJobsOK, *PostFlowsJobsAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postFlowsJobs",
+		Method:             "POST",
+		PathPattern:        "/api/v2/flows/jobs",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostFlowsJobsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PostFlowsJobsOK:
+		return value, nil, nil
+	case *PostFlowsJobsAccepted:
+		return nil, value, nil
+	}
+	return nil, nil, nil
 
 }
 

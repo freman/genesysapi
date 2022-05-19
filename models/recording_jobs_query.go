@@ -29,7 +29,7 @@ type RecordingJobsQuery struct {
 	// Format: date-time
 	ActionDate *strfmt.DateTime `json:"actionDate"`
 
-	// Conversation Query. Note: After the recording is created, it might take up to 48 hours for the recording to be included in the submitted job query.
+	// Conversation Query. Note: After the recording is created, it might take up to 48 hours for the recording to be included in the submitted job query.  This result depends on the analytics data lake job completion. See also: https://developer.genesys.cloud/analyticsdatamanagement/analytics/jobs/conversation-details-job#data-availability
 	// Required: true
 	ConversationQuery *AsyncConversationQuery `json:"conversationQuery"`
 

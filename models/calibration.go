@@ -32,7 +32,7 @@ type Calibration struct {
 	ContextID string `json:"contextId,omitempty"`
 
 	// conversation
-	Conversation *Conversation `json:"conversation,omitempty"`
+	Conversation *ConversationReference `json:"conversation,omitempty"`
 
 	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time

@@ -20,16 +20,22 @@ import (
 type ContentReaction struct {
 
 	// Number of users that reacted this way to the message.
-	Count int32 `json:"count,omitempty"`
+	// Required: true
+	Count *int32 `json:"count"`
 
 	// Type of reaction.
+	// Required: true
 	// Enum: [Like Love Wow Haha Sad Angry Thankful Pride Care]
-	ReactionType string `json:"reactionType,omitempty"`
+	ReactionType *string `json:"reactionType"`
 }
 
 // Validate validates this content reaction
 func (m *ContentReaction) Validate(formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.validateCount(formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.validateReactionType(formats); err != nil {
 		res = append(res, err)
@@ -38,6 +44,15 @@ func (m *ContentReaction) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *ContentReaction) validateCount(formats strfmt.Registry) error {
+
+	if err := validate.Required("count", "body", m.Count); err != nil {
+		return err
+	}
+
 	return nil
 }
 
@@ -93,12 +108,12 @@ func (m *ContentReaction) validateReactionTypeEnum(path, location string, value 
 
 func (m *ContentReaction) validateReactionType(formats strfmt.Registry) error {
 
-	if swag.IsZero(m.ReactionType) { // not required
-		return nil
+	if err := validate.Required("reactionType", "body", m.ReactionType); err != nil {
+		return err
 	}
 
 	// value enum
-	if err := m.validateReactionTypeEnum("reactionType", "body", m.ReactionType); err != nil {
+	if err := m.validateReactionTypeEnum("reactionType", "body", *m.ReactionType); err != nil {
 		return err
 	}
 

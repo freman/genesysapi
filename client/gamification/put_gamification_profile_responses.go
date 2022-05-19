@@ -115,7 +115,7 @@ type PutGamificationProfileOK struct {
 }
 
 func (o *PutGamificationProfileOK) Error() string {
-	return fmt.Sprintf("[PUT /api/v2/gamification/profiles/{performanceProfileId}][%d] putGamificationProfileOK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[PUT /api/v2/gamification/profiles/{profileId}][%d] putGamificationProfileOK  %+v", 200, o.Payload)
 }
 
 func (o *PutGamificationProfileOK) GetPayload() *models.PerformanceProfile {
@@ -148,7 +148,7 @@ type PutGamificationProfileBadRequest struct {
 }
 
 func (o *PutGamificationProfileBadRequest) Error() string {
-	return fmt.Sprintf("[PUT /api/v2/gamification/profiles/{performanceProfileId}][%d] putGamificationProfileBadRequest  %+v", 400, o.Payload)
+	return fmt.Sprintf("[PUT /api/v2/gamification/profiles/{profileId}][%d] putGamificationProfileBadRequest  %+v", 400, o.Payload)
 }
 
 func (o *PutGamificationProfileBadRequest) GetPayload() *models.ErrorBody {
@@ -181,7 +181,7 @@ type PutGamificationProfileUnauthorized struct {
 }
 
 func (o *PutGamificationProfileUnauthorized) Error() string {
-	return fmt.Sprintf("[PUT /api/v2/gamification/profiles/{performanceProfileId}][%d] putGamificationProfileUnauthorized  %+v", 401, o.Payload)
+	return fmt.Sprintf("[PUT /api/v2/gamification/profiles/{profileId}][%d] putGamificationProfileUnauthorized  %+v", 401, o.Payload)
 }
 
 func (o *PutGamificationProfileUnauthorized) GetPayload() *models.ErrorBody {
@@ -214,7 +214,7 @@ type PutGamificationProfileForbidden struct {
 }
 
 func (o *PutGamificationProfileForbidden) Error() string {
-	return fmt.Sprintf("[PUT /api/v2/gamification/profiles/{performanceProfileId}][%d] putGamificationProfileForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[PUT /api/v2/gamification/profiles/{profileId}][%d] putGamificationProfileForbidden  %+v", 403, o.Payload)
 }
 
 func (o *PutGamificationProfileForbidden) GetPayload() *models.ErrorBody {
@@ -247,7 +247,7 @@ type PutGamificationProfileNotFound struct {
 }
 
 func (o *PutGamificationProfileNotFound) Error() string {
-	return fmt.Sprintf("[PUT /api/v2/gamification/profiles/{performanceProfileId}][%d] putGamificationProfileNotFound  %+v", 404, o.Payload)
+	return fmt.Sprintf("[PUT /api/v2/gamification/profiles/{profileId}][%d] putGamificationProfileNotFound  %+v", 404, o.Payload)
 }
 
 func (o *PutGamificationProfileNotFound) GetPayload() *models.ErrorBody {
@@ -280,7 +280,7 @@ type PutGamificationProfileRequestTimeout struct {
 }
 
 func (o *PutGamificationProfileRequestTimeout) Error() string {
-	return fmt.Sprintf("[PUT /api/v2/gamification/profiles/{performanceProfileId}][%d] putGamificationProfileRequestTimeout  %+v", 408, o.Payload)
+	return fmt.Sprintf("[PUT /api/v2/gamification/profiles/{profileId}][%d] putGamificationProfileRequestTimeout  %+v", 408, o.Payload)
 }
 
 func (o *PutGamificationProfileRequestTimeout) GetPayload() *models.ErrorBody {
@@ -313,7 +313,7 @@ type PutGamificationProfileRequestEntityTooLarge struct {
 }
 
 func (o *PutGamificationProfileRequestEntityTooLarge) Error() string {
-	return fmt.Sprintf("[PUT /api/v2/gamification/profiles/{performanceProfileId}][%d] putGamificationProfileRequestEntityTooLarge  %+v", 413, o.Payload)
+	return fmt.Sprintf("[PUT /api/v2/gamification/profiles/{profileId}][%d] putGamificationProfileRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
 func (o *PutGamificationProfileRequestEntityTooLarge) GetPayload() *models.ErrorBody {
@@ -346,7 +346,7 @@ type PutGamificationProfileUnsupportedMediaType struct {
 }
 
 func (o *PutGamificationProfileUnsupportedMediaType) Error() string {
-	return fmt.Sprintf("[PUT /api/v2/gamification/profiles/{performanceProfileId}][%d] putGamificationProfileUnsupportedMediaType  %+v", 415, o.Payload)
+	return fmt.Sprintf("[PUT /api/v2/gamification/profiles/{profileId}][%d] putGamificationProfileUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
 func (o *PutGamificationProfileUnsupportedMediaType) GetPayload() *models.ErrorBody {
@@ -379,7 +379,7 @@ type PutGamificationProfileTooManyRequests struct {
 }
 
 func (o *PutGamificationProfileTooManyRequests) Error() string {
-	return fmt.Sprintf("[PUT /api/v2/gamification/profiles/{performanceProfileId}][%d] putGamificationProfileTooManyRequests  %+v", 429, o.Payload)
+	return fmt.Sprintf("[PUT /api/v2/gamification/profiles/{profileId}][%d] putGamificationProfileTooManyRequests  %+v", 429, o.Payload)
 }
 
 func (o *PutGamificationProfileTooManyRequests) GetPayload() *models.ErrorBody {
@@ -412,7 +412,7 @@ type PutGamificationProfileInternalServerError struct {
 }
 
 func (o *PutGamificationProfileInternalServerError) Error() string {
-	return fmt.Sprintf("[PUT /api/v2/gamification/profiles/{performanceProfileId}][%d] putGamificationProfileInternalServerError  %+v", 500, o.Payload)
+	return fmt.Sprintf("[PUT /api/v2/gamification/profiles/{profileId}][%d] putGamificationProfileInternalServerError  %+v", 500, o.Payload)
 }
 
 func (o *PutGamificationProfileInternalServerError) GetPayload() *models.ErrorBody {
@@ -445,7 +445,7 @@ type PutGamificationProfileServiceUnavailable struct {
 }
 
 func (o *PutGamificationProfileServiceUnavailable) Error() string {
-	return fmt.Sprintf("[PUT /api/v2/gamification/profiles/{performanceProfileId}][%d] putGamificationProfileServiceUnavailable  %+v", 503, o.Payload)
+	return fmt.Sprintf("[PUT /api/v2/gamification/profiles/{profileId}][%d] putGamificationProfileServiceUnavailable  %+v", 503, o.Payload)
 }
 
 func (o *PutGamificationProfileServiceUnavailable) GetPayload() *models.ErrorBody {
@@ -478,7 +478,7 @@ type PutGamificationProfileGatewayTimeout struct {
 }
 
 func (o *PutGamificationProfileGatewayTimeout) Error() string {
-	return fmt.Sprintf("[PUT /api/v2/gamification/profiles/{performanceProfileId}][%d] putGamificationProfileGatewayTimeout  %+v", 504, o.Payload)
+	return fmt.Sprintf("[PUT /api/v2/gamification/profiles/{profileId}][%d] putGamificationProfileGatewayTimeout  %+v", 504, o.Payload)
 }
 
 func (o *PutGamificationProfileGatewayTimeout) GetPayload() *models.ErrorBody {

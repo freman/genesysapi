@@ -110,6 +110,14 @@ type API interface {
 	*/
 	GetRecordingJobs(ctx context.Context, params *GetRecordingJobsParams) (*GetRecordingJobsOK, error)
 	/*
+	   GetRecordingKeyconfiguration gets the encryption key configurations
+	*/
+	GetRecordingKeyconfiguration(ctx context.Context, params *GetRecordingKeyconfigurationParams) (*GetRecordingKeyconfigurationOK, error)
+	/*
+	   GetRecordingKeyconfigurations gets a list of key configurations data
+	*/
+	GetRecordingKeyconfigurations(ctx context.Context, params *GetRecordingKeyconfigurationsParams) (*GetRecordingKeyconfigurationsOK, error)
+	/*
 	   GetRecordingLocalkeysSetting gets the local encryption settings
 	*/
 	GetRecordingLocalkeysSetting(ctx context.Context, params *GetRecordingLocalkeysSettingParams) (*GetRecordingLocalkeysSettingOK, error)
@@ -169,8 +177,17 @@ type API interface {
 	PostRecordingCrossplatformMediaretentionpolicies(ctx context.Context, params *PostRecordingCrossplatformMediaretentionpoliciesParams) (*PostRecordingCrossplatformMediaretentionpoliciesOK, error)
 	/*
 	   PostRecordingJobs creates a recording bulk job
+	   Each organization can run up to a maximum of two concurrent jobs that are either in pending or processing state.
 	*/
 	PostRecordingJobs(ctx context.Context, params *PostRecordingJobsParams) (*PostRecordingJobsAccepted, error)
+	/*
+	   PostRecordingKeyconfigurations setups configurations for encryption key creation
+	*/
+	PostRecordingKeyconfigurations(ctx context.Context, params *PostRecordingKeyconfigurationsParams) (*PostRecordingKeyconfigurationsOK, error)
+	/*
+	   PostRecordingKeyconfigurationsValidate validates encryption key configurations without saving it
+	*/
+	PostRecordingKeyconfigurationsValidate(ctx context.Context, params *PostRecordingKeyconfigurationsValidateParams) (*PostRecordingKeyconfigurationsValidateOK, error)
 	/*
 	   PostRecordingLocalkeys creates a local recording key
 	*/
@@ -224,6 +241,10 @@ type API interface {
 	   A job must be executed by the same user whom originally created the job.  In addition, the user must have permission to update the recording's retention.
 	*/
 	PutRecordingJob(ctx context.Context, params *PutRecordingJobParams) (*PutRecordingJobOK, error)
+	/*
+	   PutRecordingKeyconfiguration updates the encryption key configurations
+	*/
+	PutRecordingKeyconfiguration(ctx context.Context, params *PutRecordingKeyconfigurationParams) (*PutRecordingKeyconfigurationOK, error)
 	/*
 	   PutRecordingLocalkeysSetting updates the local encryption settings
 	*/
@@ -836,6 +857,56 @@ func (a *Client) GetRecordingJobs(ctx context.Context, params *GetRecordingJobsP
 }
 
 /*
+GetRecordingKeyconfiguration gets the encryption key configurations
+*/
+func (a *Client) GetRecordingKeyconfiguration(ctx context.Context, params *GetRecordingKeyconfigurationParams) (*GetRecordingKeyconfigurationOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getRecordingKeyconfiguration",
+		Method:             "GET",
+		PathPattern:        "/api/v2/recording/keyconfigurations/{keyConfigurationId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetRecordingKeyconfigurationReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetRecordingKeyconfigurationOK), nil
+
+}
+
+/*
+GetRecordingKeyconfigurations gets a list of key configurations data
+*/
+func (a *Client) GetRecordingKeyconfigurations(ctx context.Context, params *GetRecordingKeyconfigurationsParams) (*GetRecordingKeyconfigurationsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getRecordingKeyconfigurations",
+		Method:             "GET",
+		PathPattern:        "/api/v2/recording/keyconfigurations",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetRecordingKeyconfigurationsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetRecordingKeyconfigurationsOK), nil
+
+}
+
+/*
 GetRecordingLocalkeysSetting gets the local encryption settings
 */
 func (a *Client) GetRecordingLocalkeysSetting(ctx context.Context, params *GetRecordingLocalkeysSettingParams) (*GetRecordingLocalkeysSettingOK, error) {
@@ -1191,6 +1262,8 @@ func (a *Client) PostRecordingCrossplatformMediaretentionpolicies(ctx context.Co
 
 /*
 PostRecordingJobs creates a recording bulk job
+
+Each organization can run up to a maximum of two concurrent jobs that are either in pending or processing state.
 */
 func (a *Client) PostRecordingJobs(ctx context.Context, params *PostRecordingJobsParams) (*PostRecordingJobsAccepted, error) {
 
@@ -1211,6 +1284,56 @@ func (a *Client) PostRecordingJobs(ctx context.Context, params *PostRecordingJob
 		return nil, err
 	}
 	return result.(*PostRecordingJobsAccepted), nil
+
+}
+
+/*
+PostRecordingKeyconfigurations setups configurations for encryption key creation
+*/
+func (a *Client) PostRecordingKeyconfigurations(ctx context.Context, params *PostRecordingKeyconfigurationsParams) (*PostRecordingKeyconfigurationsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postRecordingKeyconfigurations",
+		Method:             "POST",
+		PathPattern:        "/api/v2/recording/keyconfigurations",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostRecordingKeyconfigurationsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostRecordingKeyconfigurationsOK), nil
+
+}
+
+/*
+PostRecordingKeyconfigurationsValidate validates encryption key configurations without saving it
+*/
+func (a *Client) PostRecordingKeyconfigurationsValidate(ctx context.Context, params *PostRecordingKeyconfigurationsValidateParams) (*PostRecordingKeyconfigurationsValidateOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postRecordingKeyconfigurationsValidate",
+		Method:             "POST",
+		PathPattern:        "/api/v2/recording/keyconfigurations/validate",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostRecordingKeyconfigurationsValidateReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostRecordingKeyconfigurationsValidateOK), nil
 
 }
 
@@ -1521,6 +1644,31 @@ func (a *Client) PutRecordingJob(ctx context.Context, params *PutRecordingJobPar
 		return nil, err
 	}
 	return result.(*PutRecordingJobOK), nil
+
+}
+
+/*
+PutRecordingKeyconfiguration updates the encryption key configurations
+*/
+func (a *Client) PutRecordingKeyconfiguration(ctx context.Context, params *PutRecordingKeyconfigurationParams) (*PutRecordingKeyconfigurationOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "putRecordingKeyconfiguration",
+		Method:             "PUT",
+		PathPattern:        "/api/v2/recording/keyconfigurations/{keyConfigurationId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PutRecordingKeyconfigurationReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutRecordingKeyconfigurationOK), nil
 
 }
 

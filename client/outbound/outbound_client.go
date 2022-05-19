@@ -82,6 +82,14 @@ type API interface {
 	*/
 	DeleteOutboundSchedulesCampaign(ctx context.Context, params *DeleteOutboundSchedulesCampaignParams) (*DeleteOutboundSchedulesCampaignOK, error)
 	/*
+	   DeleteOutboundSchedulesEmailcampaign deletes an email campaign schedule
+	*/
+	DeleteOutboundSchedulesEmailcampaign(ctx context.Context, params *DeleteOutboundSchedulesEmailcampaignParams) (*DeleteOutboundSchedulesEmailcampaignNoContent, error)
+	/*
+	   DeleteOutboundSchedulesMessagingcampaign deletes a messaging campaign schedule
+	*/
+	DeleteOutboundSchedulesMessagingcampaign(ctx context.Context, params *DeleteOutboundSchedulesMessagingcampaignParams) (*DeleteOutboundSchedulesMessagingcampaignNoContent, error)
+	/*
 	   DeleteOutboundSchedulesSequence deletes a dialer sequence schedule
 	*/
 	DeleteOutboundSchedulesSequence(ctx context.Context, params *DeleteOutboundSchedulesSequenceParams) (*DeleteOutboundSchedulesSequenceOK, error)
@@ -282,6 +290,22 @@ type API interface {
 	*/
 	GetOutboundSchedulesCampaigns(ctx context.Context, params *GetOutboundSchedulesCampaignsParams) (*GetOutboundSchedulesCampaignsOK, error)
 	/*
+	   GetOutboundSchedulesEmailcampaign gets an email campaign schedule
+	*/
+	GetOutboundSchedulesEmailcampaign(ctx context.Context, params *GetOutboundSchedulesEmailcampaignParams) (*GetOutboundSchedulesEmailcampaignOK, error)
+	/*
+	   GetOutboundSchedulesEmailcampaigns queries for a list of email campaign schedules
+	*/
+	GetOutboundSchedulesEmailcampaigns(ctx context.Context, params *GetOutboundSchedulesEmailcampaignsParams) (*GetOutboundSchedulesEmailcampaignsOK, error)
+	/*
+	   GetOutboundSchedulesMessagingcampaign gets a messaging campaign schedule
+	*/
+	GetOutboundSchedulesMessagingcampaign(ctx context.Context, params *GetOutboundSchedulesMessagingcampaignParams) (*GetOutboundSchedulesMessagingcampaignOK, error)
+	/*
+	   GetOutboundSchedulesMessagingcampaigns queries for a list of messaging campaign schedules
+	*/
+	GetOutboundSchedulesMessagingcampaigns(ctx context.Context, params *GetOutboundSchedulesMessagingcampaignsParams) (*GetOutboundSchedulesMessagingcampaignsOK, error)
+	/*
 	   GetOutboundSchedulesSequence gets a dialer sequence schedule
 	*/
 	GetOutboundSchedulesSequence(ctx context.Context, params *GetOutboundSchedulesSequenceParams) (*GetOutboundSchedulesSequenceOK, error)
@@ -462,6 +486,14 @@ type API interface {
 	   PutOutboundSchedulesCampaign updates a new campaign schedule
 	*/
 	PutOutboundSchedulesCampaign(ctx context.Context, params *PutOutboundSchedulesCampaignParams) (*PutOutboundSchedulesCampaignOK, error)
+	/*
+	   PutOutboundSchedulesEmailcampaign updates an email campaign schedule
+	*/
+	PutOutboundSchedulesEmailcampaign(ctx context.Context, params *PutOutboundSchedulesEmailcampaignParams) (*PutOutboundSchedulesEmailcampaignOK, error)
+	/*
+	   PutOutboundSchedulesMessagingcampaign updates a new messaging campaign schedule
+	*/
+	PutOutboundSchedulesMessagingcampaign(ctx context.Context, params *PutOutboundSchedulesMessagingcampaignParams) (*PutOutboundSchedulesMessagingcampaignOK, error)
 	/*
 	   PutOutboundSchedulesSequence updates a new sequence schedule
 	*/
@@ -897,6 +929,56 @@ func (a *Client) DeleteOutboundSchedulesCampaign(ctx context.Context, params *De
 		return nil, err
 	}
 	return result.(*DeleteOutboundSchedulesCampaignOK), nil
+
+}
+
+/*
+DeleteOutboundSchedulesEmailcampaign deletes an email campaign schedule
+*/
+func (a *Client) DeleteOutboundSchedulesEmailcampaign(ctx context.Context, params *DeleteOutboundSchedulesEmailcampaignParams) (*DeleteOutboundSchedulesEmailcampaignNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteOutboundSchedulesEmailcampaign",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/outbound/schedules/emailcampaigns/{emailCampaignId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteOutboundSchedulesEmailcampaignReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteOutboundSchedulesEmailcampaignNoContent), nil
+
+}
+
+/*
+DeleteOutboundSchedulesMessagingcampaign deletes a messaging campaign schedule
+*/
+func (a *Client) DeleteOutboundSchedulesMessagingcampaign(ctx context.Context, params *DeleteOutboundSchedulesMessagingcampaignParams) (*DeleteOutboundSchedulesMessagingcampaignNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteOutboundSchedulesMessagingcampaign",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/outbound/schedules/messagingcampaigns/{messagingCampaignId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteOutboundSchedulesMessagingcampaignReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteOutboundSchedulesMessagingcampaignNoContent), nil
 
 }
 
@@ -2123,6 +2205,106 @@ func (a *Client) GetOutboundSchedulesCampaigns(ctx context.Context, params *GetO
 }
 
 /*
+GetOutboundSchedulesEmailcampaign gets an email campaign schedule
+*/
+func (a *Client) GetOutboundSchedulesEmailcampaign(ctx context.Context, params *GetOutboundSchedulesEmailcampaignParams) (*GetOutboundSchedulesEmailcampaignOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getOutboundSchedulesEmailcampaign",
+		Method:             "GET",
+		PathPattern:        "/api/v2/outbound/schedules/emailcampaigns/{emailCampaignId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetOutboundSchedulesEmailcampaignReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetOutboundSchedulesEmailcampaignOK), nil
+
+}
+
+/*
+GetOutboundSchedulesEmailcampaigns queries for a list of email campaign schedules
+*/
+func (a *Client) GetOutboundSchedulesEmailcampaigns(ctx context.Context, params *GetOutboundSchedulesEmailcampaignsParams) (*GetOutboundSchedulesEmailcampaignsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getOutboundSchedulesEmailcampaigns",
+		Method:             "GET",
+		PathPattern:        "/api/v2/outbound/schedules/emailcampaigns",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetOutboundSchedulesEmailcampaignsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetOutboundSchedulesEmailcampaignsOK), nil
+
+}
+
+/*
+GetOutboundSchedulesMessagingcampaign gets a messaging campaign schedule
+*/
+func (a *Client) GetOutboundSchedulesMessagingcampaign(ctx context.Context, params *GetOutboundSchedulesMessagingcampaignParams) (*GetOutboundSchedulesMessagingcampaignOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getOutboundSchedulesMessagingcampaign",
+		Method:             "GET",
+		PathPattern:        "/api/v2/outbound/schedules/messagingcampaigns/{messagingCampaignId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetOutboundSchedulesMessagingcampaignReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetOutboundSchedulesMessagingcampaignOK), nil
+
+}
+
+/*
+GetOutboundSchedulesMessagingcampaigns queries for a list of messaging campaign schedules
+*/
+func (a *Client) GetOutboundSchedulesMessagingcampaigns(ctx context.Context, params *GetOutboundSchedulesMessagingcampaignsParams) (*GetOutboundSchedulesMessagingcampaignsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getOutboundSchedulesMessagingcampaigns",
+		Method:             "GET",
+		PathPattern:        "/api/v2/outbound/schedules/messagingcampaigns",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetOutboundSchedulesMessagingcampaignsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetOutboundSchedulesMessagingcampaignsOK), nil
+
+}
+
+/*
 GetOutboundSchedulesSequence gets a dialer sequence schedule
 */
 func (a *Client) GetOutboundSchedulesSequence(ctx context.Context, params *GetOutboundSchedulesSequenceParams) (*GetOutboundSchedulesSequenceOK, error) {
@@ -3235,6 +3417,56 @@ func (a *Client) PutOutboundSchedulesCampaign(ctx context.Context, params *PutOu
 		return nil, err
 	}
 	return result.(*PutOutboundSchedulesCampaignOK), nil
+
+}
+
+/*
+PutOutboundSchedulesEmailcampaign updates an email campaign schedule
+*/
+func (a *Client) PutOutboundSchedulesEmailcampaign(ctx context.Context, params *PutOutboundSchedulesEmailcampaignParams) (*PutOutboundSchedulesEmailcampaignOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "putOutboundSchedulesEmailcampaign",
+		Method:             "PUT",
+		PathPattern:        "/api/v2/outbound/schedules/emailcampaigns/{emailCampaignId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PutOutboundSchedulesEmailcampaignReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutOutboundSchedulesEmailcampaignOK), nil
+
+}
+
+/*
+PutOutboundSchedulesMessagingcampaign updates a new messaging campaign schedule
+*/
+func (a *Client) PutOutboundSchedulesMessagingcampaign(ctx context.Context, params *PutOutboundSchedulesMessagingcampaignParams) (*PutOutboundSchedulesMessagingcampaignOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "putOutboundSchedulesMessagingcampaign",
+		Method:             "PUT",
+		PathPattern:        "/api/v2/outbound/schedules/messagingcampaigns/{messagingCampaignId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PutOutboundSchedulesMessagingcampaignReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutOutboundSchedulesMessagingcampaignOK), nil
 
 }
 

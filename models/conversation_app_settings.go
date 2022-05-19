@@ -26,6 +26,9 @@ type ConversationAppSettings struct {
 	// Enum: [Standard Automatic]
 	AutoStartType string `json:"autoStartType,omitempty"`
 
+	// The markdown for the messenger app
+	Markdown *Markdown `json:"markdown,omitempty"`
+
 	// The toggle to enable or disable typing indicator for messenger
 	ShowAgentTypingIndicator bool `json:"showAgentTypingIndicator"`
 
@@ -42,6 +45,10 @@ func (m *ConversationAppSettings) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateAutoStartType(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateMarkdown(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -107,6 +114,24 @@ func (m *ConversationAppSettings) validateAutoStartType(formats strfmt.Registry)
 	// value enum
 	if err := m.validateAutoStartTypeEnum("autoStartType", "body", m.AutoStartType); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *ConversationAppSettings) validateMarkdown(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Markdown) { // not required
+		return nil
+	}
+
+	if m.Markdown != nil {
+		if err := m.Markdown.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("markdown")
+			}
+			return err
+		}
 	}
 
 	return nil

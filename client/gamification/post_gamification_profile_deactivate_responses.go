@@ -115,7 +115,7 @@ type PostGamificationProfileDeactivateOK struct {
 }
 
 func (o *PostGamificationProfileDeactivateOK) Error() string {
-	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{performanceProfileId}/deactivate][%d] postGamificationProfileDeactivateOK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/deactivate][%d] postGamificationProfileDeactivateOK  %+v", 200, o.Payload)
 }
 
 func (o *PostGamificationProfileDeactivateOK) GetPayload() *models.PerformanceProfile {
@@ -148,7 +148,7 @@ type PostGamificationProfileDeactivateBadRequest struct {
 }
 
 func (o *PostGamificationProfileDeactivateBadRequest) Error() string {
-	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{performanceProfileId}/deactivate][%d] postGamificationProfileDeactivateBadRequest  %+v", 400, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/deactivate][%d] postGamificationProfileDeactivateBadRequest  %+v", 400, o.Payload)
 }
 
 func (o *PostGamificationProfileDeactivateBadRequest) GetPayload() *models.ErrorBody {
@@ -181,7 +181,7 @@ type PostGamificationProfileDeactivateUnauthorized struct {
 }
 
 func (o *PostGamificationProfileDeactivateUnauthorized) Error() string {
-	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{performanceProfileId}/deactivate][%d] postGamificationProfileDeactivateUnauthorized  %+v", 401, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/deactivate][%d] postGamificationProfileDeactivateUnauthorized  %+v", 401, o.Payload)
 }
 
 func (o *PostGamificationProfileDeactivateUnauthorized) GetPayload() *models.ErrorBody {
@@ -214,7 +214,7 @@ type PostGamificationProfileDeactivateForbidden struct {
 }
 
 func (o *PostGamificationProfileDeactivateForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{performanceProfileId}/deactivate][%d] postGamificationProfileDeactivateForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/deactivate][%d] postGamificationProfileDeactivateForbidden  %+v", 403, o.Payload)
 }
 
 func (o *PostGamificationProfileDeactivateForbidden) GetPayload() *models.ErrorBody {
@@ -247,7 +247,7 @@ type PostGamificationProfileDeactivateNotFound struct {
 }
 
 func (o *PostGamificationProfileDeactivateNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{performanceProfileId}/deactivate][%d] postGamificationProfileDeactivateNotFound  %+v", 404, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/deactivate][%d] postGamificationProfileDeactivateNotFound  %+v", 404, o.Payload)
 }
 
 func (o *PostGamificationProfileDeactivateNotFound) GetPayload() *models.ErrorBody {
@@ -280,7 +280,7 @@ type PostGamificationProfileDeactivateRequestTimeout struct {
 }
 
 func (o *PostGamificationProfileDeactivateRequestTimeout) Error() string {
-	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{performanceProfileId}/deactivate][%d] postGamificationProfileDeactivateRequestTimeout  %+v", 408, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/deactivate][%d] postGamificationProfileDeactivateRequestTimeout  %+v", 408, o.Payload)
 }
 
 func (o *PostGamificationProfileDeactivateRequestTimeout) GetPayload() *models.ErrorBody {
@@ -313,7 +313,7 @@ type PostGamificationProfileDeactivateRequestEntityTooLarge struct {
 }
 
 func (o *PostGamificationProfileDeactivateRequestEntityTooLarge) Error() string {
-	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{performanceProfileId}/deactivate][%d] postGamificationProfileDeactivateRequestEntityTooLarge  %+v", 413, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/deactivate][%d] postGamificationProfileDeactivateRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
 func (o *PostGamificationProfileDeactivateRequestEntityTooLarge) GetPayload() *models.ErrorBody {
@@ -346,7 +346,7 @@ type PostGamificationProfileDeactivateUnsupportedMediaType struct {
 }
 
 func (o *PostGamificationProfileDeactivateUnsupportedMediaType) Error() string {
-	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{performanceProfileId}/deactivate][%d] postGamificationProfileDeactivateUnsupportedMediaType  %+v", 415, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/deactivate][%d] postGamificationProfileDeactivateUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
 func (o *PostGamificationProfileDeactivateUnsupportedMediaType) GetPayload() *models.ErrorBody {
@@ -379,7 +379,7 @@ type PostGamificationProfileDeactivateTooManyRequests struct {
 }
 
 func (o *PostGamificationProfileDeactivateTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{performanceProfileId}/deactivate][%d] postGamificationProfileDeactivateTooManyRequests  %+v", 429, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/deactivate][%d] postGamificationProfileDeactivateTooManyRequests  %+v", 429, o.Payload)
 }
 
 func (o *PostGamificationProfileDeactivateTooManyRequests) GetPayload() *models.ErrorBody {
@@ -412,7 +412,7 @@ type PostGamificationProfileDeactivateInternalServerError struct {
 }
 
 func (o *PostGamificationProfileDeactivateInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{performanceProfileId}/deactivate][%d] postGamificationProfileDeactivateInternalServerError  %+v", 500, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/deactivate][%d] postGamificationProfileDeactivateInternalServerError  %+v", 500, o.Payload)
 }
 
 func (o *PostGamificationProfileDeactivateInternalServerError) GetPayload() *models.ErrorBody {
@@ -445,7 +445,7 @@ type PostGamificationProfileDeactivateServiceUnavailable struct {
 }
 
 func (o *PostGamificationProfileDeactivateServiceUnavailable) Error() string {
-	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{performanceProfileId}/deactivate][%d] postGamificationProfileDeactivateServiceUnavailable  %+v", 503, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/deactivate][%d] postGamificationProfileDeactivateServiceUnavailable  %+v", 503, o.Payload)
 }
 
 func (o *PostGamificationProfileDeactivateServiceUnavailable) GetPayload() *models.ErrorBody {
@@ -478,7 +478,7 @@ type PostGamificationProfileDeactivateGatewayTimeout struct {
 }
 
 func (o *PostGamificationProfileDeactivateGatewayTimeout) Error() string {
-	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{performanceProfileId}/deactivate][%d] postGamificationProfileDeactivateGatewayTimeout  %+v", 504, o.Payload)
+	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/deactivate][%d] postGamificationProfileDeactivateGatewayTimeout  %+v", 504, o.Payload)
 }
 
 func (o *PostGamificationProfileDeactivateGatewayTimeout) GetPayload() *models.ErrorBody {

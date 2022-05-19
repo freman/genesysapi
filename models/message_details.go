@@ -20,6 +20,9 @@ import (
 // swagger:model MessageDetails
 type MessageDetails struct {
 
+	// Provider specific error information for a communication.
+	ErrorInfo *ErrorBody `json:"errorInfo,omitempty"`
+
 	// The media (images, files, etc) associated with this message, if any
 	Media []*MessageMedia `json:"media"`
 
@@ -49,6 +52,10 @@ type MessageDetails struct {
 func (m *MessageDetails) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateErrorInfo(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateMedia(formats); err != nil {
 		res = append(res, err)
 	}
@@ -72,6 +79,24 @@ func (m *MessageDetails) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *MessageDetails) validateErrorInfo(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.ErrorInfo) { // not required
+		return nil
+	}
+
+	if m.ErrorInfo != nil {
+		if err := m.ErrorInfo.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("errorInfo")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

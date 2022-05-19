@@ -14,13 +14,17 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+	"github.com/go-openapi/swag"
 )
 
 // NewGetRoutingEmailDomainsParams creates a new GetRoutingEmailDomainsParams object
 // with the default values initialized.
 func NewGetRoutingEmailDomainsParams() *GetRoutingEmailDomainsParams {
-
+	var (
+		excludeStatusDefault = bool(false)
+	)
 	return &GetRoutingEmailDomainsParams{
+		ExcludeStatus: &excludeStatusDefault,
 
 		timeout: cr.DefaultTimeout,
 	}
@@ -29,8 +33,11 @@ func NewGetRoutingEmailDomainsParams() *GetRoutingEmailDomainsParams {
 // NewGetRoutingEmailDomainsParamsWithTimeout creates a new GetRoutingEmailDomainsParams object
 // with the default values initialized, and the ability to set a timeout on a request
 func NewGetRoutingEmailDomainsParamsWithTimeout(timeout time.Duration) *GetRoutingEmailDomainsParams {
-
+	var (
+		excludeStatusDefault = bool(false)
+	)
 	return &GetRoutingEmailDomainsParams{
+		ExcludeStatus: &excludeStatusDefault,
 
 		timeout: timeout,
 	}
@@ -39,8 +46,11 @@ func NewGetRoutingEmailDomainsParamsWithTimeout(timeout time.Duration) *GetRouti
 // NewGetRoutingEmailDomainsParamsWithContext creates a new GetRoutingEmailDomainsParams object
 // with the default values initialized, and the ability to set a context for a request
 func NewGetRoutingEmailDomainsParamsWithContext(ctx context.Context) *GetRoutingEmailDomainsParams {
-
+	var (
+		excludeStatusDefault = bool(false)
+	)
 	return &GetRoutingEmailDomainsParams{
+		ExcludeStatus: &excludeStatusDefault,
 
 		Context: ctx,
 	}
@@ -49,9 +59,12 @@ func NewGetRoutingEmailDomainsParamsWithContext(ctx context.Context) *GetRouting
 // NewGetRoutingEmailDomainsParamsWithHTTPClient creates a new GetRoutingEmailDomainsParams object
 // with the default values initialized, and the ability to set a custom HTTPClient for a request
 func NewGetRoutingEmailDomainsParamsWithHTTPClient(client *http.Client) *GetRoutingEmailDomainsParams {
-
+	var (
+		excludeStatusDefault = bool(false)
+	)
 	return &GetRoutingEmailDomainsParams{
-		HTTPClient: client,
+		ExcludeStatus: &excludeStatusDefault,
+		HTTPClient:    client,
 	}
 }
 
@@ -59,6 +72,13 @@ func NewGetRoutingEmailDomainsParamsWithHTTPClient(client *http.Client) *GetRout
 for the get routing email domains operation typically these are written to a http.Request
 */
 type GetRoutingEmailDomainsParams struct {
+
+	/*ExcludeStatus
+	  Exclude MX record data
+
+	*/
+	ExcludeStatus *bool
+
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
@@ -97,6 +117,17 @@ func (o *GetRoutingEmailDomainsParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithExcludeStatus adds the excludeStatus to the get routing email domains params
+func (o *GetRoutingEmailDomainsParams) WithExcludeStatus(excludeStatus *bool) *GetRoutingEmailDomainsParams {
+	o.SetExcludeStatus(excludeStatus)
+	return o
+}
+
+// SetExcludeStatus adds the excludeStatus to the get routing email domains params
+func (o *GetRoutingEmailDomainsParams) SetExcludeStatus(excludeStatus *bool) {
+	o.ExcludeStatus = excludeStatus
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *GetRoutingEmailDomainsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -104,6 +135,22 @@ func (o *GetRoutingEmailDomainsParams) WriteToRequest(r runtime.ClientRequest, r
 		return err
 	}
 	var res []error
+
+	if o.ExcludeStatus != nil {
+
+		// query param excludeStatus
+		var qrExcludeStatus bool
+		if o.ExcludeStatus != nil {
+			qrExcludeStatus = *o.ExcludeStatus
+		}
+		qExcludeStatus := swag.FormatBool(qrExcludeStatus)
+		if qExcludeStatus != "" {
+			if err := r.SetQueryParam("excludeStatus", qExcludeStatus); err != nil {
+				return err
+			}
+		}
+
+	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)

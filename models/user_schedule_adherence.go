@@ -36,7 +36,7 @@ type UserScheduleAdherence struct {
 
 	// The user's current adherence state
 	// Read Only: true
-	// Enum: [InAdherence OutOfAdherence Unscheduled Unknown Ignored]
+	// Enum: [InAdherence OutOfAdherence Unscheduled Unknown Ignored Explained]
 	AdherenceState string `json:"adherenceState,omitempty"`
 
 	// The business unit to which this user belongs
@@ -67,7 +67,7 @@ type UserScheduleAdherence struct {
 	// Read Only: true
 	OrganizationSecondaryPresenceID string `json:"organizationSecondaryPresenceId,omitempty"`
 
-	// Time when presence was last updated.  Used to calculate time in current status. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+	// Time when presence was last updated. Used to calculate time in current status. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Read Only: true
 	// Format: date-time
 	PresenceUpdateTime strfmt.DateTime `json:"presenceUpdateTime,omitempty"`
@@ -286,7 +286,7 @@ var userScheduleAdherenceTypeAdherenceStatePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["InAdherence","OutOfAdherence","Unscheduled","Unknown","Ignored"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["InAdherence","OutOfAdherence","Unscheduled","Unknown","Ignored","Explained"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -310,6 +310,9 @@ const (
 
 	// UserScheduleAdherenceAdherenceStateIgnored captures enum value "Ignored"
 	UserScheduleAdherenceAdherenceStateIgnored string = "Ignored"
+
+	// UserScheduleAdherenceAdherenceStateExplained captures enum value "Explained"
+	UserScheduleAdherenceAdherenceStateExplained string = "Explained"
 )
 
 // prop value enum

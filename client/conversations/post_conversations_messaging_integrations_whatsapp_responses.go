@@ -29,6 +29,12 @@ func (o *PostConversationsMessagingIntegrationsWhatsappReader) ReadResponse(resp
 			return nil, err
 		}
 		return result, nil
+	case 202:
+		result := NewPostConversationsMessagingIntegrationsWhatsappAccepted()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return result, nil
 	case 400:
 		result := NewPostConversationsMessagingIntegrationsWhatsappBadRequest()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -123,6 +129,39 @@ func (o *PostConversationsMessagingIntegrationsWhatsappOK) GetPayload() *models.
 }
 
 func (o *PostConversationsMessagingIntegrationsWhatsappOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.WhatsAppIntegration)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPostConversationsMessagingIntegrationsWhatsappAccepted creates a PostConversationsMessagingIntegrationsWhatsappAccepted with default headers values
+func NewPostConversationsMessagingIntegrationsWhatsappAccepted() *PostConversationsMessagingIntegrationsWhatsappAccepted {
+	return &PostConversationsMessagingIntegrationsWhatsappAccepted{}
+}
+
+/*PostConversationsMessagingIntegrationsWhatsappAccepted handles this case with default header values.
+
+Accepted - The integration creation in progress.
+*/
+type PostConversationsMessagingIntegrationsWhatsappAccepted struct {
+	Payload *models.WhatsAppIntegration
+}
+
+func (o *PostConversationsMessagingIntegrationsWhatsappAccepted) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messaging/integrations/whatsapp][%d] postConversationsMessagingIntegrationsWhatsappAccepted  %+v", 202, o.Payload)
+}
+
+func (o *PostConversationsMessagingIntegrationsWhatsappAccepted) GetPayload() *models.WhatsAppIntegration {
+	return o.Payload
+}
+
+func (o *PostConversationsMessagingIntegrationsWhatsappAccepted) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.WhatsAppIntegration)
 

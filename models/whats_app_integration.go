@@ -28,6 +28,10 @@ type WhatsAppIntegration struct {
 	// Enum: [CodeSent WaitRequired ActivationFailed CodeConfirmed ConfirmationFailed ResendCode]
 	ActivationStatusCode string `json:"activationStatusCode,omitempty"`
 
+	// The list of available WhatsApp phone numbers for this account. Please select one phone number from this list to use with the created integration.
+	// Read Only: true
+	AvailablePhoneNumbers *WhatsAppAvailablePhoneNumberDetailsListing `json:"availablePhoneNumbers,omitempty"`
+
 	// Error information returned, if createStatus is set to Error
 	// Read Only: true
 	CreateError *ErrorBody `json:"createError,omitempty"`
@@ -63,7 +67,7 @@ type WhatsAppIntegration struct {
 	// Required: true
 	Name *string `json:"name"`
 
-	// The phone number associated to the whatsApp integration.
+	// The phone number associated to the WhatsApp integration.
 	// Required: true
 	PhoneNumber *string `json:"phoneNumber"`
 
@@ -97,6 +101,10 @@ func (m *WhatsAppIntegration) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateActivationStatusCode(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateAvailablePhoneNumbers(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -234,6 +242,24 @@ func (m *WhatsAppIntegration) validateActivationStatusCode(formats strfmt.Regist
 	// value enum
 	if err := m.validateActivationStatusCodeEnum("activationStatusCode", "body", m.ActivationStatusCode); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *WhatsAppIntegration) validateAvailablePhoneNumbers(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.AvailablePhoneNumbers) { // not required
+		return nil
+	}
+
+	if m.AvailablePhoneNumbers != nil {
+		if err := m.AvailablePhoneNumbers.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("availablePhoneNumbers")
+			}
+			return err
+		}
 	}
 
 	return nil

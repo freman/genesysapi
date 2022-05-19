@@ -98,17 +98,22 @@ for the get integrations actions drafts operation typically these are written to
 type GetIntegrationsActionsDraftsParams struct {
 
 	/*Category
-	  Filter by category name
+	  Filter by category name.
 
 	*/
 	Category *string
+	/*Ids
+	  Filter by action Id. Can be a comma separated list to request multiple actions.  Limit of 50 Ids.
+
+	*/
+	Ids *string
 	/*IncludeAuthActions
 	  Whether or not to include authentication actions in the response. These actions are not directly executable. Some integrations create them and will run them as needed to refresh authentication information for other actions.
 
 	*/
 	IncludeAuthActions *string
 	/*Name
-	  Filter by action name. Provide full or just the first part of name.
+	  Filter by partial or complete action name.
 
 	*/
 	Name *string
@@ -133,7 +138,7 @@ type GetIntegrationsActionsDraftsParams struct {
 	*/
 	PreviousPage *string
 	/*Secure
-	  Filter to only include secure actions. True will only include actions marked secured. False will include only unsecure actions. Do not use filter if you want all Actions.
+	  Filter based on 'secure' configuration option. True will only return actions marked as secure. False will return only non-secure actions. Do not use filter if you want all Actions.
 
 	*/
 	Secure *string
@@ -195,6 +200,17 @@ func (o *GetIntegrationsActionsDraftsParams) WithCategory(category *string) *Get
 // SetCategory adds the category to the get integrations actions drafts params
 func (o *GetIntegrationsActionsDraftsParams) SetCategory(category *string) {
 	o.Category = category
+}
+
+// WithIds adds the ids to the get integrations actions drafts params
+func (o *GetIntegrationsActionsDraftsParams) WithIds(ids *string) *GetIntegrationsActionsDraftsParams {
+	o.SetIds(ids)
+	return o
+}
+
+// SetIds adds the ids to the get integrations actions drafts params
+func (o *GetIntegrationsActionsDraftsParams) SetIds(ids *string) {
+	o.Ids = ids
 }
 
 // WithIncludeAuthActions adds the includeAuthActions to the get integrations actions drafts params
@@ -314,6 +330,22 @@ func (o *GetIntegrationsActionsDraftsParams) WriteToRequest(r runtime.ClientRequ
 		qCategory := qrCategory
 		if qCategory != "" {
 			if err := r.SetQueryParam("category", qCategory); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	if o.Ids != nil {
+
+		// query param ids
+		var qrIds string
+		if o.Ids != nil {
+			qrIds = *o.Ids
+		}
+		qIds := qrIds
+		if qIds != "" {
+			if err := r.SetQueryParam("ids", qIds); err != nil {
 				return err
 			}
 		}

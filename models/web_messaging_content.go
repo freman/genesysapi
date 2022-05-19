@@ -26,9 +26,15 @@ type WebMessagingContent struct {
 	// Button response content.
 	ButtonResponse *WebMessagingButtonResponse `json:"buttonResponse,omitempty"`
 
+	// Card content
+	Card *ContentCard `json:"card,omitempty"`
+
+	// Carousel content
+	Carousel *ContentCarousel `json:"carousel,omitempty"`
+
 	// Type of this content element. If contentType = "Attachment" only one item is allowed.
 	// Read Only: true
-	// Enum: [Attachment QuickReply ButtonResponse GenericTemplate]
+	// Enum: [Attachment QuickReply ButtonResponse GenericTemplate Card Carousel]
 	ContentType string `json:"contentType,omitempty"`
 
 	// Generic content.
@@ -47,6 +53,14 @@ func (m *WebMessagingContent) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateButtonResponse(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCard(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCarousel(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -104,11 +118,47 @@ func (m *WebMessagingContent) validateButtonResponse(formats strfmt.Registry) er
 	return nil
 }
 
+func (m *WebMessagingContent) validateCard(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Card) { // not required
+		return nil
+	}
+
+	if m.Card != nil {
+		if err := m.Card.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("card")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WebMessagingContent) validateCarousel(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Carousel) { // not required
+		return nil
+	}
+
+	if m.Carousel != nil {
+		if err := m.Carousel.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("carousel")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 var webMessagingContentTypeContentTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Attachment","QuickReply","ButtonResponse","GenericTemplate"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Attachment","QuickReply","ButtonResponse","GenericTemplate","Card","Carousel"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -129,6 +179,12 @@ const (
 
 	// WebMessagingContentContentTypeGenericTemplate captures enum value "GenericTemplate"
 	WebMessagingContentContentTypeGenericTemplate string = "GenericTemplate"
+
+	// WebMessagingContentContentTypeCard captures enum value "Card"
+	WebMessagingContentContentTypeCard string = "Card"
+
+	// WebMessagingContentContentTypeCarousel captures enum value "Carousel"
+	WebMessagingContentContentTypeCarousel string = "Carousel"
 )
 
 // prop value enum

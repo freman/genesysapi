@@ -19,7 +19,7 @@ import (
 // swagger:model ListItemComponent
 type ListItemComponent struct {
 
-	// The list item actions.
+	// The list item actions (Deprecated).
 	Actions *ContentActions `json:"actions,omitempty"`
 
 	// Text to show in the list item description.

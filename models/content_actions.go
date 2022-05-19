@@ -15,7 +15,7 @@ import (
 // swagger:model ContentActions
 type ContentActions struct {
 
-	// Text to be sent back in reply when the item is selected.
+	// Text to be returned as the payload from a ButtonResponse when a button is clicked. The textback and title are a combination which will have to be unique across each card and carousel in order to determine which button was clicked in that card or carousel.
 	Textback string `json:"textback,omitempty"`
 
 	// A URL of a web page to direct the user to.

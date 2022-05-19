@@ -38,7 +38,7 @@ type MemberGroup struct {
 	SelfURI strfmt.URI `json:"selfUri,omitempty"`
 
 	// The group type
-	// Enum: [TEAM GROUP]
+	// Enum: [TEAM GROUP SKILLGROUP]
 	Type string `json:"type,omitempty"`
 }
 
@@ -99,7 +99,7 @@ var memberGroupTypeTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["TEAM","GROUP"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["TEAM","GROUP","SKILLGROUP"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -114,6 +114,9 @@ const (
 
 	// MemberGroupTypeGROUP captures enum value "GROUP"
 	MemberGroupTypeGROUP string = "GROUP"
+
+	// MemberGroupTypeSKILLGROUP captures enum value "SKILLGROUP"
+	MemberGroupTypeSKILLGROUP string = "SKILLGROUP"
 )
 
 // prop value enum

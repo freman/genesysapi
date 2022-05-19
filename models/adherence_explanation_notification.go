@@ -22,12 +22,18 @@ type AdherenceExplanationNotification struct {
 	// The agent for whom the adherence explanation applies
 	Agent *UserReference `json:"agent,omitempty"`
 
+	// The business unit to which the agent belonged at the time the adherence explanation was submitted
+	BusinessUnit *BusinessUnitReference `json:"businessUnit,omitempty"`
+
 	// The globally unique identifier for the object.
 	// Read Only: true
 	ID string `json:"id,omitempty"`
 
 	// The length of the adherence explanation in minutes
 	LengthMinutes int32 `json:"lengthMinutes,omitempty"`
+
+	// The management unit to which the agent belonged at the time the adherence explanation was submitted
+	ManagementUnit *ManagementUnitReference `json:"managementUnit,omitempty"`
 
 	// Notes about the adherence explanation
 	Notes string `json:"notes,omitempty"`
@@ -55,6 +61,14 @@ func (m *AdherenceExplanationNotification) Validate(formats strfmt.Registry) err
 	var res []error
 
 	if err := m.validateAgent(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateBusinessUnit(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateManagementUnit(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -90,6 +104,42 @@ func (m *AdherenceExplanationNotification) validateAgent(formats strfmt.Registry
 		if err := m.Agent.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("agent")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *AdherenceExplanationNotification) validateBusinessUnit(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.BusinessUnit) { // not required
+		return nil
+	}
+
+	if m.BusinessUnit != nil {
+		if err := m.BusinessUnit.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("businessUnit")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *AdherenceExplanationNotification) validateManagementUnit(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.ManagementUnit) { // not required
+		return nil
+	}
+
+	if m.ManagementUnit != nil {
+		if err := m.ManagementUnit.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("managementUnit")
 			}
 			return err
 		}

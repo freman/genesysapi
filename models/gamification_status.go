@@ -24,6 +24,10 @@ type GamificationStatus struct {
 	// Format: date
 	DateStart strfmt.Date `json:"dateStart,omitempty"`
 
+	// Personal best aggregation starting date. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
+	// Format: date
+	DateStartPersonalBest strfmt.Date `json:"dateStartPersonalBest,omitempty"`
+
 	// Gamification status of the organization.
 	IsActive bool `json:"isActive"`
 }
@@ -33,6 +37,10 @@ func (m *GamificationStatus) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateDateStart(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDateStartPersonalBest(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -49,6 +57,19 @@ func (m *GamificationStatus) validateDateStart(formats strfmt.Registry) error {
 	}
 
 	if err := validate.FormatOf("dateStart", "body", "date", m.DateStart.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *GamificationStatus) validateDateStartPersonalBest(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.DateStartPersonalBest) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("dateStartPersonalBest", "body", "date", m.DateStartPersonalBest.String(), formats); err != nil {
 		return err
 	}
 

@@ -19,11 +19,11 @@ import (
 // swagger:model CardAction
 type CardAction struct {
 
+	// Indicates if the card option is selected by end customer.
+	IsSelected bool `json:"isSelected"`
+
 	// Content of the textback payload after clicking a button.
 	Payload string `json:"payload,omitempty"`
-
-	// selected
-	Selected bool `json:"selected"`
 
 	// The response text from the button click.
 	Text string `json:"text,omitempty"`

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -21,6 +22,10 @@ type ExternalContact struct {
 
 	// address
 	Address *ContactAddress `json:"address,omitempty"`
+
+	// The contact at the head of the merge tree. If null, this contact is not a part of any merge.
+	// Read Only: true
+	CanonicalContact *ContactAddressableEntityRef `json:"canonicalContact,omitempty"`
 
 	// cell phone
 	CellPhone *PhoneNumber `json:"cellPhone,omitempty"`
@@ -62,6 +67,14 @@ type ExternalContact struct {
 	// line Id
 	LineID *LineID `json:"lineId,omitempty"`
 
+	// Information about the merge history of this contact. If null, this contact is not a part of any merge.
+	// Read Only: true
+	MergeOperation *MergeOperation `json:"mergeOperation,omitempty"`
+
+	// The set of all contacts that are a part of the merge tree. If null, this contact is not a part of any merge.
+	// Read Only: true
+	MergeSet []*ContactAddressableEntityRef `json:"mergeSet"`
+
 	// middle name
 	MiddleName string `json:"middleName,omitempty"`
 
@@ -98,6 +111,11 @@ type ExternalContact struct {
 	// twitter Id
 	TwitterID *TwitterID `json:"twitterId,omitempty"`
 
+	// The type of contact
+	// Read Only: true
+	// Enum: [Ephemeral Identified Curated]
+	Type string `json:"type,omitempty"`
+
 	// whats app Id
 	WhatsAppID *WhatsAppID `json:"whatsAppId,omitempty"`
 
@@ -113,6 +131,10 @@ func (m *ExternalContact) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateAddress(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCanonicalContact(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -152,6 +174,14 @@ func (m *ExternalContact) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateMergeOperation(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateMergeSet(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateModifyDate(formats); err != nil {
 		res = append(res, err)
 	}
@@ -169,6 +199,10 @@ func (m *ExternalContact) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateTwitterID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateType(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -196,6 +230,24 @@ func (m *ExternalContact) validateAddress(formats strfmt.Registry) error {
 		if err := m.Address.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("address")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ExternalContact) validateCanonicalContact(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.CanonicalContact) { // not required
+		return nil
+	}
+
+	if m.CanonicalContact != nil {
+		if err := m.CanonicalContact.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("canonicalContact")
 			}
 			return err
 		}
@@ -350,6 +402,49 @@ func (m *ExternalContact) validateLineID(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *ExternalContact) validateMergeOperation(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.MergeOperation) { // not required
+		return nil
+	}
+
+	if m.MergeOperation != nil {
+		if err := m.MergeOperation.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("mergeOperation")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ExternalContact) validateMergeSet(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.MergeSet) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.MergeSet); i++ {
+		if swag.IsZero(m.MergeSet[i]) { // not required
+			continue
+		}
+
+		if m.MergeSet[i] != nil {
+			if err := m.MergeSet[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("mergeSet" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *ExternalContact) validateModifyDate(formats strfmt.Registry) error {
 
 	if swag.IsZero(m.ModifyDate) { // not required
@@ -425,6 +520,52 @@ func (m *ExternalContact) validateTwitterID(formats strfmt.Registry) error {
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+var externalContactTypeTypePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Ephemeral","Identified","Curated"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		externalContactTypeTypePropEnum = append(externalContactTypeTypePropEnum, v)
+	}
+}
+
+const (
+
+	// ExternalContactTypeEphemeral captures enum value "Ephemeral"
+	ExternalContactTypeEphemeral string = "Ephemeral"
+
+	// ExternalContactTypeIdentified captures enum value "Identified"
+	ExternalContactTypeIdentified string = "Identified"
+
+	// ExternalContactTypeCurated captures enum value "Curated"
+	ExternalContactTypeCurated string = "Curated"
+)
+
+// prop value enum
+func (m *ExternalContact) validateTypeEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, externalContactTypeTypePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *ExternalContact) validateType(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Type) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateTypeEnum("type", "body", m.Type); err != nil {
+		return err
 	}
 
 	return nil

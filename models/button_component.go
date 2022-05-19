@@ -16,7 +16,7 @@ import (
 // swagger:model ButtonComponent
 type ButtonComponent struct {
 
-	// The button actions.
+	// The button actions (Deprecated).
 	Actions *ContentActions `json:"actions,omitempty"`
 
 	// Text to show inside the button.

@@ -31,8 +31,9 @@ type ContentButtonResponse struct {
 	Text *string `json:"text"`
 
 	// Describes the button that resulted in the Button Response.
+	// Required: true
 	// Enum: [Button QuickReply]
-	Type string `json:"type,omitempty"`
+	Type *string `json:"type"`
 }
 
 // Validate validates this content button response
@@ -106,12 +107,12 @@ func (m *ContentButtonResponse) validateTypeEnum(path, location string, value st
 
 func (m *ContentButtonResponse) validateType(formats strfmt.Registry) error {
 
-	if swag.IsZero(m.Type) { // not required
-		return nil
+	if err := validate.Required("type", "body", m.Type); err != nil {
+		return err
 	}
 
 	// value enum
-	if err := m.validateTypeEnum("type", "body", m.Type); err != nil {
+	if err := m.validateTypeEnum("type", "body", *m.Type); err != nil {
 		return err
 	}
 

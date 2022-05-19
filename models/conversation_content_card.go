@@ -11,6 +11,7 @@ import (
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // ConversationContentCard conversation content card
@@ -18,22 +19,24 @@ import (
 // swagger:model ConversationContentCard
 type ConversationContentCard struct {
 
-	// A List of action objects.
-	Actions []*ConversationCardAction `json:"actions"`
+	// An array of action objects.
+	// Required: true
+	Actions []*ConversationContentCardAction `json:"actions"`
 
-	// Default action to be taken.
-	DefaultAction *ConversationCardAction `json:"defaultAction,omitempty"`
+	// The default button action.
+	DefaultAction *ConversationContentCardAction `json:"defaultAction,omitempty"`
 
 	// Text to show in the description.
 	Description string `json:"description,omitempty"`
 
-	// image
+	// URL of an image.
 	Image string `json:"image,omitempty"`
 
 	// Text to show in the title.
-	Title string `json:"title,omitempty"`
+	// Required: true
+	Title *string `json:"title"`
 
-	// video
+	// URL of a video.
 	Video string `json:"video,omitempty"`
 }
 
@@ -49,6 +52,10 @@ func (m *ConversationContentCard) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateTitle(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
@@ -57,8 +64,8 @@ func (m *ConversationContentCard) Validate(formats strfmt.Registry) error {
 
 func (m *ConversationContentCard) validateActions(formats strfmt.Registry) error {
 
-	if swag.IsZero(m.Actions) { // not required
-		return nil
+	if err := validate.Required("actions", "body", m.Actions); err != nil {
+		return err
 	}
 
 	for i := 0; i < len(m.Actions); i++ {
@@ -93,6 +100,15 @@ func (m *ConversationContentCard) validateDefaultAction(formats strfmt.Registry)
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *ConversationContentCard) validateTitle(formats strfmt.Registry) error {
+
+	if err := validate.Required("title", "body", m.Title); err != nil {
+		return err
 	}
 
 	return nil
