@@ -29,6 +29,9 @@ type SupportCenterSettings struct {
 	// Enabled article categories for support center
 	EnabledCategories []*AddressableEntityRef `json:"enabledCategories"`
 
+	// Customer feedback settings
+	Feedback *SupportCenterFeedbackSettings `json:"feedback,omitempty"`
+
 	// The knowledge base for support center
 	KnowledgeBase *AddressableEntityRef `json:"knowledgeBase,omitempty"`
 
@@ -52,6 +55,10 @@ func (m *SupportCenterSettings) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateEnabledCategories(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateFeedback(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -122,6 +129,24 @@ func (m *SupportCenterSettings) validateEnabledCategories(formats strfmt.Registr
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *SupportCenterSettings) validateFeedback(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Feedback) { // not required
+		return nil
+	}
+
+	if m.Feedback != nil {
+		if err := m.Feedback.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("feedback")
+			}
+			return err
+		}
 	}
 
 	return nil

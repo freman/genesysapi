@@ -17,6 +17,9 @@ type MessengerHomeScreen struct {
 
 	// whether or not homescreen is enabled
 	Enabled bool `json:"enabled"`
+
+	// to capture uploaded company logoUrl
+	LogoURL string `json:"logoUrl,omitempty"`
 }
 
 // Validate validates this messenger home screen

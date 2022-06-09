@@ -23,7 +23,7 @@ type AuditQueryRequest struct {
 	// Additional filters for the query.
 	Filters []*AuditQueryFilter `json:"filters"`
 
-	// Date and time range of data to query. Intervals are represented as an ISO-8601 string. For example: YYYY-MM-DDThh:mm:ss/YYYY-MM-DDThh:mm:ss
+	// Date and time range of data to query. Intervals are represented as an ISO-8601 string. For example: YYYY-MM-DDThh:mm:ssZ/YYYY-MM-DDThh:mm:ssZ
 	// Required: true
 	Interval *string `json:"interval"`
 

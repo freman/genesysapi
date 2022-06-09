@@ -17,12 +17,10 @@ import (
 // swagger:model ConversationReference
 type ConversationReference struct {
 
-	// The globally unique identifier for the object.
-	// Read Only: true
+	// id
 	ID string `json:"id,omitempty"`
 
-	// The URI for this object
-	// Read Only: true
+	// self Uri
 	// Format: uri
 	SelfURI strfmt.URI `json:"selfUri,omitempty"`
 }

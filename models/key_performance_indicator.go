@@ -6,8 +6,12 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+
+	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // KeyPerformanceIndicator key performance indicator
@@ -22,10 +26,67 @@ type KeyPerformanceIndicator struct {
 	// The name of the Key Performance Indicator.
 	// Read Only: true
 	Name string `json:"name,omitempty"`
+
+	// The optimization type of the Key Performance Indicator.
+	// Read Only: true
+	// Enum: [Maximization Minimization]
+	OptimizationType string `json:"optimizationType,omitempty"`
 }
 
 // Validate validates this key performance indicator
 func (m *KeyPerformanceIndicator) Validate(formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.validateOptimizationType(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+var keyPerformanceIndicatorTypeOptimizationTypePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Maximization","Minimization"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		keyPerformanceIndicatorTypeOptimizationTypePropEnum = append(keyPerformanceIndicatorTypeOptimizationTypePropEnum, v)
+	}
+}
+
+const (
+
+	// KeyPerformanceIndicatorOptimizationTypeMaximization captures enum value "Maximization"
+	KeyPerformanceIndicatorOptimizationTypeMaximization string = "Maximization"
+
+	// KeyPerformanceIndicatorOptimizationTypeMinimization captures enum value "Minimization"
+	KeyPerformanceIndicatorOptimizationTypeMinimization string = "Minimization"
+)
+
+// prop value enum
+func (m *KeyPerformanceIndicator) validateOptimizationTypeEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, keyPerformanceIndicatorTypeOptimizationTypePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *KeyPerformanceIndicator) validateOptimizationType(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.OptimizationType) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateOptimizationTypeEnum("optimizationType", "body", m.OptimizationType); err != nil {
+		return err
+	}
+
 	return nil
 }
 

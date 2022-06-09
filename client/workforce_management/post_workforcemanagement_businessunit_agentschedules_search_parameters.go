@@ -74,12 +74,12 @@ type PostWorkforcemanagementBusinessunitAgentschedulesSearchParams struct {
 	*/
 	BusinessUnitID string
 	/*ForceAsync
-	  Force the result of this operation to be sent asynchronously via notification.  For testing/app development purposes
+	  Force the result of this operation to be sent asynchronously via notification. For testing/app development purposes
 
 	*/
 	ForceAsync *bool
 	/*ForceDownloadService
-	  Force the result of this operation to be sent via download service.  For testing/app development purposes
+	  Force the result of this operation to be sent via download service. For testing/app development purposes
 
 	*/
 	ForceDownloadService *bool

@@ -37,7 +37,7 @@ type WebMessagingContent struct {
 	// Enum: [Attachment QuickReply ButtonResponse GenericTemplate Card Carousel]
 	ContentType string `json:"contentType,omitempty"`
 
-	// Generic content.
+	// Generic content (Deprecated).
 	Generic *WebMessagingGeneric `json:"generic,omitempty"`
 
 	// Quick reply content.

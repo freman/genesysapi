@@ -13,7 +13,7 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// WebMessagingGeneric Generic content object.
+// WebMessagingGeneric Generic content object. (Deprecated
 //
 // swagger:model WebMessagingGeneric
 type WebMessagingGeneric struct {

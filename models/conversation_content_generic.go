@@ -13,7 +13,7 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// ConversationContentGeneric Generic content object.
+// ConversationContentGeneric Generic content object (Deprecated).
 //
 // swagger:model ConversationContentGeneric
 type ConversationContentGeneric struct {

@@ -35,8 +35,14 @@ type MetricDefinition struct {
 	// An optional field to specify if this metric definition is locked to certain template. e.g. punctuality
 	LockTemplateID string `json:"lockTemplateId,omitempty"`
 
+	// Flag to indicate if this metricDefinition allows filter based on media types
+	MediaTypeFilteringAllowed bool `json:"mediaTypeFilteringAllowed"`
+
 	// name
 	Name string `json:"name,omitempty"`
+
+	// Flag to indicate if this metricDefinition allows filter based on queues
+	QueueFilteringAllowed bool `json:"queueFilteringAllowed"`
 
 	// The URI for this object
 	// Read Only: true

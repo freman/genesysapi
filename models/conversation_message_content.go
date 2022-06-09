@@ -36,7 +36,7 @@ type ConversationMessageContent struct {
 	// Enum: [Attachment Location Story QuickReply Notification ButtonResponse GenericTemplate Card Carousel]
 	ContentType *string `json:"contentType"`
 
-	// Generic Template Object
+	// Generic Template Object (Deprecated).
 	Generic *ConversationContentGeneric `json:"generic,omitempty"`
 
 	// Location content.

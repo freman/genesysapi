@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"strconv"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -26,6 +28,9 @@ type LearningModuleCoverArtResponse struct {
 	// Format: uri
 	SelfURI strfmt.URI `json:"selfUri,omitempty"`
 
+	// Thumbnails for the cover art
+	Thumbnails []*LearningCoverArtThumbnail `json:"thumbnails"`
+
 	// The URL for the cover art
 	URL string `json:"url,omitempty"`
 }
@@ -35,6 +40,10 @@ func (m *LearningModuleCoverArtResponse) Validate(formats strfmt.Registry) error
 	var res []error
 
 	if err := m.validateSelfURI(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateThumbnails(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -52,6 +61,31 @@ func (m *LearningModuleCoverArtResponse) validateSelfURI(formats strfmt.Registry
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *LearningModuleCoverArtResponse) validateThumbnails(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Thumbnails) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Thumbnails); i++ {
+		if swag.IsZero(m.Thumbnails[i]) { // not required
+			continue
+		}
+
+		if m.Thumbnails[i] != nil {
+			if err := m.Thumbnails[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("thumbnails" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

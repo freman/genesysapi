@@ -36,7 +36,7 @@ type MediaParticipantRequest struct {
 	State string `json:"state,omitempty"`
 
 	// Wrap-up to assign to this participant.
-	Wrapup *Wrapup `json:"wrapup,omitempty"`
+	Wrapup *ExtendedWrapup `json:"wrapup,omitempty"`
 
 	// True to skip wrap-up for this participant.
 	WrapupSkipped bool `json:"wrapupSkipped"`

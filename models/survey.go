@@ -30,7 +30,7 @@ type Survey struct {
 	CompletedDate strfmt.DateTime `json:"completedDate,omitempty"`
 
 	// conversation
-	Conversation *Conversation `json:"conversation,omitempty"`
+	Conversation *ConversationReference `json:"conversation,omitempty"`
 
 	// The globally unique identifier for the object.
 	// Read Only: true

@@ -36,7 +36,7 @@ type UCIntegration struct {
 	// integrationPresenceType
 	// Required: true
 	// Read Only: true
-	// Enum: [MicrosoftTeams ZoomPhone RingCentral]
+	// Enum: [MicrosoftTeams ZoomPhone]
 	IntegrationPresenceSource string `json:"integrationPresenceSource"`
 
 	// name
@@ -132,7 +132,7 @@ var uCIntegrationTypeIntegrationPresenceSourcePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["MicrosoftTeams","ZoomPhone","RingCentral"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["MicrosoftTeams","ZoomPhone"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -147,9 +147,6 @@ const (
 
 	// UCIntegrationIntegrationPresenceSourceZoomPhone captures enum value "ZoomPhone"
 	UCIntegrationIntegrationPresenceSourceZoomPhone string = "ZoomPhone"
-
-	// UCIntegrationIntegrationPresenceSourceRingCentral captures enum value "RingCentral"
-	UCIntegrationIntegrationPresenceSourceRingCentral string = "RingCentral"
 )
 
 // prop value enum
