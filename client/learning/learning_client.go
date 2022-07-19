@@ -45,6 +45,10 @@ type API interface {
 	*/
 	GetLearningModule(ctx context.Context, params *GetLearningModuleParams) (*GetLearningModuleOK, error)
 	/*
+	   GetLearningModuleJob gets a specific learning module job status
+	*/
+	GetLearningModuleJob(ctx context.Context, params *GetLearningModuleJobParams) (*GetLearningModuleJobOK, error)
+	/*
 	   GetLearningModuleRule gets a learning module rule
 	*/
 	GetLearningModuleRule(ctx context.Context, params *GetLearningModuleRuleParams) (*GetLearningModuleRuleOK, error)
@@ -57,6 +61,10 @@ type API interface {
 	*/
 	GetLearningModules(ctx context.Context, params *GetLearningModulesParams) (*GetLearningModulesOK, error)
 	/*
+	   GetLearningModulesAssignments gets all learning modules of an organization including assignments for a specific user
+	*/
+	GetLearningModulesAssignments(ctx context.Context, params *GetLearningModulesAssignmentsParams) (*GetLearningModulesAssignmentsOK, error)
+	/*
 	   PatchLearningAssignment updates learning assignment
 	*/
 	PatchLearningAssignment(ctx context.Context, params *PatchLearningAssignmentParams) (*PatchLearningAssignmentOK, error)
@@ -64,6 +72,16 @@ type API interface {
 	   PostLearningAssessmentsScoring scores learning assessment for preview
 	*/
 	PostLearningAssessmentsScoring(ctx context.Context, params *PostLearningAssessmentsScoringParams) (*PostLearningAssessmentsScoringOK, error)
+	/*
+	   PostLearningAssignmentReassign reassigns learning assignment
+	   This will reassign the state of the assignment to 'Assigned' and update the assignment to the latest version of the module
+	*/
+	PostLearningAssignmentReassign(ctx context.Context, params *PostLearningAssignmentReassignParams) (*PostLearningAssignmentReassignOK, error)
+	/*
+	   PostLearningAssignmentReset resets learning assignment
+	   This will reset the state of the assignment to 'Assigned' and remove the version of Learning module associated with the assignment
+	*/
+	PostLearningAssignmentReset(ctx context.Context, params *PostLearningAssignmentResetParams) (*PostLearningAssignmentResetOK, error)
 	/*
 	   PostLearningAssignments creates learning assignment
 	*/
@@ -80,6 +98,11 @@ type API interface {
 	   PostLearningAssignmentsBulkremove removes multiple learning assignments
 	*/
 	PostLearningAssignmentsBulkremove(ctx context.Context, params *PostLearningAssignmentsBulkremoveParams) (*PostLearningAssignmentsBulkremoveOK, error)
+	/*
+	   PostLearningModuleJobs starts a specified operation on learning module
+	   This will initiate operation specified in the request body for a learning module
+	*/
+	PostLearningModuleJobs(ctx context.Context, params *PostLearningModuleJobsParams) (*PostLearningModuleJobsAccepted, error)
 	/*
 	   PostLearningModulePublish publishes a learning module
 	*/
@@ -281,6 +304,31 @@ func (a *Client) GetLearningModule(ctx context.Context, params *GetLearningModul
 }
 
 /*
+GetLearningModuleJob gets a specific learning module job status
+*/
+func (a *Client) GetLearningModuleJob(ctx context.Context, params *GetLearningModuleJobParams) (*GetLearningModuleJobOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getLearningModuleJob",
+		Method:             "GET",
+		PathPattern:        "/api/v2/learning/modules/{moduleId}/jobs/{jobId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetLearningModuleJobReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetLearningModuleJobOK), nil
+
+}
+
+/*
 GetLearningModuleRule gets a learning module rule
 */
 func (a *Client) GetLearningModuleRule(ctx context.Context, params *GetLearningModuleRuleParams) (*GetLearningModuleRuleOK, error) {
@@ -356,6 +404,31 @@ func (a *Client) GetLearningModules(ctx context.Context, params *GetLearningModu
 }
 
 /*
+GetLearningModulesAssignments gets all learning modules of an organization including assignments for a specific user
+*/
+func (a *Client) GetLearningModulesAssignments(ctx context.Context, params *GetLearningModulesAssignmentsParams) (*GetLearningModulesAssignmentsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getLearningModulesAssignments",
+		Method:             "GET",
+		PathPattern:        "/api/v2/learning/modules/assignments",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetLearningModulesAssignmentsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetLearningModulesAssignmentsOK), nil
+
+}
+
+/*
 PatchLearningAssignment updates learning assignment
 */
 func (a *Client) PatchLearningAssignment(ctx context.Context, params *PatchLearningAssignmentParams) (*PatchLearningAssignmentOK, error) {
@@ -402,6 +475,60 @@ func (a *Client) PostLearningAssessmentsScoring(ctx context.Context, params *Pos
 		return nil, err
 	}
 	return result.(*PostLearningAssessmentsScoringOK), nil
+
+}
+
+/*
+PostLearningAssignmentReassign reassigns learning assignment
+
+This will reassign the state of the assignment to 'Assigned' and update the assignment to the latest version of the module
+*/
+func (a *Client) PostLearningAssignmentReassign(ctx context.Context, params *PostLearningAssignmentReassignParams) (*PostLearningAssignmentReassignOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postLearningAssignmentReassign",
+		Method:             "POST",
+		PathPattern:        "/api/v2/learning/assignments/{assignmentId}/reassign",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostLearningAssignmentReassignReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostLearningAssignmentReassignOK), nil
+
+}
+
+/*
+PostLearningAssignmentReset resets learning assignment
+
+This will reset the state of the assignment to 'Assigned' and remove the version of Learning module associated with the assignment
+*/
+func (a *Client) PostLearningAssignmentReset(ctx context.Context, params *PostLearningAssignmentResetParams) (*PostLearningAssignmentResetOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postLearningAssignmentReset",
+		Method:             "POST",
+		PathPattern:        "/api/v2/learning/assignments/{assignmentId}/reset",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostLearningAssignmentResetReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostLearningAssignmentResetOK), nil
 
 }
 
@@ -502,6 +629,33 @@ func (a *Client) PostLearningAssignmentsBulkremove(ctx context.Context, params *
 		return nil, err
 	}
 	return result.(*PostLearningAssignmentsBulkremoveOK), nil
+
+}
+
+/*
+PostLearningModuleJobs starts a specified operation on learning module
+
+This will initiate operation specified in the request body for a learning module
+*/
+func (a *Client) PostLearningModuleJobs(ctx context.Context, params *PostLearningModuleJobsParams) (*PostLearningModuleJobsAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postLearningModuleJobs",
+		Method:             "POST",
+		PathPattern:        "/api/v2/learning/modules/{moduleId}/jobs",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostLearningModuleJobsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostLearningModuleJobsAccepted), nil
 
 }
 

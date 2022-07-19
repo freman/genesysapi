@@ -12,7 +12,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// BuAverageSpeedOfAnswer Service goal average speed of answer configuration
+// BuAverageSpeedOfAnswer bu average speed of answer
 //
 // swagger:model BuAverageSpeedOfAnswer
 type BuAverageSpeedOfAnswer struct {

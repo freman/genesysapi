@@ -43,6 +43,9 @@ type ReportingTurn struct {
 	// The knowledge data captured during this reporting turn.
 	Knowledge *ReportingTurnKnowledge `json:"knowledge,omitempty"`
 
+	// The details related to end of bot flow session.
+	SessionEndDetails *SessionEndDetails `json:"sessionEndDetails,omitempty"`
+
 	// The bot session ID that this reporting turn is grouped under.
 	SessionID string `json:"sessionId,omitempty"`
 
@@ -75,6 +78,10 @@ func (m *ReportingTurn) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateKnowledge(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSessionEndDetails(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -246,6 +253,24 @@ func (m *ReportingTurn) validateKnowledge(formats strfmt.Registry) error {
 		if err := m.Knowledge.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("knowledge")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ReportingTurn) validateSessionEndDetails(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.SessionEndDetails) { // not required
+		return nil
+	}
+
+	if m.SessionEndDetails != nil {
+		if err := m.SessionEndDetails.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("sessionEndDetails")
 			}
 			return err
 		}

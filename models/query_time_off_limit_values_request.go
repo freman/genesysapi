@@ -14,7 +14,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// QueryTimeOffLimitValuesRequest This sets up a filter to request date ranges of time off limit, allocated and waitlisted minutes
+// QueryTimeOffLimitValuesRequest query time off limit values request
 //
 // swagger:model QueryTimeOffLimitValuesRequest
 type QueryTimeOffLimitValuesRequest struct {
@@ -22,7 +22,7 @@ type QueryTimeOffLimitValuesRequest struct {
 	// The activity code id to filter the affected limit objects by. Required if timeOffLimitId is not specified
 	ActivityCodeID string `json:"activityCodeId,omitempty"`
 
-	// The list of the date ranges to return time off limit, allocated and waitlisted minutes.
+	// The list of the date ranges to return time off limit, allocated and waitlisted minutes. The valid number of date ranges is between 1 and 30. Maximum total number of days in all ranges in 366.
 	// Required: true
 	DateRanges []*LocalDateRange `json:"dateRanges"`
 

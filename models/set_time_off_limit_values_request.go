@@ -14,7 +14,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// SetTimeOffLimitValuesRequest The non-empty list of the time off limit value intervals
+// SetTimeOffLimitValuesRequest set time off limit values request
 //
 // swagger:model SetTimeOffLimitValuesRequest
 type SetTimeOffLimitValuesRequest struct {

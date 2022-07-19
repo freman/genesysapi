@@ -62,7 +62,7 @@ type Condition struct {
 	PropertyType string `json:"propertyType,omitempty"`
 
 	// The type of the condition.
-	// Enum: [wrapupCondition contactAttributeCondition phoneNumberCondition phoneNumberTypeCondition callAnalysisCondition contactPropertyCondition dataActionCondition]
+	// Enum: [wrapupCondition systemDispositionCondition contactAttributeCondition phoneNumberCondition phoneNumberTypeCondition callAnalysisCondition contactPropertyCondition dataActionCondition]
 	Type string `json:"type,omitempty"`
 
 	// A value associated with this Condition. This could be text, a number, or a relative time. Not used for a DataActionCondition.
@@ -302,7 +302,7 @@ var conditionTypeTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["wrapupCondition","contactAttributeCondition","phoneNumberCondition","phoneNumberTypeCondition","callAnalysisCondition","contactPropertyCondition","dataActionCondition"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["wrapupCondition","systemDispositionCondition","contactAttributeCondition","phoneNumberCondition","phoneNumberTypeCondition","callAnalysisCondition","contactPropertyCondition","dataActionCondition"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -314,6 +314,9 @@ const (
 
 	// ConditionTypeWrapupCondition captures enum value "wrapupCondition"
 	ConditionTypeWrapupCondition string = "wrapupCondition"
+
+	// ConditionTypeSystemDispositionCondition captures enum value "systemDispositionCondition"
+	ConditionTypeSystemDispositionCondition string = "systemDispositionCondition"
 
 	// ConditionTypeContactAttributeCondition captures enum value "contactAttributeCondition"
 	ConditionTypeContactAttributeCondition string = "contactAttributeCondition"

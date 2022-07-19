@@ -15,7 +15,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// WfmIntradayPlanningGroupListing A list of IntradayPlanningGroup objects
+// WfmIntradayPlanningGroupListing wfm intraday planning group listing
 //
 // swagger:model WfmIntradayPlanningGroupListing
 type WfmIntradayPlanningGroupListing struct {

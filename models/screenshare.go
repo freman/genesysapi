@@ -44,6 +44,10 @@ type Screenshare struct {
 	// A globally unique identifier for this communication.
 	ID string `json:"id,omitempty"`
 
+	// The initial connection state of this communication.
+	// Enum: [alerting dialing contacting offering connected disconnected terminated none]
+	InitialState string `json:"initialState,omitempty"`
+
 	// The number of peer participants from the perspective of the participant in the conference.
 	PeerCount int32 `json:"peerCount,omitempty"`
 
@@ -88,6 +92,10 @@ func (m *Screenshare) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateDisconnectedTime(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateInitialState(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -236,6 +244,67 @@ func (m *Screenshare) validateDisconnectedTime(formats strfmt.Registry) error {
 	}
 
 	if err := validate.FormatOf("disconnectedTime", "body", "date-time", m.DisconnectedTime.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+var screenshareTypeInitialStatePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["alerting","dialing","contacting","offering","connected","disconnected","terminated","none"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		screenshareTypeInitialStatePropEnum = append(screenshareTypeInitialStatePropEnum, v)
+	}
+}
+
+const (
+
+	// ScreenshareInitialStateAlerting captures enum value "alerting"
+	ScreenshareInitialStateAlerting string = "alerting"
+
+	// ScreenshareInitialStateDialing captures enum value "dialing"
+	ScreenshareInitialStateDialing string = "dialing"
+
+	// ScreenshareInitialStateContacting captures enum value "contacting"
+	ScreenshareInitialStateContacting string = "contacting"
+
+	// ScreenshareInitialStateOffering captures enum value "offering"
+	ScreenshareInitialStateOffering string = "offering"
+
+	// ScreenshareInitialStateConnected captures enum value "connected"
+	ScreenshareInitialStateConnected string = "connected"
+
+	// ScreenshareInitialStateDisconnected captures enum value "disconnected"
+	ScreenshareInitialStateDisconnected string = "disconnected"
+
+	// ScreenshareInitialStateTerminated captures enum value "terminated"
+	ScreenshareInitialStateTerminated string = "terminated"
+
+	// ScreenshareInitialStateNone captures enum value "none"
+	ScreenshareInitialStateNone string = "none"
+)
+
+// prop value enum
+func (m *Screenshare) validateInitialStateEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, screenshareTypeInitialStatePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *Screenshare) validateInitialState(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.InitialState) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateInitialStateEnum("initialState", "body", m.InitialState); err != nil {
 		return err
 	}
 

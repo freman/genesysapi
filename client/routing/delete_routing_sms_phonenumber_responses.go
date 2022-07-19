@@ -89,12 +89,6 @@ func (o *DeleteRoutingSmsPhonenumberReader) ReadResponse(response runtime.Client
 			return nil, err
 		}
 		return nil, result
-	case 501:
-		result := NewDeleteRoutingSmsPhonenumberNotImplemented()
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		return nil, result
 	case 503:
 		result := NewDeleteRoutingSmsPhonenumberServiceUnavailable()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -120,7 +114,7 @@ func NewDeleteRoutingSmsPhonenumberAccepted() *DeleteRoutingSmsPhonenumberAccept
 
 /*DeleteRoutingSmsPhonenumberAccepted handles this case with default header values.
 
-Accepted - If async is true, the phone number delete is in progress.
+Accepted -The phone number delete is in progress.
 */
 type DeleteRoutingSmsPhonenumberAccepted struct {
 }
@@ -453,39 +447,6 @@ func (o *DeleteRoutingSmsPhonenumberInternalServerError) GetPayload() *models.Er
 }
 
 func (o *DeleteRoutingSmsPhonenumberInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.ErrorBody)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewDeleteRoutingSmsPhonenumberNotImplemented creates a DeleteRoutingSmsPhonenumberNotImplemented with default headers values
-func NewDeleteRoutingSmsPhonenumberNotImplemented() *DeleteRoutingSmsPhonenumberNotImplemented {
-	return &DeleteRoutingSmsPhonenumberNotImplemented{}
-}
-
-/*DeleteRoutingSmsPhonenumberNotImplemented handles this case with default header values.
-
-Not Implemented
-*/
-type DeleteRoutingSmsPhonenumberNotImplemented struct {
-	Payload *models.ErrorBody
-}
-
-func (o *DeleteRoutingSmsPhonenumberNotImplemented) Error() string {
-	return fmt.Sprintf("[DELETE /api/v2/routing/sms/phonenumbers/{addressId}][%d] deleteRoutingSmsPhonenumberNotImplemented  %+v", 501, o.Payload)
-}
-
-func (o *DeleteRoutingSmsPhonenumberNotImplemented) GetPayload() *models.ErrorBody {
-	return o.Payload
-}
-
-func (o *DeleteRoutingSmsPhonenumberNotImplemented) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ErrorBody)
 

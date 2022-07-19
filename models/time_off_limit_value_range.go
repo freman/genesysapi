@@ -14,7 +14,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// TimeOffLimitValueRange The date range with lists of time off limit, allocated and waitlisted minutes.
+// TimeOffLimitValueRange time off limit value range
 //
 // swagger:model TimeOffLimitValueRange
 type TimeOffLimitValueRange struct {

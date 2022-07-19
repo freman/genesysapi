@@ -12,7 +12,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// ManagementUnitReference Management unit reference object for Workforce Management (ID/selfUri only)
+// ManagementUnitReference management unit reference
 //
 // swagger:model ManagementUnitReference
 type ManagementUnitReference struct {

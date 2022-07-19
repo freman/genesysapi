@@ -12,7 +12,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// BuServiceLevel Service goal service level configuration
+// BuServiceLevel bu service level
 //
 // swagger:model BuServiceLevel
 type BuServiceLevel struct {

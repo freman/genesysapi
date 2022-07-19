@@ -10,7 +10,7 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// UserScheduleFullDayTimeOffMarker Marker to indicate an approved full day time off request
+// UserScheduleFullDayTimeOffMarker user schedule full day time off marker
 //
 // swagger:model UserScheduleFullDayTimeOffMarker
 type UserScheduleFullDayTimeOffMarker struct {

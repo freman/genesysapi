@@ -44,6 +44,9 @@ type AnalyticsSession struct {
 	// Bullseye ring of the targeted agent
 	AgentBullseyeRing int32 `json:"agentBullseyeRing,omitempty"`
 
+	// Conditional group routing agent groups
+	AgentGroups []*AnalyticsAgentGroup `json:"agentGroups"`
+
 	// Flag indicating an agent-owned callback
 	AgentOwned bool `json:"agentOwned"`
 
@@ -105,7 +108,7 @@ type AnalyticsSession struct {
 	// Number of eligible agents for each predictive routing attempt
 	EligibleAgentCounts []int32 `json:"eligibleAgentCounts"`
 
-	// Extended email delivery status
+	// Extended delivery status
 	ExtendedDeliveryStatus string `json:"extendedDeliveryStatus,omitempty"`
 
 	// IVR flow execution associated with this session
@@ -253,6 +256,10 @@ type AnalyticsSession struct {
 func (m *AnalyticsSession) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateAgentGroups(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateCallbackScheduledTime(formats); err != nil {
 		res = append(res, err)
 	}
@@ -304,6 +311,31 @@ func (m *AnalyticsSession) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *AnalyticsSession) validateAgentGroups(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.AgentGroups) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.AgentGroups); i++ {
+		if swag.IsZero(m.AgentGroups[i]) { // not required
+			continue
+		}
+
+		if m.AgentGroups[i] != nil {
+			if err := m.AgentGroups[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("agentGroups" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 

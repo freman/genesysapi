@@ -29,9 +29,8 @@ type InboundDomain struct {
 	MailFromSettings *MailFromResult `json:"mailFromSettings,omitempty"`
 
 	// Mx Record Status
-	// Required: true
 	// Enum: [VALID INVALID NOT_AVAILABLE]
-	MxRecordStatus *string `json:"mxRecordStatus"`
+	MxRecordStatus string `json:"mxRecordStatus,omitempty"`
 
 	// name
 	Name string `json:"name,omitempty"`
@@ -141,12 +140,12 @@ func (m *InboundDomain) validateMxRecordStatusEnum(path, location string, value 
 
 func (m *InboundDomain) validateMxRecordStatus(formats strfmt.Registry) error {
 
-	if err := validate.Required("mxRecordStatus", "body", m.MxRecordStatus); err != nil {
-		return err
+	if swag.IsZero(m.MxRecordStatus) { // not required
+		return nil
 	}
 
 	// value enum
-	if err := m.validateMxRecordStatusEnum("mxRecordStatus", "body", *m.MxRecordStatus); err != nil {
+	if err := m.validateMxRecordStatusEnum("mxRecordStatus", "body", m.MxRecordStatus); err != nil {
 		return err
 	}
 

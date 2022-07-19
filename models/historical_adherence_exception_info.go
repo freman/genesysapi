@@ -23,6 +23,9 @@ type HistoricalAdherenceExceptionInfo struct {
 	// Enum: [OnQueueWork Break Meal Meeting OffQueueWork TimeOff Training Unavailable Unscheduled]
 	ActualActivityCategory string `json:"actualActivityCategory,omitempty"`
 
+	// The ID of the actual activity code for this user
+	ActualActivityCodeID string `json:"actualActivityCodeId,omitempty"`
+
 	// Exception end offset in seconds relative to query start time
 	EndOffsetSeconds int32 `json:"endOffsetSeconds,omitempty"`
 
@@ -40,6 +43,10 @@ type HistoricalAdherenceExceptionInfo struct {
 
 	// The ID of the scheduled activity code for this user
 	ScheduledActivityCodeID string `json:"scheduledActivityCodeId,omitempty"`
+
+	// The lookup IDs used to retrieve the scheduled secondary statuses from map of lookup ID to corresponding secondary presence ID
+	// Unique: true
+	ScheduledSecondaryPresenceLookupIds []string `json:"scheduledSecondaryPresenceLookupIds"`
 
 	// The lookup ID used to retrieve the actual secondary status from map of lookup ID to corresponding secondary presence ID
 	SecondaryPresenceLookupID string `json:"secondaryPresenceLookupId,omitempty"`
@@ -69,6 +76,10 @@ func (m *HistoricalAdherenceExceptionInfo) Validate(formats strfmt.Registry) err
 	}
 
 	if err := m.validateScheduledActivityCategory(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateScheduledSecondaryPresenceLookupIds(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -305,6 +316,19 @@ func (m *HistoricalAdherenceExceptionInfo) validateScheduledActivityCategory(for
 
 	// value enum
 	if err := m.validateScheduledActivityCategoryEnum("scheduledActivityCategory", "body", m.ScheduledActivityCategory); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *HistoricalAdherenceExceptionInfo) validateScheduledSecondaryPresenceLookupIds(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.ScheduledSecondaryPresenceLookupIds) { // not required
+		return nil
+	}
+
+	if err := validate.UniqueItems("scheduledSecondaryPresenceLookupIds", "body", m.ScheduledSecondaryPresenceLookupIds); err != nil {
 		return err
 	}
 

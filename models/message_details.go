@@ -29,6 +29,9 @@ type MessageDetails struct {
 	// UUID identifying the message media.
 	MessageID string `json:"messageId,omitempty"`
 
+	// Information that describes the content of the message, if any
+	MessageMetadata *ConversationMessageMetadata `json:"messageMetadata,omitempty"`
+
 	// The message segment count, greater than 1 if the message content was split into multiple parts for this message type, e.g. SMS character limits.
 	MessageSegmentCount int32 `json:"messageSegmentCount,omitempty"`
 
@@ -57,6 +60,10 @@ func (m *MessageDetails) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateMedia(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateMessageMetadata(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -120,6 +127,24 @@ func (m *MessageDetails) validateMedia(formats strfmt.Registry) error {
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *MessageDetails) validateMessageMetadata(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.MessageMetadata) { // not required
+		return nil
+	}
+
+	if m.MessageMetadata != nil {
+		if err := m.MessageMetadata.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("messageMetadata")
+			}
+			return err
+		}
 	}
 
 	return nil

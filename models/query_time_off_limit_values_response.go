@@ -13,7 +13,7 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// QueryTimeOffLimitValuesResponse The list of date ranges with the time off limit, allocated and waitlisted values.
+// QueryTimeOffLimitValuesResponse query time off limit values response
 //
 // swagger:model QueryTimeOffLimitValuesResponse
 type QueryTimeOffLimitValuesResponse struct {

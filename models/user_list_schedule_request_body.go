@@ -12,7 +12,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// UserListScheduleRequestBody Request body for fetching the schedule for a group of users over a given time range
+// UserListScheduleRequestBody user list schedule request body
 //
 // swagger:model UserListScheduleRequestBody
 type UserListScheduleRequestBody struct {

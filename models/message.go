@@ -60,6 +60,10 @@ type Message struct {
 	// A globally unique identifier for this communication.
 	ID string `json:"id,omitempty"`
 
+	// The initial connection state of this communication.
+	// Enum: [alerting connected disconnected]
+	InitialState string `json:"initialState,omitempty"`
+
 	// A subset of the Journey System's data relevant to a part of a conversation (for external linkage and internal usage/context).
 	JourneyContext *JourneyContext `json:"journeyContext,omitempty"`
 
@@ -139,6 +143,10 @@ func (m *Message) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateFromAddress(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateInitialState(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -387,6 +395,52 @@ func (m *Message) validateFromAddress(formats strfmt.Registry) error {
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+var messageTypeInitialStatePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["alerting","connected","disconnected"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		messageTypeInitialStatePropEnum = append(messageTypeInitialStatePropEnum, v)
+	}
+}
+
+const (
+
+	// MessageInitialStateAlerting captures enum value "alerting"
+	MessageInitialStateAlerting string = "alerting"
+
+	// MessageInitialStateConnected captures enum value "connected"
+	MessageInitialStateConnected string = "connected"
+
+	// MessageInitialStateDisconnected captures enum value "disconnected"
+	MessageInitialStateDisconnected string = "disconnected"
+)
+
+// prop value enum
+func (m *Message) validateInitialStateEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, messageTypeInitialStatePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *Message) validateInitialState(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.InitialState) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateInitialStateEnum("initialState", "body", m.InitialState); err != nil {
+		return err
 	}
 
 	return nil

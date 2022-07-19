@@ -64,6 +64,7 @@ import (
 	"github.com/freman/genesysapi/client/search"
 	"github.com/freman/genesysapi/client/speech_and_text_analytics"
 	"github.com/freman/genesysapi/client/stations"
+	"github.com/freman/genesysapi/client/teams"
 	"github.com/freman/genesysapi/client/telephony"
 	"github.com/freman/genesysapi/client/telephony_providers_edge"
 	"github.com/freman/genesysapi/client/textbots"
@@ -200,6 +201,7 @@ func New(c Config) *Genesys {
 	cli.Search = search.New(transport, strfmt.Default, nil)
 	cli.SpeechAndTextAnalytics = speech_and_text_analytics.New(transport, strfmt.Default, nil)
 	cli.Stations = stations.New(transport, strfmt.Default, nil)
+	cli.Teams = teams.New(transport, strfmt.Default, nil)
 	cli.Telephony = telephony.New(transport, strfmt.Default, nil)
 	cli.TelephonyProvidersEdge = telephony_providers_edge.New(transport, strfmt.Default, nil)
 	cli.Textbots = textbots.New(transport, strfmt.Default, nil)
@@ -268,6 +270,7 @@ type Genesys struct {
 	Search                          *search.Client
 	SpeechAndTextAnalytics          *speech_and_text_analytics.Client
 	Stations                        *stations.Client
+	Teams                           *teams.Client
 	Telephony                       *telephony.Client
 	TelephonyProvidersEdge          *telephony_providers_edge.Client
 	Textbots                        *textbots.Client

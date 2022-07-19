@@ -13,7 +13,7 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// BusinessUnitActivityCodeListing List of BusinessUnitActivityCode
+// BusinessUnitActivityCodeListing business unit activity code listing
 //
 // swagger:model BusinessUnitActivityCodeListing
 type BusinessUnitActivityCodeListing struct {

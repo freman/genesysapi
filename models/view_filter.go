@@ -29,6 +29,9 @@ type ViewFilter struct {
 	// The acd durations in milliseconds used to filter the view
 	AcdDurationsMilliseconds []*NumericRange `json:"acdDurationsMilliseconds"`
 
+	// Action Category Name
+	ActionCategoryName string `json:"actionCategoryName,omitempty"`
+
 	// The acw durations in milliseconds used to filter the view
 	AcwDurationsMilliseconds []*NumericRange `json:"acwDurationsMilliseconds"`
 
@@ -46,6 +49,10 @@ type ViewFilter struct {
 
 	// Indicates filtering for answered interactions
 	Answered bool `json:"answered"`
+
+	// Filter to indicate the availability of the dashboard is public or private.
+	// Enum: [Public Private]
+	AvailableDashboard string `json:"availableDashboard,omitempty"`
 
 	// The list of blocked reason used to filter action map constraints views
 	BlockedReasons []string `json:"blockedReasons"`
@@ -104,6 +111,9 @@ type ViewFilter struct {
 	// The customer sentiment trend used to filter the view
 	CustomerSentimentTrend *NumericRange `json:"customerSentimentTrend,omitempty"`
 
+	// The list of Data Action IDs
+	DataActionIds []string `json:"dataActionIds"`
+
 	// Indicates filtering for development activities
 	DevelopmentActivityOverdue bool `json:"developmentActivityOverdue"`
 
@@ -160,6 +170,9 @@ type ViewFilter struct {
 
 	// The list of external Tags used to filter conversation data
 	ExternalTags []string `json:"externalTags"`
+
+	// Filter to indicate whether the dashboard is favorite or unfavorite.
+	FavouriteDashboard bool `json:"favouriteDashboard"`
 
 	// The user ids are used to fetch associated queues for the view
 	FilterQueuesByUserIds []string `json:"filterQueuesByUserIds"`
@@ -220,6 +233,9 @@ type ViewFilter struct {
 
 	// Indicates filtering for evaluation
 	HasEvaluation bool `json:"hasEvaluation"`
+
+	// Filters to indicate if interaction has FAX
+	HasFax bool `json:"hasFax"`
 
 	// Indicates filtering for Journey action map id
 	HasJourneyActionMapID bool `json:"hasJourneyActionMapId"`
@@ -347,6 +363,9 @@ type ViewFilter struct {
 	// The desired range for mos values
 	Mos *NumericRange `json:"mos,omitempty"`
 
+	// Filter to indicate the dashboard owned by the user.
+	MyDashboard bool `json:"myDashboard"`
+
 	// The list of orginating directions used to filter the view
 	OriginatingDirections []string `json:"originatingDirections"`
 
@@ -376,6 +395,9 @@ type ViewFilter struct {
 
 	// A list of routing types requested
 	RequestedRoutingTypes []string `json:"requestedRoutingTypes"`
+
+	// The list of Response codes for Data Action
+	ResponseStatuses []string `json:"responseStatuses"`
 
 	// The role Ids used to filter the view
 	RoleIds []string `json:"roleIds"`
@@ -463,6 +485,10 @@ func (m *ViewFilter) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateAcwDurationsMilliseconds(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateAvailableDashboard(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -706,6 +732,49 @@ func (m *ViewFilter) validateAcwDurationsMilliseconds(formats strfmt.Registry) e
 			}
 		}
 
+	}
+
+	return nil
+}
+
+var viewFilterTypeAvailableDashboardPropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Public","Private"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		viewFilterTypeAvailableDashboardPropEnum = append(viewFilterTypeAvailableDashboardPropEnum, v)
+	}
+}
+
+const (
+
+	// ViewFilterAvailableDashboardPublic captures enum value "Public"
+	ViewFilterAvailableDashboardPublic string = "Public"
+
+	// ViewFilterAvailableDashboardPrivate captures enum value "Private"
+	ViewFilterAvailableDashboardPrivate string = "Private"
+)
+
+// prop value enum
+func (m *ViewFilter) validateAvailableDashboardEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, viewFilterTypeAvailableDashboardPropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *ViewFilter) validateAvailableDashboard(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.AvailableDashboard) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateAvailableDashboardEnum("availableDashboard", "body", m.AvailableDashboard); err != nil {
+		return err
 	}
 
 	return nil

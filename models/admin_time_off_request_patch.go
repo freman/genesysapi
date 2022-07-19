@@ -27,7 +27,6 @@ type AdminTimeOffRequestPatch struct {
 	DailyDurationMinutes int32 `json:"dailyDurationMinutes,omitempty"`
 
 	// A set of dates in yyyy-MM-dd format.  Should be interpreted in the management unit's configured time zone.
-	// Unique: true
 	FullDayManagementUnitDates []string `json:"fullDayManagementUnitDates"`
 
 	// Version metadata for the time off request
@@ -38,7 +37,6 @@ type AdminTimeOffRequestPatch struct {
 	Notes string `json:"notes,omitempty"`
 
 	// A set of start date-times in ISO-8601 format for partial day requests.
-	// Unique: true
 	PartialDayStartDateTimes []strfmt.DateTime `json:"partialDayStartDateTimes"`
 
 	// The status of this time off request
@@ -49,10 +47,6 @@ type AdminTimeOffRequestPatch struct {
 // Validate validates this admin time off request patch
 func (m *AdminTimeOffRequestPatch) Validate(formats strfmt.Registry) error {
 	var res []error
-
-	if err := m.validateFullDayManagementUnitDates(formats); err != nil {
-		res = append(res, err)
-	}
 
 	if err := m.validateMetadata(formats); err != nil {
 		res = append(res, err)
@@ -69,19 +63,6 @@ func (m *AdminTimeOffRequestPatch) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *AdminTimeOffRequestPatch) validateFullDayManagementUnitDates(formats strfmt.Registry) error {
-
-	if swag.IsZero(m.FullDayManagementUnitDates) { // not required
-		return nil
-	}
-
-	if err := validate.UniqueItems("fullDayManagementUnitDates", "body", m.FullDayManagementUnitDates); err != nil {
-		return err
-	}
-
 	return nil
 }
 
@@ -107,10 +88,6 @@ func (m *AdminTimeOffRequestPatch) validatePartialDayStartDateTimes(formats strf
 
 	if swag.IsZero(m.PartialDayStartDateTimes) { // not required
 		return nil
-	}
-
-	if err := validate.UniqueItems("partialDayStartDateTimes", "body", m.PartialDayStartDateTimes); err != nil {
-		return err
 	}
 
 	for i := 0; i < len(m.PartialDayStartDateTimes); i++ {

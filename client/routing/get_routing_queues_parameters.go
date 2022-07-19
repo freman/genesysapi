@@ -94,6 +94,11 @@ type GetRoutingQueuesParams struct {
 
 	*/
 	DivisionID []string
+	/*HasPeer
+	  Filter by queues associated with peer
+
+	*/
+	HasPeer *bool
 	/*ID
 	  Filter by queue ID(s)
 
@@ -114,6 +119,11 @@ type GetRoutingQueuesParams struct {
 
 	*/
 	PageSize *int32
+	/*PeerID
+	  Filter by queue peer ID(s)
+
+	*/
+	PeerID []string
 	/*SortOrder
 	  Note: results are sorted by name.
 
@@ -169,6 +179,17 @@ func (o *GetRoutingQueuesParams) SetDivisionID(divisionID []string) {
 	o.DivisionID = divisionID
 }
 
+// WithHasPeer adds the hasPeer to the get routing queues params
+func (o *GetRoutingQueuesParams) WithHasPeer(hasPeer *bool) *GetRoutingQueuesParams {
+	o.SetHasPeer(hasPeer)
+	return o
+}
+
+// SetHasPeer adds the hasPeer to the get routing queues params
+func (o *GetRoutingQueuesParams) SetHasPeer(hasPeer *bool) {
+	o.HasPeer = hasPeer
+}
+
 // WithID adds the id to the get routing queues params
 func (o *GetRoutingQueuesParams) WithID(id []string) *GetRoutingQueuesParams {
 	o.SetID(id)
@@ -213,6 +234,17 @@ func (o *GetRoutingQueuesParams) SetPageSize(pageSize *int32) {
 	o.PageSize = pageSize
 }
 
+// WithPeerID adds the peerID to the get routing queues params
+func (o *GetRoutingQueuesParams) WithPeerID(peerID []string) *GetRoutingQueuesParams {
+	o.SetPeerID(peerID)
+	return o
+}
+
+// SetPeerID adds the peerId to the get routing queues params
+func (o *GetRoutingQueuesParams) SetPeerID(peerID []string) {
+	o.PeerID = peerID
+}
+
 // WithSortOrder adds the sortOrder to the get routing queues params
 func (o *GetRoutingQueuesParams) WithSortOrder(sortOrder *string) *GetRoutingQueuesParams {
 	o.SetSortOrder(sortOrder)
@@ -238,6 +270,22 @@ func (o *GetRoutingQueuesParams) WriteToRequest(r runtime.ClientRequest, reg str
 	// query array param divisionId
 	if err := r.SetQueryParam("divisionId", joinedDivisionID...); err != nil {
 		return err
+	}
+
+	if o.HasPeer != nil {
+
+		// query param hasPeer
+		var qrHasPeer bool
+		if o.HasPeer != nil {
+			qrHasPeer = *o.HasPeer
+		}
+		qHasPeer := swag.FormatBool(qrHasPeer)
+		if qHasPeer != "" {
+			if err := r.SetQueryParam("hasPeer", qHasPeer); err != nil {
+				return err
+			}
+		}
+
 	}
 
 	valuesID := o.ID
@@ -294,6 +342,14 @@ func (o *GetRoutingQueuesParams) WriteToRequest(r runtime.ClientRequest, reg str
 			}
 		}
 
+	}
+
+	valuesPeerID := o.PeerID
+
+	joinedPeerID := swag.JoinByFormat(valuesPeerID, "multi")
+	// query array param peerId
+	if err := r.SetQueryParam("peerId", joinedPeerID...); err != nil {
+		return err
 	}
 
 	if o.SortOrder != nil {

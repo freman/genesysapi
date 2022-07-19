@@ -83,6 +83,11 @@ type GetSpeechandtextanalyticsProgramsParams struct {
 
 	*/
 	PageSize *int32
+	/*State
+	  Program state. Defaults to Latest
+
+	*/
+	State *string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -144,6 +149,17 @@ func (o *GetSpeechandtextanalyticsProgramsParams) SetPageSize(pageSize *int32) {
 	o.PageSize = pageSize
 }
 
+// WithState adds the state to the get speechandtextanalytics programs params
+func (o *GetSpeechandtextanalyticsProgramsParams) WithState(state *string) *GetSpeechandtextanalyticsProgramsParams {
+	o.SetState(state)
+	return o
+}
+
+// SetState adds the state to the get speechandtextanalytics programs params
+func (o *GetSpeechandtextanalyticsProgramsParams) SetState(state *string) {
+	o.State = state
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *GetSpeechandtextanalyticsProgramsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -178,6 +194,22 @@ func (o *GetSpeechandtextanalyticsProgramsParams) WriteToRequest(r runtime.Clien
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	if o.State != nil {
+
+		// query param state
+		var qrState string
+		if o.State != nil {
+			qrState = *o.State
+		}
+		qState := qrState
+		if qState != "" {
+			if err := r.SetQueryParam("state", qState); err != nil {
 				return err
 			}
 		}

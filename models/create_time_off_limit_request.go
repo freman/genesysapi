@@ -14,12 +14,12 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// CreateTimeOffLimitRequest Contains property values of time off limit to be created
+// CreateTimeOffLimitRequest create time off limit request
 //
 // swagger:model CreateTimeOffLimitRequest
 type CreateTimeOffLimitRequest struct {
 
-	// The default limit value in minutes per granularity.If not specified, then 0 is assumed, which means there are no time off minutes available
+	// The default limit value in minutes per granularity. If not specified, then 0 is assumed, which means there are no time off minutes available
 	DefaultLimitMinutes int32 `json:"defaultLimitMinutes,omitempty"`
 
 	// Granularity choice for time off limit. If not specified, 'Daily' is assumed

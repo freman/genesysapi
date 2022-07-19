@@ -12,7 +12,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// WfmForecastModificationIntervalOffsetValue Override the value of a single interval in a forecast
+// WfmForecastModificationIntervalOffsetValue wfm forecast modification interval offset value
 //
 // swagger:model WfmForecastModificationIntervalOffsetValue
 type WfmForecastModificationIntervalOffsetValue struct {

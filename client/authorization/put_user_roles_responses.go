@@ -115,7 +115,7 @@ type PutUserRolesOK struct {
 }
 
 func (o *PutUserRolesOK) Error() string {
-	return fmt.Sprintf("[PUT /api/v2/users/{userId}/roles][%d] putUserRolesOK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[PUT /api/v2/users/{subjectId}/roles][%d] putUserRolesOK  %+v", 200, o.Payload)
 }
 
 func (o *PutUserRolesOK) GetPayload() *models.UserAuthorization {
@@ -148,7 +148,7 @@ type PutUserRolesBadRequest struct {
 }
 
 func (o *PutUserRolesBadRequest) Error() string {
-	return fmt.Sprintf("[PUT /api/v2/users/{userId}/roles][%d] putUserRolesBadRequest  %+v", 400, o.Payload)
+	return fmt.Sprintf("[PUT /api/v2/users/{subjectId}/roles][%d] putUserRolesBadRequest  %+v", 400, o.Payload)
 }
 
 func (o *PutUserRolesBadRequest) GetPayload() *models.ErrorBody {
@@ -181,7 +181,7 @@ type PutUserRolesUnauthorized struct {
 }
 
 func (o *PutUserRolesUnauthorized) Error() string {
-	return fmt.Sprintf("[PUT /api/v2/users/{userId}/roles][%d] putUserRolesUnauthorized  %+v", 401, o.Payload)
+	return fmt.Sprintf("[PUT /api/v2/users/{subjectId}/roles][%d] putUserRolesUnauthorized  %+v", 401, o.Payload)
 }
 
 func (o *PutUserRolesUnauthorized) GetPayload() *models.ErrorBody {
@@ -214,7 +214,7 @@ type PutUserRolesForbidden struct {
 }
 
 func (o *PutUserRolesForbidden) Error() string {
-	return fmt.Sprintf("[PUT /api/v2/users/{userId}/roles][%d] putUserRolesForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[PUT /api/v2/users/{subjectId}/roles][%d] putUserRolesForbidden  %+v", 403, o.Payload)
 }
 
 func (o *PutUserRolesForbidden) GetPayload() *models.ErrorBody {
@@ -247,7 +247,7 @@ type PutUserRolesNotFound struct {
 }
 
 func (o *PutUserRolesNotFound) Error() string {
-	return fmt.Sprintf("[PUT /api/v2/users/{userId}/roles][%d] putUserRolesNotFound  %+v", 404, o.Payload)
+	return fmt.Sprintf("[PUT /api/v2/users/{subjectId}/roles][%d] putUserRolesNotFound  %+v", 404, o.Payload)
 }
 
 func (o *PutUserRolesNotFound) GetPayload() *models.ErrorBody {
@@ -280,7 +280,7 @@ type PutUserRolesRequestTimeout struct {
 }
 
 func (o *PutUserRolesRequestTimeout) Error() string {
-	return fmt.Sprintf("[PUT /api/v2/users/{userId}/roles][%d] putUserRolesRequestTimeout  %+v", 408, o.Payload)
+	return fmt.Sprintf("[PUT /api/v2/users/{subjectId}/roles][%d] putUserRolesRequestTimeout  %+v", 408, o.Payload)
 }
 
 func (o *PutUserRolesRequestTimeout) GetPayload() *models.ErrorBody {
@@ -313,7 +313,7 @@ type PutUserRolesRequestEntityTooLarge struct {
 }
 
 func (o *PutUserRolesRequestEntityTooLarge) Error() string {
-	return fmt.Sprintf("[PUT /api/v2/users/{userId}/roles][%d] putUserRolesRequestEntityTooLarge  %+v", 413, o.Payload)
+	return fmt.Sprintf("[PUT /api/v2/users/{subjectId}/roles][%d] putUserRolesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
 func (o *PutUserRolesRequestEntityTooLarge) GetPayload() *models.ErrorBody {
@@ -346,7 +346,7 @@ type PutUserRolesUnsupportedMediaType struct {
 }
 
 func (o *PutUserRolesUnsupportedMediaType) Error() string {
-	return fmt.Sprintf("[PUT /api/v2/users/{userId}/roles][%d] putUserRolesUnsupportedMediaType  %+v", 415, o.Payload)
+	return fmt.Sprintf("[PUT /api/v2/users/{subjectId}/roles][%d] putUserRolesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
 func (o *PutUserRolesUnsupportedMediaType) GetPayload() *models.ErrorBody {
@@ -379,7 +379,7 @@ type PutUserRolesTooManyRequests struct {
 }
 
 func (o *PutUserRolesTooManyRequests) Error() string {
-	return fmt.Sprintf("[PUT /api/v2/users/{userId}/roles][%d] putUserRolesTooManyRequests  %+v", 429, o.Payload)
+	return fmt.Sprintf("[PUT /api/v2/users/{subjectId}/roles][%d] putUserRolesTooManyRequests  %+v", 429, o.Payload)
 }
 
 func (o *PutUserRolesTooManyRequests) GetPayload() *models.ErrorBody {
@@ -412,7 +412,7 @@ type PutUserRolesInternalServerError struct {
 }
 
 func (o *PutUserRolesInternalServerError) Error() string {
-	return fmt.Sprintf("[PUT /api/v2/users/{userId}/roles][%d] putUserRolesInternalServerError  %+v", 500, o.Payload)
+	return fmt.Sprintf("[PUT /api/v2/users/{subjectId}/roles][%d] putUserRolesInternalServerError  %+v", 500, o.Payload)
 }
 
 func (o *PutUserRolesInternalServerError) GetPayload() *models.ErrorBody {
@@ -445,7 +445,7 @@ type PutUserRolesServiceUnavailable struct {
 }
 
 func (o *PutUserRolesServiceUnavailable) Error() string {
-	return fmt.Sprintf("[PUT /api/v2/users/{userId}/roles][%d] putUserRolesServiceUnavailable  %+v", 503, o.Payload)
+	return fmt.Sprintf("[PUT /api/v2/users/{subjectId}/roles][%d] putUserRolesServiceUnavailable  %+v", 503, o.Payload)
 }
 
 func (o *PutUserRolesServiceUnavailable) GetPayload() *models.ErrorBody {
@@ -478,7 +478,7 @@ type PutUserRolesGatewayTimeout struct {
 }
 
 func (o *PutUserRolesGatewayTimeout) Error() string {
-	return fmt.Sprintf("[PUT /api/v2/users/{userId}/roles][%d] putUserRolesGatewayTimeout  %+v", 504, o.Payload)
+	return fmt.Sprintf("[PUT /api/v2/users/{subjectId}/roles][%d] putUserRolesGatewayTimeout  %+v", 504, o.Payload)
 }
 
 func (o *PutUserRolesGatewayTimeout) GetPayload() *models.ErrorBody {

@@ -11,7 +11,7 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// AgentManagementUnitReference A reference from agent to management unit
+// AgentManagementUnitReference agent management unit reference
 //
 // swagger:model AgentManagementUnitReference
 type AgentManagementUnitReference struct {

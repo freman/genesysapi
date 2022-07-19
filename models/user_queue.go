@@ -97,6 +97,9 @@ type UserQueue struct {
 	// The messaging addresses for the queue.
 	OutboundMessagingAddresses *QueueMessagingAddresses `json:"outboundMessagingAddresses,omitempty"`
 
+	// The ID of the external Queue
+	PeerID string `json:"peerId,omitempty"`
+
 	// The in-queue flow to use for call conversations waiting in queue.
 	QueueFlow *DomainEntityRef `json:"queueFlow,omitempty"`
 

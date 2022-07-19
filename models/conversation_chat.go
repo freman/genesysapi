@@ -51,6 +51,10 @@ type ConversationChat struct {
 	// A globally unique identifier for this communication.
 	ID string `json:"id,omitempty"`
 
+	// The initial connection state of this communication.
+	// Enum: [alerting dialing contacting offering connected disconnected terminated none]
+	InitialState string `json:"initialState,omitempty"`
+
 	// A subset of the Journey System's data relevant to a part of a conversation (for external linkage and internal usage/context).
 	JourneyContext *JourneyContext `json:"journeyContext,omitempty"`
 
@@ -109,6 +113,10 @@ func (m *ConversationChat) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateDisconnectedTime(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateInitialState(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -296,6 +304,67 @@ func (m *ConversationChat) validateDisconnectedTime(formats strfmt.Registry) err
 	}
 
 	if err := validate.FormatOf("disconnectedTime", "body", "date-time", m.DisconnectedTime.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+var conversationChatTypeInitialStatePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["alerting","dialing","contacting","offering","connected","disconnected","terminated","none"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		conversationChatTypeInitialStatePropEnum = append(conversationChatTypeInitialStatePropEnum, v)
+	}
+}
+
+const (
+
+	// ConversationChatInitialStateAlerting captures enum value "alerting"
+	ConversationChatInitialStateAlerting string = "alerting"
+
+	// ConversationChatInitialStateDialing captures enum value "dialing"
+	ConversationChatInitialStateDialing string = "dialing"
+
+	// ConversationChatInitialStateContacting captures enum value "contacting"
+	ConversationChatInitialStateContacting string = "contacting"
+
+	// ConversationChatInitialStateOffering captures enum value "offering"
+	ConversationChatInitialStateOffering string = "offering"
+
+	// ConversationChatInitialStateConnected captures enum value "connected"
+	ConversationChatInitialStateConnected string = "connected"
+
+	// ConversationChatInitialStateDisconnected captures enum value "disconnected"
+	ConversationChatInitialStateDisconnected string = "disconnected"
+
+	// ConversationChatInitialStateTerminated captures enum value "terminated"
+	ConversationChatInitialStateTerminated string = "terminated"
+
+	// ConversationChatInitialStateNone captures enum value "none"
+	ConversationChatInitialStateNone string = "none"
+)
+
+// prop value enum
+func (m *ConversationChat) validateInitialStateEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, conversationChatTypeInitialStatePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *ConversationChat) validateInitialState(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.InitialState) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateInitialStateEnum("initialState", "body", m.InitialState); err != nil {
 		return err
 	}
 

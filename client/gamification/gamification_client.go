@@ -35,6 +35,7 @@ type API interface {
 	GetGamificationLeaderboardBestpoints(ctx context.Context, params *GetGamificationLeaderboardBestpointsParams) (*GetGamificationLeaderboardBestpointsOK, error)
 	/*
 	   GetGamificationMetric gamifieds metric by id
+	   This API is deprecated. Use /api/v2/gamification/profiles/{profileId}/metrics/{metricId} instead.
 	*/
 	GetGamificationMetric(ctx context.Context, params *GetGamificationMetricParams) (*GetGamificationMetricOK, error)
 	/*
@@ -48,6 +49,7 @@ type API interface {
 	GetGamificationMetricdefinitions(ctx context.Context, params *GetGamificationMetricdefinitionsParams) (*GetGamificationMetricdefinitionsOK, error)
 	/*
 	   GetGamificationMetrics alls gamified metrics for a given profile
+	   This API is deprecated. Use /api/v2/gamification/profiles/{profileId}/metrics instead.
 	*/
 	GetGamificationMetrics(ctx context.Context, params *GetGamificationMetricsParams) (*GetGamificationMetricsOK, error)
 	/*
@@ -107,6 +109,18 @@ type API interface {
 	*/
 	GetGamificationScorecardsPointsTrends(ctx context.Context, params *GetGamificationScorecardsPointsTrendsParams) (*GetGamificationScorecardsPointsTrendsOK, error)
 	/*
+	   GetGamificationScorecardsProfileMetricUserValuesTrends averages performance values trends by metric of a user
+	*/
+	GetGamificationScorecardsProfileMetricUserValuesTrends(ctx context.Context, params *GetGamificationScorecardsProfileMetricUserValuesTrendsParams) (*GetGamificationScorecardsProfileMetricUserValuesTrendsOK, error)
+	/*
+	   GetGamificationScorecardsProfileMetricUsersValuesTrends averages performance values trends by metric of a division or a performance profile
+	*/
+	GetGamificationScorecardsProfileMetricUsersValuesTrends(ctx context.Context, params *GetGamificationScorecardsProfileMetricUsersValuesTrendsParams) (*GetGamificationScorecardsProfileMetricUsersValuesTrendsOK, error)
+	/*
+	   GetGamificationScorecardsProfileMetricValuesTrends averages performance values trends by metric of the requesting user
+	*/
+	GetGamificationScorecardsProfileMetricValuesTrends(ctx context.Context, params *GetGamificationScorecardsProfileMetricValuesTrendsParams) (*GetGamificationScorecardsProfileMetricValuesTrendsOK, error)
+	/*
 	   GetGamificationScorecardsUser workdays performance metrics for a user
 	*/
 	GetGamificationScorecardsUser(ctx context.Context, params *GetGamificationScorecardsUserParams) (*GetGamificationScorecardsUserOK, error)
@@ -164,6 +178,7 @@ type API interface {
 	GetGamificationTemplates(ctx context.Context, params *GetGamificationTemplatesParams) (*GetGamificationTemplatesOK, error)
 	/*
 	   PostGamificationMetrics creates a gamified metric with a given metric definition and metric objective
+	   This API is deprecated. Use /api/v2/gamification/profiles/{profileId}/metrics instead.
 	*/
 	PostGamificationMetrics(ctx context.Context, params *PostGamificationMetricsParams) (*PostGamificationMetricsCreated, error)
 	/*
@@ -196,6 +211,7 @@ type API interface {
 	PostGamificationProfiles(ctx context.Context, params *PostGamificationProfilesParams) (*PostGamificationProfilesCreated, error)
 	/*
 	   PutGamificationMetric updates a metric
+	   This API is deprecated. Use /api/v2/gamification/profiles/{profileId}/metrics/{metricId} instead.
 	*/
 	PutGamificationMetric(ctx context.Context, params *PutGamificationMetricParams) (*PutGamificationMetricOK, error)
 	/*
@@ -332,6 +348,8 @@ func (a *Client) GetGamificationLeaderboardBestpoints(ctx context.Context, param
 
 /*
 GetGamificationMetric gamifieds metric by id
+
+This API is deprecated. Use /api/v2/gamification/profiles/{profileId}/metrics/{metricId} instead.
 */
 func (a *Client) GetGamificationMetric(ctx context.Context, params *GetGamificationMetricParams) (*GetGamificationMetricOK, error) {
 
@@ -409,6 +427,8 @@ func (a *Client) GetGamificationMetricdefinitions(ctx context.Context, params *G
 
 /*
 GetGamificationMetrics alls gamified metrics for a given profile
+
+This API is deprecated. Use /api/v2/gamification/profiles/{profileId}/metrics instead.
 */
 func (a *Client) GetGamificationMetrics(ctx context.Context, params *GetGamificationMetricsParams) (*GetGamificationMetricsOK, error) {
 
@@ -465,7 +485,7 @@ func (a *Client) GetGamificationProfileMembers(ctx context.Context, params *GetG
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "getGamificationProfileMembers",
 		Method:             "GET",
-		PathPattern:        "/api/v2/gamification/profiles/{performanceProfileId}/members",
+		PathPattern:        "/api/v2/gamification/profiles/{profileId}/members",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
@@ -779,6 +799,81 @@ func (a *Client) GetGamificationScorecardsPointsTrends(ctx context.Context, para
 		return nil, err
 	}
 	return result.(*GetGamificationScorecardsPointsTrendsOK), nil
+
+}
+
+/*
+GetGamificationScorecardsProfileMetricUserValuesTrends averages performance values trends by metric of a user
+*/
+func (a *Client) GetGamificationScorecardsProfileMetricUserValuesTrends(ctx context.Context, params *GetGamificationScorecardsProfileMetricUserValuesTrendsParams) (*GetGamificationScorecardsProfileMetricUserValuesTrendsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getGamificationScorecardsProfileMetricUserValuesTrends",
+		Method:             "GET",
+		PathPattern:        "/api/v2/gamification/scorecards/profiles/{profileId}/metrics/{metricId}/users/{userId}/values/trends",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetGamificationScorecardsProfileMetricUserValuesTrendsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetGamificationScorecardsProfileMetricUserValuesTrendsOK), nil
+
+}
+
+/*
+GetGamificationScorecardsProfileMetricUsersValuesTrends averages performance values trends by metric of a division or a performance profile
+*/
+func (a *Client) GetGamificationScorecardsProfileMetricUsersValuesTrends(ctx context.Context, params *GetGamificationScorecardsProfileMetricUsersValuesTrendsParams) (*GetGamificationScorecardsProfileMetricUsersValuesTrendsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getGamificationScorecardsProfileMetricUsersValuesTrends",
+		Method:             "GET",
+		PathPattern:        "/api/v2/gamification/scorecards/profiles/{profileId}/metrics/{metricId}/users/values/trends",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetGamificationScorecardsProfileMetricUsersValuesTrendsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetGamificationScorecardsProfileMetricUsersValuesTrendsOK), nil
+
+}
+
+/*
+GetGamificationScorecardsProfileMetricValuesTrends averages performance values trends by metric of the requesting user
+*/
+func (a *Client) GetGamificationScorecardsProfileMetricValuesTrends(ctx context.Context, params *GetGamificationScorecardsProfileMetricValuesTrendsParams) (*GetGamificationScorecardsProfileMetricValuesTrendsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getGamificationScorecardsProfileMetricValuesTrends",
+		Method:             "GET",
+		PathPattern:        "/api/v2/gamification/scorecards/profiles/{profileId}/metrics/{metricId}/values/trends",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetGamificationScorecardsProfileMetricValuesTrendsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetGamificationScorecardsProfileMetricValuesTrendsOK), nil
 
 }
 
@@ -1134,6 +1229,8 @@ func (a *Client) GetGamificationTemplates(ctx context.Context, params *GetGamifi
 
 /*
 PostGamificationMetrics creates a gamified metric with a given metric definition and metric objective
+
+This API is deprecated. Use /api/v2/gamification/profiles/{profileId}/metrics instead.
 */
 func (a *Client) PostGamificationMetrics(ctx context.Context, params *PostGamificationMetricsParams) (*PostGamificationMetricsCreated, error) {
 
@@ -1215,7 +1312,7 @@ func (a *Client) PostGamificationProfileMembers(ctx context.Context, params *Pos
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "postGamificationProfileMembers",
 		Method:             "POST",
-		PathPattern:        "/api/v2/gamification/profiles/{performanceProfileId}/members",
+		PathPattern:        "/api/v2/gamification/profiles/{profileId}/members",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
@@ -1240,7 +1337,7 @@ func (a *Client) PostGamificationProfileMembersValidate(ctx context.Context, par
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "postGamificationProfileMembersValidate",
 		Method:             "POST",
-		PathPattern:        "/api/v2/gamification/profiles/{performanceProfileId}/members/validate",
+		PathPattern:        "/api/v2/gamification/profiles/{profileId}/members/validate",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
@@ -1334,6 +1431,8 @@ func (a *Client) PostGamificationProfiles(ctx context.Context, params *PostGamif
 
 /*
 PutGamificationMetric updates a metric
+
+This API is deprecated. Use /api/v2/gamification/profiles/{profileId}/metrics/{metricId} instead.
 */
 func (a *Client) PutGamificationMetric(ctx context.Context, params *PutGamificationMetricParams) (*PutGamificationMetricOK, error) {
 

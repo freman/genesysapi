@@ -14,7 +14,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// TimeOffLimitRange A single range filled with time off limit interval values
+// TimeOffLimitRange time off limit range
 //
 // swagger:model TimeOffLimitRange
 type TimeOffLimitRange struct {

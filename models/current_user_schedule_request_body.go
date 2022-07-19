@@ -12,7 +12,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// CurrentUserScheduleRequestBody POST request body for fetching the current user's schedule over a given range
+// CurrentUserScheduleRequestBody current user schedule request body
 //
 // swagger:model CurrentUserScheduleRequestBody
 type CurrentUserScheduleRequestBody struct {

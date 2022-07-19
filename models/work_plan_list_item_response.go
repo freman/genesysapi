@@ -15,7 +15,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// WorkPlanListItemResponse Work plan information
+// WorkPlanListItemResponse work plan list item response
 //
 // swagger:model WorkPlanListItemResponse
 type WorkPlanListItemResponse struct {

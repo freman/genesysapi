@@ -14,7 +14,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// WfmAgent Workforce management agent data
+// WfmAgent wfm agent
 //
 // swagger:model WfmAgent
 type WfmAgent struct {

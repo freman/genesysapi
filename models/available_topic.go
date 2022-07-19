@@ -115,7 +115,7 @@ var availableTopicTransportsItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["All","Websocket","EventBridge"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["All","Websocket","EventBridge","ProcessAutomation"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {

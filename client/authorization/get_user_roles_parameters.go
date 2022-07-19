@@ -60,11 +60,11 @@ for the get user roles operation typically these are written to a http.Request
 */
 type GetUserRolesParams struct {
 
-	/*UserID
+	/*SubjectID
 	  User ID
 
 	*/
-	UserID string
+	SubjectID string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -104,15 +104,15 @@ func (o *GetUserRolesParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithUserID adds the userID to the get user roles params
-func (o *GetUserRolesParams) WithUserID(userID string) *GetUserRolesParams {
-	o.SetUserID(userID)
+// WithSubjectID adds the subjectID to the get user roles params
+func (o *GetUserRolesParams) WithSubjectID(subjectID string) *GetUserRolesParams {
+	o.SetSubjectID(subjectID)
 	return o
 }
 
-// SetUserID adds the userId to the get user roles params
-func (o *GetUserRolesParams) SetUserID(userID string) {
-	o.UserID = userID
+// SetSubjectID adds the subjectId to the get user roles params
+func (o *GetUserRolesParams) SetSubjectID(subjectID string) {
+	o.SubjectID = subjectID
 }
 
 // WriteToRequest writes these params to a swagger request
@@ -123,8 +123,8 @@ func (o *GetUserRolesParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.
 	}
 	var res []error
 
-	// path param userId
-	if err := r.SetPathParam("userId", o.UserID); err != nil {
+	// path param subjectId
+	if err := r.SetPathParam("subjectId", o.SubjectID); err != nil {
 		return err
 	}
 

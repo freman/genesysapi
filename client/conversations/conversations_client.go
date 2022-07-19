@@ -618,9 +618,33 @@ type API interface {
 	*/
 	PutConversationsCallParticipantCommunicationUuidata(ctx context.Context, params *PutConversationsCallParticipantCommunicationUuidataParams) (*PutConversationsCallParticipantCommunicationUuidataOK, error)
 	/*
+	   PutConversationsCallRecordingstate updates a conversation by setting its recording state
+	*/
+	PutConversationsCallRecordingstate(ctx context.Context, params *PutConversationsCallRecordingstateParams) (*PutConversationsCallRecordingstateOK, *PutConversationsCallRecordingstateAccepted, error)
+	/*
+	   PutConversationsCallbackRecordingstate updates a conversation by setting its recording state
+	*/
+	PutConversationsCallbackRecordingstate(ctx context.Context, params *PutConversationsCallbackRecordingstateParams) (*PutConversationsCallbackRecordingstateOK, *PutConversationsCallbackRecordingstateAccepted, error)
+	/*
+	   PutConversationsChatRecordingstate updates a conversation by setting its recording state
+	*/
+	PutConversationsChatRecordingstate(ctx context.Context, params *PutConversationsChatRecordingstateParams) (*PutConversationsChatRecordingstateOK, *PutConversationsChatRecordingstateAccepted, error)
+	/*
+	   PutConversationsCobrowsesessionRecordingstate updates a conversation by setting its recording state
+	*/
+	PutConversationsCobrowsesessionRecordingstate(ctx context.Context, params *PutConversationsCobrowsesessionRecordingstateParams) (*PutConversationsCobrowsesessionRecordingstateOK, *PutConversationsCobrowsesessionRecordingstateAccepted, error)
+	/*
 	   PutConversationsEmailMessagesDraft updates conversation draft reply
 	*/
 	PutConversationsEmailMessagesDraft(ctx context.Context, params *PutConversationsEmailMessagesDraftParams) (*PutConversationsEmailMessagesDraftOK, error)
+	/*
+	   PutConversationsEmailRecordingstate updates a conversation by setting its recording state
+	*/
+	PutConversationsEmailRecordingstate(ctx context.Context, params *PutConversationsEmailRecordingstateParams) (*PutConversationsEmailRecordingstateOK, *PutConversationsEmailRecordingstateAccepted, error)
+	/*
+	   PutConversationsMessageRecordingstate updates a conversation by setting its recording state
+	*/
+	PutConversationsMessageRecordingstate(ctx context.Context, params *PutConversationsMessageRecordingstateParams) (*PutConversationsMessageRecordingstateOK, *PutConversationsMessageRecordingstateAccepted, error)
 	/*
 	   PutConversationsMessagingIntegrationsLineIntegrationID updates a l i n e messenger integration
 	*/
@@ -635,6 +659,18 @@ type API interface {
 	   PUT Conversation messaging threading timeline is intended to set the conversation threading settings for ALL messengerTypes. If you omit a messengerType in the request body then the setting for that messengerType will use the platform default value. The PUT replaces the existing setting(s) that were previously set for each messengerType.
 	*/
 	PutConversationsMessagingThreadingtimeline(ctx context.Context, params *PutConversationsMessagingThreadingtimelineParams) (*PutConversationsMessagingThreadingtimelineOK, error)
+	/*
+	   PutConversationsScreenshareRecordingstate updates a conversation by setting its recording state
+	*/
+	PutConversationsScreenshareRecordingstate(ctx context.Context, params *PutConversationsScreenshareRecordingstateParams) (*PutConversationsScreenshareRecordingstateOK, *PutConversationsScreenshareRecordingstateAccepted, error)
+	/*
+	   PutConversationsSocialRecordingstate updates a conversation by setting its recording state
+	*/
+	PutConversationsSocialRecordingstate(ctx context.Context, params *PutConversationsSocialRecordingstateParams) (*PutConversationsSocialRecordingstateOK, *PutConversationsSocialRecordingstateAccepted, error)
+	/*
+	   PutConversationsVideoRecordingstate updates a conversation by setting its recording state
+	*/
+	PutConversationsVideoRecordingstate(ctx context.Context, params *PutConversationsVideoRecordingstateParams) (*PutConversationsVideoRecordingstateOK, *PutConversationsVideoRecordingstateAccepted, error)
 }
 
 // New creates a new conversations API client.
@@ -4399,6 +4435,130 @@ func (a *Client) PutConversationsCallParticipantCommunicationUuidata(ctx context
 }
 
 /*
+PutConversationsCallRecordingstate updates a conversation by setting its recording state
+*/
+func (a *Client) PutConversationsCallRecordingstate(ctx context.Context, params *PutConversationsCallRecordingstateParams) (*PutConversationsCallRecordingstateOK, *PutConversationsCallRecordingstateAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "putConversationsCallRecordingstate",
+		Method:             "PUT",
+		PathPattern:        "/api/v2/conversations/calls/{conversationId}/recordingstate",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PutConversationsCallRecordingstateReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PutConversationsCallRecordingstateOK:
+		return value, nil, nil
+	case *PutConversationsCallRecordingstateAccepted:
+		return nil, value, nil
+	}
+	return nil, nil, nil
+
+}
+
+/*
+PutConversationsCallbackRecordingstate updates a conversation by setting its recording state
+*/
+func (a *Client) PutConversationsCallbackRecordingstate(ctx context.Context, params *PutConversationsCallbackRecordingstateParams) (*PutConversationsCallbackRecordingstateOK, *PutConversationsCallbackRecordingstateAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "putConversationsCallbackRecordingstate",
+		Method:             "PUT",
+		PathPattern:        "/api/v2/conversations/callbacks/{conversationId}/recordingstate",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PutConversationsCallbackRecordingstateReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PutConversationsCallbackRecordingstateOK:
+		return value, nil, nil
+	case *PutConversationsCallbackRecordingstateAccepted:
+		return nil, value, nil
+	}
+	return nil, nil, nil
+
+}
+
+/*
+PutConversationsChatRecordingstate updates a conversation by setting its recording state
+*/
+func (a *Client) PutConversationsChatRecordingstate(ctx context.Context, params *PutConversationsChatRecordingstateParams) (*PutConversationsChatRecordingstateOK, *PutConversationsChatRecordingstateAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "putConversationsChatRecordingstate",
+		Method:             "PUT",
+		PathPattern:        "/api/v2/conversations/chats/{conversationId}/recordingstate",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PutConversationsChatRecordingstateReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PutConversationsChatRecordingstateOK:
+		return value, nil, nil
+	case *PutConversationsChatRecordingstateAccepted:
+		return nil, value, nil
+	}
+	return nil, nil, nil
+
+}
+
+/*
+PutConversationsCobrowsesessionRecordingstate updates a conversation by setting its recording state
+*/
+func (a *Client) PutConversationsCobrowsesessionRecordingstate(ctx context.Context, params *PutConversationsCobrowsesessionRecordingstateParams) (*PutConversationsCobrowsesessionRecordingstateOK, *PutConversationsCobrowsesessionRecordingstateAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "putConversationsCobrowsesessionRecordingstate",
+		Method:             "PUT",
+		PathPattern:        "/api/v2/conversations/cobrowsesessions/{conversationId}/recordingstate",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PutConversationsCobrowsesessionRecordingstateReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PutConversationsCobrowsesessionRecordingstateOK:
+		return value, nil, nil
+	case *PutConversationsCobrowsesessionRecordingstateAccepted:
+		return nil, value, nil
+	}
+	return nil, nil, nil
+
+}
+
+/*
 PutConversationsEmailMessagesDraft updates conversation draft reply
 */
 func (a *Client) PutConversationsEmailMessagesDraft(ctx context.Context, params *PutConversationsEmailMessagesDraftParams) (*PutConversationsEmailMessagesDraftOK, error) {
@@ -4420,6 +4580,68 @@ func (a *Client) PutConversationsEmailMessagesDraft(ctx context.Context, params 
 		return nil, err
 	}
 	return result.(*PutConversationsEmailMessagesDraftOK), nil
+
+}
+
+/*
+PutConversationsEmailRecordingstate updates a conversation by setting its recording state
+*/
+func (a *Client) PutConversationsEmailRecordingstate(ctx context.Context, params *PutConversationsEmailRecordingstateParams) (*PutConversationsEmailRecordingstateOK, *PutConversationsEmailRecordingstateAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "putConversationsEmailRecordingstate",
+		Method:             "PUT",
+		PathPattern:        "/api/v2/conversations/emails/{conversationId}/recordingstate",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PutConversationsEmailRecordingstateReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PutConversationsEmailRecordingstateOK:
+		return value, nil, nil
+	case *PutConversationsEmailRecordingstateAccepted:
+		return nil, value, nil
+	}
+	return nil, nil, nil
+
+}
+
+/*
+PutConversationsMessageRecordingstate updates a conversation by setting its recording state
+*/
+func (a *Client) PutConversationsMessageRecordingstate(ctx context.Context, params *PutConversationsMessageRecordingstateParams) (*PutConversationsMessageRecordingstateOK, *PutConversationsMessageRecordingstateAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "putConversationsMessageRecordingstate",
+		Method:             "PUT",
+		PathPattern:        "/api/v2/conversations/messages/{conversationId}/recordingstate",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PutConversationsMessageRecordingstateReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PutConversationsMessageRecordingstateOK:
+		return value, nil, nil
+	case *PutConversationsMessageRecordingstateAccepted:
+		return nil, value, nil
+	}
+	return nil, nil, nil
 
 }
 
@@ -4499,5 +4721,98 @@ func (a *Client) PutConversationsMessagingThreadingtimeline(ctx context.Context,
 		return nil, err
 	}
 	return result.(*PutConversationsMessagingThreadingtimelineOK), nil
+
+}
+
+/*
+PutConversationsScreenshareRecordingstate updates a conversation by setting its recording state
+*/
+func (a *Client) PutConversationsScreenshareRecordingstate(ctx context.Context, params *PutConversationsScreenshareRecordingstateParams) (*PutConversationsScreenshareRecordingstateOK, *PutConversationsScreenshareRecordingstateAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "putConversationsScreenshareRecordingstate",
+		Method:             "PUT",
+		PathPattern:        "/api/v2/conversations/screenshares/{conversationId}/recordingstate",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PutConversationsScreenshareRecordingstateReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PutConversationsScreenshareRecordingstateOK:
+		return value, nil, nil
+	case *PutConversationsScreenshareRecordingstateAccepted:
+		return nil, value, nil
+	}
+	return nil, nil, nil
+
+}
+
+/*
+PutConversationsSocialRecordingstate updates a conversation by setting its recording state
+*/
+func (a *Client) PutConversationsSocialRecordingstate(ctx context.Context, params *PutConversationsSocialRecordingstateParams) (*PutConversationsSocialRecordingstateOK, *PutConversationsSocialRecordingstateAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "putConversationsSocialRecordingstate",
+		Method:             "PUT",
+		PathPattern:        "/api/v2/conversations/socials/{conversationId}/recordingstate",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PutConversationsSocialRecordingstateReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PutConversationsSocialRecordingstateOK:
+		return value, nil, nil
+	case *PutConversationsSocialRecordingstateAccepted:
+		return nil, value, nil
+	}
+	return nil, nil, nil
+
+}
+
+/*
+PutConversationsVideoRecordingstate updates a conversation by setting its recording state
+*/
+func (a *Client) PutConversationsVideoRecordingstate(ctx context.Context, params *PutConversationsVideoRecordingstateParams) (*PutConversationsVideoRecordingstateOK, *PutConversationsVideoRecordingstateAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "putConversationsVideoRecordingstate",
+		Method:             "PUT",
+		PathPattern:        "/api/v2/conversations/videos/{conversationId}/recordingstate",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PutConversationsVideoRecordingstateReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PutConversationsVideoRecordingstateOK:
+		return value, nil, nil
+	case *PutConversationsVideoRecordingstateAccepted:
+		return nil, value, nil
+	}
+	return nil, nil, nil
 
 }

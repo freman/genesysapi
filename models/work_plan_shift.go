@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -14,7 +15,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// WorkPlanShift Shift in a work plan
+// WorkPlanShift work plan shift
 //
 // swagger:model WorkPlanShift
 type WorkPlanShift struct {
@@ -25,6 +26,9 @@ type WorkPlanShift struct {
 	// Whether the contiguous time constraint for the shift is enabled
 	ConstrainContiguousWorkTime bool `json:"constrainContiguousWorkTime"`
 
+	// Whether day off rule is enabled
+	ConstrainDayOff bool `json:"constrainDayOff"`
+
 	// Whether the earliest stop time constraint for the shift is enabled
 	ConstrainEarliestStopTime bool `json:"constrainEarliestStopTime"`
 
@@ -33,6 +37,10 @@ type WorkPlanShift struct {
 
 	// Whether the latest stop time constraint for the shift is enabled.  Deprecated, use constrainLatestStopTime instead
 	ConstrainStopTime bool `json:"constrainStopTime"`
+
+	// The day off rule for agents to have next day off or previous day off. used if constrainDayOff = true
+	// Enum: [NextDayOff PreviousDayOff]
+	DayOffRule string `json:"dayOffRule,omitempty"`
 
 	// Days of the week applicable for this shift
 	Days *SetWrapperDayOfWeek `json:"days,omitempty"`
@@ -98,6 +106,10 @@ func (m *WorkPlanShift) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateDayOffRule(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateDays(formats); err != nil {
 		res = append(res, err)
 	}
@@ -132,6 +144,49 @@ func (m *WorkPlanShift) validateActivities(formats strfmt.Registry) error {
 			}
 		}
 
+	}
+
+	return nil
+}
+
+var workPlanShiftTypeDayOffRulePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["NextDayOff","PreviousDayOff"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		workPlanShiftTypeDayOffRulePropEnum = append(workPlanShiftTypeDayOffRulePropEnum, v)
+	}
+}
+
+const (
+
+	// WorkPlanShiftDayOffRuleNextDayOff captures enum value "NextDayOff"
+	WorkPlanShiftDayOffRuleNextDayOff string = "NextDayOff"
+
+	// WorkPlanShiftDayOffRulePreviousDayOff captures enum value "PreviousDayOff"
+	WorkPlanShiftDayOffRulePreviousDayOff string = "PreviousDayOff"
+)
+
+// prop value enum
+func (m *WorkPlanShift) validateDayOffRuleEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, workPlanShiftTypeDayOffRulePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *WorkPlanShift) validateDayOffRule(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.DayOffRule) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateDayOffRuleEnum("dayOffRule", "body", m.DayOffRule); err != nil {
+		return err
 	}
 
 	return nil

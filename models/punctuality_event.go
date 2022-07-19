@@ -25,6 +25,10 @@ type PunctualityEvent struct {
 	// Read Only: true
 	ActivityCodeID string `json:"activityCodeId,omitempty"`
 
+	// The activity name
+	// Read Only: true
+	ActivityName string `json:"activityName,omitempty"`
+
 	// bullseye
 	Bullseye bool `json:"bullseye"`
 

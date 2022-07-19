@@ -60,11 +60,11 @@ for the get gamification profile members operation typically these are written t
 */
 type GetGamificationProfileMembersParams struct {
 
-	/*PerformanceProfileID
-	  Performance Profile Id
+	/*ProfileID
+	  Profile Id
 
 	*/
-	PerformanceProfileID string
+	ProfileID string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -104,15 +104,15 @@ func (o *GetGamificationProfileMembersParams) SetHTTPClient(client *http.Client)
 	o.HTTPClient = client
 }
 
-// WithPerformanceProfileID adds the performanceProfileID to the get gamification profile members params
-func (o *GetGamificationProfileMembersParams) WithPerformanceProfileID(performanceProfileID string) *GetGamificationProfileMembersParams {
-	o.SetPerformanceProfileID(performanceProfileID)
+// WithProfileID adds the profileID to the get gamification profile members params
+func (o *GetGamificationProfileMembersParams) WithProfileID(profileID string) *GetGamificationProfileMembersParams {
+	o.SetProfileID(profileID)
 	return o
 }
 
-// SetPerformanceProfileID adds the performanceProfileId to the get gamification profile members params
-func (o *GetGamificationProfileMembersParams) SetPerformanceProfileID(performanceProfileID string) {
-	o.PerformanceProfileID = performanceProfileID
+// SetProfileID adds the profileId to the get gamification profile members params
+func (o *GetGamificationProfileMembersParams) SetProfileID(profileID string) {
+	o.ProfileID = profileID
 }
 
 // WriteToRequest writes these params to a swagger request
@@ -123,8 +123,8 @@ func (o *GetGamificationProfileMembersParams) WriteToRequest(r runtime.ClientReq
 	}
 	var res []error
 
-	// path param performanceProfileId
-	if err := r.SetPathParam("performanceProfileId", o.PerformanceProfileID); err != nil {
+	// path param profileId
+	if err := r.SetPathParam("profileId", o.ProfileID); err != nil {
 		return err
 	}
 

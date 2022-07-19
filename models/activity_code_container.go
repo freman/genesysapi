@@ -12,7 +12,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// ActivityCodeContainer Container for a map of ActivityCodeId to ActivityCode
+// ActivityCodeContainer activity code container
 //
 // swagger:model ActivityCodeContainer
 type ActivityCodeContainer struct {

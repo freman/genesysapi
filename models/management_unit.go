@@ -14,7 +14,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// ManagementUnit Management Unit object for Workforce Management
+// ManagementUnit management unit
 //
 // swagger:model ManagementUnit
 type ManagementUnit struct {

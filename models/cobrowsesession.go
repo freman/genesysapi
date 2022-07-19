@@ -50,6 +50,10 @@ type Cobrowsesession struct {
 	// A globally unique identifier for this communication.
 	ID string `json:"id,omitempty"`
 
+	// The initial connection state of this communication.
+	// Enum: [alerting dialing contacting offering connected disconnected terminated scheduled none]
+	InitialState string `json:"initialState,omitempty"`
+
 	// The id of the peer communication corresponding to a matching leg for this communication.
 	PeerID string `json:"peerId,omitempty"`
 
@@ -98,6 +102,10 @@ func (m *Cobrowsesession) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateDisconnectedTime(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateInitialState(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -248,6 +256,70 @@ func (m *Cobrowsesession) validateDisconnectedTime(formats strfmt.Registry) erro
 	}
 
 	if err := validate.FormatOf("disconnectedTime", "body", "date-time", m.DisconnectedTime.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+var cobrowsesessionTypeInitialStatePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["alerting","dialing","contacting","offering","connected","disconnected","terminated","scheduled","none"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		cobrowsesessionTypeInitialStatePropEnum = append(cobrowsesessionTypeInitialStatePropEnum, v)
+	}
+}
+
+const (
+
+	// CobrowsesessionInitialStateAlerting captures enum value "alerting"
+	CobrowsesessionInitialStateAlerting string = "alerting"
+
+	// CobrowsesessionInitialStateDialing captures enum value "dialing"
+	CobrowsesessionInitialStateDialing string = "dialing"
+
+	// CobrowsesessionInitialStateContacting captures enum value "contacting"
+	CobrowsesessionInitialStateContacting string = "contacting"
+
+	// CobrowsesessionInitialStateOffering captures enum value "offering"
+	CobrowsesessionInitialStateOffering string = "offering"
+
+	// CobrowsesessionInitialStateConnected captures enum value "connected"
+	CobrowsesessionInitialStateConnected string = "connected"
+
+	// CobrowsesessionInitialStateDisconnected captures enum value "disconnected"
+	CobrowsesessionInitialStateDisconnected string = "disconnected"
+
+	// CobrowsesessionInitialStateTerminated captures enum value "terminated"
+	CobrowsesessionInitialStateTerminated string = "terminated"
+
+	// CobrowsesessionInitialStateScheduled captures enum value "scheduled"
+	CobrowsesessionInitialStateScheduled string = "scheduled"
+
+	// CobrowsesessionInitialStateNone captures enum value "none"
+	CobrowsesessionInitialStateNone string = "none"
+)
+
+// prop value enum
+func (m *Cobrowsesession) validateInitialStateEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, cobrowsesessionTypeInitialStatePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *Cobrowsesession) validateInitialState(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.InitialState) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateInitialStateEnum("initialState", "body", m.InitialState); err != nil {
 		return err
 	}
 

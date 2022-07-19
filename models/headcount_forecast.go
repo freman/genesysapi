@@ -14,7 +14,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// HeadcountForecast Headcount interval information for schedule
+// HeadcountForecast headcount forecast
 //
 // swagger:model HeadcountForecast
 type HeadcountForecast struct {

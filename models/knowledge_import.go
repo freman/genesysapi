@@ -47,7 +47,7 @@ type KnowledgeImport struct {
 
 	// Language code
 	// Read Only: true
-	// Enum: [en-US en-UK en-AU de-DE es-US es-ES fr-FR pt-BR nl-NL it-IT]
+	// Enum: [en-US en-UK en-AU de-DE es-US es-ES fr-FR pt-BR nl-NL it-IT fr-CA]
 	LanguageCode string `json:"languageCode,omitempty"`
 
 	// Name of the import operation
@@ -64,7 +64,7 @@ type KnowledgeImport struct {
 
 	// Status of the operation
 	// Read Only: true
-	// Enum: [Created ValidationInProgress ValidationCompleted ValidationFailed Started InProgress Completed PartialCompleted Failed]
+	// Enum: [Created ValidationInProgress ValidationCompleted ValidationFailed Started InProgress Completed PartialCompleted Failed AbortRequested Aborted]
 	Status string `json:"status,omitempty"`
 
 	// Upload key
@@ -212,7 +212,7 @@ var knowledgeImportTypeLanguageCodePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["en-US","en-UK","en-AU","de-DE","es-US","es-ES","fr-FR","pt-BR","nl-NL","it-IT"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["en-US","en-UK","en-AU","de-DE","es-US","es-ES","fr-FR","pt-BR","nl-NL","it-IT","fr-CA"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -251,6 +251,9 @@ const (
 
 	// KnowledgeImportLanguageCodeItIT captures enum value "it-IT"
 	KnowledgeImportLanguageCodeItIT string = "it-IT"
+
+	// KnowledgeImportLanguageCodeFrCA captures enum value "fr-CA"
+	KnowledgeImportLanguageCodeFrCA string = "fr-CA"
 )
 
 // prop value enum
@@ -310,7 +313,7 @@ var knowledgeImportTypeStatusPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Created","ValidationInProgress","ValidationCompleted","ValidationFailed","Started","InProgress","Completed","PartialCompleted","Failed"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Created","ValidationInProgress","ValidationCompleted","ValidationFailed","Started","InProgress","Completed","PartialCompleted","Failed","AbortRequested","Aborted"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -346,6 +349,12 @@ const (
 
 	// KnowledgeImportStatusFailed captures enum value "Failed"
 	KnowledgeImportStatusFailed string = "Failed"
+
+	// KnowledgeImportStatusAbortRequested captures enum value "AbortRequested"
+	KnowledgeImportStatusAbortRequested string = "AbortRequested"
+
+	// KnowledgeImportStatusAborted captures enum value "Aborted"
+	KnowledgeImportStatusAborted string = "Aborted"
 )
 
 // prop value enum

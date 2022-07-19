@@ -14,17 +14,13 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
-	"github.com/go-openapi/swag"
 )
 
 // NewDeleteRoutingSmsPhonenumberParams creates a new DeleteRoutingSmsPhonenumberParams object
 // with the default values initialized.
 func NewDeleteRoutingSmsPhonenumberParams() *DeleteRoutingSmsPhonenumberParams {
-	var (
-		asyncDefault = bool(false)
-	)
+	var ()
 	return &DeleteRoutingSmsPhonenumberParams{
-		Async: &asyncDefault,
 
 		timeout: cr.DefaultTimeout,
 	}
@@ -33,11 +29,8 @@ func NewDeleteRoutingSmsPhonenumberParams() *DeleteRoutingSmsPhonenumberParams {
 // NewDeleteRoutingSmsPhonenumberParamsWithTimeout creates a new DeleteRoutingSmsPhonenumberParams object
 // with the default values initialized, and the ability to set a timeout on a request
 func NewDeleteRoutingSmsPhonenumberParamsWithTimeout(timeout time.Duration) *DeleteRoutingSmsPhonenumberParams {
-	var (
-		asyncDefault = bool(false)
-	)
+	var ()
 	return &DeleteRoutingSmsPhonenumberParams{
-		Async: &asyncDefault,
 
 		timeout: timeout,
 	}
@@ -46,11 +39,8 @@ func NewDeleteRoutingSmsPhonenumberParamsWithTimeout(timeout time.Duration) *Del
 // NewDeleteRoutingSmsPhonenumberParamsWithContext creates a new DeleteRoutingSmsPhonenumberParams object
 // with the default values initialized, and the ability to set a context for a request
 func NewDeleteRoutingSmsPhonenumberParamsWithContext(ctx context.Context) *DeleteRoutingSmsPhonenumberParams {
-	var (
-		asyncDefault = bool(false)
-	)
+	var ()
 	return &DeleteRoutingSmsPhonenumberParams{
-		Async: &asyncDefault,
 
 		Context: ctx,
 	}
@@ -59,11 +49,8 @@ func NewDeleteRoutingSmsPhonenumberParamsWithContext(ctx context.Context) *Delet
 // NewDeleteRoutingSmsPhonenumberParamsWithHTTPClient creates a new DeleteRoutingSmsPhonenumberParams object
 // with the default values initialized, and the ability to set a custom HTTPClient for a request
 func NewDeleteRoutingSmsPhonenumberParamsWithHTTPClient(client *http.Client) *DeleteRoutingSmsPhonenumberParams {
-	var (
-		asyncDefault = bool(false)
-	)
+	var ()
 	return &DeleteRoutingSmsPhonenumberParams{
-		Async:      &asyncDefault,
 		HTTPClient: client,
 	}
 }
@@ -78,11 +65,6 @@ type DeleteRoutingSmsPhonenumberParams struct {
 
 	*/
 	AddressID string
-	/*Async
-	  Delete a phone number for SMS in an asynchronous manner. If the async parameter value is true, this initiates the deletion of a provisioned phone number.
-
-	*/
-	Async *bool
 
 	timeout    time.Duration
 	Context    context.Context
@@ -133,17 +115,6 @@ func (o *DeleteRoutingSmsPhonenumberParams) SetAddressID(addressID string) {
 	o.AddressID = addressID
 }
 
-// WithAsync adds the async to the delete routing sms phonenumber params
-func (o *DeleteRoutingSmsPhonenumberParams) WithAsync(async *bool) *DeleteRoutingSmsPhonenumberParams {
-	o.SetAsync(async)
-	return o
-}
-
-// SetAsync adds the async to the delete routing sms phonenumber params
-func (o *DeleteRoutingSmsPhonenumberParams) SetAsync(async *bool) {
-	o.Async = async
-}
-
 // WriteToRequest writes these params to a swagger request
 func (o *DeleteRoutingSmsPhonenumberParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -155,22 +126,6 @@ func (o *DeleteRoutingSmsPhonenumberParams) WriteToRequest(r runtime.ClientReque
 	// path param addressId
 	if err := r.SetPathParam("addressId", o.AddressID); err != nil {
 		return err
-	}
-
-	if o.Async != nil {
-
-		// query param async
-		var qrAsync bool
-		if o.Async != nil {
-			qrAsync = *o.Async
-		}
-		qAsync := swag.FormatBool(qrAsync)
-		if qAsync != "" {
-			if err := r.SetQueryParam("async", qAsync); err != nil {
-				return err
-			}
-		}
-
 	}
 
 	if len(res) > 0 {

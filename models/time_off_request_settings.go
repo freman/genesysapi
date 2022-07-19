@@ -10,7 +10,7 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// TimeOffRequestSettings Time Off Request Settings
+// TimeOffRequestSettings time off request settings
 //
 // swagger:model TimeOffRequestSettings
 type TimeOffRequestSettings struct {

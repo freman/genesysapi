@@ -40,7 +40,7 @@ type IVR struct {
 	Description string `json:"description,omitempty"`
 
 	// The division to which this entity belongs.
-	Division *Division `json:"division,omitempty"`
+	Division *WritableDivision `json:"division,omitempty"`
 
 	// The phone number(s) to contact the IVR by.  Each phone number must be unique and not in use by another resource.  For example, a user and an iVR cannot have the same phone number.
 	Dnis []string `json:"dnis"`

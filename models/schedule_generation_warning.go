@@ -15,7 +15,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// ScheduleGenerationWarning Schedule generation warning
+// ScheduleGenerationWarning schedule generation warning
 //
 // swagger:model ScheduleGenerationWarning
 type ScheduleGenerationWarning struct {

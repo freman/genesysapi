@@ -19,6 +19,11 @@ import (
 // swagger:model UCIntegration
 type UCIntegration struct {
 
+	// badgeIcon
+	// Required: true
+	// Read Only: true
+	BadgeIcons map[string]UCIcon `json:"badgeIcons"`
+
 	// i10n
 	// Required: true
 	// Read Only: true
@@ -36,7 +41,7 @@ type UCIntegration struct {
 	// integrationPresenceType
 	// Required: true
 	// Read Only: true
-	// Enum: [MicrosoftTeams ZoomPhone]
+	// Enum: [MicrosoftTeams ZoomPhone EightByEight]
 	IntegrationPresenceSource string `json:"integrationPresenceSource"`
 
 	// name
@@ -61,6 +66,10 @@ type UCIntegration struct {
 // Validate validates this u c integration
 func (m *UCIntegration) Validate(formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.validateBadgeIcons(formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.validateI10n(formats); err != nil {
 		res = append(res, err)
@@ -89,6 +98,24 @@ func (m *UCIntegration) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *UCIntegration) validateBadgeIcons(formats strfmt.Registry) error {
+
+	for k := range m.BadgeIcons {
+
+		if err := validate.Required("badgeIcons"+"."+k, "body", m.BadgeIcons[k]); err != nil {
+			return err
+		}
+		if val, ok := m.BadgeIcons[k]; ok {
+			if err := val.Validate(formats); err != nil {
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 
@@ -132,7 +159,7 @@ var uCIntegrationTypeIntegrationPresenceSourcePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["MicrosoftTeams","ZoomPhone"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["MicrosoftTeams","ZoomPhone","EightByEight"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -147,6 +174,9 @@ const (
 
 	// UCIntegrationIntegrationPresenceSourceZoomPhone captures enum value "ZoomPhone"
 	UCIntegrationIntegrationPresenceSourceZoomPhone string = "ZoomPhone"
+
+	// UCIntegrationIntegrationPresenceSourceEightByEight captures enum value "EightByEight"
+	UCIntegrationIntegrationPresenceSourceEightByEight string = "EightByEight"
 )
 
 // prop value enum

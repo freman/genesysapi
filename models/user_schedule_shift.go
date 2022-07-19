@@ -14,7 +14,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// UserScheduleShift Single shift in a user's schedule
+// UserScheduleShift user schedule shift
 //
 // swagger:model UserScheduleShift
 type UserScheduleShift struct {

@@ -22,6 +22,9 @@ type UploadURLRequest struct {
 	// Content MD5 of the file to upload
 	ContentMd5 string `json:"contentMd5,omitempty"`
 
+	// The content type of the file to upload. Allows all MIME types
+	ContentType string `json:"contentType,omitempty"`
+
 	// Name of the file to upload. It must not start with a dot and not end with a forward slash. Whitespace and the following characters are not allowed: \{^}%`]">[~<#|
 	FileName string `json:"fileName,omitempty"`
 

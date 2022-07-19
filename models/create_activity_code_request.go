@@ -7,6 +7,7 @@ package models
 
 import (
 	"encoding/json"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -14,7 +15,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// CreateActivityCodeRequest Activity Code
+// CreateActivityCodeRequest create activity code request
 //
 // swagger:model CreateActivityCodeRequest
 type CreateActivityCodeRequest struct {
@@ -33,12 +34,24 @@ type CreateActivityCodeRequest struct {
 	// Indicates whether or not the activity should be counted as work time
 	CountsAsWorkTime bool `json:"countsAsWorkTime"`
 
+	// Whether or not this activity code counts toward shrinkage calculations
+	CountsTowardShrinkage bool `json:"countsTowardShrinkage"`
+
+	// Whether this activity code is considered interruptible
+	Interruptible bool `json:"interruptible"`
+
 	// The default length of the activity in minutes
 	LengthInMinutes int32 `json:"lengthInMinutes,omitempty"`
 
 	// The name of the activity code
 	// Required: true
 	Name *string `json:"name"`
+
+	// Whether this activity code is considered planned or unplanned shrinkage
+	PlannedShrinkage bool `json:"plannedShrinkage"`
+
+	// The secondary presences of this activity code
+	SecondaryPresences []*SecondaryPresence `json:"secondaryPresences"`
 }
 
 // Validate validates this create activity code request
@@ -50,6 +63,10 @@ func (m *CreateActivityCodeRequest) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateName(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSecondaryPresences(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -127,6 +144,31 @@ func (m *CreateActivityCodeRequest) validateName(formats strfmt.Registry) error 
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *CreateActivityCodeRequest) validateSecondaryPresences(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.SecondaryPresences) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.SecondaryPresences); i++ {
+		if swag.IsZero(m.SecondaryPresences[i]) { // not required
+			continue
+		}
+
+		if m.SecondaryPresences[i] != nil {
+			if err := m.SecondaryPresences[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("secondaryPresences" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

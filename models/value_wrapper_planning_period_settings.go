@@ -11,7 +11,7 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// ValueWrapperPlanningPeriodSettings An object to provide context to nullable fields in PATCH requests
+// ValueWrapperPlanningPeriodSettings value wrapper planning period settings
 //
 // swagger:model ValueWrapperPlanningPeriodSettings
 type ValueWrapperPlanningPeriodSettings struct {

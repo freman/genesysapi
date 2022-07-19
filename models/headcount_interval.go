@@ -12,7 +12,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// HeadcountInterval Headcount interval information for schedule
+// HeadcountInterval headcount interval
 //
 // swagger:model HeadcountInterval
 type HeadcountInterval struct {

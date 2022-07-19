@@ -15,7 +15,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// WorkPlan Work plan information
+// WorkPlan work plan
 //
 // swagger:model WorkPlan
 type WorkPlan struct {

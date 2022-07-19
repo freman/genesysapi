@@ -14,7 +14,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// ActivityCode Activity code data
+// ActivityCode activity code
 //
 // swagger:model ActivityCode
 type ActivityCode struct {

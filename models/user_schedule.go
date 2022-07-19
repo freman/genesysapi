@@ -14,7 +14,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// UserSchedule A schedule for a single user over a given time range
+// UserSchedule user schedule
 //
 // swagger:model UserSchedule
 type UserSchedule struct {

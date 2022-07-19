@@ -12,7 +12,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// WfmVersionedEntityMetadata Metadata to associate with a given entity
+// WfmVersionedEntityMetadata wfm versioned entity metadata
 //
 // swagger:model WfmVersionedEntityMetadata
 type WfmVersionedEntityMetadata struct {

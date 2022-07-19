@@ -134,7 +134,7 @@ type API interface {
 	*/
 	GetRoutingPredictors(ctx context.Context, params *GetRoutingPredictorsParams) (*GetRoutingPredictorsOK, error)
 	/*
-	   GetRoutingPredictorsKeyperformanceindicators gets a list of key performance indicators available for the predictors
+	   GetRoutingPredictorsKeyperformanceindicators gets a list of key performance indicators
 	*/
 	GetRoutingPredictorsKeyperformanceindicators(ctx context.Context, params *GetRoutingPredictorsKeyperformanceindicatorsParams) (*GetRoutingPredictorsKeyperformanceindicatorsOK, error)
 	/*
@@ -1140,7 +1140,7 @@ func (a *Client) GetRoutingPredictors(ctx context.Context, params *GetRoutingPre
 }
 
 /*
-GetRoutingPredictorsKeyperformanceindicators gets a list of key performance indicators available for the predictors
+GetRoutingPredictorsKeyperformanceindicators gets a list of key performance indicators
 */
 func (a *Client) GetRoutingPredictorsKeyperformanceindicators(ctx context.Context, params *GetRoutingPredictorsKeyperformanceindicatorsParams) (*GetRoutingPredictorsKeyperformanceindicatorsOK, error) {
 

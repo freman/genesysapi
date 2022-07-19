@@ -7,6 +7,7 @@ package models
 
 import (
 	"encoding/json"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -14,7 +15,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// BusinessUnitActivityCode Activity code data
+// BusinessUnitActivityCode business unit activity code
 //
 // swagger:model BusinessUnitActivityCode
 type BusinessUnitActivityCode struct {
@@ -35,12 +36,18 @@ type BusinessUnitActivityCode struct {
 	// Indicates whether or not the activity should be counted as contiguous work time for calculating daily constraints
 	CountsAsWorkTime bool `json:"countsAsWorkTime"`
 
+	// Whether or not this activity code counts toward shrinkage calculations
+	CountsTowardShrinkage bool `json:"countsTowardShrinkage"`
+
 	// Whether this is a default activity code
 	DefaultCode bool `json:"defaultCode"`
 
 	// The globally unique identifier for the object.
 	// Read Only: true
 	ID string `json:"id,omitempty"`
+
+	// Whether this activity code is considered interruptible
+	Interruptible bool `json:"interruptible"`
 
 	// The default length of the activity in minutes
 	LengthInMinutes int32 `json:"lengthInMinutes,omitempty"`
@@ -50,6 +57,12 @@ type BusinessUnitActivityCode struct {
 
 	// name
 	Name string `json:"name,omitempty"`
+
+	// Whether this activity code is considered planned or unplanned shrinkage
+	PlannedShrinkage bool `json:"plannedShrinkage"`
+
+	// The secondary presences of this activity code
+	SecondaryPresences []*SecondaryPresence `json:"secondaryPresences"`
 
 	// The URI for this object
 	// Read Only: true
@@ -66,6 +79,10 @@ func (m *BusinessUnitActivityCode) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateMetadata(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSecondaryPresences(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -156,6 +173,31 @@ func (m *BusinessUnitActivityCode) validateMetadata(formats strfmt.Registry) err
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *BusinessUnitActivityCode) validateSecondaryPresences(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.SecondaryPresences) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.SecondaryPresences); i++ {
+		if swag.IsZero(m.SecondaryPresences[i]) { // not required
+			continue
+		}
+
+		if m.SecondaryPresences[i] != nil {
+			if err := m.SecondaryPresences[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("secondaryPresences" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

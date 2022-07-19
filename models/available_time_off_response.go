@@ -13,7 +13,7 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// AvailableTimeOffResponse The list of date ranges with available time off values and the current waitlist per granularity.
+// AvailableTimeOffResponse available time off response
 //
 // swagger:model AvailableTimeOffResponse
 type AvailableTimeOffResponse struct {

@@ -13,7 +13,7 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// TimeOffLimitListing The list of time off limit objects
+// TimeOffLimitListing time off limit listing
 //
 // swagger:model TimeOffLimitListing
 type TimeOffLimitListing struct {

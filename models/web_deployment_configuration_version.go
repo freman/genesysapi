@@ -7,6 +7,7 @@ package models
 
 import (
 	"encoding/json"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -28,6 +29,9 @@ type WebDeploymentConfigurationVersion struct {
 	// A reference to the user who created the configuration version
 	// Read Only: true
 	CreatedUser *AddressableEntityRef `json:"createdUser,omitempty"`
+
+	// The localization settings for homescreen app
+	CustomI18nLabels []*CustomI18nLabels `json:"customI18nLabels"`
 
 	// The date the configuration version was created. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Read Only: true
@@ -108,6 +112,10 @@ func (m *WebDeploymentConfigurationVersion) Validate(formats strfmt.Registry) er
 	}
 
 	if err := m.validateCreatedUser(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCustomI18nLabels(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -214,6 +222,31 @@ func (m *WebDeploymentConfigurationVersion) validateCreatedUser(formats strfmt.R
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *WebDeploymentConfigurationVersion) validateCustomI18nLabels(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.CustomI18nLabels) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.CustomI18nLabels); i++ {
+		if swag.IsZero(m.CustomI18nLabels[i]) { // not required
+			continue
+		}
+
+		if m.CustomI18nLabels[i] != nil {
+			if err := m.CustomI18nLabels[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("customI18nLabels" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

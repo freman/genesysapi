@@ -12,7 +12,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// ManagementUnitSettingsRequest Management Unit Settings
+// ManagementUnitSettingsRequest management unit settings request
 //
 // swagger:model ManagementUnitSettingsRequest
 type ManagementUnitSettingsRequest struct {

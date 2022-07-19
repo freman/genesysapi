@@ -14,7 +14,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// SchedulingSettingsResponse Scheduling Settings
+// SchedulingSettingsResponse scheduling settings response
 //
 // swagger:model SchedulingSettingsResponse
 type SchedulingSettingsResponse struct {

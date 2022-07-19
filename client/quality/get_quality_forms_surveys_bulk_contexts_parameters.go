@@ -74,7 +74,7 @@ for the get quality forms surveys bulk contexts operation typically these are wr
 type GetQualityFormsSurveysBulkContextsParams struct {
 
 	/*ContextID
-	  A comma-delimited list of valid survey form context ids
+	  A comma-delimited list of valid survey form context ids. The maximum number of ids allowed in this list is 100.
 
 	*/
 	ContextID []string

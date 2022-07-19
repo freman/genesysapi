@@ -13,7 +13,7 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// ServiceGoalTemplateList List of service goal templates
+// ServiceGoalTemplateList service goal template list
 //
 // swagger:model ServiceGoalTemplateList
 type ServiceGoalTemplateList struct {

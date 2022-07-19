@@ -41,7 +41,7 @@ type UserScheduleAdherence struct {
 
 	// The business unit to which this user belongs
 	// Read Only: true
-	BusinessUnit *BusinessUnit `json:"businessUnit,omitempty"`
+	BusinessUnit *BusinessUnitReference `json:"businessUnit,omitempty"`
 
 	// The globally unique identifier for the object.
 	// Read Only: true
@@ -58,7 +58,7 @@ type UserScheduleAdherence struct {
 
 	// The management unit to which this user belongs
 	// Read Only: true
-	ManagementUnit *ManagementUnit `json:"managementUnit,omitempty"`
+	ManagementUnit *ManagementUnitReference `json:"managementUnit,omitempty"`
 
 	// name
 	Name string `json:"name,omitempty"`
@@ -86,6 +86,10 @@ type UserScheduleAdherence struct {
 	// Enum: [OnQueueWork Break Meal Meeting OffQueueWork TimeOff Training Unavailable Unscheduled]
 	ScheduledActivityCategory string `json:"scheduledActivityCategory,omitempty"`
 
+	// Activity code for which the user is currently scheduled
+	// Read Only: true
+	ScheduledActivityCode *ActivityCodeReference `json:"scheduledActivityCode,omitempty"`
+
 	// The URI for this object
 	// Read Only: true
 	// Format: uri
@@ -98,7 +102,7 @@ type UserScheduleAdherence struct {
 
 	// The team to which this user belongs
 	// Read Only: true
-	Team *Team `json:"team,omitempty"`
+	Team *TeamReference `json:"team,omitempty"`
 
 	// Time when the user entered the current adherenceState in ISO-8601 format
 	// Read Only: true
@@ -151,6 +155,10 @@ func (m *UserScheduleAdherence) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateScheduledActivityCategory(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateScheduledActivityCode(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -546,6 +554,24 @@ func (m *UserScheduleAdherence) validateScheduledActivityCategory(formats strfmt
 	// value enum
 	if err := m.validateScheduledActivityCategoryEnum("scheduledActivityCategory", "body", m.ScheduledActivityCategory); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *UserScheduleAdherence) validateScheduledActivityCode(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.ScheduledActivityCode) { // not required
+		return nil
+	}
+
+	if m.ScheduledActivityCode != nil {
+		if err := m.ScheduledActivityCode.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("scheduledActivityCode")
+			}
+			return err
+		}
 	}
 
 	return nil

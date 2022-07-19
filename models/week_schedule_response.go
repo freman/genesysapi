@@ -11,7 +11,7 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// WeekScheduleResponse Response for query for week schedule for a given week in management unit
+// WeekScheduleResponse week schedule response
 //
 // swagger:model WeekScheduleResponse
 type WeekScheduleResponse struct {

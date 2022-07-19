@@ -20,6 +20,10 @@ import (
 // swagger:model PolicyConditions
 type PolicyConditions struct {
 
+	// This condition is to filter out conversation with and without customer participation.
+	// Enum: [YES NO]
+	CustomerParticipation string `json:"customerParticipation,omitempty"`
+
 	// date ranges
 	DateRanges []string `json:"dateRanges"`
 
@@ -48,6 +52,10 @@ type PolicyConditions struct {
 // Validate validates this policy conditions
 func (m *PolicyConditions) Validate(formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.validateCustomerParticipation(formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.validateDirections(formats); err != nil {
 		res = append(res, err)
@@ -80,6 +88,49 @@ func (m *PolicyConditions) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+var policyConditionsTypeCustomerParticipationPropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["YES","NO"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		policyConditionsTypeCustomerParticipationPropEnum = append(policyConditionsTypeCustomerParticipationPropEnum, v)
+	}
+}
+
+const (
+
+	// PolicyConditionsCustomerParticipationYES captures enum value "YES"
+	PolicyConditionsCustomerParticipationYES string = "YES"
+
+	// PolicyConditionsCustomerParticipationNO captures enum value "NO"
+	PolicyConditionsCustomerParticipationNO string = "NO"
+)
+
+// prop value enum
+func (m *PolicyConditions) validateCustomerParticipationEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, policyConditionsTypeCustomerParticipationPropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *PolicyConditions) validateCustomerParticipation(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.CustomerParticipation) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateCustomerParticipationEnum("customerParticipation", "body", m.CustomerParticipation); err != nil {
+		return err
+	}
+
 	return nil
 }
 

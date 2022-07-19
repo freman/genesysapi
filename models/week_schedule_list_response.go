@@ -13,7 +13,7 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// WeekScheduleListResponse Week schedule list
+// WeekScheduleListResponse week schedule list response
 //
 // swagger:model WeekScheduleListResponse
 type WeekScheduleListResponse struct {

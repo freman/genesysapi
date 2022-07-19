@@ -774,7 +774,7 @@ func (a *Client) GetUserRoles(ctx context.Context, params *GetUserRolesParams) (
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "getUserRoles",
 		Method:             "GET",
-		PathPattern:        "/api/v2/users/{userId}/roles",
+		PathPattern:        "/api/v2/users/{subjectId}/roles",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
@@ -1239,7 +1239,7 @@ func (a *Client) PutUserRoles(ctx context.Context, params *PutUserRolesParams) (
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "putUserRoles",
 		Method:             "PUT",
-		PathPattern:        "/api/v2/users/{userId}/roles",
+		PathPattern:        "/api/v2/users/{subjectId}/roles",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},

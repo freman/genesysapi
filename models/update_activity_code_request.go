@@ -14,7 +14,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// UpdateActivityCodeRequest Activity Code
+// UpdateActivityCodeRequest update activity code request
 //
 // swagger:model UpdateActivityCodeRequest
 type UpdateActivityCodeRequest struct {
@@ -32,6 +32,12 @@ type UpdateActivityCodeRequest struct {
 	// Indicates whether or not the activity should be counted as work time
 	CountsAsWorkTime bool `json:"countsAsWorkTime"`
 
+	// Whether or not this activity code counts toward shrinkage calculations
+	CountsTowardShrinkage bool `json:"countsTowardShrinkage"`
+
+	// Whether this activity code is considered interruptible
+	Interruptible bool `json:"interruptible"`
+
 	// The default length of the activity in minutes
 	LengthInMinutes int32 `json:"lengthInMinutes,omitempty"`
 
@@ -41,6 +47,12 @@ type UpdateActivityCodeRequest struct {
 
 	// The name of the activity code
 	Name string `json:"name,omitempty"`
+
+	// Whether this activity code is considered planned or unplanned shrinkage
+	PlannedShrinkage bool `json:"plannedShrinkage"`
+
+	// The secondary presences of this activity code
+	SecondaryPresences *ListWrapperSecondaryPresence `json:"secondaryPresences,omitempty"`
 }
 
 // Validate validates this update activity code request
@@ -52,6 +64,10 @@ func (m *UpdateActivityCodeRequest) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateMetadata(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSecondaryPresences(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -135,6 +151,24 @@ func (m *UpdateActivityCodeRequest) validateMetadata(formats strfmt.Registry) er
 		if err := m.Metadata.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("metadata")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UpdateActivityCodeRequest) validateSecondaryPresences(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.SecondaryPresences) { // not required
+		return nil
+	}
+
+	if m.SecondaryPresences != nil {
+		if err := m.SecondaryPresences.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("secondaryPresences")
 			}
 			return err
 		}

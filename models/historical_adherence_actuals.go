@@ -23,6 +23,9 @@ type HistoricalAdherenceActuals struct {
 	// Enum: [OnQueueWork Break Meal Meeting OffQueueWork TimeOff Training Unavailable Unscheduled]
 	ActualActivityCategory string `json:"actualActivityCategory,omitempty"`
 
+	// The lookup ID used to retrieve the actual secondary status from map of lookup ID to corresponding secondary presence ID
+	ActualSecondaryPresenceLookupID string `json:"actualSecondaryPresenceLookupId,omitempty"`
+
 	// Actual end offset in seconds relative to query start time
 	EndOffsetSeconds int32 `json:"endOffsetSeconds,omitempty"`
 

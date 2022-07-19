@@ -13,7 +13,7 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// PlanningGroupList List of planning groups
+// PlanningGroupList planning group list
 //
 // swagger:model PlanningGroupList
 type PlanningGroupList struct {

@@ -12,7 +12,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// UpdateTimeOffLimitRequest Contains time off limit object property values to be updated.
+// UpdateTimeOffLimitRequest update time off limit request
 //
 // swagger:model UpdateTimeOffLimitRequest
 type UpdateTimeOffLimitRequest struct {

@@ -41,7 +41,7 @@ type ScheduleGroup struct {
 	Description string `json:"description,omitempty"`
 
 	// The division to which this entity belongs.
-	Division *Division `json:"division,omitempty"`
+	Division *WritableDivision `json:"division,omitempty"`
 
 	// The schedules defining the hours an organization is closed for the holidays.
 	HolidaySchedules []*DomainEntityRef `json:"holidaySchedules"`

@@ -28,14 +28,12 @@ type CreateAgentTimeOffRequest struct {
 	DailyDurationMinutes *int32 `json:"dailyDurationMinutes"`
 
 	// A set of dates in yyyy-MM-dd format.  Should be interpreted in the management unit's configured time zone.
-	// Unique: true
 	FullDayManagementUnitDates []string `json:"fullDayManagementUnitDates"`
 
 	// Notes about the time off request
 	Notes string `json:"notes,omitempty"`
 
 	// A set of start date-times in ISO-8601 format for partial day requests.
-	// Unique: true
 	PartialDayStartDateTimes []strfmt.DateTime `json:"partialDayStartDateTimes"`
 }
 
@@ -48,10 +46,6 @@ func (m *CreateAgentTimeOffRequest) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateDailyDurationMinutes(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateFullDayManagementUnitDates(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -83,27 +77,10 @@ func (m *CreateAgentTimeOffRequest) validateDailyDurationMinutes(formats strfmt.
 	return nil
 }
 
-func (m *CreateAgentTimeOffRequest) validateFullDayManagementUnitDates(formats strfmt.Registry) error {
-
-	if swag.IsZero(m.FullDayManagementUnitDates) { // not required
-		return nil
-	}
-
-	if err := validate.UniqueItems("fullDayManagementUnitDates", "body", m.FullDayManagementUnitDates); err != nil {
-		return err
-	}
-
-	return nil
-}
-
 func (m *CreateAgentTimeOffRequest) validatePartialDayStartDateTimes(formats strfmt.Registry) error {
 
 	if swag.IsZero(m.PartialDayStartDateTimes) { // not required
 		return nil
-	}
-
-	if err := validate.UniqueItems("partialDayStartDateTimes", "body", m.PartialDayStartDateTimes); err != nil {
-		return err
 	}
 
 	for i := 0; i < len(m.PartialDayStartDateTimes); i++ {

@@ -23,9 +23,17 @@ type TimeOffRequestQueryBody struct {
 	// The inclusive range of dates to filter time off requests
 	DateRange *DateRange `json:"dateRange,omitempty"`
 
+	// The set of ids to filter time off requests
+	// Unique: true
+	Ids []string `json:"ids"`
+
 	// The set of statuses to filter time off requests
 	// Unique: true
 	Statuses []string `json:"statuses"`
+
+	// The set of substatuses to filter time off requests
+	// Unique: true
+	Substatuses []string `json:"substatuses"`
 
 	// The set of user ids to filter time off requests
 	// Unique: true
@@ -40,7 +48,15 @@ func (m *TimeOffRequestQueryBody) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateIds(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateStatuses(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSubstatuses(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -67,6 +83,19 @@ func (m *TimeOffRequestQueryBody) validateDateRange(formats strfmt.Registry) err
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *TimeOffRequestQueryBody) validateIds(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Ids) { // not required
+		return nil
+	}
+
+	if err := validate.UniqueItems("ids", "body", m.Ids); err != nil {
+		return err
 	}
 
 	return nil
@@ -105,6 +134,47 @@ func (m *TimeOffRequestQueryBody) validateStatuses(formats strfmt.Registry) erro
 
 		// value enum
 		if err := m.validateStatusesItemsEnum("statuses"+"."+strconv.Itoa(i), "body", m.Statuses[i]); err != nil {
+			return err
+		}
+
+	}
+
+	return nil
+}
+
+var timeOffRequestQueryBodySubstatusesItemsEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["AdvanceTimeElapsed","AutoApproved","InsufficientBalance","InvalidDailyDuration","OutsideShift","RemovedFromWaitlist","Waitlisted"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		timeOffRequestQueryBodySubstatusesItemsEnum = append(timeOffRequestQueryBodySubstatusesItemsEnum, v)
+	}
+}
+
+func (m *TimeOffRequestQueryBody) validateSubstatusesItemsEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, timeOffRequestQueryBodySubstatusesItemsEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *TimeOffRequestQueryBody) validateSubstatuses(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Substatuses) { // not required
+		return nil
+	}
+
+	if err := validate.UniqueItems("substatuses", "body", m.Substatuses); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.Substatuses); i++ {
+
+		// value enum
+		if err := m.validateSubstatusesItemsEnum("substatuses"+"."+strconv.Itoa(i), "body", m.Substatuses[i]); err != nil {
 			return err
 		}
 

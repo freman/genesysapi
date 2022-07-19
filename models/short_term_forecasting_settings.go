@@ -10,7 +10,7 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// ShortTermForecastingSettings Short Term Forecasting Settings
+// ShortTermForecastingSettings short term forecasting settings
 //
 // swagger:model ShortTermForecastingSettings
 type ShortTermForecastingSettings struct {

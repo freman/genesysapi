@@ -12,7 +12,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// UserScheduleActivity Represents a single activity in a user's shift
+// UserScheduleActivity user schedule activity
 //
 // swagger:model UserScheduleActivity
 type UserScheduleActivity struct {

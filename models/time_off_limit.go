@@ -14,7 +14,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// TimeOffLimit Time Off Limit
+// TimeOffLimit time off limit
 //
 // swagger:model TimeOffLimit
 type TimeOffLimit struct {

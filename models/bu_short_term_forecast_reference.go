@@ -12,7 +12,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// BuShortTermForecastReference A pointer to a short term forecast
+// BuShortTermForecastReference bu short term forecast reference
 //
 // swagger:model BuShortTermForecastReference
 type BuShortTermForecastReference struct {

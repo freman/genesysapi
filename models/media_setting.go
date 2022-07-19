@@ -9,6 +9,7 @@ import (
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // MediaSetting media setting
@@ -19,8 +20,14 @@ type MediaSetting struct {
 	// alerting timeout seconds
 	AlertingTimeoutSeconds int32 `json:"alertingTimeoutSeconds,omitempty"`
 
+	// Indicates if auto-answer is enabled for the given media type or subtype (default is false).  Subtype settings take precedence over media type settings.
+	EnableAutoAnswer bool `json:"enableAutoAnswer"`
+
 	// service level
 	ServiceLevel *ServiceLevel `json:"serviceLevel,omitempty"`
+
+	// Map of media subtype to media subtype specific settings.
+	SubTypeSettings map[string]BaseMediaSettings `json:"subTypeSettings,omitempty"`
 }
 
 // Validate validates this media setting
@@ -28,6 +35,10 @@ func (m *MediaSetting) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateServiceLevel(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSubTypeSettings(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -50,6 +61,28 @@ func (m *MediaSetting) validateServiceLevel(formats strfmt.Registry) error {
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *MediaSetting) validateSubTypeSettings(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.SubTypeSettings) { // not required
+		return nil
+	}
+
+	for k := range m.SubTypeSettings {
+
+		if err := validate.Required("subTypeSettings"+"."+k, "body", m.SubTypeSettings[k]); err != nil {
+			return err
+		}
+		if val, ok := m.SubTypeSettings[k]; ok {
+			if err := val.Validate(formats); err != nil {
+				return err
+			}
+		}
+
 	}
 
 	return nil

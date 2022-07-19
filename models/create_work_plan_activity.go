@@ -10,7 +10,7 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// CreateWorkPlanActivity Activity configured for shift in work plan
+// CreateWorkPlanActivity create work plan activity
 //
 // swagger:model CreateWorkPlanActivity
 type CreateWorkPlanActivity struct {

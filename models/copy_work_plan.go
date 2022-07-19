@@ -12,7 +12,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// CopyWorkPlan Information associated with a work plan thats created as a copy
+// CopyWorkPlan copy work plan
 //
 // swagger:model CopyWorkPlan
 type CopyWorkPlan struct {

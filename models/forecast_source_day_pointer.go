@@ -14,7 +14,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// ForecastSourceDayPointer Pointer to look up source data for a short term forecast
+// ForecastSourceDayPointer forecast source day pointer
 //
 // swagger:model ForecastSourceDayPointer
 type ForecastSourceDayPointer struct {

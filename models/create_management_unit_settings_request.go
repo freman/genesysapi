@@ -11,7 +11,7 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// CreateManagementUnitSettingsRequest Management Unit Settings
+// CreateManagementUnitSettingsRequest create management unit settings request
 //
 // swagger:model CreateManagementUnitSettingsRequest
 type CreateManagementUnitSettingsRequest struct {

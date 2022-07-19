@@ -15,7 +15,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// WorkPlanValidationRequest Work plan information
+// WorkPlanValidationRequest work plan validation request
 //
 // swagger:model WorkPlanValidationRequest
 type WorkPlanValidationRequest struct {

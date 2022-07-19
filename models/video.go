@@ -46,6 +46,10 @@ type Video struct {
 	// A globally unique identifier for this communication.
 	ID string `json:"id,omitempty"`
 
+	// The initial connection state of this communication.
+	// Enum: [alerting dialing contacting offering connected disconnected terminated none]
+	InitialState string `json:"initialState,omitempty"`
+
 	// List of media stream ids
 	Msids []string `json:"msids"`
 
@@ -96,6 +100,10 @@ func (m *Video) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateDisconnectedTime(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateInitialState(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -244,6 +252,67 @@ func (m *Video) validateDisconnectedTime(formats strfmt.Registry) error {
 	}
 
 	if err := validate.FormatOf("disconnectedTime", "body", "date-time", m.DisconnectedTime.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+var videoTypeInitialStatePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["alerting","dialing","contacting","offering","connected","disconnected","terminated","none"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		videoTypeInitialStatePropEnum = append(videoTypeInitialStatePropEnum, v)
+	}
+}
+
+const (
+
+	// VideoInitialStateAlerting captures enum value "alerting"
+	VideoInitialStateAlerting string = "alerting"
+
+	// VideoInitialStateDialing captures enum value "dialing"
+	VideoInitialStateDialing string = "dialing"
+
+	// VideoInitialStateContacting captures enum value "contacting"
+	VideoInitialStateContacting string = "contacting"
+
+	// VideoInitialStateOffering captures enum value "offering"
+	VideoInitialStateOffering string = "offering"
+
+	// VideoInitialStateConnected captures enum value "connected"
+	VideoInitialStateConnected string = "connected"
+
+	// VideoInitialStateDisconnected captures enum value "disconnected"
+	VideoInitialStateDisconnected string = "disconnected"
+
+	// VideoInitialStateTerminated captures enum value "terminated"
+	VideoInitialStateTerminated string = "terminated"
+
+	// VideoInitialStateNone captures enum value "none"
+	VideoInitialStateNone string = "none"
+)
+
+// prop value enum
+func (m *Video) validateInitialStateEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, videoTypeInitialStatePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *Video) validateInitialState(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.InitialState) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateInitialStateEnum("initialState", "body", m.InitialState); err != nil {
 		return err
 	}
 

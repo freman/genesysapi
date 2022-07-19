@@ -15,7 +15,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// ShiftStartVariance Variance in minutes among start times of shifts in work plan
+// ShiftStartVariance shift start variance
 //
 // swagger:model ShiftStartVariance
 type ShiftStartVariance struct {

@@ -22,6 +22,9 @@ type TranscriptionSettings struct {
 	// Setting to enable/disable content search
 	ContentSearchEnabled bool `json:"contentSearchEnabled"`
 
+	// Boolean flag indicating whether low latency transcription via Notification API is enabled
+	LowLatencyTranscriptionEnabled bool `json:"lowLatencyTranscriptionEnabled"`
+
 	// Setting to enable/disable transcription capability
 	// Required: true
 	// Enum: [Disabled EnabledGlobally EnabledQueueFlow]

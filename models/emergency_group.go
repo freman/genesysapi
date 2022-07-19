@@ -38,7 +38,7 @@ type EmergencyGroup struct {
 	Description string `json:"description,omitempty"`
 
 	// The division to which this entity belongs.
-	Division *Division `json:"division,omitempty"`
+	Division *WritableDivision `json:"division,omitempty"`
 
 	// The emergency call flow(s) to use during an emergency.
 	EmergencyCallFlows []*EmergencyCallFlow `json:"emergencyCallFlows"`

@@ -12,7 +12,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// ValueWrapperDate An object to provide context to nullable fields in PATCH requests
+// ValueWrapperDate value wrapper date
 //
 // swagger:model ValueWrapperDate
 type ValueWrapperDate struct {

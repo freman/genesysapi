@@ -19,7 +19,7 @@ import (
 // NewGetRoutingPredictorsKeyperformanceindicatorsParams creates a new GetRoutingPredictorsKeyperformanceindicatorsParams object
 // with the default values initialized.
 func NewGetRoutingPredictorsKeyperformanceindicatorsParams() *GetRoutingPredictorsKeyperformanceindicatorsParams {
-
+	var ()
 	return &GetRoutingPredictorsKeyperformanceindicatorsParams{
 
 		timeout: cr.DefaultTimeout,
@@ -29,7 +29,7 @@ func NewGetRoutingPredictorsKeyperformanceindicatorsParams() *GetRoutingPredicto
 // NewGetRoutingPredictorsKeyperformanceindicatorsParamsWithTimeout creates a new GetRoutingPredictorsKeyperformanceindicatorsParams object
 // with the default values initialized, and the ability to set a timeout on a request
 func NewGetRoutingPredictorsKeyperformanceindicatorsParamsWithTimeout(timeout time.Duration) *GetRoutingPredictorsKeyperformanceindicatorsParams {
-
+	var ()
 	return &GetRoutingPredictorsKeyperformanceindicatorsParams{
 
 		timeout: timeout,
@@ -39,7 +39,7 @@ func NewGetRoutingPredictorsKeyperformanceindicatorsParamsWithTimeout(timeout ti
 // NewGetRoutingPredictorsKeyperformanceindicatorsParamsWithContext creates a new GetRoutingPredictorsKeyperformanceindicatorsParams object
 // with the default values initialized, and the ability to set a context for a request
 func NewGetRoutingPredictorsKeyperformanceindicatorsParamsWithContext(ctx context.Context) *GetRoutingPredictorsKeyperformanceindicatorsParams {
-
+	var ()
 	return &GetRoutingPredictorsKeyperformanceindicatorsParams{
 
 		Context: ctx,
@@ -49,7 +49,7 @@ func NewGetRoutingPredictorsKeyperformanceindicatorsParamsWithContext(ctx contex
 // NewGetRoutingPredictorsKeyperformanceindicatorsParamsWithHTTPClient creates a new GetRoutingPredictorsKeyperformanceindicatorsParams object
 // with the default values initialized, and the ability to set a custom HTTPClient for a request
 func NewGetRoutingPredictorsKeyperformanceindicatorsParamsWithHTTPClient(client *http.Client) *GetRoutingPredictorsKeyperformanceindicatorsParams {
-
+	var ()
 	return &GetRoutingPredictorsKeyperformanceindicatorsParams{
 		HTTPClient: client,
 	}
@@ -59,6 +59,13 @@ func NewGetRoutingPredictorsKeyperformanceindicatorsParamsWithHTTPClient(client 
 for the get routing predictors keyperformanceindicators operation typically these are written to a http.Request
 */
 type GetRoutingPredictorsKeyperformanceindicatorsParams struct {
+
+	/*KpiGroup
+	  The Group of Key Performance Indicators to return
+
+	*/
+	KpiGroup *string
+
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
@@ -97,6 +104,17 @@ func (o *GetRoutingPredictorsKeyperformanceindicatorsParams) SetHTTPClient(clien
 	o.HTTPClient = client
 }
 
+// WithKpiGroup adds the kpiGroup to the get routing predictors keyperformanceindicators params
+func (o *GetRoutingPredictorsKeyperformanceindicatorsParams) WithKpiGroup(kpiGroup *string) *GetRoutingPredictorsKeyperformanceindicatorsParams {
+	o.SetKpiGroup(kpiGroup)
+	return o
+}
+
+// SetKpiGroup adds the kpiGroup to the get routing predictors keyperformanceindicators params
+func (o *GetRoutingPredictorsKeyperformanceindicatorsParams) SetKpiGroup(kpiGroup *string) {
+	o.KpiGroup = kpiGroup
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *GetRoutingPredictorsKeyperformanceindicatorsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -104,6 +122,22 @@ func (o *GetRoutingPredictorsKeyperformanceindicatorsParams) WriteToRequest(r ru
 		return err
 	}
 	var res []error
+
+	if o.KpiGroup != nil {
+
+		// query param kpiGroup
+		var qrKpiGroup string
+		if o.KpiGroup != nil {
+			qrKpiGroup = *o.KpiGroup
+		}
+		qKpiGroup := qrKpiGroup
+		if qKpiGroup != "" {
+			if err := r.SetQueryParam("kpiGroup", qKpiGroup); err != nil {
+				return err
+			}
+		}
+
+	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)

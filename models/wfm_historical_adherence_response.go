@@ -14,7 +14,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// WfmHistoricalAdherenceResponse Response for Historical Adherence Query, intended to tell the client what to listen for on a notification topic
+// WfmHistoricalAdherenceResponse wfm historical adherence response
 //
 // swagger:model WfmHistoricalAdherenceResponse
 type WfmHistoricalAdherenceResponse struct {

@@ -12,7 +12,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// ServiceGoalTemplate Service Goal Template
+// ServiceGoalTemplate service goal template
 //
 // swagger:model ServiceGoalTemplate
 type ServiceGoalTemplate struct {

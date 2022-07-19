@@ -37,7 +37,7 @@ type Schedule struct {
 	Description string `json:"description,omitempty"`
 
 	// The division to which this entity belongs.
-	Division *Division `json:"division,omitempty"`
+	Division *WritableDivision `json:"division,omitempty"`
 
 	// Date time is represented as an ISO-8601 string without a timezone. For example: yyyy-MM-ddTHH:mm:ss.SSS
 	// Required: true

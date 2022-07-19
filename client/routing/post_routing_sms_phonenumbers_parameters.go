@@ -14,7 +14,6 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
-	"github.com/go-openapi/swag"
 
 	"github.com/freman/genesysapi/models"
 )
@@ -22,11 +21,8 @@ import (
 // NewPostRoutingSmsPhonenumbersParams creates a new PostRoutingSmsPhonenumbersParams object
 // with the default values initialized.
 func NewPostRoutingSmsPhonenumbersParams() *PostRoutingSmsPhonenumbersParams {
-	var (
-		asyncDefault = bool(false)
-	)
+	var ()
 	return &PostRoutingSmsPhonenumbersParams{
-		Async: &asyncDefault,
 
 		timeout: cr.DefaultTimeout,
 	}
@@ -35,11 +31,8 @@ func NewPostRoutingSmsPhonenumbersParams() *PostRoutingSmsPhonenumbersParams {
 // NewPostRoutingSmsPhonenumbersParamsWithTimeout creates a new PostRoutingSmsPhonenumbersParams object
 // with the default values initialized, and the ability to set a timeout on a request
 func NewPostRoutingSmsPhonenumbersParamsWithTimeout(timeout time.Duration) *PostRoutingSmsPhonenumbersParams {
-	var (
-		asyncDefault = bool(false)
-	)
+	var ()
 	return &PostRoutingSmsPhonenumbersParams{
-		Async: &asyncDefault,
 
 		timeout: timeout,
 	}
@@ -48,11 +41,8 @@ func NewPostRoutingSmsPhonenumbersParamsWithTimeout(timeout time.Duration) *Post
 // NewPostRoutingSmsPhonenumbersParamsWithContext creates a new PostRoutingSmsPhonenumbersParams object
 // with the default values initialized, and the ability to set a context for a request
 func NewPostRoutingSmsPhonenumbersParamsWithContext(ctx context.Context) *PostRoutingSmsPhonenumbersParams {
-	var (
-		asyncDefault = bool(false)
-	)
+	var ()
 	return &PostRoutingSmsPhonenumbersParams{
-		Async: &asyncDefault,
 
 		Context: ctx,
 	}
@@ -61,11 +51,8 @@ func NewPostRoutingSmsPhonenumbersParamsWithContext(ctx context.Context) *PostRo
 // NewPostRoutingSmsPhonenumbersParamsWithHTTPClient creates a new PostRoutingSmsPhonenumbersParams object
 // with the default values initialized, and the ability to set a custom HTTPClient for a request
 func NewPostRoutingSmsPhonenumbersParamsWithHTTPClient(client *http.Client) *PostRoutingSmsPhonenumbersParams {
-	var (
-		asyncDefault = bool(false)
-	)
+	var ()
 	return &PostRoutingSmsPhonenumbersParams{
-		Async:      &asyncDefault,
 		HTTPClient: client,
 	}
 }
@@ -75,11 +62,6 @@ for the post routing sms phonenumbers operation typically these are written to a
 */
 type PostRoutingSmsPhonenumbersParams struct {
 
-	/*Async
-	  Provision a new phone number for SMS in an asynchronous manner. If the async parameter value is true, this initiates the provisioning of a new phone number. Check the phoneNumber's provisioningStatus for completion of this request.
-
-	*/
-	Async *bool
 	/*Body
 	  SmsPhoneNumber
 
@@ -124,17 +106,6 @@ func (o *PostRoutingSmsPhonenumbersParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithAsync adds the async to the post routing sms phonenumbers params
-func (o *PostRoutingSmsPhonenumbersParams) WithAsync(async *bool) *PostRoutingSmsPhonenumbersParams {
-	o.SetAsync(async)
-	return o
-}
-
-// SetAsync adds the async to the post routing sms phonenumbers params
-func (o *PostRoutingSmsPhonenumbersParams) SetAsync(async *bool) {
-	o.Async = async
-}
-
 // WithBody adds the body to the post routing sms phonenumbers params
 func (o *PostRoutingSmsPhonenumbersParams) WithBody(body *models.SmsPhoneNumberProvision) *PostRoutingSmsPhonenumbersParams {
 	o.SetBody(body)
@@ -153,22 +124,6 @@ func (o *PostRoutingSmsPhonenumbersParams) WriteToRequest(r runtime.ClientReques
 		return err
 	}
 	var res []error
-
-	if o.Async != nil {
-
-		// query param async
-		var qrAsync bool
-		if o.Async != nil {
-			qrAsync = *o.Async
-		}
-		qAsync := swag.FormatBool(qrAsync)
-		if qAsync != "" {
-			if err := r.SetQueryParam("async", qAsync); err != nil {
-				return err
-			}
-		}
-
-	}
 
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {

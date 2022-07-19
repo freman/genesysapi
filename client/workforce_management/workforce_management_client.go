@@ -76,6 +76,11 @@ type API interface {
 	*/
 	GetWorkforcemanagementAdherence(ctx context.Context, params *GetWorkforcemanagementAdherenceParams) (*GetWorkforcemanagementAdherenceOK, error)
 	/*
+	   GetWorkforcemanagementAdherenceHistoricalJob queries the status of a historical adherence request operation only the user who started the operation can query the status
+	   Job details are only retained if the initial request returned a 202 ACCEPTED response
+	*/
+	GetWorkforcemanagementAdherenceHistoricalJob(ctx context.Context, params *GetWorkforcemanagementAdherenceHistoricalJobParams) (*GetWorkforcemanagementAdherenceHistoricalJobOK, error)
+	/*
 	   GetWorkforcemanagementAdhocmodelingjob gets status of the modeling job
 	*/
 	GetWorkforcemanagementAdhocmodelingjob(ctx context.Context, params *GetWorkforcemanagementAdhocmodelingjobParams) (*GetWorkforcemanagementAdhocmodelingjobOK, error)
@@ -973,6 +978,33 @@ func (a *Client) GetWorkforcemanagementAdherence(ctx context.Context, params *Ge
 		return nil, err
 	}
 	return result.(*GetWorkforcemanagementAdherenceOK), nil
+
+}
+
+/*
+GetWorkforcemanagementAdherenceHistoricalJob queries the status of a historical adherence request operation only the user who started the operation can query the status
+
+Job details are only retained if the initial request returned a 202 ACCEPTED response
+*/
+func (a *Client) GetWorkforcemanagementAdherenceHistoricalJob(ctx context.Context, params *GetWorkforcemanagementAdherenceHistoricalJobParams) (*GetWorkforcemanagementAdherenceHistoricalJobOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getWorkforcemanagementAdherenceHistoricalJob",
+		Method:             "GET",
+		PathPattern:        "/api/v2/workforcemanagement/adherence/historical/jobs/{jobId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetWorkforcemanagementAdherenceHistoricalJobReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetWorkforcemanagementAdherenceHistoricalJobOK), nil
 
 }
 

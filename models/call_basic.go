@@ -66,6 +66,10 @@ type CallBasic struct {
 	// A globally unique identifier for this communication.
 	ID string `json:"id,omitempty"`
 
+	// The initial connection state of this communication.
+	// Enum: [alerting dialing contacting offering connected disconnected terminated converting uploading transmitting none]
+	InitialState string `json:"initialState,omitempty"`
+
 	// True if this call is muted so that remote participants can't hear any audio from this end.
 	Muted bool `json:"muted"`
 
@@ -149,6 +153,10 @@ func (m *CallBasic) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateFaxStatus(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateInitialState(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -418,6 +426,76 @@ func (m *CallBasic) validateFaxStatus(formats strfmt.Registry) error {
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+var callBasicTypeInitialStatePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["alerting","dialing","contacting","offering","connected","disconnected","terminated","converting","uploading","transmitting","none"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		callBasicTypeInitialStatePropEnum = append(callBasicTypeInitialStatePropEnum, v)
+	}
+}
+
+const (
+
+	// CallBasicInitialStateAlerting captures enum value "alerting"
+	CallBasicInitialStateAlerting string = "alerting"
+
+	// CallBasicInitialStateDialing captures enum value "dialing"
+	CallBasicInitialStateDialing string = "dialing"
+
+	// CallBasicInitialStateContacting captures enum value "contacting"
+	CallBasicInitialStateContacting string = "contacting"
+
+	// CallBasicInitialStateOffering captures enum value "offering"
+	CallBasicInitialStateOffering string = "offering"
+
+	// CallBasicInitialStateConnected captures enum value "connected"
+	CallBasicInitialStateConnected string = "connected"
+
+	// CallBasicInitialStateDisconnected captures enum value "disconnected"
+	CallBasicInitialStateDisconnected string = "disconnected"
+
+	// CallBasicInitialStateTerminated captures enum value "terminated"
+	CallBasicInitialStateTerminated string = "terminated"
+
+	// CallBasicInitialStateConverting captures enum value "converting"
+	CallBasicInitialStateConverting string = "converting"
+
+	// CallBasicInitialStateUploading captures enum value "uploading"
+	CallBasicInitialStateUploading string = "uploading"
+
+	// CallBasicInitialStateTransmitting captures enum value "transmitting"
+	CallBasicInitialStateTransmitting string = "transmitting"
+
+	// CallBasicInitialStateNone captures enum value "none"
+	CallBasicInitialStateNone string = "none"
+)
+
+// prop value enum
+func (m *CallBasic) validateInitialStateEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, callBasicTypeInitialStatePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *CallBasic) validateInitialState(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.InitialState) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateInitialStateEnum("initialState", "body", m.InitialState); err != nil {
+		return err
 	}
 
 	return nil

@@ -12,7 +12,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// DeletableUserReference User reference with delete flag to remove the user from an associated entity
+// DeletableUserReference deletable user reference
 //
 // swagger:model DeletableUserReference
 type DeletableUserReference struct {

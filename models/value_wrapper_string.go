@@ -10,7 +10,7 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// ValueWrapperString An object to provide context to nullable fields in PATCH requests
+// ValueWrapperString value wrapper string
 //
 // swagger:model ValueWrapperString
 type ValueWrapperString struct {

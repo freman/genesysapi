@@ -57,6 +57,10 @@ type Email struct {
 	// A globally unique identifier for this communication.
 	ID string `json:"id,omitempty"`
 
+	// The initial connection state of this communication.
+	// Enum: [alerting connected disconnected none transmitting]
+	InitialState string `json:"initialState,omitempty"`
+
 	// A globally unique identifier for the stored content of this communication.
 	MessageID string `json:"messageId,omitempty"`
 
@@ -129,6 +133,10 @@ func (m *Email) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateErrorInfo(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateInitialState(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -368,6 +376,58 @@ func (m *Email) validateErrorInfo(formats strfmt.Registry) error {
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+var emailTypeInitialStatePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["alerting","connected","disconnected","none","transmitting"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		emailTypeInitialStatePropEnum = append(emailTypeInitialStatePropEnum, v)
+	}
+}
+
+const (
+
+	// EmailInitialStateAlerting captures enum value "alerting"
+	EmailInitialStateAlerting string = "alerting"
+
+	// EmailInitialStateConnected captures enum value "connected"
+	EmailInitialStateConnected string = "connected"
+
+	// EmailInitialStateDisconnected captures enum value "disconnected"
+	EmailInitialStateDisconnected string = "disconnected"
+
+	// EmailInitialStateNone captures enum value "none"
+	EmailInitialStateNone string = "none"
+
+	// EmailInitialStateTransmitting captures enum value "transmitting"
+	EmailInitialStateTransmitting string = "transmitting"
+)
+
+// prop value enum
+func (m *Email) validateInitialStateEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, emailTypeInitialStatePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *Email) validateInitialState(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.InitialState) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateInitialStateEnum("initialState", "body", m.InitialState); err != nil {
+		return err
 	}
 
 	return nil

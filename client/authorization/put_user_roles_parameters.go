@@ -65,11 +65,11 @@ type PutUserRolesParams struct {
 
 	*/
 	Body []string
-	/*UserID
+	/*SubjectID
 	  User ID
 
 	*/
-	UserID string
+	SubjectID string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -120,15 +120,15 @@ func (o *PutUserRolesParams) SetBody(body []string) {
 	o.Body = body
 }
 
-// WithUserID adds the userID to the put user roles params
-func (o *PutUserRolesParams) WithUserID(userID string) *PutUserRolesParams {
-	o.SetUserID(userID)
+// WithSubjectID adds the subjectID to the put user roles params
+func (o *PutUserRolesParams) WithSubjectID(subjectID string) *PutUserRolesParams {
+	o.SetSubjectID(subjectID)
 	return o
 }
 
-// SetUserID adds the userId to the put user roles params
-func (o *PutUserRolesParams) SetUserID(userID string) {
-	o.UserID = userID
+// SetSubjectID adds the subjectId to the put user roles params
+func (o *PutUserRolesParams) SetSubjectID(subjectID string) {
+	o.SubjectID = subjectID
 }
 
 // WriteToRequest writes these params to a swagger request
@@ -145,8 +145,8 @@ func (o *PutUserRolesParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.
 		}
 	}
 
-	// path param userId
-	if err := r.SetPathParam("userId", o.UserID); err != nil {
+	// path param subjectId
+	if err := r.SetPathParam("subjectId", o.SubjectID); err != nil {
 		return err
 	}
 

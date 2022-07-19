@@ -72,7 +72,7 @@ type GetRoutingPredictorsParams struct {
 	*/
 	Before *string
 	/*Limit
-	  Number of entities to return. Maximum of 200. Deprecated in favour of pageSize, use CursorQueryParameters instead.
+	  Number of entities to return. Maximum of 200. Deprecated in favour of pageSize
 
 	*/
 	Limit *string

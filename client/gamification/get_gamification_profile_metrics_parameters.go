@@ -66,6 +66,11 @@ type GetGamificationProfileMetricsParams struct {
 
 	*/
 	Expand []string
+	/*MetricIds
+	  List of metric ids to filter the response (Optional, comma-separated).
+
+	*/
+	MetricIds *string
 	/*ProfileID
 	  Performance Profile Id
 
@@ -126,6 +131,17 @@ func (o *GetGamificationProfileMetricsParams) SetExpand(expand []string) {
 	o.Expand = expand
 }
 
+// WithMetricIds adds the metricIds to the get gamification profile metrics params
+func (o *GetGamificationProfileMetricsParams) WithMetricIds(metricIds *string) *GetGamificationProfileMetricsParams {
+	o.SetMetricIds(metricIds)
+	return o
+}
+
+// SetMetricIds adds the metricIds to the get gamification profile metrics params
+func (o *GetGamificationProfileMetricsParams) SetMetricIds(metricIds *string) {
+	o.MetricIds = metricIds
+}
+
 // WithProfileID adds the profileID to the get gamification profile metrics params
 func (o *GetGamificationProfileMetricsParams) WithProfileID(profileID string) *GetGamificationProfileMetricsParams {
 	o.SetProfileID(profileID)
@@ -162,6 +178,22 @@ func (o *GetGamificationProfileMetricsParams) WriteToRequest(r runtime.ClientReq
 	// query array param expand
 	if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
 		return err
+	}
+
+	if o.MetricIds != nil {
+
+		// query param metricIds
+		var qrMetricIds string
+		if o.MetricIds != nil {
+			qrMetricIds = *o.MetricIds
+		}
+		qMetricIds := qrMetricIds
+		if qMetricIds != "" {
+			if err := r.SetQueryParam("metricIds", qMetricIds); err != nil {
+				return err
+			}
+		}
+
 	}
 
 	// path param profileId

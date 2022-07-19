@@ -19,9 +19,33 @@ import (
 // swagger:model KeyPerformanceIndicator
 type KeyPerformanceIndicator struct {
 
+	// DateTime indicating when the Key Performance Indicator was created. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+	// Read Only: true
+	// Format: date-time
+	DateCreated strfmt.DateTime `json:"dateCreated,omitempty"`
+
+	// DateTime indicating when the Key Performance Indicator was modified. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+	// Read Only: true
+	// Format: date-time
+	DateModified strfmt.DateTime `json:"dateModified,omitempty"`
+
+	// The description of the Key Performance Indicator.
+	// Read Only: true
+	Description string `json:"description,omitempty"`
+
 	// The globally unique identifier for the object.
 	// Read Only: true
 	ID string `json:"id,omitempty"`
+
+	// The group the Key Performance Indicator belongs to.
+	// Read Only: true
+	// Enum: [Standard Custom]
+	KpiGroup string `json:"kpiGroup,omitempty"`
+
+	// The type of Key Performance Indicator.
+	// Read Only: true
+	// Enum: [SalesConversion Churn Retention HandleTime NumberOfTransfers]
+	KpiType string `json:"kpiType,omitempty"`
 
 	// The name of the Key Performance Indicator.
 	// Read Only: true
@@ -31,19 +55,191 @@ type KeyPerformanceIndicator struct {
 	// Read Only: true
 	// Enum: [Maximization Minimization]
 	OptimizationType string `json:"optimizationType,omitempty"`
+
+	// The URI for this object
+	// Read Only: true
+	// Format: uri
+	SelfURI strfmt.URI `json:"selfUri,omitempty"`
+
+	// Source of values for Key Performance Indicator.
+	// Read Only: true
+	// Enum: [WrapUpCode]
+	Source string `json:"source,omitempty"`
+
+	// The status of the Key Performance Indicator.
+	// Read Only: true
+	// Enum: [Enabled Disabled]
+	Status string `json:"status,omitempty"`
+
+	// Defines what wrap up codes are mapped to Key Performance Indicator.
+	// Read Only: true
+	WrapUpCodeConfig *WrapUpCodeConfig `json:"wrapUpCodeConfig,omitempty"`
 }
 
 // Validate validates this key performance indicator
 func (m *KeyPerformanceIndicator) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateDateCreated(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDateModified(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateKpiGroup(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateKpiType(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateOptimizationType(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSelfURI(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSource(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateStatus(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateWrapUpCodeConfig(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *KeyPerformanceIndicator) validateDateCreated(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.DateCreated) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("dateCreated", "body", "date-time", m.DateCreated.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KeyPerformanceIndicator) validateDateModified(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.DateModified) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("dateModified", "body", "date-time", m.DateModified.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+var keyPerformanceIndicatorTypeKpiGroupPropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Standard","Custom"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		keyPerformanceIndicatorTypeKpiGroupPropEnum = append(keyPerformanceIndicatorTypeKpiGroupPropEnum, v)
+	}
+}
+
+const (
+
+	// KeyPerformanceIndicatorKpiGroupStandard captures enum value "Standard"
+	KeyPerformanceIndicatorKpiGroupStandard string = "Standard"
+
+	// KeyPerformanceIndicatorKpiGroupCustom captures enum value "Custom"
+	KeyPerformanceIndicatorKpiGroupCustom string = "Custom"
+)
+
+// prop value enum
+func (m *KeyPerformanceIndicator) validateKpiGroupEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, keyPerformanceIndicatorTypeKpiGroupPropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *KeyPerformanceIndicator) validateKpiGroup(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.KpiGroup) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateKpiGroupEnum("kpiGroup", "body", m.KpiGroup); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+var keyPerformanceIndicatorTypeKpiTypePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["SalesConversion","Churn","Retention","HandleTime","NumberOfTransfers"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		keyPerformanceIndicatorTypeKpiTypePropEnum = append(keyPerformanceIndicatorTypeKpiTypePropEnum, v)
+	}
+}
+
+const (
+
+	// KeyPerformanceIndicatorKpiTypeSalesConversion captures enum value "SalesConversion"
+	KeyPerformanceIndicatorKpiTypeSalesConversion string = "SalesConversion"
+
+	// KeyPerformanceIndicatorKpiTypeChurn captures enum value "Churn"
+	KeyPerformanceIndicatorKpiTypeChurn string = "Churn"
+
+	// KeyPerformanceIndicatorKpiTypeRetention captures enum value "Retention"
+	KeyPerformanceIndicatorKpiTypeRetention string = "Retention"
+
+	// KeyPerformanceIndicatorKpiTypeHandleTime captures enum value "HandleTime"
+	KeyPerformanceIndicatorKpiTypeHandleTime string = "HandleTime"
+
+	// KeyPerformanceIndicatorKpiTypeNumberOfTransfers captures enum value "NumberOfTransfers"
+	KeyPerformanceIndicatorKpiTypeNumberOfTransfers string = "NumberOfTransfers"
+)
+
+// prop value enum
+func (m *KeyPerformanceIndicator) validateKpiTypeEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, keyPerformanceIndicatorTypeKpiTypePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *KeyPerformanceIndicator) validateKpiType(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.KpiType) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateKpiTypeEnum("kpiType", "body", m.KpiType); err != nil {
+		return err
+	}
+
 	return nil
 }
 
@@ -85,6 +281,120 @@ func (m *KeyPerformanceIndicator) validateOptimizationType(formats strfmt.Regist
 	// value enum
 	if err := m.validateOptimizationTypeEnum("optimizationType", "body", m.OptimizationType); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *KeyPerformanceIndicator) validateSelfURI(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.SelfURI) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+var keyPerformanceIndicatorTypeSourcePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["WrapUpCode"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		keyPerformanceIndicatorTypeSourcePropEnum = append(keyPerformanceIndicatorTypeSourcePropEnum, v)
+	}
+}
+
+const (
+
+	// KeyPerformanceIndicatorSourceWrapUpCode captures enum value "WrapUpCode"
+	KeyPerformanceIndicatorSourceWrapUpCode string = "WrapUpCode"
+)
+
+// prop value enum
+func (m *KeyPerformanceIndicator) validateSourceEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, keyPerformanceIndicatorTypeSourcePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *KeyPerformanceIndicator) validateSource(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Source) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateSourceEnum("source", "body", m.Source); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+var keyPerformanceIndicatorTypeStatusPropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Enabled","Disabled"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		keyPerformanceIndicatorTypeStatusPropEnum = append(keyPerformanceIndicatorTypeStatusPropEnum, v)
+	}
+}
+
+const (
+
+	// KeyPerformanceIndicatorStatusEnabled captures enum value "Enabled"
+	KeyPerformanceIndicatorStatusEnabled string = "Enabled"
+
+	// KeyPerformanceIndicatorStatusDisabled captures enum value "Disabled"
+	KeyPerformanceIndicatorStatusDisabled string = "Disabled"
+)
+
+// prop value enum
+func (m *KeyPerformanceIndicator) validateStatusEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, keyPerformanceIndicatorTypeStatusPropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *KeyPerformanceIndicator) validateStatus(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Status) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateStatusEnum("status", "body", m.Status); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KeyPerformanceIndicator) validateWrapUpCodeConfig(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.WrapUpCodeConfig) { // not required
+		return nil
+	}
+
+	if m.WrapUpCodeConfig != nil {
+		if err := m.WrapUpCodeConfig.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("wrapUpCodeConfig")
+			}
+			return err
+		}
 	}
 
 	return nil

@@ -64,7 +64,7 @@ type ConversationNormalizedMessage struct {
 
 	// Message type.
 	// Required: true
-	// Enum: [Text Structured Receipt Event]
+	// Enum: [Text Structured Receipt Event Unknown]
 	Type *string `json:"type"`
 }
 
@@ -348,7 +348,7 @@ var conversationNormalizedMessageTypeTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Text","Structured","Receipt","Event"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Text","Structured","Receipt","Event","Unknown"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -369,6 +369,9 @@ const (
 
 	// ConversationNormalizedMessageTypeEvent captures enum value "Event"
 	ConversationNormalizedMessageTypeEvent string = "Event"
+
+	// ConversationNormalizedMessageTypeUnknown captures enum value "Unknown"
+	ConversationNormalizedMessageTypeUnknown string = "Unknown"
 )
 
 // prop value enum

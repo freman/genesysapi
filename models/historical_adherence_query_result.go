@@ -23,6 +23,10 @@ type HistoricalAdherenceQueryResult struct {
 	// List of actual activity with offset for this user
 	Actuals []*HistoricalAdherenceActuals `json:"actuals"`
 
+	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+	// Format: date-time
+	ActualsEndsDate strfmt.DateTime `json:"actualsEndsDate,omitempty"`
+
 	// Adherence percentage for this user, in the scale of 0 - 100
 	AdherencePercentage float64 `json:"adherencePercentage,omitempty"`
 
@@ -56,6 +60,10 @@ func (m *HistoricalAdherenceQueryResult) Validate(formats strfmt.Registry) error
 	var res []error
 
 	if err := m.validateActuals(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateActualsEndsDate(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -105,6 +113,19 @@ func (m *HistoricalAdherenceQueryResult) validateActuals(formats strfmt.Registry
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *HistoricalAdherenceQueryResult) validateActualsEndsDate(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.ActualsEndsDate) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("actualsEndsDate", "body", "date-time", m.ActualsEndsDate.String(), formats); err != nil {
+		return err
 	}
 
 	return nil

@@ -95,12 +95,6 @@ func (o *PutRoutingSmsPhonenumberReader) ReadResponse(response runtime.ClientRes
 			return nil, err
 		}
 		return nil, result
-	case 501:
-		result := NewPutRoutingSmsPhonenumberNotImplemented()
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		return nil, result
 	case 503:
 		result := NewPutRoutingSmsPhonenumberServiceUnavailable()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -159,7 +153,7 @@ func NewPutRoutingSmsPhonenumberAccepted() *PutRoutingSmsPhonenumberAccepted {
 
 /*PutRoutingSmsPhonenumberAccepted handles this case with default header values.
 
-Accepted - If async is true, the phone number update is in progress.
+Accepted - The phone number update is in progress.
 */
 type PutRoutingSmsPhonenumberAccepted struct {
 	Payload *models.SmsPhoneNumber
@@ -504,39 +498,6 @@ func (o *PutRoutingSmsPhonenumberInternalServerError) GetPayload() *models.Error
 }
 
 func (o *PutRoutingSmsPhonenumberInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.ErrorBody)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewPutRoutingSmsPhonenumberNotImplemented creates a PutRoutingSmsPhonenumberNotImplemented with default headers values
-func NewPutRoutingSmsPhonenumberNotImplemented() *PutRoutingSmsPhonenumberNotImplemented {
-	return &PutRoutingSmsPhonenumberNotImplemented{}
-}
-
-/*PutRoutingSmsPhonenumberNotImplemented handles this case with default header values.
-
-Not Implemented
-*/
-type PutRoutingSmsPhonenumberNotImplemented struct {
-	Payload *models.ErrorBody
-}
-
-func (o *PutRoutingSmsPhonenumberNotImplemented) Error() string {
-	return fmt.Sprintf("[PUT /api/v2/routing/sms/phonenumbers/{addressId}][%d] putRoutingSmsPhonenumberNotImplemented  %+v", 501, o.Payload)
-}
-
-func (o *PutRoutingSmsPhonenumberNotImplemented) GetPayload() *models.ErrorBody {
-	return o.Payload
-}
-
-func (o *PutRoutingSmsPhonenumberNotImplemented) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ErrorBody)
 

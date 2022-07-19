@@ -12,7 +12,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// BuAbandonRate Service goal abandon rate configuration
+// BuAbandonRate bu abandon rate
 //
 // swagger:model BuAbandonRate
 type BuAbandonRate struct {

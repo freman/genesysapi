@@ -14,7 +14,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// UserScheduleContainer Container object to hold a map of user schedules
+// UserScheduleContainer user schedule container
 //
 // swagger:model UserScheduleContainer
 type UserScheduleContainer struct {

@@ -25,7 +25,7 @@ type KnowledgeBase struct {
 
 	// Core language for knowledge base in which initial content must be created, language codes [en-US, en-UK, en-AU, de-DE] are supported currently, however the new DX knowledge will support all these language codes
 	// Required: true
-	// Enum: [en-US en-UK en-AU de-DE es-US es-ES fr-FR pt-BR nl-NL it-IT]
+	// Enum: [en-US en-UK en-AU de-DE es-US es-ES fr-FR pt-BR nl-NL it-IT fr-CA]
 	CoreLanguage *string `json:"coreLanguage"`
 
 	// Knowledge base creation date-time. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
@@ -101,7 +101,7 @@ var knowledgeBaseTypeCoreLanguagePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["en-US","en-UK","en-AU","de-DE","es-US","es-ES","fr-FR","pt-BR","nl-NL","it-IT"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["en-US","en-UK","en-AU","de-DE","es-US","es-ES","fr-FR","pt-BR","nl-NL","it-IT","fr-CA"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -140,6 +140,9 @@ const (
 
 	// KnowledgeBaseCoreLanguageItIT captures enum value "it-IT"
 	KnowledgeBaseCoreLanguageItIT string = "it-IT"
+
+	// KnowledgeBaseCoreLanguageFrCA captures enum value "fr-CA"
+	KnowledgeBaseCoreLanguageFrCA string = "fr-CA"
 )
 
 // prop value enum

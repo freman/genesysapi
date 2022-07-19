@@ -73,6 +73,10 @@ type CallbackBasic struct {
 	// A globally unique identifier for this communication.
 	ID string `json:"id,omitempty"`
 
+	// The initial connection state of this communication.
+	// Enum: [alerting dialing contacting offering connected disconnected terminated scheduled none]
+	InitialState string `json:"initialState,omitempty"`
+
 	// The id of the peer communication corresponding to a matching leg for this communication.
 	PeerID string `json:"peerId,omitempty"`
 
@@ -139,6 +143,10 @@ func (m *CallbackBasic) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateDisconnectedTime(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateInitialState(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -369,6 +377,70 @@ func (m *CallbackBasic) validateDisconnectedTime(formats strfmt.Registry) error 
 	}
 
 	if err := validate.FormatOf("disconnectedTime", "body", "date-time", m.DisconnectedTime.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+var callbackBasicTypeInitialStatePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["alerting","dialing","contacting","offering","connected","disconnected","terminated","scheduled","none"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		callbackBasicTypeInitialStatePropEnum = append(callbackBasicTypeInitialStatePropEnum, v)
+	}
+}
+
+const (
+
+	// CallbackBasicInitialStateAlerting captures enum value "alerting"
+	CallbackBasicInitialStateAlerting string = "alerting"
+
+	// CallbackBasicInitialStateDialing captures enum value "dialing"
+	CallbackBasicInitialStateDialing string = "dialing"
+
+	// CallbackBasicInitialStateContacting captures enum value "contacting"
+	CallbackBasicInitialStateContacting string = "contacting"
+
+	// CallbackBasicInitialStateOffering captures enum value "offering"
+	CallbackBasicInitialStateOffering string = "offering"
+
+	// CallbackBasicInitialStateConnected captures enum value "connected"
+	CallbackBasicInitialStateConnected string = "connected"
+
+	// CallbackBasicInitialStateDisconnected captures enum value "disconnected"
+	CallbackBasicInitialStateDisconnected string = "disconnected"
+
+	// CallbackBasicInitialStateTerminated captures enum value "terminated"
+	CallbackBasicInitialStateTerminated string = "terminated"
+
+	// CallbackBasicInitialStateScheduled captures enum value "scheduled"
+	CallbackBasicInitialStateScheduled string = "scheduled"
+
+	// CallbackBasicInitialStateNone captures enum value "none"
+	CallbackBasicInitialStateNone string = "none"
+)
+
+// prop value enum
+func (m *CallbackBasic) validateInitialStateEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, callbackBasicTypeInitialStatePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *CallbackBasic) validateInitialState(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.InitialState) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateInitialStateEnum("initialState", "body", m.InitialState); err != nil {
 		return err
 	}
 

@@ -26,8 +26,7 @@ type TimeOffRequestResponse struct {
 	// The daily duration of this time off request in minutes
 	DailyDurationMinutes int32 `json:"dailyDurationMinutes,omitempty"`
 
-	// A set of dates in yyyy-MM-dd format.  Should be interpreted in the management unit's configured time zone.  Will be not empty if isFullDayRequest == true
-	// Unique: true
+	// A set of dates in yyyy-MM-dd format.  Should be interpreted in the management unit's configured time zone. Will be not empty if isFullDayRequest == true
 	FullDayManagementUnitDates []string `json:"fullDayManagementUnitDates"`
 
 	// The globally unique identifier for the object.
@@ -53,8 +52,10 @@ type TimeOffRequestResponse struct {
 	// Notes about the time off request
 	Notes string `json:"notes,omitempty"`
 
-	// A set of start date-times in ISO-8601 format for partial day requests.  Will be not empty if isFullDayRequest == false
-	// Unique: true
+	// Whether this is a paid time off request
+	Paid bool `json:"paid"`
+
+	// A set of start date-times in ISO-8601 format for partial day requests. Will be not empty if isFullDayRequest == false
 	PartialDayStartDateTimes []strfmt.DateTime `json:"partialDayStartDateTimes"`
 
 	// The user who reviewed this time off request
@@ -80,6 +81,10 @@ type TimeOffRequestResponse struct {
 	// Format: date-time
 	SubmittedDate strfmt.DateTime `json:"submittedDate,omitempty"`
 
+	// The substatus of this time off request
+	// Enum: [AdvanceTimeElapsed AutoApproved InsufficientBalance InvalidDailyDuration OutsideShift RemovedFromWaitlist Waitlisted]
+	Substatus string `json:"substatus,omitempty"`
+
 	// The user associated with this time off request
 	User *UserReference `json:"user,omitempty"`
 }
@@ -87,10 +92,6 @@ type TimeOffRequestResponse struct {
 // Validate validates this time off request response
 func (m *TimeOffRequestResponse) Validate(formats strfmt.Registry) error {
 	var res []error
-
-	if err := m.validateFullDayManagementUnitDates(formats); err != nil {
-		res = append(res, err)
-	}
 
 	if err := m.validateMetadata(formats); err != nil {
 		res = append(res, err)
@@ -132,6 +133,10 @@ func (m *TimeOffRequestResponse) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateSubstatus(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateUser(formats); err != nil {
 		res = append(res, err)
 	}
@@ -139,19 +144,6 @@ func (m *TimeOffRequestResponse) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *TimeOffRequestResponse) validateFullDayManagementUnitDates(formats strfmt.Registry) error {
-
-	if swag.IsZero(m.FullDayManagementUnitDates) { // not required
-		return nil
-	}
-
-	if err := validate.UniqueItems("fullDayManagementUnitDates", "body", m.FullDayManagementUnitDates); err != nil {
-		return err
-	}
-
 	return nil
 }
 
@@ -208,10 +200,6 @@ func (m *TimeOffRequestResponse) validatePartialDayStartDateTimes(formats strfmt
 
 	if swag.IsZero(m.PartialDayStartDateTimes) { // not required
 		return nil
-	}
-
-	if err := validate.UniqueItems("partialDayStartDateTimes", "body", m.PartialDayStartDateTimes); err != nil {
-		return err
 	}
 
 	for i := 0; i < len(m.PartialDayStartDateTimes); i++ {
@@ -343,6 +331,64 @@ func (m *TimeOffRequestResponse) validateSubmittedDate(formats strfmt.Registry) 
 	}
 
 	if err := validate.FormatOf("submittedDate", "body", "date-time", m.SubmittedDate.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+var timeOffRequestResponseTypeSubstatusPropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["AdvanceTimeElapsed","AutoApproved","InsufficientBalance","InvalidDailyDuration","OutsideShift","RemovedFromWaitlist","Waitlisted"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		timeOffRequestResponseTypeSubstatusPropEnum = append(timeOffRequestResponseTypeSubstatusPropEnum, v)
+	}
+}
+
+const (
+
+	// TimeOffRequestResponseSubstatusAdvanceTimeElapsed captures enum value "AdvanceTimeElapsed"
+	TimeOffRequestResponseSubstatusAdvanceTimeElapsed string = "AdvanceTimeElapsed"
+
+	// TimeOffRequestResponseSubstatusAutoApproved captures enum value "AutoApproved"
+	TimeOffRequestResponseSubstatusAutoApproved string = "AutoApproved"
+
+	// TimeOffRequestResponseSubstatusInsufficientBalance captures enum value "InsufficientBalance"
+	TimeOffRequestResponseSubstatusInsufficientBalance string = "InsufficientBalance"
+
+	// TimeOffRequestResponseSubstatusInvalidDailyDuration captures enum value "InvalidDailyDuration"
+	TimeOffRequestResponseSubstatusInvalidDailyDuration string = "InvalidDailyDuration"
+
+	// TimeOffRequestResponseSubstatusOutsideShift captures enum value "OutsideShift"
+	TimeOffRequestResponseSubstatusOutsideShift string = "OutsideShift"
+
+	// TimeOffRequestResponseSubstatusRemovedFromWaitlist captures enum value "RemovedFromWaitlist"
+	TimeOffRequestResponseSubstatusRemovedFromWaitlist string = "RemovedFromWaitlist"
+
+	// TimeOffRequestResponseSubstatusWaitlisted captures enum value "Waitlisted"
+	TimeOffRequestResponseSubstatusWaitlisted string = "Waitlisted"
+)
+
+// prop value enum
+func (m *TimeOffRequestResponse) validateSubstatusEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, timeOffRequestResponseTypeSubstatusPropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *TimeOffRequestResponse) validateSubstatus(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Substatus) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateSubstatusEnum("substatus", "body", m.Substatus); err != nil {
 		return err
 	}
 

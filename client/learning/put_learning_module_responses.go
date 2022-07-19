@@ -59,6 +59,12 @@ func (o *PutLearningModuleReader) ReadResponse(response runtime.ClientResponse, 
 			return nil, err
 		}
 		return nil, result
+	case 409:
+		result := NewPutLearningModuleConflict()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPutLearningModuleRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -288,6 +294,39 @@ func (o *PutLearningModuleRequestTimeout) GetPayload() *models.ErrorBody {
 }
 
 func (o *PutLearningModuleRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPutLearningModuleConflict creates a PutLearningModuleConflict with default headers values
+func NewPutLearningModuleConflict() *PutLearningModuleConflict {
+	return &PutLearningModuleConflict{}
+}
+
+/*PutLearningModuleConflict handles this case with default header values.
+
+Conflict
+*/
+type PutLearningModuleConflict struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PutLearningModuleConflict) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/learning/modules/{moduleId}][%d] putLearningModuleConflict  %+v", 409, o.Payload)
+}
+
+func (o *PutLearningModuleConflict) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PutLearningModuleConflict) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ErrorBody)
 

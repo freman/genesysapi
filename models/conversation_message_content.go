@@ -33,7 +33,7 @@ type ConversationMessageContent struct {
 
 	// Type of this content element. If contentType = "Attachment" only one item is allowed.
 	// Required: true
-	// Enum: [Attachment Location Story QuickReply Notification ButtonResponse GenericTemplate Card Carousel]
+	// Enum: [Attachment Location Story QuickReply Notification ButtonResponse GenericTemplate ListTemplate Postback Reactions Mention Card Carousel Unknown]
 	ContentType *string `json:"contentType"`
 
 	// Generic Template Object (Deprecated).
@@ -178,7 +178,7 @@ var conversationMessageContentTypeContentTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Attachment","Location","Story","QuickReply","Notification","ButtonResponse","GenericTemplate","Card","Carousel"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Attachment","Location","Story","QuickReply","Notification","ButtonResponse","GenericTemplate","ListTemplate","Postback","Reactions","Mention","Card","Carousel","Unknown"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -209,11 +209,26 @@ const (
 	// ConversationMessageContentContentTypeGenericTemplate captures enum value "GenericTemplate"
 	ConversationMessageContentContentTypeGenericTemplate string = "GenericTemplate"
 
+	// ConversationMessageContentContentTypeListTemplate captures enum value "ListTemplate"
+	ConversationMessageContentContentTypeListTemplate string = "ListTemplate"
+
+	// ConversationMessageContentContentTypePostback captures enum value "Postback"
+	ConversationMessageContentContentTypePostback string = "Postback"
+
+	// ConversationMessageContentContentTypeReactions captures enum value "Reactions"
+	ConversationMessageContentContentTypeReactions string = "Reactions"
+
+	// ConversationMessageContentContentTypeMention captures enum value "Mention"
+	ConversationMessageContentContentTypeMention string = "Mention"
+
 	// ConversationMessageContentContentTypeCard captures enum value "Card"
 	ConversationMessageContentContentTypeCard string = "Card"
 
 	// ConversationMessageContentContentTypeCarousel captures enum value "Carousel"
 	ConversationMessageContentContentTypeCarousel string = "Carousel"
+
+	// ConversationMessageContentContentTypeUnknown captures enum value "Unknown"
+	ConversationMessageContentContentTypeUnknown string = "Unknown"
 )
 
 // prop value enum

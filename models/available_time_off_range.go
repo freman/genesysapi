@@ -14,7 +14,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// AvailableTimeOffRange A list of available time off values in minutes and a number of time off requests currently in waitlist for each interval in requested date range, according to granularity.
+// AvailableTimeOffRange available time off range
 //
 // swagger:model AvailableTimeOffRange
 type AvailableTimeOffRange struct {

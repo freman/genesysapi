@@ -12,7 +12,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// WeekSchedule Week schedule information
+// WeekSchedule week schedule
 //
 // swagger:model WeekSchedule
 type WeekSchedule struct {

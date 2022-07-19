@@ -11,7 +11,7 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// AdherenceSettings Schedule Adherence Configuration
+// AdherenceSettings adherence settings
 //
 // swagger:model AdherenceSettings
 type AdherenceSettings struct {

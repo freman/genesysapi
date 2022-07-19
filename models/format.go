@@ -43,7 +43,7 @@ var formatFlagsItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["BoolPlayYesNo","CurrencyAsMinorUnits","CurrencyMajorUnitsOnly","CurrencyMinorUnitsOnly","CurrencyPlayDigits","DateLongYear","DateShortYear","DateShortMonthAndDay","DateDayOfWeekOnly","DateDayOnly","DateMonthOnly","DateShortYearOnly","DateLongYearOnly","TimeTwentyFourHours","TimeTwelveHours","TimePartDays","TimePartHours","TimePartMinutes","TimePartSeconds","StringPlayChars","NumberPlayDigits","NumberOrdinal","LanguageCaseArticle","LanguageCaseAccusative","LanguageCaseDative","LanguageCaseGenitive","LanguageCaseNominative","LanguageQuantityPlural","LanguageQuantitySingular","LanguageGenderCommon","LanguageGenderFeminine","LanguageGenderMasculine","LanguageGenderNeuter"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["BoolPlayYesNo","CurrencyAsMinorUnits","CurrencyMajorUnitsOnly","CurrencyMinorUnitsOnly","CurrencyPlayDigits","DateLongYear","DateShortYear","DateShortMonthAndDay","DateDayOfWeekOnly","DateDayOnly","DateMonthOnly","DateShortYearOnly","DateLongYearOnly","TimeTwentyFourHours","TimeTwelveHours","TimePartDays","TimePartHours","TimePartMinutes","TimePartSeconds","StringPlayChars","NumberPlayDigits","NumberOrdinal","LanguageCaseArticle","LanguageCaseAccusative","LanguageCaseDative","LanguageCaseGenitive","LanguageCaseNominative","LanguageQuantityPlural","LanguageQuantitySingular","LanguageGenderCommon","LanguageGenderFeminine","LanguageGenderMasculine","LanguageGenderNeuter","CaseArticle","CaseAccusative","CaseDative","CaseGenitive","CaseNominative","QuantityPlural","QuantitySingular","GenderCommon","GenderFeminine","GenderMasculine","GenderNeuter"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {

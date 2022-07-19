@@ -14,7 +14,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// CreateManagementUnitAPIRequest Create Management Unit
+// CreateManagementUnitAPIRequest create management unit Api request
 //
 // swagger:model CreateManagementUnitApiRequest
 type CreateManagementUnitAPIRequest struct {
