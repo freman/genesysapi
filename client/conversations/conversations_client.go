@@ -79,6 +79,10 @@ type API interface {
 	*/
 	GetConversationParticipantWrapupcodes(ctx context.Context, params *GetConversationParticipantWrapupcodesParams) (*GetConversationParticipantWrapupcodesOK, error)
 	/*
+	   GetConversationSecureattributes gets the secure attributes on a conversation
+	*/
+	GetConversationSecureattributes(ctx context.Context, params *GetConversationSecureattributesParams) (*GetConversationSecureattributesOK, error)
+	/*
 	   GetConversations gets active conversations for the logged in user
 	*/
 	GetConversations(ctx context.Context, params *GetConversationsParams) (*GetConversationsOK, error)
@@ -197,6 +201,14 @@ type API interface {
 	*/
 	GetConversationsEmails(ctx context.Context, params *GetConversationsEmailsParams) (*GetConversationsEmailsOK, error)
 	/*
+	   GetConversationsKeyconfiguration gets the encryption key configurations
+	*/
+	GetConversationsKeyconfiguration(ctx context.Context, params *GetConversationsKeyconfigurationParams) (*GetConversationsKeyconfigurationOK, error)
+	/*
+	   GetConversationsKeyconfigurations gets a list of key configurations data
+	*/
+	GetConversationsKeyconfigurations(ctx context.Context, params *GetConversationsKeyconfigurationsParams) (*GetConversationsKeyconfigurationsOK, error)
+	/*
 	   GetConversationsMessage gets message conversation
 	*/
 	GetConversationsMessage(ctx context.Context, params *GetConversationsMessageParams) (*GetConversationsMessageOK, error)
@@ -306,6 +318,10 @@ type API interface {
 	   PatchConversationParticipantAttributes updates the attributes on a conversation participant
 	*/
 	PatchConversationParticipantAttributes(ctx context.Context, params *PatchConversationParticipantAttributesParams) (*PatchConversationParticipantAttributesAccepted, error)
+	/*
+	   PatchConversationSecureattributes updates the secure attributes on a conversation
+	*/
+	PatchConversationSecureattributes(ctx context.Context, params *PatchConversationSecureattributesParams) (*PatchConversationSecureattributesAccepted, error)
 	/*
 	   PatchConversationsCall updates a conversation by setting its recording state merging in other conversations to create a conference or disconnecting all of the participants
 	*/
@@ -546,6 +562,14 @@ type API interface {
 	*/
 	PostConversationsFaxes(ctx context.Context, params *PostConversationsFaxesParams) (*PostConversationsFaxesOK, error)
 	/*
+	   PostConversationsKeyconfigurations setups configurations for encryption key creation
+	*/
+	PostConversationsKeyconfigurations(ctx context.Context, params *PostConversationsKeyconfigurationsParams) (*PostConversationsKeyconfigurationsOK, error)
+	/*
+	   PostConversationsKeyconfigurationsValidate validates encryption key configurations without saving it
+	*/
+	PostConversationsKeyconfigurationsValidate(ctx context.Context, params *PostConversationsKeyconfigurationsValidateParams) (*PostConversationsKeyconfigurationsValidateOK, error)
+	/*
 	   PostConversationsMessageCommunicationMessages sends message
 	   Send message on existing conversation/communication. Only one message body field can be accepted, per request. Example: 1 textBody, 1 mediaId, 1 stickerId, or 1 messageTemplate.
 	*/
@@ -610,6 +634,10 @@ type API interface {
 	*/
 	PutConversationParticipantFlaggedreason(ctx context.Context, params *PutConversationParticipantFlaggedreasonParams) (*PutConversationParticipantFlaggedreasonNoContent, error)
 	/*
+	   PutConversationSecureattributes sets the secure attributes on a conversation
+	*/
+	PutConversationSecureattributes(ctx context.Context, params *PutConversationSecureattributesParams) (*PutConversationSecureattributesAccepted, error)
+	/*
 	   PutConversationTags updates the tags on a conversation
 	*/
 	PutConversationTags(ctx context.Context, params *PutConversationTagsParams) (*PutConversationTagsAccepted, error)
@@ -641,6 +669,10 @@ type API interface {
 	   PutConversationsEmailRecordingstate updates a conversation by setting its recording state
 	*/
 	PutConversationsEmailRecordingstate(ctx context.Context, params *PutConversationsEmailRecordingstateParams) (*PutConversationsEmailRecordingstateOK, *PutConversationsEmailRecordingstateAccepted, error)
+	/*
+	   PutConversationsKeyconfiguration updates the encryption key configurations
+	*/
+	PutConversationsKeyconfiguration(ctx context.Context, params *PutConversationsKeyconfigurationParams) (*PutConversationsKeyconfigurationOK, error)
 	/*
 	   PutConversationsMessageRecordingstate updates a conversation by setting its recording state
 	*/
@@ -1071,6 +1103,31 @@ func (a *Client) GetConversationParticipantWrapupcodes(ctx context.Context, para
 		return nil, err
 	}
 	return result.(*GetConversationParticipantWrapupcodesOK), nil
+
+}
+
+/*
+GetConversationSecureattributes gets the secure attributes on a conversation
+*/
+func (a *Client) GetConversationSecureattributes(ctx context.Context, params *GetConversationSecureattributesParams) (*GetConversationSecureattributesOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getConversationSecureattributes",
+		Method:             "GET",
+		PathPattern:        "/api/v2/conversations/{conversationId}/secureattributes",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetConversationSecureattributesReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetConversationSecureattributesOK), nil
 
 }
 
@@ -1804,6 +1861,56 @@ func (a *Client) GetConversationsEmails(ctx context.Context, params *GetConversa
 }
 
 /*
+GetConversationsKeyconfiguration gets the encryption key configurations
+*/
+func (a *Client) GetConversationsKeyconfiguration(ctx context.Context, params *GetConversationsKeyconfigurationParams) (*GetConversationsKeyconfigurationOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getConversationsKeyconfiguration",
+		Method:             "GET",
+		PathPattern:        "/api/v2/conversations/keyconfigurations/{keyconfigurationsId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetConversationsKeyconfigurationReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetConversationsKeyconfigurationOK), nil
+
+}
+
+/*
+GetConversationsKeyconfigurations gets a list of key configurations data
+*/
+func (a *Client) GetConversationsKeyconfigurations(ctx context.Context, params *GetConversationsKeyconfigurationsParams) (*GetConversationsKeyconfigurationsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getConversationsKeyconfigurations",
+		Method:             "GET",
+		PathPattern:        "/api/v2/conversations/keyconfigurations",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetConversationsKeyconfigurationsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetConversationsKeyconfigurationsOK), nil
+
+}
+
+/*
 GetConversationsMessage gets message conversation
 */
 func (a *Client) GetConversationsMessage(ctx context.Context, params *GetConversationsMessageParams) (*GetConversationsMessageOK, error) {
@@ -2462,6 +2569,31 @@ func (a *Client) PatchConversationParticipantAttributes(ctx context.Context, par
 		return nil, err
 	}
 	return result.(*PatchConversationParticipantAttributesAccepted), nil
+
+}
+
+/*
+PatchConversationSecureattributes updates the secure attributes on a conversation
+*/
+func (a *Client) PatchConversationSecureattributes(ctx context.Context, params *PatchConversationSecureattributesParams) (*PatchConversationSecureattributesAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "patchConversationSecureattributes",
+		Method:             "PATCH",
+		PathPattern:        "/api/v2/conversations/{conversationId}/secureattributes",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchConversationSecureattributesReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PatchConversationSecureattributesAccepted), nil
 
 }
 
@@ -3965,6 +4097,56 @@ func (a *Client) PostConversationsFaxes(ctx context.Context, params *PostConvers
 }
 
 /*
+PostConversationsKeyconfigurations setups configurations for encryption key creation
+*/
+func (a *Client) PostConversationsKeyconfigurations(ctx context.Context, params *PostConversationsKeyconfigurationsParams) (*PostConversationsKeyconfigurationsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postConversationsKeyconfigurations",
+		Method:             "POST",
+		PathPattern:        "/api/v2/conversations/keyconfigurations",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostConversationsKeyconfigurationsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostConversationsKeyconfigurationsOK), nil
+
+}
+
+/*
+PostConversationsKeyconfigurationsValidate validates encryption key configurations without saving it
+*/
+func (a *Client) PostConversationsKeyconfigurationsValidate(ctx context.Context, params *PostConversationsKeyconfigurationsValidateParams) (*PostConversationsKeyconfigurationsValidateOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postConversationsKeyconfigurationsValidate",
+		Method:             "POST",
+		PathPattern:        "/api/v2/conversations/keyconfigurations/validate",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostConversationsKeyconfigurationsValidateReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostConversationsKeyconfigurationsValidateOK), nil
+
+}
+
+/*
 PostConversationsMessageCommunicationMessages sends message
 
 Send message on existing conversation/communication. Only one message body field can be accepted, per request. Example: 1 textBody, 1 mediaId, 1 stickerId, or 1 messageTemplate.
@@ -4385,6 +4567,31 @@ func (a *Client) PutConversationParticipantFlaggedreason(ctx context.Context, pa
 }
 
 /*
+PutConversationSecureattributes sets the secure attributes on a conversation
+*/
+func (a *Client) PutConversationSecureattributes(ctx context.Context, params *PutConversationSecureattributesParams) (*PutConversationSecureattributesAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "putConversationSecureattributes",
+		Method:             "PUT",
+		PathPattern:        "/api/v2/conversations/{conversationId}/secureattributes",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PutConversationSecureattributesReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutConversationSecureattributesAccepted), nil
+
+}
+
+/*
 PutConversationTags updates the tags on a conversation
 */
 func (a *Client) PutConversationTags(ctx context.Context, params *PutConversationTagsParams) (*PutConversationTagsAccepted, error) {
@@ -4611,6 +4818,31 @@ func (a *Client) PutConversationsEmailRecordingstate(ctx context.Context, params
 		return nil, value, nil
 	}
 	return nil, nil, nil
+
+}
+
+/*
+PutConversationsKeyconfiguration updates the encryption key configurations
+*/
+func (a *Client) PutConversationsKeyconfiguration(ctx context.Context, params *PutConversationsKeyconfigurationParams) (*PutConversationsKeyconfigurationOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "putConversationsKeyconfiguration",
+		Method:             "PUT",
+		PathPattern:        "/api/v2/conversations/keyconfigurations/{keyconfigurationsId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PutConversationsKeyconfigurationReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutConversationsKeyconfigurationOK), nil
 
 }
 

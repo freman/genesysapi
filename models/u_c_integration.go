@@ -52,6 +52,11 @@ type UCIntegration struct {
 	// Read Only: true
 	PbxPermission string `json:"pbxPermission"`
 
+	// polledPresence
+	// Required: true
+	// Read Only: true
+	PolledPresence bool `json:"polledPresence"`
+
 	// The URI for this object
 	// Read Only: true
 	// Format: uri
@@ -61,6 +66,11 @@ type UCIntegration struct {
 	// Required: true
 	// Read Only: true
 	UcIntegrationKey string `json:"ucIntegrationKey"`
+
+	// userPermissions
+	// Required: true
+	// Read Only: true
+	UserPermissions []string `json:"userPermissions"`
 }
 
 // Validate validates this u c integration
@@ -87,11 +97,19 @@ func (m *UCIntegration) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validatePolledPresence(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateSelfURI(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if err := m.validateUcIntegrationKey(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateUserPermissions(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -210,6 +228,15 @@ func (m *UCIntegration) validatePbxPermission(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *UCIntegration) validatePolledPresence(formats strfmt.Registry) error {
+
+	if err := validate.Required("polledPresence", "body", bool(m.PolledPresence)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *UCIntegration) validateSelfURI(formats strfmt.Registry) error {
 
 	if swag.IsZero(m.SelfURI) { // not required
@@ -226,6 +253,15 @@ func (m *UCIntegration) validateSelfURI(formats strfmt.Registry) error {
 func (m *UCIntegration) validateUcIntegrationKey(formats strfmt.Registry) error {
 
 	if err := validate.RequiredString("ucIntegrationKey", "body", string(m.UcIntegrationKey)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *UCIntegration) validateUserPermissions(formats strfmt.Registry) error {
+
+	if err := validate.Required("userPermissions", "body", m.UserPermissions); err != nil {
 		return err
 	}
 

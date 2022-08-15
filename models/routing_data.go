@@ -32,10 +32,10 @@ type RoutingData struct {
 	// Required: true
 	QueueID *string `json:"queueId"`
 
-	// An array of flags indicating how the conversation should be routed
+	// An array of flags indicating how the conversation should be routed. Use "AGENT_OWNED_CALLBACK" when creating an Agent Owned Callback.
 	RoutingFlags []string `json:"routingFlags"`
 
-	// A list of scored agents for routing decisions
+	// A list of scored agents for routing decisions. For Agent Owned Callbacks use one scored agent with a score of 100.
 	ScoredAgents []*ScoredAgent `json:"scoredAgents"`
 
 	// A list of skill identifiers to be considered in routing

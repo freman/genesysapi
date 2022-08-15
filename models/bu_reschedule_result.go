@@ -21,13 +21,13 @@ type BuRescheduleResult struct {
 	// List of download links for agent schedules produced by the rescheduling run
 	AgentSchedules []*BuRescheduleAgentScheduleResult `json:"agentSchedules"`
 
-	// The generation results.  Note the result will always be delivered via the downloadUrl; however the schema is included for documentation
+	// The generation results.  Note the result will always be delivered via the generationResultsDownloadUrl; however the schema is included for documentation
 	GenerationResults *ScheduleGenerationResult `json:"generationResults,omitempty"`
 
 	// The download URL from which to fetch the generation results for the rescheduling run
 	GenerationResultsDownloadURL string `json:"generationResultsDownloadUrl,omitempty"`
 
-	// The headcount forecast.  Note the result will always be delivered via the downloadUrl; however the schema is included for documentation
+	// The headcount forecast.  Note the result will always be delivered via the headcountForecastDownloadUrl; however the schema is included for documentation
 	HeadcountForecast *BuHeadcountForecast `json:"headcountForecast,omitempty"`
 
 	// The download URL from which to fetch the headcount forecast for the rescheduling run

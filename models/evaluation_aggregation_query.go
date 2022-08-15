@@ -156,7 +156,7 @@ var evaluationAggregationQueryGroupByItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["calibrationId","contextId","conversationId","conversationStart","divisionId","evaluationCreatedDate","evaluationId","evaluationReleaseDate","evaluatorId","formId","queueId","released","rescored","teamId","userId"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["calibrationId","contextId","conversationId","conversationStart","divisionId","evaluationId","evaluatorId","formId","queueId","released","rescored","teamId","userId"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {

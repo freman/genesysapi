@@ -35,10 +35,10 @@ type ConditionalGroupRoutingRule struct {
 	// Enum: [GreaterThan GreaterThanOrEqualTo LessThan LessThanOrEqualTo]
 	Operator string `json:"operator,omitempty"`
 
-	// The queue being evaluated for this rule.  For rule 1, this is always the current queue.
+	// The queue being evaluated for this rule.  For rule 1, this is always the current queue, so should not be specified.
 	Queue *DomainEntityRef `json:"queue,omitempty"`
 
-	// The number of seconds to wait in this rule, if it evaluates as true, before evaluating the next rule
+	// The number of seconds to wait in this rule, if it evaluates as true, before evaluating the next rule.  For the final rule, this is ignored, so need not be specified.
 	WaitSeconds int32 `json:"waitSeconds,omitempty"`
 }
 

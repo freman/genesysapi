@@ -33,19 +33,23 @@ type Edge struct {
 	ConversationCount int32 `json:"conversationCount,omitempty"`
 
 	// The ID of the user that created the resource.
+	// Read Only: true
 	CreatedBy string `json:"createdBy,omitempty"`
 
 	// The application that created the resource.
+	// Read Only: true
 	CreatedByApp string `json:"createdByApp,omitempty"`
 
 	// current version
 	CurrentVersion string `json:"currentVersion,omitempty"`
 
 	// The date the resource was created. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+	// Read Only: true
 	// Format: date-time
 	DateCreated strfmt.DateTime `json:"dateCreated,omitempty"`
 
 	// The date of the last modification to the resource. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+	// Read Only: true
 	// Format: date-time
 	DateModified strfmt.DateTime `json:"dateModified,omitempty"`
 
@@ -88,9 +92,11 @@ type Edge struct {
 	Model string `json:"model,omitempty"`
 
 	// The ID of the user that last modified the resource.
+	// Read Only: true
 	ModifiedBy string `json:"modifiedBy,omitempty"`
 
 	// The application that last modified the resource.
+	// Read Only: true
 	ModifiedByApp string `json:"modifiedByApp,omitempty"`
 
 	// The name of the entity.

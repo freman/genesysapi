@@ -18,6 +18,18 @@ import (
 // API is the interface of the gamification client
 type API interface {
 	/*
+	   DeleteEmployeeperformanceExternalmetricsDefinition deletes an external metric definition
+	*/
+	DeleteEmployeeperformanceExternalmetricsDefinition(ctx context.Context, params *DeleteEmployeeperformanceExternalmetricsDefinitionParams) (*DeleteEmployeeperformanceExternalmetricsDefinitionNoContent, error)
+	/*
+	   GetEmployeeperformanceExternalmetricsDefinition gets an external metric definition
+	*/
+	GetEmployeeperformanceExternalmetricsDefinition(ctx context.Context, params *GetEmployeeperformanceExternalmetricsDefinitionParams) (*GetEmployeeperformanceExternalmetricsDefinitionOK, error)
+	/*
+	   GetEmployeeperformanceExternalmetricsDefinitions gets a list of external metric definitions of an organization sorted by name in ascending order
+	*/
+	GetEmployeeperformanceExternalmetricsDefinitions(ctx context.Context, params *GetEmployeeperformanceExternalmetricsDefinitionsParams) (*GetEmployeeperformanceExternalmetricsDefinitionsOK, error)
+	/*
 	   GetGamificationLeaderboard leaderboards of the requesting user s division or performance profile
 	*/
 	GetGamificationLeaderboard(ctx context.Context, params *GetGamificationLeaderboardParams) (*GetGamificationLeaderboardOK, error)
@@ -177,6 +189,18 @@ type API interface {
 	*/
 	GetGamificationTemplates(ctx context.Context, params *GetGamificationTemplatesParams) (*GetGamificationTemplatesOK, error)
 	/*
+	   PatchEmployeeperformanceExternalmetricsDefinition updates external metric definition
+	*/
+	PatchEmployeeperformanceExternalmetricsDefinition(ctx context.Context, params *PatchEmployeeperformanceExternalmetricsDefinitionParams) (*PatchEmployeeperformanceExternalmetricsDefinitionOK, error)
+	/*
+	   PostEmployeeperformanceExternalmetricsData writes external metric data
+	*/
+	PostEmployeeperformanceExternalmetricsData(ctx context.Context, params *PostEmployeeperformanceExternalmetricsDataParams) (*PostEmployeeperformanceExternalmetricsDataOK, error)
+	/*
+	   PostEmployeeperformanceExternalmetricsDefinitions creates external metric definition
+	*/
+	PostEmployeeperformanceExternalmetricsDefinitions(ctx context.Context, params *PostEmployeeperformanceExternalmetricsDefinitionsParams) (*PostEmployeeperformanceExternalmetricsDefinitionsOK, *PostEmployeeperformanceExternalmetricsDefinitionsCreated, error)
+	/*
 	   PostGamificationMetrics creates a gamified metric with a given metric definition and metric objective
 	   This API is deprecated. Use /api/v2/gamification/profiles/{profileId}/metrics instead.
 	*/
@@ -244,6 +268,81 @@ type Client struct {
 	transport runtime.ClientTransport
 	formats   strfmt.Registry
 	authInfo  runtime.ClientAuthInfoWriter
+}
+
+/*
+DeleteEmployeeperformanceExternalmetricsDefinition deletes an external metric definition
+*/
+func (a *Client) DeleteEmployeeperformanceExternalmetricsDefinition(ctx context.Context, params *DeleteEmployeeperformanceExternalmetricsDefinitionParams) (*DeleteEmployeeperformanceExternalmetricsDefinitionNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteEmployeeperformanceExternalmetricsDefinition",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/employeeperformance/externalmetrics/definitions/{metricId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteEmployeeperformanceExternalmetricsDefinitionReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteEmployeeperformanceExternalmetricsDefinitionNoContent), nil
+
+}
+
+/*
+GetEmployeeperformanceExternalmetricsDefinition gets an external metric definition
+*/
+func (a *Client) GetEmployeeperformanceExternalmetricsDefinition(ctx context.Context, params *GetEmployeeperformanceExternalmetricsDefinitionParams) (*GetEmployeeperformanceExternalmetricsDefinitionOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getEmployeeperformanceExternalmetricsDefinition",
+		Method:             "GET",
+		PathPattern:        "/api/v2/employeeperformance/externalmetrics/definitions/{metricId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetEmployeeperformanceExternalmetricsDefinitionReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetEmployeeperformanceExternalmetricsDefinitionOK), nil
+
+}
+
+/*
+GetEmployeeperformanceExternalmetricsDefinitions gets a list of external metric definitions of an organization sorted by name in ascending order
+*/
+func (a *Client) GetEmployeeperformanceExternalmetricsDefinitions(ctx context.Context, params *GetEmployeeperformanceExternalmetricsDefinitionsParams) (*GetEmployeeperformanceExternalmetricsDefinitionsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getEmployeeperformanceExternalmetricsDefinitions",
+		Method:             "GET",
+		PathPattern:        "/api/v2/employeeperformance/externalmetrics/definitions",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetEmployeeperformanceExternalmetricsDefinitionsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetEmployeeperformanceExternalmetricsDefinitionsOK), nil
+
 }
 
 /*
@@ -1224,6 +1323,87 @@ func (a *Client) GetGamificationTemplates(ctx context.Context, params *GetGamifi
 		return nil, err
 	}
 	return result.(*GetGamificationTemplatesOK), nil
+
+}
+
+/*
+PatchEmployeeperformanceExternalmetricsDefinition updates external metric definition
+*/
+func (a *Client) PatchEmployeeperformanceExternalmetricsDefinition(ctx context.Context, params *PatchEmployeeperformanceExternalmetricsDefinitionParams) (*PatchEmployeeperformanceExternalmetricsDefinitionOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "patchEmployeeperformanceExternalmetricsDefinition",
+		Method:             "PATCH",
+		PathPattern:        "/api/v2/employeeperformance/externalmetrics/definitions/{metricId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchEmployeeperformanceExternalmetricsDefinitionReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PatchEmployeeperformanceExternalmetricsDefinitionOK), nil
+
+}
+
+/*
+PostEmployeeperformanceExternalmetricsData writes external metric data
+*/
+func (a *Client) PostEmployeeperformanceExternalmetricsData(ctx context.Context, params *PostEmployeeperformanceExternalmetricsDataParams) (*PostEmployeeperformanceExternalmetricsDataOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postEmployeeperformanceExternalmetricsData",
+		Method:             "POST",
+		PathPattern:        "/api/v2/employeeperformance/externalmetrics/data",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostEmployeeperformanceExternalmetricsDataReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostEmployeeperformanceExternalmetricsDataOK), nil
+
+}
+
+/*
+PostEmployeeperformanceExternalmetricsDefinitions creates external metric definition
+*/
+func (a *Client) PostEmployeeperformanceExternalmetricsDefinitions(ctx context.Context, params *PostEmployeeperformanceExternalmetricsDefinitionsParams) (*PostEmployeeperformanceExternalmetricsDefinitionsOK, *PostEmployeeperformanceExternalmetricsDefinitionsCreated, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postEmployeeperformanceExternalmetricsDefinitions",
+		Method:             "POST",
+		PathPattern:        "/api/v2/employeeperformance/externalmetrics/definitions",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostEmployeeperformanceExternalmetricsDefinitionsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PostEmployeeperformanceExternalmetricsDefinitionsOK:
+		return value, nil, nil
+	case *PostEmployeeperformanceExternalmetricsDefinitionsCreated:
+		return nil, value, nil
+	}
+	return nil, nil, nil
 
 }
 

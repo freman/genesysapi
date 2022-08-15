@@ -20,10 +20,6 @@ import (
 // swagger:model LimitChangeRequestDetails
 type LimitChangeRequestDetails struct {
 
-	// The user who created the change request
-	// Read Only: true
-	CreatedBy string `json:"createdBy,omitempty"`
-
 	// Current limit value for a given key
 	// Read Only: true
 	CurrentValue float64 `json:"currentValue,omitempty"`
@@ -50,12 +46,9 @@ type LimitChangeRequestDetails struct {
 	// Required: true
 	Key *string `json:"key"`
 
-	// The user who last updated the status of the limit change request
-	// Read Only: true
-	LastChangedBy string `json:"lastChangedBy,omitempty"`
-
 	// Namespace the key belongs to (see https://developer.mypurecloud.com/api/rest/v2/organization/limits.html#available_limits)
 	// Required: true
+	// Enum: [contacts agent.assistant analytics.alerting analytics analytics.realtime analytics.reporting.settings architect audiohook audit auth.api authorization automation.testing bots bots.voice cobrowse content.management conversation dataactions datatables directory email event.orchestration external.contacts gcv gdpr groups historical.adherence infrastructureascode integrations intent.miner journey knowledge language.understanding limit.registry marketplace messaging notifications onboarding outbound platform.api predictive.routing quality recording response.management routing scim search speech.and.text.analytics speech.integration supportability task.management telephony.configuration web.deployments web.messaging webchat webhooks workforce.management]
 	Namespace *string `json:"namespace"`
 
 	// The reason for rejecting the limit override request
@@ -74,7 +67,7 @@ type LimitChangeRequestDetails struct {
 
 	// Current status of the limit change request
 	// Read Only: true
-	// Enum: [Open Approved ImplementingChange ChangeImplemented Rejected Rollback ImplementingRollback RollbackImplemented]
+	// Enum: [Approved Rejected Rollback Pending Open SecondaryApprovalNamespacesAdded ReviewerApproved ReviewerRejected ReviewerRollback ImplementingChange ChangeImplemented ImplementingRollback RollbackImplemented]
 	Status string `json:"status,omitempty"`
 
 	// List of statuses that a limit change request has gone through
@@ -184,9 +177,208 @@ func (m *LimitChangeRequestDetails) validateKey(formats strfmt.Registry) error {
 	return nil
 }
 
+var limitChangeRequestDetailsTypeNamespacePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["contacts","agent.assistant","analytics.alerting","analytics","analytics.realtime","analytics.reporting.settings","architect","audiohook","audit","auth.api","authorization","automation.testing","bots","bots.voice","cobrowse","content.management","conversation","dataactions","datatables","directory","email","event.orchestration","external.contacts","gcv","gdpr","groups","historical.adherence","infrastructureascode","integrations","intent.miner","journey","knowledge","language.understanding","limit.registry","marketplace","messaging","notifications","onboarding","outbound","platform.api","predictive.routing","quality","recording","response.management","routing","scim","search","speech.and.text.analytics","speech.integration","supportability","task.management","telephony.configuration","web.deployments","web.messaging","webchat","webhooks","workforce.management"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		limitChangeRequestDetailsTypeNamespacePropEnum = append(limitChangeRequestDetailsTypeNamespacePropEnum, v)
+	}
+}
+
+const (
+
+	// LimitChangeRequestDetailsNamespaceContacts captures enum value "contacts"
+	LimitChangeRequestDetailsNamespaceContacts string = "contacts"
+
+	// LimitChangeRequestDetailsNamespaceAgentAssistant captures enum value "agent.assistant"
+	LimitChangeRequestDetailsNamespaceAgentAssistant string = "agent.assistant"
+
+	// LimitChangeRequestDetailsNamespaceAnalyticsAlerting captures enum value "analytics.alerting"
+	LimitChangeRequestDetailsNamespaceAnalyticsAlerting string = "analytics.alerting"
+
+	// LimitChangeRequestDetailsNamespaceAnalytics captures enum value "analytics"
+	LimitChangeRequestDetailsNamespaceAnalytics string = "analytics"
+
+	// LimitChangeRequestDetailsNamespaceAnalyticsRealtime captures enum value "analytics.realtime"
+	LimitChangeRequestDetailsNamespaceAnalyticsRealtime string = "analytics.realtime"
+
+	// LimitChangeRequestDetailsNamespaceAnalyticsReportingSettings captures enum value "analytics.reporting.settings"
+	LimitChangeRequestDetailsNamespaceAnalyticsReportingSettings string = "analytics.reporting.settings"
+
+	// LimitChangeRequestDetailsNamespaceArchitect captures enum value "architect"
+	LimitChangeRequestDetailsNamespaceArchitect string = "architect"
+
+	// LimitChangeRequestDetailsNamespaceAudiohook captures enum value "audiohook"
+	LimitChangeRequestDetailsNamespaceAudiohook string = "audiohook"
+
+	// LimitChangeRequestDetailsNamespaceAudit captures enum value "audit"
+	LimitChangeRequestDetailsNamespaceAudit string = "audit"
+
+	// LimitChangeRequestDetailsNamespaceAuthAPI captures enum value "auth.api"
+	LimitChangeRequestDetailsNamespaceAuthAPI string = "auth.api"
+
+	// LimitChangeRequestDetailsNamespaceAuthorization captures enum value "authorization"
+	LimitChangeRequestDetailsNamespaceAuthorization string = "authorization"
+
+	// LimitChangeRequestDetailsNamespaceAutomationTesting captures enum value "automation.testing"
+	LimitChangeRequestDetailsNamespaceAutomationTesting string = "automation.testing"
+
+	// LimitChangeRequestDetailsNamespaceBots captures enum value "bots"
+	LimitChangeRequestDetailsNamespaceBots string = "bots"
+
+	// LimitChangeRequestDetailsNamespaceBotsVoice captures enum value "bots.voice"
+	LimitChangeRequestDetailsNamespaceBotsVoice string = "bots.voice"
+
+	// LimitChangeRequestDetailsNamespaceCobrowse captures enum value "cobrowse"
+	LimitChangeRequestDetailsNamespaceCobrowse string = "cobrowse"
+
+	// LimitChangeRequestDetailsNamespaceContentManagement captures enum value "content.management"
+	LimitChangeRequestDetailsNamespaceContentManagement string = "content.management"
+
+	// LimitChangeRequestDetailsNamespaceConversation captures enum value "conversation"
+	LimitChangeRequestDetailsNamespaceConversation string = "conversation"
+
+	// LimitChangeRequestDetailsNamespaceDataactions captures enum value "dataactions"
+	LimitChangeRequestDetailsNamespaceDataactions string = "dataactions"
+
+	// LimitChangeRequestDetailsNamespaceDatatables captures enum value "datatables"
+	LimitChangeRequestDetailsNamespaceDatatables string = "datatables"
+
+	// LimitChangeRequestDetailsNamespaceDirectory captures enum value "directory"
+	LimitChangeRequestDetailsNamespaceDirectory string = "directory"
+
+	// LimitChangeRequestDetailsNamespaceEmail captures enum value "email"
+	LimitChangeRequestDetailsNamespaceEmail string = "email"
+
+	// LimitChangeRequestDetailsNamespaceEventOrchestration captures enum value "event.orchestration"
+	LimitChangeRequestDetailsNamespaceEventOrchestration string = "event.orchestration"
+
+	// LimitChangeRequestDetailsNamespaceExternalContacts captures enum value "external.contacts"
+	LimitChangeRequestDetailsNamespaceExternalContacts string = "external.contacts"
+
+	// LimitChangeRequestDetailsNamespaceGcv captures enum value "gcv"
+	LimitChangeRequestDetailsNamespaceGcv string = "gcv"
+
+	// LimitChangeRequestDetailsNamespaceGdpr captures enum value "gdpr"
+	LimitChangeRequestDetailsNamespaceGdpr string = "gdpr"
+
+	// LimitChangeRequestDetailsNamespaceGroups captures enum value "groups"
+	LimitChangeRequestDetailsNamespaceGroups string = "groups"
+
+	// LimitChangeRequestDetailsNamespaceHistoricalAdherence captures enum value "historical.adherence"
+	LimitChangeRequestDetailsNamespaceHistoricalAdherence string = "historical.adherence"
+
+	// LimitChangeRequestDetailsNamespaceInfrastructureascode captures enum value "infrastructureascode"
+	LimitChangeRequestDetailsNamespaceInfrastructureascode string = "infrastructureascode"
+
+	// LimitChangeRequestDetailsNamespaceIntegrations captures enum value "integrations"
+	LimitChangeRequestDetailsNamespaceIntegrations string = "integrations"
+
+	// LimitChangeRequestDetailsNamespaceIntentMiner captures enum value "intent.miner"
+	LimitChangeRequestDetailsNamespaceIntentMiner string = "intent.miner"
+
+	// LimitChangeRequestDetailsNamespaceJourney captures enum value "journey"
+	LimitChangeRequestDetailsNamespaceJourney string = "journey"
+
+	// LimitChangeRequestDetailsNamespaceKnowledge captures enum value "knowledge"
+	LimitChangeRequestDetailsNamespaceKnowledge string = "knowledge"
+
+	// LimitChangeRequestDetailsNamespaceLanguageUnderstanding captures enum value "language.understanding"
+	LimitChangeRequestDetailsNamespaceLanguageUnderstanding string = "language.understanding"
+
+	// LimitChangeRequestDetailsNamespaceLimitRegistry captures enum value "limit.registry"
+	LimitChangeRequestDetailsNamespaceLimitRegistry string = "limit.registry"
+
+	// LimitChangeRequestDetailsNamespaceMarketplace captures enum value "marketplace"
+	LimitChangeRequestDetailsNamespaceMarketplace string = "marketplace"
+
+	// LimitChangeRequestDetailsNamespaceMessaging captures enum value "messaging"
+	LimitChangeRequestDetailsNamespaceMessaging string = "messaging"
+
+	// LimitChangeRequestDetailsNamespaceNotifications captures enum value "notifications"
+	LimitChangeRequestDetailsNamespaceNotifications string = "notifications"
+
+	// LimitChangeRequestDetailsNamespaceOnboarding captures enum value "onboarding"
+	LimitChangeRequestDetailsNamespaceOnboarding string = "onboarding"
+
+	// LimitChangeRequestDetailsNamespaceOutbound captures enum value "outbound"
+	LimitChangeRequestDetailsNamespaceOutbound string = "outbound"
+
+	// LimitChangeRequestDetailsNamespacePlatformAPI captures enum value "platform.api"
+	LimitChangeRequestDetailsNamespacePlatformAPI string = "platform.api"
+
+	// LimitChangeRequestDetailsNamespacePredictiveRouting captures enum value "predictive.routing"
+	LimitChangeRequestDetailsNamespacePredictiveRouting string = "predictive.routing"
+
+	// LimitChangeRequestDetailsNamespaceQuality captures enum value "quality"
+	LimitChangeRequestDetailsNamespaceQuality string = "quality"
+
+	// LimitChangeRequestDetailsNamespaceRecording captures enum value "recording"
+	LimitChangeRequestDetailsNamespaceRecording string = "recording"
+
+	// LimitChangeRequestDetailsNamespaceResponseManagement captures enum value "response.management"
+	LimitChangeRequestDetailsNamespaceResponseManagement string = "response.management"
+
+	// LimitChangeRequestDetailsNamespaceRouting captures enum value "routing"
+	LimitChangeRequestDetailsNamespaceRouting string = "routing"
+
+	// LimitChangeRequestDetailsNamespaceScim captures enum value "scim"
+	LimitChangeRequestDetailsNamespaceScim string = "scim"
+
+	// LimitChangeRequestDetailsNamespaceSearch captures enum value "search"
+	LimitChangeRequestDetailsNamespaceSearch string = "search"
+
+	// LimitChangeRequestDetailsNamespaceSpeechAndTextAnalytics captures enum value "speech.and.text.analytics"
+	LimitChangeRequestDetailsNamespaceSpeechAndTextAnalytics string = "speech.and.text.analytics"
+
+	// LimitChangeRequestDetailsNamespaceSpeechIntegration captures enum value "speech.integration"
+	LimitChangeRequestDetailsNamespaceSpeechIntegration string = "speech.integration"
+
+	// LimitChangeRequestDetailsNamespaceSupportability captures enum value "supportability"
+	LimitChangeRequestDetailsNamespaceSupportability string = "supportability"
+
+	// LimitChangeRequestDetailsNamespaceTaskManagement captures enum value "task.management"
+	LimitChangeRequestDetailsNamespaceTaskManagement string = "task.management"
+
+	// LimitChangeRequestDetailsNamespaceTelephonyConfiguration captures enum value "telephony.configuration"
+	LimitChangeRequestDetailsNamespaceTelephonyConfiguration string = "telephony.configuration"
+
+	// LimitChangeRequestDetailsNamespaceWebDeployments captures enum value "web.deployments"
+	LimitChangeRequestDetailsNamespaceWebDeployments string = "web.deployments"
+
+	// LimitChangeRequestDetailsNamespaceWebMessaging captures enum value "web.messaging"
+	LimitChangeRequestDetailsNamespaceWebMessaging string = "web.messaging"
+
+	// LimitChangeRequestDetailsNamespaceWebchat captures enum value "webchat"
+	LimitChangeRequestDetailsNamespaceWebchat string = "webchat"
+
+	// LimitChangeRequestDetailsNamespaceWebhooks captures enum value "webhooks"
+	LimitChangeRequestDetailsNamespaceWebhooks string = "webhooks"
+
+	// LimitChangeRequestDetailsNamespaceWorkforceManagement captures enum value "workforce.management"
+	LimitChangeRequestDetailsNamespaceWorkforceManagement string = "workforce.management"
+)
+
+// prop value enum
+func (m *LimitChangeRequestDetails) validateNamespaceEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, limitChangeRequestDetailsTypeNamespacePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
 func (m *LimitChangeRequestDetails) validateNamespace(formats strfmt.Registry) error {
 
 	if err := validate.Required("namespace", "body", m.Namespace); err != nil {
+		return err
+	}
+
+	// value enum
+	if err := m.validateNamespaceEnum("namespace", "body", *m.Namespace); err != nil {
 		return err
 	}
 
@@ -271,7 +463,7 @@ var limitChangeRequestDetailsTypeStatusPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Open","Approved","ImplementingChange","ChangeImplemented","Rejected","Rollback","ImplementingRollback","RollbackImplemented"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Approved","Rejected","Rollback","Pending","Open","SecondaryApprovalNamespacesAdded","ReviewerApproved","ReviewerRejected","ReviewerRollback","ImplementingChange","ChangeImplemented","ImplementingRollback","RollbackImplemented"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -281,23 +473,38 @@ func init() {
 
 const (
 
-	// LimitChangeRequestDetailsStatusOpen captures enum value "Open"
-	LimitChangeRequestDetailsStatusOpen string = "Open"
-
 	// LimitChangeRequestDetailsStatusApproved captures enum value "Approved"
 	LimitChangeRequestDetailsStatusApproved string = "Approved"
-
-	// LimitChangeRequestDetailsStatusImplementingChange captures enum value "ImplementingChange"
-	LimitChangeRequestDetailsStatusImplementingChange string = "ImplementingChange"
-
-	// LimitChangeRequestDetailsStatusChangeImplemented captures enum value "ChangeImplemented"
-	LimitChangeRequestDetailsStatusChangeImplemented string = "ChangeImplemented"
 
 	// LimitChangeRequestDetailsStatusRejected captures enum value "Rejected"
 	LimitChangeRequestDetailsStatusRejected string = "Rejected"
 
 	// LimitChangeRequestDetailsStatusRollback captures enum value "Rollback"
 	LimitChangeRequestDetailsStatusRollback string = "Rollback"
+
+	// LimitChangeRequestDetailsStatusPending captures enum value "Pending"
+	LimitChangeRequestDetailsStatusPending string = "Pending"
+
+	// LimitChangeRequestDetailsStatusOpen captures enum value "Open"
+	LimitChangeRequestDetailsStatusOpen string = "Open"
+
+	// LimitChangeRequestDetailsStatusSecondaryApprovalNamespacesAdded captures enum value "SecondaryApprovalNamespacesAdded"
+	LimitChangeRequestDetailsStatusSecondaryApprovalNamespacesAdded string = "SecondaryApprovalNamespacesAdded"
+
+	// LimitChangeRequestDetailsStatusReviewerApproved captures enum value "ReviewerApproved"
+	LimitChangeRequestDetailsStatusReviewerApproved string = "ReviewerApproved"
+
+	// LimitChangeRequestDetailsStatusReviewerRejected captures enum value "ReviewerRejected"
+	LimitChangeRequestDetailsStatusReviewerRejected string = "ReviewerRejected"
+
+	// LimitChangeRequestDetailsStatusReviewerRollback captures enum value "ReviewerRollback"
+	LimitChangeRequestDetailsStatusReviewerRollback string = "ReviewerRollback"
+
+	// LimitChangeRequestDetailsStatusImplementingChange captures enum value "ImplementingChange"
+	LimitChangeRequestDetailsStatusImplementingChange string = "ImplementingChange"
+
+	// LimitChangeRequestDetailsStatusChangeImplemented captures enum value "ChangeImplemented"
+	LimitChangeRequestDetailsStatusChangeImplemented string = "ChangeImplemented"
 
 	// LimitChangeRequestDetailsStatusImplementingRollback captures enum value "ImplementingRollback"
 	LimitChangeRequestDetailsStatusImplementingRollback string = "ImplementingRollback"

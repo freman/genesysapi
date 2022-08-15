@@ -21,7 +21,7 @@ type ConversationEventPresence struct {
 
 	// Describes the type of Presence event.
 	// Required: true
-	// Enum: [Join]
+	// Enum: [Join Disconnect]
 	Type *string `json:"type"`
 }
 
@@ -43,7 +43,7 @@ var conversationEventPresenceTypeTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Join"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Join","Disconnect"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -55,6 +55,9 @@ const (
 
 	// ConversationEventPresenceTypeJoin captures enum value "Join"
 	ConversationEventPresenceTypeJoin string = "Join"
+
+	// ConversationEventPresenceTypeDisconnect captures enum value "Disconnect"
+	ConversationEventPresenceTypeDisconnect string = "Disconnect"
 )
 
 // prop value enum

@@ -24,7 +24,7 @@ type ConversationMessageMetadataEvent struct {
 	EventType string `json:"eventType,omitempty"`
 
 	// Event subtype
-	// Enum: [On Join Offering OfferingExpired OfferingAccepted OfferingRejected Unknown]
+	// Enum: [On Join Disconnect Offering OfferingExpired OfferingAccepted OfferingRejected Unknown]
 	SubType string `json:"subType,omitempty"`
 }
 
@@ -99,7 +99,7 @@ var conversationMessageMetadataEventTypeSubTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["On","Join","Offering","OfferingExpired","OfferingAccepted","OfferingRejected","Unknown"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["On","Join","Disconnect","Offering","OfferingExpired","OfferingAccepted","OfferingRejected","Unknown"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -114,6 +114,9 @@ const (
 
 	// ConversationMessageMetadataEventSubTypeJoin captures enum value "Join"
 	ConversationMessageMetadataEventSubTypeJoin string = "Join"
+
+	// ConversationMessageMetadataEventSubTypeDisconnect captures enum value "Disconnect"
+	ConversationMessageMetadataEventSubTypeDisconnect string = "Disconnect"
 
 	// ConversationMessageMetadataEventSubTypeOffering captures enum value "Offering"
 	ConversationMessageMetadataEventSubTypeOffering string = "Offering"

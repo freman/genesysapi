@@ -111,20 +111,20 @@ func NewDeleteQualityConversationEvaluationOK() *DeleteQualityConversationEvalua
 successful operation
 */
 type DeleteQualityConversationEvaluationOK struct {
-	Payload *models.Evaluation
+	Payload *models.EvaluationResponse
 }
 
 func (o *DeleteQualityConversationEvaluationOK) Error() string {
 	return fmt.Sprintf("[DELETE /api/v2/quality/conversations/{conversationId}/evaluations/{evaluationId}][%d] deleteQualityConversationEvaluationOK  %+v", 200, o.Payload)
 }
 
-func (o *DeleteQualityConversationEvaluationOK) GetPayload() *models.Evaluation {
+func (o *DeleteQualityConversationEvaluationOK) GetPayload() *models.EvaluationResponse {
 	return o.Payload
 }
 
 func (o *DeleteQualityConversationEvaluationOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.Evaluation)
+	o.Payload = new(models.EvaluationResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

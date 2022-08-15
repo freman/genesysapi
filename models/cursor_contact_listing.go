@@ -18,6 +18,9 @@ import (
 // swagger:model CursorContactListing
 type CursorContactListing struct {
 
+	// The cursor that points to the next set of entities being returned.
+	Cursors *Cursors `json:"cursors,omitempty"`
+
 	// entities
 	Entities []*ExternalContact `json:"entities"`
 
@@ -35,6 +38,10 @@ type CursorContactListing struct {
 func (m *CursorContactListing) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateCursors(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateEntities(formats); err != nil {
 		res = append(res, err)
 	}
@@ -42,6 +49,24 @@ func (m *CursorContactListing) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *CursorContactListing) validateCursors(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Cursors) { // not required
+		return nil
+	}
+
+	if m.Cursors != nil {
+		if err := m.Cursors.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("cursors")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

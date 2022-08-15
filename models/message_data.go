@@ -65,7 +65,7 @@ type MessageData struct {
 
 	// The status of the message.
 	// Required: true
-	// Enum: [queued sent failed received delivery-success delivery-failed read]
+	// Enum: [queued sent failed received delivery-success delivery-failed read removed]
 	Status *string `json:"status"`
 
 	// The sticker details associated to a message.
@@ -345,7 +345,7 @@ var messageDataTypeStatusPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["queued","sent","failed","received","delivery-success","delivery-failed","read"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["queued","sent","failed","received","delivery-success","delivery-failed","read","removed"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -375,6 +375,9 @@ const (
 
 	// MessageDataStatusRead captures enum value "read"
 	MessageDataStatusRead string = "read"
+
+	// MessageDataStatusRemoved captures enum value "removed"
+	MessageDataStatusRemoved string = "removed"
 )
 
 // prop value enum

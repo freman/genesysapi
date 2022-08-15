@@ -94,6 +94,10 @@ type API interface {
 	*/
 	GetRoutingAssessmentsJobs(ctx context.Context, params *GetRoutingAssessmentsJobsParams) (*GetRoutingAssessmentsJobsOK, error)
 	/*
+	   GetRoutingAvailablemediatypes gets available media types
+	*/
+	GetRoutingAvailablemediatypes(ctx context.Context, params *GetRoutingAvailablemediatypesParams) (*GetRoutingAvailablemediatypesOK, error)
+	/*
 	   GetRoutingEmailDomain gets domain
 	*/
 	GetRoutingEmailDomain(ctx context.Context, params *GetRoutingEmailDomainParams) (*GetRoutingEmailDomainOK, error)
@@ -886,6 +890,31 @@ func (a *Client) GetRoutingAssessmentsJobs(ctx context.Context, params *GetRouti
 		return nil, err
 	}
 	return result.(*GetRoutingAssessmentsJobsOK), nil
+
+}
+
+/*
+GetRoutingAvailablemediatypes gets available media types
+*/
+func (a *Client) GetRoutingAvailablemediatypes(ctx context.Context, params *GetRoutingAvailablemediatypesParams) (*GetRoutingAvailablemediatypesOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getRoutingAvailablemediatypes",
+		Method:             "GET",
+		PathPattern:        "/api/v2/routing/availablemediatypes",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetRoutingAvailablemediatypesReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetRoutingAvailablemediatypesOK), nil
 
 }
 

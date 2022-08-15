@@ -22,6 +22,10 @@ type API interface {
 	*/
 	PostLanguageunderstandingMinerUploads(ctx context.Context, params *PostLanguageunderstandingMinerUploadsParams) (*PostLanguageunderstandingMinerUploadsOK, error)
 	/*
+	   PostUploadsLearningCoverart generates pre signed URL to upload cover art for learning modules
+	*/
+	PostUploadsLearningCoverart(ctx context.Context, params *PostUploadsLearningCoverartParams) (*PostUploadsLearningCoverartOK, error)
+	/*
 	   PostUploadsPublicassetsImages creates presigned url for uploading a public asset image
 	*/
 	PostUploadsPublicassetsImages(ctx context.Context, params *PostUploadsPublicassetsImagesParams) (*PostUploadsPublicassetsImagesOK, error)
@@ -75,6 +79,31 @@ func (a *Client) PostLanguageunderstandingMinerUploads(ctx context.Context, para
 		return nil, err
 	}
 	return result.(*PostLanguageunderstandingMinerUploadsOK), nil
+
+}
+
+/*
+PostUploadsLearningCoverart generates pre signed URL to upload cover art for learning modules
+*/
+func (a *Client) PostUploadsLearningCoverart(ctx context.Context, params *PostUploadsLearningCoverartParams) (*PostUploadsLearningCoverartOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postUploadsLearningCoverart",
+		Method:             "POST",
+		PathPattern:        "/api/v2/uploads/learning/coverart",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostUploadsLearningCoverartReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostUploadsLearningCoverartOK), nil
 
 }
 

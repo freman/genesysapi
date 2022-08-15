@@ -19,7 +19,7 @@ import (
 type BulkIdsRequest struct {
 
 	// entities
-	Entities []*Entity `json:"entities"`
+	Entities []*WritableEntity `json:"entities"`
 }
 
 // Validate validates this bulk ids request

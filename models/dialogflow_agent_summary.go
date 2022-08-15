@@ -17,17 +17,20 @@ import (
 // swagger:model DialogflowAgentSummary
 type DialogflowAgentSummary struct {
 
-	// A description of the Dialogflow agent
+	// A description of the Dialogflow agent.
 	Description string `json:"description,omitempty"`
 
 	// The globally unique identifier for the object.
 	// Read Only: true
 	ID string `json:"id,omitempty"`
 
+	// The Integration this Dialogflow agent was referenced from.
+	Integration *DomainEntityRef `json:"integration,omitempty"`
+
 	// name
 	Name string `json:"name,omitempty"`
 
-	// The project this Dialogflow agent belongs to
+	// The project this Dialogflow agent belongs to.
 	Project *DialogflowProject `json:"project,omitempty"`
 
 	// The URI for this object
@@ -40,6 +43,10 @@ type DialogflowAgentSummary struct {
 func (m *DialogflowAgentSummary) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateIntegration(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateProject(formats); err != nil {
 		res = append(res, err)
 	}
@@ -51,6 +58,24 @@ func (m *DialogflowAgentSummary) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DialogflowAgentSummary) validateIntegration(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Integration) { // not required
+		return nil
+	}
+
+	if m.Integration != nil {
+		if err := m.Integration.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("integration")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

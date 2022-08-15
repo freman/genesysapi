@@ -111,20 +111,20 @@ func NewGetQualityConversationEvaluationOK() *GetQualityConversationEvaluationOK
 successful operation
 */
 type GetQualityConversationEvaluationOK struct {
-	Payload *models.Evaluation
+	Payload *models.EvaluationResponse
 }
 
 func (o *GetQualityConversationEvaluationOK) Error() string {
 	return fmt.Sprintf("[GET /api/v2/quality/conversations/{conversationId}/evaluations/{evaluationId}][%d] getQualityConversationEvaluationOK  %+v", 200, o.Payload)
 }
 
-func (o *GetQualityConversationEvaluationOK) GetPayload() *models.Evaluation {
+func (o *GetQualityConversationEvaluationOK) GetPayload() *models.EvaluationResponse {
 	return o.Payload
 }
 
 func (o *GetQualityConversationEvaluationOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.Evaluation)
+	o.Payload = new(models.EvaluationResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

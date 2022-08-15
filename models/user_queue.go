@@ -23,6 +23,9 @@ type UserQueue struct {
 	// The ACW settings for the queue.
 	AcwSettings *AcwSettings `json:"acwSettings,omitempty"`
 
+	// The Agent Owned Routing settings for the queue
+	AgentOwnedRouting *AgentOwnedRouting `json:"agentOwnedRouting,omitempty"`
+
 	// The bullseye settings for the queue.
 	Bullseye *Bullseye `json:"bullseye,omitempty"`
 
@@ -79,6 +82,10 @@ type UserQueue struct {
 	// Read Only: true
 	MemberCount int32 `json:"memberCount,omitempty"`
 
+	// The groups of agents associated with the queue, if any.  Queue membership will update to match group membership changes.
+	// Unique: true
+	MemberGroups []*MemberGroup `json:"memberGroups"`
+
 	// The in-queue flow to use for message conversations waiting in queue.
 	MessageInQueueFlow *DomainEntityRef `json:"messageInQueueFlow,omitempty"`
 
@@ -97,7 +104,7 @@ type UserQueue struct {
 	// The messaging addresses for the queue.
 	OutboundMessagingAddresses *QueueMessagingAddresses `json:"outboundMessagingAddresses,omitempty"`
 
-	// The ID of the external Queue
+	// The ID of an associated external queue.
 	PeerID string `json:"peerId,omitempty"`
 
 	// The in-queue flow to use for call conversations waiting in queue.
@@ -131,6 +138,10 @@ func (m *UserQueue) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateAgentOwnedRouting(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateBullseye(formats); err != nil {
 		res = append(res, err)
 	}
@@ -156,6 +167,10 @@ func (m *UserQueue) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateMediaSettings(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateMemberGroups(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -211,6 +226,24 @@ func (m *UserQueue) validateAcwSettings(formats strfmt.Registry) error {
 		if err := m.AcwSettings.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("acwSettings")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UserQueue) validateAgentOwnedRouting(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.AgentOwnedRouting) { // not required
+		return nil
+	}
+
+	if m.AgentOwnedRouting != nil {
+		if err := m.AgentOwnedRouting.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("agentOwnedRouting")
 			}
 			return err
 		}
@@ -334,6 +367,35 @@ func (m *UserQueue) validateMediaSettings(formats strfmt.Registry) error {
 		}
 		if val, ok := m.MediaSettings[k]; ok {
 			if err := val.Validate(formats); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *UserQueue) validateMemberGroups(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.MemberGroups) { // not required
+		return nil
+	}
+
+	if err := validate.UniqueItems("memberGroups", "body", m.MemberGroups); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.MemberGroups); i++ {
+		if swag.IsZero(m.MemberGroups[i]) { // not required
+			continue
+		}
+
+		if m.MemberGroups[i] != nil {
+			if err := m.MemberGroups[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("memberGroups" + "." + strconv.Itoa(i))
+				}
 				return err
 			}
 		}

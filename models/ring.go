@@ -11,6 +11,7 @@ import (
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // Ring ring
@@ -23,6 +24,10 @@ type Ring struct {
 
 	// The conditions that will trigger conversations to move to the next bullseye ring.
 	ExpansionCriteria []*ExpansionCriterium `json:"expansionCriteria"`
+
+	// The groups of agents associated with the ring, if any.  Ring membership will update to match group membership changes.
+	// Unique: true
+	MemberGroups []*MemberGroup `json:"memberGroups"`
 }
 
 // Validate validates this ring
@@ -34,6 +39,10 @@ func (m *Ring) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateExpansionCriteria(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateMemberGroups(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -76,6 +85,35 @@ func (m *Ring) validateExpansionCriteria(formats strfmt.Registry) error {
 			if err := m.ExpansionCriteria[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("expansionCriteria" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Ring) validateMemberGroups(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.MemberGroups) { // not required
+		return nil
+	}
+
+	if err := validate.UniqueItems("memberGroups", "body", m.MemberGroups); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.MemberGroups); i++ {
+		if swag.IsZero(m.MemberGroups[i]) { // not required
+			continue
+		}
+
+		if m.MemberGroups[i] != nil {
+			if err := m.MemberGroups[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("memberGroups" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

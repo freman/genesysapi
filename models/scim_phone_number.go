@@ -23,7 +23,7 @@ type ScimPhoneNumber struct {
 	Primary bool `json:"primary"`
 
 	// The type of phone number.
-	// Enum: [work work2 work3 work4 home mobile other microsoftteams zoomphone eighbyeight]
+	// Enum: [work work2 work3 work4 home mobile other microsoftteams zoomphone eightbyeight]
 	Type string `json:"type,omitempty"`
 
 	// The phone number in E.164 or tel URI format, for example, tel:+nnnnnnnn; ext=xxxxx.
@@ -48,7 +48,7 @@ var scimPhoneNumberTypeTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["work","work2","work3","work4","home","mobile","other","microsoftteams","zoomphone","eighbyeight"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["work","work2","work3","work4","home","mobile","other","microsoftteams","zoomphone","eightbyeight"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -85,8 +85,8 @@ const (
 	// ScimPhoneNumberTypeZoomphone captures enum value "zoomphone"
 	ScimPhoneNumberTypeZoomphone string = "zoomphone"
 
-	// ScimPhoneNumberTypeEighbyeight captures enum value "eighbyeight"
-	ScimPhoneNumberTypeEighbyeight string = "eighbyeight"
+	// ScimPhoneNumberTypeEightbyeight captures enum value "eightbyeight"
+	ScimPhoneNumberTypeEightbyeight string = "eightbyeight"
 )
 
 // prop value enum

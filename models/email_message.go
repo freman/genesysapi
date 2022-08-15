@@ -28,6 +28,10 @@ type EmailMessage struct {
 	// The recipients that were copied on the email message.
 	Cc []*EmailAddress `json:"cc"`
 
+	// Indicates an estimation of the size of the current email as a whole, in its final, ready to be sent form.
+	// Read Only: true
+	EmailSizeBytes int32 `json:"emailSizeBytes,omitempty"`
+
 	// The sender of the email message.
 	// Required: true
 	From *EmailAddress `json:"from"`
@@ -41,6 +45,10 @@ type EmailMessage struct {
 	// The globally unique identifier for the object.
 	// Read Only: true
 	ID string `json:"id,omitempty"`
+
+	// Indicates the maximum allowed size for an email to be send via SMTP server, based on the email domain configuration
+	// Read Only: true
+	MaxEmailSizeBytes int32 `json:"maxEmailSizeBytes,omitempty"`
 
 	// name
 	Name string `json:"name,omitempty"`

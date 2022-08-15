@@ -31,7 +31,7 @@ type KnowledgeImport struct {
 
 	// file type of the document
 	// Required: true
-	// Enum: [Csv JsonLines Json]
+	// Enum: [Csv JsonLines]
 	FileType *string `json:"fileType"`
 
 	// Id of the import operation
@@ -148,7 +148,7 @@ var knowledgeImportTypeFileTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Csv","JsonLines","Json"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Csv","JsonLines"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -163,9 +163,6 @@ const (
 
 	// KnowledgeImportFileTypeJSONLines captures enum value "JsonLines"
 	KnowledgeImportFileTypeJSONLines string = "JsonLines"
-
-	// KnowledgeImportFileTypeJSON captures enum value "Json"
-	KnowledgeImportFileTypeJSON string = "Json"
 )
 
 // prop value enum

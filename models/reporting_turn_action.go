@@ -29,7 +29,7 @@ type ReportingTurnAction struct {
 	ActionNumber int32 `json:"actionNumber,omitempty"`
 
 	// action type
-	// Enum: [AskForNLUIntentAction AskForBooleanAction AskForSlotAction AskForNLUNextIntentAction BotState DisconnectAction ExitBotFlowAction CallTaskAction EndTaskAction UpdateVariableAction CommunicateAction DecisionAction SwitchAction DataAction DataTableLookupAction GetExternalContactAction GetExternalOrganizationAction LoopAction ExitLoopAction NextLoopAction LoopUntilAction SetActiveIntentAction ClearSlotAction SetFlowOutcomeAction InitializeFlowOutcomeAction AddFlowMilestoneAction AskForStringAction SendResponseAction GetResponseAction ExtractSecureDataAction SecureAction TransferTaskAction DigitalMenuAction WaitForInputAction ShowKnowledgeArticleAction Unknown]
+	// Enum: [AskForNLUIntentAction AskForBooleanAction AskForSlotAction AskForNLUNextIntentAction BotState DisconnectAction ExitBotFlowAction CallTaskAction EndTaskAction UpdateVariableAction CommunicateAction DecisionAction SwitchAction DataAction DataTableLookupAction GetExternalContactAction GetExternalOrganizationAction LoopAction ExitLoopAction NextLoopAction LoopUntilAction SetActiveIntentAction ClearSlotAction SetFlowOutcomeAction InitializeFlowOutcomeAction AddFlowMilestoneAction AskForStringAction SendResponseAction GetResponseAction ExtractSecureDataAction SecureAction TransferTaskAction DigitalMenuAction WaitForInputAction ShowKnowledgeArticleAction FindSystemPromptAction FindUserPromptAction Unknown]
 	ActionType string `json:"actionType,omitempty"`
 }
 
@@ -51,7 +51,7 @@ var reportingTurnActionTypeActionTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["AskForNLUIntentAction","AskForBooleanAction","AskForSlotAction","AskForNLUNextIntentAction","BotState","DisconnectAction","ExitBotFlowAction","CallTaskAction","EndTaskAction","UpdateVariableAction","CommunicateAction","DecisionAction","SwitchAction","DataAction","DataTableLookupAction","GetExternalContactAction","GetExternalOrganizationAction","LoopAction","ExitLoopAction","NextLoopAction","LoopUntilAction","SetActiveIntentAction","ClearSlotAction","SetFlowOutcomeAction","InitializeFlowOutcomeAction","AddFlowMilestoneAction","AskForStringAction","SendResponseAction","GetResponseAction","ExtractSecureDataAction","SecureAction","TransferTaskAction","DigitalMenuAction","WaitForInputAction","ShowKnowledgeArticleAction","Unknown"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["AskForNLUIntentAction","AskForBooleanAction","AskForSlotAction","AskForNLUNextIntentAction","BotState","DisconnectAction","ExitBotFlowAction","CallTaskAction","EndTaskAction","UpdateVariableAction","CommunicateAction","DecisionAction","SwitchAction","DataAction","DataTableLookupAction","GetExternalContactAction","GetExternalOrganizationAction","LoopAction","ExitLoopAction","NextLoopAction","LoopUntilAction","SetActiveIntentAction","ClearSlotAction","SetFlowOutcomeAction","InitializeFlowOutcomeAction","AddFlowMilestoneAction","AskForStringAction","SendResponseAction","GetResponseAction","ExtractSecureDataAction","SecureAction","TransferTaskAction","DigitalMenuAction","WaitForInputAction","ShowKnowledgeArticleAction","FindSystemPromptAction","FindUserPromptAction","Unknown"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -165,6 +165,12 @@ const (
 
 	// ReportingTurnActionActionTypeShowKnowledgeArticleAction captures enum value "ShowKnowledgeArticleAction"
 	ReportingTurnActionActionTypeShowKnowledgeArticleAction string = "ShowKnowledgeArticleAction"
+
+	// ReportingTurnActionActionTypeFindSystemPromptAction captures enum value "FindSystemPromptAction"
+	ReportingTurnActionActionTypeFindSystemPromptAction string = "FindSystemPromptAction"
+
+	// ReportingTurnActionActionTypeFindUserPromptAction captures enum value "FindUserPromptAction"
+	ReportingTurnActionActionTypeFindUserPromptAction string = "FindUserPromptAction"
 
 	// ReportingTurnActionActionTypeUnknown captures enum value "Unknown"
 	ReportingTurnActionActionTypeUnknown string = "Unknown"

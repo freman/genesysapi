@@ -59,6 +59,12 @@ func (o *GetStationsSettingsReader) ReadResponse(response runtime.ClientResponse
 			return nil, err
 		}
 		return nil, result
+	case 410:
+		result := NewGetStationsSettingsGone()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewGetStationsSettingsRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -288,6 +294,39 @@ func (o *GetStationsSettingsRequestTimeout) GetPayload() *models.ErrorBody {
 }
 
 func (o *GetStationsSettingsRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewGetStationsSettingsGone creates a GetStationsSettingsGone with default headers values
+func NewGetStationsSettingsGone() *GetStationsSettingsGone {
+	return &GetStationsSettingsGone{}
+}
+
+/*GetStationsSettingsGone handles this case with default header values.
+
+Gone
+*/
+type GetStationsSettingsGone struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetStationsSettingsGone) Error() string {
+	return fmt.Sprintf("[GET /api/v2/stations/settings][%d] getStationsSettingsGone  %+v", 410, o.Payload)
+}
+
+func (o *GetStationsSettingsGone) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetStationsSettingsGone) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ErrorBody)
 

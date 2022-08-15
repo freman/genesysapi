@@ -36,7 +36,7 @@ type MessageDetails struct {
 	MessageSegmentCount int32 `json:"messageSegmentCount,omitempty"`
 
 	// Indicates the delivery status of the message.
-	// Enum: [queued sent failed received delivery-success delivery-failed read]
+	// Enum: [queued sent failed received delivery-success delivery-failed read removed]
 	MessageStatus string `json:"messageStatus,omitempty"`
 
 	// The time when the message was sent or received. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
@@ -154,7 +154,7 @@ var messageDetailsTypeMessageStatusPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["queued","sent","failed","received","delivery-success","delivery-failed","read"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["queued","sent","failed","received","delivery-success","delivery-failed","read","removed"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -184,6 +184,9 @@ const (
 
 	// MessageDetailsMessageStatusRead captures enum value "read"
 	MessageDetailsMessageStatusRead string = "read"
+
+	// MessageDetailsMessageStatusRemoved captures enum value "removed"
+	MessageDetailsMessageStatusRemoved string = "removed"
 )
 
 // prop value enum

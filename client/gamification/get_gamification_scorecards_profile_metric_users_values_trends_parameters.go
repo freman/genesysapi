@@ -78,10 +78,10 @@ type GetGamificationScorecardsProfileMetricUsersValuesTrendsParams struct {
 	*/
 	EndWorkday strfmt.Date
 	/*FilterID
-	  ID for the filter type. For example, division Id
+	  ID for the filter type. Only required when filterType is Division.
 
 	*/
-	FilterID string
+	FilterID *string
 	/*FilterType
 	  Filter type for the query request.
 
@@ -163,13 +163,13 @@ func (o *GetGamificationScorecardsProfileMetricUsersValuesTrendsParams) SetEndWo
 }
 
 // WithFilterID adds the filterID to the get gamification scorecards profile metric users values trends params
-func (o *GetGamificationScorecardsProfileMetricUsersValuesTrendsParams) WithFilterID(filterID string) *GetGamificationScorecardsProfileMetricUsersValuesTrendsParams {
+func (o *GetGamificationScorecardsProfileMetricUsersValuesTrendsParams) WithFilterID(filterID *string) *GetGamificationScorecardsProfileMetricUsersValuesTrendsParams {
 	o.SetFilterID(filterID)
 	return o
 }
 
 // SetFilterID adds the filterId to the get gamification scorecards profile metric users values trends params
-func (o *GetGamificationScorecardsProfileMetricUsersValuesTrendsParams) SetFilterID(filterID string) {
+func (o *GetGamificationScorecardsProfileMetricUsersValuesTrendsParams) SetFilterID(filterID *string) {
 	o.FilterID = filterID
 }
 
@@ -256,13 +256,20 @@ func (o *GetGamificationScorecardsProfileMetricUsersValuesTrendsParams) WriteToR
 		}
 	}
 
-	// query param filterId
-	qrFilterID := o.FilterID
-	qFilterID := qrFilterID
-	if qFilterID != "" {
-		if err := r.SetQueryParam("filterId", qFilterID); err != nil {
-			return err
+	if o.FilterID != nil {
+
+		// query param filterId
+		var qrFilterID string
+		if o.FilterID != nil {
+			qrFilterID = *o.FilterID
 		}
+		qFilterID := qrFilterID
+		if qFilterID != "" {
+			if err := r.SetQueryParam("filterId", qFilterID); err != nil {
+				return err
+			}
+		}
+
 	}
 
 	// query param filterType

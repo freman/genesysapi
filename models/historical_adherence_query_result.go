@@ -23,9 +23,9 @@ type HistoricalAdherenceQueryResult struct {
 	// List of actual activity with offset for this user
 	Actuals []*HistoricalAdherenceActuals `json:"actuals"`
 
-	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+	// The end date of the actual activities in ISO-8601 format.
 	// Format: date-time
-	ActualsEndsDate strfmt.DateTime `json:"actualsEndsDate,omitempty"`
+	ActualsEndDate strfmt.DateTime `json:"actualsEndDate,omitempty"`
 
 	// Adherence percentage for this user, in the scale of 0 - 100
 	AdherencePercentage float64 `json:"adherencePercentage,omitempty"`
@@ -63,7 +63,7 @@ func (m *HistoricalAdherenceQueryResult) Validate(formats strfmt.Registry) error
 		res = append(res, err)
 	}
 
-	if err := m.validateActualsEndsDate(formats); err != nil {
+	if err := m.validateActualsEndDate(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -118,13 +118,13 @@ func (m *HistoricalAdherenceQueryResult) validateActuals(formats strfmt.Registry
 	return nil
 }
 
-func (m *HistoricalAdherenceQueryResult) validateActualsEndsDate(formats strfmt.Registry) error {
+func (m *HistoricalAdherenceQueryResult) validateActualsEndDate(formats strfmt.Registry) error {
 
-	if swag.IsZero(m.ActualsEndsDate) { // not required
+	if swag.IsZero(m.ActualsEndDate) { // not required
 		return nil
 	}
 
-	if err := validate.FormatOf("actualsEndsDate", "body", "date-time", m.ActualsEndsDate.String(), formats); err != nil {
+	if err := validate.FormatOf("actualsEndDate", "body", "date-time", m.ActualsEndDate.String(), formats); err != nil {
 		return err
 	}
 

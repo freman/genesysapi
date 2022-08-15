@@ -65,6 +65,10 @@ type API interface {
 	*/
 	GetLearningModulesAssignments(ctx context.Context, params *GetLearningModulesAssignmentsParams) (*GetLearningModulesAssignmentsOK, error)
 	/*
+	   GetLearningModulesCoverartCoverArtID gets a specific learning module cover art using ID
+	*/
+	GetLearningModulesCoverartCoverArtID(ctx context.Context, params *GetLearningModulesCoverartCoverArtIDParams) (*GetLearningModulesCoverartCoverArtIDOK, error)
+	/*
 	   PatchLearningAssignment updates learning assignment
 	*/
 	PatchLearningAssignment(ctx context.Context, params *PatchLearningAssignmentParams) (*PatchLearningAssignmentOK, error)
@@ -425,6 +429,31 @@ func (a *Client) GetLearningModulesAssignments(ctx context.Context, params *GetL
 		return nil, err
 	}
 	return result.(*GetLearningModulesAssignmentsOK), nil
+
+}
+
+/*
+GetLearningModulesCoverartCoverArtID gets a specific learning module cover art using ID
+*/
+func (a *Client) GetLearningModulesCoverartCoverArtID(ctx context.Context, params *GetLearningModulesCoverartCoverArtIDParams) (*GetLearningModulesCoverartCoverArtIDOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getLearningModulesCoverartCoverArtId",
+		Method:             "GET",
+		PathPattern:        "/api/v2/learning/modules/coverart/{coverArtId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetLearningModulesCoverartCoverArtIDReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetLearningModulesCoverartCoverArtIDOK), nil
 
 }
 

@@ -53,6 +53,12 @@ func (o *GetArchitectDependencytrackingTypeReader) ReadResponse(response runtime
 			return nil, err
 		}
 		return nil, result
+	case 405:
+		result := NewGetArchitectDependencytrackingTypeMethodNotAllowed()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 408:
 		result := NewGetArchitectDependencytrackingTypeRequestTimeout()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -255,6 +261,39 @@ func (o *GetArchitectDependencytrackingTypeNotFound) GetPayload() *models.ErrorB
 }
 
 func (o *GetArchitectDependencytrackingTypeNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewGetArchitectDependencytrackingTypeMethodNotAllowed creates a GetArchitectDependencytrackingTypeMethodNotAllowed with default headers values
+func NewGetArchitectDependencytrackingTypeMethodNotAllowed() *GetArchitectDependencytrackingTypeMethodNotAllowed {
+	return &GetArchitectDependencytrackingTypeMethodNotAllowed{}
+}
+
+/*GetArchitectDependencytrackingTypeMethodNotAllowed handles this case with default header values.
+
+Method Not Allowed
+*/
+type GetArchitectDependencytrackingTypeMethodNotAllowed struct {
+	Payload *models.ErrorBody
+}
+
+func (o *GetArchitectDependencytrackingTypeMethodNotAllowed) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/types/{typeId}][%d] getArchitectDependencytrackingTypeMethodNotAllowed  %+v", 405, o.Payload)
+}
+
+func (o *GetArchitectDependencytrackingTypeMethodNotAllowed) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *GetArchitectDependencytrackingTypeMethodNotAllowed) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ErrorBody)
 

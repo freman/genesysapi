@@ -19,10 +19,6 @@ import (
 // swagger:model StatusChange
 type StatusChange struct {
 
-	// If applicable, the user who updated the change request to this status
-	// Read Only: true
-	ChangedBy string `json:"changedBy,omitempty"`
-
 	// The date of this status change. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Read Only: true
 	// Format: date-time
@@ -32,9 +28,14 @@ type StatusChange struct {
 	// Read Only: true
 	Message string `json:"message,omitempty"`
 
+	// The namespace for the status change
+	// Read Only: true
+	// Enum: [contacts agent.assistant analytics.alerting analytics analytics.realtime analytics.reporting.settings architect audiohook audit auth.api authorization automation.testing bots bots.voice cobrowse content.management conversation dataactions datatables directory email event.orchestration external.contacts gcv gdpr groups historical.adherence infrastructureascode integrations intent.miner journey knowledge language.understanding limit.registry marketplace messaging notifications onboarding outbound platform.api predictive.routing quality recording response.management routing scim search speech.and.text.analytics speech.integration supportability task.management telephony.configuration web.deployments web.messaging webchat webhooks workforce.management]
+	Namespace string `json:"namespace,omitempty"`
+
 	// The status the change request transitioned from
 	// Read Only: true
-	// Enum: [Open Approved ImplementingChange ChangeImplemented Rejected Rollback ImplementingRollback RollbackImplemented]
+	// Enum: [Approved Rejected Rollback Pending Open SecondaryApprovalNamespacesAdded ReviewerApproved ReviewerRejected ReviewerRollback ImplementingChange ChangeImplemented ImplementingRollback RollbackImplemented]
 	PreviousStatus string `json:"previousStatus,omitempty"`
 
 	// The reason for rejecting the limit override request
@@ -44,7 +45,7 @@ type StatusChange struct {
 
 	// The status the change request transitioned to
 	// Read Only: true
-	// Enum: [Open Approved ImplementingChange ChangeImplemented Rejected Rollback ImplementingRollback RollbackImplemented]
+	// Enum: [Approved Rejected Rollback Pending Open SecondaryApprovalNamespacesAdded ReviewerApproved ReviewerRejected ReviewerRollback ImplementingChange ChangeImplemented ImplementingRollback RollbackImplemented]
 	Status string `json:"status,omitempty"`
 }
 
@@ -53,6 +54,10 @@ func (m *StatusChange) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateDateStatusChanged(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateNamespace(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -87,11 +92,219 @@ func (m *StatusChange) validateDateStatusChanged(formats strfmt.Registry) error 
 	return nil
 }
 
+var statusChangeTypeNamespacePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["contacts","agent.assistant","analytics.alerting","analytics","analytics.realtime","analytics.reporting.settings","architect","audiohook","audit","auth.api","authorization","automation.testing","bots","bots.voice","cobrowse","content.management","conversation","dataactions","datatables","directory","email","event.orchestration","external.contacts","gcv","gdpr","groups","historical.adherence","infrastructureascode","integrations","intent.miner","journey","knowledge","language.understanding","limit.registry","marketplace","messaging","notifications","onboarding","outbound","platform.api","predictive.routing","quality","recording","response.management","routing","scim","search","speech.and.text.analytics","speech.integration","supportability","task.management","telephony.configuration","web.deployments","web.messaging","webchat","webhooks","workforce.management"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		statusChangeTypeNamespacePropEnum = append(statusChangeTypeNamespacePropEnum, v)
+	}
+}
+
+const (
+
+	// StatusChangeNamespaceContacts captures enum value "contacts"
+	StatusChangeNamespaceContacts string = "contacts"
+
+	// StatusChangeNamespaceAgentAssistant captures enum value "agent.assistant"
+	StatusChangeNamespaceAgentAssistant string = "agent.assistant"
+
+	// StatusChangeNamespaceAnalyticsAlerting captures enum value "analytics.alerting"
+	StatusChangeNamespaceAnalyticsAlerting string = "analytics.alerting"
+
+	// StatusChangeNamespaceAnalytics captures enum value "analytics"
+	StatusChangeNamespaceAnalytics string = "analytics"
+
+	// StatusChangeNamespaceAnalyticsRealtime captures enum value "analytics.realtime"
+	StatusChangeNamespaceAnalyticsRealtime string = "analytics.realtime"
+
+	// StatusChangeNamespaceAnalyticsReportingSettings captures enum value "analytics.reporting.settings"
+	StatusChangeNamespaceAnalyticsReportingSettings string = "analytics.reporting.settings"
+
+	// StatusChangeNamespaceArchitect captures enum value "architect"
+	StatusChangeNamespaceArchitect string = "architect"
+
+	// StatusChangeNamespaceAudiohook captures enum value "audiohook"
+	StatusChangeNamespaceAudiohook string = "audiohook"
+
+	// StatusChangeNamespaceAudit captures enum value "audit"
+	StatusChangeNamespaceAudit string = "audit"
+
+	// StatusChangeNamespaceAuthAPI captures enum value "auth.api"
+	StatusChangeNamespaceAuthAPI string = "auth.api"
+
+	// StatusChangeNamespaceAuthorization captures enum value "authorization"
+	StatusChangeNamespaceAuthorization string = "authorization"
+
+	// StatusChangeNamespaceAutomationTesting captures enum value "automation.testing"
+	StatusChangeNamespaceAutomationTesting string = "automation.testing"
+
+	// StatusChangeNamespaceBots captures enum value "bots"
+	StatusChangeNamespaceBots string = "bots"
+
+	// StatusChangeNamespaceBotsVoice captures enum value "bots.voice"
+	StatusChangeNamespaceBotsVoice string = "bots.voice"
+
+	// StatusChangeNamespaceCobrowse captures enum value "cobrowse"
+	StatusChangeNamespaceCobrowse string = "cobrowse"
+
+	// StatusChangeNamespaceContentManagement captures enum value "content.management"
+	StatusChangeNamespaceContentManagement string = "content.management"
+
+	// StatusChangeNamespaceConversation captures enum value "conversation"
+	StatusChangeNamespaceConversation string = "conversation"
+
+	// StatusChangeNamespaceDataactions captures enum value "dataactions"
+	StatusChangeNamespaceDataactions string = "dataactions"
+
+	// StatusChangeNamespaceDatatables captures enum value "datatables"
+	StatusChangeNamespaceDatatables string = "datatables"
+
+	// StatusChangeNamespaceDirectory captures enum value "directory"
+	StatusChangeNamespaceDirectory string = "directory"
+
+	// StatusChangeNamespaceEmail captures enum value "email"
+	StatusChangeNamespaceEmail string = "email"
+
+	// StatusChangeNamespaceEventOrchestration captures enum value "event.orchestration"
+	StatusChangeNamespaceEventOrchestration string = "event.orchestration"
+
+	// StatusChangeNamespaceExternalContacts captures enum value "external.contacts"
+	StatusChangeNamespaceExternalContacts string = "external.contacts"
+
+	// StatusChangeNamespaceGcv captures enum value "gcv"
+	StatusChangeNamespaceGcv string = "gcv"
+
+	// StatusChangeNamespaceGdpr captures enum value "gdpr"
+	StatusChangeNamespaceGdpr string = "gdpr"
+
+	// StatusChangeNamespaceGroups captures enum value "groups"
+	StatusChangeNamespaceGroups string = "groups"
+
+	// StatusChangeNamespaceHistoricalAdherence captures enum value "historical.adherence"
+	StatusChangeNamespaceHistoricalAdherence string = "historical.adherence"
+
+	// StatusChangeNamespaceInfrastructureascode captures enum value "infrastructureascode"
+	StatusChangeNamespaceInfrastructureascode string = "infrastructureascode"
+
+	// StatusChangeNamespaceIntegrations captures enum value "integrations"
+	StatusChangeNamespaceIntegrations string = "integrations"
+
+	// StatusChangeNamespaceIntentMiner captures enum value "intent.miner"
+	StatusChangeNamespaceIntentMiner string = "intent.miner"
+
+	// StatusChangeNamespaceJourney captures enum value "journey"
+	StatusChangeNamespaceJourney string = "journey"
+
+	// StatusChangeNamespaceKnowledge captures enum value "knowledge"
+	StatusChangeNamespaceKnowledge string = "knowledge"
+
+	// StatusChangeNamespaceLanguageUnderstanding captures enum value "language.understanding"
+	StatusChangeNamespaceLanguageUnderstanding string = "language.understanding"
+
+	// StatusChangeNamespaceLimitRegistry captures enum value "limit.registry"
+	StatusChangeNamespaceLimitRegistry string = "limit.registry"
+
+	// StatusChangeNamespaceMarketplace captures enum value "marketplace"
+	StatusChangeNamespaceMarketplace string = "marketplace"
+
+	// StatusChangeNamespaceMessaging captures enum value "messaging"
+	StatusChangeNamespaceMessaging string = "messaging"
+
+	// StatusChangeNamespaceNotifications captures enum value "notifications"
+	StatusChangeNamespaceNotifications string = "notifications"
+
+	// StatusChangeNamespaceOnboarding captures enum value "onboarding"
+	StatusChangeNamespaceOnboarding string = "onboarding"
+
+	// StatusChangeNamespaceOutbound captures enum value "outbound"
+	StatusChangeNamespaceOutbound string = "outbound"
+
+	// StatusChangeNamespacePlatformAPI captures enum value "platform.api"
+	StatusChangeNamespacePlatformAPI string = "platform.api"
+
+	// StatusChangeNamespacePredictiveRouting captures enum value "predictive.routing"
+	StatusChangeNamespacePredictiveRouting string = "predictive.routing"
+
+	// StatusChangeNamespaceQuality captures enum value "quality"
+	StatusChangeNamespaceQuality string = "quality"
+
+	// StatusChangeNamespaceRecording captures enum value "recording"
+	StatusChangeNamespaceRecording string = "recording"
+
+	// StatusChangeNamespaceResponseManagement captures enum value "response.management"
+	StatusChangeNamespaceResponseManagement string = "response.management"
+
+	// StatusChangeNamespaceRouting captures enum value "routing"
+	StatusChangeNamespaceRouting string = "routing"
+
+	// StatusChangeNamespaceScim captures enum value "scim"
+	StatusChangeNamespaceScim string = "scim"
+
+	// StatusChangeNamespaceSearch captures enum value "search"
+	StatusChangeNamespaceSearch string = "search"
+
+	// StatusChangeNamespaceSpeechAndTextAnalytics captures enum value "speech.and.text.analytics"
+	StatusChangeNamespaceSpeechAndTextAnalytics string = "speech.and.text.analytics"
+
+	// StatusChangeNamespaceSpeechIntegration captures enum value "speech.integration"
+	StatusChangeNamespaceSpeechIntegration string = "speech.integration"
+
+	// StatusChangeNamespaceSupportability captures enum value "supportability"
+	StatusChangeNamespaceSupportability string = "supportability"
+
+	// StatusChangeNamespaceTaskManagement captures enum value "task.management"
+	StatusChangeNamespaceTaskManagement string = "task.management"
+
+	// StatusChangeNamespaceTelephonyConfiguration captures enum value "telephony.configuration"
+	StatusChangeNamespaceTelephonyConfiguration string = "telephony.configuration"
+
+	// StatusChangeNamespaceWebDeployments captures enum value "web.deployments"
+	StatusChangeNamespaceWebDeployments string = "web.deployments"
+
+	// StatusChangeNamespaceWebMessaging captures enum value "web.messaging"
+	StatusChangeNamespaceWebMessaging string = "web.messaging"
+
+	// StatusChangeNamespaceWebchat captures enum value "webchat"
+	StatusChangeNamespaceWebchat string = "webchat"
+
+	// StatusChangeNamespaceWebhooks captures enum value "webhooks"
+	StatusChangeNamespaceWebhooks string = "webhooks"
+
+	// StatusChangeNamespaceWorkforceManagement captures enum value "workforce.management"
+	StatusChangeNamespaceWorkforceManagement string = "workforce.management"
+)
+
+// prop value enum
+func (m *StatusChange) validateNamespaceEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, statusChangeTypeNamespacePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *StatusChange) validateNamespace(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Namespace) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateNamespaceEnum("namespace", "body", m.Namespace); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 var statusChangeTypePreviousStatusPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Open","Approved","ImplementingChange","ChangeImplemented","Rejected","Rollback","ImplementingRollback","RollbackImplemented"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Approved","Rejected","Rollback","Pending","Open","SecondaryApprovalNamespacesAdded","ReviewerApproved","ReviewerRejected","ReviewerRollback","ImplementingChange","ChangeImplemented","ImplementingRollback","RollbackImplemented"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -101,23 +314,38 @@ func init() {
 
 const (
 
-	// StatusChangePreviousStatusOpen captures enum value "Open"
-	StatusChangePreviousStatusOpen string = "Open"
-
 	// StatusChangePreviousStatusApproved captures enum value "Approved"
 	StatusChangePreviousStatusApproved string = "Approved"
-
-	// StatusChangePreviousStatusImplementingChange captures enum value "ImplementingChange"
-	StatusChangePreviousStatusImplementingChange string = "ImplementingChange"
-
-	// StatusChangePreviousStatusChangeImplemented captures enum value "ChangeImplemented"
-	StatusChangePreviousStatusChangeImplemented string = "ChangeImplemented"
 
 	// StatusChangePreviousStatusRejected captures enum value "Rejected"
 	StatusChangePreviousStatusRejected string = "Rejected"
 
 	// StatusChangePreviousStatusRollback captures enum value "Rollback"
 	StatusChangePreviousStatusRollback string = "Rollback"
+
+	// StatusChangePreviousStatusPending captures enum value "Pending"
+	StatusChangePreviousStatusPending string = "Pending"
+
+	// StatusChangePreviousStatusOpen captures enum value "Open"
+	StatusChangePreviousStatusOpen string = "Open"
+
+	// StatusChangePreviousStatusSecondaryApprovalNamespacesAdded captures enum value "SecondaryApprovalNamespacesAdded"
+	StatusChangePreviousStatusSecondaryApprovalNamespacesAdded string = "SecondaryApprovalNamespacesAdded"
+
+	// StatusChangePreviousStatusReviewerApproved captures enum value "ReviewerApproved"
+	StatusChangePreviousStatusReviewerApproved string = "ReviewerApproved"
+
+	// StatusChangePreviousStatusReviewerRejected captures enum value "ReviewerRejected"
+	StatusChangePreviousStatusReviewerRejected string = "ReviewerRejected"
+
+	// StatusChangePreviousStatusReviewerRollback captures enum value "ReviewerRollback"
+	StatusChangePreviousStatusReviewerRollback string = "ReviewerRollback"
+
+	// StatusChangePreviousStatusImplementingChange captures enum value "ImplementingChange"
+	StatusChangePreviousStatusImplementingChange string = "ImplementingChange"
+
+	// StatusChangePreviousStatusChangeImplemented captures enum value "ChangeImplemented"
+	StatusChangePreviousStatusChangeImplemented string = "ChangeImplemented"
 
 	// StatusChangePreviousStatusImplementingRollback captures enum value "ImplementingRollback"
 	StatusChangePreviousStatusImplementingRollback string = "ImplementingRollback"
@@ -204,7 +432,7 @@ var statusChangeTypeStatusPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Open","Approved","ImplementingChange","ChangeImplemented","Rejected","Rollback","ImplementingRollback","RollbackImplemented"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Approved","Rejected","Rollback","Pending","Open","SecondaryApprovalNamespacesAdded","ReviewerApproved","ReviewerRejected","ReviewerRollback","ImplementingChange","ChangeImplemented","ImplementingRollback","RollbackImplemented"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -214,23 +442,38 @@ func init() {
 
 const (
 
-	// StatusChangeStatusOpen captures enum value "Open"
-	StatusChangeStatusOpen string = "Open"
-
 	// StatusChangeStatusApproved captures enum value "Approved"
 	StatusChangeStatusApproved string = "Approved"
-
-	// StatusChangeStatusImplementingChange captures enum value "ImplementingChange"
-	StatusChangeStatusImplementingChange string = "ImplementingChange"
-
-	// StatusChangeStatusChangeImplemented captures enum value "ChangeImplemented"
-	StatusChangeStatusChangeImplemented string = "ChangeImplemented"
 
 	// StatusChangeStatusRejected captures enum value "Rejected"
 	StatusChangeStatusRejected string = "Rejected"
 
 	// StatusChangeStatusRollback captures enum value "Rollback"
 	StatusChangeStatusRollback string = "Rollback"
+
+	// StatusChangeStatusPending captures enum value "Pending"
+	StatusChangeStatusPending string = "Pending"
+
+	// StatusChangeStatusOpen captures enum value "Open"
+	StatusChangeStatusOpen string = "Open"
+
+	// StatusChangeStatusSecondaryApprovalNamespacesAdded captures enum value "SecondaryApprovalNamespacesAdded"
+	StatusChangeStatusSecondaryApprovalNamespacesAdded string = "SecondaryApprovalNamespacesAdded"
+
+	// StatusChangeStatusReviewerApproved captures enum value "ReviewerApproved"
+	StatusChangeStatusReviewerApproved string = "ReviewerApproved"
+
+	// StatusChangeStatusReviewerRejected captures enum value "ReviewerRejected"
+	StatusChangeStatusReviewerRejected string = "ReviewerRejected"
+
+	// StatusChangeStatusReviewerRollback captures enum value "ReviewerRollback"
+	StatusChangeStatusReviewerRollback string = "ReviewerRollback"
+
+	// StatusChangeStatusImplementingChange captures enum value "ImplementingChange"
+	StatusChangeStatusImplementingChange string = "ImplementingChange"
+
+	// StatusChangeStatusChangeImplemented captures enum value "ChangeImplemented"
+	StatusChangeStatusChangeImplemented string = "ChangeImplemented"
 
 	// StatusChangeStatusImplementingRollback captures enum value "ImplementingRollback"
 	StatusChangeStatusImplementingRollback string = "ImplementingRollback"
