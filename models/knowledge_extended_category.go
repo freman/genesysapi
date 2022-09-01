@@ -47,7 +47,7 @@ type KnowledgeExtendedCategory struct {
 
 	// Actual language of the category
 	// Read Only: true
-	// Enum: [en-US en-UK en-AU de-DE es-US es-ES fr-FR pt-BR nl-NL it-IT fr-CA]
+	// Enum: [en-US en-UK en-AU en-CA en-HK en-IN en-IE en-NZ en-PH en-SG en-ZA de-DE de-AT de-CH es-AR es-CO es-MX es-US es-ES fr-FR fr-BE fr-CA fr-CH pt-BR pt-PT nl-NL nl-BE it-IT]
 	LanguageCode string `json:"languageCode,omitempty"`
 
 	// Category name
@@ -179,7 +179,7 @@ var knowledgeExtendedCategoryTypeLanguageCodePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["en-US","en-UK","en-AU","de-DE","es-US","es-ES","fr-FR","pt-BR","nl-NL","it-IT","fr-CA"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["en-US","en-UK","en-AU","en-CA","en-HK","en-IN","en-IE","en-NZ","en-PH","en-SG","en-ZA","de-DE","de-AT","de-CH","es-AR","es-CO","es-MX","es-US","es-ES","fr-FR","fr-BE","fr-CA","fr-CH","pt-BR","pt-PT","nl-NL","nl-BE","it-IT"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -198,8 +198,47 @@ const (
 	// KnowledgeExtendedCategoryLanguageCodeEnAU captures enum value "en-AU"
 	KnowledgeExtendedCategoryLanguageCodeEnAU string = "en-AU"
 
+	// KnowledgeExtendedCategoryLanguageCodeEnCA captures enum value "en-CA"
+	KnowledgeExtendedCategoryLanguageCodeEnCA string = "en-CA"
+
+	// KnowledgeExtendedCategoryLanguageCodeEnHK captures enum value "en-HK"
+	KnowledgeExtendedCategoryLanguageCodeEnHK string = "en-HK"
+
+	// KnowledgeExtendedCategoryLanguageCodeEnIN captures enum value "en-IN"
+	KnowledgeExtendedCategoryLanguageCodeEnIN string = "en-IN"
+
+	// KnowledgeExtendedCategoryLanguageCodeEnIE captures enum value "en-IE"
+	KnowledgeExtendedCategoryLanguageCodeEnIE string = "en-IE"
+
+	// KnowledgeExtendedCategoryLanguageCodeEnNZ captures enum value "en-NZ"
+	KnowledgeExtendedCategoryLanguageCodeEnNZ string = "en-NZ"
+
+	// KnowledgeExtendedCategoryLanguageCodeEnPH captures enum value "en-PH"
+	KnowledgeExtendedCategoryLanguageCodeEnPH string = "en-PH"
+
+	// KnowledgeExtendedCategoryLanguageCodeEnSG captures enum value "en-SG"
+	KnowledgeExtendedCategoryLanguageCodeEnSG string = "en-SG"
+
+	// KnowledgeExtendedCategoryLanguageCodeEnZA captures enum value "en-ZA"
+	KnowledgeExtendedCategoryLanguageCodeEnZA string = "en-ZA"
+
 	// KnowledgeExtendedCategoryLanguageCodeDeDE captures enum value "de-DE"
 	KnowledgeExtendedCategoryLanguageCodeDeDE string = "de-DE"
+
+	// KnowledgeExtendedCategoryLanguageCodeDeAT captures enum value "de-AT"
+	KnowledgeExtendedCategoryLanguageCodeDeAT string = "de-AT"
+
+	// KnowledgeExtendedCategoryLanguageCodeDeCH captures enum value "de-CH"
+	KnowledgeExtendedCategoryLanguageCodeDeCH string = "de-CH"
+
+	// KnowledgeExtendedCategoryLanguageCodeEsAR captures enum value "es-AR"
+	KnowledgeExtendedCategoryLanguageCodeEsAR string = "es-AR"
+
+	// KnowledgeExtendedCategoryLanguageCodeEsCO captures enum value "es-CO"
+	KnowledgeExtendedCategoryLanguageCodeEsCO string = "es-CO"
+
+	// KnowledgeExtendedCategoryLanguageCodeEsMX captures enum value "es-MX"
+	KnowledgeExtendedCategoryLanguageCodeEsMX string = "es-MX"
 
 	// KnowledgeExtendedCategoryLanguageCodeEsUS captures enum value "es-US"
 	KnowledgeExtendedCategoryLanguageCodeEsUS string = "es-US"
@@ -210,17 +249,29 @@ const (
 	// KnowledgeExtendedCategoryLanguageCodeFrFR captures enum value "fr-FR"
 	KnowledgeExtendedCategoryLanguageCodeFrFR string = "fr-FR"
 
+	// KnowledgeExtendedCategoryLanguageCodeFrBE captures enum value "fr-BE"
+	KnowledgeExtendedCategoryLanguageCodeFrBE string = "fr-BE"
+
+	// KnowledgeExtendedCategoryLanguageCodeFrCA captures enum value "fr-CA"
+	KnowledgeExtendedCategoryLanguageCodeFrCA string = "fr-CA"
+
+	// KnowledgeExtendedCategoryLanguageCodeFrCH captures enum value "fr-CH"
+	KnowledgeExtendedCategoryLanguageCodeFrCH string = "fr-CH"
+
 	// KnowledgeExtendedCategoryLanguageCodePtBR captures enum value "pt-BR"
 	KnowledgeExtendedCategoryLanguageCodePtBR string = "pt-BR"
+
+	// KnowledgeExtendedCategoryLanguageCodePtPT captures enum value "pt-PT"
+	KnowledgeExtendedCategoryLanguageCodePtPT string = "pt-PT"
 
 	// KnowledgeExtendedCategoryLanguageCodeNlNL captures enum value "nl-NL"
 	KnowledgeExtendedCategoryLanguageCodeNlNL string = "nl-NL"
 
+	// KnowledgeExtendedCategoryLanguageCodeNlBE captures enum value "nl-BE"
+	KnowledgeExtendedCategoryLanguageCodeNlBE string = "nl-BE"
+
 	// KnowledgeExtendedCategoryLanguageCodeItIT captures enum value "it-IT"
 	KnowledgeExtendedCategoryLanguageCodeItIT string = "it-IT"
-
-	// KnowledgeExtendedCategoryLanguageCodeFrCA captures enum value "fr-CA"
-	KnowledgeExtendedCategoryLanguageCodeFrCA string = "fr-CA"
 )
 
 // prop value enum

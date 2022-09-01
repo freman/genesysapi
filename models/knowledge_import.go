@@ -47,7 +47,7 @@ type KnowledgeImport struct {
 
 	// Language code
 	// Read Only: true
-	// Enum: [en-US en-UK en-AU de-DE es-US es-ES fr-FR pt-BR nl-NL it-IT fr-CA]
+	// Enum: [en-US en-UK en-AU en-CA en-HK en-IN en-IE en-NZ en-PH en-SG en-ZA de-DE de-AT de-CH es-AR es-CO es-MX es-US es-ES fr-FR fr-BE fr-CA fr-CH pt-BR pt-PT nl-NL nl-BE it-IT]
 	LanguageCode string `json:"languageCode,omitempty"`
 
 	// Name of the import operation
@@ -209,7 +209,7 @@ var knowledgeImportTypeLanguageCodePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["en-US","en-UK","en-AU","de-DE","es-US","es-ES","fr-FR","pt-BR","nl-NL","it-IT","fr-CA"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["en-US","en-UK","en-AU","en-CA","en-HK","en-IN","en-IE","en-NZ","en-PH","en-SG","en-ZA","de-DE","de-AT","de-CH","es-AR","es-CO","es-MX","es-US","es-ES","fr-FR","fr-BE","fr-CA","fr-CH","pt-BR","pt-PT","nl-NL","nl-BE","it-IT"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -228,8 +228,47 @@ const (
 	// KnowledgeImportLanguageCodeEnAU captures enum value "en-AU"
 	KnowledgeImportLanguageCodeEnAU string = "en-AU"
 
+	// KnowledgeImportLanguageCodeEnCA captures enum value "en-CA"
+	KnowledgeImportLanguageCodeEnCA string = "en-CA"
+
+	// KnowledgeImportLanguageCodeEnHK captures enum value "en-HK"
+	KnowledgeImportLanguageCodeEnHK string = "en-HK"
+
+	// KnowledgeImportLanguageCodeEnIN captures enum value "en-IN"
+	KnowledgeImportLanguageCodeEnIN string = "en-IN"
+
+	// KnowledgeImportLanguageCodeEnIE captures enum value "en-IE"
+	KnowledgeImportLanguageCodeEnIE string = "en-IE"
+
+	// KnowledgeImportLanguageCodeEnNZ captures enum value "en-NZ"
+	KnowledgeImportLanguageCodeEnNZ string = "en-NZ"
+
+	// KnowledgeImportLanguageCodeEnPH captures enum value "en-PH"
+	KnowledgeImportLanguageCodeEnPH string = "en-PH"
+
+	// KnowledgeImportLanguageCodeEnSG captures enum value "en-SG"
+	KnowledgeImportLanguageCodeEnSG string = "en-SG"
+
+	// KnowledgeImportLanguageCodeEnZA captures enum value "en-ZA"
+	KnowledgeImportLanguageCodeEnZA string = "en-ZA"
+
 	// KnowledgeImportLanguageCodeDeDE captures enum value "de-DE"
 	KnowledgeImportLanguageCodeDeDE string = "de-DE"
+
+	// KnowledgeImportLanguageCodeDeAT captures enum value "de-AT"
+	KnowledgeImportLanguageCodeDeAT string = "de-AT"
+
+	// KnowledgeImportLanguageCodeDeCH captures enum value "de-CH"
+	KnowledgeImportLanguageCodeDeCH string = "de-CH"
+
+	// KnowledgeImportLanguageCodeEsAR captures enum value "es-AR"
+	KnowledgeImportLanguageCodeEsAR string = "es-AR"
+
+	// KnowledgeImportLanguageCodeEsCO captures enum value "es-CO"
+	KnowledgeImportLanguageCodeEsCO string = "es-CO"
+
+	// KnowledgeImportLanguageCodeEsMX captures enum value "es-MX"
+	KnowledgeImportLanguageCodeEsMX string = "es-MX"
 
 	// KnowledgeImportLanguageCodeEsUS captures enum value "es-US"
 	KnowledgeImportLanguageCodeEsUS string = "es-US"
@@ -240,17 +279,29 @@ const (
 	// KnowledgeImportLanguageCodeFrFR captures enum value "fr-FR"
 	KnowledgeImportLanguageCodeFrFR string = "fr-FR"
 
+	// KnowledgeImportLanguageCodeFrBE captures enum value "fr-BE"
+	KnowledgeImportLanguageCodeFrBE string = "fr-BE"
+
+	// KnowledgeImportLanguageCodeFrCA captures enum value "fr-CA"
+	KnowledgeImportLanguageCodeFrCA string = "fr-CA"
+
+	// KnowledgeImportLanguageCodeFrCH captures enum value "fr-CH"
+	KnowledgeImportLanguageCodeFrCH string = "fr-CH"
+
 	// KnowledgeImportLanguageCodePtBR captures enum value "pt-BR"
 	KnowledgeImportLanguageCodePtBR string = "pt-BR"
+
+	// KnowledgeImportLanguageCodePtPT captures enum value "pt-PT"
+	KnowledgeImportLanguageCodePtPT string = "pt-PT"
 
 	// KnowledgeImportLanguageCodeNlNL captures enum value "nl-NL"
 	KnowledgeImportLanguageCodeNlNL string = "nl-NL"
 
+	// KnowledgeImportLanguageCodeNlBE captures enum value "nl-BE"
+	KnowledgeImportLanguageCodeNlBE string = "nl-BE"
+
 	// KnowledgeImportLanguageCodeItIT captures enum value "it-IT"
 	KnowledgeImportLanguageCodeItIT string = "it-IT"
-
-	// KnowledgeImportLanguageCodeFrCA captures enum value "fr-CA"
-	KnowledgeImportLanguageCodeFrCA string = "fr-CA"
 )
 
 // prop value enum

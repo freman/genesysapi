@@ -60,6 +60,9 @@ type EvaluationResponse struct {
 	// evaluator
 	Evaluator *User `json:"evaluator,omitempty"`
 
+	// Is true when evaluation assistance didn't execute successfully
+	HasAssistanceFailed bool `json:"hasAssistanceFailed"`
+
 	// The globally unique identifier for the object.
 	// Read Only: true
 	ID string `json:"id,omitempty"`

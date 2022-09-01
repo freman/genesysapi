@@ -20,7 +20,7 @@ import (
 type LearningAssignmentAggregateQueryResponseMetric struct {
 
 	// The metric this applies to
-	// Enum: [nActivities nPlannedActivities nInProgressActivities nCompleteActivities nOverdueActivities nPassedActivities nFailedActivities oActivityScore nNotCompletedActivities]
+	// Enum: [nActivities nPlannedActivities nInProgressActivities nCompleteActivities nOverdueActivities nInvalidScheduleActivities nPassedActivities nFailedActivities oActivityScore nNotCompletedActivities]
 	Metric string `json:"metric,omitempty"`
 
 	// The aggregated values for this metric
@@ -49,7 +49,7 @@ var learningAssignmentAggregateQueryResponseMetricTypeMetricPropEnum []interface
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["nActivities","nPlannedActivities","nInProgressActivities","nCompleteActivities","nOverdueActivities","nPassedActivities","nFailedActivities","oActivityScore","nNotCompletedActivities"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["nActivities","nPlannedActivities","nInProgressActivities","nCompleteActivities","nOverdueActivities","nInvalidScheduleActivities","nPassedActivities","nFailedActivities","oActivityScore","nNotCompletedActivities"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -73,6 +73,9 @@ const (
 
 	// LearningAssignmentAggregateQueryResponseMetricMetricNOverdueActivities captures enum value "nOverdueActivities"
 	LearningAssignmentAggregateQueryResponseMetricMetricNOverdueActivities string = "nOverdueActivities"
+
+	// LearningAssignmentAggregateQueryResponseMetricMetricNInvalidScheduleActivities captures enum value "nInvalidScheduleActivities"
+	LearningAssignmentAggregateQueryResponseMetricMetricNInvalidScheduleActivities string = "nInvalidScheduleActivities"
 
 	// LearningAssignmentAggregateQueryResponseMetricMetricNPassedActivities captures enum value "nPassedActivities"
 	LearningAssignmentAggregateQueryResponseMetricMetricNPassedActivities string = "nPassedActivities"

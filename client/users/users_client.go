@@ -177,6 +177,7 @@ type API interface {
 	PostUserRoutingskills(ctx context.Context, params *PostUserRoutingskillsParams) (*PostUserRoutingskillsOK, error)
 	/*
 	   PostUsers creates user
+	   If user creation is successful but the provided password is invalid or configuration fails, POST api/v2/users/{userId}/password can be used to re-attempt password configuration.
 	*/
 	PostUsers(ctx context.Context, params *PostUsersParams) (*PostUsersOK, error)
 	/*
@@ -1212,6 +1213,8 @@ func (a *Client) PostUserRoutingskills(ctx context.Context, params *PostUserRout
 
 /*
 PostUsers creates user
+
+If user creation is successful but the provided password is invalid or configuration fails, POST api/v2/users/{userId}/password can be used to re-attempt password configuration.
 */
 func (a *Client) PostUsers(ctx context.Context, params *PostUsersParams) (*PostUsersOK, error) {
 

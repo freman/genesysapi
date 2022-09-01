@@ -56,7 +56,7 @@ type KnowledgeSearchDocument struct {
 
 	// Language of the document
 	// Required: true
-	// Enum: [en-US en-UK en-AU de-DE es-US es-ES fr-FR pt-BR nl-NL it-IT fr-CA]
+	// Enum: [en-US en-UK en-AU en-CA en-HK en-IN en-IE en-NZ en-PH en-SG en-ZA de-DE de-AT de-CH es-AR es-CO es-MX es-US es-ES fr-FR fr-BE fr-CA fr-CH pt-BR pt-PT nl-NL nl-BE it-IT]
 	LanguageCode *string `json:"languageCode"`
 
 	// name
@@ -228,7 +228,7 @@ var knowledgeSearchDocumentTypeLanguageCodePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["en-US","en-UK","en-AU","de-DE","es-US","es-ES","fr-FR","pt-BR","nl-NL","it-IT","fr-CA"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["en-US","en-UK","en-AU","en-CA","en-HK","en-IN","en-IE","en-NZ","en-PH","en-SG","en-ZA","de-DE","de-AT","de-CH","es-AR","es-CO","es-MX","es-US","es-ES","fr-FR","fr-BE","fr-CA","fr-CH","pt-BR","pt-PT","nl-NL","nl-BE","it-IT"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -247,8 +247,47 @@ const (
 	// KnowledgeSearchDocumentLanguageCodeEnAU captures enum value "en-AU"
 	KnowledgeSearchDocumentLanguageCodeEnAU string = "en-AU"
 
+	// KnowledgeSearchDocumentLanguageCodeEnCA captures enum value "en-CA"
+	KnowledgeSearchDocumentLanguageCodeEnCA string = "en-CA"
+
+	// KnowledgeSearchDocumentLanguageCodeEnHK captures enum value "en-HK"
+	KnowledgeSearchDocumentLanguageCodeEnHK string = "en-HK"
+
+	// KnowledgeSearchDocumentLanguageCodeEnIN captures enum value "en-IN"
+	KnowledgeSearchDocumentLanguageCodeEnIN string = "en-IN"
+
+	// KnowledgeSearchDocumentLanguageCodeEnIE captures enum value "en-IE"
+	KnowledgeSearchDocumentLanguageCodeEnIE string = "en-IE"
+
+	// KnowledgeSearchDocumentLanguageCodeEnNZ captures enum value "en-NZ"
+	KnowledgeSearchDocumentLanguageCodeEnNZ string = "en-NZ"
+
+	// KnowledgeSearchDocumentLanguageCodeEnPH captures enum value "en-PH"
+	KnowledgeSearchDocumentLanguageCodeEnPH string = "en-PH"
+
+	// KnowledgeSearchDocumentLanguageCodeEnSG captures enum value "en-SG"
+	KnowledgeSearchDocumentLanguageCodeEnSG string = "en-SG"
+
+	// KnowledgeSearchDocumentLanguageCodeEnZA captures enum value "en-ZA"
+	KnowledgeSearchDocumentLanguageCodeEnZA string = "en-ZA"
+
 	// KnowledgeSearchDocumentLanguageCodeDeDE captures enum value "de-DE"
 	KnowledgeSearchDocumentLanguageCodeDeDE string = "de-DE"
+
+	// KnowledgeSearchDocumentLanguageCodeDeAT captures enum value "de-AT"
+	KnowledgeSearchDocumentLanguageCodeDeAT string = "de-AT"
+
+	// KnowledgeSearchDocumentLanguageCodeDeCH captures enum value "de-CH"
+	KnowledgeSearchDocumentLanguageCodeDeCH string = "de-CH"
+
+	// KnowledgeSearchDocumentLanguageCodeEsAR captures enum value "es-AR"
+	KnowledgeSearchDocumentLanguageCodeEsAR string = "es-AR"
+
+	// KnowledgeSearchDocumentLanguageCodeEsCO captures enum value "es-CO"
+	KnowledgeSearchDocumentLanguageCodeEsCO string = "es-CO"
+
+	// KnowledgeSearchDocumentLanguageCodeEsMX captures enum value "es-MX"
+	KnowledgeSearchDocumentLanguageCodeEsMX string = "es-MX"
 
 	// KnowledgeSearchDocumentLanguageCodeEsUS captures enum value "es-US"
 	KnowledgeSearchDocumentLanguageCodeEsUS string = "es-US"
@@ -259,17 +298,29 @@ const (
 	// KnowledgeSearchDocumentLanguageCodeFrFR captures enum value "fr-FR"
 	KnowledgeSearchDocumentLanguageCodeFrFR string = "fr-FR"
 
+	// KnowledgeSearchDocumentLanguageCodeFrBE captures enum value "fr-BE"
+	KnowledgeSearchDocumentLanguageCodeFrBE string = "fr-BE"
+
+	// KnowledgeSearchDocumentLanguageCodeFrCA captures enum value "fr-CA"
+	KnowledgeSearchDocumentLanguageCodeFrCA string = "fr-CA"
+
+	// KnowledgeSearchDocumentLanguageCodeFrCH captures enum value "fr-CH"
+	KnowledgeSearchDocumentLanguageCodeFrCH string = "fr-CH"
+
 	// KnowledgeSearchDocumentLanguageCodePtBR captures enum value "pt-BR"
 	KnowledgeSearchDocumentLanguageCodePtBR string = "pt-BR"
+
+	// KnowledgeSearchDocumentLanguageCodePtPT captures enum value "pt-PT"
+	KnowledgeSearchDocumentLanguageCodePtPT string = "pt-PT"
 
 	// KnowledgeSearchDocumentLanguageCodeNlNL captures enum value "nl-NL"
 	KnowledgeSearchDocumentLanguageCodeNlNL string = "nl-NL"
 
+	// KnowledgeSearchDocumentLanguageCodeNlBE captures enum value "nl-BE"
+	KnowledgeSearchDocumentLanguageCodeNlBE string = "nl-BE"
+
 	// KnowledgeSearchDocumentLanguageCodeItIT captures enum value "it-IT"
 	KnowledgeSearchDocumentLanguageCodeItIT string = "it-IT"
-
-	// KnowledgeSearchDocumentLanguageCodeFrCA captures enum value "fr-CA"
-	KnowledgeSearchDocumentLanguageCodeFrCA string = "fr-CA"
 )
 
 // prop value enum

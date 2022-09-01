@@ -39,8 +39,7 @@ type CreateUser struct {
 	Name *string `json:"name"`
 
 	// User's password
-	// Required: true
-	Password *string `json:"password"`
+	Password string `json:"password,omitempty"`
 
 	// Optional initialized state of the user. If not specified, state will be Active if invites are sent, otherwise Inactive.
 	// Enum: [active inactive deleted]
@@ -67,10 +66,6 @@ func (m *CreateUser) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateName(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validatePassword(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -130,15 +125,6 @@ func (m *CreateUser) validateEmail(formats strfmt.Registry) error {
 func (m *CreateUser) validateName(formats strfmt.Registry) error {
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *CreateUser) validatePassword(formats strfmt.Registry) error {
-
-	if err := validate.Required("password", "body", m.Password); err != nil {
 		return err
 	}
 

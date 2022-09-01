@@ -30,7 +30,7 @@ type StatusChange struct {
 
 	// The namespace for the status change
 	// Read Only: true
-	// Enum: [contacts agent.assistant analytics.alerting analytics analytics.realtime analytics.reporting.settings architect audiohook audit auth.api authorization automation.testing bots bots.voice cobrowse content.management conversation dataactions datatables directory email event.orchestration external.contacts gcv gdpr groups historical.adherence infrastructureascode integrations intent.miner journey knowledge language.understanding limit.registry marketplace messaging notifications onboarding outbound platform.api predictive.routing quality recording response.management routing scim search speech.and.text.analytics speech.integration supportability task.management telephony.configuration web.deployments web.messaging webchat webhooks workforce.management]
+	// Enum: [contacts agent.assistant analytics.alerting analytics analytics.realtime analytics.reporting.settings architect audiohook audit auth.api authorization automation.testing bots bots.voice cobrowse content.management conversation dataactions datatables directory email event.orchestration external.contacts gcv gdpr groups historical.adherence infrastructureascode integrations intent.miner journey knowledge language.understanding limit.registry marketplace messaging notifications onboarding outbound platform.api predictive.routing quality recording response.management routing scim search skills speech.and.text.analytics speech.integration supportability task.management telephony.configuration web.deployments web.messaging webchat webhooks workforce.management]
 	Namespace string `json:"namespace,omitempty"`
 
 	// The status the change request transitioned from
@@ -96,7 +96,7 @@ var statusChangeTypeNamespacePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["contacts","agent.assistant","analytics.alerting","analytics","analytics.realtime","analytics.reporting.settings","architect","audiohook","audit","auth.api","authorization","automation.testing","bots","bots.voice","cobrowse","content.management","conversation","dataactions","datatables","directory","email","event.orchestration","external.contacts","gcv","gdpr","groups","historical.adherence","infrastructureascode","integrations","intent.miner","journey","knowledge","language.understanding","limit.registry","marketplace","messaging","notifications","onboarding","outbound","platform.api","predictive.routing","quality","recording","response.management","routing","scim","search","speech.and.text.analytics","speech.integration","supportability","task.management","telephony.configuration","web.deployments","web.messaging","webchat","webhooks","workforce.management"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["contacts","agent.assistant","analytics.alerting","analytics","analytics.realtime","analytics.reporting.settings","architect","audiohook","audit","auth.api","authorization","automation.testing","bots","bots.voice","cobrowse","content.management","conversation","dataactions","datatables","directory","email","event.orchestration","external.contacts","gcv","gdpr","groups","historical.adherence","infrastructureascode","integrations","intent.miner","journey","knowledge","language.understanding","limit.registry","marketplace","messaging","notifications","onboarding","outbound","platform.api","predictive.routing","quality","recording","response.management","routing","scim","search","skills","speech.and.text.analytics","speech.integration","supportability","task.management","telephony.configuration","web.deployments","web.messaging","webchat","webhooks","workforce.management"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -246,6 +246,9 @@ const (
 
 	// StatusChangeNamespaceSearch captures enum value "search"
 	StatusChangeNamespaceSearch string = "search"
+
+	// StatusChangeNamespaceSkills captures enum value "skills"
+	StatusChangeNamespaceSkills string = "skills"
 
 	// StatusChangeNamespaceSpeechAndTextAnalytics captures enum value "speech.and.text.analytics"
 	StatusChangeNamespaceSpeechAndTextAnalytics string = "speech.and.text.analytics"

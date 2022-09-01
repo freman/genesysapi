@@ -83,6 +83,12 @@ func (o *PostRecordingJobsReader) ReadResponse(response runtime.ClientResponse, 
 			return nil, err
 		}
 		return nil, result
+	case 501:
+		result := NewPostRecordingJobsNotImplemented()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 503:
 		result := NewPostRecordingJobsServiceUnavailable()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -420,6 +426,39 @@ func (o *PostRecordingJobsInternalServerError) GetPayload() *models.ErrorBody {
 }
 
 func (o *PostRecordingJobsInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPostRecordingJobsNotImplemented creates a PostRecordingJobsNotImplemented with default headers values
+func NewPostRecordingJobsNotImplemented() *PostRecordingJobsNotImplemented {
+	return &PostRecordingJobsNotImplemented{}
+}
+
+/*PostRecordingJobsNotImplemented handles this case with default header values.
+
+Not Implemented
+*/
+type PostRecordingJobsNotImplemented struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostRecordingJobsNotImplemented) Error() string {
+	return fmt.Sprintf("[POST /api/v2/recording/jobs][%d] postRecordingJobsNotImplemented  %+v", 501, o.Payload)
+}
+
+func (o *PostRecordingJobsNotImplemented) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostRecordingJobsNotImplemented) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ErrorBody)
 

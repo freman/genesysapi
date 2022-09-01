@@ -19,6 +19,9 @@ import (
 // swagger:model DncListCreate
 type DncListCreate struct {
 
+	// A dnc.com campaignId. Optional if the dncSourceType is dnc.com.
+	CampaignID string `json:"campaignId,omitempty"`
+
 	// The contact method. Required if dncSourceType is rds.
 	// Enum: [Email Phone]
 	ContactMethod string `json:"contactMethod,omitempty"`

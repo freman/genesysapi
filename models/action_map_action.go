@@ -19,11 +19,17 @@ import (
 // swagger:model ActionMapAction
 type ActionMapAction struct {
 
+	// Action target ID.
+	ActionTargetID string `json:"actionTargetId,omitempty"`
+
 	// Action template associated with the action map.
 	ActionTemplate *ActionMapActionTemplate `json:"actionTemplate,omitempty"`
 
 	// Architect Flow Id and input contract.
 	ArchitectFlowFields *ArchitectFlowFields `json:"architectFlowFields,omitempty"`
+
+	// Whether this action should be throttled.
+	IsPacingEnabled bool `json:"isPacingEnabled"`
 
 	// Media type of action.
 	// Enum: [webchat webMessagingOffer contentOffer integrationAction architectFlow openAction]
@@ -31,6 +37,9 @@ type ActionMapAction struct {
 
 	// Admin-configurable fields of an open action.
 	OpenActionFields *OpenActionFields `json:"openActionFields,omitempty"`
+
+	// Additional properties.
+	Props *ActionProperties `json:"props,omitempty"`
 
 	// Admin-configurable fields of a web messaging offer action.
 	WebMessagingOfferFields *WebMessagingOfferFields `json:"webMessagingOfferFields,omitempty"`
@@ -53,6 +62,10 @@ func (m *ActionMapAction) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateOpenActionFields(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateProps(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -167,6 +180,24 @@ func (m *ActionMapAction) validateOpenActionFields(formats strfmt.Registry) erro
 		if err := m.OpenActionFields.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("openActionFields")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ActionMapAction) validateProps(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Props) { // not required
+		return nil
+	}
+
+	if m.Props != nil {
+		if err := m.Props.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("props")
 			}
 			return err
 		}

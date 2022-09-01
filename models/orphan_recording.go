@@ -59,6 +59,10 @@ type OrphanRecording struct {
 	// Format: date-time
 	RecoveredTime strfmt.DateTime `json:"recoveredTime,omitempty"`
 
+	// region
+	// Enum: [af-south-1 ap-northeast-1 ap-northeast-2 ap-south-1 ap-southeast-2 ca-central-1 eu-central-1 eu-west-1 eu-west-2 sa-east-1 us-east-1 us-west-2]
+	Region string `json:"region,omitempty"`
+
 	// The URI for this object
 	// Read Only: true
 	// Format: uri
@@ -101,6 +105,10 @@ func (m *OrphanRecording) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateRecoveredTime(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateRegion(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -381,6 +389,79 @@ func (m *OrphanRecording) validateRecoveredTime(formats strfmt.Registry) error {
 	}
 
 	if err := validate.FormatOf("recoveredTime", "body", "date-time", m.RecoveredTime.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+var orphanRecordingTypeRegionPropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["af-south-1","ap-northeast-1","ap-northeast-2","ap-south-1","ap-southeast-2","ca-central-1","eu-central-1","eu-west-1","eu-west-2","sa-east-1","us-east-1","us-west-2"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		orphanRecordingTypeRegionPropEnum = append(orphanRecordingTypeRegionPropEnum, v)
+	}
+}
+
+const (
+
+	// OrphanRecordingRegionAfSouth1 captures enum value "af-south-1"
+	OrphanRecordingRegionAfSouth1 string = "af-south-1"
+
+	// OrphanRecordingRegionApNortheast1 captures enum value "ap-northeast-1"
+	OrphanRecordingRegionApNortheast1 string = "ap-northeast-1"
+
+	// OrphanRecordingRegionApNortheast2 captures enum value "ap-northeast-2"
+	OrphanRecordingRegionApNortheast2 string = "ap-northeast-2"
+
+	// OrphanRecordingRegionApSouth1 captures enum value "ap-south-1"
+	OrphanRecordingRegionApSouth1 string = "ap-south-1"
+
+	// OrphanRecordingRegionApSoutheast2 captures enum value "ap-southeast-2"
+	OrphanRecordingRegionApSoutheast2 string = "ap-southeast-2"
+
+	// OrphanRecordingRegionCaCentral1 captures enum value "ca-central-1"
+	OrphanRecordingRegionCaCentral1 string = "ca-central-1"
+
+	// OrphanRecordingRegionEuCentral1 captures enum value "eu-central-1"
+	OrphanRecordingRegionEuCentral1 string = "eu-central-1"
+
+	// OrphanRecordingRegionEuWest1 captures enum value "eu-west-1"
+	OrphanRecordingRegionEuWest1 string = "eu-west-1"
+
+	// OrphanRecordingRegionEuWest2 captures enum value "eu-west-2"
+	OrphanRecordingRegionEuWest2 string = "eu-west-2"
+
+	// OrphanRecordingRegionSaEast1 captures enum value "sa-east-1"
+	OrphanRecordingRegionSaEast1 string = "sa-east-1"
+
+	// OrphanRecordingRegionUsEast1 captures enum value "us-east-1"
+	OrphanRecordingRegionUsEast1 string = "us-east-1"
+
+	// OrphanRecordingRegionUsWest2 captures enum value "us-west-2"
+	OrphanRecordingRegionUsWest2 string = "us-west-2"
+)
+
+// prop value enum
+func (m *OrphanRecording) validateRegionEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, orphanRecordingTypeRegionPropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *OrphanRecording) validateRegion(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Region) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateRegionEnum("region", "body", m.Region); err != nil {
 		return err
 	}
 

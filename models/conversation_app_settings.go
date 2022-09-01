@@ -26,6 +26,9 @@ type ConversationAppSettings struct {
 	// Enum: [Standard Automatic]
 	AutoStartType string `json:"autoStartType,omitempty"`
 
+	// The conversation disconnect settings for the messenger app
+	ConversationDisconnect *ConversationDisconnectSettings `json:"conversationDisconnect,omitempty"`
+
 	// The markdown for the messenger app
 	Markdown *Markdown `json:"markdown,omitempty"`
 
@@ -45,6 +48,10 @@ func (m *ConversationAppSettings) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateAutoStartType(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateConversationDisconnect(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -114,6 +121,24 @@ func (m *ConversationAppSettings) validateAutoStartType(formats strfmt.Registry)
 	// value enum
 	if err := m.validateAutoStartTypeEnum("autoStartType", "body", m.AutoStartType); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *ConversationAppSettings) validateConversationDisconnect(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.ConversationDisconnect) { // not required
+		return nil
+	}
+
+	if m.ConversationDisconnect != nil {
+		if err := m.ConversationDisconnect.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("conversationDisconnect")
+			}
+			return err
+		}
 	}
 
 	return nil

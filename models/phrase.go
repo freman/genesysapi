@@ -19,7 +19,7 @@ import (
 // swagger:model Phrase
 type Phrase struct {
 
-	// The phrase sentiment, default value is Unspecified
+	// The phrase sentiment, default value is Unspecified.
 	// Enum: [Unspecified Positive Neutral Negative]
 	Sentiment string `json:"sentiment,omitempty"`
 

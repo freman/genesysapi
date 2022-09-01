@@ -97,6 +97,11 @@ for the get architect ivrs operation typically these are written to a http.Reque
 */
 type GetArchitectIvrsParams struct {
 
+	/*Dnis
+	  The phone number of the IVR to filter by.
+
+	*/
+	Dnis *string
 	/*Name
 	  Name of the IVR to filter by.
 
@@ -161,6 +166,17 @@ func (o *GetArchitectIvrsParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithDnis adds the dnis to the get architect ivrs params
+func (o *GetArchitectIvrsParams) WithDnis(dnis *string) *GetArchitectIvrsParams {
+	o.SetDnis(dnis)
+	return o
+}
+
+// SetDnis adds the dnis to the get architect ivrs params
+func (o *GetArchitectIvrsParams) SetDnis(dnis *string) {
+	o.Dnis = dnis
+}
+
 // WithName adds the name to the get architect ivrs params
 func (o *GetArchitectIvrsParams) WithName(name *string) *GetArchitectIvrsParams {
 	o.SetName(name)
@@ -223,6 +239,22 @@ func (o *GetArchitectIvrsParams) WriteToRequest(r runtime.ClientRequest, reg str
 		return err
 	}
 	var res []error
+
+	if o.Dnis != nil {
+
+		// query param dnis
+		var qrDnis string
+		if o.Dnis != nil {
+			qrDnis = *o.Dnis
+		}
+		qDnis := qrDnis
+		if qDnis != "" {
+			if err := r.SetQueryParam("dnis", qDnis); err != nil {
+				return err
+			}
+		}
+
+	}
 
 	if o.Name != nil {
 

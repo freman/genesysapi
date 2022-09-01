@@ -48,7 +48,7 @@ type LimitChangeRequestDetails struct {
 
 	// Namespace the key belongs to (see https://developer.mypurecloud.com/api/rest/v2/organization/limits.html#available_limits)
 	// Required: true
-	// Enum: [contacts agent.assistant analytics.alerting analytics analytics.realtime analytics.reporting.settings architect audiohook audit auth.api authorization automation.testing bots bots.voice cobrowse content.management conversation dataactions datatables directory email event.orchestration external.contacts gcv gdpr groups historical.adherence infrastructureascode integrations intent.miner journey knowledge language.understanding limit.registry marketplace messaging notifications onboarding outbound platform.api predictive.routing quality recording response.management routing scim search speech.and.text.analytics speech.integration supportability task.management telephony.configuration web.deployments web.messaging webchat webhooks workforce.management]
+	// Enum: [contacts agent.assistant analytics.alerting analytics analytics.realtime analytics.reporting.settings architect audiohook audit auth.api authorization automation.testing bots bots.voice cobrowse content.management conversation dataactions datatables directory email event.orchestration external.contacts gcv gdpr groups historical.adherence infrastructureascode integrations intent.miner journey knowledge language.understanding limit.registry marketplace messaging notifications onboarding outbound platform.api predictive.routing quality recording response.management routing scim search skills speech.and.text.analytics speech.integration supportability task.management telephony.configuration web.deployments web.messaging webchat webhooks workforce.management]
 	Namespace *string `json:"namespace"`
 
 	// The reason for rejecting the limit override request
@@ -181,7 +181,7 @@ var limitChangeRequestDetailsTypeNamespacePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["contacts","agent.assistant","analytics.alerting","analytics","analytics.realtime","analytics.reporting.settings","architect","audiohook","audit","auth.api","authorization","automation.testing","bots","bots.voice","cobrowse","content.management","conversation","dataactions","datatables","directory","email","event.orchestration","external.contacts","gcv","gdpr","groups","historical.adherence","infrastructureascode","integrations","intent.miner","journey","knowledge","language.understanding","limit.registry","marketplace","messaging","notifications","onboarding","outbound","platform.api","predictive.routing","quality","recording","response.management","routing","scim","search","speech.and.text.analytics","speech.integration","supportability","task.management","telephony.configuration","web.deployments","web.messaging","webchat","webhooks","workforce.management"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["contacts","agent.assistant","analytics.alerting","analytics","analytics.realtime","analytics.reporting.settings","architect","audiohook","audit","auth.api","authorization","automation.testing","bots","bots.voice","cobrowse","content.management","conversation","dataactions","datatables","directory","email","event.orchestration","external.contacts","gcv","gdpr","groups","historical.adherence","infrastructureascode","integrations","intent.miner","journey","knowledge","language.understanding","limit.registry","marketplace","messaging","notifications","onboarding","outbound","platform.api","predictive.routing","quality","recording","response.management","routing","scim","search","skills","speech.and.text.analytics","speech.integration","supportability","task.management","telephony.configuration","web.deployments","web.messaging","webchat","webhooks","workforce.management"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -331,6 +331,9 @@ const (
 
 	// LimitChangeRequestDetailsNamespaceSearch captures enum value "search"
 	LimitChangeRequestDetailsNamespaceSearch string = "search"
+
+	// LimitChangeRequestDetailsNamespaceSkills captures enum value "skills"
+	LimitChangeRequestDetailsNamespaceSkills string = "skills"
 
 	// LimitChangeRequestDetailsNamespaceSpeechAndTextAnalytics captures enum value "speech.and.text.analytics"
 	LimitChangeRequestDetailsNamespaceSpeechAndTextAnalytics string = "speech.and.text.analytics"

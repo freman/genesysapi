@@ -22,6 +22,30 @@ type API interface {
 	*/
 	DeleteKnowledgeKnowledgebase(ctx context.Context, params *DeleteKnowledgeKnowledgebaseParams) (*DeleteKnowledgeKnowledgebaseOK, *DeleteKnowledgeKnowledgebaseNoContent, error)
 	/*
+	   DeleteKnowledgeKnowledgebaseCategory deletes category
+	*/
+	DeleteKnowledgeKnowledgebaseCategory(ctx context.Context, params *DeleteKnowledgeKnowledgebaseCategoryParams) (*DeleteKnowledgeKnowledgebaseCategoryOK, *DeleteKnowledgeKnowledgebaseCategoryNoContent, error)
+	/*
+	   DeleteKnowledgeKnowledgebaseDocument deletes document
+	*/
+	DeleteKnowledgeKnowledgebaseDocument(ctx context.Context, params *DeleteKnowledgeKnowledgebaseDocumentParams) (*DeleteKnowledgeKnowledgebaseDocumentNoContent, error)
+	/*
+	   DeleteKnowledgeKnowledgebaseDocumentVariation deletes a variation for a document
+	*/
+	DeleteKnowledgeKnowledgebaseDocumentVariation(ctx context.Context, params *DeleteKnowledgeKnowledgebaseDocumentVariationParams) (*DeleteKnowledgeKnowledgebaseDocumentVariationNoContent, error)
+	/*
+	   DeleteKnowledgeKnowledgebaseExportJob deletes export job
+	*/
+	DeleteKnowledgeKnowledgebaseExportJob(ctx context.Context, params *DeleteKnowledgeKnowledgebaseExportJobParams) (*DeleteKnowledgeKnowledgebaseExportJobNoContent, error)
+	/*
+	   DeleteKnowledgeKnowledgebaseImportJob deletes import job
+	*/
+	DeleteKnowledgeKnowledgebaseImportJob(ctx context.Context, params *DeleteKnowledgeKnowledgebaseImportJobParams) (*DeleteKnowledgeKnowledgebaseImportJobNoContent, error)
+	/*
+	   DeleteKnowledgeKnowledgebaseLabel deletes label
+	*/
+	DeleteKnowledgeKnowledgebaseLabel(ctx context.Context, params *DeleteKnowledgeKnowledgebaseLabelParams) (*DeleteKnowledgeKnowledgebaseLabelOK, *DeleteKnowledgeKnowledgebaseLabelNoContent, error)
+	/*
 	   DeleteKnowledgeKnowledgebaseLanguageCategory deletes category
 	*/
 	DeleteKnowledgeKnowledgebaseLanguageCategory(ctx context.Context, params *DeleteKnowledgeKnowledgebaseLanguageCategoryParams) (*DeleteKnowledgeKnowledgebaseLanguageCategoryOK, *DeleteKnowledgeKnowledgebaseLanguageCategoryNoContent, error)
@@ -34,9 +58,77 @@ type API interface {
 	*/
 	DeleteKnowledgeKnowledgebaseLanguageDocumentsImport(ctx context.Context, params *DeleteKnowledgeKnowledgebaseLanguageDocumentsImportParams) (*DeleteKnowledgeKnowledgebaseLanguageDocumentsImportNoContent, error)
 	/*
+	   GetKnowledgeGuestSessionCategories gets categories
+	*/
+	GetKnowledgeGuestSessionCategories(ctx context.Context, params *GetKnowledgeGuestSessionCategoriesParams) (*GetKnowledgeGuestSessionCategoriesOK, error)
+	/*
+	   GetKnowledgeGuestSessionDocument gets a knowledge document by ID
+	*/
+	GetKnowledgeGuestSessionDocument(ctx context.Context, params *GetKnowledgeGuestSessionDocumentParams) (*GetKnowledgeGuestSessionDocumentOK, error)
+	/*
+	   GetKnowledgeGuestSessionDocuments gets documents
+	*/
+	GetKnowledgeGuestSessionDocuments(ctx context.Context, params *GetKnowledgeGuestSessionDocumentsParams) (*GetKnowledgeGuestSessionDocumentsOK, error)
+	/*
 	   GetKnowledgeKnowledgebase gets knowledge base
 	*/
 	GetKnowledgeKnowledgebase(ctx context.Context, params *GetKnowledgeKnowledgebaseParams) (*GetKnowledgeKnowledgebaseOK, error)
+	/*
+	   GetKnowledgeKnowledgebaseCategories gets categories
+	*/
+	GetKnowledgeKnowledgebaseCategories(ctx context.Context, params *GetKnowledgeKnowledgebaseCategoriesParams) (*GetKnowledgeKnowledgebaseCategoriesOK, error)
+	/*
+	   GetKnowledgeKnowledgebaseCategory gets category
+	*/
+	GetKnowledgeKnowledgebaseCategory(ctx context.Context, params *GetKnowledgeKnowledgebaseCategoryParams) (*GetKnowledgeKnowledgebaseCategoryOK, error)
+	/*
+	   GetKnowledgeKnowledgebaseDocument gets document
+	*/
+	GetKnowledgeKnowledgebaseDocument(ctx context.Context, params *GetKnowledgeKnowledgebaseDocumentParams) (*GetKnowledgeKnowledgebaseDocumentOK, error)
+	/*
+	   GetKnowledgeKnowledgebaseDocumentVariation gets a variation for a document
+	*/
+	GetKnowledgeKnowledgebaseDocumentVariation(ctx context.Context, params *GetKnowledgeKnowledgebaseDocumentVariationParams) (*GetKnowledgeKnowledgebaseDocumentVariationOK, error)
+	/*
+	   GetKnowledgeKnowledgebaseDocumentVariations gets variations for a document
+	*/
+	GetKnowledgeKnowledgebaseDocumentVariations(ctx context.Context, params *GetKnowledgeKnowledgebaseDocumentVariationsParams) (*GetKnowledgeKnowledgebaseDocumentVariationsOK, error)
+	/*
+	   GetKnowledgeKnowledgebaseDocumentVersion gets document version
+	*/
+	GetKnowledgeKnowledgebaseDocumentVersion(ctx context.Context, params *GetKnowledgeKnowledgebaseDocumentVersionParams) (*GetKnowledgeKnowledgebaseDocumentVersionOK, error)
+	/*
+	   GetKnowledgeKnowledgebaseDocumentVersionVariation gets variation for the given document version
+	*/
+	GetKnowledgeKnowledgebaseDocumentVersionVariation(ctx context.Context, params *GetKnowledgeKnowledgebaseDocumentVersionVariationParams) (*GetKnowledgeKnowledgebaseDocumentVersionVariationOK, error)
+	/*
+	   GetKnowledgeKnowledgebaseDocumentVersionVariations gets variations for the given document version
+	*/
+	GetKnowledgeKnowledgebaseDocumentVersionVariations(ctx context.Context, params *GetKnowledgeKnowledgebaseDocumentVersionVariationsParams) (*GetKnowledgeKnowledgebaseDocumentVersionVariationsOK, error)
+	/*
+	   GetKnowledgeKnowledgebaseDocumentVersions gets document versions
+	*/
+	GetKnowledgeKnowledgebaseDocumentVersions(ctx context.Context, params *GetKnowledgeKnowledgebaseDocumentVersionsParams) (*GetKnowledgeKnowledgebaseDocumentVersionsOK, error)
+	/*
+	   GetKnowledgeKnowledgebaseDocuments gets documents
+	*/
+	GetKnowledgeKnowledgebaseDocuments(ctx context.Context, params *GetKnowledgeKnowledgebaseDocumentsParams) (*GetKnowledgeKnowledgebaseDocumentsOK, error)
+	/*
+	   GetKnowledgeKnowledgebaseExportJob gets export job report
+	*/
+	GetKnowledgeKnowledgebaseExportJob(ctx context.Context, params *GetKnowledgeKnowledgebaseExportJobParams) (*GetKnowledgeKnowledgebaseExportJobOK, *GetKnowledgeKnowledgebaseExportJobAccepted, error)
+	/*
+	   GetKnowledgeKnowledgebaseImportJob gets import job report
+	*/
+	GetKnowledgeKnowledgebaseImportJob(ctx context.Context, params *GetKnowledgeKnowledgebaseImportJobParams) (*GetKnowledgeKnowledgebaseImportJobOK, *GetKnowledgeKnowledgebaseImportJobAccepted, error)
+	/*
+	   GetKnowledgeKnowledgebaseLabel gets label
+	*/
+	GetKnowledgeKnowledgebaseLabel(ctx context.Context, params *GetKnowledgeKnowledgebaseLabelParams) (*GetKnowledgeKnowledgebaseLabelOK, error)
+	/*
+	   GetKnowledgeKnowledgebaseLabels gets labels
+	*/
+	GetKnowledgeKnowledgebaseLabels(ctx context.Context, params *GetKnowledgeKnowledgebaseLabelsParams) (*GetKnowledgeKnowledgebaseLabelsOK, error)
 	/*
 	   GetKnowledgeKnowledgebaseLanguageCategories gets categories
 	*/
@@ -66,13 +158,53 @@ type API interface {
 	*/
 	GetKnowledgeKnowledgebaseLanguageTrainings(ctx context.Context, params *GetKnowledgeKnowledgebaseLanguageTrainingsParams) (*GetKnowledgeKnowledgebaseLanguageTrainingsOK, error)
 	/*
+	   GetKnowledgeKnowledgebaseUnansweredGroup gets knowledge base unanswered group for a particular group Id
+	*/
+	GetKnowledgeKnowledgebaseUnansweredGroup(ctx context.Context, params *GetKnowledgeKnowledgebaseUnansweredGroupParams) (*GetKnowledgeKnowledgebaseUnansweredGroupOK, error)
+	/*
+	   GetKnowledgeKnowledgebaseUnansweredGroupPhrasegroup gets knowledge base unanswered phrase group for a particular phrase group Id
+	*/
+	GetKnowledgeKnowledgebaseUnansweredGroupPhrasegroup(ctx context.Context, params *GetKnowledgeKnowledgebaseUnansweredGroupPhrasegroupParams) (*GetKnowledgeKnowledgebaseUnansweredGroupPhrasegroupOK, error)
+	/*
+	   GetKnowledgeKnowledgebaseUnansweredGroups gets knowledge base unanswered groups
+	*/
+	GetKnowledgeKnowledgebaseUnansweredGroups(ctx context.Context, params *GetKnowledgeKnowledgebaseUnansweredGroupsParams) (*GetKnowledgeKnowledgebaseUnansweredGroupsOK, error)
+	/*
 	   GetKnowledgeKnowledgebases gets knowledge bases
 	*/
 	GetKnowledgeKnowledgebases(ctx context.Context, params *GetKnowledgeKnowledgebasesParams) (*GetKnowledgeKnowledgebasesOK, error)
 	/*
+	   PatchKnowledgeGuestSessionDocumentsSearchSearchID updates search result
+	*/
+	PatchKnowledgeGuestSessionDocumentsSearchSearchID(ctx context.Context, params *PatchKnowledgeGuestSessionDocumentsSearchSearchIDParams) (*PatchKnowledgeGuestSessionDocumentsSearchSearchIDNoContent, error)
+	/*
 	   PatchKnowledgeKnowledgebase updates knowledge base
 	*/
 	PatchKnowledgeKnowledgebase(ctx context.Context, params *PatchKnowledgeKnowledgebaseParams) (*PatchKnowledgeKnowledgebaseOK, error)
+	/*
+	   PatchKnowledgeKnowledgebaseCategory updates category
+	*/
+	PatchKnowledgeKnowledgebaseCategory(ctx context.Context, params *PatchKnowledgeKnowledgebaseCategoryParams) (*PatchKnowledgeKnowledgebaseCategoryOK, error)
+	/*
+	   PatchKnowledgeKnowledgebaseDocument updates document
+	*/
+	PatchKnowledgeKnowledgebaseDocument(ctx context.Context, params *PatchKnowledgeKnowledgebaseDocumentParams) (*PatchKnowledgeKnowledgebaseDocumentOK, error)
+	/*
+	   PatchKnowledgeKnowledgebaseDocumentVariation updates a variation for a document
+	*/
+	PatchKnowledgeKnowledgebaseDocumentVariation(ctx context.Context, params *PatchKnowledgeKnowledgebaseDocumentVariationParams) (*PatchKnowledgeKnowledgebaseDocumentVariationOK, error)
+	/*
+	   PatchKnowledgeKnowledgebaseDocumentsSearchSearchID updates search result
+	*/
+	PatchKnowledgeKnowledgebaseDocumentsSearchSearchID(ctx context.Context, params *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDParams) (*PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDNoContent, error)
+	/*
+	   PatchKnowledgeKnowledgebaseImportJob starts import job
+	*/
+	PatchKnowledgeKnowledgebaseImportJob(ctx context.Context, params *PatchKnowledgeKnowledgebaseImportJobParams) (*PatchKnowledgeKnowledgebaseImportJobOK, *PatchKnowledgeKnowledgebaseImportJobAccepted, error)
+	/*
+	   PatchKnowledgeKnowledgebaseLabel updates label
+	*/
+	PatchKnowledgeKnowledgebaseLabel(ctx context.Context, params *PatchKnowledgeKnowledgebaseLabelParams) (*PatchKnowledgeKnowledgebaseLabelOK, error)
 	/*
 	   PatchKnowledgeKnowledgebaseLanguageCategory updates category
 	*/
@@ -90,9 +222,61 @@ type API interface {
 	*/
 	PatchKnowledgeKnowledgebaseLanguageDocumentsImport(ctx context.Context, params *PatchKnowledgeKnowledgebaseLanguageDocumentsImportParams) (*PatchKnowledgeKnowledgebaseLanguageDocumentsImportOK, *PatchKnowledgeKnowledgebaseLanguageDocumentsImportAccepted, error)
 	/*
+	   PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroup updates a knowledge base unanswered phrase group
+	*/
+	PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroup(ctx context.Context, params *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupParams) (*PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupOK, error)
+	/*
 	   PostKnowledgeDocumentuploads creates a presigned URL for uploading a knowledge import file with a set of documents
 	*/
 	PostKnowledgeDocumentuploads(ctx context.Context, params *PostKnowledgeDocumentuploadsParams) (*PostKnowledgeDocumentuploadsOK, error)
+	/*
+	   PostKnowledgeGuestSessionDocumentsSearch searches the documents in a guest session
+	*/
+	PostKnowledgeGuestSessionDocumentsSearch(ctx context.Context, params *PostKnowledgeGuestSessionDocumentsSearchParams) (*PostKnowledgeGuestSessionDocumentsSearchOK, error)
+	/*
+	   PostKnowledgeGuestSessionDocumentsSearchSuggestions queries the knowledge documents to provide suggestions for auto completion
+	*/
+	PostKnowledgeGuestSessionDocumentsSearchSuggestions(ctx context.Context, params *PostKnowledgeGuestSessionDocumentsSearchSuggestionsParams) (*PostKnowledgeGuestSessionDocumentsSearchSuggestionsOK, error)
+	/*
+	   PostKnowledgeGuestSessions creates guest session
+	*/
+	PostKnowledgeGuestSessions(ctx context.Context, params *PostKnowledgeGuestSessionsParams) (*PostKnowledgeGuestSessionsOK, *PostKnowledgeGuestSessionsCreated, error)
+	/*
+	   PostKnowledgeKnowledgebaseCategories creates new category
+	*/
+	PostKnowledgeKnowledgebaseCategories(ctx context.Context, params *PostKnowledgeKnowledgebaseCategoriesParams) (*PostKnowledgeKnowledgebaseCategoriesOK, *PostKnowledgeKnowledgebaseCategoriesCreated, error)
+	/*
+	   PostKnowledgeKnowledgebaseDocumentVariations creates a variation for a document
+	*/
+	PostKnowledgeKnowledgebaseDocumentVariations(ctx context.Context, params *PostKnowledgeKnowledgebaseDocumentVariationsParams) (*PostKnowledgeKnowledgebaseDocumentVariationsOK, error)
+	/*
+	   PostKnowledgeKnowledgebaseDocumentVersions creates or restores a document version
+	*/
+	PostKnowledgeKnowledgebaseDocumentVersions(ctx context.Context, params *PostKnowledgeKnowledgebaseDocumentVersionsParams) (*PostKnowledgeKnowledgebaseDocumentVersionsOK, error)
+	/*
+	   PostKnowledgeKnowledgebaseDocuments creates document
+	*/
+	PostKnowledgeKnowledgebaseDocuments(ctx context.Context, params *PostKnowledgeKnowledgebaseDocumentsParams) (*PostKnowledgeKnowledgebaseDocumentsOK, error)
+	/*
+	   PostKnowledgeKnowledgebaseDocumentsSearch searches the documents in a knowledge base
+	*/
+	PostKnowledgeKnowledgebaseDocumentsSearch(ctx context.Context, params *PostKnowledgeKnowledgebaseDocumentsSearchParams) (*PostKnowledgeKnowledgebaseDocumentsSearchOK, error)
+	/*
+	   PostKnowledgeKnowledgebaseDocumentsSearchSuggestions queries the knowledge documents to provide suggestions for auto completion
+	*/
+	PostKnowledgeKnowledgebaseDocumentsSearchSuggestions(ctx context.Context, params *PostKnowledgeKnowledgebaseDocumentsSearchSuggestionsParams) (*PostKnowledgeKnowledgebaseDocumentsSearchSuggestionsOK, error)
+	/*
+	   PostKnowledgeKnowledgebaseExportJobs creates export job
+	*/
+	PostKnowledgeKnowledgebaseExportJobs(ctx context.Context, params *PostKnowledgeKnowledgebaseExportJobsParams) (*PostKnowledgeKnowledgebaseExportJobsOK, *PostKnowledgeKnowledgebaseExportJobsAccepted, error)
+	/*
+	   PostKnowledgeKnowledgebaseImportJobs creates import job
+	*/
+	PostKnowledgeKnowledgebaseImportJobs(ctx context.Context, params *PostKnowledgeKnowledgebaseImportJobsParams) (*PostKnowledgeKnowledgebaseImportJobsOK, *PostKnowledgeKnowledgebaseImportJobsAccepted, error)
+	/*
+	   PostKnowledgeKnowledgebaseLabels creates new label
+	*/
+	PostKnowledgeKnowledgebaseLabels(ctx context.Context, params *PostKnowledgeKnowledgebaseLabelsParams) (*PostKnowledgeKnowledgebaseLabelsOK, *PostKnowledgeKnowledgebaseLabelsCreated, error)
 	/*
 	   PostKnowledgeKnowledgebaseLanguageCategories creates new category
 	*/
@@ -166,6 +350,168 @@ func (a *Client) DeleteKnowledgeKnowledgebase(ctx context.Context, params *Delet
 	case *DeleteKnowledgeKnowledgebaseOK:
 		return value, nil, nil
 	case *DeleteKnowledgeKnowledgebaseNoContent:
+		return nil, value, nil
+	}
+	return nil, nil, nil
+
+}
+
+/*
+DeleteKnowledgeKnowledgebaseCategory deletes category
+*/
+func (a *Client) DeleteKnowledgeKnowledgebaseCategory(ctx context.Context, params *DeleteKnowledgeKnowledgebaseCategoryParams) (*DeleteKnowledgeKnowledgebaseCategoryOK, *DeleteKnowledgeKnowledgebaseCategoryNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteKnowledgeKnowledgebaseCategory",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/knowledge/knowledgebases/{knowledgeBaseId}/categories/{categoryId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteKnowledgeKnowledgebaseCategoryReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *DeleteKnowledgeKnowledgebaseCategoryOK:
+		return value, nil, nil
+	case *DeleteKnowledgeKnowledgebaseCategoryNoContent:
+		return nil, value, nil
+	}
+	return nil, nil, nil
+
+}
+
+/*
+DeleteKnowledgeKnowledgebaseDocument deletes document
+*/
+func (a *Client) DeleteKnowledgeKnowledgebaseDocument(ctx context.Context, params *DeleteKnowledgeKnowledgebaseDocumentParams) (*DeleteKnowledgeKnowledgebaseDocumentNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteKnowledgeKnowledgebaseDocument",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteKnowledgeKnowledgebaseDocumentReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteKnowledgeKnowledgebaseDocumentNoContent), nil
+
+}
+
+/*
+DeleteKnowledgeKnowledgebaseDocumentVariation deletes a variation for a document
+*/
+func (a *Client) DeleteKnowledgeKnowledgebaseDocumentVariation(ctx context.Context, params *DeleteKnowledgeKnowledgebaseDocumentVariationParams) (*DeleteKnowledgeKnowledgebaseDocumentVariationNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteKnowledgeKnowledgebaseDocumentVariation",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/variations/{documentVariationId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteKnowledgeKnowledgebaseDocumentVariationReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteKnowledgeKnowledgebaseDocumentVariationNoContent), nil
+
+}
+
+/*
+DeleteKnowledgeKnowledgebaseExportJob deletes export job
+*/
+func (a *Client) DeleteKnowledgeKnowledgebaseExportJob(ctx context.Context, params *DeleteKnowledgeKnowledgebaseExportJobParams) (*DeleteKnowledgeKnowledgebaseExportJobNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteKnowledgeKnowledgebaseExportJob",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/knowledge/knowledgebases/{knowledgeBaseId}/export/jobs/{exportJobId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteKnowledgeKnowledgebaseExportJobReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteKnowledgeKnowledgebaseExportJobNoContent), nil
+
+}
+
+/*
+DeleteKnowledgeKnowledgebaseImportJob deletes import job
+*/
+func (a *Client) DeleteKnowledgeKnowledgebaseImportJob(ctx context.Context, params *DeleteKnowledgeKnowledgebaseImportJobParams) (*DeleteKnowledgeKnowledgebaseImportJobNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteKnowledgeKnowledgebaseImportJob",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteKnowledgeKnowledgebaseImportJobReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteKnowledgeKnowledgebaseImportJobNoContent), nil
+
+}
+
+/*
+DeleteKnowledgeKnowledgebaseLabel deletes label
+*/
+func (a *Client) DeleteKnowledgeKnowledgebaseLabel(ctx context.Context, params *DeleteKnowledgeKnowledgebaseLabelParams) (*DeleteKnowledgeKnowledgebaseLabelOK, *DeleteKnowledgeKnowledgebaseLabelNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteKnowledgeKnowledgebaseLabel",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/knowledge/knowledgebases/{knowledgeBaseId}/labels/{labelId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteKnowledgeKnowledgebaseLabelReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *DeleteKnowledgeKnowledgebaseLabelOK:
+		return value, nil, nil
+	case *DeleteKnowledgeKnowledgebaseLabelNoContent:
 		return nil, value, nil
 	}
 	return nil, nil, nil
@@ -260,6 +606,78 @@ func (a *Client) DeleteKnowledgeKnowledgebaseLanguageDocumentsImport(ctx context
 }
 
 /*
+GetKnowledgeGuestSessionCategories gets categories
+*/
+func (a *Client) GetKnowledgeGuestSessionCategories(ctx context.Context, params *GetKnowledgeGuestSessionCategoriesParams) (*GetKnowledgeGuestSessionCategoriesOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getKnowledgeGuestSessionCategories",
+		Method:             "GET",
+		PathPattern:        "/api/v2/knowledge/guest/sessions/{sessionId}/categories",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetKnowledgeGuestSessionCategoriesReader{formats: a.formats},
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetKnowledgeGuestSessionCategoriesOK), nil
+
+}
+
+/*
+GetKnowledgeGuestSessionDocument gets a knowledge document by ID
+*/
+func (a *Client) GetKnowledgeGuestSessionDocument(ctx context.Context, params *GetKnowledgeGuestSessionDocumentParams) (*GetKnowledgeGuestSessionDocumentOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getKnowledgeGuestSessionDocument",
+		Method:             "GET",
+		PathPattern:        "/api/v2/knowledge/guest/sessions/{sessionId}/documents/{documentId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetKnowledgeGuestSessionDocumentReader{formats: a.formats},
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetKnowledgeGuestSessionDocumentOK), nil
+
+}
+
+/*
+GetKnowledgeGuestSessionDocuments gets documents
+*/
+func (a *Client) GetKnowledgeGuestSessionDocuments(ctx context.Context, params *GetKnowledgeGuestSessionDocumentsParams) (*GetKnowledgeGuestSessionDocumentsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getKnowledgeGuestSessionDocuments",
+		Method:             "GET",
+		PathPattern:        "/api/v2/knowledge/guest/sessions/{sessionId}/documents",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetKnowledgeGuestSessionDocumentsReader{formats: a.formats},
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetKnowledgeGuestSessionDocumentsOK), nil
+
+}
+
+/*
 GetKnowledgeKnowledgebase gets knowledge base
 */
 func (a *Client) GetKnowledgeKnowledgebase(ctx context.Context, params *GetKnowledgeKnowledgebaseParams) (*GetKnowledgeKnowledgebaseOK, error) {
@@ -281,6 +699,368 @@ func (a *Client) GetKnowledgeKnowledgebase(ctx context.Context, params *GetKnowl
 		return nil, err
 	}
 	return result.(*GetKnowledgeKnowledgebaseOK), nil
+
+}
+
+/*
+GetKnowledgeKnowledgebaseCategories gets categories
+*/
+func (a *Client) GetKnowledgeKnowledgebaseCategories(ctx context.Context, params *GetKnowledgeKnowledgebaseCategoriesParams) (*GetKnowledgeKnowledgebaseCategoriesOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getKnowledgeKnowledgebaseCategories",
+		Method:             "GET",
+		PathPattern:        "/api/v2/knowledge/knowledgebases/{knowledgeBaseId}/categories",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetKnowledgeKnowledgebaseCategoriesReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetKnowledgeKnowledgebaseCategoriesOK), nil
+
+}
+
+/*
+GetKnowledgeKnowledgebaseCategory gets category
+*/
+func (a *Client) GetKnowledgeKnowledgebaseCategory(ctx context.Context, params *GetKnowledgeKnowledgebaseCategoryParams) (*GetKnowledgeKnowledgebaseCategoryOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getKnowledgeKnowledgebaseCategory",
+		Method:             "GET",
+		PathPattern:        "/api/v2/knowledge/knowledgebases/{knowledgeBaseId}/categories/{categoryId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetKnowledgeKnowledgebaseCategoryReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetKnowledgeKnowledgebaseCategoryOK), nil
+
+}
+
+/*
+GetKnowledgeKnowledgebaseDocument gets document
+*/
+func (a *Client) GetKnowledgeKnowledgebaseDocument(ctx context.Context, params *GetKnowledgeKnowledgebaseDocumentParams) (*GetKnowledgeKnowledgebaseDocumentOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getKnowledgeKnowledgebaseDocument",
+		Method:             "GET",
+		PathPattern:        "/api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetKnowledgeKnowledgebaseDocumentReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetKnowledgeKnowledgebaseDocumentOK), nil
+
+}
+
+/*
+GetKnowledgeKnowledgebaseDocumentVariation gets a variation for a document
+*/
+func (a *Client) GetKnowledgeKnowledgebaseDocumentVariation(ctx context.Context, params *GetKnowledgeKnowledgebaseDocumentVariationParams) (*GetKnowledgeKnowledgebaseDocumentVariationOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getKnowledgeKnowledgebaseDocumentVariation",
+		Method:             "GET",
+		PathPattern:        "/api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/variations/{documentVariationId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetKnowledgeKnowledgebaseDocumentVariationReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetKnowledgeKnowledgebaseDocumentVariationOK), nil
+
+}
+
+/*
+GetKnowledgeKnowledgebaseDocumentVariations gets variations for a document
+*/
+func (a *Client) GetKnowledgeKnowledgebaseDocumentVariations(ctx context.Context, params *GetKnowledgeKnowledgebaseDocumentVariationsParams) (*GetKnowledgeKnowledgebaseDocumentVariationsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getKnowledgeKnowledgebaseDocumentVariations",
+		Method:             "GET",
+		PathPattern:        "/api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/variations",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetKnowledgeKnowledgebaseDocumentVariationsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetKnowledgeKnowledgebaseDocumentVariationsOK), nil
+
+}
+
+/*
+GetKnowledgeKnowledgebaseDocumentVersion gets document version
+*/
+func (a *Client) GetKnowledgeKnowledgebaseDocumentVersion(ctx context.Context, params *GetKnowledgeKnowledgebaseDocumentVersionParams) (*GetKnowledgeKnowledgebaseDocumentVersionOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getKnowledgeKnowledgebaseDocumentVersion",
+		Method:             "GET",
+		PathPattern:        "/api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/versions/{versionId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetKnowledgeKnowledgebaseDocumentVersionReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetKnowledgeKnowledgebaseDocumentVersionOK), nil
+
+}
+
+/*
+GetKnowledgeKnowledgebaseDocumentVersionVariation gets variation for the given document version
+*/
+func (a *Client) GetKnowledgeKnowledgebaseDocumentVersionVariation(ctx context.Context, params *GetKnowledgeKnowledgebaseDocumentVersionVariationParams) (*GetKnowledgeKnowledgebaseDocumentVersionVariationOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getKnowledgeKnowledgebaseDocumentVersionVariation",
+		Method:             "GET",
+		PathPattern:        "/api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/versions/{versionId}/variations/{variationId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetKnowledgeKnowledgebaseDocumentVersionVariationReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetKnowledgeKnowledgebaseDocumentVersionVariationOK), nil
+
+}
+
+/*
+GetKnowledgeKnowledgebaseDocumentVersionVariations gets variations for the given document version
+*/
+func (a *Client) GetKnowledgeKnowledgebaseDocumentVersionVariations(ctx context.Context, params *GetKnowledgeKnowledgebaseDocumentVersionVariationsParams) (*GetKnowledgeKnowledgebaseDocumentVersionVariationsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getKnowledgeKnowledgebaseDocumentVersionVariations",
+		Method:             "GET",
+		PathPattern:        "/api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/versions/{versionId}/variations",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetKnowledgeKnowledgebaseDocumentVersionVariationsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetKnowledgeKnowledgebaseDocumentVersionVariationsOK), nil
+
+}
+
+/*
+GetKnowledgeKnowledgebaseDocumentVersions gets document versions
+*/
+func (a *Client) GetKnowledgeKnowledgebaseDocumentVersions(ctx context.Context, params *GetKnowledgeKnowledgebaseDocumentVersionsParams) (*GetKnowledgeKnowledgebaseDocumentVersionsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getKnowledgeKnowledgebaseDocumentVersions",
+		Method:             "GET",
+		PathPattern:        "/api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/versions",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetKnowledgeKnowledgebaseDocumentVersionsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetKnowledgeKnowledgebaseDocumentVersionsOK), nil
+
+}
+
+/*
+GetKnowledgeKnowledgebaseDocuments gets documents
+*/
+func (a *Client) GetKnowledgeKnowledgebaseDocuments(ctx context.Context, params *GetKnowledgeKnowledgebaseDocumentsParams) (*GetKnowledgeKnowledgebaseDocumentsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getKnowledgeKnowledgebaseDocuments",
+		Method:             "GET",
+		PathPattern:        "/api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetKnowledgeKnowledgebaseDocumentsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetKnowledgeKnowledgebaseDocumentsOK), nil
+
+}
+
+/*
+GetKnowledgeKnowledgebaseExportJob gets export job report
+*/
+func (a *Client) GetKnowledgeKnowledgebaseExportJob(ctx context.Context, params *GetKnowledgeKnowledgebaseExportJobParams) (*GetKnowledgeKnowledgebaseExportJobOK, *GetKnowledgeKnowledgebaseExportJobAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getKnowledgeKnowledgebaseExportJob",
+		Method:             "GET",
+		PathPattern:        "/api/v2/knowledge/knowledgebases/{knowledgeBaseId}/export/jobs/{exportJobId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetKnowledgeKnowledgebaseExportJobReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *GetKnowledgeKnowledgebaseExportJobOK:
+		return value, nil, nil
+	case *GetKnowledgeKnowledgebaseExportJobAccepted:
+		return nil, value, nil
+	}
+	return nil, nil, nil
+
+}
+
+/*
+GetKnowledgeKnowledgebaseImportJob gets import job report
+*/
+func (a *Client) GetKnowledgeKnowledgebaseImportJob(ctx context.Context, params *GetKnowledgeKnowledgebaseImportJobParams) (*GetKnowledgeKnowledgebaseImportJobOK, *GetKnowledgeKnowledgebaseImportJobAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getKnowledgeKnowledgebaseImportJob",
+		Method:             "GET",
+		PathPattern:        "/api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetKnowledgeKnowledgebaseImportJobReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *GetKnowledgeKnowledgebaseImportJobOK:
+		return value, nil, nil
+	case *GetKnowledgeKnowledgebaseImportJobAccepted:
+		return nil, value, nil
+	}
+	return nil, nil, nil
+
+}
+
+/*
+GetKnowledgeKnowledgebaseLabel gets label
+*/
+func (a *Client) GetKnowledgeKnowledgebaseLabel(ctx context.Context, params *GetKnowledgeKnowledgebaseLabelParams) (*GetKnowledgeKnowledgebaseLabelOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getKnowledgeKnowledgebaseLabel",
+		Method:             "GET",
+		PathPattern:        "/api/v2/knowledge/knowledgebases/{knowledgeBaseId}/labels/{labelId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetKnowledgeKnowledgebaseLabelReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetKnowledgeKnowledgebaseLabelOK), nil
+
+}
+
+/*
+GetKnowledgeKnowledgebaseLabels gets labels
+*/
+func (a *Client) GetKnowledgeKnowledgebaseLabels(ctx context.Context, params *GetKnowledgeKnowledgebaseLabelsParams) (*GetKnowledgeKnowledgebaseLabelsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getKnowledgeKnowledgebaseLabels",
+		Method:             "GET",
+		PathPattern:        "/api/v2/knowledge/knowledgebases/{knowledgeBaseId}/labels",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetKnowledgeKnowledgebaseLabelsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetKnowledgeKnowledgebaseLabelsOK), nil
 
 }
 
@@ -466,6 +1246,81 @@ func (a *Client) GetKnowledgeKnowledgebaseLanguageTrainings(ctx context.Context,
 }
 
 /*
+GetKnowledgeKnowledgebaseUnansweredGroup gets knowledge base unanswered group for a particular group Id
+*/
+func (a *Client) GetKnowledgeKnowledgebaseUnansweredGroup(ctx context.Context, params *GetKnowledgeKnowledgebaseUnansweredGroupParams) (*GetKnowledgeKnowledgebaseUnansweredGroupOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getKnowledgeKnowledgebaseUnansweredGroup",
+		Method:             "GET",
+		PathPattern:        "/api/v2/knowledge/knowledgebases/{knowledgeBaseId}/unanswered/groups/{groupId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetKnowledgeKnowledgebaseUnansweredGroupReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetKnowledgeKnowledgebaseUnansweredGroupOK), nil
+
+}
+
+/*
+GetKnowledgeKnowledgebaseUnansweredGroupPhrasegroup gets knowledge base unanswered phrase group for a particular phrase group Id
+*/
+func (a *Client) GetKnowledgeKnowledgebaseUnansweredGroupPhrasegroup(ctx context.Context, params *GetKnowledgeKnowledgebaseUnansweredGroupPhrasegroupParams) (*GetKnowledgeKnowledgebaseUnansweredGroupPhrasegroupOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getKnowledgeKnowledgebaseUnansweredGroupPhrasegroup",
+		Method:             "GET",
+		PathPattern:        "/api/v2/knowledge/knowledgebases/{knowledgeBaseId}/unanswered/groups/{groupId}/phrasegroups/{phraseGroupId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetKnowledgeKnowledgebaseUnansweredGroupPhrasegroupReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetKnowledgeKnowledgebaseUnansweredGroupPhrasegroupOK), nil
+
+}
+
+/*
+GetKnowledgeKnowledgebaseUnansweredGroups gets knowledge base unanswered groups
+*/
+func (a *Client) GetKnowledgeKnowledgebaseUnansweredGroups(ctx context.Context, params *GetKnowledgeKnowledgebaseUnansweredGroupsParams) (*GetKnowledgeKnowledgebaseUnansweredGroupsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getKnowledgeKnowledgebaseUnansweredGroups",
+		Method:             "GET",
+		PathPattern:        "/api/v2/knowledge/knowledgebases/{knowledgeBaseId}/unanswered/groups",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetKnowledgeKnowledgebaseUnansweredGroupsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetKnowledgeKnowledgebaseUnansweredGroupsOK), nil
+
+}
+
+/*
 GetKnowledgeKnowledgebases gets knowledge bases
 */
 func (a *Client) GetKnowledgeKnowledgebases(ctx context.Context, params *GetKnowledgeKnowledgebasesParams) (*GetKnowledgeKnowledgebasesOK, error) {
@@ -491,6 +1346,30 @@ func (a *Client) GetKnowledgeKnowledgebases(ctx context.Context, params *GetKnow
 }
 
 /*
+PatchKnowledgeGuestSessionDocumentsSearchSearchID updates search result
+*/
+func (a *Client) PatchKnowledgeGuestSessionDocumentsSearchSearchID(ctx context.Context, params *PatchKnowledgeGuestSessionDocumentsSearchSearchIDParams) (*PatchKnowledgeGuestSessionDocumentsSearchSearchIDNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "patchKnowledgeGuestSessionDocumentsSearchSearchId",
+		Method:             "PATCH",
+		PathPattern:        "/api/v2/knowledge/guest/sessions/{sessionId}/documents/search/{searchId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchKnowledgeGuestSessionDocumentsSearchSearchIDReader{formats: a.formats},
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PatchKnowledgeGuestSessionDocumentsSearchSearchIDNoContent), nil
+
+}
+
+/*
 PatchKnowledgeKnowledgebase updates knowledge base
 */
 func (a *Client) PatchKnowledgeKnowledgebase(ctx context.Context, params *PatchKnowledgeKnowledgebaseParams) (*PatchKnowledgeKnowledgebaseOK, error) {
@@ -512,6 +1391,162 @@ func (a *Client) PatchKnowledgeKnowledgebase(ctx context.Context, params *PatchK
 		return nil, err
 	}
 	return result.(*PatchKnowledgeKnowledgebaseOK), nil
+
+}
+
+/*
+PatchKnowledgeKnowledgebaseCategory updates category
+*/
+func (a *Client) PatchKnowledgeKnowledgebaseCategory(ctx context.Context, params *PatchKnowledgeKnowledgebaseCategoryParams) (*PatchKnowledgeKnowledgebaseCategoryOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "patchKnowledgeKnowledgebaseCategory",
+		Method:             "PATCH",
+		PathPattern:        "/api/v2/knowledge/knowledgebases/{knowledgeBaseId}/categories/{categoryId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchKnowledgeKnowledgebaseCategoryReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PatchKnowledgeKnowledgebaseCategoryOK), nil
+
+}
+
+/*
+PatchKnowledgeKnowledgebaseDocument updates document
+*/
+func (a *Client) PatchKnowledgeKnowledgebaseDocument(ctx context.Context, params *PatchKnowledgeKnowledgebaseDocumentParams) (*PatchKnowledgeKnowledgebaseDocumentOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "patchKnowledgeKnowledgebaseDocument",
+		Method:             "PATCH",
+		PathPattern:        "/api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchKnowledgeKnowledgebaseDocumentReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PatchKnowledgeKnowledgebaseDocumentOK), nil
+
+}
+
+/*
+PatchKnowledgeKnowledgebaseDocumentVariation updates a variation for a document
+*/
+func (a *Client) PatchKnowledgeKnowledgebaseDocumentVariation(ctx context.Context, params *PatchKnowledgeKnowledgebaseDocumentVariationParams) (*PatchKnowledgeKnowledgebaseDocumentVariationOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "patchKnowledgeKnowledgebaseDocumentVariation",
+		Method:             "PATCH",
+		PathPattern:        "/api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/variations/{documentVariationId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchKnowledgeKnowledgebaseDocumentVariationReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PatchKnowledgeKnowledgebaseDocumentVariationOK), nil
+
+}
+
+/*
+PatchKnowledgeKnowledgebaseDocumentsSearchSearchID updates search result
+*/
+func (a *Client) PatchKnowledgeKnowledgebaseDocumentsSearchSearchID(ctx context.Context, params *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDParams) (*PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "patchKnowledgeKnowledgebaseDocumentsSearchSearchId",
+		Method:             "PATCH",
+		PathPattern:        "/api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/search/{searchId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDNoContent), nil
+
+}
+
+/*
+PatchKnowledgeKnowledgebaseImportJob starts import job
+*/
+func (a *Client) PatchKnowledgeKnowledgebaseImportJob(ctx context.Context, params *PatchKnowledgeKnowledgebaseImportJobParams) (*PatchKnowledgeKnowledgebaseImportJobOK, *PatchKnowledgeKnowledgebaseImportJobAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "patchKnowledgeKnowledgebaseImportJob",
+		Method:             "PATCH",
+		PathPattern:        "/api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchKnowledgeKnowledgebaseImportJobReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PatchKnowledgeKnowledgebaseImportJobOK:
+		return value, nil, nil
+	case *PatchKnowledgeKnowledgebaseImportJobAccepted:
+		return nil, value, nil
+	}
+	return nil, nil, nil
+
+}
+
+/*
+PatchKnowledgeKnowledgebaseLabel updates label
+*/
+func (a *Client) PatchKnowledgeKnowledgebaseLabel(ctx context.Context, params *PatchKnowledgeKnowledgebaseLabelParams) (*PatchKnowledgeKnowledgebaseLabelOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "patchKnowledgeKnowledgebaseLabel",
+		Method:             "PATCH",
+		PathPattern:        "/api/v2/knowledge/knowledgebases/{knowledgeBaseId}/labels/{labelId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchKnowledgeKnowledgebaseLabelReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PatchKnowledgeKnowledgebaseLabelOK), nil
 
 }
 
@@ -622,6 +1657,31 @@ func (a *Client) PatchKnowledgeKnowledgebaseLanguageDocumentsImport(ctx context.
 }
 
 /*
+PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroup updates a knowledge base unanswered phrase group
+*/
+func (a *Client) PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroup(ctx context.Context, params *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupParams) (*PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "patchKnowledgeKnowledgebaseUnansweredGroupPhrasegroup",
+		Method:             "PATCH",
+		PathPattern:        "/api/v2/knowledge/knowledgebases/{knowledgeBaseId}/unanswered/groups/{groupId}/phrasegroups/{phraseGroupId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupOK), nil
+
+}
+
+/*
 PostKnowledgeDocumentuploads creates a presigned URL for uploading a knowledge import file with a set of documents
 */
 func (a *Client) PostKnowledgeDocumentuploads(ctx context.Context, params *PostKnowledgeDocumentuploadsParams) (*PostKnowledgeDocumentuploadsOK, error) {
@@ -643,6 +1703,333 @@ func (a *Client) PostKnowledgeDocumentuploads(ctx context.Context, params *PostK
 		return nil, err
 	}
 	return result.(*PostKnowledgeDocumentuploadsOK), nil
+
+}
+
+/*
+PostKnowledgeGuestSessionDocumentsSearch searches the documents in a guest session
+*/
+func (a *Client) PostKnowledgeGuestSessionDocumentsSearch(ctx context.Context, params *PostKnowledgeGuestSessionDocumentsSearchParams) (*PostKnowledgeGuestSessionDocumentsSearchOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postKnowledgeGuestSessionDocumentsSearch",
+		Method:             "POST",
+		PathPattern:        "/api/v2/knowledge/guest/sessions/{sessionId}/documents/search",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostKnowledgeGuestSessionDocumentsSearchReader{formats: a.formats},
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostKnowledgeGuestSessionDocumentsSearchOK), nil
+
+}
+
+/*
+PostKnowledgeGuestSessionDocumentsSearchSuggestions queries the knowledge documents to provide suggestions for auto completion
+*/
+func (a *Client) PostKnowledgeGuestSessionDocumentsSearchSuggestions(ctx context.Context, params *PostKnowledgeGuestSessionDocumentsSearchSuggestionsParams) (*PostKnowledgeGuestSessionDocumentsSearchSuggestionsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postKnowledgeGuestSessionDocumentsSearchSuggestions",
+		Method:             "POST",
+		PathPattern:        "/api/v2/knowledge/guest/sessions/{sessionId}/documents/search/suggestions",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostKnowledgeGuestSessionDocumentsSearchSuggestionsReader{formats: a.formats},
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostKnowledgeGuestSessionDocumentsSearchSuggestionsOK), nil
+
+}
+
+/*
+PostKnowledgeGuestSessions creates guest session
+*/
+func (a *Client) PostKnowledgeGuestSessions(ctx context.Context, params *PostKnowledgeGuestSessionsParams) (*PostKnowledgeGuestSessionsOK, *PostKnowledgeGuestSessionsCreated, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postKnowledgeGuestSessions",
+		Method:             "POST",
+		PathPattern:        "/api/v2/knowledge/guest/sessions",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostKnowledgeGuestSessionsReader{formats: a.formats},
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PostKnowledgeGuestSessionsOK:
+		return value, nil, nil
+	case *PostKnowledgeGuestSessionsCreated:
+		return nil, value, nil
+	}
+	return nil, nil, nil
+
+}
+
+/*
+PostKnowledgeKnowledgebaseCategories creates new category
+*/
+func (a *Client) PostKnowledgeKnowledgebaseCategories(ctx context.Context, params *PostKnowledgeKnowledgebaseCategoriesParams) (*PostKnowledgeKnowledgebaseCategoriesOK, *PostKnowledgeKnowledgebaseCategoriesCreated, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postKnowledgeKnowledgebaseCategories",
+		Method:             "POST",
+		PathPattern:        "/api/v2/knowledge/knowledgebases/{knowledgeBaseId}/categories",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostKnowledgeKnowledgebaseCategoriesReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PostKnowledgeKnowledgebaseCategoriesOK:
+		return value, nil, nil
+	case *PostKnowledgeKnowledgebaseCategoriesCreated:
+		return nil, value, nil
+	}
+	return nil, nil, nil
+
+}
+
+/*
+PostKnowledgeKnowledgebaseDocumentVariations creates a variation for a document
+*/
+func (a *Client) PostKnowledgeKnowledgebaseDocumentVariations(ctx context.Context, params *PostKnowledgeKnowledgebaseDocumentVariationsParams) (*PostKnowledgeKnowledgebaseDocumentVariationsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postKnowledgeKnowledgebaseDocumentVariations",
+		Method:             "POST",
+		PathPattern:        "/api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/variations",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostKnowledgeKnowledgebaseDocumentVariationsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostKnowledgeKnowledgebaseDocumentVariationsOK), nil
+
+}
+
+/*
+PostKnowledgeKnowledgebaseDocumentVersions creates or restores a document version
+*/
+func (a *Client) PostKnowledgeKnowledgebaseDocumentVersions(ctx context.Context, params *PostKnowledgeKnowledgebaseDocumentVersionsParams) (*PostKnowledgeKnowledgebaseDocumentVersionsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postKnowledgeKnowledgebaseDocumentVersions",
+		Method:             "POST",
+		PathPattern:        "/api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/versions",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostKnowledgeKnowledgebaseDocumentVersionsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostKnowledgeKnowledgebaseDocumentVersionsOK), nil
+
+}
+
+/*
+PostKnowledgeKnowledgebaseDocuments creates document
+*/
+func (a *Client) PostKnowledgeKnowledgebaseDocuments(ctx context.Context, params *PostKnowledgeKnowledgebaseDocumentsParams) (*PostKnowledgeKnowledgebaseDocumentsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postKnowledgeKnowledgebaseDocuments",
+		Method:             "POST",
+		PathPattern:        "/api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostKnowledgeKnowledgebaseDocumentsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostKnowledgeKnowledgebaseDocumentsOK), nil
+
+}
+
+/*
+PostKnowledgeKnowledgebaseDocumentsSearch searches the documents in a knowledge base
+*/
+func (a *Client) PostKnowledgeKnowledgebaseDocumentsSearch(ctx context.Context, params *PostKnowledgeKnowledgebaseDocumentsSearchParams) (*PostKnowledgeKnowledgebaseDocumentsSearchOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postKnowledgeKnowledgebaseDocumentsSearch",
+		Method:             "POST",
+		PathPattern:        "/api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/search",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostKnowledgeKnowledgebaseDocumentsSearchReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostKnowledgeKnowledgebaseDocumentsSearchOK), nil
+
+}
+
+/*
+PostKnowledgeKnowledgebaseDocumentsSearchSuggestions queries the knowledge documents to provide suggestions for auto completion
+*/
+func (a *Client) PostKnowledgeKnowledgebaseDocumentsSearchSuggestions(ctx context.Context, params *PostKnowledgeKnowledgebaseDocumentsSearchSuggestionsParams) (*PostKnowledgeKnowledgebaseDocumentsSearchSuggestionsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postKnowledgeKnowledgebaseDocumentsSearchSuggestions",
+		Method:             "POST",
+		PathPattern:        "/api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/search/suggestions",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostKnowledgeKnowledgebaseDocumentsSearchSuggestionsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostKnowledgeKnowledgebaseDocumentsSearchSuggestionsOK), nil
+
+}
+
+/*
+PostKnowledgeKnowledgebaseExportJobs creates export job
+*/
+func (a *Client) PostKnowledgeKnowledgebaseExportJobs(ctx context.Context, params *PostKnowledgeKnowledgebaseExportJobsParams) (*PostKnowledgeKnowledgebaseExportJobsOK, *PostKnowledgeKnowledgebaseExportJobsAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postKnowledgeKnowledgebaseExportJobs",
+		Method:             "POST",
+		PathPattern:        "/api/v2/knowledge/knowledgebases/{knowledgeBaseId}/export/jobs",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostKnowledgeKnowledgebaseExportJobsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PostKnowledgeKnowledgebaseExportJobsOK:
+		return value, nil, nil
+	case *PostKnowledgeKnowledgebaseExportJobsAccepted:
+		return nil, value, nil
+	}
+	return nil, nil, nil
+
+}
+
+/*
+PostKnowledgeKnowledgebaseImportJobs creates import job
+*/
+func (a *Client) PostKnowledgeKnowledgebaseImportJobs(ctx context.Context, params *PostKnowledgeKnowledgebaseImportJobsParams) (*PostKnowledgeKnowledgebaseImportJobsOK, *PostKnowledgeKnowledgebaseImportJobsAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postKnowledgeKnowledgebaseImportJobs",
+		Method:             "POST",
+		PathPattern:        "/api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostKnowledgeKnowledgebaseImportJobsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PostKnowledgeKnowledgebaseImportJobsOK:
+		return value, nil, nil
+	case *PostKnowledgeKnowledgebaseImportJobsAccepted:
+		return nil, value, nil
+	}
+	return nil, nil, nil
+
+}
+
+/*
+PostKnowledgeKnowledgebaseLabels creates new label
+*/
+func (a *Client) PostKnowledgeKnowledgebaseLabels(ctx context.Context, params *PostKnowledgeKnowledgebaseLabelsParams) (*PostKnowledgeKnowledgebaseLabelsOK, *PostKnowledgeKnowledgebaseLabelsCreated, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postKnowledgeKnowledgebaseLabels",
+		Method:             "POST",
+		PathPattern:        "/api/v2/knowledge/knowledgebases/{knowledgeBaseId}/labels",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostKnowledgeKnowledgebaseLabelsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PostKnowledgeKnowledgebaseLabelsOK:
+		return value, nil, nil
+	case *PostKnowledgeKnowledgebaseLabelsCreated:
+		return nil, value, nil
+	}
+	return nil, nil, nil
 
 }
 

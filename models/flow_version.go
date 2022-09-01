@@ -39,8 +39,14 @@ type FlowVersion struct {
 	// created by client
 	CreatedByClient *DomainEntityRef `json:"createdByClient,omitempty"`
 
+	// date checked in
+	DateCheckedIn int64 `json:"dateCheckedIn,omitempty"`
+
 	// date created
 	DateCreated int64 `json:"dateCreated,omitempty"`
+
+	// date saved
+	DateSaved int64 `json:"dateSaved,omitempty"`
 
 	// debug
 	Debug bool `json:"debug"`

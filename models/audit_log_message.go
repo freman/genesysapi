@@ -21,7 +21,7 @@ import (
 type AuditLogMessage struct {
 
 	// Action that took place.
-	// Enum: [Create View Update Move Copy Delete DeleteAll Fax VersionCreate Download Upload MemberAdd MemberUpdate MemberRemove ShareAdd ShareRemove TagAdd TagRemove TagUpdate Read ReadAll Execute ApplyProtection RevokeProtection UpdateRetention Abandon Archive RestoreRequest RestoreComplete Promote Publish Unpublish Activate Checkin Checkout Deactivate Debug Save Revert Transcode Enable Disable Authorize Deauthorize Authenticate ChangePassword Revoke Export Append Recycle Open Approved Rejected Rollback ImplementingChange ChangeImplemented ImplementingRollback RollbackImplemented Write Purge Processed Replace UpdateInService UpdateOutOfService Cycle Scale IpAllowlistClear AddPairingRole Add Verify Assign Unassign Reassign Reschedule Cancel SoftDelete HardDelete Reset Unarchive]
+	// Enum: [Create View Update Move Copy Delete DeleteAll Fax VersionCreate Download Upload MemberAdd MemberUpdate MemberRemove ShareAdd ShareRemove TagAdd TagRemove TagUpdate Read ReadAll Execute ApplyProtection RevokeProtection UpdateRetention Abandon Archive RestoreRequest RestoreComplete Promote Publish Unpublish Activate Checkin Checkout Deactivate Debug Save Revert Transcode Enable Disable Authorize Deauthorize Authenticate ChangePassword Revoke Export Append Recycle Open Approved Rejected Rollback ImplementingChange ChangeImplemented ImplementingRollback RollbackImplemented Write Purge Processed Replace UpdateInService UpdateOutOfService Cycle Scale IpAllowlistClear AddPairingRole Add Verify Assign Unassign Reassign Reschedule Cancel SoftDelete HardDelete Reset Rotate Restore Unarchive]
 	Action string `json:"action,omitempty"`
 
 	// Client associated with this audit message.
@@ -34,7 +34,7 @@ type AuditLogMessage struct {
 	Entity *DomainEntityRef `json:"entity,omitempty"`
 
 	// Type of the entity that was impacted.
-	// Enum: [AccessToken Action ActionDraft ActionMap ActionTemplate ActivityCode AdherenceExplanation AgentRoutingInfo AnalyticsReportingSettings Annotation Appointment Assignment AttemptLimits AuthOrganization AuthUser Bulk BulkActions BusinessUnit Calibration CallableTimeSet CallAnalysisResponseSet Campaign CampaignRule CampaignSchedule ChangeRequest ClickstreamSettings Configuration ConfigurationVersion ContactList ContactListFilter ContactSchema ConversationAttributes ConversationAccount ConversationDefaultSupportedContent ConversationPhoneNumber ConversationRecipient ConversationThreadingWindow Credential DashboardSettings DependencyTrackingBuild Deployment DID DIDPool DNCList Document DynamicGroup DynamicSchema Edge EdgeGroup EdgeLog EdgeLogZip EdgePcaps EdgePreferences EdgeTraceLevel EmergencyGroup EnterpriseAgreement Evaluation EvaluationForm EventType Exports Extension ExtensionPool ExternalMetricsData ExternalMetricsDefinition ExternalOrganizationSchema Feedback Flow FlowMilestone FlowOutcome Forecast HistoricalData InsightSettings Integration IVR KnowledgeBase KnowledgeCategory KnowledgeDocument KnowledgeDocumentVariation KnowledgeSearchFeedback KnowledgeTraining Line LineBase Location ManagementUnit MaxOrgRoutingUtilizationCapacity MediaDiagnosticsTraceFile MessagingCampaign Metric Module NumberOrder NumberPlan OAuthClient OAuthClientAuthorization OrganizationAuthorizationTrust OrganizationAuthorizationUserTrust OrganizationFeature OrganizationIntegrationsAccess OrganizationSettings OrphanedRecording OutboundRoute Outcome Pcaps Phone PhoneBase PlanningGroup Policy Predictor Product Profile ProfileMembers Program Prompt PromptResource Queue Recording RecordingAnnotation RecordingSettings Response ResponseAsset Role Row RoutingTranscriptionSettings RoutingUtilizationTag Rule RuleSet Schedule ScheduledExports ScheduleGroup Schema ScreenRecording Segment SentimentFeedback Sequence SequenceSchedule ServiceGoalTemplate SessionType ShiftTrade Site SpeechTextAnalyticsSettings Status SupportedContent SupportFile Survey SurveyForm Team TimeOffLimit TimeOffPlan TimeOffRequest Topic TranscriptionSettings Trigger Trunk TrunkBase User UserPresence VoicemailPolicy VoicemailUserPolicy Webhook Workbin Workitem WorkPlan WorkPlanRotation Workspace Worktype WrapupCode WrapUpCodeMapping Participant]
+	// Enum: [AccessToken Action ActionDraft ActionMap ActionTemplate ActivityCode AdherenceExplanation AgentRoutingInfo AnalyticsReportingSettings Annotation Appointment Assignment AttemptLimits AuthOrganization AuthUser Bulk BulkActions BusinessUnit Calibration CallableTimeSet CallAnalysisResponseSet Campaign CampaignRule CampaignSchedule ChangeRequest ClickstreamSettings Configuration ConfigurationVersion ContactList ContactListFilter ContactSchema ConversationAttributes ConversationAccount ConversationDefaultSupportedContent ConversationPhoneNumber ConversationRecipient ConversationThreadingWindow Credential DashboardSettings DependencyTrackingBuild Deployment DID DIDPool DNCList Document DynamicGroup DynamicSchema Edge EdgeGroup EdgeLog EdgeLogZip EdgePcaps EdgePreferences EdgeTraceLevel EmergencyGroup EnterpriseAgreement Evaluation EvaluationForm EventType Exports Extension ExtensionPool ExternalMetricsData ExternalMetricsDefinition ExternalOrganizationSchema Feedback Flow FlowMilestone FlowOutcome Forecast HistoricalData InsightSettings Integration IVR KnowledgeBase KnowledgeCategory KnowledgeDocument KnowledgeDocumentVariation KnowledgeSearchFeedback KnowledgeTraining Line LineBase Location ManagementUnit MaxOrgRoutingUtilizationCapacity MediaDiagnosticsTraceFile MessagingCampaign Metric Module NumberOrder NumberPlan OAuthClient OAuthClientAuthorization OrganizationAuthorizationTrust OrganizationAuthorizationUserTrust OrganizationFeature OrganizationIntegrationsAccess OrganizationSettings OrphanedRecording OutboundRoute Outcome Pcaps Phone PhoneBase PlanningGroup Policy Predictor Product Profile ProfileMembers Program Prompt PromptResource Queue Recording RecordingAnnotation RecordingKey RecordingKeyConfig RecordingSettings Response ResponseAsset Role Row RoutingTranscriptionSettings RoutingUtilizationTag Rule RuleSet Schedule ScheduledExports ScheduleGroup Schema ScreenRecording Segment SentimentFeedback Sequence SequenceSchedule ServiceGoalTemplate SessionType ShiftTrade Site SpeechTextAnalyticsSettings Status SupportedContent SupportFile Survey SurveyForm Team TimeOffLimit TimeOffPlan TimeOffRequest Topic TranscriptionSettings Trigger Trunk TrunkBase User UserPresence VoicemailPolicy VoicemailUserPolicy Webhook Workbin Workitem WorkPlan WorkPlanRotation Workspace Worktype WrapupCode WrapUpCodeMapping Participant]
 	EntityType string `json:"entityType,omitempty"`
 
 	// Date and time of when the audit message was logged. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
@@ -43,6 +43,10 @@ type AuditLogMessage struct {
 
 	// Id of the audit message.
 	ID string `json:"id,omitempty"`
+
+	// Level of this audit message, USER or SYSTEM.
+	// Enum: [USER SYSTEM]
+	Level string `json:"level,omitempty"`
 
 	// Message describing the event being audited.
 	Message *MessageInfo `json:"message,omitempty"`
@@ -92,6 +96,10 @@ func (m *AuditLogMessage) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateLevel(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateMessage(formats); err != nil {
 		res = append(res, err)
 	}
@@ -122,7 +130,7 @@ var auditLogMessageTypeActionPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Create","View","Update","Move","Copy","Delete","DeleteAll","Fax","VersionCreate","Download","Upload","MemberAdd","MemberUpdate","MemberRemove","ShareAdd","ShareRemove","TagAdd","TagRemove","TagUpdate","Read","ReadAll","Execute","ApplyProtection","RevokeProtection","UpdateRetention","Abandon","Archive","RestoreRequest","RestoreComplete","Promote","Publish","Unpublish","Activate","Checkin","Checkout","Deactivate","Debug","Save","Revert","Transcode","Enable","Disable","Authorize","Deauthorize","Authenticate","ChangePassword","Revoke","Export","Append","Recycle","Open","Approved","Rejected","Rollback","ImplementingChange","ChangeImplemented","ImplementingRollback","RollbackImplemented","Write","Purge","Processed","Replace","UpdateInService","UpdateOutOfService","Cycle","Scale","IpAllowlistClear","AddPairingRole","Add","Verify","Assign","Unassign","Reassign","Reschedule","Cancel","SoftDelete","HardDelete","Reset","Unarchive"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Create","View","Update","Move","Copy","Delete","DeleteAll","Fax","VersionCreate","Download","Upload","MemberAdd","MemberUpdate","MemberRemove","ShareAdd","ShareRemove","TagAdd","TagRemove","TagUpdate","Read","ReadAll","Execute","ApplyProtection","RevokeProtection","UpdateRetention","Abandon","Archive","RestoreRequest","RestoreComplete","Promote","Publish","Unpublish","Activate","Checkin","Checkout","Deactivate","Debug","Save","Revert","Transcode","Enable","Disable","Authorize","Deauthorize","Authenticate","ChangePassword","Revoke","Export","Append","Recycle","Open","Approved","Rejected","Rollback","ImplementingChange","ChangeImplemented","ImplementingRollback","RollbackImplemented","Write","Purge","Processed","Replace","UpdateInService","UpdateOutOfService","Cycle","Scale","IpAllowlistClear","AddPairingRole","Add","Verify","Assign","Unassign","Reassign","Reschedule","Cancel","SoftDelete","HardDelete","Reset","Rotate","Restore","Unarchive"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -366,6 +374,12 @@ const (
 	// AuditLogMessageActionReset captures enum value "Reset"
 	AuditLogMessageActionReset string = "Reset"
 
+	// AuditLogMessageActionRotate captures enum value "Rotate"
+	AuditLogMessageActionRotate string = "Rotate"
+
+	// AuditLogMessageActionRestore captures enum value "Restore"
+	AuditLogMessageActionRestore string = "Restore"
+
 	// AuditLogMessageActionUnarchive captures enum value "Unarchive"
 	AuditLogMessageActionUnarchive string = "Unarchive"
 )
@@ -432,7 +446,7 @@ var auditLogMessageTypeEntityTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["AccessToken","Action","ActionDraft","ActionMap","ActionTemplate","ActivityCode","AdherenceExplanation","AgentRoutingInfo","AnalyticsReportingSettings","Annotation","Appointment","Assignment","AttemptLimits","AuthOrganization","AuthUser","Bulk","BulkActions","BusinessUnit","Calibration","CallableTimeSet","CallAnalysisResponseSet","Campaign","CampaignRule","CampaignSchedule","ChangeRequest","ClickstreamSettings","Configuration","ConfigurationVersion","ContactList","ContactListFilter","ContactSchema","ConversationAttributes","ConversationAccount","ConversationDefaultSupportedContent","ConversationPhoneNumber","ConversationRecipient","ConversationThreadingWindow","Credential","DashboardSettings","DependencyTrackingBuild","Deployment","DID","DIDPool","DNCList","Document","DynamicGroup","DynamicSchema","Edge","EdgeGroup","EdgeLog","EdgeLogZip","EdgePcaps","EdgePreferences","EdgeTraceLevel","EmergencyGroup","EnterpriseAgreement","Evaluation","EvaluationForm","EventType","Exports","Extension","ExtensionPool","ExternalMetricsData","ExternalMetricsDefinition","ExternalOrganizationSchema","Feedback","Flow","FlowMilestone","FlowOutcome","Forecast","HistoricalData","InsightSettings","Integration","IVR","KnowledgeBase","KnowledgeCategory","KnowledgeDocument","KnowledgeDocumentVariation","KnowledgeSearchFeedback","KnowledgeTraining","Line","LineBase","Location","ManagementUnit","MaxOrgRoutingUtilizationCapacity","MediaDiagnosticsTraceFile","MessagingCampaign","Metric","Module","NumberOrder","NumberPlan","OAuthClient","OAuthClientAuthorization","OrganizationAuthorizationTrust","OrganizationAuthorizationUserTrust","OrganizationFeature","OrganizationIntegrationsAccess","OrganizationSettings","OrphanedRecording","OutboundRoute","Outcome","Pcaps","Phone","PhoneBase","PlanningGroup","Policy","Predictor","Product","Profile","ProfileMembers","Program","Prompt","PromptResource","Queue","Recording","RecordingAnnotation","RecordingSettings","Response","ResponseAsset","Role","Row","RoutingTranscriptionSettings","RoutingUtilizationTag","Rule","RuleSet","Schedule","ScheduledExports","ScheduleGroup","Schema","ScreenRecording","Segment","SentimentFeedback","Sequence","SequenceSchedule","ServiceGoalTemplate","SessionType","ShiftTrade","Site","SpeechTextAnalyticsSettings","Status","SupportedContent","SupportFile","Survey","SurveyForm","Team","TimeOffLimit","TimeOffPlan","TimeOffRequest","Topic","TranscriptionSettings","Trigger","Trunk","TrunkBase","User","UserPresence","VoicemailPolicy","VoicemailUserPolicy","Webhook","Workbin","Workitem","WorkPlan","WorkPlanRotation","Workspace","Worktype","WrapupCode","WrapUpCodeMapping","Participant"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["AccessToken","Action","ActionDraft","ActionMap","ActionTemplate","ActivityCode","AdherenceExplanation","AgentRoutingInfo","AnalyticsReportingSettings","Annotation","Appointment","Assignment","AttemptLimits","AuthOrganization","AuthUser","Bulk","BulkActions","BusinessUnit","Calibration","CallableTimeSet","CallAnalysisResponseSet","Campaign","CampaignRule","CampaignSchedule","ChangeRequest","ClickstreamSettings","Configuration","ConfigurationVersion","ContactList","ContactListFilter","ContactSchema","ConversationAttributes","ConversationAccount","ConversationDefaultSupportedContent","ConversationPhoneNumber","ConversationRecipient","ConversationThreadingWindow","Credential","DashboardSettings","DependencyTrackingBuild","Deployment","DID","DIDPool","DNCList","Document","DynamicGroup","DynamicSchema","Edge","EdgeGroup","EdgeLog","EdgeLogZip","EdgePcaps","EdgePreferences","EdgeTraceLevel","EmergencyGroup","EnterpriseAgreement","Evaluation","EvaluationForm","EventType","Exports","Extension","ExtensionPool","ExternalMetricsData","ExternalMetricsDefinition","ExternalOrganizationSchema","Feedback","Flow","FlowMilestone","FlowOutcome","Forecast","HistoricalData","InsightSettings","Integration","IVR","KnowledgeBase","KnowledgeCategory","KnowledgeDocument","KnowledgeDocumentVariation","KnowledgeSearchFeedback","KnowledgeTraining","Line","LineBase","Location","ManagementUnit","MaxOrgRoutingUtilizationCapacity","MediaDiagnosticsTraceFile","MessagingCampaign","Metric","Module","NumberOrder","NumberPlan","OAuthClient","OAuthClientAuthorization","OrganizationAuthorizationTrust","OrganizationAuthorizationUserTrust","OrganizationFeature","OrganizationIntegrationsAccess","OrganizationSettings","OrphanedRecording","OutboundRoute","Outcome","Pcaps","Phone","PhoneBase","PlanningGroup","Policy","Predictor","Product","Profile","ProfileMembers","Program","Prompt","PromptResource","Queue","Recording","RecordingAnnotation","RecordingKey","RecordingKeyConfig","RecordingSettings","Response","ResponseAsset","Role","Row","RoutingTranscriptionSettings","RoutingUtilizationTag","Rule","RuleSet","Schedule","ScheduledExports","ScheduleGroup","Schema","ScreenRecording","Segment","SentimentFeedback","Sequence","SequenceSchedule","ServiceGoalTemplate","SessionType","ShiftTrade","Site","SpeechTextAnalyticsSettings","Status","SupportedContent","SupportFile","Survey","SurveyForm","Team","TimeOffLimit","TimeOffPlan","TimeOffRequest","Topic","TranscriptionSettings","Trigger","Trunk","TrunkBase","User","UserPresence","VoicemailPolicy","VoicemailUserPolicy","Webhook","Workbin","Workitem","WorkPlan","WorkPlanRotation","Workspace","Worktype","WrapupCode","WrapUpCodeMapping","Participant"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -790,6 +804,12 @@ const (
 	// AuditLogMessageEntityTypeRecordingAnnotation captures enum value "RecordingAnnotation"
 	AuditLogMessageEntityTypeRecordingAnnotation string = "RecordingAnnotation"
 
+	// AuditLogMessageEntityTypeRecordingKey captures enum value "RecordingKey"
+	AuditLogMessageEntityTypeRecordingKey string = "RecordingKey"
+
+	// AuditLogMessageEntityTypeRecordingKeyConfig captures enum value "RecordingKeyConfig"
+	AuditLogMessageEntityTypeRecordingKeyConfig string = "RecordingKeyConfig"
+
 	// AuditLogMessageEntityTypeRecordingSettings captures enum value "RecordingSettings"
 	AuditLogMessageEntityTypeRecordingSettings string = "RecordingSettings"
 
@@ -973,6 +993,49 @@ func (m *AuditLogMessage) validateEventDate(formats strfmt.Registry) error {
 	}
 
 	if err := validate.FormatOf("eventDate", "body", "date-time", m.EventDate.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+var auditLogMessageTypeLevelPropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["USER","SYSTEM"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		auditLogMessageTypeLevelPropEnum = append(auditLogMessageTypeLevelPropEnum, v)
+	}
+}
+
+const (
+
+	// AuditLogMessageLevelUSER captures enum value "USER"
+	AuditLogMessageLevelUSER string = "USER"
+
+	// AuditLogMessageLevelSYSTEM captures enum value "SYSTEM"
+	AuditLogMessageLevelSYSTEM string = "SYSTEM"
+)
+
+// prop value enum
+func (m *AuditLogMessage) validateLevelEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, auditLogMessageTypeLevelPropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *AuditLogMessage) validateLevel(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Level) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateLevelEnum("level", "body", m.Level); err != nil {
 		return err
 	}
 

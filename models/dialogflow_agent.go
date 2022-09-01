@@ -26,6 +26,9 @@ type DialogflowAgent struct {
 	// Read Only: true
 	ID string `json:"id,omitempty"`
 
+	// The Integration this Dialogflow agent was referenced from.
+	Integration *DomainEntityRef `json:"integration,omitempty"`
+
 	// An array of Intents associated with this agent
 	Intents []*DialogflowIntent `json:"intents"`
 
@@ -48,6 +51,10 @@ type DialogflowAgent struct {
 func (m *DialogflowAgent) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateIntegration(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateIntents(formats); err != nil {
 		res = append(res, err)
 	}
@@ -63,6 +70,24 @@ func (m *DialogflowAgent) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DialogflowAgent) validateIntegration(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Integration) { // not required
+		return nil
+	}
+
+	if m.Integration != nil {
+		if err := m.Integration.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("integration")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

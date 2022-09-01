@@ -42,7 +42,7 @@ type KnowledgeCategory struct {
 
 	// Actual language of the category
 	// Read Only: true
-	// Enum: [en-US en-UK en-AU de-DE es-US es-ES fr-FR pt-BR nl-NL it-IT fr-CA]
+	// Enum: [en-US en-UK en-AU en-CA en-HK en-IN en-IE en-NZ en-PH en-SG en-ZA de-DE de-AT de-CH es-AR es-CO es-MX es-US es-ES fr-FR fr-BE fr-CA fr-CH pt-BR pt-PT nl-NL nl-BE it-IT]
 	LanguageCode string `json:"languageCode,omitempty"`
 
 	// Category name
@@ -137,7 +137,7 @@ var knowledgeCategoryTypeLanguageCodePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["en-US","en-UK","en-AU","de-DE","es-US","es-ES","fr-FR","pt-BR","nl-NL","it-IT","fr-CA"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["en-US","en-UK","en-AU","en-CA","en-HK","en-IN","en-IE","en-NZ","en-PH","en-SG","en-ZA","de-DE","de-AT","de-CH","es-AR","es-CO","es-MX","es-US","es-ES","fr-FR","fr-BE","fr-CA","fr-CH","pt-BR","pt-PT","nl-NL","nl-BE","it-IT"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -156,8 +156,47 @@ const (
 	// KnowledgeCategoryLanguageCodeEnAU captures enum value "en-AU"
 	KnowledgeCategoryLanguageCodeEnAU string = "en-AU"
 
+	// KnowledgeCategoryLanguageCodeEnCA captures enum value "en-CA"
+	KnowledgeCategoryLanguageCodeEnCA string = "en-CA"
+
+	// KnowledgeCategoryLanguageCodeEnHK captures enum value "en-HK"
+	KnowledgeCategoryLanguageCodeEnHK string = "en-HK"
+
+	// KnowledgeCategoryLanguageCodeEnIN captures enum value "en-IN"
+	KnowledgeCategoryLanguageCodeEnIN string = "en-IN"
+
+	// KnowledgeCategoryLanguageCodeEnIE captures enum value "en-IE"
+	KnowledgeCategoryLanguageCodeEnIE string = "en-IE"
+
+	// KnowledgeCategoryLanguageCodeEnNZ captures enum value "en-NZ"
+	KnowledgeCategoryLanguageCodeEnNZ string = "en-NZ"
+
+	// KnowledgeCategoryLanguageCodeEnPH captures enum value "en-PH"
+	KnowledgeCategoryLanguageCodeEnPH string = "en-PH"
+
+	// KnowledgeCategoryLanguageCodeEnSG captures enum value "en-SG"
+	KnowledgeCategoryLanguageCodeEnSG string = "en-SG"
+
+	// KnowledgeCategoryLanguageCodeEnZA captures enum value "en-ZA"
+	KnowledgeCategoryLanguageCodeEnZA string = "en-ZA"
+
 	// KnowledgeCategoryLanguageCodeDeDE captures enum value "de-DE"
 	KnowledgeCategoryLanguageCodeDeDE string = "de-DE"
+
+	// KnowledgeCategoryLanguageCodeDeAT captures enum value "de-AT"
+	KnowledgeCategoryLanguageCodeDeAT string = "de-AT"
+
+	// KnowledgeCategoryLanguageCodeDeCH captures enum value "de-CH"
+	KnowledgeCategoryLanguageCodeDeCH string = "de-CH"
+
+	// KnowledgeCategoryLanguageCodeEsAR captures enum value "es-AR"
+	KnowledgeCategoryLanguageCodeEsAR string = "es-AR"
+
+	// KnowledgeCategoryLanguageCodeEsCO captures enum value "es-CO"
+	KnowledgeCategoryLanguageCodeEsCO string = "es-CO"
+
+	// KnowledgeCategoryLanguageCodeEsMX captures enum value "es-MX"
+	KnowledgeCategoryLanguageCodeEsMX string = "es-MX"
 
 	// KnowledgeCategoryLanguageCodeEsUS captures enum value "es-US"
 	KnowledgeCategoryLanguageCodeEsUS string = "es-US"
@@ -168,17 +207,29 @@ const (
 	// KnowledgeCategoryLanguageCodeFrFR captures enum value "fr-FR"
 	KnowledgeCategoryLanguageCodeFrFR string = "fr-FR"
 
+	// KnowledgeCategoryLanguageCodeFrBE captures enum value "fr-BE"
+	KnowledgeCategoryLanguageCodeFrBE string = "fr-BE"
+
+	// KnowledgeCategoryLanguageCodeFrCA captures enum value "fr-CA"
+	KnowledgeCategoryLanguageCodeFrCA string = "fr-CA"
+
+	// KnowledgeCategoryLanguageCodeFrCH captures enum value "fr-CH"
+	KnowledgeCategoryLanguageCodeFrCH string = "fr-CH"
+
 	// KnowledgeCategoryLanguageCodePtBR captures enum value "pt-BR"
 	KnowledgeCategoryLanguageCodePtBR string = "pt-BR"
+
+	// KnowledgeCategoryLanguageCodePtPT captures enum value "pt-PT"
+	KnowledgeCategoryLanguageCodePtPT string = "pt-PT"
 
 	// KnowledgeCategoryLanguageCodeNlNL captures enum value "nl-NL"
 	KnowledgeCategoryLanguageCodeNlNL string = "nl-NL"
 
+	// KnowledgeCategoryLanguageCodeNlBE captures enum value "nl-BE"
+	KnowledgeCategoryLanguageCodeNlBE string = "nl-BE"
+
 	// KnowledgeCategoryLanguageCodeItIT captures enum value "it-IT"
 	KnowledgeCategoryLanguageCodeItIT string = "it-IT"
-
-	// KnowledgeCategoryLanguageCodeFrCA captures enum value "fr-CA"
-	KnowledgeCategoryLanguageCodeFrCA string = "fr-CA"
 )
 
 // prop value enum

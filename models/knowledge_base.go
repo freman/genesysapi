@@ -25,7 +25,7 @@ type KnowledgeBase struct {
 
 	// Core language for knowledge base in which initial content must be created, language codes [en-US, en-UK, en-AU, de-DE] are supported currently, however the new DX knowledge will support all these language codes
 	// Required: true
-	// Enum: [en-US en-UK en-AU de-DE es-US es-ES fr-FR pt-BR nl-NL it-IT fr-CA]
+	// Enum: [en-US en-UK en-AU en-CA en-HK en-IN en-IE en-NZ en-PH en-SG en-ZA de-DE de-AT de-CH es-AR es-CO es-MX es-US es-ES fr-FR fr-BE fr-CA fr-CH pt-BR pt-PT nl-NL nl-BE it-IT]
 	CoreLanguage *string `json:"coreLanguage"`
 
 	// Knowledge base creation date-time. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
@@ -101,7 +101,7 @@ var knowledgeBaseTypeCoreLanguagePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["en-US","en-UK","en-AU","de-DE","es-US","es-ES","fr-FR","pt-BR","nl-NL","it-IT","fr-CA"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["en-US","en-UK","en-AU","en-CA","en-HK","en-IN","en-IE","en-NZ","en-PH","en-SG","en-ZA","de-DE","de-AT","de-CH","es-AR","es-CO","es-MX","es-US","es-ES","fr-FR","fr-BE","fr-CA","fr-CH","pt-BR","pt-PT","nl-NL","nl-BE","it-IT"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -120,8 +120,47 @@ const (
 	// KnowledgeBaseCoreLanguageEnAU captures enum value "en-AU"
 	KnowledgeBaseCoreLanguageEnAU string = "en-AU"
 
+	// KnowledgeBaseCoreLanguageEnCA captures enum value "en-CA"
+	KnowledgeBaseCoreLanguageEnCA string = "en-CA"
+
+	// KnowledgeBaseCoreLanguageEnHK captures enum value "en-HK"
+	KnowledgeBaseCoreLanguageEnHK string = "en-HK"
+
+	// KnowledgeBaseCoreLanguageEnIN captures enum value "en-IN"
+	KnowledgeBaseCoreLanguageEnIN string = "en-IN"
+
+	// KnowledgeBaseCoreLanguageEnIE captures enum value "en-IE"
+	KnowledgeBaseCoreLanguageEnIE string = "en-IE"
+
+	// KnowledgeBaseCoreLanguageEnNZ captures enum value "en-NZ"
+	KnowledgeBaseCoreLanguageEnNZ string = "en-NZ"
+
+	// KnowledgeBaseCoreLanguageEnPH captures enum value "en-PH"
+	KnowledgeBaseCoreLanguageEnPH string = "en-PH"
+
+	// KnowledgeBaseCoreLanguageEnSG captures enum value "en-SG"
+	KnowledgeBaseCoreLanguageEnSG string = "en-SG"
+
+	// KnowledgeBaseCoreLanguageEnZA captures enum value "en-ZA"
+	KnowledgeBaseCoreLanguageEnZA string = "en-ZA"
+
 	// KnowledgeBaseCoreLanguageDeDE captures enum value "de-DE"
 	KnowledgeBaseCoreLanguageDeDE string = "de-DE"
+
+	// KnowledgeBaseCoreLanguageDeAT captures enum value "de-AT"
+	KnowledgeBaseCoreLanguageDeAT string = "de-AT"
+
+	// KnowledgeBaseCoreLanguageDeCH captures enum value "de-CH"
+	KnowledgeBaseCoreLanguageDeCH string = "de-CH"
+
+	// KnowledgeBaseCoreLanguageEsAR captures enum value "es-AR"
+	KnowledgeBaseCoreLanguageEsAR string = "es-AR"
+
+	// KnowledgeBaseCoreLanguageEsCO captures enum value "es-CO"
+	KnowledgeBaseCoreLanguageEsCO string = "es-CO"
+
+	// KnowledgeBaseCoreLanguageEsMX captures enum value "es-MX"
+	KnowledgeBaseCoreLanguageEsMX string = "es-MX"
 
 	// KnowledgeBaseCoreLanguageEsUS captures enum value "es-US"
 	KnowledgeBaseCoreLanguageEsUS string = "es-US"
@@ -132,17 +171,29 @@ const (
 	// KnowledgeBaseCoreLanguageFrFR captures enum value "fr-FR"
 	KnowledgeBaseCoreLanguageFrFR string = "fr-FR"
 
+	// KnowledgeBaseCoreLanguageFrBE captures enum value "fr-BE"
+	KnowledgeBaseCoreLanguageFrBE string = "fr-BE"
+
+	// KnowledgeBaseCoreLanguageFrCA captures enum value "fr-CA"
+	KnowledgeBaseCoreLanguageFrCA string = "fr-CA"
+
+	// KnowledgeBaseCoreLanguageFrCH captures enum value "fr-CH"
+	KnowledgeBaseCoreLanguageFrCH string = "fr-CH"
+
 	// KnowledgeBaseCoreLanguagePtBR captures enum value "pt-BR"
 	KnowledgeBaseCoreLanguagePtBR string = "pt-BR"
+
+	// KnowledgeBaseCoreLanguagePtPT captures enum value "pt-PT"
+	KnowledgeBaseCoreLanguagePtPT string = "pt-PT"
 
 	// KnowledgeBaseCoreLanguageNlNL captures enum value "nl-NL"
 	KnowledgeBaseCoreLanguageNlNL string = "nl-NL"
 
+	// KnowledgeBaseCoreLanguageNlBE captures enum value "nl-BE"
+	KnowledgeBaseCoreLanguageNlBE string = "nl-BE"
+
 	// KnowledgeBaseCoreLanguageItIT captures enum value "it-IT"
 	KnowledgeBaseCoreLanguageItIT string = "it-IT"
-
-	// KnowledgeBaseCoreLanguageFrCA captures enum value "fr-CA"
-	KnowledgeBaseCoreLanguageFrCA string = "fr-CA"
 )
 
 // prop value enum
