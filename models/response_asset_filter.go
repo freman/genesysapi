@@ -28,7 +28,7 @@ type ResponseAssetFilter struct {
 	// The start value of the range. This field is used for range search types. Accepts numbers and date in ISO8601 format
 	StartValue string `json:"startValue,omitempty"`
 
-	// How to apply this search criteria against other criteria
+	// How to apply this search criteria against other criteria. Filter type supported for each field:- name:[STARTS_WITH, TERM], divisionId:[TERM, TERMS], contentLength:[RANGE, GREATER_THAN_EQUAL_TO, LESS_THAN_EQUAL_TO], contentType:[STARTS_WITH, TERM] dateCreated:[DATE_RANGE]
 	// Enum: [TERM TERMS STARTS_WITH RANGE GREATER_THAN_EQUAL_TO LESS_THAN_EQUAL_TO DATE_RANGE]
 	Type string `json:"type,omitempty"`
 

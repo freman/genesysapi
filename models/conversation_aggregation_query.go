@@ -193,7 +193,7 @@ var conversationAggregationQueryMetricsItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["nBlindTransferred","nCobrowseSessions","nConnected","nConsult","nConsultTransferred","nError","nOffered","nOutbound","nOutboundAbandoned","nOutboundAttempted","nOutboundConnected","nOverSla","nStateTransitionError","nTransferred","oExternalMediaCount","oMediaCount","oMessageTurn","oServiceLevel","oServiceTarget","tAbandon","tAcd","tAcw","tAgentResponseTime","tAlert","tAnswered","tCallback","tCallbackComplete","tCoaching","tCoachingComplete","tConnected","tContacting","tDialing","tFlowOut","tHandle","tHeld","tHeldComplete","tIvr","tMonitoring","tMonitoringComplete","tNotResponding","tShortAbandon","tTalk","tTalkComplete","tUserResponseTime","tVoicemail","tWait"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["nBlindTransferred","nCobrowseSessions","nConnected","nConsult","nConsultTransferred","nError","nOffered","nOutbound","nOutboundAbandoned","nOutboundAttempted","nOutboundConnected","nOverSla","nStateTransitionError","nTransferred","oExternalMediaCount","oMediaCount","oMessageTurn","oServiceLevel","oServiceTarget","tAbandon","tAcd","tAcw","tAgentResponseTime","tAlert","tAnswered","tBarging","tCallback","tCallbackComplete","tCoaching","tCoachingComplete","tConnected","tContacting","tDialing","tFirstConnect","tFirstDial","tFlowOut","tHandle","tHeld","tHeldComplete","tIvr","tMonitoring","tMonitoringComplete","tNotResponding","tShortAbandon","tTalk","tTalkComplete","tUserResponseTime","tVoicemail","tWait"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {

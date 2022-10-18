@@ -33,7 +33,7 @@ type ConversationAggregationView struct {
 
 	// Target metric name
 	// Required: true
-	// Enum: [nBlindTransferred nCobrowseSessions nConnected nConsult nConsultTransferred nError nOffered nOutbound nOutboundAbandoned nOutboundAttempted nOutboundConnected nOverSla nStateTransitionError nTransferred oExternalMediaCount oMediaCount oMessageTurn oServiceLevel oServiceTarget tAbandon tAcd tAcw tAgentResponseTime tAlert tAnswered tCallback tCallbackComplete tCoaching tCoachingComplete tConnected tContacting tDialing tFlowOut tHandle tHeld tHeldComplete tIvr tMonitoring tMonitoringComplete tNotResponding tShortAbandon tTalk tTalkComplete tUserResponseTime tVoicemail tWait]
+	// Enum: [nBlindTransferred nCobrowseSessions nConnected nConsult nConsultTransferred nError nOffered nOutbound nOutboundAbandoned nOutboundAttempted nOutboundConnected nOverSla nStateTransitionError nTransferred oExternalMediaCount oMediaCount oMessageTurn oServiceLevel oServiceTarget tAbandon tAcd tAcw tAgentResponseTime tAlert tAnswered tBarging tCallback tCallbackComplete tCoaching tCoachingComplete tConnected tContacting tDialing tFirstConnect tFirstDial tFlowOut tHandle tHeld tHeldComplete tIvr tMonitoring tMonitoringComplete tNotResponding tShortAbandon tTalk tTalkComplete tUserResponseTime tVoicemail tWait]
 	Target *string `json:"target"`
 }
 
@@ -134,7 +134,7 @@ var conversationAggregationViewTypeTargetPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["nBlindTransferred","nCobrowseSessions","nConnected","nConsult","nConsultTransferred","nError","nOffered","nOutbound","nOutboundAbandoned","nOutboundAttempted","nOutboundConnected","nOverSla","nStateTransitionError","nTransferred","oExternalMediaCount","oMediaCount","oMessageTurn","oServiceLevel","oServiceTarget","tAbandon","tAcd","tAcw","tAgentResponseTime","tAlert","tAnswered","tCallback","tCallbackComplete","tCoaching","tCoachingComplete","tConnected","tContacting","tDialing","tFlowOut","tHandle","tHeld","tHeldComplete","tIvr","tMonitoring","tMonitoringComplete","tNotResponding","tShortAbandon","tTalk","tTalkComplete","tUserResponseTime","tVoicemail","tWait"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["nBlindTransferred","nCobrowseSessions","nConnected","nConsult","nConsultTransferred","nError","nOffered","nOutbound","nOutboundAbandoned","nOutboundAttempted","nOutboundConnected","nOverSla","nStateTransitionError","nTransferred","oExternalMediaCount","oMediaCount","oMessageTurn","oServiceLevel","oServiceTarget","tAbandon","tAcd","tAcw","tAgentResponseTime","tAlert","tAnswered","tBarging","tCallback","tCallbackComplete","tCoaching","tCoachingComplete","tConnected","tContacting","tDialing","tFirstConnect","tFirstDial","tFlowOut","tHandle","tHeld","tHeldComplete","tIvr","tMonitoring","tMonitoringComplete","tNotResponding","tShortAbandon","tTalk","tTalkComplete","tUserResponseTime","tVoicemail","tWait"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -219,6 +219,9 @@ const (
 	// ConversationAggregationViewTargetTAnswered captures enum value "tAnswered"
 	ConversationAggregationViewTargetTAnswered string = "tAnswered"
 
+	// ConversationAggregationViewTargetTBarging captures enum value "tBarging"
+	ConversationAggregationViewTargetTBarging string = "tBarging"
+
 	// ConversationAggregationViewTargetTCallback captures enum value "tCallback"
 	ConversationAggregationViewTargetTCallback string = "tCallback"
 
@@ -239,6 +242,12 @@ const (
 
 	// ConversationAggregationViewTargetTDialing captures enum value "tDialing"
 	ConversationAggregationViewTargetTDialing string = "tDialing"
+
+	// ConversationAggregationViewTargetTFirstConnect captures enum value "tFirstConnect"
+	ConversationAggregationViewTargetTFirstConnect string = "tFirstConnect"
+
+	// ConversationAggregationViewTargetTFirstDial captures enum value "tFirstDial"
+	ConversationAggregationViewTargetTFirstDial string = "tFirstDial"
 
 	// ConversationAggregationViewTargetTFlowOut captures enum value "tFlowOut"
 	ConversationAggregationViewTargetTFlowOut string = "tFlowOut"

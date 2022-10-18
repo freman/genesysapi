@@ -34,7 +34,7 @@ type ConversationQuery struct {
 	Interval *string `json:"interval"`
 
 	// Sort the result set in ascending/descending order. Default is ascending
-	// Enum: [asc desc]
+	// Enum: [asc desc unordered]
 	Order string `json:"order,omitempty"`
 
 	// Specify which data element within the result set to use for sorting. The options  to use as a basis for sorting the results: conversationStart, segmentStart, and segmentEnd. If not specified, the default is conversationStart
@@ -192,7 +192,7 @@ var conversationQueryTypeOrderPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["asc","desc"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["asc","desc","unordered"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -207,6 +207,9 @@ const (
 
 	// ConversationQueryOrderDesc captures enum value "desc"
 	ConversationQueryOrderDesc string = "desc"
+
+	// ConversationQueryOrderUnordered captures enum value "unordered"
+	ConversationQueryOrderUnordered string = "unordered"
 )
 
 // prop value enum

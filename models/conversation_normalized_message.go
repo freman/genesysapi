@@ -24,7 +24,7 @@ type ConversationNormalizedMessage struct {
 	// Read Only: true
 	Channel *ConversationMessagingChannel `json:"channel,omitempty"`
 
-	// List of content elements
+	// List of content elements.
 	Content []*ConversationMessageContent `json:"content"`
 
 	// The direction of the message.
@@ -64,7 +64,7 @@ type ConversationNormalizedMessage struct {
 
 	// Message type.
 	// Required: true
-	// Enum: [Text Structured Receipt Event Unknown]
+	// Enum: [Text Structured Receipt Event Message Unknown]
 	Type *string `json:"type"`
 }
 
@@ -348,7 +348,7 @@ var conversationNormalizedMessageTypeTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Text","Structured","Receipt","Event","Unknown"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Text","Structured","Receipt","Event","Message","Unknown"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -369,6 +369,9 @@ const (
 
 	// ConversationNormalizedMessageTypeEvent captures enum value "Event"
 	ConversationNormalizedMessageTypeEvent string = "Event"
+
+	// ConversationNormalizedMessageTypeMessage captures enum value "Message"
+	ConversationNormalizedMessageTypeMessage string = "Message"
 
 	// ConversationNormalizedMessageTypeUnknown captures enum value "Unknown"
 	ConversationNormalizedMessageTypeUnknown string = "Unknown"

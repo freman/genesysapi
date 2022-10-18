@@ -17,8 +17,14 @@ import (
 // swagger:model KnowledgeDocumentSuggestionRequest
 type KnowledgeDocumentSuggestionRequest struct {
 
+	// Filter for the document suggestions.
+	Filter *DocumentQuery `json:"filter,omitempty"`
+
 	// Indicates whether the suggestion results would also include draft documents.
 	IncludeDraftDocuments bool `json:"includeDraftDocuments"`
+
+	// Retrieves the documents created/modified/published in specified date and time range.
+	Interval *DocumentQueryInterval `json:"interval,omitempty"`
 
 	// Page size of the returned results.
 	PageSize int32 `json:"pageSize,omitempty"`
@@ -32,6 +38,14 @@ type KnowledgeDocumentSuggestionRequest struct {
 func (m *KnowledgeDocumentSuggestionRequest) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateFilter(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateInterval(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateQuery(formats); err != nil {
 		res = append(res, err)
 	}
@@ -39,6 +53,42 @@ func (m *KnowledgeDocumentSuggestionRequest) Validate(formats strfmt.Registry) e
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *KnowledgeDocumentSuggestionRequest) validateFilter(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Filter) { // not required
+		return nil
+	}
+
+	if m.Filter != nil {
+		if err := m.Filter.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("filter")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *KnowledgeDocumentSuggestionRequest) validateInterval(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Interval) { // not required
+		return nil
+	}
+
+	if m.Interval != nil {
+		if err := m.Interval.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("interval")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

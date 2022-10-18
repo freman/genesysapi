@@ -62,6 +62,10 @@ type API interface {
 	*/
 	DeleteOutboundContactlists(ctx context.Context, params *DeleteOutboundContactlistsParams) (*DeleteOutboundContactlistsNoContent, error)
 	/*
+	   DeleteOutboundDigitalruleset deletes an outbound digital rule set
+	*/
+	DeleteOutboundDigitalruleset(ctx context.Context, params *DeleteOutboundDigitalrulesetParams) (*DeleteOutboundDigitalrulesetNoContent, error)
+	/*
 	   DeleteOutboundDnclist deletes dialer d n c list
 	*/
 	DeleteOutboundDnclist(ctx context.Context, params *DeleteOutboundDnclistParams) (*DeleteOutboundDnclistOK, error)
@@ -217,6 +221,14 @@ type API interface {
 	   This return a simplified version of contact lists, consisting of the name, division, column names, phone columns, import status, and size.
 	*/
 	GetOutboundContactlistsDivisionviews(ctx context.Context, params *GetOutboundContactlistsDivisionviewsParams) (*GetOutboundContactlistsDivisionviewsOK, error)
+	/*
+	   GetOutboundDigitalruleset gets an outbound digital rule set
+	*/
+	GetOutboundDigitalruleset(ctx context.Context, params *GetOutboundDigitalrulesetParams) (*GetOutboundDigitalrulesetOK, error)
+	/*
+	   GetOutboundDigitalrulesets queries a list of outbound digital rule sets
+	*/
+	GetOutboundDigitalrulesets(ctx context.Context, params *GetOutboundDigitalrulesetsParams) (*GetOutboundDigitalrulesetsOK, error)
 	/*
 	   GetOutboundDnclist gets dialer d n c list
 	*/
@@ -404,6 +416,10 @@ type API interface {
 	*/
 	PostOutboundConversationDnc(ctx context.Context, params *PostOutboundConversationDncParams) error
 	/*
+	   PostOutboundDigitalrulesets creates an outbound digital rule set
+	*/
+	PostOutboundDigitalrulesets(ctx context.Context, params *PostOutboundDigitalrulesetsParams) (*PostOutboundDigitalrulesetsOK, error)
+	/*
 	   PostOutboundDnclistExport initiates the export of a dnc list
 	   Returns 200 if received OK.
 	*/
@@ -470,6 +486,10 @@ type API interface {
 	   PutOutboundContactlistfilter updates contact list filter
 	*/
 	PutOutboundContactlistfilter(ctx context.Context, params *PutOutboundContactlistfilterParams) (*PutOutboundContactlistfilterOK, error)
+	/*
+	   PutOutboundDigitalruleset updates an outbound digital rule set
+	*/
+	PutOutboundDigitalruleset(ctx context.Context, params *PutOutboundDigitalrulesetParams) (*PutOutboundDigitalrulesetOK, error)
 	/*
 	   PutOutboundDnclist updates dialer d n c list
 	*/
@@ -798,6 +818,31 @@ func (a *Client) DeleteOutboundContactlists(ctx context.Context, params *DeleteO
 		return nil, err
 	}
 	return result.(*DeleteOutboundContactlistsNoContent), nil
+
+}
+
+/*
+DeleteOutboundDigitalruleset deletes an outbound digital rule set
+*/
+func (a *Client) DeleteOutboundDigitalruleset(ctx context.Context, params *DeleteOutboundDigitalrulesetParams) (*DeleteOutboundDigitalrulesetNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteOutboundDigitalruleset",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/outbound/digitalrulesets/{digitalRuleSetId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteOutboundDigitalrulesetReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteOutboundDigitalrulesetNoContent), nil
 
 }
 
@@ -1768,6 +1813,56 @@ func (a *Client) GetOutboundContactlistsDivisionviews(ctx context.Context, param
 		return nil, err
 	}
 	return result.(*GetOutboundContactlistsDivisionviewsOK), nil
+
+}
+
+/*
+GetOutboundDigitalruleset gets an outbound digital rule set
+*/
+func (a *Client) GetOutboundDigitalruleset(ctx context.Context, params *GetOutboundDigitalrulesetParams) (*GetOutboundDigitalrulesetOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getOutboundDigitalruleset",
+		Method:             "GET",
+		PathPattern:        "/api/v2/outbound/digitalrulesets/{digitalRuleSetId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetOutboundDigitalrulesetReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetOutboundDigitalrulesetOK), nil
+
+}
+
+/*
+GetOutboundDigitalrulesets queries a list of outbound digital rule sets
+*/
+func (a *Client) GetOutboundDigitalrulesets(ctx context.Context, params *GetOutboundDigitalrulesetsParams) (*GetOutboundDigitalrulesetsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getOutboundDigitalrulesets",
+		Method:             "GET",
+		PathPattern:        "/api/v2/outbound/digitalrulesets",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetOutboundDigitalrulesetsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetOutboundDigitalrulesetsOK), nil
 
 }
 
@@ -2915,6 +3010,31 @@ func (a *Client) PostOutboundConversationDnc(ctx context.Context, params *PostOu
 }
 
 /*
+PostOutboundDigitalrulesets creates an outbound digital rule set
+*/
+func (a *Client) PostOutboundDigitalrulesets(ctx context.Context, params *PostOutboundDigitalrulesetsParams) (*PostOutboundDigitalrulesetsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postOutboundDigitalrulesets",
+		Method:             "POST",
+		PathPattern:        "/api/v2/outbound/digitalrulesets",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostOutboundDigitalrulesetsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostOutboundDigitalrulesetsOK), nil
+
+}
+
+/*
 PostOutboundDnclistExport initiates the export of a dnc list
 
 Returns 200 if received OK.
@@ -3317,6 +3437,31 @@ func (a *Client) PutOutboundContactlistfilter(ctx context.Context, params *PutOu
 		return nil, err
 	}
 	return result.(*PutOutboundContactlistfilterOK), nil
+
+}
+
+/*
+PutOutboundDigitalruleset updates an outbound digital rule set
+*/
+func (a *Client) PutOutboundDigitalruleset(ctx context.Context, params *PutOutboundDigitalrulesetParams) (*PutOutboundDigitalrulesetOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "putOutboundDigitalruleset",
+		Method:             "PUT",
+		PathPattern:        "/api/v2/outbound/digitalrulesets/{digitalRuleSetId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PutOutboundDigitalrulesetReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutOutboundDigitalrulesetOK), nil
 
 }
 

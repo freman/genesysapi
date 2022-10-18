@@ -56,6 +56,9 @@ type MessagingCampaign struct {
 	// The dnc lists to check before sending a message for this messaging campaign.
 	DncLists []*DomainEntityRef `json:"dncLists"`
 
+	// Configuration for this messaging campaign to send Email messages.
+	EmailConfig *EmailConfig `json:"emailConfig,omitempty"`
+
 	// A list of current error conditions associated with this messaging campaign.
 	Errors []*RestErrorDetail `json:"errors"`
 
@@ -69,6 +72,9 @@ type MessagingCampaign struct {
 
 	// name
 	Name string `json:"name,omitempty"`
+
+	// Rule Sets to be applied while this campaign is sending messages
+	RuleSets []*DomainEntityRef `json:"ruleSets"`
 
 	// The URI for this object
 	// Read Only: true
@@ -122,11 +128,19 @@ func (m *MessagingCampaign) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateEmailConfig(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateErrors(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if err := m.validateMessagesPerMinute(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateRuleSets(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -351,6 +365,24 @@ func (m *MessagingCampaign) validateDncLists(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *MessagingCampaign) validateEmailConfig(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.EmailConfig) { // not required
+		return nil
+	}
+
+	if m.EmailConfig != nil {
+		if err := m.EmailConfig.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("emailConfig")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *MessagingCampaign) validateErrors(formats strfmt.Registry) error {
 
 	if swag.IsZero(m.Errors) { // not required
@@ -380,6 +412,31 @@ func (m *MessagingCampaign) validateMessagesPerMinute(formats strfmt.Registry) e
 
 	if err := validate.Required("messagesPerMinute", "body", m.MessagesPerMinute); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *MessagingCampaign) validateRuleSets(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.RuleSets) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.RuleSets); i++ {
+		if swag.IsZero(m.RuleSets[i]) { // not required
+			continue
+		}
+
+		if m.RuleSets[i] != nil {
+			if err := m.RuleSets[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("ruleSets" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

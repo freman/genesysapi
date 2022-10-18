@@ -30,7 +30,7 @@ type AuditQueryExecutionStatusResponse struct {
 	Interval string `json:"interval,omitempty"`
 
 	// Service name for the audit query.
-	// Enum: [AnalyticsReporting Architect Coaching ContactCenter ContentManagement Datatables Directory DynamicSchema Gamification Groups Integrations Knowledge LanguageUnderstanding Learning Limits Outbound PeoplePermissions EmployeePerformance PredictiveEngagement Presence Quality ResponseManagement Routing SpeechAndTextAnalytics Telephony TopicsDefinitions Triggers ProcessAutomation Voicemail WebDeployments Webhooks WorkforceManagement Messaging Supportability Callback Workitems SCIM NumberPurchasing Marketplace]
+	// Enum: [AgentConfig AnalyticsReporting Architect Coaching ContactCenter ContentManagement Datatables Directory DynamicSchema Gamification Groups Integrations Knowledge LanguageUnderstanding Learning Limits LogCapture Outbound PeoplePermissions EmployeePerformance PredictiveEngagement Presence Quality ResponseManagement Routing SpeechAndTextAnalytics Telephony TopicsDefinitions Triggers ProcessAutomation Voicemail WebDeployments Webhooks WorkforceManagement Messaging Supportability Callback Workitems SCIM NumberPurchasing Marketplace]
 	ServiceName string `json:"serviceName,omitempty"`
 
 	// Sort parameter for the audit query.
@@ -104,7 +104,7 @@ var auditQueryExecutionStatusResponseTypeServiceNamePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["AnalyticsReporting","Architect","Coaching","ContactCenter","ContentManagement","Datatables","Directory","DynamicSchema","Gamification","Groups","Integrations","Knowledge","LanguageUnderstanding","Learning","Limits","Outbound","PeoplePermissions","EmployeePerformance","PredictiveEngagement","Presence","Quality","ResponseManagement","Routing","SpeechAndTextAnalytics","Telephony","TopicsDefinitions","Triggers","ProcessAutomation","Voicemail","WebDeployments","Webhooks","WorkforceManagement","Messaging","Supportability","Callback","Workitems","SCIM","NumberPurchasing","Marketplace"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["AgentConfig","AnalyticsReporting","Architect","Coaching","ContactCenter","ContentManagement","Datatables","Directory","DynamicSchema","Gamification","Groups","Integrations","Knowledge","LanguageUnderstanding","Learning","Limits","LogCapture","Outbound","PeoplePermissions","EmployeePerformance","PredictiveEngagement","Presence","Quality","ResponseManagement","Routing","SpeechAndTextAnalytics","Telephony","TopicsDefinitions","Triggers","ProcessAutomation","Voicemail","WebDeployments","Webhooks","WorkforceManagement","Messaging","Supportability","Callback","Workitems","SCIM","NumberPurchasing","Marketplace"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -113,6 +113,9 @@ func init() {
 }
 
 const (
+
+	// AuditQueryExecutionStatusResponseServiceNameAgentConfig captures enum value "AgentConfig"
+	AuditQueryExecutionStatusResponseServiceNameAgentConfig string = "AgentConfig"
 
 	// AuditQueryExecutionStatusResponseServiceNameAnalyticsReporting captures enum value "AnalyticsReporting"
 	AuditQueryExecutionStatusResponseServiceNameAnalyticsReporting string = "AnalyticsReporting"
@@ -158,6 +161,9 @@ const (
 
 	// AuditQueryExecutionStatusResponseServiceNameLimits captures enum value "Limits"
 	AuditQueryExecutionStatusResponseServiceNameLimits string = "Limits"
+
+	// AuditQueryExecutionStatusResponseServiceNameLogCapture captures enum value "LogCapture"
+	AuditQueryExecutionStatusResponseServiceNameLogCapture string = "LogCapture"
 
 	// AuditQueryExecutionStatusResponseServiceNameOutbound captures enum value "Outbound"
 	AuditQueryExecutionStatusResponseServiceNameOutbound string = "Outbound"

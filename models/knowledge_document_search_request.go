@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -17,8 +19,14 @@ import (
 // swagger:model KnowledgeDocumentSearchRequest
 type KnowledgeDocumentSearchRequest struct {
 
+	// Filter for the document search.
+	Filter *DocumentQuery `json:"filter,omitempty"`
+
 	// Indicates whether the search results would also include draft documents.
 	IncludeDraftDocuments bool `json:"includeDraftDocuments"`
+
+	// Retrieves the documents created/modified/published in specified date and time range.
+	Interval *DocumentQueryInterval `json:"interval,omitempty"`
 
 	// Number of pages returned in the result calculated according to the pageSize and the total
 	// Read Only: true
@@ -40,6 +48,14 @@ type KnowledgeDocumentSearchRequest struct {
 	// Read Only: true
 	SearchID string `json:"searchId,omitempty"`
 
+	// The field in the documents that you want to sort the search results by.
+	// Enum: [ConfidenceScore DateCreated DateModified CategoryId CategoryName ContextId ContextName ContextValueId ContextValueName LabelId LabelName]
+	SortBy string `json:"sortBy,omitempty"`
+
+	// The sort order for search results.
+	// Enum: [ASC DESC SCORE]
+	SortOrder string `json:"sortOrder,omitempty"`
+
 	// The total number of documents matching the query.
 	// Read Only: true
 	Total int32 `json:"total,omitempty"`
@@ -49,13 +65,65 @@ type KnowledgeDocumentSearchRequest struct {
 func (m *KnowledgeDocumentSearchRequest) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateFilter(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateInterval(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateQuery(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSortBy(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSortOrder(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *KnowledgeDocumentSearchRequest) validateFilter(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Filter) { // not required
+		return nil
+	}
+
+	if m.Filter != nil {
+		if err := m.Filter.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("filter")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *KnowledgeDocumentSearchRequest) validateInterval(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Interval) { // not required
+		return nil
+	}
+
+	if m.Interval != nil {
+		if err := m.Interval.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("interval")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -70,6 +138,122 @@ func (m *KnowledgeDocumentSearchRequest) validateQuery(formats strfmt.Registry) 
 	}
 
 	if err := validate.MaxLength("query", "body", string(*m.Query), 2147483647); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+var knowledgeDocumentSearchRequestTypeSortByPropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["ConfidenceScore","DateCreated","DateModified","CategoryId","CategoryName","ContextId","ContextName","ContextValueId","ContextValueName","LabelId","LabelName"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		knowledgeDocumentSearchRequestTypeSortByPropEnum = append(knowledgeDocumentSearchRequestTypeSortByPropEnum, v)
+	}
+}
+
+const (
+
+	// KnowledgeDocumentSearchRequestSortByConfidenceScore captures enum value "ConfidenceScore"
+	KnowledgeDocumentSearchRequestSortByConfidenceScore string = "ConfidenceScore"
+
+	// KnowledgeDocumentSearchRequestSortByDateCreated captures enum value "DateCreated"
+	KnowledgeDocumentSearchRequestSortByDateCreated string = "DateCreated"
+
+	// KnowledgeDocumentSearchRequestSortByDateModified captures enum value "DateModified"
+	KnowledgeDocumentSearchRequestSortByDateModified string = "DateModified"
+
+	// KnowledgeDocumentSearchRequestSortByCategoryID captures enum value "CategoryId"
+	KnowledgeDocumentSearchRequestSortByCategoryID string = "CategoryId"
+
+	// KnowledgeDocumentSearchRequestSortByCategoryName captures enum value "CategoryName"
+	KnowledgeDocumentSearchRequestSortByCategoryName string = "CategoryName"
+
+	// KnowledgeDocumentSearchRequestSortByContextID captures enum value "ContextId"
+	KnowledgeDocumentSearchRequestSortByContextID string = "ContextId"
+
+	// KnowledgeDocumentSearchRequestSortByContextName captures enum value "ContextName"
+	KnowledgeDocumentSearchRequestSortByContextName string = "ContextName"
+
+	// KnowledgeDocumentSearchRequestSortByContextValueID captures enum value "ContextValueId"
+	KnowledgeDocumentSearchRequestSortByContextValueID string = "ContextValueId"
+
+	// KnowledgeDocumentSearchRequestSortByContextValueName captures enum value "ContextValueName"
+	KnowledgeDocumentSearchRequestSortByContextValueName string = "ContextValueName"
+
+	// KnowledgeDocumentSearchRequestSortByLabelID captures enum value "LabelId"
+	KnowledgeDocumentSearchRequestSortByLabelID string = "LabelId"
+
+	// KnowledgeDocumentSearchRequestSortByLabelName captures enum value "LabelName"
+	KnowledgeDocumentSearchRequestSortByLabelName string = "LabelName"
+)
+
+// prop value enum
+func (m *KnowledgeDocumentSearchRequest) validateSortByEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, knowledgeDocumentSearchRequestTypeSortByPropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *KnowledgeDocumentSearchRequest) validateSortBy(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.SortBy) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateSortByEnum("sortBy", "body", m.SortBy); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+var knowledgeDocumentSearchRequestTypeSortOrderPropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["ASC","DESC","SCORE"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		knowledgeDocumentSearchRequestTypeSortOrderPropEnum = append(knowledgeDocumentSearchRequestTypeSortOrderPropEnum, v)
+	}
+}
+
+const (
+
+	// KnowledgeDocumentSearchRequestSortOrderASC captures enum value "ASC"
+	KnowledgeDocumentSearchRequestSortOrderASC string = "ASC"
+
+	// KnowledgeDocumentSearchRequestSortOrderDESC captures enum value "DESC"
+	KnowledgeDocumentSearchRequestSortOrderDESC string = "DESC"
+
+	// KnowledgeDocumentSearchRequestSortOrderSCORE captures enum value "SCORE"
+	KnowledgeDocumentSearchRequestSortOrderSCORE string = "SCORE"
+)
+
+// prop value enum
+func (m *KnowledgeDocumentSearchRequest) validateSortOrderEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, knowledgeDocumentSearchRequestTypeSortOrderPropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *KnowledgeDocumentSearchRequest) validateSortOrder(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.SortOrder) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateSortOrderEnum("sortOrder", "body", m.SortOrder); err != nil {
 		return err
 	}
 

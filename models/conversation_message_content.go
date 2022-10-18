@@ -14,7 +14,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// ConversationMessageContent Message content element.
+// ConversationMessageContent Message content element. If contentType = "Attachment" only one item is allowed.
 //
 // swagger:model ConversationMessageContent
 type ConversationMessageContent struct {
@@ -25,19 +25,16 @@ type ConversationMessageContent struct {
 	// Button response content.
 	ButtonResponse *ConversationContentButtonResponse `json:"buttonResponse,omitempty"`
 
-	// Card (Generic Template) Object
+	// Card content
 	Card *ConversationContentCard `json:"card,omitempty"`
 
-	// Carousel (Multiple Generic Template) Object
+	// Carousel content
 	Carousel *ConversationContentCarousel `json:"carousel,omitempty"`
 
-	// Type of this content element. If contentType = "Attachment" only one item is allowed.
+	// Type of this content element.
 	// Required: true
-	// Enum: [Attachment Location Story QuickReply Notification ButtonResponse GenericTemplate ListTemplate Postback Reactions Mention Card Carousel Unknown]
+	// Enum: [Attachment Location QuickReply Notification ButtonResponse Story Mention Card Carousel Text QuickReplyV2 Unknown]
 	ContentType *string `json:"contentType"`
-
-	// Generic Template Object (Deprecated).
-	Generic *ConversationContentGeneric `json:"generic,omitempty"`
 
 	// Location content.
 	Location *ConversationContentLocation `json:"location,omitempty"`
@@ -45,11 +42,17 @@ type ConversationMessageContent struct {
 	// Quick reply content.
 	QuickReply *ConversationContentQuickReply `json:"quickReply,omitempty"`
 
+	// Quick reply V2 content.
+	QuickReplyV2 *ConversationContentQuickReplyV2 `json:"quickReplyV2,omitempty"`
+
 	// Ephemeral story content.
 	Story *ConversationContentStory `json:"story,omitempty"`
 
 	// Template notification content.
 	Template *ConversationContentNotificationTemplate `json:"template,omitempty"`
+
+	// Text content.
+	Text *ConversationContentText `json:"text,omitempty"`
 }
 
 // Validate validates this conversation message content
@@ -76,10 +79,6 @@ func (m *ConversationMessageContent) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateGeneric(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateLocation(formats); err != nil {
 		res = append(res, err)
 	}
@@ -88,11 +87,19 @@ func (m *ConversationMessageContent) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateQuickReplyV2(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateStory(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if err := m.validateTemplate(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateText(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -178,7 +185,7 @@ var conversationMessageContentTypeContentTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Attachment","Location","Story","QuickReply","Notification","ButtonResponse","GenericTemplate","ListTemplate","Postback","Reactions","Mention","Card","Carousel","Unknown"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Attachment","Location","QuickReply","Notification","ButtonResponse","Story","Mention","Card","Carousel","Text","QuickReplyV2","Unknown"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -194,9 +201,6 @@ const (
 	// ConversationMessageContentContentTypeLocation captures enum value "Location"
 	ConversationMessageContentContentTypeLocation string = "Location"
 
-	// ConversationMessageContentContentTypeStory captures enum value "Story"
-	ConversationMessageContentContentTypeStory string = "Story"
-
 	// ConversationMessageContentContentTypeQuickReply captures enum value "QuickReply"
 	ConversationMessageContentContentTypeQuickReply string = "QuickReply"
 
@@ -206,17 +210,8 @@ const (
 	// ConversationMessageContentContentTypeButtonResponse captures enum value "ButtonResponse"
 	ConversationMessageContentContentTypeButtonResponse string = "ButtonResponse"
 
-	// ConversationMessageContentContentTypeGenericTemplate captures enum value "GenericTemplate"
-	ConversationMessageContentContentTypeGenericTemplate string = "GenericTemplate"
-
-	// ConversationMessageContentContentTypeListTemplate captures enum value "ListTemplate"
-	ConversationMessageContentContentTypeListTemplate string = "ListTemplate"
-
-	// ConversationMessageContentContentTypePostback captures enum value "Postback"
-	ConversationMessageContentContentTypePostback string = "Postback"
-
-	// ConversationMessageContentContentTypeReactions captures enum value "Reactions"
-	ConversationMessageContentContentTypeReactions string = "Reactions"
+	// ConversationMessageContentContentTypeStory captures enum value "Story"
+	ConversationMessageContentContentTypeStory string = "Story"
 
 	// ConversationMessageContentContentTypeMention captures enum value "Mention"
 	ConversationMessageContentContentTypeMention string = "Mention"
@@ -226,6 +221,12 @@ const (
 
 	// ConversationMessageContentContentTypeCarousel captures enum value "Carousel"
 	ConversationMessageContentContentTypeCarousel string = "Carousel"
+
+	// ConversationMessageContentContentTypeText captures enum value "Text"
+	ConversationMessageContentContentTypeText string = "Text"
+
+	// ConversationMessageContentContentTypeQuickReplyV2 captures enum value "QuickReplyV2"
+	ConversationMessageContentContentTypeQuickReplyV2 string = "QuickReplyV2"
 
 	// ConversationMessageContentContentTypeUnknown captures enum value "Unknown"
 	ConversationMessageContentContentTypeUnknown string = "Unknown"
@@ -248,24 +249,6 @@ func (m *ConversationMessageContent) validateContentType(formats strfmt.Registry
 	// value enum
 	if err := m.validateContentTypeEnum("contentType", "body", *m.ContentType); err != nil {
 		return err
-	}
-
-	return nil
-}
-
-func (m *ConversationMessageContent) validateGeneric(formats strfmt.Registry) error {
-
-	if swag.IsZero(m.Generic) { // not required
-		return nil
-	}
-
-	if m.Generic != nil {
-		if err := m.Generic.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("generic")
-			}
-			return err
-		}
 	}
 
 	return nil
@@ -307,6 +290,24 @@ func (m *ConversationMessageContent) validateQuickReply(formats strfmt.Registry)
 	return nil
 }
 
+func (m *ConversationMessageContent) validateQuickReplyV2(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.QuickReplyV2) { // not required
+		return nil
+	}
+
+	if m.QuickReplyV2 != nil {
+		if err := m.QuickReplyV2.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("quickReplyV2")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *ConversationMessageContent) validateStory(formats strfmt.Registry) error {
 
 	if swag.IsZero(m.Story) { // not required
@@ -335,6 +336,24 @@ func (m *ConversationMessageContent) validateTemplate(formats strfmt.Registry) e
 		if err := m.Template.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("template")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ConversationMessageContent) validateText(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Text) { // not required
+		return nil
+	}
+
+	if m.Text != nil {
+		if err := m.Text.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("text")
 			}
 			return err
 		}

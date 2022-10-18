@@ -20,7 +20,7 @@ import (
 type ConversationMessageMetadataContent struct {
 
 	// Type of this content element.
-	// Enum: [Attachment Location Story QuickReply Notification ButtonResponse GenericTemplate ListTemplate Postback Reactions Mention Card Carousel Unknown]
+	// Enum: [Attachment Location QuickReply Notification ButtonResponse Story Mention Card Carousel Text QuickReplyV2 Unknown]
 	ContentType string `json:"contentType,omitempty"`
 
 	// Content subtype
@@ -50,7 +50,7 @@ var conversationMessageMetadataContentTypeContentTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Attachment","Location","Story","QuickReply","Notification","ButtonResponse","GenericTemplate","ListTemplate","Postback","Reactions","Mention","Card","Carousel","Unknown"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Attachment","Location","QuickReply","Notification","ButtonResponse","Story","Mention","Card","Carousel","Text","QuickReplyV2","Unknown"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -66,9 +66,6 @@ const (
 	// ConversationMessageMetadataContentContentTypeLocation captures enum value "Location"
 	ConversationMessageMetadataContentContentTypeLocation string = "Location"
 
-	// ConversationMessageMetadataContentContentTypeStory captures enum value "Story"
-	ConversationMessageMetadataContentContentTypeStory string = "Story"
-
 	// ConversationMessageMetadataContentContentTypeQuickReply captures enum value "QuickReply"
 	ConversationMessageMetadataContentContentTypeQuickReply string = "QuickReply"
 
@@ -78,17 +75,8 @@ const (
 	// ConversationMessageMetadataContentContentTypeButtonResponse captures enum value "ButtonResponse"
 	ConversationMessageMetadataContentContentTypeButtonResponse string = "ButtonResponse"
 
-	// ConversationMessageMetadataContentContentTypeGenericTemplate captures enum value "GenericTemplate"
-	ConversationMessageMetadataContentContentTypeGenericTemplate string = "GenericTemplate"
-
-	// ConversationMessageMetadataContentContentTypeListTemplate captures enum value "ListTemplate"
-	ConversationMessageMetadataContentContentTypeListTemplate string = "ListTemplate"
-
-	// ConversationMessageMetadataContentContentTypePostback captures enum value "Postback"
-	ConversationMessageMetadataContentContentTypePostback string = "Postback"
-
-	// ConversationMessageMetadataContentContentTypeReactions captures enum value "Reactions"
-	ConversationMessageMetadataContentContentTypeReactions string = "Reactions"
+	// ConversationMessageMetadataContentContentTypeStory captures enum value "Story"
+	ConversationMessageMetadataContentContentTypeStory string = "Story"
 
 	// ConversationMessageMetadataContentContentTypeMention captures enum value "Mention"
 	ConversationMessageMetadataContentContentTypeMention string = "Mention"
@@ -98,6 +86,12 @@ const (
 
 	// ConversationMessageMetadataContentContentTypeCarousel captures enum value "Carousel"
 	ConversationMessageMetadataContentContentTypeCarousel string = "Carousel"
+
+	// ConversationMessageMetadataContentContentTypeText captures enum value "Text"
+	ConversationMessageMetadataContentContentTypeText string = "Text"
+
+	// ConversationMessageMetadataContentContentTypeQuickReplyV2 captures enum value "QuickReplyV2"
+	ConversationMessageMetadataContentContentTypeQuickReplyV2 string = "QuickReplyV2"
 
 	// ConversationMessageMetadataContentContentTypeUnknown captures enum value "Unknown"
 	ConversationMessageMetadataContentContentTypeUnknown string = "Unknown"

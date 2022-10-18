@@ -60,11 +60,6 @@ type API interface {
 	*/
 	GetGamificationMetricdefinitions(ctx context.Context, params *GetGamificationMetricdefinitionsParams) (*GetGamificationMetricdefinitionsOK, error)
 	/*
-	   GetGamificationMetrics alls gamified metrics for a given profile
-	   This API is deprecated. Use /api/v2/gamification/profiles/{profileId}/metrics instead.
-	*/
-	GetGamificationMetrics(ctx context.Context, params *GetGamificationMetricsParams) (*GetGamificationMetricsOK, error)
-	/*
 	   GetGamificationProfile performances profile by id
 	*/
 	GetGamificationProfile(ctx context.Context, params *GetGamificationProfileParams) (*GetGamificationProfileOK, error)
@@ -200,11 +195,6 @@ type API interface {
 	   PostEmployeeperformanceExternalmetricsDefinitions creates external metric definition
 	*/
 	PostEmployeeperformanceExternalmetricsDefinitions(ctx context.Context, params *PostEmployeeperformanceExternalmetricsDefinitionsParams) (*PostEmployeeperformanceExternalmetricsDefinitionsOK, *PostEmployeeperformanceExternalmetricsDefinitionsCreated, error)
-	/*
-	   PostGamificationMetrics creates a gamified metric with a given metric definition and metric objective
-	   This API is deprecated. Use /api/v2/gamification/profiles/{profileId}/metrics instead.
-	*/
-	PostGamificationMetrics(ctx context.Context, params *PostGamificationMetricsParams) (*PostGamificationMetricsCreated, error)
 	/*
 	   PostGamificationProfileActivate activates a performance profile
 	*/
@@ -521,33 +511,6 @@ func (a *Client) GetGamificationMetricdefinitions(ctx context.Context, params *G
 		return nil, err
 	}
 	return result.(*GetGamificationMetricdefinitionsOK), nil
-
-}
-
-/*
-GetGamificationMetrics alls gamified metrics for a given profile
-
-This API is deprecated. Use /api/v2/gamification/profiles/{profileId}/metrics instead.
-*/
-func (a *Client) GetGamificationMetrics(ctx context.Context, params *GetGamificationMetricsParams) (*GetGamificationMetricsOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "getGamificationMetrics",
-		Method:             "GET",
-		PathPattern:        "/api/v2/gamification/metrics",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetGamificationMetricsReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*GetGamificationMetricsOK), nil
 
 }
 
@@ -1404,33 +1367,6 @@ func (a *Client) PostEmployeeperformanceExternalmetricsDefinitions(ctx context.C
 		return nil, value, nil
 	}
 	return nil, nil, nil
-
-}
-
-/*
-PostGamificationMetrics creates a gamified metric with a given metric definition and metric objective
-
-This API is deprecated. Use /api/v2/gamification/profiles/{profileId}/metrics instead.
-*/
-func (a *Client) PostGamificationMetrics(ctx context.Context, params *PostGamificationMetricsParams) (*PostGamificationMetricsCreated, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "postGamificationMetrics",
-		Method:             "POST",
-		PathPattern:        "/api/v2/gamification/metrics",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PostGamificationMetricsReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*PostGamificationMetricsCreated), nil
 
 }
 

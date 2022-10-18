@@ -18,9 +18,25 @@ import (
 // API is the interface of the presence client
 type API interface {
 	/*
+	   DeletePresenceSource deletes a presence source
+	*/
+	DeletePresenceSource(ctx context.Context, params *DeletePresenceSourceParams) (*DeletePresenceSourceNoContent, error)
+	/*
 	   DeletePresencedefinition deletes a presence definition
 	*/
 	DeletePresencedefinition(ctx context.Context, params *DeletePresencedefinitionParams) error
+	/*
+	   GetPresenceSource gets a presence source
+	*/
+	GetPresenceSource(ctx context.Context, params *GetPresenceSourceParams) (*GetPresenceSourceOK, error)
+	/*
+	   GetPresenceSources gets a list of presence sources
+	*/
+	GetPresenceSources(ctx context.Context, params *GetPresenceSourcesParams) (*GetPresenceSourcesOK, error)
+	/*
+	   GetPresenceUserPrimarysource gets a user s primary presence source
+	*/
+	GetPresenceUserPrimarysource(ctx context.Context, params *GetPresenceUserPrimarysourceParams) (*GetPresenceUserPrimarysourceOK, error)
 	/*
 	   GetPresencedefinition gets a presence definition
 	*/
@@ -54,9 +70,21 @@ type API interface {
 	*/
 	PatchUserPresencesPurecloud(ctx context.Context, params *PatchUserPresencesPurecloudParams) (*PatchUserPresencesPurecloudOK, error)
 	/*
+	   PostPresenceSources creates a presence source
+	*/
+	PostPresenceSources(ctx context.Context, params *PostPresenceSourcesParams) (*PostPresenceSourcesOK, error)
+	/*
 	   PostPresencedefinitions creates a presence definition
 	*/
 	PostPresencedefinitions(ctx context.Context, params *PostPresencedefinitionsParams) (*PostPresencedefinitionsOK, error)
+	/*
+	   PutPresenceSource updates a presence source
+	*/
+	PutPresenceSource(ctx context.Context, params *PutPresenceSourceParams) (*PutPresenceSourceOK, error)
+	/*
+	   PutPresenceUserPrimarysource updates a user s primary presence source
+	*/
+	PutPresenceUserPrimarysource(ctx context.Context, params *PutPresenceUserPrimarysourceParams) (*PutPresenceUserPrimarysourceOK, error)
 	/*
 	   PutPresencedefinition updates a presence definition
 	*/
@@ -86,6 +114,31 @@ type Client struct {
 }
 
 /*
+DeletePresenceSource deletes a presence source
+*/
+func (a *Client) DeletePresenceSource(ctx context.Context, params *DeletePresenceSourceParams) (*DeletePresenceSourceNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deletePresenceSource",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/presence/sources/{sourceId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeletePresenceSourceReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeletePresenceSourceNoContent), nil
+
+}
+
+/*
 DeletePresencedefinition deletes a presence definition
 */
 func (a *Client) DeletePresencedefinition(ctx context.Context, params *DeletePresencedefinitionParams) error {
@@ -107,6 +160,81 @@ func (a *Client) DeletePresencedefinition(ctx context.Context, params *DeletePre
 		return err
 	}
 	return nil
+
+}
+
+/*
+GetPresenceSource gets a presence source
+*/
+func (a *Client) GetPresenceSource(ctx context.Context, params *GetPresenceSourceParams) (*GetPresenceSourceOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getPresenceSource",
+		Method:             "GET",
+		PathPattern:        "/api/v2/presence/sources/{sourceId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetPresenceSourceReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetPresenceSourceOK), nil
+
+}
+
+/*
+GetPresenceSources gets a list of presence sources
+*/
+func (a *Client) GetPresenceSources(ctx context.Context, params *GetPresenceSourcesParams) (*GetPresenceSourcesOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getPresenceSources",
+		Method:             "GET",
+		PathPattern:        "/api/v2/presence/sources",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetPresenceSourcesReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetPresenceSourcesOK), nil
+
+}
+
+/*
+GetPresenceUserPrimarysource gets a user s primary presence source
+*/
+func (a *Client) GetPresenceUserPrimarysource(ctx context.Context, params *GetPresenceUserPrimarysourceParams) (*GetPresenceUserPrimarysourceOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getPresenceUserPrimarysource",
+		Method:             "GET",
+		PathPattern:        "/api/v2/presence/users/{userId}/primarysource",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetPresenceUserPrimarysourceReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetPresenceUserPrimarysourceOK), nil
 
 }
 
@@ -294,6 +422,31 @@ func (a *Client) PatchUserPresencesPurecloud(ctx context.Context, params *PatchU
 }
 
 /*
+PostPresenceSources creates a presence source
+*/
+func (a *Client) PostPresenceSources(ctx context.Context, params *PostPresenceSourcesParams) (*PostPresenceSourcesOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postPresenceSources",
+		Method:             "POST",
+		PathPattern:        "/api/v2/presence/sources",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostPresenceSourcesReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostPresenceSourcesOK), nil
+
+}
+
+/*
 PostPresencedefinitions creates a presence definition
 */
 func (a *Client) PostPresencedefinitions(ctx context.Context, params *PostPresencedefinitionsParams) (*PostPresencedefinitionsOK, error) {
@@ -315,6 +468,56 @@ func (a *Client) PostPresencedefinitions(ctx context.Context, params *PostPresen
 		return nil, err
 	}
 	return result.(*PostPresencedefinitionsOK), nil
+
+}
+
+/*
+PutPresenceSource updates a presence source
+*/
+func (a *Client) PutPresenceSource(ctx context.Context, params *PutPresenceSourceParams) (*PutPresenceSourceOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "putPresenceSource",
+		Method:             "PUT",
+		PathPattern:        "/api/v2/presence/sources/{sourceId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PutPresenceSourceReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutPresenceSourceOK), nil
+
+}
+
+/*
+PutPresenceUserPrimarysource updates a user s primary presence source
+*/
+func (a *Client) PutPresenceUserPrimarysource(ctx context.Context, params *PutPresenceUserPrimarysourceParams) (*PutPresenceUserPrimarysourceOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "putPresenceUserPrimarysource",
+		Method:             "PUT",
+		PathPattern:        "/api/v2/presence/users/{userId}/primarysource",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PutPresenceUserPrimarysourceReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutPresenceUserPrimarysourceOK), nil
 
 }
 

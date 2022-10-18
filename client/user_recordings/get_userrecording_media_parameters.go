@@ -14,6 +14,7 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+	"github.com/go-openapi/swag"
 )
 
 // NewGetUserrecordingMediaParams creates a new GetUserrecordingMediaParams object
@@ -72,6 +73,11 @@ for the get userrecording media operation typically these are written to a http.
 */
 type GetUserrecordingMediaParams struct {
 
+	/*Async
+	  When set to true, api will return 202 response until the recording is ready for download
+
+	*/
+	Async *bool
 	/*FormatID
 	  The desired media format.
 
@@ -121,6 +127,17 @@ func (o *GetUserrecordingMediaParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithAsync adds the async to the get userrecording media params
+func (o *GetUserrecordingMediaParams) WithAsync(async *bool) *GetUserrecordingMediaParams {
+	o.SetAsync(async)
+	return o
+}
+
+// SetAsync adds the async to the get userrecording media params
+func (o *GetUserrecordingMediaParams) SetAsync(async *bool) {
+	o.Async = async
+}
+
 // WithFormatID adds the formatID to the get userrecording media params
 func (o *GetUserrecordingMediaParams) WithFormatID(formatID *string) *GetUserrecordingMediaParams {
 	o.SetFormatID(formatID)
@@ -150,6 +167,22 @@ func (o *GetUserrecordingMediaParams) WriteToRequest(r runtime.ClientRequest, re
 		return err
 	}
 	var res []error
+
+	if o.Async != nil {
+
+		// query param async
+		var qrAsync bool
+		if o.Async != nil {
+			qrAsync = *o.Async
+		}
+		qAsync := swag.FormatBool(qrAsync)
+		if qAsync != "" {
+			if err := r.SetQueryParam("async", qAsync); err != nil {
+				return err
+			}
+		}
+
+	}
 
 	if o.FormatID != nil {
 

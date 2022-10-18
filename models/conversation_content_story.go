@@ -14,7 +14,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// ConversationContentStory Story object.
+// ConversationContentStory An ephemeral story.
 //
 // swagger:model ConversationContentStory
 type ConversationContentStory struct {

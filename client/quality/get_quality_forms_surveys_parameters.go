@@ -82,7 +82,7 @@ for the get quality forms surveys operation typically these are written to a htt
 type GetQualityFormsSurveysParams struct {
 
 	/*Expand
-	  Expand
+	  If 'expand=publishHistory', then each unpublished evaluation form includes a listing of its published versions
 
 	*/
 	Expand *string

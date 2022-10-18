@@ -80,7 +80,7 @@ type LearningAssignment struct {
 	SelfURI strfmt.URI `json:"selfUri,omitempty"`
 
 	// The Learning Assignment state
-	// Enum: [Assigned InProgress Completed Deleted NotCompleted]
+	// Enum: [Assigned InProgress Completed Deleted NotCompleted InvalidSchedule]
 	State string `json:"state,omitempty"`
 
 	// The user to whom the assignment is assigned
@@ -290,7 +290,7 @@ var learningAssignmentTypeStatePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Assigned","InProgress","Completed","Deleted","NotCompleted"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Assigned","InProgress","Completed","Deleted","NotCompleted","InvalidSchedule"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -314,6 +314,9 @@ const (
 
 	// LearningAssignmentStateNotCompleted captures enum value "NotCompleted"
 	LearningAssignmentStateNotCompleted string = "NotCompleted"
+
+	// LearningAssignmentStateInvalidSchedule captures enum value "InvalidSchedule"
+	LearningAssignmentStateInvalidSchedule string = "InvalidSchedule"
 )
 
 // prop value enum

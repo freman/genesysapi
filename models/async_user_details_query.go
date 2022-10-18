@@ -28,7 +28,7 @@ type AsyncUserDetailsQuery struct {
 	Limit int32 `json:"limit,omitempty"`
 
 	// Sort the result set in ascending/descending order. Default is ascending
-	// Enum: [asc desc]
+	// Enum: [asc desc unordered]
 	Order string `json:"order,omitempty"`
 
 	// Filters that target system and organization presence-level data
@@ -84,7 +84,7 @@ var asyncUserDetailsQueryTypeOrderPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["asc","desc"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["asc","desc","unordered"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -99,6 +99,9 @@ const (
 
 	// AsyncUserDetailsQueryOrderDesc captures enum value "desc"
 	AsyncUserDetailsQueryOrderDesc string = "desc"
+
+	// AsyncUserDetailsQueryOrderUnordered captures enum value "unordered"
+	AsyncUserDetailsQueryOrderUnordered string = "unordered"
 )
 
 // prop value enum

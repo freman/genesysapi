@@ -28,7 +28,7 @@ type API interface {
 	/*
 	   GetUserrecordingMedia downloads a user recording
 	*/
-	GetUserrecordingMedia(ctx context.Context, params *GetUserrecordingMediaParams) (*GetUserrecordingMediaOK, error)
+	GetUserrecordingMedia(ctx context.Context, params *GetUserrecordingMediaParams) (*GetUserrecordingMediaOK, *GetUserrecordingMediaAccepted, error)
 	/*
 	   GetUserrecordings gets a list of user recordings
 	*/
@@ -114,7 +114,7 @@ func (a *Client) GetUserrecording(ctx context.Context, params *GetUserrecordingP
 /*
 GetUserrecordingMedia downloads a user recording
 */
-func (a *Client) GetUserrecordingMedia(ctx context.Context, params *GetUserrecordingMediaParams) (*GetUserrecordingMediaOK, error) {
+func (a *Client) GetUserrecordingMedia(ctx context.Context, params *GetUserrecordingMediaParams) (*GetUserrecordingMediaOK, *GetUserrecordingMediaAccepted, error) {
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "getUserrecordingMedia",
@@ -130,9 +130,15 @@ func (a *Client) GetUserrecordingMedia(ctx context.Context, params *GetUserrecor
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
-	return result.(*GetUserrecordingMediaOK), nil
+	switch value := result.(type) {
+	case *GetUserrecordingMediaOK:
+		return value, nil, nil
+	case *GetUserrecordingMediaAccepted:
+		return nil, value, nil
+	}
+	return nil, nil, nil
 
 }
 

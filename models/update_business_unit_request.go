@@ -23,7 +23,7 @@ type UpdateBusinessUnitRequest struct {
 	Name string `json:"name,omitempty"`
 
 	// Configuration for the business unit
-	Settings *UpdateBusinessUnitSettings `json:"settings,omitempty"`
+	Settings *UpdateBusinessUnitSettingsRequest `json:"settings,omitempty"`
 }
 
 // Validate validates this update business unit request

@@ -24,7 +24,7 @@ type AuditQueryService struct {
 	Entities []*AuditQueryEntity `json:"entities"`
 
 	// Name of the Service
-	// Enum: [AnalyticsReporting Architect Coaching ContactCenter ContentManagement Datatables Directory DynamicSchema Gamification Groups Integrations Knowledge LanguageUnderstanding Learning Limits Outbound PeoplePermissions EmployeePerformance PredictiveEngagement Presence Quality ResponseManagement Routing SpeechAndTextAnalytics Telephony TopicsDefinitions Triggers ProcessAutomation Voicemail WebDeployments Webhooks WorkforceManagement Messaging Supportability Callback Workitems SCIM NumberPurchasing Marketplace]
+	// Enum: [AgentConfig AnalyticsReporting Architect Coaching ContactCenter ContentManagement Datatables Directory DynamicSchema Gamification Groups Integrations Knowledge LanguageUnderstanding Learning Limits LogCapture Outbound PeoplePermissions EmployeePerformance PredictiveEngagement Presence Quality ResponseManagement Routing SpeechAndTextAnalytics Telephony TopicsDefinitions Triggers ProcessAutomation Voicemail WebDeployments Webhooks WorkforceManagement Messaging Supportability Callback Workitems SCIM NumberPurchasing Marketplace]
 	Name string `json:"name,omitempty"`
 }
 
@@ -75,7 +75,7 @@ var auditQueryServiceTypeNamePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["AnalyticsReporting","Architect","Coaching","ContactCenter","ContentManagement","Datatables","Directory","DynamicSchema","Gamification","Groups","Integrations","Knowledge","LanguageUnderstanding","Learning","Limits","Outbound","PeoplePermissions","EmployeePerformance","PredictiveEngagement","Presence","Quality","ResponseManagement","Routing","SpeechAndTextAnalytics","Telephony","TopicsDefinitions","Triggers","ProcessAutomation","Voicemail","WebDeployments","Webhooks","WorkforceManagement","Messaging","Supportability","Callback","Workitems","SCIM","NumberPurchasing","Marketplace"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["AgentConfig","AnalyticsReporting","Architect","Coaching","ContactCenter","ContentManagement","Datatables","Directory","DynamicSchema","Gamification","Groups","Integrations","Knowledge","LanguageUnderstanding","Learning","Limits","LogCapture","Outbound","PeoplePermissions","EmployeePerformance","PredictiveEngagement","Presence","Quality","ResponseManagement","Routing","SpeechAndTextAnalytics","Telephony","TopicsDefinitions","Triggers","ProcessAutomation","Voicemail","WebDeployments","Webhooks","WorkforceManagement","Messaging","Supportability","Callback","Workitems","SCIM","NumberPurchasing","Marketplace"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -84,6 +84,9 @@ func init() {
 }
 
 const (
+
+	// AuditQueryServiceNameAgentConfig captures enum value "AgentConfig"
+	AuditQueryServiceNameAgentConfig string = "AgentConfig"
 
 	// AuditQueryServiceNameAnalyticsReporting captures enum value "AnalyticsReporting"
 	AuditQueryServiceNameAnalyticsReporting string = "AnalyticsReporting"
@@ -129,6 +132,9 @@ const (
 
 	// AuditQueryServiceNameLimits captures enum value "Limits"
 	AuditQueryServiceNameLimits string = "Limits"
+
+	// AuditQueryServiceNameLogCapture captures enum value "LogCapture"
+	AuditQueryServiceNameLogCapture string = "LogCapture"
 
 	// AuditQueryServiceNameOutbound captures enum value "Outbound"
 	AuditQueryServiceNameOutbound string = "Outbound"

@@ -30,6 +30,10 @@ type API interface {
 	*/
 	DeleteRoutingEmailDomainRoute(ctx context.Context, params *DeleteRoutingEmailDomainRouteParams) (*DeleteRoutingEmailDomainRouteOK, error)
 	/*
+	   DeleteRoutingEmailOutboundDomain deletes an outbound domain
+	*/
+	DeleteRoutingEmailOutboundDomain(ctx context.Context, params *DeleteRoutingEmailOutboundDomainParams) (*DeleteRoutingEmailOutboundDomainNoContent, error)
+	/*
 	   DeleteRoutingPredictor deletes single predictor
 	*/
 	DeleteRoutingPredictor(ctx context.Context, params *DeleteRoutingPredictorParams) (*DeleteRoutingPredictorNoContent, error)
@@ -114,6 +118,22 @@ type API interface {
 	*/
 	GetRoutingEmailDomains(ctx context.Context, params *GetRoutingEmailDomainsParams) (*GetRoutingEmailDomainsOK, error)
 	/*
+	   GetRoutingEmailOutboundDomain gets domain
+	*/
+	GetRoutingEmailOutboundDomain(ctx context.Context, params *GetRoutingEmailOutboundDomainParams) (*GetRoutingEmailOutboundDomainOK, error)
+	/*
+	   GetRoutingEmailOutboundDomainActivation gets activation status cname dkim of an outbound domain
+	*/
+	GetRoutingEmailOutboundDomainActivation(ctx context.Context, params *GetRoutingEmailOutboundDomainActivationParams) (*GetRoutingEmailOutboundDomainActivationOK, error)
+	/*
+	   GetRoutingEmailOutboundDomainSearch searches a domain across organizations
+	*/
+	GetRoutingEmailOutboundDomainSearch(ctx context.Context, params *GetRoutingEmailOutboundDomainSearchParams) (*GetRoutingEmailOutboundDomainSearchOK, error)
+	/*
+	   GetRoutingEmailOutboundDomains gets outbound domains
+	*/
+	GetRoutingEmailOutboundDomains(ctx context.Context, params *GetRoutingEmailOutboundDomainsParams) (*GetRoutingEmailOutboundDomainsOK, error)
+	/*
 	   GetRoutingEmailSetup gets email setup
 	*/
 	GetRoutingEmailSetup(ctx context.Context, params *GetRoutingEmailSetupParams) (*GetRoutingEmailSetupOK, error)
@@ -133,6 +153,14 @@ type API interface {
 	   GetRoutingPredictor retrieves a single predictor
 	*/
 	GetRoutingPredictor(ctx context.Context, params *GetRoutingPredictorParams) (*GetRoutingPredictorOK, error)
+	/*
+	   GetRoutingPredictorModelFeatures retrieves predictor model features
+	*/
+	GetRoutingPredictorModelFeatures(ctx context.Context, params *GetRoutingPredictorModelFeaturesParams) (*GetRoutingPredictorModelFeaturesOK, error)
+	/*
+	   GetRoutingPredictorModels retrieves predictor models and top features
+	*/
+	GetRoutingPredictorModels(ctx context.Context, params *GetRoutingPredictorModelsParams) (*GetRoutingPredictorModelsOK, error)
 	/*
 	   GetRoutingPredictors retrieves all predictors
 	*/
@@ -317,6 +345,14 @@ type API interface {
 	*/
 	PostRoutingEmailDomains(ctx context.Context, params *PostRoutingEmailDomainsParams) (*PostRoutingEmailDomainsOK, error)
 	/*
+	   PostRoutingEmailOutboundDomains creates a domain
+	*/
+	PostRoutingEmailOutboundDomains(ctx context.Context, params *PostRoutingEmailOutboundDomainsParams) (*PostRoutingEmailOutboundDomainsAccepted, error)
+	/*
+	   PostRoutingEmailOutboundDomainsSimulated creates a simulated domain
+	*/
+	PostRoutingEmailOutboundDomainsSimulated(ctx context.Context, params *PostRoutingEmailOutboundDomainsSimulatedParams) (*PostRoutingEmailOutboundDomainsSimulatedAccepted, error)
+	/*
 	   PostRoutingLanguages creates language
 	*/
 	PostRoutingLanguages(ctx context.Context, params *PostRoutingLanguagesParams) (*PostRoutingLanguagesOK, error)
@@ -360,6 +396,10 @@ type API interface {
 	   PutRoutingEmailDomainRoute updates a route
 	*/
 	PutRoutingEmailDomainRoute(ctx context.Context, params *PutRoutingEmailDomainRouteParams) (*PutRoutingEmailDomainRouteOK, error)
+	/*
+	   PutRoutingEmailOutboundDomainActivation requests an activation status cname dkim update of an outbound domain
+	*/
+	PutRoutingEmailOutboundDomainActivation(ctx context.Context, params *PutRoutingEmailOutboundDomainActivationParams) (*PutRoutingEmailOutboundDomainActivationOK, error)
 	/*
 	   PutRoutingMessageRecipient updates a recipient
 	*/
@@ -484,6 +524,31 @@ func (a *Client) DeleteRoutingEmailDomainRoute(ctx context.Context, params *Dele
 		return nil, err
 	}
 	return result.(*DeleteRoutingEmailDomainRouteOK), nil
+
+}
+
+/*
+DeleteRoutingEmailOutboundDomain deletes an outbound domain
+*/
+func (a *Client) DeleteRoutingEmailOutboundDomain(ctx context.Context, params *DeleteRoutingEmailOutboundDomainParams) (*DeleteRoutingEmailOutboundDomainNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteRoutingEmailOutboundDomain",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/routing/email/outbound/domains/{domainId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteRoutingEmailOutboundDomainReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteRoutingEmailOutboundDomainNoContent), nil
 
 }
 
@@ -1019,6 +1084,106 @@ func (a *Client) GetRoutingEmailDomains(ctx context.Context, params *GetRoutingE
 }
 
 /*
+GetRoutingEmailOutboundDomain gets domain
+*/
+func (a *Client) GetRoutingEmailOutboundDomain(ctx context.Context, params *GetRoutingEmailOutboundDomainParams) (*GetRoutingEmailOutboundDomainOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getRoutingEmailOutboundDomain",
+		Method:             "GET",
+		PathPattern:        "/api/v2/routing/email/outbound/domains/{domainId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetRoutingEmailOutboundDomainReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetRoutingEmailOutboundDomainOK), nil
+
+}
+
+/*
+GetRoutingEmailOutboundDomainActivation gets activation status cname dkim of an outbound domain
+*/
+func (a *Client) GetRoutingEmailOutboundDomainActivation(ctx context.Context, params *GetRoutingEmailOutboundDomainActivationParams) (*GetRoutingEmailOutboundDomainActivationOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getRoutingEmailOutboundDomainActivation",
+		Method:             "GET",
+		PathPattern:        "/api/v2/routing/email/outbound/domains/{domainId}/activation",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetRoutingEmailOutboundDomainActivationReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetRoutingEmailOutboundDomainActivationOK), nil
+
+}
+
+/*
+GetRoutingEmailOutboundDomainSearch searches a domain across organizations
+*/
+func (a *Client) GetRoutingEmailOutboundDomainSearch(ctx context.Context, params *GetRoutingEmailOutboundDomainSearchParams) (*GetRoutingEmailOutboundDomainSearchOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getRoutingEmailOutboundDomainSearch",
+		Method:             "GET",
+		PathPattern:        "/api/v2/routing/email/outbound/domains/{domainId}/search",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetRoutingEmailOutboundDomainSearchReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetRoutingEmailOutboundDomainSearchOK), nil
+
+}
+
+/*
+GetRoutingEmailOutboundDomains gets outbound domains
+*/
+func (a *Client) GetRoutingEmailOutboundDomains(ctx context.Context, params *GetRoutingEmailOutboundDomainsParams) (*GetRoutingEmailOutboundDomainsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getRoutingEmailOutboundDomains",
+		Method:             "GET",
+		PathPattern:        "/api/v2/routing/email/outbound/domains",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetRoutingEmailOutboundDomainsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetRoutingEmailOutboundDomainsOK), nil
+
+}
+
+/*
 GetRoutingEmailSetup gets email setup
 */
 func (a *Client) GetRoutingEmailSetup(ctx context.Context, params *GetRoutingEmailSetupParams) (*GetRoutingEmailSetupOK, error) {
@@ -1140,6 +1305,56 @@ func (a *Client) GetRoutingPredictor(ctx context.Context, params *GetRoutingPred
 		return nil, err
 	}
 	return result.(*GetRoutingPredictorOK), nil
+
+}
+
+/*
+GetRoutingPredictorModelFeatures retrieves predictor model features
+*/
+func (a *Client) GetRoutingPredictorModelFeatures(ctx context.Context, params *GetRoutingPredictorModelFeaturesParams) (*GetRoutingPredictorModelFeaturesOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getRoutingPredictorModelFeatures",
+		Method:             "GET",
+		PathPattern:        "/api/v2/routing/predictors/{predictorId}/models/{modelId}/features",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetRoutingPredictorModelFeaturesReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetRoutingPredictorModelFeaturesOK), nil
+
+}
+
+/*
+GetRoutingPredictorModels retrieves predictor models and top features
+*/
+func (a *Client) GetRoutingPredictorModels(ctx context.Context, params *GetRoutingPredictorModelsParams) (*GetRoutingPredictorModelsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getRoutingPredictorModels",
+		Method:             "GET",
+		PathPattern:        "/api/v2/routing/predictors/{predictorId}/models",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetRoutingPredictorModelsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetRoutingPredictorModelsOK), nil
 
 }
 
@@ -2287,6 +2502,56 @@ func (a *Client) PostRoutingEmailDomains(ctx context.Context, params *PostRoutin
 }
 
 /*
+PostRoutingEmailOutboundDomains creates a domain
+*/
+func (a *Client) PostRoutingEmailOutboundDomains(ctx context.Context, params *PostRoutingEmailOutboundDomainsParams) (*PostRoutingEmailOutboundDomainsAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postRoutingEmailOutboundDomains",
+		Method:             "POST",
+		PathPattern:        "/api/v2/routing/email/outbound/domains",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostRoutingEmailOutboundDomainsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostRoutingEmailOutboundDomainsAccepted), nil
+
+}
+
+/*
+PostRoutingEmailOutboundDomainsSimulated creates a simulated domain
+*/
+func (a *Client) PostRoutingEmailOutboundDomainsSimulated(ctx context.Context, params *PostRoutingEmailOutboundDomainsSimulatedParams) (*PostRoutingEmailOutboundDomainsSimulatedAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postRoutingEmailOutboundDomainsSimulated",
+		Method:             "POST",
+		PathPattern:        "/api/v2/routing/email/outbound/domains/simulated",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostRoutingEmailOutboundDomainsSimulatedReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostRoutingEmailOutboundDomainsSimulatedAccepted), nil
+
+}
+
+/*
 PostRoutingLanguages creates language
 */
 func (a *Client) PostRoutingLanguages(ctx context.Context, params *PostRoutingLanguagesParams) (*PostRoutingLanguagesOK, error) {
@@ -2570,6 +2835,31 @@ func (a *Client) PutRoutingEmailDomainRoute(ctx context.Context, params *PutRout
 		return nil, err
 	}
 	return result.(*PutRoutingEmailDomainRouteOK), nil
+
+}
+
+/*
+PutRoutingEmailOutboundDomainActivation requests an activation status cname dkim update of an outbound domain
+*/
+func (a *Client) PutRoutingEmailOutboundDomainActivation(ctx context.Context, params *PutRoutingEmailOutboundDomainActivationParams) (*PutRoutingEmailOutboundDomainActivationOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "putRoutingEmailOutboundDomainActivation",
+		Method:             "PUT",
+		PathPattern:        "/api/v2/routing/email/outbound/domains/{domainId}/activation",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PutRoutingEmailOutboundDomainActivationReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutRoutingEmailOutboundDomainActivationOK), nil
 
 }
 

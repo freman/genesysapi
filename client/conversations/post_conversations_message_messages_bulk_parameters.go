@@ -14,13 +14,17 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+	"github.com/go-openapi/swag"
 )
 
 // NewPostConversationsMessageMessagesBulkParams creates a new PostConversationsMessageMessagesBulkParams object
 // with the default values initialized.
 func NewPostConversationsMessageMessagesBulkParams() *PostConversationsMessageMessagesBulkParams {
-	var ()
+	var (
+		useNormalizedMessageDefault = bool(false)
+	)
 	return &PostConversationsMessageMessagesBulkParams{
+		UseNormalizedMessage: &useNormalizedMessageDefault,
 
 		timeout: cr.DefaultTimeout,
 	}
@@ -29,8 +33,11 @@ func NewPostConversationsMessageMessagesBulkParams() *PostConversationsMessageMe
 // NewPostConversationsMessageMessagesBulkParamsWithTimeout creates a new PostConversationsMessageMessagesBulkParams object
 // with the default values initialized, and the ability to set a timeout on a request
 func NewPostConversationsMessageMessagesBulkParamsWithTimeout(timeout time.Duration) *PostConversationsMessageMessagesBulkParams {
-	var ()
+	var (
+		useNormalizedMessageDefault = bool(false)
+	)
 	return &PostConversationsMessageMessagesBulkParams{
+		UseNormalizedMessage: &useNormalizedMessageDefault,
 
 		timeout: timeout,
 	}
@@ -39,8 +46,11 @@ func NewPostConversationsMessageMessagesBulkParamsWithTimeout(timeout time.Durat
 // NewPostConversationsMessageMessagesBulkParamsWithContext creates a new PostConversationsMessageMessagesBulkParams object
 // with the default values initialized, and the ability to set a context for a request
 func NewPostConversationsMessageMessagesBulkParamsWithContext(ctx context.Context) *PostConversationsMessageMessagesBulkParams {
-	var ()
+	var (
+		useNormalizedMessageDefault = bool(false)
+	)
 	return &PostConversationsMessageMessagesBulkParams{
+		UseNormalizedMessage: &useNormalizedMessageDefault,
 
 		Context: ctx,
 	}
@@ -49,9 +59,12 @@ func NewPostConversationsMessageMessagesBulkParamsWithContext(ctx context.Contex
 // NewPostConversationsMessageMessagesBulkParamsWithHTTPClient creates a new PostConversationsMessageMessagesBulkParams object
 // with the default values initialized, and the ability to set a custom HTTPClient for a request
 func NewPostConversationsMessageMessagesBulkParamsWithHTTPClient(client *http.Client) *PostConversationsMessageMessagesBulkParams {
-	var ()
+	var (
+		useNormalizedMessageDefault = bool(false)
+	)
 	return &PostConversationsMessageMessagesBulkParams{
-		HTTPClient: client,
+		UseNormalizedMessage: &useNormalizedMessageDefault,
+		HTTPClient:           client,
 	}
 }
 
@@ -67,6 +80,11 @@ type PostConversationsMessageMessagesBulkParams struct {
 	Body []string
 	/*ConversationID*/
 	ConversationID string
+	/*UseNormalizedMessage
+	  If true, response removes deprecated fields (textBody, media, stickers)
+
+	*/
+	UseNormalizedMessage *bool
 
 	timeout    time.Duration
 	Context    context.Context
@@ -128,6 +146,17 @@ func (o *PostConversationsMessageMessagesBulkParams) SetConversationID(conversat
 	o.ConversationID = conversationID
 }
 
+// WithUseNormalizedMessage adds the useNormalizedMessage to the post conversations message messages bulk params
+func (o *PostConversationsMessageMessagesBulkParams) WithUseNormalizedMessage(useNormalizedMessage *bool) *PostConversationsMessageMessagesBulkParams {
+	o.SetUseNormalizedMessage(useNormalizedMessage)
+	return o
+}
+
+// SetUseNormalizedMessage adds the useNormalizedMessage to the post conversations message messages bulk params
+func (o *PostConversationsMessageMessagesBulkParams) SetUseNormalizedMessage(useNormalizedMessage *bool) {
+	o.UseNormalizedMessage = useNormalizedMessage
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *PostConversationsMessageMessagesBulkParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -145,6 +174,22 @@ func (o *PostConversationsMessageMessagesBulkParams) WriteToRequest(r runtime.Cl
 	// path param conversationId
 	if err := r.SetPathParam("conversationId", o.ConversationID); err != nil {
 		return err
+	}
+
+	if o.UseNormalizedMessage != nil {
+
+		// query param useNormalizedMessage
+		var qrUseNormalizedMessage bool
+		if o.UseNormalizedMessage != nil {
+			qrUseNormalizedMessage = *o.UseNormalizedMessage
+		}
+		qUseNormalizedMessage := swag.FormatBool(qrUseNormalizedMessage)
+		if qUseNormalizedMessage != "" {
+			if err := r.SetQueryParam("useNormalizedMessage", qUseNormalizedMessage); err != nil {
+				return err
+			}
+		}
+
 	}
 
 	if len(res) > 0 {

@@ -54,6 +54,9 @@ type WebDeploymentConfigurationVersion struct {
 	// The description of the configuration
 	Description string `json:"description,omitempty"`
 
+	// Headless Mode Support which Controls UI components. When enabled, native UI components will be disabled and allows for custom-built UI.
+	HeadlessMode *WebDeploymentHeadlessMode `json:"headlessMode,omitempty"`
+
 	// The configuration version ID
 	// Read Only: true
 	ID string `json:"id,omitempty"`
@@ -128,6 +131,10 @@ func (m *WebDeploymentConfigurationVersion) Validate(formats strfmt.Registry) er
 	}
 
 	if err := m.validateDatePublished(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateHeadlessMode(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -286,6 +293,24 @@ func (m *WebDeploymentConfigurationVersion) validateDatePublished(formats strfmt
 
 	if err := validate.FormatOf("datePublished", "body", "date-time", m.DatePublished.String(), formats); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *WebDeploymentConfigurationVersion) validateHeadlessMode(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.HeadlessMode) { // not required
+		return nil
+	}
+
+	if m.HeadlessMode != nil {
+		if err := m.HeadlessMode.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("headlessMode")
+			}
+			return err
+		}
 	}
 
 	return nil

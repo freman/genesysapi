@@ -36,6 +36,9 @@ type VoicemailGroupPolicy struct {
 	// The prompt to use when connecting a user to a Group Ring call
 	InteractiveResponsePromptID string `json:"interactiveResponsePromptId,omitempty"`
 
+	// The language preference for the group.  Used for group voicemail transcription
+	LanguagePreference string `json:"languagePreference,omitempty"`
+
 	// name
 	Name string `json:"name,omitempty"`
 

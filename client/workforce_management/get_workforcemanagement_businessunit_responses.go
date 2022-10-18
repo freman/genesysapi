@@ -111,20 +111,20 @@ func NewGetWorkforcemanagementBusinessunitOK() *GetWorkforcemanagementBusinessun
 successful operation
 */
 type GetWorkforcemanagementBusinessunitOK struct {
-	Payload *models.BusinessUnit
+	Payload *models.BusinessUnitResponse
 }
 
 func (o *GetWorkforcemanagementBusinessunitOK) Error() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}][%d] getWorkforcemanagementBusinessunitOK  %+v", 200, o.Payload)
 }
 
-func (o *GetWorkforcemanagementBusinessunitOK) GetPayload() *models.BusinessUnit {
+func (o *GetWorkforcemanagementBusinessunitOK) GetPayload() *models.BusinessUnitResponse {
 	return o.Payload
 }
 
 func (o *GetWorkforcemanagementBusinessunitOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.BusinessUnit)
+	o.Payload = new(models.BusinessUnitResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

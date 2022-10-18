@@ -19,7 +19,7 @@ import (
 type ExternalMetricDataWriteResponse struct {
 
 	// The list of processed entities
-	ProcessedEntities []*ExternalMetricDataItem `json:"processedEntities"`
+	ProcessedEntities []*ExternalMetricDataProcessedItem `json:"processedEntities"`
 
 	// The list of unprocessed entities
 	UnprocessedEntities []*ExternalMetricDataUnprocessedItem `json:"unprocessedEntities"`

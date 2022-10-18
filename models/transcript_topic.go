@@ -31,6 +31,14 @@ type TranscriptTopic struct {
 	// Read Only: true
 	Name string `json:"name,omitempty"`
 
+	// Location of the phrase
+	// Read Only: true
+	Offset *TopicOffset `json:"offset,omitempty"`
+
+	// Location of the phrase in the recording in milliseconds
+	// Read Only: true
+	RecordingLocation int64 `json:"recordingLocation,omitempty"`
+
 	// The start time of the topic phrase.
 	// Read Only: true
 	StartTimeMilliseconds int64 `json:"startTimeMilliseconds,omitempty"`
@@ -52,6 +60,10 @@ func (m *TranscriptTopic) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateOffset(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
@@ -68,6 +80,24 @@ func (m *TranscriptTopic) validateDuration(formats strfmt.Registry) error {
 		if err := m.Duration.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("duration")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *TranscriptTopic) validateOffset(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Offset) { // not required
+		return nil
+	}
+
+	if m.Offset != nil {
+		if err := m.Offset.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("offset")
 			}
 			return err
 		}

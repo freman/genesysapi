@@ -40,7 +40,7 @@ type SearchCriteria struct {
 	StartValue string `json:"startValue,omitempty"`
 
 	// type
-	// Enum: [EXACT CONTAINS STARTS_WITH REQUIRED_FIELDS RANGE DATE_RANGE LESS_THAN LESS_THAN_EQUAL_TO GREATER_THAN GREATER_THAN_EQUAL_TO SIMPLE TERM TERMS QUERY_STRING MATCH_ALL]
+	// Enum: [EXACT CONTAINS STARTS_WITH REQUIRED_FIELDS RANGE DATE_RANGE LESS_THAN LESS_THAN_EQUAL_TO GREATER_THAN GREATER_THAN_EQUAL_TO SIMPLE TERM TERMS QUERY_STRING MATCH_ALL REGEX]
 	Type string `json:"type,omitempty"`
 
 	// A value for the search to match against
@@ -147,7 +147,7 @@ var searchCriteriaTypeTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["EXACT","CONTAINS","STARTS_WITH","REQUIRED_FIELDS","RANGE","DATE_RANGE","LESS_THAN","LESS_THAN_EQUAL_TO","GREATER_THAN","GREATER_THAN_EQUAL_TO","SIMPLE","TERM","TERMS","QUERY_STRING","MATCH_ALL"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["EXACT","CONTAINS","STARTS_WITH","REQUIRED_FIELDS","RANGE","DATE_RANGE","LESS_THAN","LESS_THAN_EQUAL_TO","GREATER_THAN","GREATER_THAN_EQUAL_TO","SIMPLE","TERM","TERMS","QUERY_STRING","MATCH_ALL","REGEX"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -201,6 +201,9 @@ const (
 
 	// SearchCriteriaTypeMATCHALL captures enum value "MATCH_ALL"
 	SearchCriteriaTypeMATCHALL string = "MATCH_ALL"
+
+	// SearchCriteriaTypeREGEX captures enum value "REGEX"
+	SearchCriteriaTypeREGEX string = "REGEX"
 )
 
 // prop value enum

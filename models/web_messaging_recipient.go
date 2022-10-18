@@ -26,6 +26,10 @@ type WebMessagingRecipient struct {
 	// Read Only: true
 	FirstName string `json:"firstName,omitempty"`
 
+	// URL of an image that represents the recipient.
+	// Read Only: true
+	Image string `json:"image,omitempty"`
+
 	// Last name of the recipient.
 	// Read Only: true
 	LastName string `json:"lastName,omitempty"`

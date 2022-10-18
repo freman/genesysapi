@@ -19,6 +19,9 @@ import (
 // swagger:model ConversationContentAttachment
 type ConversationContentAttachment struct {
 
+	// Size in bytes of the attachment content.
+	ContentSizeBytes int64 `json:"contentSizeBytes,omitempty"`
+
 	// Suggested file name for attachment.
 	Filename string `json:"filename,omitempty"`
 

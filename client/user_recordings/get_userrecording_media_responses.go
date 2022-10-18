@@ -29,6 +29,12 @@ func (o *GetUserrecordingMediaReader) ReadResponse(response runtime.ClientRespon
 			return nil, err
 		}
 		return result, nil
+	case 202:
+		result := NewGetUserrecordingMediaAccepted()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return result, nil
 	case 400:
 		result := NewGetUserrecordingMediaBadRequest()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -108,7 +114,7 @@ func NewGetUserrecordingMediaOK() *GetUserrecordingMediaOK {
 
 /*GetUserrecordingMediaOK handles this case with default header values.
 
-successful operation
+Operation was successful
 */
 type GetUserrecordingMediaOK struct {
 	Payload *models.DownloadResponse
@@ -123,6 +129,39 @@ func (o *GetUserrecordingMediaOK) GetPayload() *models.DownloadResponse {
 }
 
 func (o *GetUserrecordingMediaOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.DownloadResponse)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewGetUserrecordingMediaAccepted creates a GetUserrecordingMediaAccepted with default headers values
+func NewGetUserrecordingMediaAccepted() *GetUserrecordingMediaAccepted {
+	return &GetUserrecordingMediaAccepted{}
+}
+
+/*GetUserrecordingMediaAccepted handles this case with default header values.
+
+Recording is queued for transcoding
+*/
+type GetUserrecordingMediaAccepted struct {
+	Payload *models.DownloadResponse
+}
+
+func (o *GetUserrecordingMediaAccepted) Error() string {
+	return fmt.Sprintf("[GET /api/v2/userrecordings/{recordingId}/media][%d] getUserrecordingMediaAccepted  %+v", 202, o.Payload)
+}
+
+func (o *GetUserrecordingMediaAccepted) GetPayload() *models.DownloadResponse {
+	return o.Payload
+}
+
+func (o *GetUserrecordingMediaAccepted) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.DownloadResponse)
 

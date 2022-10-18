@@ -47,6 +47,10 @@ type API interface {
 	*/
 	GetWebdeploymentsDeployment(ctx context.Context, params *GetWebdeploymentsDeploymentParams) (*GetWebdeploymentsDeploymentOK, error)
 	/*
+	   GetWebdeploymentsDeploymentConfigurations gets active configuration for a given deployment
+	*/
+	GetWebdeploymentsDeploymentConfigurations(ctx context.Context, params *GetWebdeploymentsDeploymentConfigurationsParams) (*GetWebdeploymentsDeploymentConfigurationsOK, error)
+	/*
 	   GetWebdeploymentsDeployments gets deployments
 	*/
 	GetWebdeploymentsDeployments(ctx context.Context, params *GetWebdeploymentsDeploymentsParams) (*GetWebdeploymentsDeploymentsOK, error)
@@ -264,6 +268,31 @@ func (a *Client) GetWebdeploymentsDeployment(ctx context.Context, params *GetWeb
 		return nil, err
 	}
 	return result.(*GetWebdeploymentsDeploymentOK), nil
+
+}
+
+/*
+GetWebdeploymentsDeploymentConfigurations gets active configuration for a given deployment
+*/
+func (a *Client) GetWebdeploymentsDeploymentConfigurations(ctx context.Context, params *GetWebdeploymentsDeploymentConfigurationsParams) (*GetWebdeploymentsDeploymentConfigurationsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getWebdeploymentsDeploymentConfigurations",
+		Method:             "GET",
+		PathPattern:        "/api/v2/webdeployments/deployments/{deploymentId}/configurations",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetWebdeploymentsDeploymentConfigurationsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetWebdeploymentsDeploymentConfigurationsOK), nil
 
 }
 

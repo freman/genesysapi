@@ -63,7 +63,7 @@ for the post knowledge guest session documents search suggestions operation typi
 type PostKnowledgeGuestSessionDocumentsSearchSuggestionsParams struct {
 
 	/*Body*/
-	Body *models.KnowledgeDocumentSuggestionRequest
+	Body *models.KnowledgeGuestDocumentSuggestionRequest
 	/*SessionID
 	  Knowledge guest session ID.
 
@@ -109,13 +109,13 @@ func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsParams) SetHTTPClien
 }
 
 // WithBody adds the body to the post knowledge guest session documents search suggestions params
-func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsParams) WithBody(body *models.KnowledgeDocumentSuggestionRequest) *PostKnowledgeGuestSessionDocumentsSearchSuggestionsParams {
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsParams) WithBody(body *models.KnowledgeGuestDocumentSuggestionRequest) *PostKnowledgeGuestSessionDocumentsSearchSuggestionsParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the post knowledge guest session documents search suggestions params
-func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsParams) SetBody(body *models.KnowledgeDocumentSuggestionRequest) {
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsParams) SetBody(body *models.KnowledgeGuestDocumentSuggestionRequest) {
 	o.Body = body
 }
 

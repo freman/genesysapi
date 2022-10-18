@@ -21,7 +21,7 @@ type LearningModuleJobRequest struct {
 
 	// The type for the learning module job
 	// Required: true
-	// Enum: [Reassign]
+	// Enum: [Reassign GracefulArchive ImmediateArchive Unarchive]
 	Action *string `json:"action"`
 }
 
@@ -43,7 +43,7 @@ var learningModuleJobRequestTypeActionPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Reassign"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Reassign","GracefulArchive","ImmediateArchive","Unarchive"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -55,6 +55,15 @@ const (
 
 	// LearningModuleJobRequestActionReassign captures enum value "Reassign"
 	LearningModuleJobRequestActionReassign string = "Reassign"
+
+	// LearningModuleJobRequestActionGracefulArchive captures enum value "GracefulArchive"
+	LearningModuleJobRequestActionGracefulArchive string = "GracefulArchive"
+
+	// LearningModuleJobRequestActionImmediateArchive captures enum value "ImmediateArchive"
+	LearningModuleJobRequestActionImmediateArchive string = "ImmediateArchive"
+
+	// LearningModuleJobRequestActionUnarchive captures enum value "Unarchive"
+	LearningModuleJobRequestActionUnarchive string = "Unarchive"
 )
 
 // prop value enum

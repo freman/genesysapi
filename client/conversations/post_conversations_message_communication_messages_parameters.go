@@ -14,6 +14,7 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+	"github.com/go-openapi/swag"
 
 	"github.com/freman/genesysapi/models"
 )
@@ -21,8 +22,11 @@ import (
 // NewPostConversationsMessageCommunicationMessagesParams creates a new PostConversationsMessageCommunicationMessagesParams object
 // with the default values initialized.
 func NewPostConversationsMessageCommunicationMessagesParams() *PostConversationsMessageCommunicationMessagesParams {
-	var ()
+	var (
+		useNormalizedMessageDefault = bool(false)
+	)
 	return &PostConversationsMessageCommunicationMessagesParams{
+		UseNormalizedMessage: &useNormalizedMessageDefault,
 
 		timeout: cr.DefaultTimeout,
 	}
@@ -31,8 +35,11 @@ func NewPostConversationsMessageCommunicationMessagesParams() *PostConversations
 // NewPostConversationsMessageCommunicationMessagesParamsWithTimeout creates a new PostConversationsMessageCommunicationMessagesParams object
 // with the default values initialized, and the ability to set a timeout on a request
 func NewPostConversationsMessageCommunicationMessagesParamsWithTimeout(timeout time.Duration) *PostConversationsMessageCommunicationMessagesParams {
-	var ()
+	var (
+		useNormalizedMessageDefault = bool(false)
+	)
 	return &PostConversationsMessageCommunicationMessagesParams{
+		UseNormalizedMessage: &useNormalizedMessageDefault,
 
 		timeout: timeout,
 	}
@@ -41,8 +48,11 @@ func NewPostConversationsMessageCommunicationMessagesParamsWithTimeout(timeout t
 // NewPostConversationsMessageCommunicationMessagesParamsWithContext creates a new PostConversationsMessageCommunicationMessagesParams object
 // with the default values initialized, and the ability to set a context for a request
 func NewPostConversationsMessageCommunicationMessagesParamsWithContext(ctx context.Context) *PostConversationsMessageCommunicationMessagesParams {
-	var ()
+	var (
+		useNormalizedMessageDefault = bool(false)
+	)
 	return &PostConversationsMessageCommunicationMessagesParams{
+		UseNormalizedMessage: &useNormalizedMessageDefault,
 
 		Context: ctx,
 	}
@@ -51,9 +61,12 @@ func NewPostConversationsMessageCommunicationMessagesParamsWithContext(ctx conte
 // NewPostConversationsMessageCommunicationMessagesParamsWithHTTPClient creates a new PostConversationsMessageCommunicationMessagesParams object
 // with the default values initialized, and the ability to set a custom HTTPClient for a request
 func NewPostConversationsMessageCommunicationMessagesParamsWithHTTPClient(client *http.Client) *PostConversationsMessageCommunicationMessagesParams {
-	var ()
+	var (
+		useNormalizedMessageDefault = bool(false)
+	)
 	return &PostConversationsMessageCommunicationMessagesParams{
-		HTTPClient: client,
+		UseNormalizedMessage: &useNormalizedMessageDefault,
+		HTTPClient:           client,
 	}
 }
 
@@ -77,6 +90,11 @@ type PostConversationsMessageCommunicationMessagesParams struct {
 
 	*/
 	ConversationID string
+	/*UseNormalizedMessage
+	  If true, response removes deprecated fields (textBody, media, stickers)
+
+	*/
+	UseNormalizedMessage *bool
 
 	timeout    time.Duration
 	Context    context.Context
@@ -149,6 +167,17 @@ func (o *PostConversationsMessageCommunicationMessagesParams) SetConversationID(
 	o.ConversationID = conversationID
 }
 
+// WithUseNormalizedMessage adds the useNormalizedMessage to the post conversations message communication messages params
+func (o *PostConversationsMessageCommunicationMessagesParams) WithUseNormalizedMessage(useNormalizedMessage *bool) *PostConversationsMessageCommunicationMessagesParams {
+	o.SetUseNormalizedMessage(useNormalizedMessage)
+	return o
+}
+
+// SetUseNormalizedMessage adds the useNormalizedMessage to the post conversations message communication messages params
+func (o *PostConversationsMessageCommunicationMessagesParams) SetUseNormalizedMessage(useNormalizedMessage *bool) {
+	o.UseNormalizedMessage = useNormalizedMessage
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *PostConversationsMessageCommunicationMessagesParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -171,6 +200,22 @@ func (o *PostConversationsMessageCommunicationMessagesParams) WriteToRequest(r r
 	// path param conversationId
 	if err := r.SetPathParam("conversationId", o.ConversationID); err != nil {
 		return err
+	}
+
+	if o.UseNormalizedMessage != nil {
+
+		// query param useNormalizedMessage
+		var qrUseNormalizedMessage bool
+		if o.UseNormalizedMessage != nil {
+			qrUseNormalizedMessage = *o.UseNormalizedMessage
+		}
+		qUseNormalizedMessage := swag.FormatBool(qrUseNormalizedMessage)
+		if qUseNormalizedMessage != "" {
+			if err := r.SetQueryParam("useNormalizedMessage", qUseNormalizedMessage); err != nil {
+				return err
+			}
+		}
+
 	}
 
 	if len(res) > 0 {

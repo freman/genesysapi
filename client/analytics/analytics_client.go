@@ -54,6 +54,10 @@ type API interface {
 	*/
 	GetAnalyticsConversationsDetailsJobsAvailability(ctx context.Context, params *GetAnalyticsConversationsDetailsJobsAvailabilityParams) (*GetAnalyticsConversationsDetailsJobsAvailabilityOK, error)
 	/*
+	   GetAnalyticsDataretentionSettings gets analytics data retention setting
+	*/
+	GetAnalyticsDataretentionSettings(ctx context.Context, params *GetAnalyticsDataretentionSettingsParams) (*GetAnalyticsDataretentionSettingsOK, error)
+	/*
 	   GetAnalyticsReportingExports gets all view export requests for a user
 	*/
 	GetAnalyticsReportingExports(ctx context.Context, params *GetAnalyticsReportingExportsParams) (*GetAnalyticsReportingExportsOK, error)
@@ -198,6 +202,10 @@ type API interface {
 	   PostAnalyticsUsersObservationsQuery queries for user observations
 	*/
 	PostAnalyticsUsersObservationsQuery(ctx context.Context, params *PostAnalyticsUsersObservationsQueryParams) (*PostAnalyticsUsersObservationsQueryOK, error)
+	/*
+	   PutAnalyticsDataretentionSettings updates analytics data retention setting
+	*/
+	PutAnalyticsDataretentionSettings(ctx context.Context, params *PutAnalyticsDataretentionSettingsParams) (*PutAnalyticsDataretentionSettingsOK, error)
 	/*
 	   PutAnalyticsReportingSchedule updates a scheduled report job
 	*/
@@ -450,6 +458,31 @@ func (a *Client) GetAnalyticsConversationsDetailsJobsAvailability(ctx context.Co
 		return nil, err
 	}
 	return result.(*GetAnalyticsConversationsDetailsJobsAvailabilityOK), nil
+
+}
+
+/*
+GetAnalyticsDataretentionSettings gets analytics data retention setting
+*/
+func (a *Client) GetAnalyticsDataretentionSettings(ctx context.Context, params *GetAnalyticsDataretentionSettingsParams) (*GetAnalyticsDataretentionSettingsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getAnalyticsDataretentionSettings",
+		Method:             "GET",
+		PathPattern:        "/api/v2/analytics/dataretention/settings",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetAnalyticsDataretentionSettingsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetAnalyticsDataretentionSettingsOK), nil
 
 }
 
@@ -1341,6 +1374,31 @@ func (a *Client) PostAnalyticsUsersObservationsQuery(ctx context.Context, params
 		return nil, err
 	}
 	return result.(*PostAnalyticsUsersObservationsQueryOK), nil
+
+}
+
+/*
+PutAnalyticsDataretentionSettings updates analytics data retention setting
+*/
+func (a *Client) PutAnalyticsDataretentionSettings(ctx context.Context, params *PutAnalyticsDataretentionSettingsParams) (*PutAnalyticsDataretentionSettingsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "putAnalyticsDataretentionSettings",
+		Method:             "PUT",
+		PathPattern:        "/api/v2/analytics/dataretention/settings",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PutAnalyticsDataretentionSettingsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutAnalyticsDataretentionSettingsOK), nil
 
 }
 

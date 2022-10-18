@@ -59,6 +59,12 @@ func (o *PostLearningAssignmentResetReader) ReadResponse(response runtime.Client
 			return nil, err
 		}
 		return nil, result
+	case 409:
+		result := NewPostLearningAssignmentResetConflict()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostLearningAssignmentResetRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -288,6 +294,39 @@ func (o *PostLearningAssignmentResetRequestTimeout) GetPayload() *models.ErrorBo
 }
 
 func (o *PostLearningAssignmentResetRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPostLearningAssignmentResetConflict creates a PostLearningAssignmentResetConflict with default headers values
+func NewPostLearningAssignmentResetConflict() *PostLearningAssignmentResetConflict {
+	return &PostLearningAssignmentResetConflict{}
+}
+
+/*PostLearningAssignmentResetConflict handles this case with default header values.
+
+Conflict
+*/
+type PostLearningAssignmentResetConflict struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostLearningAssignmentResetConflict) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/assignments/{assignmentId}/reset][%d] postLearningAssignmentResetConflict  %+v", 409, o.Payload)
+}
+
+func (o *PostLearningAssignmentResetConflict) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostLearningAssignmentResetConflict) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ErrorBody)
 

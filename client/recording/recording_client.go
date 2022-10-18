@@ -147,6 +147,10 @@ type API interface {
 	*/
 	GetRecordingSettings(ctx context.Context, params *GetRecordingSettingsParams) (*GetRecordingSettingsOK, error)
 	/*
+	   GetRecordingsRetentionQuery queries for recording retention data
+	*/
+	GetRecordingsRetentionQuery(ctx context.Context, params *GetRecordingsRetentionQueryParams) (*GetRecordingsRetentionQueryOK, error)
+	/*
 	   GetRecordingsScreensessions retrieves a paged listing of screen recording sessions
 	*/
 	GetRecordingsScreensessions(ctx context.Context, params *GetRecordingsScreensessionsParams) (*GetRecordingsScreensessionsOK, error)
@@ -177,7 +181,7 @@ type API interface {
 	PostRecordingCrossplatformMediaretentionpolicies(ctx context.Context, params *PostRecordingCrossplatformMediaretentionpoliciesParams) (*PostRecordingCrossplatformMediaretentionpoliciesOK, error)
 	/*
 	   PostRecordingJobs creates a recording bulk job
-	   Each organization can run up to a maximum of two concurrent jobs that are either in pending or processing state.
+	   Each organization can run up to a maximum of two concurrent jobs that are either in pending or processing state. Furthermore, the recording:recording:viewSensitiveData permission is required to access recordings with PCI DSS and/or PII data. If the requester does not have that permission and includeRecordingsWithSensitiveData is set to true, then their request will be rejected.
 	*/
 	PostRecordingJobs(ctx context.Context, params *PostRecordingJobsParams) (*PostRecordingJobsAccepted, error)
 	/*
@@ -1084,6 +1088,31 @@ func (a *Client) GetRecordingSettings(ctx context.Context, params *GetRecordingS
 }
 
 /*
+GetRecordingsRetentionQuery queries for recording retention data
+*/
+func (a *Client) GetRecordingsRetentionQuery(ctx context.Context, params *GetRecordingsRetentionQueryParams) (*GetRecordingsRetentionQueryOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getRecordingsRetentionQuery",
+		Method:             "GET",
+		PathPattern:        "/api/v2/recordings/retention/query",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetRecordingsRetentionQueryReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetRecordingsRetentionQueryOK), nil
+
+}
+
+/*
 GetRecordingsScreensessions retrieves a paged listing of screen recording sessions
 */
 func (a *Client) GetRecordingsScreensessions(ctx context.Context, params *GetRecordingsScreensessionsParams) (*GetRecordingsScreensessionsOK, error) {
@@ -1263,7 +1292,7 @@ func (a *Client) PostRecordingCrossplatformMediaretentionpolicies(ctx context.Co
 /*
 PostRecordingJobs creates a recording bulk job
 
-Each organization can run up to a maximum of two concurrent jobs that are either in pending or processing state.
+Each organization can run up to a maximum of two concurrent jobs that are either in pending or processing state. Furthermore, the recording:recording:viewSensitiveData permission is required to access recordings with PCI DSS and/or PII data. If the requester does not have that permission and includeRecordingsWithSensitiveData is set to true, then their request will be rejected.
 */
 func (a *Client) PostRecordingJobs(ctx context.Context, params *PostRecordingJobsParams) (*PostRecordingJobsAccepted, error) {
 

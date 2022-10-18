@@ -94,6 +94,11 @@ type GetProfilesGroupsParams struct {
 
 	*/
 	ID []string
+	/*JabberID
+	  A list of jabberIds to fetch by bulk (cannot be used with the "id" parameter)
+
+	*/
+	JabberID []string
 	/*PageNumber
 	  Page number
 
@@ -159,6 +164,17 @@ func (o *GetProfilesGroupsParams) SetID(id []string) {
 	o.ID = id
 }
 
+// WithJabberID adds the jabberID to the get profiles groups params
+func (o *GetProfilesGroupsParams) WithJabberID(jabberID []string) *GetProfilesGroupsParams {
+	o.SetJabberID(jabberID)
+	return o
+}
+
+// SetJabberID adds the jabberId to the get profiles groups params
+func (o *GetProfilesGroupsParams) SetJabberID(jabberID []string) {
+	o.JabberID = jabberID
+}
+
 // WithPageNumber adds the pageNumber to the get profiles groups params
 func (o *GetProfilesGroupsParams) WithPageNumber(pageNumber *int32) *GetProfilesGroupsParams {
 	o.SetPageNumber(pageNumber)
@@ -205,6 +221,14 @@ func (o *GetProfilesGroupsParams) WriteToRequest(r runtime.ClientRequest, reg st
 	joinedID := swag.JoinByFormat(valuesID, "multi")
 	// query array param id
 	if err := r.SetQueryParam("id", joinedID...); err != nil {
+		return err
+	}
+
+	valuesJabberID := o.JabberID
+
+	joinedJabberID := swag.JoinByFormat(valuesJabberID, "multi")
+	// query array param jabberId
+	if err := r.SetQueryParam("jabberId", joinedJabberID...); err != nil {
 		return err
 	}
 

@@ -34,8 +34,8 @@ type WhatsAppIntegrationUpdateRequest struct {
 	// Read Only: true
 	ID string `json:"id,omitempty"`
 
-	// messaging setting
-	MessagingSetting *MessagingSettingReference `json:"messagingSetting,omitempty"`
+	// Defines the message settings to be applied for this integration
+	MessagingSetting *MessagingSettingRequestReference `json:"messagingSetting,omitempty"`
 
 	// WhatsApp Integration name
 	Name string `json:"name,omitempty"`

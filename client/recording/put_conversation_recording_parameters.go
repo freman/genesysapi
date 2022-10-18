@@ -14,6 +14,7 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+	"github.com/go-openapi/swag"
 
 	"github.com/freman/genesysapi/models"
 )
@@ -67,6 +68,11 @@ type PutConversationRecordingParams struct {
 
 	*/
 	Body *models.Recording
+	/*ClearExport
+	  Whether to clear the pending export for the recording
+
+	*/
+	ClearExport *bool
 	/*ConversationID
 	  Conversation ID
 
@@ -127,6 +133,17 @@ func (o *PutConversationRecordingParams) SetBody(body *models.Recording) {
 	o.Body = body
 }
 
+// WithClearExport adds the clearExport to the put conversation recording params
+func (o *PutConversationRecordingParams) WithClearExport(clearExport *bool) *PutConversationRecordingParams {
+	o.SetClearExport(clearExport)
+	return o
+}
+
+// SetClearExport adds the clearExport to the put conversation recording params
+func (o *PutConversationRecordingParams) SetClearExport(clearExport *bool) {
+	o.ClearExport = clearExport
+}
+
 // WithConversationID adds the conversationID to the put conversation recording params
 func (o *PutConversationRecordingParams) WithConversationID(conversationID string) *PutConversationRecordingParams {
 	o.SetConversationID(conversationID)
@@ -161,6 +178,22 @@ func (o *PutConversationRecordingParams) WriteToRequest(r runtime.ClientRequest,
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
 		}
+	}
+
+	if o.ClearExport != nil {
+
+		// query param clearExport
+		var qrClearExport bool
+		if o.ClearExport != nil {
+			qrClearExport = *o.ClearExport
+		}
+		qClearExport := swag.FormatBool(qrClearExport)
+		if qClearExport != "" {
+			if err := r.SetQueryParam("clearExport", qClearExport); err != nil {
+				return err
+			}
+		}
+
 	}
 
 	// path param conversationId

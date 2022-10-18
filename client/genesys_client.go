@@ -31,6 +31,8 @@ import (
 	"github.com/freman/genesysapi/client/content_management"
 	"github.com/freman/genesysapi/client/conversations"
 	"github.com/freman/genesysapi/client/data_extensions"
+	"github.com/freman/genesysapi/client/downloads"
+	"github.com/freman/genesysapi/client/events"
 	"github.com/freman/genesysapi/client/external_contacts"
 	"github.com/freman/genesysapi/client/fax"
 	"github.com/freman/genesysapi/client/gamification"
@@ -55,6 +57,7 @@ import (
 	"github.com/freman/genesysapi/client/organization_authorization"
 	"github.com/freman/genesysapi/client/outbound"
 	"github.com/freman/genesysapi/client/presence"
+	"github.com/freman/genesysapi/client/process_automation"
 	"github.com/freman/genesysapi/client/quality"
 	"github.com/freman/genesysapi/client/recording"
 	"github.com/freman/genesysapi/client/response_management"
@@ -168,6 +171,8 @@ func New(c Config) *Genesys {
 	cli.ContentManagement = content_management.New(transport, strfmt.Default, nil)
 	cli.Conversations = conversations.New(transport, strfmt.Default, nil)
 	cli.DataExtensions = data_extensions.New(transport, strfmt.Default, nil)
+	cli.Downloads = downloads.New(transport, strfmt.Default, nil)
+	cli.Events = events.New(transport, strfmt.Default, nil)
 	cli.ExternalContacts = external_contacts.New(transport, strfmt.Default, nil)
 	cli.Fax = fax.New(transport, strfmt.Default, nil)
 	cli.Gamification = gamification.New(transport, strfmt.Default, nil)
@@ -192,6 +197,7 @@ func New(c Config) *Genesys {
 	cli.OrganizationAuthorization = organization_authorization.New(transport, strfmt.Default, nil)
 	cli.Outbound = outbound.New(transport, strfmt.Default, nil)
 	cli.Presence = presence.New(transport, strfmt.Default, nil)
+	cli.ProcessAutomation = process_automation.New(transport, strfmt.Default, nil)
 	cli.Quality = quality.New(transport, strfmt.Default, nil)
 	cli.Recording = recording.New(transport, strfmt.Default, nil)
 	cli.ResponseManagement = response_management.New(transport, strfmt.Default, nil)
@@ -237,6 +243,8 @@ type Genesys struct {
 	ContentManagement               *content_management.Client
 	Conversations                   *conversations.Client
 	DataExtensions                  *data_extensions.Client
+	Downloads                       *downloads.Client
+	Events                          *events.Client
 	ExternalContacts                *external_contacts.Client
 	Fax                             *fax.Client
 	Gamification                    *gamification.Client
@@ -261,6 +269,7 @@ type Genesys struct {
 	OrganizationAuthorization       *organization_authorization.Client
 	Outbound                        *outbound.Client
 	Presence                        *presence.Client
+	ProcessAutomation               *process_automation.Client
 	Quality                         *quality.Client
 	Recording                       *recording.Client
 	ResponseManagement              *response_management.Client

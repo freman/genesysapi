@@ -29,7 +29,7 @@ type BuAgentScheduleActivity struct {
 	ExternalActivityID string `json:"externalActivityId,omitempty"`
 
 	// The type of the external activity associated with this activity, if applicable
-	// Enum: [Coaching]
+	// Enum: [Coaching Learning]
 	ExternalActivityType string `json:"externalActivityType,omitempty"`
 
 	// The length of this activity in minutes
@@ -68,7 +68,7 @@ var buAgentScheduleActivityTypeExternalActivityTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Coaching"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Coaching","Learning"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -80,6 +80,9 @@ const (
 
 	// BuAgentScheduleActivityExternalActivityTypeCoaching captures enum value "Coaching"
 	BuAgentScheduleActivityExternalActivityTypeCoaching string = "Coaching"
+
+	// BuAgentScheduleActivityExternalActivityTypeLearning captures enum value "Learning"
+	BuAgentScheduleActivityExternalActivityTypeLearning string = "Learning"
 )
 
 // prop value enum

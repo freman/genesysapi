@@ -33,7 +33,7 @@ type WebMessagingAttachment struct {
 
 	// The type of attachment this instance represents.
 	// Read Only: true
-	// Enum: [Image Video Audio File]
+	// Enum: [Image Video Audio File Link]
 	MediaType string `json:"mediaType,omitempty"`
 
 	// Attachment mime type (https://www.iana.org/assignments/media-types/media-types.xhtml).
@@ -71,7 +71,7 @@ var webMessagingAttachmentTypeMediaTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Image","Video","Audio","File"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Image","Video","Audio","File","Link"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -92,6 +92,9 @@ const (
 
 	// WebMessagingAttachmentMediaTypeFile captures enum value "File"
 	WebMessagingAttachmentMediaTypeFile string = "File"
+
+	// WebMessagingAttachmentMediaTypeLink captures enum value "Link"
+	WebMessagingAttachmentMediaTypeLink string = "Link"
 )
 
 // prop value enum

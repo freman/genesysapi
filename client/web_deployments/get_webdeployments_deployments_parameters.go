@@ -14,12 +14,13 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+	"github.com/go-openapi/swag"
 )
 
 // NewGetWebdeploymentsDeploymentsParams creates a new GetWebdeploymentsDeploymentsParams object
 // with the default values initialized.
 func NewGetWebdeploymentsDeploymentsParams() *GetWebdeploymentsDeploymentsParams {
-
+	var ()
 	return &GetWebdeploymentsDeploymentsParams{
 
 		timeout: cr.DefaultTimeout,
@@ -29,7 +30,7 @@ func NewGetWebdeploymentsDeploymentsParams() *GetWebdeploymentsDeploymentsParams
 // NewGetWebdeploymentsDeploymentsParamsWithTimeout creates a new GetWebdeploymentsDeploymentsParams object
 // with the default values initialized, and the ability to set a timeout on a request
 func NewGetWebdeploymentsDeploymentsParamsWithTimeout(timeout time.Duration) *GetWebdeploymentsDeploymentsParams {
-
+	var ()
 	return &GetWebdeploymentsDeploymentsParams{
 
 		timeout: timeout,
@@ -39,7 +40,7 @@ func NewGetWebdeploymentsDeploymentsParamsWithTimeout(timeout time.Duration) *Ge
 // NewGetWebdeploymentsDeploymentsParamsWithContext creates a new GetWebdeploymentsDeploymentsParams object
 // with the default values initialized, and the ability to set a context for a request
 func NewGetWebdeploymentsDeploymentsParamsWithContext(ctx context.Context) *GetWebdeploymentsDeploymentsParams {
-
+	var ()
 	return &GetWebdeploymentsDeploymentsParams{
 
 		Context: ctx,
@@ -49,7 +50,7 @@ func NewGetWebdeploymentsDeploymentsParamsWithContext(ctx context.Context) *GetW
 // NewGetWebdeploymentsDeploymentsParamsWithHTTPClient creates a new GetWebdeploymentsDeploymentsParams object
 // with the default values initialized, and the ability to set a custom HTTPClient for a request
 func NewGetWebdeploymentsDeploymentsParamsWithHTTPClient(client *http.Client) *GetWebdeploymentsDeploymentsParams {
-
+	var ()
 	return &GetWebdeploymentsDeploymentsParams{
 		HTTPClient: client,
 	}
@@ -59,6 +60,13 @@ func NewGetWebdeploymentsDeploymentsParamsWithHTTPClient(client *http.Client) *G
 for the get webdeployments deployments operation typically these are written to a http.Request
 */
 type GetWebdeploymentsDeploymentsParams struct {
+
+	/*Expand
+	  The specified entity attributes will be filled. Comma separated values expected. Valid values:
+
+	*/
+	Expand []string
+
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
@@ -97,6 +105,17 @@ func (o *GetWebdeploymentsDeploymentsParams) SetHTTPClient(client *http.Client) 
 	o.HTTPClient = client
 }
 
+// WithExpand adds the expand to the get webdeployments deployments params
+func (o *GetWebdeploymentsDeploymentsParams) WithExpand(expand []string) *GetWebdeploymentsDeploymentsParams {
+	o.SetExpand(expand)
+	return o
+}
+
+// SetExpand adds the expand to the get webdeployments deployments params
+func (o *GetWebdeploymentsDeploymentsParams) SetExpand(expand []string) {
+	o.Expand = expand
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *GetWebdeploymentsDeploymentsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -104,6 +123,14 @@ func (o *GetWebdeploymentsDeploymentsParams) WriteToRequest(r runtime.ClientRequ
 		return err
 	}
 	var res []error
+
+	valuesExpand := o.Expand
+
+	joinedExpand := swag.JoinByFormat(valuesExpand, "multi")
+	// query array param expand
+	if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
+		return err
+	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)

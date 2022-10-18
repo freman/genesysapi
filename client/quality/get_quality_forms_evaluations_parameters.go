@@ -82,7 +82,7 @@ for the get quality forms evaluations operation typically these are written to a
 type GetQualityFormsEvaluationsParams struct {
 
 	/*Expand
-	  Expand
+	  If 'expand=publishHistory', then each unpublished evaluation form includes a listing of its published versions
 
 	*/
 	Expand *string

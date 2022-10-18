@@ -19,7 +19,7 @@ import (
 // swagger:model InboundRoute
 type InboundRoute struct {
 
-	// The recipients that should be  automatically blind copied on outbound emails associated with this InboundRoute.
+	// The recipients that should be automatically blind copied on outbound emails associated with this InboundRoute.
 	AutoBcc []*EmailAddress `json:"autoBcc"`
 
 	// The flow to use for processing the email.
@@ -59,6 +59,9 @@ type InboundRoute struct {
 	// Read Only: true
 	// Format: uri
 	SelfURI strfmt.URI `json:"selfUri,omitempty"`
+
+	// The configuration for the canned response signature that will be appended to outbound emails sent via this route
+	Signature *Signature `json:"signature,omitempty"`
 
 	// The skills to use for routing.
 	Skills []*DomainEntityRef `json:"skills"`
@@ -100,6 +103,10 @@ func (m *InboundRoute) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateSelfURI(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSignature(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -240,6 +247,24 @@ func (m *InboundRoute) validateSelfURI(formats strfmt.Registry) error {
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *InboundRoute) validateSignature(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Signature) { // not required
+		return nil
+	}
+
+	if m.Signature != nil {
+		if err := m.Signature.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("signature")
+			}
+			return err
+		}
 	}
 
 	return nil

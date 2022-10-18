@@ -59,6 +59,12 @@ type AnalyticsSession struct {
 	// Flag that indicates that the identity of the customer has been asserted as verified by the provider.
 	Authenticated bool `json:"authenticated"`
 
+	// The participantId being barged in on (if someone (e.g. an agent) is being barged in on, this would correspond to one of the other participantIds present in the conversation)
+	BargedParticipantID string `json:"bargedParticipantId,omitempty"`
+
+	// Blind carbon copy email address(es)
+	Bcc []string `json:"bcc"`
+
 	// Callback phone number(s)
 	CallbackNumbers []string `json:"callbackNumbers"`
 
@@ -68,6 +74,9 @@ type AnalyticsSession struct {
 
 	// The name of the user requesting a call back
 	CallbackUserName string `json:"callbackUserName,omitempty"`
+
+	// Carbon copy email address(es)
+	Cc []string `json:"cc"`
 
 	// The participantId being coached (if someone (e.g. an agent) is being coached, this would correspond to one of the other participantIds present in the conversation)
 	CoachedParticipantID string `json:"coachedParticipantId,omitempty"`

@@ -20,6 +20,10 @@ import (
 // swagger:model AssignedLearningModule
 type AssignedLearningModule struct {
 
+	// The mode of archival for learning module
+	// Enum: [Graceful Immediate]
+	ArchivalMode string `json:"archivalMode,omitempty"`
+
 	// The assessment form for learning module
 	AssessmentForm *AssessmentForm `json:"assessmentForm,omitempty"`
 
@@ -107,6 +111,10 @@ type AssignedLearningModule struct {
 func (m *AssignedLearningModule) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateArchivalMode(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateAssessmentForm(formats); err != nil {
 		res = append(res, err)
 	}
@@ -170,6 +178,49 @@ func (m *AssignedLearningModule) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+var assignedLearningModuleTypeArchivalModePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Graceful","Immediate"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		assignedLearningModuleTypeArchivalModePropEnum = append(assignedLearningModuleTypeArchivalModePropEnum, v)
+	}
+}
+
+const (
+
+	// AssignedLearningModuleArchivalModeGraceful captures enum value "Graceful"
+	AssignedLearningModuleArchivalModeGraceful string = "Graceful"
+
+	// AssignedLearningModuleArchivalModeImmediate captures enum value "Immediate"
+	AssignedLearningModuleArchivalModeImmediate string = "Immediate"
+)
+
+// prop value enum
+func (m *AssignedLearningModule) validateArchivalModeEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, assignedLearningModuleTypeArchivalModePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *AssignedLearningModule) validateArchivalMode(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.ArchivalMode) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateArchivalModeEnum("archivalMode", "body", m.ArchivalMode); err != nil {
+		return err
+	}
+
 	return nil
 }
 

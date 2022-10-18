@@ -123,14 +123,6 @@ type API interface {
 	*/
 	GetIntegrationsCredentialsTypes(ctx context.Context, params *GetIntegrationsCredentialsTypesParams) (*GetIntegrationsCredentialsTypesOK, error)
 	/*
-	   GetIntegrationsEventlog lists all events
-	*/
-	GetIntegrationsEventlog(ctx context.Context, params *GetIntegrationsEventlogParams) (*GetIntegrationsEventlogOK, error)
-	/*
-	   GetIntegrationsEventlogEventID gets a single event
-	*/
-	GetIntegrationsEventlogEventID(ctx context.Context, params *GetIntegrationsEventlogEventIDParams) (*GetIntegrationsEventlogEventIDOK, error)
-	/*
 	   GetIntegrationsSpeechDialogflowAgent gets details about a dialogflow agent
 	*/
 	GetIntegrationsSpeechDialogflowAgent(ctx context.Context, params *GetIntegrationsSpeechDialogflowAgentParams) (*GetIntegrationsSpeechDialogflowAgentOK, error)
@@ -234,10 +226,6 @@ type API interface {
 	   PostIntegrationsCredentials creates a set of credentials
 	*/
 	PostIntegrationsCredentials(ctx context.Context, params *PostIntegrationsCredentialsParams) (*PostIntegrationsCredentialsOK, error)
-	/*
-	   PostIntegrationsWorkforcemanagementVendorconnection adds a vendor connection
-	*/
-	PostIntegrationsWorkforcemanagementVendorconnection(ctx context.Context, params *PostIntegrationsWorkforcemanagementVendorconnectionParams) (*PostIntegrationsWorkforcemanagementVendorconnectionOK, error)
 	/*
 	   PutIntegrationConfigCurrent updates integration configuration
 	*/
@@ -927,56 +915,6 @@ func (a *Client) GetIntegrationsCredentialsTypes(ctx context.Context, params *Ge
 }
 
 /*
-GetIntegrationsEventlog lists all events
-*/
-func (a *Client) GetIntegrationsEventlog(ctx context.Context, params *GetIntegrationsEventlogParams) (*GetIntegrationsEventlogOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "getIntegrationsEventlog",
-		Method:             "GET",
-		PathPattern:        "/api/v2/integrations/eventlog",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetIntegrationsEventlogReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*GetIntegrationsEventlogOK), nil
-
-}
-
-/*
-GetIntegrationsEventlogEventID gets a single event
-*/
-func (a *Client) GetIntegrationsEventlogEventID(ctx context.Context, params *GetIntegrationsEventlogEventIDParams) (*GetIntegrationsEventlogEventIDOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "getIntegrationsEventlogEventId",
-		Method:             "GET",
-		PathPattern:        "/api/v2/integrations/eventlog/{eventId}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetIntegrationsEventlogEventIDReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*GetIntegrationsEventlogEventIDOK), nil
-
-}
-
-/*
 GetIntegrationsSpeechDialogflowAgent gets details about a dialogflow agent
 */
 func (a *Client) GetIntegrationsSpeechDialogflowAgent(ctx context.Context, params *GetIntegrationsSpeechDialogflowAgentParams) (*GetIntegrationsSpeechDialogflowAgentOK, error) {
@@ -1623,31 +1561,6 @@ func (a *Client) PostIntegrationsCredentials(ctx context.Context, params *PostIn
 		return nil, err
 	}
 	return result.(*PostIntegrationsCredentialsOK), nil
-
-}
-
-/*
-PostIntegrationsWorkforcemanagementVendorconnection adds a vendor connection
-*/
-func (a *Client) PostIntegrationsWorkforcemanagementVendorconnection(ctx context.Context, params *PostIntegrationsWorkforcemanagementVendorconnectionParams) (*PostIntegrationsWorkforcemanagementVendorconnectionOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "postIntegrationsWorkforcemanagementVendorconnection",
-		Method:             "POST",
-		PathPattern:        "/api/v2/integrations/workforcemanagement/vendorconnection",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PostIntegrationsWorkforcemanagementVendorconnectionReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*PostIntegrationsWorkforcemanagementVendorconnectionOK), nil
 
 }
 

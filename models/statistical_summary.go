@@ -39,6 +39,12 @@ type StatisticalSummary struct {
 	// numerator
 	Numerator float64 `json:"numerator,omitempty"`
 
+	// p95
+	P95 int64 `json:"p95,omitempty"`
+
+	// p99
+	P99 int64 `json:"p99,omitempty"`
+
 	// ratio
 	Ratio float64 `json:"ratio,omitempty"`
 

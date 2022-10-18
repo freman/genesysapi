@@ -14,7 +14,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// ConversationContentCard conversation content card
+// ConversationContentCard Card content object.
 //
 // swagger:model ConversationContentCard
 type ConversationContentCard struct {

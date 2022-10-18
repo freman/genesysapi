@@ -17,6 +17,9 @@ import (
 // swagger:model ResponseSet
 type ResponseSet struct {
 
+	// Whether to enable answering machine detection
+	AmdSpeechDistinguishEnabled bool `json:"amdSpeechDistinguishEnabled"`
+
 	// Whether to enable answering machine beep detection
 	BeepDetectionEnabled bool `json:"beepDetectionEnabled"`
 

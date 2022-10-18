@@ -24,6 +24,9 @@ type WritableDialerContact struct {
 	// Required: true
 	ContactListID *string `json:"contactListId"`
 
+	// A map of media types (Voice, SMS and Email) to ContactableStatus, which indicates if the contact can be contacted using the specified media type.
+	ContactableStatus map[string]ContactableStatus `json:"contactableStatus,omitempty"`
+
 	// An ordered map of the contact's columns and corresponding values.
 	// Required: true
 	Data map[string]interface{} `json:"data"`
@@ -44,6 +47,10 @@ func (m *WritableDialerContact) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateContactListID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateContactableStatus(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -69,6 +76,28 @@ func (m *WritableDialerContact) validateContactListID(formats strfmt.Registry) e
 
 	if err := validate.Required("contactListId", "body", m.ContactListID); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *WritableDialerContact) validateContactableStatus(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.ContactableStatus) { // not required
+		return nil
+	}
+
+	for k := range m.ContactableStatus {
+
+		if err := validate.Required("contactableStatus"+"."+k, "body", m.ContactableStatus[k]); err != nil {
+			return err
+		}
+		if val, ok := m.ContactableStatus[k]; ok {
+			if err := val.Validate(formats); err != nil {
+				return err
+			}
+		}
+
 	}
 
 	return nil

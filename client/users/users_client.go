@@ -160,6 +160,11 @@ type API interface {
 	*/
 	PatchUsersBulk(ctx context.Context, params *PatchUsersBulkParams) (*PatchUsersBulkOK, error)
 	/*
+	   PostUserExternalid creates mapping between external identifier and user limit 100 per entity
+	   Authority Name and External key are case sensitive.
+	*/
+	PostUserExternalid(ctx context.Context, params *PostUserExternalidParams) (*PostUserExternalidOK, *PostUserExternalidCreated, error)
+	/*
 	   PostUserInvite sends an activation email to the user
 	*/
 	PostUserInvite(ctx context.Context, params *PostUserInviteParams) (*PostUserInviteNoContent, error)
@@ -1108,6 +1113,39 @@ func (a *Client) PatchUsersBulk(ctx context.Context, params *PatchUsersBulkParam
 		return nil, err
 	}
 	return result.(*PatchUsersBulkOK), nil
+
+}
+
+/*
+PostUserExternalid creates mapping between external identifier and user limit 100 per entity
+
+Authority Name and External key are case sensitive.
+*/
+func (a *Client) PostUserExternalid(ctx context.Context, params *PostUserExternalidParams) (*PostUserExternalidOK, *PostUserExternalidCreated, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postUserExternalid",
+		Method:             "POST",
+		PathPattern:        "/api/v2/users/{userId}/externalid",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostUserExternalidReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PostUserExternalidOK:
+		return value, nil, nil
+	case *PostUserExternalidCreated:
+		return nil, value, nil
+	}
+	return nil, nil, nil
 
 }
 

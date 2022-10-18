@@ -25,7 +25,7 @@ type UserDetailsQuery struct {
 	Interval *string `json:"interval"`
 
 	// Sort the result set in ascending/descending order. Default is ascending
-	// Enum: [asc desc]
+	// Enum: [asc desc unordered]
 	Order string `json:"order,omitempty"`
 
 	// Page size and number to control iterating through large result sets. Default page size is 25
@@ -102,7 +102,7 @@ var userDetailsQueryTypeOrderPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["asc","desc"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["asc","desc","unordered"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -117,6 +117,9 @@ const (
 
 	// UserDetailsQueryOrderDesc captures enum value "desc"
 	UserDetailsQueryOrderDesc string = "desc"
+
+	// UserDetailsQueryOrderUnordered captures enum value "unordered"
+	UserDetailsQueryOrderUnordered string = "unordered"
 )
 
 // prop value enum

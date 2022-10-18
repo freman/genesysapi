@@ -34,7 +34,7 @@ type MessageContent struct {
 
 	// Type of this content element.
 	// Required: true
-	// Enum: [Attachment Location QuickReply Notification GenericTemplate ListTemplate Postback Reactions Mention ButtonResponse Story Card Carousel]
+	// Enum: [Attachment Location QuickReply Notification GenericTemplate ListTemplate Postback Reactions Mention ButtonResponse Story Card Carousel Text QuickReplyV2]
 	ContentType *string `json:"contentType"`
 
 	// Generic content (Deprecated).
@@ -55,6 +55,9 @@ type MessageContent struct {
 	// Quick reply content.
 	QuickReply *ContentQuickReply `json:"quickReply,omitempty"`
 
+	// Quick reply V2 content.
+	QuickReplyV2 *ContentQuickReplyV2 `json:"quickReplyV2,omitempty"`
+
 	// A set of reactions to a message.
 	Reactions []*ContentReaction `json:"reactions"`
 
@@ -63,6 +66,9 @@ type MessageContent struct {
 
 	// Template notification content.
 	Template *ContentNotificationTemplate `json:"template,omitempty"`
+
+	// Text content.
+	Text *ContentText `json:"text,omitempty"`
 }
 
 // Validate validates this message content
@@ -113,6 +119,10 @@ func (m *MessageContent) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateQuickReplyV2(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateReactions(formats); err != nil {
 		res = append(res, err)
 	}
@@ -122,6 +132,10 @@ func (m *MessageContent) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateTemplate(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateText(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -207,7 +221,7 @@ var messageContentTypeContentTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Attachment","Location","QuickReply","Notification","GenericTemplate","ListTemplate","Postback","Reactions","Mention","ButtonResponse","Story","Card","Carousel"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Attachment","Location","QuickReply","Notification","GenericTemplate","ListTemplate","Postback","Reactions","Mention","ButtonResponse","Story","Card","Carousel","Text","QuickReplyV2"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -255,6 +269,12 @@ const (
 
 	// MessageContentContentTypeCarousel captures enum value "Carousel"
 	MessageContentContentTypeCarousel string = "Carousel"
+
+	// MessageContentContentTypeText captures enum value "Text"
+	MessageContentContentTypeText string = "Text"
+
+	// MessageContentContentTypeQuickReplyV2 captures enum value "QuickReplyV2"
+	MessageContentContentTypeQuickReplyV2 string = "QuickReplyV2"
 )
 
 // prop value enum
@@ -387,6 +407,24 @@ func (m *MessageContent) validateQuickReply(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *MessageContent) validateQuickReplyV2(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.QuickReplyV2) { // not required
+		return nil
+	}
+
+	if m.QuickReplyV2 != nil {
+		if err := m.QuickReplyV2.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("quickReplyV2")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *MessageContent) validateReactions(formats strfmt.Registry) error {
 
 	if swag.IsZero(m.Reactions) { // not required
@@ -440,6 +478,24 @@ func (m *MessageContent) validateTemplate(formats strfmt.Registry) error {
 		if err := m.Template.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("template")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *MessageContent) validateText(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Text) { // not required
+		return nil
+	}
+
+	if m.Text != nil {
+		if err := m.Text.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("text")
 			}
 			return err
 		}

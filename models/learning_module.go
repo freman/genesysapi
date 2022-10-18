@@ -20,6 +20,10 @@ import (
 // swagger:model LearningModule
 type LearningModule struct {
 
+	// The mode of archival for learning module
+	// Enum: [Graceful Immediate]
+	ArchivalMode string `json:"archivalMode,omitempty"`
+
 	// The assessment form for learning module
 	AssessmentForm *AssessmentForm `json:"assessmentForm,omitempty"`
 
@@ -104,6 +108,10 @@ type LearningModule struct {
 func (m *LearningModule) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateArchivalMode(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateAssessmentForm(formats); err != nil {
 		res = append(res, err)
 	}
@@ -163,6 +171,49 @@ func (m *LearningModule) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+var learningModuleTypeArchivalModePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Graceful","Immediate"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		learningModuleTypeArchivalModePropEnum = append(learningModuleTypeArchivalModePropEnum, v)
+	}
+}
+
+const (
+
+	// LearningModuleArchivalModeGraceful captures enum value "Graceful"
+	LearningModuleArchivalModeGraceful string = "Graceful"
+
+	// LearningModuleArchivalModeImmediate captures enum value "Immediate"
+	LearningModuleArchivalModeImmediate string = "Immediate"
+)
+
+// prop value enum
+func (m *LearningModule) validateArchivalModeEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, learningModuleTypeArchivalModePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *LearningModule) validateArchivalMode(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.ArchivalMode) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateArchivalModeEnum("archivalMode", "body", m.ArchivalMode); err != nil {
+		return err
+	}
+
 	return nil
 }
 

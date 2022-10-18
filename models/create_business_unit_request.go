@@ -27,7 +27,7 @@ type CreateBusinessUnitRequest struct {
 
 	// Configuration for the business unit
 	// Required: true
-	Settings *CreateBusinessUnitSettings `json:"settings"`
+	Settings *CreateBusinessUnitSettingsRequest `json:"settings"`
 }
 
 // Validate validates this create business unit request

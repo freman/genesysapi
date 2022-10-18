@@ -32,6 +32,9 @@ type Response struct {
 	// Format: date-time
 	DateCreated strfmt.DateTime `json:"dateCreated,omitempty"`
 
+	// Footer template definition for responseType.Footer.
+	Footer *FooterTemplate `json:"footer,omitempty"`
+
 	// The globally unique identifier for the object.
 	// Read Only: true
 	ID string `json:"id,omitempty"`
@@ -51,7 +54,7 @@ type Response struct {
 	Name string `json:"name,omitempty"`
 
 	// The response type represented by the response.
-	// Enum: [MessagingTemplate CampaignSmsTemplate CampaignEmailTemplate]
+	// Enum: [MessagingTemplate CampaignSmsTemplate CampaignEmailTemplate Footer]
 	ResponseType string `json:"responseType,omitempty"`
 
 	// The URI for this object
@@ -86,6 +89,10 @@ func (m *Response) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateDateCreated(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateFooter(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -178,6 +185,24 @@ func (m *Response) validateDateCreated(formats strfmt.Registry) error {
 
 	if err := validate.FormatOf("dateCreated", "body", "date-time", m.DateCreated.String(), formats); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *Response) validateFooter(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Footer) { // not required
+		return nil
+	}
+
+	if m.Footer != nil {
+		if err := m.Footer.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("footer")
+			}
+			return err
+		}
 	}
 
 	return nil
@@ -276,7 +301,7 @@ var responseTypeResponseTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["MessagingTemplate","CampaignSmsTemplate","CampaignEmailTemplate"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["MessagingTemplate","CampaignSmsTemplate","CampaignEmailTemplate","Footer"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -294,6 +319,9 @@ const (
 
 	// ResponseResponseTypeCampaignEmailTemplate captures enum value "CampaignEmailTemplate"
 	ResponseResponseTypeCampaignEmailTemplate string = "CampaignEmailTemplate"
+
+	// ResponseResponseTypeFooter captures enum value "Footer"
+	ResponseResponseTypeFooter string = "Footer"
 )
 
 // prop value enum

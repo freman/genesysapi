@@ -29,7 +29,7 @@ type AuditQueryRequest struct {
 
 	// Name of the service to query audits for.
 	// Required: true
-	// Enum: [AnalyticsReporting Architect Coaching ContactCenter ContentManagement Datatables Directory DynamicSchema Gamification Groups Integrations Knowledge LanguageUnderstanding Learning Limits Outbound PeoplePermissions EmployeePerformance PredictiveEngagement Presence Quality ResponseManagement Routing SpeechAndTextAnalytics Telephony TopicsDefinitions Triggers ProcessAutomation Voicemail WebDeployments Webhooks WorkforceManagement Messaging Supportability Callback Workitems SCIM NumberPurchasing Marketplace]
+	// Enum: [AgentConfig AnalyticsReporting Architect Coaching ContactCenter ContentManagement Datatables Directory DynamicSchema Gamification Groups Integrations Knowledge LanguageUnderstanding Learning Limits LogCapture Outbound PeoplePermissions EmployeePerformance PredictiveEngagement Presence Quality ResponseManagement Routing SpeechAndTextAnalytics Telephony TopicsDefinitions Triggers ProcessAutomation Voicemail WebDeployments Webhooks WorkforceManagement Messaging Supportability Callback Workitems SCIM NumberPurchasing Marketplace]
 	ServiceName *string `json:"serviceName"`
 
 	// Sort parameter for the query.
@@ -100,7 +100,7 @@ var auditQueryRequestTypeServiceNamePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["AnalyticsReporting","Architect","Coaching","ContactCenter","ContentManagement","Datatables","Directory","DynamicSchema","Gamification","Groups","Integrations","Knowledge","LanguageUnderstanding","Learning","Limits","Outbound","PeoplePermissions","EmployeePerformance","PredictiveEngagement","Presence","Quality","ResponseManagement","Routing","SpeechAndTextAnalytics","Telephony","TopicsDefinitions","Triggers","ProcessAutomation","Voicemail","WebDeployments","Webhooks","WorkforceManagement","Messaging","Supportability","Callback","Workitems","SCIM","NumberPurchasing","Marketplace"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["AgentConfig","AnalyticsReporting","Architect","Coaching","ContactCenter","ContentManagement","Datatables","Directory","DynamicSchema","Gamification","Groups","Integrations","Knowledge","LanguageUnderstanding","Learning","Limits","LogCapture","Outbound","PeoplePermissions","EmployeePerformance","PredictiveEngagement","Presence","Quality","ResponseManagement","Routing","SpeechAndTextAnalytics","Telephony","TopicsDefinitions","Triggers","ProcessAutomation","Voicemail","WebDeployments","Webhooks","WorkforceManagement","Messaging","Supportability","Callback","Workitems","SCIM","NumberPurchasing","Marketplace"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -109,6 +109,9 @@ func init() {
 }
 
 const (
+
+	// AuditQueryRequestServiceNameAgentConfig captures enum value "AgentConfig"
+	AuditQueryRequestServiceNameAgentConfig string = "AgentConfig"
 
 	// AuditQueryRequestServiceNameAnalyticsReporting captures enum value "AnalyticsReporting"
 	AuditQueryRequestServiceNameAnalyticsReporting string = "AnalyticsReporting"
@@ -154,6 +157,9 @@ const (
 
 	// AuditQueryRequestServiceNameLimits captures enum value "Limits"
 	AuditQueryRequestServiceNameLimits string = "Limits"
+
+	// AuditQueryRequestServiceNameLogCapture captures enum value "LogCapture"
+	AuditQueryRequestServiceNameLogCapture string = "LogCapture"
 
 	// AuditQueryRequestServiceNameOutbound captures enum value "Outbound"
 	AuditQueryRequestServiceNameOutbound string = "Outbound"

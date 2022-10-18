@@ -37,7 +37,7 @@ type MessageData struct {
 	// Read Only: true
 	ID string `json:"id,omitempty"`
 
-	// The media details associated to a message.
+	// The media details associated to a message. (Deprecated - Instead use normalizedMessage.content[index].attachment)
 	Media []*MessageMedia `json:"media"`
 
 	// Type of text messenger.
@@ -68,10 +68,10 @@ type MessageData struct {
 	// Enum: [queued sent failed received delivery-success delivery-failed read removed]
 	Status *string `json:"status"`
 
-	// The sticker details associated to a message.
+	// The sticker details associated to a message. (Deprecated - Instead use normalizedMessage.content[index].attachment
 	Stickers []*MessageSticker `json:"stickers"`
 
-	// The body of the text message.
+	// The body of the text message. (Deprecated - Instead use normalizedMessage.text)
 	// Required: true
 	TextBody *string `json:"textBody"`
 

@@ -27,6 +27,9 @@ type VoicemailOrganizationPolicy struct {
 	// Read Only: true
 	Enabled *bool `json:"enabled"`
 
+	// Whether to include the voicemail transcription in the notification email
+	IncludeEmailTranscriptions bool `json:"includeEmailTranscriptions"`
+
 	// Whether user should be prompted with a confirmation prompt when connecting to a Group Ring call
 	InteractiveResponseRequired bool `json:"interactiveResponseRequired"`
 

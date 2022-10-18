@@ -21,6 +21,9 @@ type EmailColumn struct {
 	// Required: true
 	ColumnName *string `json:"columnName"`
 
+	// A column that indicates the timezone to use for a given contact when checking contactable times.
+	ContactableTimeColumn string `json:"contactableTimeColumn,omitempty"`
+
 	// Indicates the type of the email column. For example, 'work' or 'personal'.
 	// Required: true
 	Type *string `json:"type"`

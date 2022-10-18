@@ -72,7 +72,7 @@ type AnalyticsConversationSegment struct {
 	SegmentStart strfmt.DateTime `json:"segmentStart,omitempty"`
 
 	// The activity that takes place in the segment, such as hold or interact
-	// Enum: [alert callback coaching contacting converting delay dialing hold interact ivr monitoring scheduled sharing system transmitting unknown uploading voicemail wrapup]
+	// Enum: [alert barging callback coaching contacting converting delay dialing hold interact ivr monitoring scheduled sharing system transmitting unknown uploading voicemail wrapup]
 	SegmentType string `json:"segmentType,omitempty"`
 
 	// SIP response code(s)
@@ -299,7 +299,7 @@ var analyticsConversationSegmentTypeSegmentTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["alert","callback","coaching","contacting","converting","delay","dialing","hold","interact","ivr","monitoring","scheduled","sharing","system","transmitting","unknown","uploading","voicemail","wrapup"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["alert","barging","callback","coaching","contacting","converting","delay","dialing","hold","interact","ivr","monitoring","scheduled","sharing","system","transmitting","unknown","uploading","voicemail","wrapup"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -311,6 +311,9 @@ const (
 
 	// AnalyticsConversationSegmentSegmentTypeAlert captures enum value "alert"
 	AnalyticsConversationSegmentSegmentTypeAlert string = "alert"
+
+	// AnalyticsConversationSegmentSegmentTypeBarging captures enum value "barging"
+	AnalyticsConversationSegmentSegmentTypeBarging string = "barging"
 
 	// AnalyticsConversationSegmentSegmentTypeCallback captures enum value "callback"
 	AnalyticsConversationSegmentSegmentTypeCallback string = "callback"

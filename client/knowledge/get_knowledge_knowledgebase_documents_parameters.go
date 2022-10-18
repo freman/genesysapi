@@ -76,6 +76,11 @@ type GetKnowledgeKnowledgebaseDocumentsParams struct {
 
 	*/
 	CategoryID []string
+	/*DocumentID
+	  Retrieves the specified documents, comma separated values expected.
+
+	*/
+	DocumentID []string
 	/*Expand
 	  The specified entity attributes will be filled. Comma separated values expected.
 
@@ -181,6 +186,17 @@ func (o *GetKnowledgeKnowledgebaseDocumentsParams) WithCategoryID(categoryID []s
 // SetCategoryID adds the categoryId to the get knowledge knowledgebase documents params
 func (o *GetKnowledgeKnowledgebaseDocumentsParams) SetCategoryID(categoryID []string) {
 	o.CategoryID = categoryID
+}
+
+// WithDocumentID adds the documentID to the get knowledge knowledgebase documents params
+func (o *GetKnowledgeKnowledgebaseDocumentsParams) WithDocumentID(documentID []string) *GetKnowledgeKnowledgebaseDocumentsParams {
+	o.SetDocumentID(documentID)
+	return o
+}
+
+// SetDocumentID adds the documentId to the get knowledge knowledgebase documents params
+func (o *GetKnowledgeKnowledgebaseDocumentsParams) SetDocumentID(documentID []string) {
+	o.DocumentID = documentID
 }
 
 // WithExpand adds the expand to the get knowledge knowledgebase documents params
@@ -305,6 +321,14 @@ func (o *GetKnowledgeKnowledgebaseDocumentsParams) WriteToRequest(r runtime.Clie
 	joinedCategoryID := swag.JoinByFormat(valuesCategoryID, "multi")
 	// query array param categoryId
 	if err := r.SetQueryParam("categoryId", joinedCategoryID...); err != nil {
+		return err
+	}
+
+	valuesDocumentID := o.DocumentID
+
+	joinedDocumentID := swag.JoinByFormat(valuesDocumentID, "multi")
+	// query array param documentId
+	if err := r.SetQueryParam("documentId", joinedDocumentID...); err != nil {
 		return err
 	}
 

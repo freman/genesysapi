@@ -36,6 +36,9 @@ type PatchActionTemplate struct {
 	// Whether the action template is currently active, inactive or deleted.
 	// Enum: [Active Inactive Deleted]
 	State string `json:"state,omitempty"`
+
+	// The version of the action template.
+	Version int32 `json:"version,omitempty"`
 }
 
 // Validate validates this patch action template

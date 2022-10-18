@@ -14,13 +14,17 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+	"github.com/go-openapi/swag"
 )
 
 // NewGetConversationsMessageMessageParams creates a new GetConversationsMessageMessageParams object
 // with the default values initialized.
 func NewGetConversationsMessageMessageParams() *GetConversationsMessageMessageParams {
-	var ()
+	var (
+		useNormalizedMessageDefault = bool(false)
+	)
 	return &GetConversationsMessageMessageParams{
+		UseNormalizedMessage: &useNormalizedMessageDefault,
 
 		timeout: cr.DefaultTimeout,
 	}
@@ -29,8 +33,11 @@ func NewGetConversationsMessageMessageParams() *GetConversationsMessageMessagePa
 // NewGetConversationsMessageMessageParamsWithTimeout creates a new GetConversationsMessageMessageParams object
 // with the default values initialized, and the ability to set a timeout on a request
 func NewGetConversationsMessageMessageParamsWithTimeout(timeout time.Duration) *GetConversationsMessageMessageParams {
-	var ()
+	var (
+		useNormalizedMessageDefault = bool(false)
+	)
 	return &GetConversationsMessageMessageParams{
+		UseNormalizedMessage: &useNormalizedMessageDefault,
 
 		timeout: timeout,
 	}
@@ -39,8 +46,11 @@ func NewGetConversationsMessageMessageParamsWithTimeout(timeout time.Duration) *
 // NewGetConversationsMessageMessageParamsWithContext creates a new GetConversationsMessageMessageParams object
 // with the default values initialized, and the ability to set a context for a request
 func NewGetConversationsMessageMessageParamsWithContext(ctx context.Context) *GetConversationsMessageMessageParams {
-	var ()
+	var (
+		useNormalizedMessageDefault = bool(false)
+	)
 	return &GetConversationsMessageMessageParams{
+		UseNormalizedMessage: &useNormalizedMessageDefault,
 
 		Context: ctx,
 	}
@@ -49,9 +59,12 @@ func NewGetConversationsMessageMessageParamsWithContext(ctx context.Context) *Ge
 // NewGetConversationsMessageMessageParamsWithHTTPClient creates a new GetConversationsMessageMessageParams object
 // with the default values initialized, and the ability to set a custom HTTPClient for a request
 func NewGetConversationsMessageMessageParamsWithHTTPClient(client *http.Client) *GetConversationsMessageMessageParams {
-	var ()
+	var (
+		useNormalizedMessageDefault = bool(false)
+	)
 	return &GetConversationsMessageMessageParams{
-		HTTPClient: client,
+		UseNormalizedMessage: &useNormalizedMessageDefault,
+		HTTPClient:           client,
 	}
 }
 
@@ -70,6 +83,11 @@ type GetConversationsMessageMessageParams struct {
 
 	*/
 	MessageID string
+	/*UseNormalizedMessage
+	  If true, response removes deprecated fields (textBody, media, stickers)
+
+	*/
+	UseNormalizedMessage *bool
 
 	timeout    time.Duration
 	Context    context.Context
@@ -131,6 +149,17 @@ func (o *GetConversationsMessageMessageParams) SetMessageID(messageID string) {
 	o.MessageID = messageID
 }
 
+// WithUseNormalizedMessage adds the useNormalizedMessage to the get conversations message message params
+func (o *GetConversationsMessageMessageParams) WithUseNormalizedMessage(useNormalizedMessage *bool) *GetConversationsMessageMessageParams {
+	o.SetUseNormalizedMessage(useNormalizedMessage)
+	return o
+}
+
+// SetUseNormalizedMessage adds the useNormalizedMessage to the get conversations message message params
+func (o *GetConversationsMessageMessageParams) SetUseNormalizedMessage(useNormalizedMessage *bool) {
+	o.UseNormalizedMessage = useNormalizedMessage
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *GetConversationsMessageMessageParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -147,6 +176,22 @@ func (o *GetConversationsMessageMessageParams) WriteToRequest(r runtime.ClientRe
 	// path param messageId
 	if err := r.SetPathParam("messageId", o.MessageID); err != nil {
 		return err
+	}
+
+	if o.UseNormalizedMessage != nil {
+
+		// query param useNormalizedMessage
+		var qrUseNormalizedMessage bool
+		if o.UseNormalizedMessage != nil {
+			qrUseNormalizedMessage = *o.UseNormalizedMessage
+		}
+		qUseNormalizedMessage := swag.FormatBool(qrUseNormalizedMessage)
+		if qUseNormalizedMessage != "" {
+			if err := r.SetQueryParam("useNormalizedMessage", qUseNormalizedMessage); err != nil {
+				return err
+			}
+		}
+
 	}
 
 	if len(res) > 0 {

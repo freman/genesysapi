@@ -28,7 +28,7 @@ type PostTextMessage struct {
 
 	// Message type
 	// Required: true
-	// Enum: [Text Structured Receipt]
+	// Enum: [Text Structured Receipt Message]
 	Type *string `json:"type"`
 }
 
@@ -79,7 +79,7 @@ var postTextMessageTypeTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Text","Structured","Receipt"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Text","Structured","Receipt","Message"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -97,6 +97,9 @@ const (
 
 	// PostTextMessageTypeReceipt captures enum value "Receipt"
 	PostTextMessageTypeReceipt string = "Receipt"
+
+	// PostTextMessageTypeMessage captures enum value "Message"
+	PostTextMessageTypeMessage string = "Message"
 )
 
 // prop value enum

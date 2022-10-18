@@ -127,6 +127,9 @@ type QueueRequest struct {
 	// Read Only: true
 	UserMemberCount int32 `json:"userMemberCount,omitempty"`
 
+	// The VIP Routing settings for the queue
+	VipRouting *VipRouting `json:"vipRouting,omitempty"`
+
 	// The prompt used for whisper on the queue, if configured.
 	WhisperPrompt *DomainEntityRef `json:"whisperPrompt,omitempty"`
 }
@@ -208,6 +211,10 @@ func (m *QueueRequest) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateSkillEvaluationMethod(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateVipRouting(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -588,6 +595,24 @@ func (m *QueueRequest) validateSkillEvaluationMethod(formats strfmt.Registry) er
 	// value enum
 	if err := m.validateSkillEvaluationMethodEnum("skillEvaluationMethod", "body", m.SkillEvaluationMethod); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *QueueRequest) validateVipRouting(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.VipRouting) { // not required
+		return nil
+	}
+
+	if m.VipRouting != nil {
+		if err := m.VipRouting.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("vipRouting")
+			}
+			return err
+		}
 	}
 
 	return nil

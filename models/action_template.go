@@ -57,6 +57,10 @@ type ActionTemplate struct {
 	// Required: true
 	// Enum: [Active Inactive Deleted]
 	State *string `json:"state"`
+
+	// The version of the action template.
+	// Read Only: true
+	Version int32 `json:"version,omitempty"`
 }
 
 // Validate validates this action template

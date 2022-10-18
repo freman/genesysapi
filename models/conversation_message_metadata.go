@@ -27,7 +27,7 @@ type ConversationMessageMetadata struct {
 	Events []*ConversationMessageMetadataEvent `json:"events"`
 
 	// Message type.
-	// Enum: [Text Structured Receipt Event Unknown]
+	// Enum: [Text Structured Receipt Event Message Unknown]
 	Type string `json:"type,omitempty"`
 }
 
@@ -107,7 +107,7 @@ var conversationMessageMetadataTypeTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Text","Structured","Receipt","Event","Unknown"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Text","Structured","Receipt","Event","Message","Unknown"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -128,6 +128,9 @@ const (
 
 	// ConversationMessageMetadataTypeEvent captures enum value "Event"
 	ConversationMessageMetadataTypeEvent string = "Event"
+
+	// ConversationMessageMetadataTypeMessage captures enum value "Message"
+	ConversationMessageMetadataTypeMessage string = "Message"
 
 	// ConversationMessageMetadataTypeUnknown captures enum value "Unknown"
 	ConversationMessageMetadataTypeUnknown string = "Unknown"

@@ -21,8 +21,8 @@ type FacebookIntegrationUpdateRequest struct {
 	// Read Only: true
 	ID string `json:"id,omitempty"`
 
-	// messaging setting
-	MessagingSetting *MessagingSettingReference `json:"messagingSetting,omitempty"`
+	// Defines the message settings to be applied for this integration
+	MessagingSetting *MessagingSettingRequestReference `json:"messagingSetting,omitempty"`
 
 	// The name of the Facebook Integration
 	Name string `json:"name,omitempty"`

@@ -558,6 +558,10 @@ type API interface {
 	*/
 	PostConversationsEmails(ctx context.Context, params *PostConversationsEmailsParams) (*PostConversationsEmailsOK, error)
 	/*
+	   PostConversationsEmailsAgentless creates an email conversation per API
+	*/
+	PostConversationsEmailsAgentless(ctx context.Context, params *PostConversationsEmailsAgentlessParams) (*PostConversationsEmailsAgentlessOK, error)
+	/*
 	   PostConversationsFaxes creates fax conversation
 	*/
 	PostConversationsFaxes(ctx context.Context, params *PostConversationsFaxesParams) (*PostConversationsFaxesOK, error)
@@ -4068,6 +4072,31 @@ func (a *Client) PostConversationsEmails(ctx context.Context, params *PostConver
 		return nil, err
 	}
 	return result.(*PostConversationsEmailsOK), nil
+
+}
+
+/*
+PostConversationsEmailsAgentless creates an email conversation per API
+*/
+func (a *Client) PostConversationsEmailsAgentless(ctx context.Context, params *PostConversationsEmailsAgentlessParams) (*PostConversationsEmailsAgentlessOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postConversationsEmailsAgentless",
+		Method:             "POST",
+		PathPattern:        "/api/v2/conversations/emails/agentless",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostConversationsEmailsAgentlessReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostConversationsEmailsAgentlessOK), nil
 
 }
 

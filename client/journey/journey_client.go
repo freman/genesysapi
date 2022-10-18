@@ -42,6 +42,14 @@ type API interface {
 	*/
 	GetJourneyActionmaps(ctx context.Context, params *GetJourneyActionmapsParams) (*GetJourneyActionmapsOK, error)
 	/*
+	   GetJourneyActionmapsEstimatesJob gets status of job
+	*/
+	GetJourneyActionmapsEstimatesJob(ctx context.Context, params *GetJourneyActionmapsEstimatesJobParams) (*GetJourneyActionmapsEstimatesJobOK, *GetJourneyActionmapsEstimatesJobAccepted, error)
+	/*
+	   GetJourneyActionmapsEstimatesJobResults gets estimates from completed job
+	*/
+	GetJourneyActionmapsEstimatesJobResults(ctx context.Context, params *GetJourneyActionmapsEstimatesJobResultsParams) (*GetJourneyActionmapsEstimatesJobResultsOK, error)
+	/*
 	   GetJourneyActiontarget retrieves a single action target
 	*/
 	GetJourneyActiontarget(ctx context.Context, params *GetJourneyActiontargetParams) (*GetJourneyActiontargetOK, error)
@@ -105,6 +113,10 @@ type API interface {
 	   PostJourneyActionmaps creates an action map
 	*/
 	PostJourneyActionmaps(ctx context.Context, params *PostJourneyActionmapsParams) (*PostJourneyActionmapsOK, *PostJourneyActionmapsCreated, error)
+	/*
+	   PostJourneyActionmapsEstimatesJobs queries for estimates
+	*/
+	PostJourneyActionmapsEstimatesJobs(ctx context.Context, params *PostJourneyActionmapsEstimatesJobsParams) (*PostJourneyActionmapsEstimatesJobsAccepted, error)
 	/*
 	   PostJourneyActiontemplates creates a single action template
 	*/
@@ -284,6 +296,62 @@ func (a *Client) GetJourneyActionmaps(ctx context.Context, params *GetJourneyAct
 		return nil, err
 	}
 	return result.(*GetJourneyActionmapsOK), nil
+
+}
+
+/*
+GetJourneyActionmapsEstimatesJob gets status of job
+*/
+func (a *Client) GetJourneyActionmapsEstimatesJob(ctx context.Context, params *GetJourneyActionmapsEstimatesJobParams) (*GetJourneyActionmapsEstimatesJobOK, *GetJourneyActionmapsEstimatesJobAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getJourneyActionmapsEstimatesJob",
+		Method:             "GET",
+		PathPattern:        "/api/v2/journey/actionmaps/estimates/jobs/{jobId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetJourneyActionmapsEstimatesJobReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *GetJourneyActionmapsEstimatesJobOK:
+		return value, nil, nil
+	case *GetJourneyActionmapsEstimatesJobAccepted:
+		return nil, value, nil
+	}
+	return nil, nil, nil
+
+}
+
+/*
+GetJourneyActionmapsEstimatesJobResults gets estimates from completed job
+*/
+func (a *Client) GetJourneyActionmapsEstimatesJobResults(ctx context.Context, params *GetJourneyActionmapsEstimatesJobResultsParams) (*GetJourneyActionmapsEstimatesJobResultsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getJourneyActionmapsEstimatesJobResults",
+		Method:             "GET",
+		PathPattern:        "/api/v2/journey/actionmaps/estimates/jobs/{jobId}/results",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetJourneyActionmapsEstimatesJobResultsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetJourneyActionmapsEstimatesJobResultsOK), nil
 
 }
 
@@ -690,6 +758,31 @@ func (a *Client) PostJourneyActionmaps(ctx context.Context, params *PostJourneyA
 		return nil, value, nil
 	}
 	return nil, nil, nil
+
+}
+
+/*
+PostJourneyActionmapsEstimatesJobs queries for estimates
+*/
+func (a *Client) PostJourneyActionmapsEstimatesJobs(ctx context.Context, params *PostJourneyActionmapsEstimatesJobsParams) (*PostJourneyActionmapsEstimatesJobsAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postJourneyActionmapsEstimatesJobs",
+		Method:             "POST",
+		PathPattern:        "/api/v2/journey/actionmaps/estimates/jobs",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostJourneyActionmapsEstimatesJobsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostJourneyActionmapsEstimatesJobsAccepted), nil
 
 }
 

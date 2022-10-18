@@ -59,6 +59,12 @@ func (o *PostLearningAssignmentReassignReader) ReadResponse(response runtime.Cli
 			return nil, err
 		}
 		return nil, result
+	case 409:
+		result := NewPostLearningAssignmentReassignConflict()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostLearningAssignmentReassignRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -288,6 +294,39 @@ func (o *PostLearningAssignmentReassignRequestTimeout) GetPayload() *models.Erro
 }
 
 func (o *PostLearningAssignmentReassignRequestTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPostLearningAssignmentReassignConflict creates a PostLearningAssignmentReassignConflict with default headers values
+func NewPostLearningAssignmentReassignConflict() *PostLearningAssignmentReassignConflict {
+	return &PostLearningAssignmentReassignConflict{}
+}
+
+/*PostLearningAssignmentReassignConflict handles this case with default header values.
+
+Conflict
+*/
+type PostLearningAssignmentReassignConflict struct {
+	Payload *models.ErrorBody
+}
+
+func (o *PostLearningAssignmentReassignConflict) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/assignments/{assignmentId}/reassign][%d] postLearningAssignmentReassignConflict  %+v", 409, o.Payload)
+}
+
+func (o *PostLearningAssignmentReassignConflict) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostLearningAssignmentReassignConflict) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ErrorBody)
 

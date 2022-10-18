@@ -23,7 +23,7 @@ type LearningAssignmentUpdate struct {
 	Assessment *LearningAssessment `json:"assessment,omitempty"`
 
 	// The Learning Assignment state
-	// Enum: [Assigned InProgress Completed Deleted NotCompleted]
+	// Enum: [Assigned InProgress Completed Deleted NotCompleted InvalidSchedule]
 	State string `json:"state,omitempty"`
 }
 
@@ -67,7 +67,7 @@ var learningAssignmentUpdateTypeStatePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Assigned","InProgress","Completed","Deleted","NotCompleted"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Assigned","InProgress","Completed","Deleted","NotCompleted","InvalidSchedule"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -91,6 +91,9 @@ const (
 
 	// LearningAssignmentUpdateStateNotCompleted captures enum value "NotCompleted"
 	LearningAssignmentUpdateStateNotCompleted string = "NotCompleted"
+
+	// LearningAssignmentUpdateStateInvalidSchedule captures enum value "InvalidSchedule"
+	LearningAssignmentUpdateStateInvalidSchedule string = "InvalidSchedule"
 )
 
 // prop value enum

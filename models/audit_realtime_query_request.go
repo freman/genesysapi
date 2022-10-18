@@ -35,7 +35,7 @@ type AuditRealtimeQueryRequest struct {
 
 	// Name of the service to query audits for.
 	// Required: true
-	// Enum: [AnalyticsReporting Architect Coaching ContactCenter ContentManagement Datatables Directory DynamicSchema Gamification Groups Integrations Knowledge LanguageUnderstanding Learning Limits Outbound PeoplePermissions EmployeePerformance PredictiveEngagement Presence Quality ResponseManagement Routing SpeechAndTextAnalytics Telephony TopicsDefinitions Triggers ProcessAutomation Voicemail WebDeployments Webhooks WorkforceManagement Messaging Supportability Callback Workitems SCIM NumberPurchasing Marketplace]
+	// Enum: [AgentConfig AnalyticsReporting Architect Coaching ContactCenter ContentManagement Datatables Directory DynamicSchema Gamification Groups Integrations Knowledge LanguageUnderstanding Learning Limits LogCapture Outbound PeoplePermissions EmployeePerformance PredictiveEngagement Presence Quality ResponseManagement Routing SpeechAndTextAnalytics Telephony TopicsDefinitions Triggers ProcessAutomation Voicemail WebDeployments Webhooks WorkforceManagement Messaging Supportability Callback Workitems SCIM NumberPurchasing Marketplace]
 	ServiceName *string `json:"serviceName"`
 
 	// Sort parameter for the query.
@@ -106,7 +106,7 @@ var auditRealtimeQueryRequestTypeServiceNamePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["AnalyticsReporting","Architect","Coaching","ContactCenter","ContentManagement","Datatables","Directory","DynamicSchema","Gamification","Groups","Integrations","Knowledge","LanguageUnderstanding","Learning","Limits","Outbound","PeoplePermissions","EmployeePerformance","PredictiveEngagement","Presence","Quality","ResponseManagement","Routing","SpeechAndTextAnalytics","Telephony","TopicsDefinitions","Triggers","ProcessAutomation","Voicemail","WebDeployments","Webhooks","WorkforceManagement","Messaging","Supportability","Callback","Workitems","SCIM","NumberPurchasing","Marketplace"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["AgentConfig","AnalyticsReporting","Architect","Coaching","ContactCenter","ContentManagement","Datatables","Directory","DynamicSchema","Gamification","Groups","Integrations","Knowledge","LanguageUnderstanding","Learning","Limits","LogCapture","Outbound","PeoplePermissions","EmployeePerformance","PredictiveEngagement","Presence","Quality","ResponseManagement","Routing","SpeechAndTextAnalytics","Telephony","TopicsDefinitions","Triggers","ProcessAutomation","Voicemail","WebDeployments","Webhooks","WorkforceManagement","Messaging","Supportability","Callback","Workitems","SCIM","NumberPurchasing","Marketplace"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -115,6 +115,9 @@ func init() {
 }
 
 const (
+
+	// AuditRealtimeQueryRequestServiceNameAgentConfig captures enum value "AgentConfig"
+	AuditRealtimeQueryRequestServiceNameAgentConfig string = "AgentConfig"
 
 	// AuditRealtimeQueryRequestServiceNameAnalyticsReporting captures enum value "AnalyticsReporting"
 	AuditRealtimeQueryRequestServiceNameAnalyticsReporting string = "AnalyticsReporting"
@@ -160,6 +163,9 @@ const (
 
 	// AuditRealtimeQueryRequestServiceNameLimits captures enum value "Limits"
 	AuditRealtimeQueryRequestServiceNameLimits string = "Limits"
+
+	// AuditRealtimeQueryRequestServiceNameLogCapture captures enum value "LogCapture"
+	AuditRealtimeQueryRequestServiceNameLogCapture string = "LogCapture"
 
 	// AuditRealtimeQueryRequestServiceNameOutbound captures enum value "Outbound"
 	AuditRealtimeQueryRequestServiceNameOutbound string = "Outbound"

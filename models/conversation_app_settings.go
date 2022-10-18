@@ -29,6 +29,9 @@ type ConversationAppSettings struct {
 	// The conversation disconnect settings for the messenger app
 	ConversationDisconnect *ConversationDisconnectSettings `json:"conversationDisconnect,omitempty"`
 
+	// The humanize conversations settings for the messenger app
+	Humanize *Humanize `json:"humanize,omitempty"`
+
 	// The markdown for the messenger app
 	Markdown *Markdown `json:"markdown,omitempty"`
 
@@ -52,6 +55,10 @@ func (m *ConversationAppSettings) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateConversationDisconnect(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateHumanize(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -136,6 +143,24 @@ func (m *ConversationAppSettings) validateConversationDisconnect(formats strfmt.
 		if err := m.ConversationDisconnect.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("conversationDisconnect")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ConversationAppSettings) validateHumanize(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Humanize) { // not required
+		return nil
+	}
+
+	if m.Humanize != nil {
+		if err := m.Humanize.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("humanize")
 			}
 			return err
 		}

@@ -11,14 +11,16 @@ import (
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
-// ConversationContentCarousel conversation content carousel
+// ConversationContentCarousel Carousel content object.
 //
 // swagger:model ConversationContentCarousel
 type ConversationContentCarousel struct {
 
-	// A List of card objects.
+	// An array of card objects.
+	// Required: true
 	Cards []*ConversationContentCard `json:"cards"`
 }
 
@@ -38,8 +40,8 @@ func (m *ConversationContentCarousel) Validate(formats strfmt.Registry) error {
 
 func (m *ConversationContentCarousel) validateCards(formats strfmt.Registry) error {
 
-	if swag.IsZero(m.Cards) { // not required
-		return nil
+	if err := validate.Required("cards", "body", m.Cards); err != nil {
+		return err
 	}
 
 	for i := 0; i < len(m.Cards); i++ {

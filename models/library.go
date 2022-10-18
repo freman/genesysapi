@@ -37,7 +37,7 @@ type Library struct {
 	Name *string `json:"name"`
 
 	// This value is deprecated. Responses representing message templates may be added to any library.
-	// Enum: [MessagingTemplate CampaignSmsTemplate CampaignEmailTemplate]
+	// Enum: [MessagingTemplate CampaignSmsTemplate CampaignEmailTemplate Footer]
 	ResponseType string `json:"responseType,omitempty"`
 
 	// The URI for this object
@@ -124,7 +124,7 @@ var libraryTypeResponseTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["MessagingTemplate","CampaignSmsTemplate","CampaignEmailTemplate"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["MessagingTemplate","CampaignSmsTemplate","CampaignEmailTemplate","Footer"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -142,6 +142,9 @@ const (
 
 	// LibraryResponseTypeCampaignEmailTemplate captures enum value "CampaignEmailTemplate"
 	LibraryResponseTypeCampaignEmailTemplate string = "CampaignEmailTemplate"
+
+	// LibraryResponseTypeFooter captures enum value "Footer"
+	LibraryResponseTypeFooter string = "Footer"
 )
 
 // prop value enum

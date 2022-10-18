@@ -50,6 +50,10 @@ type API interface {
 	*/
 	GetExternalcontactsContact(ctx context.Context, params *GetExternalcontactsContactParams) (*GetExternalcontactsContactOK, error)
 	/*
+	   GetExternalcontactsContactIdentifiers lists the identifiers for a contact
+	*/
+	GetExternalcontactsContactIdentifiers(ctx context.Context, params *GetExternalcontactsContactIdentifiersParams) (*GetExternalcontactsContactIdentifiersOK, error)
+	/*
 	   GetExternalcontactsContactNote fetches a note for an external contact
 	*/
 	GetExternalcontactsContactNote(ctx context.Context, params *GetExternalcontactsContactNoteParams) (*GetExternalcontactsContactNoteOK, error)
@@ -57,6 +61,10 @@ type API interface {
 	   GetExternalcontactsContactNotes lists notes for an external contact
 	*/
 	GetExternalcontactsContactNotes(ctx context.Context, params *GetExternalcontactsContactNotesParams) (*GetExternalcontactsContactNotesOK, error)
+	/*
+	   GetExternalcontactsContactUnresolved fetches an unresolved external contact
+	*/
+	GetExternalcontactsContactUnresolved(ctx context.Context, params *GetExternalcontactsContactUnresolvedParams) (*GetExternalcontactsContactUnresolvedOK, error)
 	/*
 	   GetExternalcontactsContacts searches for external contacts
 	*/
@@ -142,6 +150,10 @@ type API interface {
 	*/
 	GetExternalcontactsScanRelationships(ctx context.Context, params *GetExternalcontactsScanRelationshipsParams) (*GetExternalcontactsScanRelationshipsOK, error)
 	/*
+	   PatchExternalcontactsContactIdentifiers claims or release identifiers for a contact
+	*/
+	PatchExternalcontactsContactIdentifiers(ctx context.Context, params *PatchExternalcontactsContactIdentifiersParams) (*PatchExternalcontactsContactIdentifiersOK, error)
+	/*
 	   PostExternalcontactsBulkContacts bulks fetch contacts
 	*/
 	PostExternalcontactsBulkContacts(ctx context.Context, params *PostExternalcontactsBulkContactsParams) (*PostExternalcontactsBulkContactsOK, error)
@@ -153,6 +165,10 @@ type API interface {
 	   PostExternalcontactsBulkContactsRemove bulks remove contacts
 	*/
 	PostExternalcontactsBulkContactsRemove(ctx context.Context, params *PostExternalcontactsBulkContactsRemoveParams) (*PostExternalcontactsBulkContactsRemoveOK, error)
+	/*
+	   PostExternalcontactsBulkContactsUnresolved bulks fetch unresolved ancestor contacts
+	*/
+	PostExternalcontactsBulkContactsUnresolved(ctx context.Context, params *PostExternalcontactsBulkContactsUnresolvedParams) (*PostExternalcontactsBulkContactsUnresolvedOK, error)
 	/*
 	   PostExternalcontactsBulkContactsUpdate bulks update contacts
 	*/
@@ -210,6 +226,10 @@ type API interface {
 	*/
 	PostExternalcontactsContactNotes(ctx context.Context, params *PostExternalcontactsContactNotesParams) (*PostExternalcontactsContactNotesOK, error)
 	/*
+	   PostExternalcontactsContactPromotion promotes an observed contact ephemeral or identified to a curated contact
+	*/
+	PostExternalcontactsContactPromotion(ctx context.Context, params *PostExternalcontactsContactPromotionParams) (*PostExternalcontactsContactPromotionOK, error)
+	/*
 	   PostExternalcontactsContacts creates an external contact
 	*/
 	PostExternalcontactsContacts(ctx context.Context, params *PostExternalcontactsContactsParams) (*PostExternalcontactsContactsOK, error)
@@ -217,6 +237,15 @@ type API interface {
 	   PostExternalcontactsContactsSchemas creates a schema
 	*/
 	PostExternalcontactsContactsSchemas(ctx context.Context, params *PostExternalcontactsContactsSchemasParams) (*PostExternalcontactsContactsSchemasOK, error)
+	/*
+	   PostExternalcontactsIdentifierlookup fetches a contact using an identifier type and value
+	   Phone number identifier values must be provided with the country code and a leading '+' symbol. Example: "+1 704 298 4733"
+	*/
+	PostExternalcontactsIdentifierlookup(ctx context.Context, params *PostExternalcontactsIdentifierlookupParams) (*PostExternalcontactsIdentifierlookupOK, error)
+	/*
+	   PostExternalcontactsMergeContacts merges two contacts into a new contact record
+	*/
+	PostExternalcontactsMergeContacts(ctx context.Context, params *PostExternalcontactsMergeContactsParams) (*PostExternalcontactsMergeContactsOK, error)
 	/*
 	   PostExternalcontactsOrganizationNotes creates a note for an external organization
 	*/
@@ -491,6 +520,31 @@ func (a *Client) GetExternalcontactsContact(ctx context.Context, params *GetExte
 }
 
 /*
+GetExternalcontactsContactIdentifiers lists the identifiers for a contact
+*/
+func (a *Client) GetExternalcontactsContactIdentifiers(ctx context.Context, params *GetExternalcontactsContactIdentifiersParams) (*GetExternalcontactsContactIdentifiersOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getExternalcontactsContactIdentifiers",
+		Method:             "GET",
+		PathPattern:        "/api/v2/externalcontacts/contacts/{contactId}/identifiers",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetExternalcontactsContactIdentifiersReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetExternalcontactsContactIdentifiersOK), nil
+
+}
+
+/*
 GetExternalcontactsContactNote fetches a note for an external contact
 */
 func (a *Client) GetExternalcontactsContactNote(ctx context.Context, params *GetExternalcontactsContactNoteParams) (*GetExternalcontactsContactNoteOK, error) {
@@ -537,6 +591,31 @@ func (a *Client) GetExternalcontactsContactNotes(ctx context.Context, params *Ge
 		return nil, err
 	}
 	return result.(*GetExternalcontactsContactNotesOK), nil
+
+}
+
+/*
+GetExternalcontactsContactUnresolved fetches an unresolved external contact
+*/
+func (a *Client) GetExternalcontactsContactUnresolved(ctx context.Context, params *GetExternalcontactsContactUnresolvedParams) (*GetExternalcontactsContactUnresolvedOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getExternalcontactsContactUnresolved",
+		Method:             "GET",
+		PathPattern:        "/api/v2/externalcontacts/contacts/{contactId}/unresolved",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetExternalcontactsContactUnresolvedReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetExternalcontactsContactUnresolvedOK), nil
 
 }
 
@@ -1066,6 +1145,31 @@ func (a *Client) GetExternalcontactsScanRelationships(ctx context.Context, param
 }
 
 /*
+PatchExternalcontactsContactIdentifiers claims or release identifiers for a contact
+*/
+func (a *Client) PatchExternalcontactsContactIdentifiers(ctx context.Context, params *PatchExternalcontactsContactIdentifiersParams) (*PatchExternalcontactsContactIdentifiersOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "patchExternalcontactsContactIdentifiers",
+		Method:             "PATCH",
+		PathPattern:        "/api/v2/externalcontacts/contacts/{contactId}/identifiers",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchExternalcontactsContactIdentifiersReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PatchExternalcontactsContactIdentifiersOK), nil
+
+}
+
+/*
 PostExternalcontactsBulkContacts bulks fetch contacts
 */
 func (a *Client) PostExternalcontactsBulkContacts(ctx context.Context, params *PostExternalcontactsBulkContactsParams) (*PostExternalcontactsBulkContactsOK, error) {
@@ -1137,6 +1241,31 @@ func (a *Client) PostExternalcontactsBulkContactsRemove(ctx context.Context, par
 		return nil, err
 	}
 	return result.(*PostExternalcontactsBulkContactsRemoveOK), nil
+
+}
+
+/*
+PostExternalcontactsBulkContactsUnresolved bulks fetch unresolved ancestor contacts
+*/
+func (a *Client) PostExternalcontactsBulkContactsUnresolved(ctx context.Context, params *PostExternalcontactsBulkContactsUnresolvedParams) (*PostExternalcontactsBulkContactsUnresolvedOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postExternalcontactsBulkContactsUnresolved",
+		Method:             "POST",
+		PathPattern:        "/api/v2/externalcontacts/bulk/contacts/unresolved",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostExternalcontactsBulkContactsUnresolvedReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostExternalcontactsBulkContactsUnresolvedOK), nil
 
 }
 
@@ -1491,6 +1620,31 @@ func (a *Client) PostExternalcontactsContactNotes(ctx context.Context, params *P
 }
 
 /*
+PostExternalcontactsContactPromotion promotes an observed contact ephemeral or identified to a curated contact
+*/
+func (a *Client) PostExternalcontactsContactPromotion(ctx context.Context, params *PostExternalcontactsContactPromotionParams) (*PostExternalcontactsContactPromotionOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postExternalcontactsContactPromotion",
+		Method:             "POST",
+		PathPattern:        "/api/v2/externalcontacts/contacts/{contactId}/promotion",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostExternalcontactsContactPromotionReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostExternalcontactsContactPromotionOK), nil
+
+}
+
+/*
 PostExternalcontactsContacts creates an external contact
 */
 func (a *Client) PostExternalcontactsContacts(ctx context.Context, params *PostExternalcontactsContactsParams) (*PostExternalcontactsContactsOK, error) {
@@ -1537,6 +1691,58 @@ func (a *Client) PostExternalcontactsContactsSchemas(ctx context.Context, params
 		return nil, err
 	}
 	return result.(*PostExternalcontactsContactsSchemasOK), nil
+
+}
+
+/*
+PostExternalcontactsIdentifierlookup fetches a contact using an identifier type and value
+
+Phone number identifier values must be provided with the country code and a leading '+' symbol. Example: "+1 704 298 4733"
+*/
+func (a *Client) PostExternalcontactsIdentifierlookup(ctx context.Context, params *PostExternalcontactsIdentifierlookupParams) (*PostExternalcontactsIdentifierlookupOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postExternalcontactsIdentifierlookup",
+		Method:             "POST",
+		PathPattern:        "/api/v2/externalcontacts/identifierlookup",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostExternalcontactsIdentifierlookupReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostExternalcontactsIdentifierlookupOK), nil
+
+}
+
+/*
+PostExternalcontactsMergeContacts merges two contacts into a new contact record
+*/
+func (a *Client) PostExternalcontactsMergeContacts(ctx context.Context, params *PostExternalcontactsMergeContactsParams) (*PostExternalcontactsMergeContactsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postExternalcontactsMergeContacts",
+		Method:             "POST",
+		PathPattern:        "/api/v2/externalcontacts/merge/contacts",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostExternalcontactsMergeContactsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostExternalcontactsMergeContactsOK), nil
 
 }
 
